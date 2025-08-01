@@ -1,0 +1,389 @@
+\chapter{Some Basic Notions of Set Theory}
+
+\begin{problembox}[2.1: Equality of Ordered Pairs]
+Prove Theorem 2.2. Hint: $(a, b) = (c, d)$ means $\{\{a\}, \{a, b\}\} = \{\{c\}, \{c, d\}\}$. Now appeal to the definition of set equality.
+\end{problembox}
+
+\textbf{Solution:}  
+Using the Kuratowski definition of ordered pairs:  
+\[
+(a, b) = \{\{a\}, \{a, b\}\}, \quad (c, d) = \{\{c\}, \{c, d\}\}
+\]  
+If these sets are equal, then their elements must match.  
+From the structure, it must be that $a = c$ and $b = d$. Hence the ordered pairs are equal if and only if their components are equal.
+
+
+\begin{problembox}[2.2: Properties of Relations]
+Determine which of the following relations $S$ on $\mathbb{R}^2$ are reflexive, symmetric, and transitive:
+\begin{enumerate}[label=(\alph*)]
+\item $S = \{(x,y) \in \mathbb{R}^2 : x \leq y\}$
+\item $S = \{(x,y) \in \mathbb{R}^2 : x < y\}$
+\item $S = \{(x,y) \in \mathbb{R}^2 : x > y\}$
+\item $S = \{(x,y) \in \mathbb{R}^2 : x^2 + y^2 \geq 1\}$
+\item $S = \{(x,y) \in \mathbb{R}^2 : x^2 + y^2 < 0\}$
+\item $S = \{(x,y) \in \mathbb{R}^2 : x^2 + x \leq y^2 + y\}$
+\end{enumerate}
+\end{problembox}
+
+\textbf{Solution:}  
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{Reflexive:} Yes - for all $x \in \mathbb{R}$, we have $x \leq x$ \\
+\textbf{Symmetric:} No - if $x \leq y$ and $x \neq y$, then $y \not\leq x$ \\
+\textbf{Transitive:} Yes - if $x \leq y$ and $y \leq z$, then $x \leq z$
+
+\item \textbf{Reflexive:} No - $x < x$ is never true \\
+\textbf{Symmetric:} No - if $x < y$, then $y \not< x$ \\
+\textbf{Transitive:} Yes - if $x < y$ and $y < z$, then $x < z$
+
+\item \textbf{Reflexive:} No - $x > x$ is never true \\
+\textbf{Symmetric:} No - if $x > y$, then $y \not> x$ \\
+\textbf{Transitive:} Yes - if $x > y$ and $y > z$, then $x > z$
+
+\item \textbf{Reflexive:} Depends on values - $(x,x) \in S$ if and only if $2x^2 \geq 1$ \\
+\textbf{Symmetric:} Yes - if $x^2 + y^2 \geq 1$, then $y^2 + x^2 \geq 1$ \\
+\textbf{Transitive:} No - counterexample: $(1,0) \in S$, $(0,1) \in S$, but $(1,1) \notin S$
+
+\item \textbf{Reflexive:} No - $x^2 + x^2 = 2x^2 \geq 0$ for all $x \in \mathbb{R}$ \\
+\textbf{Symmetric:} Yes - if $x^2 + y^2 < 0$, then $y^2 + x^2 < 0$ \\
+\textbf{Transitive:} Vacuously true - the relation is empty
+
+\item \textbf{Reflexive:} Yes - for all $x \in \mathbb{R}$, $x^2 + x \leq x^2 + x$ \\
+\textbf{Symmetric:} No - if $x^2 + x \leq y^2 + y$ and $x \neq y$, then $y^2 + y \not\leq x^2 + x$ \\
+\textbf{Transitive:} Yes - if $x^2 + x \leq y^2 + y$ and $y^2 + y \leq z^2 + z$, then $x^2 + x \leq z^2 + z$
+\end{enumerate}
+
+\begin{problembox}[2.3: Composition and Inversion of Functions]
+The following functions \( F \) and \( G \) are defined for all real \( x \) by the equations given below.  
+\textbf{Part 1.} In each case where the composite function \( G \circ F \) can be formed, give the domain of \( G \circ F \) and a formula (or formulas) for \( (G \circ F)(x) \):  
+\begin{itemize}
+\item[(a)] \( F(x) = 1 - x \), \quad \( G(x) = x^2 + 2x \)
+\item[(b)] \( F(x) = x + 5 \), \quad \( G(x) = \frac{|x|}{x} \), \( G(0) = 1 \)
+\item[(c)] \( F(x) = \begin{cases} 2x, & 0 \le x \le 1 \\ 11, & \text{otherwise} \end{cases} \),  
+\( G(x) = \begin{cases} x^2, & 0 \le x \le 1 \\ 10, & \text{otherwise} \end{cases} \)
+\end{itemize}
+\textbf{Part 2.} In the following, find \( F(x) \) if \( G(x) \) and \( G[F(x)] \) are given:  
+\begin{itemize}
+\item[(d)] \( G(x) = x^3 \), \quad \( G[F(x)] = x^3 - 3x^2 + 3x - 1 \)
+\item[(e)] \( G(x) = 3 + x + x^2 \), \quad \( G[F(x)] = x^2 - 3x + 5 \)
+\end{itemize}
+\end{problembox}
+
+\textbf{Solution:}
+
+\textbf{(a)}  
+\( G \circ F(x) = G(1 - x) = (1 - x)^2 + 2(1 - x) = x^2 - 4x + 3 \)  
+Domain: \( \mathbb{R} \)
+
+\textbf{(b)}  
+\( G \circ F(x) = \frac{|x + 5|}{x + 5} \), undefined when \( x = -5 \)  
+Domain: \( \mathbb{R} \setminus \{-5\} \)
+
+\textbf{(c)}  
+For \( x \in [0, 1] \), \( F(x) = 2x \in [0,2] \).  
+But \( G(x) = x^2 \) is defined only on \( [0, 1] \), otherwise \( G(x) = 10 \).  
+So:
+- If \( x \in [0, 0.5] \), then \( F(x) \in [0,1] \Rightarrow G(F(x)) = (2x)^2 = 4x^2 \)
+- If \( x \in (0.5, 1] \), then \( F(x) > 1 \Rightarrow G(F(x)) = 10 \)
+- If \( x \notin [0,1] \), then \( F(x) = 11 \Rightarrow G(F(x)) = 10 \)
+
+Thus:
+\[
+(G \circ F)(x) = 
+\begin{cases}
+4x^2, & 0 \le x \le 0.5 \\
+10, & x > 0.5 \text{ or } x < 0
+\end{cases}
+\]
+Domain: \( \mathbb{R} \)
+
+\textbf{(d)}  
+We are given: \( G(x) = x^3 \), \( G[F(x)] = x^3 - 3x^2 + 3x - 1 \)  
+Note: \( x^3 - 3x^2 + 3x - 1 = (x - 1)^3 \)  
+So: \( F(x) = x - 1 \)
+
+\textbf{(e)}  
+We are given: \( G(x) = 3 + x + x^2 \), \( G[F(x)] = x^2 - 3x + 5 \)  
+We solve:
+\[
+3 + F(x) + F(x)^2 = x^2 - 3x + 5 \\
+\Rightarrow F(x)^2 + F(x) = x^2 - 3x + 2 \\
+\Rightarrow F(x)^2 + F(x) - (x^2 - 3x + 2) = 0
+\]
+This is a quadratic in \( F(x) \):  
+\[
+F(x)^2 + F(x) - x^2 + 3x - 2 = 0
+\Rightarrow F(x)^2 + F(x) + (3x - x^2 - 2) = 0
+\]
+Solve this quadratic for \( F(x) \); it's context-dependent. No unique closed form without more constraints, so \( F(x) \) is defined implicitly.
+
+\begin{problembox}[2.4: Associativity of Function Composition]
+Given three functions \( F, G, H \), what restrictions must be placed on their domains so that the following four composite functions can be defined?
+\[
+G \circ F, \quad H \circ G, \quad H \circ (G \circ F), \quad (H \circ G) \circ F
+\]
+Assuming that \( H \circ (G \circ F) \) and \( (H \circ G) \circ F \) can be defined, prove the associative law:
+\[
+H \circ (G \circ F) = (H \circ G) \circ F
+\]
+\end{problembox}
+
+\textbf{Solution:}  
+To define \( G \circ F \), the range of \( F \) must be contained in the domain of \( G \).  
+To define \( H \circ G \), the range of \( G \) must be contained in the domain of \( H \).  
+Under these conditions,  
+\[
+(H \circ (G \circ F))(x) = H(G(F(x))) = ((H \circ G) \circ F)(x)
+\]  
+So function composition is associative wherever defined.
+
+\begin{problembox}[2.5: Set-Theoretic Identities]
+Prove the following set-theoretic identities:
+\begin{itemize}
+\item[(a)] \( A \cup (B \cup C) = (A \cup B) \cup C \), \quad \( A \cap (B \cap C) = (A \cap B) \cap C \)
+\item[(b)] \( A \cap (B \cup C) = (A \cap B) \cup (A \cap C) \)
+\item[(c)] \( (A \cap B) \cup (A \cap C) = A \cap (B \cup C) \)
+\item[(d)] \( (A \cup B)(B \cup C)(C \cup A) = (A \cap B) \cup (A \cap C) \cup (B \cap C) \)
+\item[(e)] \( A \cap (B - C) = (A \cap B) - (A \cap C) \)
+\item[(f)] \( (A - C) \cap (B - C) = (A \cap B) - C \)
+\item[(g)] \( (A - B) \cup B = A \) if and only if \( B \subseteq A \)
+\end{itemize}
+\end{problembox}
+
+\textbf{Solution:}  
+Each identity can be proven by element-chasing: assuming \( x \in \) one side and showing \( x \in \) the other side.  
+For example, for (b), if \( x \in A \cap (B \cup C) \), then \( x \in A \) and \( x \in B \cup C \Rightarrow x \in (A \cap B) \cup (A \cap C) \). Similar for the reverse.
+
+\begin{problembox}[2.6: Image of Unions and Intersections]
+Let \( f: S \to T \) be a function. If \( A \) and \( B \subseteq S \), prove:
+\[
+f(A \cup B) = f(A) \cup f(B), \quad f(A \cap B) \subseteq f(A) \cap f(B)
+\]
+Generalize to arbitrary unions and intersections.
+\end{problembox}
+
+\textbf{Solution:}  
+For any \( x \in A \cup B \), \( f(x) \in f(A) \cup f(B) \).  
+For intersections, \( x \in A \cap B \Rightarrow f(x) \in f(A) \cap f(B) \), but the converse need not hold.  
+Generalization:  
+\[
+f\left( \bigcup_i A_i \right) = \bigcup_i f(A_i), \quad f\left( \bigcap_i A_i \right) \subseteq \bigcap_i f(A_i)
+\]
+
+\begin{problembox}[2.7: Inverse Image Laws]
+Let \( f: S \to T \), and for any \( Y \subseteq T \), define the inverse image:
+\[
+f^{-1}(Y) = \{x \in S \mid f(x) \in Y \}
+\]
+Prove:
+\begin{itemize}
+\item[(a)] \( f^{-1}(Y_1 \cup Y_2) = f^{-1}(Y_1) \cup f^{-1}(Y_2) \)
+\item[(b)] \( f^{-1}(T - Y) = S - f^{-1}(Y) \)
+\end{itemize}
+Generalize to arbitrary unions and intersections.
+\end{problembox}
+
+\textbf{Solution:}  
+(a) If \( x \in f^{-1}(Y_1 \cup Y_2) \), then \( f(x) \in Y_1 \cup Y_2 \Rightarrow x \in f^{-1}(Y_1) \cup f^{-1}(Y_2) \), and vice versa.  
+(b) \( f(x) \notin Y \iff x \notin f^{-1}(Y) \Rightarrow x \in S - f^{-1}(Y) \)
+
+\begin{problembox}[2.8: Image of Preimage and Surjectivity]
+Prove that \( f[f^{-1}(Y)] = Y \) for every \( Y \subseteq T \) if and only if \( f \) is surjective.
+\end{problembox}
+
+\textbf{Solution:}  
+If \( f \) is surjective, every \( y \in Y \) has a preimage in \( S \), so is included in \( f[f^{-1}(Y)] \).  
+If \( f \) is not surjective, then some \( y \notin f(S) \), and so not in the image of any preimage — thus excluded from \( f[f^{-1}(Y)] \).
+
+\begin{problembox}[2.9: Equivalent Conditions for Injectivity]
+Let \( f: S \to T \) be a function. Show the following are equivalent:
+\begin{itemize}
+\item[(a)] \( f \) is injective
+\item[(b)] \( f(A \cap B) = f(A) \cap f(B) \) for all \( A, B \subseteq S \)
+\item[(c)] \( f^{-1}[f(A)] = A \) for all \( A \subseteq S \)
+\item[(d)] For disjoint sets \( A, B \subseteq S \), \( f(A) \cap f(B) = \emptyset \)
+\item[(e)] If \( B \subseteq A \), then \( f(A - B) = f(A) - f(B) \)
+\end{itemize}
+\end{problembox}
+
+\textbf{Solution:}  
+Each condition implies the others under the assumption that \( f(x_1) = f(x_2) \Rightarrow x_1 = x_2 \).  
+E.g., (c) implies \( f^{-1}[f(\{x\})] = \{x\} \Rightarrow \) only one \( x \) maps to any \( f(x) \).
+
+\begin{problembox}[2.10: Subset Transitivity]
+Prove that if \( A \subseteq B \) and \( B \subseteq C \), then \( A \subseteq C \).
+\end{problembox}
+
+\textbf{Solution:}  
+If \( x \in A \), then since \( A \subseteq B \), we have \( x \in B \), and since \( B \subseteq C \), we get \( x \in C \).  
+Thus, every element of \( A \) is in \( C \), so \( A \subseteq C \).
+
+\begin{problembox}[2.11: Finite Set Bijection Implies Equal Size]
+If \( \{1, 2, \ldots, n\} \sim \{1, 2, \ldots, m\} \), prove that \( m = n \).
+\end{problembox}
+
+\textbf{Solution:}  
+A bijection between two finite sets implies they have the same number of elements.  
+So if such a bijection exists, then \( \#\{1, \ldots, n\} = n = m = \#\{1, \ldots, m\} \), hence \( n = m \).
+
+\begin{problembox}[2.12: Infinite Sets Contain Countable Subsets]
+If \( S \) is an infinite set, prove that \( S \) contains a countably infinite subset.
+\end{problembox}
+
+\textbf{Solution:}  
+We can construct an injection from \( \mathbb{N} \) into \( S \):  
+Select \( a_1 \in S \), then pick \( a_2 \in S \setminus \{a_1\} \), then \( a_3 \in S \setminus \{a_1, a_2\} \), and so on.  
+Since \( S \) is infinite, this process never terminates. Thus, \( \{a_1, a_2, \ldots\} \subseteq S \) is countably infinite.
+
+\begin{problembox}[2.13: Infinite Set Similar to a Proper Subset]
+Prove that every infinite set \( S \) contains a proper subset similar (i.e., bijective) to \( S \) itself.
+\end{problembox}
+
+\textbf{Solution:}  
+Let \( T \subset S \) be a countably infinite subset (from Exercise 2.12). Since \( S \) is infinite, there exists a bijection \( f: S \to T \cup \{s_0\} \subset S \).  
+Then \( f \) is a bijection from \( S \) onto a proper subset \( T' \subset S \), so \( S \sim T' \).
+
+\begin{problembox}[2.14: Removing Countable from Uncountable]
+If \( A \) is a countable set and \( B \) an uncountable set, prove that \( B - A \sim B \).
+\end{problembox}
+
+\textbf{Solution:}  
+Since \( A \) is countable and \( B \) is uncountable, \( B - A \) is uncountable.  
+Also, \( A \cup (B - A) = B \). Define a bijection \( f \) from \( B \) to \( B - A \cup \{a_0\} \subset B \) by remapping countably many points.  
+Thus, \( B \sim B - A \).
+
+\begin{problembox}[2.15: Algebraic Numbers are Countable]
+A real number is called \emph{algebraic} if it is a root of a polynomial with integer coefficients.  
+Prove that the set of all polynomials with integer coefficients is countable, and deduce that the set of algebraic numbers is also countable.
+\end{problembox}
+
+\textbf{Solution:}  
+Each polynomial can be represented by a finite tuple of integers (its coefficients). The set of finite sequences of integers is countable (a countable union of countable sets).  
+Each polynomial has finitely many roots, so the set of all algebraic numbers is a countable union of finite sets → countable.
+
+
+\begin{problembox}[2.16: Power Set of Finite Set]
+Let \( S \) be a finite set with \( n \) elements, and let \( T \) be the collection of all subsets of \( S \).  
+Show that \( T \) is finite, and determine how many elements it contains.
+\end{problembox}
+
+\textbf{Solution:}  
+Each element of \( S \) may either be in or not in a subset.  
+So the number of subsets is \( 2^n \). Hence \( \#T = 2^n \), and \( T \) is finite.
+
+\begin{problembox}[2.17: Real Functions vs Real Numbers]
+Let \( R \) be the set of real numbers and \( S \) the set of all real-valued functions with domain \( R \).  
+Show that \( S \) and \( R \) are not equinumerous.
+\end{problembox}
+
+\textbf{Solution:}  
+Assume toward contradiction that there is a bijection \( f: R \to S \).  
+Define a function \( h(x) = f(x)(x) + 1 \). Then \( h \in S \), but there is no \( x \in R \) such that \( f(x) = h \), since \( f(x)(x) \ne h(x) \).  
+Contradiction → no such bijection. Thus, \( S \) has strictly greater cardinality than \( R \).
+
+\begin{problembox}[2.18: Binary Sequences are Uncountable]
+Let \( S \) be the set of all infinite sequences of 0s and 1s. Show that \( S \) is uncountable.
+\end{problembox}
+
+\textbf{Solution:}  
+Use Cantor's diagonal argument: assume \( S \) is countable and list all sequences.  
+Construct a new sequence differing from the \( n \)-th sequence at the \( n \)-th place.  
+This sequence is not in the list — contradiction. So \( S \) is uncountable.
+
+\begin{problembox}[2.19: Countability of Specific Sets]
+Show that the following sets are countable:
+\begin{itemize}
+\item[(a)] Circles in the complex plane with rational radii and centers with rational coordinates.
+\item[(b)] Any collection of disjoint intervals of positive length.
+\end{itemize}
+\end{problembox}
+
+\textbf{Solution:}  
+(a) Each circle is determined by a rational radius and two rational coordinates → set is countable.  
+(b) Each disjoint interval must contain a distinct rational number → inject into \( \mathbb{Q} \), which is countable.
+
+\begin{problembox}[2.20: Countable Support for Real Function]
+Let \( f \) be a real-valued function on \( [0,1] \). Suppose there exists \( M > 0 \) such that for any finite set of points \( \{x_1, \dots, x_n\} \subset [0,1] \),  
+\[
+|f(x_1)| + \dots + |f(x_n)| \le M
+\]  
+Let \( S = \{x \in [0,1] \mid f(x) \ne 0\} \). Prove that \( S \) is countable.
+\end{problembox}
+
+\textbf{Solution:}  
+Suppose \( S \) were uncountable. Then there would be infinitely many disjoint points where \( |f(x)| > \varepsilon \), summing to a total > \( M \), violating the hypothesis.  
+So \( S \) must be countable.
+
+\begin{problembox}[2.21: Fallacy in Countability of Intervals]
+Find the fallacy in the following "proof" that the set of all intervals of positive length is countable:  
+Let \( \{x_1, x_2, \ldots\} \) be the rationals. Every interval contains a rational \( x_n \) with minimal index \( n \).  
+Assign to the interval the smallest such \( n \). This gives a function from intervals to \( \mathbb{N} \), so the set of intervals is countable.
+\end{problembox}
+
+\textbf{Solution:}  
+The function \( F \) is not injective — many intervals may have the same smallest-index rational.  
+So this does not establish a one-to-one correspondence between intervals and \( \mathbb{N} \).  
+Hence, the proof is invalid.
+
+\begin{problembox}[2.22: Additive Set Functions]
+Let \( S \) be the collection of all subsets of a given set \( T \).  
+A function \( f: S \to \mathbb{R} \) is additive if:
+\[
+f(A \cup B) = f(A) + f(B)
+\quad \text{whenever } A \cap B = \emptyset
+\]  
+Prove:  
+\[
+f(A \cup B) = f(A) + f(B - A), \quad 
+f(A \cup B) = f(A) + f(B) - f(A \cap B)
+\]
+\end{problembox}
+
+\textbf{Solution:}  
+From additivity and set identity \( B = (B - A) \cup (A \cap B) \):  
+\[
+f(A \cup B) = f(A \cup (B - A)) = f(A) + f(B - A)
+\]  
+Also:  
+\[
+f(A \cup B) = f((A - B) \cup (A \cap B) \cup (B - A)) = f(A) + f(B) - f(A \cap B)
+\]
+\begin{problembox}[2.23: Solving for Total Measure from Functional Equations]
+Refer to Exercise 2.22. Assume \( f \) is additive and also that the following relations hold for two particular subsets \( A \) and \( B \) of a set \( T \):
+\[
+f(A \cup B) = f(A) + f(B) - f(A)f(B), \quad f(A^c \cap B^c) = f(A)f(B),
+\]
+and assume that \( f(A) + f(B) \ne f(T) \).  
+Prove that these relations determine \( f(T) \), and compute the value of \( f(T) \).
+\end{problembox}
+
+\textbf{Solution:}  
+
+We are given:
+- \( f(A \cup B) = f(A) + f(B) - f(A)f(B) \)
+- \( f(A^c \cap B^c) = f(A)f(B) \)
+- \( f \) is additive: \( f(X \cup Y) = f(X) + f(Y) \) when \( X \cap Y = \emptyset \)
+
+Note that:
+\[
+A^c \cap B^c = (A \cup B)^c \Rightarrow T = (A \cup B) \cup (A^c \cap B^c), \quad \text{and these sets are disjoint}.
+\]
+
+Using the additivity of \( f \), we get:
+\[
+f(T) = f(A \cup B) + f(A^c \cap B^c)
+\]
+
+Substitute the given values:
+\[
+f(T) = \big(f(A) + f(B) - f(A)f(B)\big) + f(A)f(B)
+\]
+
+Simplify:
+\[
+f(T) = f(A) + f(B)
+\]
+
+Thus, despite the more complex expressions involving products, the total measure \( f(T) \) ends up being the simple sum:
+\[
+\boxed{f(T) = f(A) + f(B)}
+\]

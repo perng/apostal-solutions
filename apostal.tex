@@ -1,0 +1,34 @@
+\documentclass{book}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{wrapfig}
+
+% Custom environment for problem statements
+\newtcolorbox{problembox}[1][]{
+    colback=blue!10,
+    colframe=blue!50,
+    arc=3pt,
+    boxrule=1pt,
+    left=10pt,
+    right=10pt,
+    top=10pt,
+    bottom=10pt,
+    fonttitle=\bfseries,
+    title=#1,
+    before upper={\parindent0pt}
+}
+
+\newcommand{\Log}{\log}
+
+\begin{document}
+
+\title{Exercise Solutions from Apostol's Mathematical Analysis}
+
+\input{ch1.tex}
+% \input{ch2.tex}
+\end{document}
