@@ -5,13 +5,30 @@ Prove Theorem 2.2. Hint: $(a, b) = (c, d)$ means $\{\{a\}, \{a, b\}\} = \{\{c\},
 \end{problembox}
 
 \textbf{Solution:}  
-Using the Kuratowski definition of ordered pairs:  
-\[
-(a, b) = \{\{a\}, \{a, b\}\}, \quad (c, d) = \{\{c\}, \{c, d\}\}
-\]  
-If these sets are equal, then their elements must match.  
-From the structure, it must be that $a = c$ and $b = d$. Hence the ordered pairs are equal if and only if their components are equal.
+We must prove that $(a, b) = (c, d)$ if and only if $a=c$ and $b=d$.
+The Kuratowski definition of an ordered pair is $(x, y) = \{\{x\}, \{x, y\}\}$.
+If $a=c$ and $b=d$, then $(a,b) = \{\{a\}, \{a,b\}\} = \{\{c\}, \{c,d\}\} = (c,d)$. This direction is straightforward.
 
+For the other direction, assume $(a, b) = (c, d)$. This means the sets are equal:
+\[ \{\{a\}, \{a, b\}\} = \{\{c\}, \{c, d\}\} \]
+By the definition of set equality, each element of the first set must be an element of the second, and vice versa. We consider two cases.
+
+\textbf{Case 1: $a=b$.}
+In this case, $(a, a) = \{\{a\}, \{a, a\}\} = \{\{a\}\}$.
+For the sets to be equal, we must have $\{\{c\}, \{c, d\}\} = \{\{a\}\}$. This implies that the set $\{\{c\}, \{c, d\}\}$ has only one element, which means $\{c\} = \{c, d\}$. This equality holds if and only if $c=d$.
+So we have $\{\{c\}\} = \{\{a\}\}$, which implies $\{c\} = \{a\}$, and thus $c=a$.
+Since $c=d$ and $c=a$ and we started with $a=b$, we conclude that $a = b = c = d$. In particular, $a=c$ and $b=d$.
+
+\textbf{Case 2: $a \neq b$.}
+In this case, the set $\{\{a\}, \{a, b\}\}$ contains two distinct elements: the set $\{a\}$ with one member, and the set $\{a, b\}$ with two members. Therefore, the set $\{\{c\}, \{c, d\}\}$ must also contain two distinct elements, which implies $c \neq d$.
+Since the sets are equal, their elements must match. We have two possibilities:
+\begin{enumerate}
+\item $\{a\} = \{c\}$ and $\{a, b\} = \{c, d\}$.
+From $\{a\} = \{c\}$, we get $a=c$. Substituting this into the second equality gives $\{a, b\} = \{a, d\}$. Since $a \neq b$, the set on the left has two distinct elements. For the sets to be equal, we must have $b=d$. Thus, $a=c$ and $b=d$.
+\item $\{a\} = \{c, d\}$ and $\{a, b\} = \{c\}$.
+The first equality, $\{a\} = \{c, d\}$, would mean that the set $\{a\}$, which has one element, is equal to the set $\{c, d\}$, which has two elements (since $c \neq d$). This is impossible.
+\end{enumerate}
+The only possibility is that $a=c$ and $b=d$. In both cases, the equality of ordered pairs implies the equality of their corresponding components
 
 \begin{problembox}[2.2: Properties of Relations]
 Determine which of the following relations $S$ on $\mathbb{R}^2$ are reflexive, symmetric, and transitive:
@@ -39,9 +56,14 @@ Determine which of the following relations $S$ on $\mathbb{R}^2$ are reflexive, 
 \textbf{Symmetric:} No - if $x > y$, then $y \not> x$ \\
 \textbf{Transitive:} Yes - if $x > y$ and $y > z$, then $x > z$
 
-\item \textbf{Reflexive:} Depends on values - $(x,x) \in S$ if and only if $2x^2 \geq 1$ \\
-\textbf{Symmetric:} Yes - if $x^2 + y^2 \geq 1$, then $y^2 + x^2 \geq 1$ \\
-\textbf{Transitive:} No - counterexample: $(1,0) \in S$, $(0,1) \in S$, but $(1,1) \notin S$
+\item  \textbf{Reflexive:}] No - the condition $(x,x) \in S$ requires $2x^2 \geq 1$, which fails for any $x$ in the interval $(-\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}})$. \\
+\textbf{Symmetric:} Yes - if $x^2 + y^2 \geq 1$, then $y^2 + x^2 \geq 1$ due to the commutative property of addition. 
+\textbf{Transitive:} No - a counterexample is needed. Let $x = 0.6$, $y = 0.9$, and $z = 0.6$.
+\begin{itemize}
+\item $(x,y) \in S$ because $(0.6)^2 + (0.9)^2 = 0.36 + 0.81 = 1.17 \geq 1$.
+\item $(y,z) \in S$ because $(0.9)^2 + (0.6)^2 = 0.81 + 0.36 = 1.17 \geq 1$.
+\end{itemize}
+However, $(x,z) \notin S$ because $(0.6)^2 + (0.6)^2 = 0.36 + 0.36 = 0.72 < 1$.
 
 \item \textbf{Reflexive:} No - $x^2 + x^2 = 2x^2 \geq 0$ for all $x \in \mathbb{R}$ \\
 \textbf{Symmetric:} Yes - if $x^2 + y^2 < 0$, then $y^2 + x^2 < 0$ \\
@@ -53,15 +75,16 @@ Determine which of the following relations $S$ on $\mathbb{R}^2$ are reflexive, 
 \end{enumerate}
 
 \begin{problembox}[2.3: Composition and Inversion of Functions]
-The following functions \( F \) and \( G \) are defined for all real \( x \) by the equations given below.  
-\textbf{Part 1.} In each case where the composite function \( G \circ F \) can be formed, give the domain of \( G \circ F \) and a formula (or formulas) for \( (G \circ F)(x) \):  
+The following functions \( F \) and \( G \) are defined for all real \( x \) by the equations given below. 
+
+\textbf{Part 1.} In each case where the composite function \( G \circ F \) can be formed, give the domain of \( G \circ F \) and a formula (or formulas) for \( (G \circ F)(x) \):
 \begin{itemize}
 \item[(a)] \( F(x) = 1 - x \), \quad \( G(x) = x^2 + 2x \)
 \item[(b)] \( F(x) = x + 5 \), \quad \( G(x) = \frac{|x|}{x} \), \( G(0) = 1 \)
-\item[(c)] \( F(x) = \begin{cases} 2x, & 0 \le x \le 1 \\ 11, & \text{otherwise} \end{cases} \),  
-\( G(x) = \begin{cases} x^2, & 0 \le x \le 1 \\ 10, & \text{otherwise} \end{cases} \)
+\item[(c)] \( F(x) = \begin{cases} 2x, & 0 \le x \le 1 \\ 1, & \text{otherwise} \end{cases} \),  
+\( G(x) = \begin{cases} 3x^2, & 0 \le x \le 1 \\ 5, & \text{otherwise} \end{cases} \)
 \end{itemize}
-\textbf{Part 2.} In the following, find \( F(x) \) if \( G(x) \) and \( G[F(x)] \) are given:  
+\textbf{Part 2.} In the following, find \( F(x) \) if \( G(x) \) and \( G[F(x)] \) are given:
 \begin{itemize}
 \item[(d)] \( G(x) = x^3 \), \quad \( G[F(x)] = x^3 - 3x^2 + 3x - 1 \)
 \item[(e)] \( G(x) = 3 + x + x^2 \), \quad \( G[F(x)] = x^2 - 3x + 5 \)
@@ -70,51 +93,81 @@ The following functions \( F \) and \( G \) are defined for all real \( x \) by 
 
 \textbf{Solution:}
 
-\textbf{(a)}  
-\( G \circ F(x) = G(1 - x) = (1 - x)^2 + 2(1 - x) = x^2 - 4x + 3 \)  
-Domain: \( \mathbb{R} \)
+\textbf{(a)}
+The domain of both \(F\) and \(G\) is \(\mathbb{R}\), so the domain of \(G \circ F\) is \(\mathbb{R}\).
+\begin{align*}
+(G \circ F)(x) &= G(F(x)) \\
+&= G(1-x) \\
+&= (1-x)^2 + 2(1-x) \\
+&= (1 - 2x + x^2) + (2 - 2x) \\
+&= x^2 - 4x + 3
+\end{align*}
 
-\textbf{(b)}  
-\( G \circ F(x) = \frac{|x + 5|}{x + 5} \), undefined when \( x = -5 \)  
-Domain: \( \mathbb{R} \setminus \{-5\} \)
-
-\textbf{(c)}  
-For \( x \in [0, 1] \), \( F(x) = 2x \in [0,2] \).  
-But \( G(x) = x^2 \) is defined only on \( [0, 1] \), otherwise \( G(x) = 10 \).  
-So:
-- If \( x \in [0, 0.5] \), then \( F(x) \in [0,1] \Rightarrow G(F(x)) = (2x)^2 = 4x^2 \)
-- If \( x \in (0.5, 1] \), then \( F(x) > 1 \Rightarrow G(F(x)) = 10 \)
-- If \( x \notin [0,1] \), then \( F(x) = 11 \Rightarrow G(F(x)) = 10 \)
-
-Thus:
-\[
-(G \circ F)(x) = 
-\begin{cases}
-4x^2, & 0 \le x \le 0.5 \\
-10, & x > 0.5 \text{ or } x < 0
+\textbf{(b)}
+The domain of \(F\) is \(\mathbb{R}\) and the domain of \(G\) is \(\mathbb{R}\), so the domain of \(G \circ F\) is \(\mathbb{R}\).
+\begin{align*}
+(G \circ F)(x) = G(F(x)) = G(x+5)
+\end{align*}
+We evaluate this based on the value of the input to \(G\), which is \(x+5\):
+\[ (G \circ F)(x) = 
+\begin{cases} 
+\frac{|x+5|}{x+5} = 1, & \text{if } x+5 > 0 \implies x > -5 \\
+1, & \text{if } x+5 = 0 \implies x = -5 \\
+\frac{|x+5|}{x+5} = -1, & \text{if } x+5 < 0 \implies x < -5 
 \end{cases}
 \]
-Domain: \( \mathbb{R} \)
+This simplifies to:
+\[ (G \circ F)(x) = \begin{cases} -1, & x < -5 \\ 1, & x \ge -5 \end{cases} \]
 
-\textbf{(d)}  
-We are given: \( G(x) = x^3 \), \( G[F(x)] = x^3 - 3x^2 + 3x - 1 \)  
-Note: \( x^3 - 3x^2 + 3x - 1 = (x - 1)^3 \)  
-So: \( F(x) = x - 1 \)
+\textbf{(c)}
+The domain of \(G \circ F\) is \(\mathbb{R}\). We analyze the composition in pieces based on the definition of \(F(x)\).
+\begin{itemize}
+\item If $0 \le x \le 1$, then $F(x) = 2x$. The value of $F(x)$ is in the interval $[0, 2]$. We must check where $F(x)$ falls in the domain of $G$.
+\begin{itemize}
+\item If $0 \le F(x) \le 1$, which means $0 \le 2x \le 1$, or $0 \le x \le 0.5$. In this case, $G(F(x)) = 3(F(x))^2 = 3(2x)^2 = 12x^2$.
+\item If $F(x) > 1$, which means $2x > 1$, or $0.5 < x \le 1$. In this case, $G(F(x)) = 5$.
+\end{itemize}
+\item If $x < 0$ or $x > 1$, then $F(x)=1$. Since this value is in the interval $[0,1]$, we use the first rule for $G$: $G(F(x)) = G(1) = 3(1)^2 = 3$.
+\end{itemize}
+Combining these results, we get the piecewise formula:
+\[ (G \circ F)(x) = \begin{cases} 
+3, & x < 0 \\
+12x^2, & 0 \le x \le 0.5 \\
+5, & 0.5 < x \le 1 \\
+3, & x > 1
+\end{cases}
+\]
 
-\textbf{(e)}  
-We are given: \( G(x) = 3 + x + x^2 \), \( G[F(x)] = x^2 - 3x + 5 \)  
-We solve:
-\[
-3 + F(x) + F(x)^2 = x^2 - 3x + 5 \\
-\Rightarrow F(x)^2 + F(x) = x^2 - 3x + 2 \\
-\Rightarrow F(x)^2 + F(x) - (x^2 - 3x + 2) = 0
-\]
-This is a quadratic in \( F(x) \):  
-\[
-F(x)^2 + F(x) - x^2 + 3x - 2 = 0
-\Rightarrow F(x)^2 + F(x) + (3x - x^2 - 2) = 0
-\]
-Solve this quadratic for \( F(x) \); it's context-dependent. No unique closed form without more constraints, so \( F(x) \) is defined implicitly.
+\textbf{(d)}
+We are given $G(x) = x^3$ and $G[F(x)] = x^3 - 3x^2 + 3x - 1$.
+The composition is $(F(x))^3$. We can recognize the expression for $G[F(x)]$ as the expansion of a cube:
+\[ x^3 - 3x^2 + 3x - 1 = (x-1)^3 \]
+Therefore, we have $(F(x))^3 = (x-1)^3$, which implies $F(x) = x-1$.
+
+\textbf{(e)}
+We are given $G(x) = 3 + x + x^2$ and $G[F(x)] = x^2 - 3x + 5$.
+We set up the equation for the composition:
+\begin{align*}
+G(F(x)) &= 3 + F(x) + (F(x))^2 \\
+x^2 - 3x + 5 &= 3 + F(x) + (F(x))^2
+\end{align*}
+Rearranging gives a quadratic equation in terms of $F(x)$:
+\[ (F(x))^2 + F(x) + (3 - (x^2 - 3x + 5)) = 0 \]
+\[ (F(x))^2 + F(x) + (-x^2 + 3x - 2) = 0 \]
+We use the quadratic formula to solve for $F(x)$:
+\begin{align*}
+F(x) &= \frac{-1 \pm \sqrt{1^2 - 4(1)(-x^2+3x-2)}}{2(1)} \\
+&= \frac{-1 \pm \sqrt{1 + 4x^2 - 12x + 8}}{2} \\
+&= \frac{-1 \pm \sqrt{4x^2 - 12x + 9}}{2}
+\end{align*}
+The term under the square root is a perfect square: $4x^2 - 12x + 9 = (2x-3)^2$.
+\[ F(x) = \frac{-1 \pm \sqrt{(2x-3)^2}}{2} = \frac{-1 \pm (2x-3)}{2} \]
+This yields two possible functions for $F(x)$:
+\begin{enumerate}
+\item $F_1(x) = \frac{-1 + (2x-3)}{2} = \frac{2x-4}{2} = x-2$
+\item $F_2(x) = \frac{-1 - (2x-3)}{2} = \frac{-2x+2}{2} = 1-x$
+\end{enumerate}
+
 
 \begin{problembox}[2.4: Associativity of Function Composition]
 Given three functions \( F, G, H \), what restrictions must be placed on their domains so that the following four composite functions can be defined?
@@ -239,8 +292,36 @@ Prove that every infinite set \( S \) contains a proper subset similar (i.e., bi
 \end{problembox}
 
 \textbf{Solution:}  
-Let \( T \subset S \) be a countably infinite subset (from Exercise 2.12). Since \( S \) is infinite, there exists a bijection \( f: S \to T \cup \{s_0\} \subset S \).  
-Then \( f \) is a bijection from \( S \) onto a proper subset \( T' \subset S \), so \( S \sim T' \).
+Let $S$ be an infinite set. By the result of Exercise 2.12, $S$ contains a countably infinite subset. Let this subset be $A = \{a_1, a_2, a_3, \dots \}$.
+Let $S' = S \setminus A$ be the set of elements in $S$ but not in $A$. Then $S = A \cup S'$, and this union is disjoint.
+
+We want to find a proper subset $T \subset S$ and a bijection $f: S \to T$.
+Let's define the proper subset as $T = S \setminus \{a_1\}$. Clearly, $T$ is a proper subset of $S$ because it's missing the element $a_1$.
+
+Now, we define a function $f: S \to T$ as follows:
+\begin{itemize}
+\item For any element $x \in S'$ (i.e., any element not in our countable subset $A$), we define $f(x) = x$.
+\item For any element $a_n \in A$ (where $n$ is a positive integer), we define $f(a_n) = a_{n+1}$.
+\end{itemize}
+The domain of $f$ is $S' \cup A = S$. The range of $f$ is $S' \cup \{a_2, a_3, a_4, \dots\}$, which is exactly the set $S \setminus \{a_1\} = T$.
+
+To prove that $f$ is a bijection, we must show it is both injective and surjective.
+\begin{itemize}
+\item \textbf{Injectivity:} Suppose $f(x_1) = f(x_2)$.
+\begin{itemize}
+\item If $f(x_1)$ is in $S'$, then $f(x_1)=x_1$ and $f(x_2)=x_2$, so $x_1=x_2$.
+\item If $f(x_1)$ is in $\{a_2, a_3, \dots\}$, say $f(x_1) = a_{k+1}$, then both $x_1$ and $x_2$ must be elements from $A$. Specifically, $x_1 = a_k$ and $x_2 = a_k$. Thus $x_1=x_2$.
+\end{itemize}
+In all cases, $f(x_1)=f(x_2)$ implies $x_1=x_2$.
+\item \textbf{Surjectivity:} Let $y$ be any element in the codomain $T = S \setminus \{a_1\}$.
+\begin{itemize}
+\item If $y \in S'$, then $f(y) = y$.
+\item If $y \in \{a_2, a_3, \dots\}$, then $y=a_k$ for some $k \geq 2$. The element $x=a_{k-1}$ is in $S$ and $f(x) = f(a_{k-1}) = a_k = y$.
+\end{itemize}
+Every element in $T$ has a preimage in $S$.
+\end{itemize}
+Since $f$ is a bijection from $S$ to its proper subset $T$, the set $S$ is similar to a proper subset of itself.
+
 
 \begin{problembox}[2.14: Removing Countable from Uncountable]
 If \( A \) is a countable set and \( B \) an uncountable set, prove that \( B - A \sim B \).
@@ -310,8 +391,27 @@ Let \( S = \{x \in [0,1] \mid f(x) \ne 0\} \). Prove that \( S \) is countable.
 \end{problembox}
 
 \textbf{Solution:}  
-Suppose \( S \) were uncountable. Then there would be infinitely many disjoint points where \( |f(x)| > \varepsilon \), summing to a total > \( M \), violating the hypothesis.  
-So \( S \) must be countable.
+Let $S = \{x \in [0,1] \mid f(x) \ne 0\}$. We want to prove that $S$ is countable.
+An element $x$ is in $S$ if and only if $|f(x)| > 0$.
+This is equivalent to saying that for each $x \in S$, there exists a positive integer $k$ such that $|f(x)| > 1/k$.
+
+Let's define a collection of sets based on this idea. For each positive integer $k$, let:
+\[ S_k = \left\{ x \in [0,1] \mid |f(x)| > \frac{1}{k} \right\} \]
+The set $S$ is the union of all such sets:
+\[ S = \bigcup_{k=1}^{\infty} S_k \]
+If we can prove that each set $S_k$ is finite, then $S$ will be a countable union of finite sets, which is itself a countable set.
+
+Let's consider a specific set $S_k$. Let $\{x_1, x_2, \dots, x_n\}$ be any finite collection of distinct points in $S_k$.
+By the definition of $S_k$, we have $|f(x_i)| > 1/k$ for each $i=1, \dots, n$.
+If we sum these values, we get:
+\[ |f(x_1)| + |f(x_2)| + \dots + |f(x_n)| > \frac{1}{k} + \frac{1}{k} + \dots + \frac{1}{k} = \frac{n}{k} \]
+The problem states that for any finite set of points, this sum is bounded by $M$:
+\[ |f(x_1)| + |f(x_2)| + \dots + |f(x_n)| \le M \]
+Combining these inequalities, we get:
+\[ \frac{n}{k} < \sum_{i=1}^n |f(x_i)| \le M \implies \frac{n}{k} \le M \implies n \le kM \]
+This result means that any finite subset of $S_k$ can have at most $kM$ elements. This implies that the set $S_k$ itself must be finite and contain at most $\lfloor kM \rfloor$ elements.
+
+Since each $S_k$ is a finite set, their union $S = \bigcup_{k=1}^{\infty} S_k$ is a countable union of finite sets. Therefore, $S$ is a countable set.
 
 \begin{problembox}[2.21: Fallacy in Countability of Intervals]
 Find the fallacy in the following "proof" that the set of all intervals of positive length is countable:  
@@ -339,51 +439,86 @@ f(A \cup B) = f(A) + f(B) - f(A \cap B)
 \end{problembox}
 
 \textbf{Solution:}  
-From additivity and set identity \( B = (B - A) \cup (A \cap B) \):  
-\[
-f(A \cup B) = f(A \cup (B - A)) = f(A) + f(B - A)
-\]  
-Also:  
-\[
-f(A \cup B) = f((A - B) \cup (A \cap B) \cup (B - A)) = f(A) + f(B) - f(A \cap B)
-\]
+Let $f: S \to \mathbb{R}$ be an additive function, meaning $f(X \cup Y) = f(X) + f(Y)$ whenever $X \cap Y = \emptyset$.
+
+\textbf{Part 1:} Prove $f(A \cup B) = f(A) + f(B - A)$.
+We can write the set $A \cup B$ as a disjoint union: $A \cup B = A \cup (B - A)$. The sets $A$ and $B-A$ (the part of $B$ not in $A$) are disjoint by definition.
+Using the additivity property on this disjoint union:
+\[ f(A \cup B) = f(A \cup (B-A)) = f(A) + f(B-A) \]
+This proves the first identity.
+
+\textbf{Part 2:} Prove $f(A \cup B) = f(A) + f(B) - f(A \cap B)$.
+We start by decomposing $A$ and $B$ into disjoint pieces.
+The set $A$ can be written as the disjoint union $A = (A - B) \cup (A \cap B)$. By additivity:
+\[ f(A) = f(A - B) + f(A \cap B) \implies f(A-B) = f(A) - f(A \cap B) \]
+The set $B$ can be written as the disjoint union $B = (B - A) \cup (A \cap B)$. By additivity:
+\[ f(B) = f(B - A) + f(A \cap B) \implies f(B-A) = f(B) - f(A \cap B) \]
+Now, we write $A \cup B$ as a union of three pairwise disjoint sets:
+\[ A \cup B = (A - B) \cup (B - A) \cup (A \cap B) \]
+Using the additivity property:
+\[ f(A \cup B) = f(A-B) + f(B-A) + f(A \cap B) \]
+Substitute the expressions we found for $f(A-B)$ and $f(B-A)$:
+\begin{align*}
+f(A \cup B) &= \big(f(A) - f(A \cap B)\big) + \big(f(B) - f(A \cap B)\big) + f(A \cap B) \\
+&= f(A) + f(B) - f(A \cap B) - f(A \cap B) + f(A \cap B) \\
+&= f(A) + f(B) - f(A \cap B)
+\end{align*}
+This proves the second identity.
+
+
+
 \begin{problembox}[2.23: Solving for Total Measure from Functional Equations]
-Refer to Exercise 2.22. Assume \( f \) is additive and also that the following relations hold for two particular subsets \( A \) and \( B \) of a set \( T \):
+
+Refer to Exercise 2.22. Assume \(f\) is additive and assume also that the following relations hold for two particular subsets \(A\) and \(B\) of \(T\):
 \[
-f(A \cup B) = f(A) + f(B) - f(A)f(B), \quad f(A^c \cap B^c) = f(A)f(B),
+f(A \cup B) = f(A') + f(B') - f(A')f(B')
 \]
-and assume that \( f(A) + f(B) \ne f(T) \).  
-Prove that these relations determine \( f(T) \), and compute the value of \( f(T) \).
+\[
+f(A \cap B) = f(A)f(B), \quad f(A) + f(B) \ne f(T),
+\]
+where \(A' = T - A, B' = T - B\). Prove that these relations determine \(f(T)\), and compute the value of \(f(T)\).
 \end{problembox}
 
-\textbf{Solution:}  
+\textbf{Solution:}
 
-We are given:
-- \( f(A \cup B) = f(A) + f(B) - f(A)f(B) \)
-- \( f(A^c \cap B^c) = f(A)f(B) \)
-- \( f \) is additive: \( f(X \cup Y) = f(X) + f(Y) \) when \( X \cap Y = \emptyset \)
-
-Note that:
+We are given that the function \(f\) is additive, meaning \(f(X \cup Y) = f(X) + f(Y)\) for any disjoint sets \(X\) and \(Y\). For any subset \(X \subseteq T\), its complement \(X' = T - X\) is disjoint from \(X\) and their union is \(T\). The additive property therefore implies \(f(T) = f(X) + f(X')\), which gives us:
+\begin{itemize}
+\item \(f(A') = f(T) - f(A)\)
+\item \(f(B') = f(T) - f(B)\)
+\end{itemize}
+We substitute these into the first given relation:
+\begin{align*}
+f(A \cup B) &= \big(f(T) - f(A)\big) + \big(f(T) - f(B)\big) - \big(f(T) - f(A)\big)\big(f(T) - f(B)\big) \\
+&= 2f(T) - f(A) - f(B) - \left[ f(T)^2 - f(T)f(A) - f(T)f(B) + f(A)f(B) \right] \\
+&= 2f(T) - f(A) - f(B) - f(T)^2 + f(T)f(A) + f(T)f(B) - f(A)f(B)
+\end{align*}
+Next, we use the standard inclusion-exclusion principle for an additive function, which states \(f(A \cup B) = f(A) + f(B) - f(A \cap B)\). From the second given relation, we know \(f(A \cap B) = f(A)f(B)\). Substituting this gives:
 \[
-A^c \cap B^c = (A \cup B)^c \Rightarrow T = (A \cup B) \cup (A^c \cap B^c), \quad \text{and these sets are disjoint}.
+f(A \cup B) = f(A) + f(B) - f(A)f(B)
 \]
-
-Using the additivity of \( f \), we get:
+Now we set the two expressions for \(f(A \cup B)\) equal to each other:
 \[
-f(T) = f(A \cup B) + f(A^c \cap B^c)
+f(A) + f(B) - f(A)f(B) = 2f(T) - f(A) - f(B) - f(T)^2 + f(T)f(A) + f(T)f(B) - f(A)f(B)
 \]
-
-Substitute the given values:
+The \( -f(A)f(B) \) terms on each side cancel. We move all remaining terms to one side to form a quadratic equation in terms of \(f(T)\):
 \[
-f(T) = \big(f(A) + f(B) - f(A)f(B)\big) + f(A)f(B)
+f(T)^2 - 2f(T) - f(T)f(A) - f(T)f(B) + 2f(A) + 2f(B) = 0
 \]
-
-Simplify:
+Factoring out \(f(T)\) and constant terms:
 \[
-f(T) = f(A) + f(B)
+f(T)^2 - f(T)\big(2 + f(A) + f(B)\big) + 2\big(f(A) + f(B)\big) = 0
 \]
-
-Thus, despite the more complex expressions involving products, the total measure \( f(T) \) ends up being the simple sum:
+This quadratic equation can be factored as:
 \[
-\boxed{f(T) = f(A) + f(B)}
+\big(f(T) - 2\big) \big(f(T) - [f(A) + f(B)]\big) = 0
+\]
+This implies two possible solutions for \(f(T)\):
+\begin{enumerate}
+\item \(f(T) = 2\)
+\item \(f(T) = f(A) + f(B)\)
+\end{enumerate}
+Finally, we use the third given relation, \(f(A) + f(B) \ne f(T)\), to eliminate the second possibility.
+Therefore, the relations uniquely determine the value of \(f(T)\). That value is 2.
+\[
+\boxed{f(T) = 2}
 \]

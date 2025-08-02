@@ -114,68 +114,53 @@ The Fibonacci numbers $1, 1, 2, 3, 5, 8, 13, \dots$ are defined by the recursion
 \end{problembox}
 
 \textbf{Solution:}
-First, let's find the roots of the equation $x^2 - x - 1 = 0$:
-\begin{align*}
-x &= \frac{1 \pm \sqrt{1 + 4}}{2} \\
-&= \frac{1 \pm \sqrt{5}}{2}
-\end{align*}
-
-So $a = \frac{1 + \sqrt{5}}{2}$ and $b = \frac{1 - \sqrt{5}}{2}$.
-
-We will prove the formula by induction. Let $F_n = \frac{a^n - b^n}{a - b}$.
+Let the proposition be $P(n): x_n = \frac{a^n - b^n}{a-b}$. The roots of $x^2 - x - 1 = 0$ are $a = \frac{1+\sqrt{5}}{2}$ and $b = \frac{1-\sqrt{5}}{2}$.
+A key property of these roots is that they satisfy $a^2 = a+1$ and $b^2 = b+1$.
 
 \textbf{Base cases:}
-For $n = 1$: $F_1 = \frac{a - b}{a - b} = 1 = x_1$
-For $n = 2$: $F_2 = \frac{a^2 - b^2}{a - b} = \frac{(a - b)(a + b)}{a - b} = a + b = 1 = x_2$
+For $n=1$:
+\[ \frac{a^1 - b^1}{a-b} = 1 = x_1. \]
+For $n=2$:
+\[ \frac{a^2 - b^2}{a-b} = \frac{(a-b)(a+b)}{a-b} = a+b = \left(\frac{1+\sqrt{5}}{2}\right) + \left(\frac{1-\sqrt{5}}{2}\right) = 1 = x_2. \]
+The base cases hold.
 
 \textbf{Inductive step:}
-Assume $F_k = x_k$ for all $k \leq n$. We need to show $F_{n+1} = x_{n+1}$.
-
-Since $a$ and $b$ are roots of $x^2 - x - 1 = 0$, we have $a^2 = a + 1$ and $b^2 = b + 1$.
-
-Therefore:
+Assume $P(k)$ is true for all integers $k \leq n$, where $n \geq 2$. We will show $P(n+1)$ is true.
+By the definition of the Fibonacci sequence, $x_{n+1} = x_n + x_{n-1}$.
+Using the inductive hypothesis for $x_n$ and $x_{n-1}$:
 \begin{align*}
-F_{n+1} &= \frac{a^{n+1} - b^{n+1}}{a - b} \\
-&= \frac{a \cdot a^n - b \cdot b^n}{a - b} \\
-&= \frac{a \cdot a^n - b \cdot b^n + (a^n - a^n)}{a - b} \\
-&= \frac{a^n(a - b) + b(a^n - b^n)}{a - b} \\
-&= a^n + b \cdot F_n
+x_{n+1} &= \left( \frac{a^n - b^n}{a-b} \right) + \left( \frac{a^{n-1} - b^{n-1}}{a-b} \right) \\
+&= \frac{(a^n + a^{n-1}) - (b^n + b^{n-1})}{a-b} \\
+&= \frac{a^{n-1}(a+1) - b^{n-1}(b+1)}{a-b}
 \end{align*}
-
-Similarly:
+Using the property that $a+1 = a^2$ and $b+1 = b^2$:
 \begin{align*}
-F_{n+1} &= \frac{a^{n+1} - b^{n+1}}{a - b} \\
-&= \frac{a \cdot a^n - b \cdot b^n + (b^n - b^n)}{a - b} \\
-&= \frac{b^n(a - b) + a(a^n - b^n)}{a - b} \\
-&= b^n + a \cdot F_n
+x_{n+1} &= \frac{a^{n-1}(a^2) - b^{n-1}(b^2)}{a-b} \\
+&= \frac{a^{n+1} - b^{n+1}}{a-b}
 \end{align*}
-
-Adding these two expressions:
-\begin{align*}
-2F_{n+1} &= a^n + b^n + (a + b)F_n \\
-&= a^n + b^n + F_n
-\end{align*}
-
-Since $a + b = 1$, we have:
-\begin{align*}
-F_{n+1} &= \frac{a^n + b^n + F_n}{2} \\
-&= \frac{F_n + F_{n-1}}{2} + \frac{a^n + b^n}{2}
-\end{align*}
-
-But by the inductive hypothesis, $F_n = x_n$ and $F_{n-1} = x_{n-1}$, and by the Fibonacci recurrence, $x_{n+1} = x_n + x_{n-1}$.
-
-Therefore, $F_{n+1} = x_{n+1}$, completing the induction.
+This is $P(n+1)$. By the principle of strong induction, the formula is true for all positive integers $n$.
 
 \begin{problembox}[1.6: Well-Ordering Principle]
 Prove that every nonempty set of positive integers contains a smallest member. This is called the \textit{well-ordering principle}.
 \end{problembox}
 
 \textbf{Solution:}
-Prove by induction on the size of the set $S$ of positive integers.
+We will prove this by contradiction.
+Let $S$ be a nonempty set of positive integers that has no smallest member.
+Let $P(n)$ be the proposition that the integer $n$ is not in $S$. We will use induction to show that $P(n)$ is true for all positive integers $n$.
 
-\textbf{Base case:} If $|S| = 1$, $S = \{a\}$, and $a$ is the smallest element.
+\textbf{Base case:}
+For $n=1$: If $1 \in S$, then $1$ would be the smallest member of $S$ (since $S$ contains only positive integers). But we assumed $S$ has no smallest member. So $1$ cannot be in $S$. Thus, $P(1)$ is true.
 
-\textbf{Inductive step:} Assume every set of $k$ positive integers has a smallest element. Let $S$ have $k+1$ elements. Choose $a \in S$, and let $S' = S \setminus \{a\}$. By the inductive hypothesis, $S'$ has a smallest element $b$. The smallest element of $S$ is $\min(a, b)$, which exists since both are positive integers. Thus, $S$ has a smallest element.
+\textbf{Inductive step:}
+Assume that $P(k)$ is true for all positive integers $k < n$. This means that none of the integers $1, 2, \dots, n-1$ are in $S$.
+Now consider the integer $n$. If $n \in S$, then from our inductive hypothesis (that $1, 2, \dots, n-1$ are not in $S$), $n$ would be the smallest member of $S$.
+This contradicts our initial assumption that $S$ has no smallest member.
+Therefore, $n$ cannot be in $S$. Thus, $P(n)$ is true.
+
+By the principle of strong induction, $P(n)$ is true for all positive integers $n$. This means that no positive integer is in $S$, which implies that $S$ is an empty set.
+This contradicts our initial assumption that $S$ is a nonempty set.
+Therefore, the original assumption must be false, and every nonempty set of positive integers must contain a smallest member.
 
 
 \section{Rational and Irrational Numbers}
@@ -538,13 +523,29 @@ This proves the formula for $a_k$.
 Multiplying $x$ by $n!$ gives $n!x = \sum_{k=1}^n a_k \frac{n!}{k!}$. Since $k \le n$, each term $\frac{n!}{k!}$ is an integer, so $n!x$ is an integer.
 For any $m < n$, when we compute $m!x$, the term corresponding to $k=n$ is $m! \frac{a_n}{n!} = \frac{a_n}{n(n-1)\dots(m+1)}$. Since $0 < a_n \le n-1$, this term is a non-integer fraction. Because all other terms for $k>m$ are also fractions and terms for $k\le m$ are integers, $m!x$ cannot be an integer. Thus, $n$ is the smallest such integer.
 
-\textbf{4. Converse (Existence and Uniqueness):}
-\textit{Existence:} Let $x$ be any positive rational. Let $n$ be the smallest integer so $n!x$ is an integer. Define the coefficients $a_k$ recursively:
-$a_1 = [x]$, and $x_1 = x - a_1$.
-$a_2 = [2!x_1]$, and $x_2 = 2!x_1 - a_2$.
-In general, define $x_{k-1}$ for $k \ge 2$. Let $a_k = [k!x_{k-1}]$ and $x_k = k!x_{k-1} - a_k$.
-One can prove by induction that $0 \le x_k < 1$ and $a_k \le k-1$ for $k \ge 2$. The process terminates with $x_n=0$ because $n!x$ is an integer.
-\textit{Uniqueness:} Suppose $x$ has two different representations, $\sum \frac{a_k}{k!} = \sum \frac{b_k}{k!}$. Let $j$ be the largest index where $a_j \neq b_j$. Assume $a_j > b_j$. Then $\frac{a_j - b_j}{j!} = \sum_{k=1}^{j-1} \frac{b_k - a_k}{k!}$. The left side is $\ge 1/j!$. The right side is bounded above by $\sum_{k=1}^{j-1} \frac{k-1}{k!} < 1/j!$, a contradiction. Thus, all coefficients must be the same.
+\textbf{4. Converse (Uniqueness):}
+Suppose a positive rational number $x$ has two different representations:
+\[ x = \sum_{k=1}^n \frac{a_k}{k!} = \sum_{k=1}^m \frac{b_k}{k!} \]
+with the conditions $0 \le a_k \le k-1$ for $k \ge 2$, $a_n > 0$, and similarly for $b_k$.
+From part (3), $n$ is the smallest integer such that $n!x$ is an integer, and $m$ is the smallest integer such that $m!x$ is an integer. This implies $n=m$.
+
+Let $j$ be the largest index for which the coefficients differ, so $a_j \neq b_j$. Assume, without loss of generality, that $a_j > b_j$.
+Since $a_k = b_k$ for $k > j$, we can subtract the sums:
+\[ \sum_{k=1}^j \frac{a_k}{k!} = \sum_{k=1}^j \frac{b_k}{k!} \]
+Rearranging the terms, we get:
+\[ \frac{a_j - b_j}{j!} = \sum_{k=1}^{j-1} \frac{b_k - a_k}{k!} \]
+Multiply both sides by $(j-1)!$:
+\[ \frac{a_j - b_j}{j} = \sum_{k=1}^{j-1} (b_k - a_k) \frac{(j-1)!}{k!} \]
+The right-hand side is an integer, because for each $k \in \{1, \dots, j-1\}$, $k!$ divides $(j-1)!$.
+Let's analyze the left-hand side. Since $a_j$ and $b_j$ are integers and $a_j > b_j$, we have $a_j - b_j \geq 1$.
+From the conditions on the coefficients, $a_j \leq j-1$ (for $j \ge 2$) and $b_j \geq 0$.
+Therefore, $1 \leq a_j - b_j \leq j-1$.
+This implies that for $j \ge 2$, the left-hand side $\frac{a_j - b_j}{j}$ is a non-integer fraction, since the numerator is an integer between $1$ and $j-1$, and the denominator is $j$.
+This creates a contradiction: the left-hand side cannot be an integer, while the right-hand side must be an integer.
+For the case $j=1$, the equation becomes $a_1 - b_1 = 0$, which contradicts $a_1 \neq b_1$.
+Thus, our assumption that there is a largest index $j$ where $a_j \neq b_j$ must be false. All coefficients must be identical. The representation is unique.
+
+\textit{5. Uniqueness:} Suppose $x$ has two different representations, $\sum \frac{a_k}{k!} = \sum \frac{b_k}{k!}$. Let $j$ be the largest index where $a_j \neq b_j$. Assume $a_j > b_j$. Then $\frac{a_j - b_j}{j!} = \sum_{k=1}^{j-1} \frac{b_k - a_k}{k!}$. The left side is $\ge 1/j!$. The right side is bounded above by $\sum_{k=1}^{j-1} \frac{k-1}{k!} < 1/j!$, a contradiction. Thus, all coefficients must be the same.
 
 
 \section{Upper Bounds}
@@ -724,114 +725,114 @@ Therefore, for every \( \varepsilon > 0 \), there exists \( c \in C \) such that
 \]
 
 \begin{problembox}[1.22: Representation of Rationals in Base \( k \)]
-    Given \( x \geq 0 \) and an integer \( k \geq 2 \), let \( a_0 \) denote the largest integer \( \leq x \), and, assuming that \( a_0, a_1, \dots, a_{n-1} \) have been defined, let \( a_n \) denote the largest integer such that
-    \[
-    a_0 + \frac{a_1}{k} + \frac{a_2}{k^2} + \cdots + \frac{a_n}{k^n} \leq x.
-    \]
-    
-    \begin{enumerate}
-    \item[(a)] Prove that \( 0 \leq a_i \leq k - 1 \) for each \( i = 1, 2, \dots \).
-    \item[(b)] Let \( r_n = a_0 + a_1 k^{-1} + a_2 k^{-2} + \cdots + a_n k^{-n} \) and show that \( x = \sup \{ r_n \} \), the supremum of the set of rational numbers \( r_1, r_2, \dots \).
-    \end{enumerate}
-    \end{problembox}
-    
-    \textbf{Solution:}
-    Let \( r_n = \sum_{i=0}^n \frac{a_i}{k^i} \). By definition, \( a_n \) is the largest integer such that \( r_n \leq x \).
-    
-    \textbf{(a) Show \( 0 \leq a_i \leq k - 1 \):}
-    Since \( a_n \) is the largest integer satisfying the condition, choosing \( a_n + 1 \) would violate it:
-    \[
-    r_{n-1} + \frac{a_n + 1}{k^n} > x
-    \]
-    From the definition of \(a_{n-1}\), we know it was the largest integer such that \( r_{n-1} \le x \). This implies $x - r_{n-1} < \frac{1}{k^{n-1}}$.
-    Now, from the definition of $a_n$, we have $r_{n-1} + \frac{a_n}{k^n} \leq x$, which implies $a_n \leq k^n(x - r_{n-1})$.
-    Combining these facts:
-    \[
-    a_n \leq k^n(x - r_{n-1}) < k^n\left(\frac{1}{k^{n-1}}\right) = k.
-    \]
-    Since $a_n$ is an integer and $a_n < k$, we must have $a_n \leq k-1$. Also, $a_n$ must be non-negative, otherwise we could choose $a_n=0$ to get a larger (or equal) sum $r_n$ that is still less than or equal to $x$, contradicting the "largest integer" definition if the original $a_n$ were negative. Thus, $0 \leq a_n \leq k-1$.
-    
-    \textbf{(b) Show that \( x = \sup \{ r_n \} \):}
-    The sequence $\{r_n\}$ is non-decreasing by construction, since $a_n \ge 0$. It is also bounded above by $x$. Therefore, its supremum exists; let $r = \sup\{r_n\}$. We know $r \le x$.
-    We will prove $r=x$ by contradiction. Assume $r < x$. Let $\delta = x - r > 0$.
-    By the Archimedean property, we can choose an integer $N$ large enough such that $\frac{1}{k^N} < \delta$.
-    From the definition of $a_N$, we know $r_N = r_{N-1} + \frac{a_N}{k^N} \le x$ and $r_{N-1} + \frac{a_N+1}{k^N} > x$.
-    The second inequality rearranges to $x - r_N < \frac{1}{k^N}$.
-    Since $r = \sup\{r_n\}$, we know $r_N \leq r$.
-    Therefore, $x - r \leq x - r_N < \frac{1}{k^N}$.
-    Substituting $\delta = x-r$, we get $\delta < \frac{1}{k^N}$.
-    But we chose $N$ such that $\frac{1}{k^N} < \delta$. This gives $\delta < \frac{1}{k^N} < \delta$, a contradiction.
-    Thus, our assumption must be false, and $x = r = \sup\{r_n\}$.
+Given \( x \geq 0 \) and an integer \( k \geq 2 \), let \( a_0 \) denote the largest integer \( \leq x \), and, assuming that \( a_0, a_1, \dots, a_{n-1} \) have been defined, let \( a_n \) denote the largest integer such that
+\[
+a_0 + \frac{a_1}{k} + \frac{a_2}{k^2} + \cdots + \frac{a_n}{k^n} \leq x.
+\]
+
+\begin{enumerate}
+\item[(a)] Prove that \( 0 \leq a_i \leq k - 1 \) for each \( i = 1, 2, \dots \).
+\item[(b)] Let \( r_n = a_0 + a_1 k^{-1} + a_2 k^{-2} + \cdots + a_n k^{-n} \) and show that \( x = \sup \{ r_n \} \), the supremum of the set of rational numbers \( r_1, r_2, \dots \).
+\end{enumerate}
+\end{problembox}
+
+\textbf{Solution:}
+Let \( r_n = \sum_{i=0}^n \frac{a_i}{k^i} \). By definition, \( a_n \) is the largest integer such that \( r_n \leq x \).
+
+\textbf{(a) Show \( 0 \leq a_i \leq k - 1 \):}
+Since \( a_n \) is the largest integer satisfying the condition, choosing \( a_n + 1 \) would violate it:
+\[
+r_{n-1} + \frac{a_n + 1}{k^n} > x
+\]
+From the definition of \(a_{n-1}\), we know it was the largest integer such that \( r_{n-1} \le x \). This implies $x - r_{n-1} < \frac{1}{k^{n-1}}$.
+Now, from the definition of $a_n$, we have $r_{n-1} + \frac{a_n}{k^n} \leq x$, which implies $a_n \leq k^n(x - r_{n-1})$.
+Combining these facts:
+\[
+a_n \leq k^n(x - r_{n-1}) < k^n\left(\frac{1}{k^{n-1}}\right) = k.
+\]
+Since $a_n$ is an integer and $a_n < k$, we must have $a_n \leq k-1$. Also, $a_n$ must be non-negative, otherwise we could choose $a_n=0$ to get a larger (or equal) sum $r_n$ that is still less than or equal to $x$, contradicting the "largest integer" definition if the original $a_n$ were negative. Thus, $0 \leq a_n \leq k-1$.
+
+\textbf{(b) Show that \( x = \sup \{ r_n \} \):}
+The sequence $\{r_n\}$ is non-decreasing by construction, since $a_n \ge 0$. It is also bounded above by $x$. Therefore, its supremum exists; let $r = \sup\{r_n\}$. We know $r \le x$.
+We will prove $r=x$ by contradiction. Assume $r < x$. Let $\delta = x - r > 0$.
+By the Archimedean property, we can choose an integer $N$ large enough such that $\frac{1}{k^N} < \delta$.
+From the definition of $a_N$, we know $r_N = r_{N-1} + \frac{a_N}{k^N} \le x$ and $r_{N-1} + \frac{a_N+1}{k^N} > x$.
+The second inequality rearranges to $x - r_N < \frac{1}{k^N}$.
+Since $r = \sup\{r_n\}$, we know $r_N \leq r$.
+Therefore, $x - r \leq x - r_N < \frac{1}{k^N}$.
+Substituting $\delta = x-r$, we get $\delta < \frac{1}{k^N}$.
+But we chose $N$ such that $\frac{1}{k^N} < \delta$. This gives $\delta < \frac{1}{k^N} < \delta$, a contradiction.
+Thus, our assumption must be false, and $x = r = \sup\{r_n\}$.
 
 \section{Inequalities and Identities}
 \begin{problembox}[1.23: Lagrange's Identity]
-    Prove Lagrange’s identity for real numbers:
-    \[
-    \left( \sum_{k=1}^n a_k b_k \right)^2 = \left( \sum_{k=1}^n a_k^2 \right)\left( \sum_{k=1}^n b_k^2 \right) - \sum_{1 \leq k < j \leq n} (a_k b_j - a_j b_k)^2.
-    \]
-    \end{problembox}
-    
-    \textbf{Proof:}
-    We will prove the equivalent identity:
-    \[
-    \left( \sum_{k=1}^n a_k^2 \right)\left( \sum_{k=1}^n b_k^2 \right) = \left( \sum_{k=1}^n a_k b_k \right)^2 + \sum_{1 \leq k < j \leq n} (a_k b_j - a_j b_k)^2.
-    \]
-    Let's expand the terms. The left-hand side (LHS) is:
-    \begin{align*}
-    \left( \sum_{k=1}^n a_k^2 \right)\left( \sum_{j=1}^n b_j^2 \right) &= \sum_{k=1}^n \sum_{j=1}^n a_k^2 b_j^2 \\
-    &= \sum_{k=j} a_k^2 b_j^2 + \sum_{k \neq j} a_k^2 b_j^2 \\
-    &= \sum_{k=1}^n a_k^2 b_k^2 + \sum_{1 \leq k < j \leq n} (a_k^2 b_j^2 + a_j^2 b_k^2)
-    \end{align*}
-    Now we expand the terms on the right-hand side (RHS). The first term is:
-    \begin{align*}
-    \left( \sum_{k=1}^n a_k b_k \right)^2 &= \left( \sum_{k=1}^n a_k b_k \right)\left( \sum_{j=1}^n a_j b_j \right) = \sum_{k=1}^n \sum_{j=1}^n a_k b_k a_j b_j \\
-    &= \sum_{k=j} a_k b_k a_j b_j + \sum_{k \neq j} a_k b_k a_j b_j \\
-    &= \sum_{k=1}^n a_k^2 b_k^2 + 2 \sum_{1 \leq k < j \leq n} a_k b_k a_j b_j
-    \end{align*}
-    The second term on the RHS is:
-    \[
-    \sum_{1 \leq k < j \leq n} (a_k b_j - a_j b_k)^2 = \sum_{1 \leq k < j \leq n} (a_k^2 b_j^2 - 2a_k b_j a_j b_k + a_j^2 b_k^2)
-    \]
-    Adding the two terms on the RHS gives:
-    \begin{align*}
-    \text{RHS} &= \left( \sum_{k=1}^n a_k^2 b_k^2 + 2 \sum_{1 \leq k < j \leq n} a_k b_k a_j b_j \right) + \left( \sum_{1 \leq k < j \leq n} (a_k^2 b_j^2 - 2a_k a_j b_k b_j + a_j^2 b_k^2) \right) \\
-    &= \sum_{k=1}^n a_k^2 b_k^2 + \sum_{1 \leq k < j \leq n} (a_k^2 b_j^2 + a_j^2 b_k^2)
-    \end{align*}
-    The RHS now matches our expansion of the LHS, which completes the proof.
+Prove Lagrange’s identity for real numbers:
+\[
+\left( \sum_{k=1}^n a_k b_k \right)^2 = \left( \sum_{k=1}^n a_k^2 \right)\left( \sum_{k=1}^n b_k^2 \right) - \sum_{1 \leq k < j \leq n} (a_k b_j - a_j b_k)^2.
+\]
+\end{problembox}
+
+\textbf{Proof:}
+We will prove the equivalent identity:
+\[
+\left( \sum_{k=1}^n a_k^2 \right)\left( \sum_{k=1}^n b_k^2 \right) = \left( \sum_{k=1}^n a_k b_k \right)^2 + \sum_{1 \leq k < j \leq n} (a_k b_j - a_j b_k)^2.
+\]
+Let's expand the terms. The left-hand side (LHS) is:
+\begin{align*}
+\left( \sum_{k=1}^n a_k^2 \right)\left( \sum_{j=1}^n b_j^2 \right) &= \sum_{k=1}^n \sum_{j=1}^n a_k^2 b_j^2 \\
+&= \sum_{k=j} a_k^2 b_j^2 + \sum_{k \neq j} a_k^2 b_j^2 \\
+&= \sum_{k=1}^n a_k^2 b_k^2 + \sum_{1 \leq k < j \leq n} (a_k^2 b_j^2 + a_j^2 b_k^2)
+\end{align*}
+Now we expand the terms on the right-hand side (RHS). The first term is:
+\begin{align*}
+\left( \sum_{k=1}^n a_k b_k \right)^2 &= \left( \sum_{k=1}^n a_k b_k \right)\left( \sum_{j=1}^n a_j b_j \right) = \sum_{k=1}^n \sum_{j=1}^n a_k b_k a_j b_j \\
+&= \sum_{k=j} a_k b_k a_j b_j + \sum_{k \neq j} a_k b_k a_j b_j \\
+&= \sum_{k=1}^n a_k^2 b_k^2 + 2 \sum_{1 \leq k < j \leq n} a_k b_k a_j b_j
+\end{align*}
+The second term on the RHS is:
+\[
+\sum_{1 \leq k < j \leq n} (a_k b_j - a_j b_k)^2 = \sum_{1 \leq k < j \leq n} (a_k^2 b_j^2 - 2a_k b_j a_j b_k + a_j^2 b_k^2)
+\]
+Adding the two terms on the RHS gives:
+\begin{align*}
+\text{RHS} &= \left( \sum_{k=1}^n a_k^2 b_k^2 + 2 \sum_{1 \leq k < j \leq n} a_k b_k a_j b_j \right) + \left( \sum_{1 \leq k < j \leq n} (a_k^2 b_j^2 - 2a_k a_j b_k b_j + a_j^2 b_k^2) \right) \\
+&= \sum_{k=1}^n a_k^2 b_k^2 + \sum_{1 \leq k < j \leq n} (a_k^2 b_j^2 + a_j^2 b_k^2)
+\end{align*}
+The RHS now matches our expansion of the LHS, which completes the proof.
 
 
-    \begin{problembox}[1.24: A Holder-type Inequality]
-        Prove that for arbitrary real numbers \( a_k, b_k, c_k \) we have
-        \[
-        \left( \sum_{k=1}^n a_k b_k c_k \right)^4 \leq
-        \left( \sum_{k=1}^n a_k^4 \right)
-        \left( \sum_{k=1}^n b_k^2 \right)^2
-        \left( \sum_{k=1}^n c_k^4 \right).
-        \]
-        \end{problembox}
-        
-        \textbf{Proof:}
-        We will prove this inequality by applying the Cauchy-Schwarz inequality twice.
-        First, group the terms as $(a_k c_k)$ and $b_k$. Applying the Cauchy-Schwarz inequality to the sequences $\{a_k c_k\}$ and $\{b_k\}$ gives:
-        \[
-        \left( \sum_{k=1}^n (a_k c_k) b_k \right)^2 \leq \left( \sum_{k=1}^n (a_k c_k)^2 \right) \left( \sum_{k=1}^n b_k^2 \right) = \left( \sum_{k=1}^n a_k^2 c_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right).
-        \]
-        Next, we apply the Cauchy-Schwarz inequality to the term $\sum_{k=1}^n a_k^2 c_k^2$, treating it as the dot product of sequences $\{a_k^2\}$ and $\{c_k^2\}$:
-        \[
-        \left( \sum_{k=1}^n a_k^2 c_k^2 \right)^2 \leq \left( \sum_{k=1}^n (a_k^2)^2 \right) \left( \sum_{k=1}^n (c_k^2)^2 \right) = \left( \sum_{k=1}^n a_k^4 \right) \left( \sum_{k=1}^n c_k^4 \right).
-        \]
-        This implies:
-        \[
-        \sum_{k=1}^n a_k^2 c_k^2 \leq \left( \sum_{k=1}^n a_k^4 \right)^{1/2} \left( \sum_{k=1}^n c_k^4 \right)^{1/2}.
-        \]
-        Now, substitute this result back into our first inequality:
-        \[
-        \left( \sum_{k=1}^n a_k b_k c_k \right)^2 \leq \left( \sum_{k=1}^n a_k^4 \right)^{1/2} \left( \sum_{k=1}^n c_k^4 \right)^{1/2} \left( \sum_{k=1}^n b_k^2 \right).
-        \]
-        Finally, squaring both sides gives the desired result:
-        \[
-        \left( \sum_{k=1}^n a_k b_k c_k \right)^4 \leq \left( \sum_{k=1}^n a_k^4 \right) \left( \sum_{k=1}^n c_k^4 \right) \left( \sum_{k=1}^n b_k^2 \right)^2.
-        \]
+\begin{problembox}[1.24: A Holder-type Inequality]
+Prove that for arbitrary real numbers \( a_k, b_k, c_k \) we have
+\[
+\left( \sum_{k=1}^n a_k b_k c_k \right)^4 \leq
+\left( \sum_{k=1}^n a_k^4 \right)
+\left( \sum_{k=1}^n b_k^2 \right)^2
+\left( \sum_{k=1}^n c_k^4 \right).
+\]
+\end{problembox}
+
+\textbf{Proof:}
+We will prove this inequality by applying the Cauchy-Schwarz inequality twice.
+First, group the terms as $(a_k c_k)$ and $b_k$. Applying the Cauchy-Schwarz inequality to the sequences $\{a_k c_k\}$ and $\{b_k\}$ gives:
+\[
+\left( \sum_{k=1}^n (a_k c_k) b_k \right)^2 \leq \left( \sum_{k=1}^n (a_k c_k)^2 \right) \left( \sum_{k=1}^n b_k^2 \right) = \left( \sum_{k=1}^n a_k^2 c_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right).
+\]
+Next, we apply the Cauchy-Schwarz inequality to the term $\sum_{k=1}^n a_k^2 c_k^2$, treating it as the dot product of sequences $\{a_k^2\}$ and $\{c_k^2\}$:
+\[
+\left( \sum_{k=1}^n a_k^2 c_k^2 \right)^2 \leq \left( \sum_{k=1}^n (a_k^2)^2 \right) \left( \sum_{k=1}^n (c_k^2)^2 \right) = \left( \sum_{k=1}^n a_k^4 \right) \left( \sum_{k=1}^n c_k^4 \right).
+\]
+This implies:
+\[
+\sum_{k=1}^n a_k^2 c_k^2 \leq \left( \sum_{k=1}^n a_k^4 \right)^{1/2} \left( \sum_{k=1}^n c_k^4 \right)^{1/2}.
+\]
+Now, substitute this result back into our first inequality:
+\[
+\left( \sum_{k=1}^n a_k b_k c_k \right)^2 \leq \left( \sum_{k=1}^n a_k^4 \right)^{1/2} \left( \sum_{k=1}^n c_k^4 \right)^{1/2} \left( \sum_{k=1}^n b_k^2 \right).
+\]
+Finally, squaring both sides gives the desired result:
+\[
+\left( \sum_{k=1}^n a_k b_k c_k \right)^4 \leq \left( \sum_{k=1}^n a_k^4 \right) \left( \sum_{k=1}^n c_k^4 \right) \left( \sum_{k=1}^n b_k^2 \right)^2.
+\]
 
 \begin{problembox}[1.25: Minkowski's Inequality]
 Prove Minkowski’s inequality:
@@ -862,46 +863,46 @@ Taking square roots:
 
 
 \begin{problembox}[1.26: Chebyshev's Sum Inequality]
-    If \( a_1 \geq a_2 \geq \cdots \geq a_n \) and \( b_1 \geq b_2 \geq \cdots \geq b_n \), prove that
-    \[
-    \left( \sum_{k=1}^n a_k \right)\left( \sum_{k=1}^n b_k \right) \leq n \sum_{k=1}^n a_k b_k.
-    \]
-    \end{problembox}
-    
-    \textbf{Proof:}
-    Consider the double summation
-    \[ S = \sum_{i=1}^n \sum_{j=1}^n (a_i - a_j)(b_i - b_j). \]
-    Since the sequences $\{a_k\}$ and $\{b_k\}$ are sorted in the same order (both non-increasing), the terms $(a_i - a_j)$ and $(b_i - b_j)$ always have the same sign. If $i>j$, then $a_i \le a_j$ and $b_i \le b_j$, so both differences are non-positive. If $i<j$, both are non-negative. Therefore, their product is always non-negative:
-    \[ (a_i - a_j)(b_i - b_j) \geq 0. \]
-    This implies that the total sum $S$ must be non-negative, $S \geq 0$.
-    
-    Now, let's expand the sum:
-    \begin{align*}
-    S &= \sum_{i=1}^n \sum_{j=1}^n (a_i b_i - a_i b_j - a_j b_i + a_j b_j) \\
-    &= \sum_{i=1}^n \sum_{j=1}^n a_i b_i - \sum_{i=1}^n \sum_{j=1}^n a_i b_j - \sum_{i=1}^n \sum_{j=1}^n a_j b_i + \sum_{i=1}^n \sum_{j=1}^n a_j b_j
-    \end{align*}
-    We evaluate each double summation:
-    \begin{itemize}
-        \item \( \sum_{i=1}^n \sum_{j=1}^n a_i b_i = \sum_{i=1}^n \left( n \cdot a_i b_i \right) = n \sum_{i=1}^n a_i b_i \)
-        \item \( \sum_{i=1}^n \sum_{j=1}^n a_i b_j = \left( \sum_{i=1}^n a_i \right) \left( \sum_{j=1}^n b_j \right) \)
-        \item \( \sum_{i=1}^n \sum_{j=1}^n a_j b_i = \left( \sum_{j=1}^n a_j \right) \left( \sum_{i=1}^n b_i \right) \)
-        \item \( \sum_{i=1}^n \sum_{j=1}^n a_j b_j = \sum_{j=1}^n \left( n \cdot a_j b_j \right) = n \sum_{j=1}^n a_j b_j \)
-    \end{itemize}
-    Substituting these back into the expression for $S$:
-    \[
-    S = n \sum a_k b_k - \left(\sum a_k\right)\left(\sum b_k\right) - \left(\sum a_k\right)\left(\sum b_k\right) + n \sum a_k b_k
-    \]
-    \[
-    S = 2n \sum_{k=1}^n a_k b_k - 2 \left( \sum_{k=1}^n a_k \right) \left( \sum_{k=1}^n b_k \right)
-    \]
-    Since we established that $S \geq 0$:
-    \[
-    2n \sum_{k=1}^n a_k b_k - 2 \left( \sum_{k=1}^n a_k \right) \left( \sum_{k=1}^n b_k \right) \geq 0
-    \]
-    Dividing by 2 and rearranging gives the desired inequality:
-    \[
-    n \sum_{k=1}^n a_k b_k \geq \left( \sum_{k=1}^n a_k \right) \left( \sum_{k=1}^n b_k \right).
-    \]
+If \( a_1 \geq a_2 \geq \cdots \geq a_n \) and \( b_1 \geq b_2 \geq \cdots \geq b_n \), prove that
+\[
+\left( \sum_{k=1}^n a_k \right)\left( \sum_{k=1}^n b_k \right) \leq n \sum_{k=1}^n a_k b_k.
+\]
+\end{problembox}
+
+\textbf{Proof:}
+Consider the double summation
+\[ S = \sum_{i=1}^n \sum_{j=1}^n (a_i - a_j)(b_i - b_j). \]
+Since the sequences $\{a_k\}$ and $\{b_k\}$ are sorted in the same order (both non-increasing), the terms $(a_i - a_j)$ and $(b_i - b_j)$ always have the same sign. If $i>j$, then $a_i \le a_j$ and $b_i \le b_j$, so both differences are non-positive. If $i<j$, both are non-negative. Therefore, their product is always non-negative:
+\[ (a_i - a_j)(b_i - b_j) \geq 0. \]
+This implies that the total sum $S$ must be non-negative, $S \geq 0$.
+
+Now, let's expand the sum:
+\begin{align*}
+S &= \sum_{i=1}^n \sum_{j=1}^n (a_i b_i - a_i b_j - a_j b_i + a_j b_j) \\
+&= \sum_{i=1}^n \sum_{j=1}^n a_i b_i - \sum_{i=1}^n \sum_{j=1}^n a_i b_j - \sum_{i=1}^n \sum_{j=1}^n a_j b_i + \sum_{i=1}^n \sum_{j=1}^n a_j b_j
+\end{align*}
+We evaluate each double summation:
+\begin{itemize}
+\item \( \sum_{i=1}^n \sum_{j=1}^n a_i b_i = \sum_{i=1}^n \left( n \cdot a_i b_i \right) = n \sum_{i=1}^n a_i b_i \)
+\item \( \sum_{i=1}^n \sum_{j=1}^n a_i b_j = \left( \sum_{i=1}^n a_i \right) \left( \sum_{j=1}^n b_j \right) \)
+\item \( \sum_{i=1}^n \sum_{j=1}^n a_j b_i = \left( \sum_{j=1}^n a_j \right) \left( \sum_{i=1}^n b_i \right) \)
+\item \( \sum_{i=1}^n \sum_{j=1}^n a_j b_j = \sum_{j=1}^n \left( n \cdot a_j b_j \right) = n \sum_{j=1}^n a_j b_j \)
+\end{itemize}
+Substituting these back into the expression for $S$:
+\[
+S = n \sum a_k b_k - \left(\sum a_k\right)\left(\sum b_k\right) - \left(\sum a_k\right)\left(\sum b_k\right) + n \sum a_k b_k
+\]
+\[
+S = 2n \sum_{k=1}^n a_k b_k - 2 \left( \sum_{k=1}^n a_k \right) \left( \sum_{k=1}^n b_k \right)
+\]
+Since we established that $S \geq 0$:
+\[
+2n \sum_{k=1}^n a_k b_k - 2 \left( \sum_{k=1}^n a_k \right) \left( \sum_{k=1}^n b_k \right) \geq 0
+\]
+Dividing by 2 and rearranging gives the desired inequality:
+\[
+n \sum_{k=1}^n a_k b_k \geq \left( \sum_{k=1}^n a_k \right) \left( \sum_{k=1}^n b_k \right).
+\]
 
 \begin{problembox}[1.27: Express Complex Numbers in $a + bi$ Form]
 Express the following complex numbers in the form \( a + bi \):
@@ -1154,14 +1155,32 @@ This is the standard equation of a circle with center at \( (1, 0) \) and radius
 \end{tabular}
 \end{center}
 
+
+% Problem 1.31: Equilateral Triangle on the Unit Circle
 \begin{problembox}[1.31: Equilateral Triangle on the Unit Circle]
 Given three complex numbers \( z_1, z_2, z_3 \) such that \( |z_1| = |z_2| = |z_3| = 1 \) and \( z_1 + z_2 + z_3 = 0 \), show that these numbers are vertices of an equilateral triangle inscribed in the unit circle with center at the origin.
 \end{problembox}
 
 \textbf{Solution:}
-Since all \( z_i \) lie on the unit circle, they can be written as \( z_i = e^{i\theta_i} \). The condition \( z_1 + z_2 + z_3 = 0 \) implies that the vectors sum to zero, forming an equilateral triangle (only then can three equal-length vectors sum to zero symmetrically). Therefore, the triangle they form is equilateral and inscribed in the unit circle.
+Since \( |z_i| = 1 \), each \( z_i = e^{i\theta_i} \) lies on the unit circle. Given \( z_1 + z_2 + z_3 = 0 \), we need to show they form an equilateral triangle. Consider the angles \( \theta_1, \theta_2, \theta_3 \). The sum condition implies:
+\[
+e^{i\theta_1} + e^{i\theta_2} + e^{i\theta_3} = 0.
+\]
+For three points on the unit circle to form an equilateral triangle, their arguments must differ by \( 120^\circ = \frac{2\pi}{3} \). Assume:
+\[
+z_1 = e^{i\theta}, \quad z_2 = e^{i(\theta + \frac{2\pi}{3})}, \quad z_3 = e^{i(\theta + \frac{4\pi}{3})}.
+\]
+Check the sum:
+\[
+e^{i\theta} + e^{i(\theta + \frac{2\pi}{3})} + e^{i(\theta + \frac{4\pi}{3})} = e^{i\theta} \left( 1 + e^{i\frac{2\pi}{3}} + e^{i\frac{4\pi}{3}} \right).
+\]
+Since \( e^{i\frac{2\pi}{3}} = -\frac{1}{2} + i\frac{\sqrt{3}}{2} \), \( e^{i\frac{4\pi}{3}} = -\frac{1}{2} - i\frac{\sqrt{3}}{2} \), we have:
+\[
+1 + e^{i\frac{2\pi}{3}} + e^{i\frac{4\pi}{3}} = 1 + \left(-\frac{1}{2} + i\frac{\sqrt{3}}{2}\right) + \left(-\frac{1}{2} - i\frac{\sqrt{3}}{2}\right) = 0.
+\]
+The angles \( \theta, \theta + \frac{2\pi}{3}, \theta + \frac{4\pi}{3} \) are spaced \( \frac{2\pi}{3} \) apart, forming an equilateral triangle. Any three points with \( |z_i| = 1 \) and sum zero are rotations of the cube roots of unity, ensuring an equilateral triangle.
 
-
+% Problem 1.32: Inequality with Complex Numbers
 \begin{problembox}[1.32: Inequality with Complex Numbers]
 If \( a \) and \( b \) are complex numbers, prove:
 \begin{enumerate}[label=\alph*)]
@@ -1172,13 +1191,31 @@ If \( a \) and \( b \) are complex numbers, prove:
 
 \textbf{Solution:}
 \begin{enumerate}[label=\alph*)]
-\item This follows from the Cauchy-Schwarz inequality in \( \mathbb{C}^2 \). Let \( \langle a, 1 \rangle \) and \( \langle b, 1 \rangle \) be vectors, then:
+\item Compute:
 \[
-|a - b|^2 = |a - b|^2 \leq (1 + |a|^2)(1 + |b|^2)
+|a - b|^2 = (a - b)(\overline{a - b}) = |a|^2 + |b|^2 - a\overline{b} - \overline{a}b.
 \]
-\item Equality in the triangle inequality occurs if and only if \( a \) and \( b \) are in the same direction. So \( \frac{b}{a} \in \mathbb{R}_{\geq 0} \).
+Consider the right-hand side:
+\[
+(1 + |a|^2)(1 + |b|^2) = 1 + |a|^2 + |b|^2 + |a|^2 |b|^2.
+\]
+Evaluate:
+\[
+(1 + |a|^2)(1 + |b|^2) - |a - b|^2 = 1 + |a b|^2 + a\overline{b} + \overline{a}b = 1 + |a b|^2 + 2\Re(a\overline{b}).
+\]
+Since \( |a b|^2 \geq 0 \), \( \Re(a\overline{b}) \geq -|a b| \):
+\[
+1 + |a b|^2 + 2\Re(a\overline{b}) \geq 1 + |a b|^2 - 2|a b| = (1 - |a b|)^2 \geq 0.
+\]
+Thus, \( |a - b|^2 \leq (1 + |a|^2)(1 + |b|^2) \).
+\item For \( |a + b| = |a| + |b| \), the triangle inequality requires \( a, b \) collinear in the same direction. Let \( b = ka \), \( k \in \mathbb{R}_{\geq 0} \):
+\[
+|a + b| = |a + ka| = |a|(1 + k) = |a| + |b|.
+\]
+Thus, \( \frac{b}{a} = k \geq 0 \). Conversely, if \( |a + b| = |a| + |b| \), then \( a\overline{b} + \overline{a}b = 2|a||b| \), so \( \frac{b}{a} \) is real and nonnegative.
 \end{enumerate}
 
+% Problem 1.33: Equality Condition for Complex Difference
 \begin{problembox}[1.33: Equality Condition for Complex Difference]
 If \( a \) and \( b \) are complex numbers, prove that
 \[
@@ -1188,12 +1225,25 @@ if and only if \( |a| = 1 \) or \( |b| = 1 \). For which \( a \) and \( b \) is 
 \end{problembox}
 
 \textbf{Solution:}
-Let \( |a| = r \), \( |b| = s \). Then note that \( |a - b| = |1 - \overline{a}b| \) suggests some symmetry under Möbius transformation. A known identity is:
+Let \( |a| = r \), \( |b| = s \). Compute:
 \[
-\left| \frac{a - b}{1 - \overline{a}b} \right| = \text{pseudo-hyperbolic distance}
+|a - b|^2 = r^2 + s^2 - a\overline{b} - \overline{a}b, \quad |1 - \overline{a}b|^2 = 1 + r^2 s^2 - a\overline{b} - \overline{a}b.
 \]
-Equality \( |a - b| = |1 - \overline{a}b| \) holds when either \( |a| = 1 \) or \( |b| = 1 \). The inequality is strict when both \( |a|, |b| < 1 \).
+Thus:
+\[
+|a - b|^2 - |1 - \overline{a}b|^2 = r^2 + s^2 - 1 - r^2 s^2 = (r^2 - 1)(s^2 - 1).
+\]
+Equality holds when:
+\[
+(r^2 - 1)(s^2 - 1) = 0 \implies r = 1 \text{ or } s = 1.
+\]
+For the inequality:
+\[
+(r^2 - 1)(s^2 - 1) < 0 \implies (r^2 < 1 \text{ and } s^2 > 1) \text{ or } (r^2 > 1 \text{ and } s^2 < 1).
+\]
+Thus, equality holds if \( |a| = 1 \) or \( |b| = 1 \); the inequality holds when one modulus is less than 1 and the other is greater than 1.
 
+% Problem 1.34: Complex Circle in the Plane
 \begin{problembox}[1.34: Complex Circle in the Plane]
 If \( a \) and \( c \) are real constants, \( b \) is complex, show that the equation
 \[
@@ -1205,10 +1255,11 @@ represents a circle in the \( xy \)-plane.
 \textbf{Solution:}
 Let \( z = x + iy \), \( \overline{z} = x - iy \), then \( z \overline{z} = x^2 + y^2 \), \( bz + \overline{b} \overline{z} = 2 \Re(b z) \). Hence the equation becomes:
 \[
-a(x^2 + y^2) + 2 \Re(b z) + c = 0
+a(x^2 + y^2) + 2 \Re(b z) + c = 0.
 \]
 This is the general form of a circle in \( \mathbb{R}^2 \).
 
+% Problem 1.35: Argument of a Complex Number via Arctangent
 \begin{problembox}[1.35: Argument of a Complex Number via Arctangent]
 Recall the definition of the inverse tangent: given a real number \( t \), \( \tan^{-1}(t) \) is the unique real number \( \theta \) satisfying:
 \[
@@ -1223,81 +1274,46 @@ If \( z = x + iy \), show that:
 \end{enumerate}
 \end{problembox}
 
-\textbf{Solution:}  
-We are trying to determine the \textbf{principal value} of the argument of a complex number \( z = x + iy \), denoted \( \arg(z) \), using the inverse tangent function and taking into account the correct quadrant for \( z \).
-
+\textbf{Solution:}
+For \( z = x + iy \), \( \arg(z) \) is the angle \( \theta \in (-\pi, \pi] \) such that \( z = |z| e^{i\theta} \).
 \begin{enumerate}[label=\alph*)]
-
-\item If \( x > 0 \), then \( z \) lies in Quadrant I or IV, and the angle \( \theta = \tan^{-1}(y/x) \) already falls within the correct range \( (-\frac{\pi}{2}, \frac{\pi}{2}) \), so:
-\[
-\arg(z) = \tan^{-1}\left( \frac{y}{x} \right).
-\]
-
-\item If \( x < 0 \) and \( y \geq 0 \), then \( z \) is in Quadrant II. The arctangent alone would give a negative angle, so we must shift it into the correct quadrant by adding \( \pi \):
-\[
-\arg(z) = \tan^{-1}\left( \frac{y}{x} \right) + \pi.
-\]
-
-\item If \( x < 0 \) and \( y < 0 \), then \( z \) is in Quadrant III. Here, we subtract \( \pi \) from the arctangent to correct the angle:
-\[
-\arg(z) = \tan^{-1}\left( \frac{y}{x} \right) - \pi.
-\]
-
-\item If \( x = 0 \), then the argument is purely vertical:
-\[
-\arg(z) =
-\begin{cases}
-\frac{\pi}{2}, & \text{if } y > 0, \\
--\frac{\pi}{2}, & \text{if } y < 0.
-\end{cases}
-\]
-
+\item If \( x > 0 \), \( z \) is in Quadrant I or IV, and \( \tan \theta = \frac{y}{x} \), so \( \theta = \tan^{-1}\left( \frac{y}{x} \right) \).
+\item If \( x < 0 \), \( y \geq 0 \), \( z \) is in Quadrant II. \( \tan^{-1}\left( \frac{y}{x} \right) \in (-\frac{\pi}{2}, 0] \), so add \( \pi \) to get \( \theta \in (\frac{\pi}{2}, \pi] \).
+\item If \( x < 0 \), \( y < 0 \), \( z \) is in Quadrant III. \( \tan^{-1}\left( \frac{y}{x} \right) \in (0, \frac{\pi}{2}] \), so subtract \( \pi \) to get \( \theta \in (-\pi, -\frac{\pi}{2}] \).
+\item If \( x = 0 \), \( z = iy \). If \( y > 0 \), \( \theta = \frac{\pi}{2} \); if \( y < 0 \), \( \theta = -\frac{\pi}{2} \).
 \end{enumerate}
 
-\textbf{Conclusion:}  
-The argument of a complex number \( z = x + iy \) can be computed using the arctangent of \( y/x \), but care must be taken to adjust the angle depending on the quadrant in which \( z \) lies. These adjustments ensure the angle is correct in the principal value range \( (-\pi, \pi] \).
-
-
-\begin{problembox}[1.36: Order Axioms and Pseudo-Ordering on \(\mathbb{C}\)]
-Define the following “pseudo-ordering” of the complex numbers: we say \( z_1 < z_2 \) if either
-\begin{enumerate}[label=(\roman*)]
-\item \( |z_1| < |z_2| \), or
-\item \( |z_1| = |z_2| \) and \( \arg(z_1) < \arg(z_2) \).
-\end{enumerate}
-Which of Axioms 6, 7, 8, 9 are satisfied by this relation?
-\end{problembox}
-
-\textbf{Solution:}  
-Let us analyze the pseudo-ordering on complex numbers defined by first comparing moduli, and using argument comparison when the moduli are equal.
-
-We compare this relation against the following order axioms, written exactly as given:
+% Problem Let the pseudo-ordering be $z_1 < z_2$ if $|z_1| < |z_2|$, or if $|z_1|=|z_2|$ and $\arg(z_1) < \arg(z_2)$. We check the order axioms.
 
 \begin{itemize}
-\item \textbf{Axiom 6.} \emph{Exactly one of the relations \( x = y \), \( x < y \), \( x > y \) holds.}
+    \item \textbf{Axiom 6 (Trichotomy):} For any $z_1, z_2 \in \mathbb{C}$, we can compare their moduli. Exactly one of $|z_1| < |z_2|$, $|z_1| > |z_2|$, or $|z_1| = |z_2|$ holds. If $|z_1| = |z_2|$, we compare their principal arguments, for which trichotomy holds on $(-\pi, \pi]$. Thus, exactly one of $z_1 < z_2$, $z_2 < z_1$, or $z_1 = z_2$ is true. This axiom is \textbf{satisfied}.
 
-\textbf{Not satisfied.}  
-For example, let \( z_1 = i \) and \( z_2 = -i \). Then \( |z_1| = |z_2| = 1 \) and \( \arg(z_1) = \frac{\pi}{2} \), \( \arg(z_2) = -\frac{\pi}{2} \). So \( \arg(z_2) < \arg(z_1) \), hence \( z_2 < z_1 \), but \( z_1 \not< z_2 \), and they are not equal. However, for some other pairs like \( z_1 = 1 + i \) and \( z_2 = -1 + i \), the ordering is undefined (since \( |z_1| = |z_2| \) and \( \arg(z_1) \not< \arg(z_2) \), nor vice versa, due to ambiguity). Therefore, this axiom fails.
+    \item \textbf{Axiom 9 (Transitivity):} If $z_1 < z_2$ and $z_2 < z_3$, the transitivity of the $<$ relation on the real numbers for both the moduli and the arguments ensures that $z_1 < z_3$. This axiom is \textbf{satisfied}.
 
-\item \textbf{Axiom 7.} \emph{If \( x < y \), then for every \( z \) we have \( x + z < y + z \).}
+    \item \textbf{Axiom 7 (Translation Invariance):} This axiom states that if $z_1 < z_2$, then $z_1 + z < z_2 + z$ for any $z \in \mathbb{C}$. This axiom is \textbf{not satisfied}.
+    
+    \textbf{Counterexample:} Let $z_1 = 1$ and $z_2 = 2$. According to the ordering, $z_1 < z_2$ because $|z_1|=1 < |z_2|=2$.
+    Now, let $z = -2$.
+    Then $z_1 + z = 1 + (-2) = -1$.
+    And $z_2 + z = 2 + (-2) = 0$.
+    We must compare $z_1+z = -1$ and $z_2+z=0$.
+    We have $|-1|=1$ and $|0|=0$. Since $|0| < |-1|$, we have $0 < -1$ in this pseudo-ordering.
+    So, $z_2 + z < z_1 + z$. The order relation was reversed, which violates the axiom.
 
-\textbf{Not satisfied.}  
-This axiom relies on an ordering that is translation-invariant, which this pseudo-ordering is not. For example, if \( z_1 = 1 \), \( z_2 = 2 \), clearly \( z_1 < z_2 \) under modulus comparison. But adding \( z = -2 \) gives \( z_1 + z = -1 \), \( z_2 + z = 0 \), now \( |-1| = |0| = 1 \), but \( \arg(-1) = \pi \), \( \arg(0) \) is undefined. So translation does not preserve the ordering — this axiom fails.
-
-\item \textbf{Axiom 8.} \emph{If \( x > 0 \) and \( y > 0 \), then \( xy > 0 \).}
-
-\textbf{Not applicable.}  
-This axiom assumes that the order respects multiplication over a set with positive elements. Since the complex numbers do not have a natural definition of "positive", this axiom does not apply to our pseudo-ordering. The notion of \( z > 0 \) is undefined in \( \mathbb{C} \).
-
-\item \textbf{Axiom 9.} \emph{If \( x > y \) and \( y > z \), then \( x > z \).}
-
-\textbf{Satisfied.}  
-This is the transitivity of the ordering. Our definition ensures that if \( |z_1| < |z_2| \) and \( |z_2| < |z_3| \), then \( |z_1| < |z_3| \), hence \( z_1 < z_3 \). If the moduli are equal, the comparison of arguments also behaves transitively (i.e., if \( \arg(z_1) < \arg(z_2) \) and \( \arg(z_2) < \arg(z_3) \), then \( \arg(z_1) < \arg(z_3) \)). Therefore, Axiom 9 holds.
+    \item \textbf{Axiom 8 (Multiplication):} This axiom states that if $z_1 < z_2$ and $z > 0$, then $z_1 z < z_2 z$. Let us define $z>0$ to mean $0<z$. This holds for any $z \neq 0$. This axiom is also \textbf{not satisfied}.
+    
+    \textbf{Counterexample:} Let $z_1 = e^{i\pi} = -1$ and $z_2 = e^{-i\pi/2} = -i$.
+    We have $|z_1| = |z_2| = 1$. The arguments are $\arg(z_1) = \pi$ and $\arg(z_2) = -\pi/2$. Since $-\pi/2 < \pi$, we have $z_2 < z_1$.
+    Now, let $z = i$. Since $i \neq 0$, $z$ is a "positive" number under this definition.
+    Then $z_1 z = (-1)(i) = -i$.
+    And $z_2 z = (-i)(i) = 1$.
+    We must compare $z_1 z = -i$ and $z_2 z = 1$.
+    We have $|-i|=1$ and $|1|=1$. The arguments are $\arg(-i) = -\pi/2$ and $\arg(1) = 0$. Since $-\pi/2 < 0$, we have $-i < 1$.
+    So, $z_1 z < z_2 z$. The order relation was reversed from $z_2 < z_1$ to $z_1 z < z_2 z$. The axiom is violated.
 \end{itemize}
+\textbf{Conclusion:} Axioms 6 and 9 are satisfied; Axiom 7 and 8 is not applicable.
 
-\textbf{Conclusion:}  
-The pseudo-ordering defined on \( \mathbb{C} \) by comparing modulus and argument satisfies only \textbf{Axiom 9}. It fails to satisfy \textbf{Axiom 6} (trichotomy) and \textbf{Axiom 7} (translation invariance), and \textbf{Axiom 8} is not applicable due to the absence of a concept of positivity in \( \mathbb{C} \).
-
-
+% Problem 1.37: Order Axioms and Lexicographic Ordering on R^2
 \begin{problembox}[1.37: Order Axioms and Lexicographic Ordering on \(\mathbb{R}^2\)]
 Define a pseudo-ordering on ordered pairs \((x_1, y_1) < (x_2, y_2)\) if either
 \begin{enumerate}[label=(\roman*)]
@@ -1307,160 +1323,50 @@ Define a pseudo-ordering on ordered pairs \((x_1, y_1) < (x_2, y_2)\) if either
 Which of Axioms 6, 7, 8, 9 are satisfied by this relation?
 \end{problembox}
 
-\textbf{Solution:}  
-This relation defines the \emph{lexicographic ordering} on \(\mathbb{R}^2\), meaning the pair \((x_1, y_1)\) is less than \((x_2, y_2)\) if the first coordinate is less, or if the first coordinates are equal and the second coordinate is less. We now examine which order axioms this satisfies.
-
+\textbf{Solution:}
 \begin{itemize}
-\item \textbf{Axiom 6.} \emph{Exactly one of the relations \(x = y\), \(x < y\), \(x > y\) holds.}
-
-\textbf{Satisfied.}  
-For any two elements \((x_1, y_1), (x_2, y_2) \in \mathbb{R}^2\), we have:
-\begin{itemize}
-\item If \(x_1 < x_2\), then \((x_1, y_1) < (x_2, y_2)\),
-\item If \(x_1 > x_2\), then \((x_1, y_1) > (x_2, y_2)\),
-\item If \(x_1 = x_2\), then:
-\begin{itemize}
-\item if \(y_1 < y_2\), then \((x_1, y_1) < (x_2, y_2)\),
-\item if \(y_1 > y_2\), then \((x_1, y_1) > (x_2, y_2)\),
-\item if \(y_1 = y_2\), then \((x_1, y_1) = (x_2, y_2)\).
+\item \textbf{Axiom 6: Trichotomy.} For any \( (x_1, y_1), (x_2, y_2) \), if \( x_1 < x_2 \), then \( (x_1, y_1) < (x_2, y_2) \); if \( x_1 > x_2 \), then \( (x_2, y_2) < (x_1, y_1) \); if \( x_1 = x_2 \), compare \( y_1, y_2 \). Exactly one holds. Satisfied.
+\item \textbf{Axiom 7: Translation Invariance.} If \( (x_1, y_1) < (x_2, y_2) \), add \( (u, v) \): if \( x_1 < x_2 \), then \( x_1 + u < x_2 + u \); if \( x_1 = x_2 \), then \( y_1 < y_2 \implies y_1 + v < y_2 + v \). Satisfied.
+\item \textbf{Axiom 8: Multiplication.} Not applicable, as \( \mathbb{R}^2 \) lacks scalar multiplication.
+\item \textbf{Axiom 9: Transitivity.} If \( (x_1, y_1) < (x_2, y_2) \), \( (x_2, y_2) < (x_3, y_3) \), lexicographic order ensures \( (x_1, y_1) < (x_3, y_3) \). Satisfied.
 \end{itemize}
-\end{itemize}
-Thus, exactly one of the relations holds. \textbf{Axiom 6 is satisfied.}
+\textbf{Conclusion:} Axioms 6, 7, and 9 are satisfied; Axiom 8 is not applicable.
 
-\item \textbf{Axiom 7.} \emph{If \(x < y\), then for every \(z\) we have \(x + z < y + z\).}
-
-\textbf{Not satisfied.}  
-Suppose \((x_1, y_1) < (x_2, y_2)\) and we define addition coordinate-wise: \((x_1, y_1) + (u, v) = (x_1 + u, y_1 + v)\). Now let:
-\[
-(x_1, y_1) = (0, 0), \quad (x_2, y_2) = (1, -100), \quad (z_1, z_2) = (0, 200),
-\]
-Then:
-\[
-(x_1, y_1) + (z_1, z_2) = (0, 200), \quad (x_2, y_2) + (z_1, z_2) = (1, 100),
-\]
-and since \(0 < 1\), we still have \((0, 200) < (1, 100)\). But consider:
-\[
-(x_1, y_1) = (1, 0), \quad (x_2, y_2) = (1, 1), \quad (z_1, z_2) = (-1, 0),
-\]
-Then:
-\[
-(1, 0) < (1, 1), \quad \text{but} \quad (1, 0) + (-1, 0) = (0, 0), \quad (1, 1) + (-1, 0) = (0, 1),
-\]
-and now \((0, 0) < (0, 1)\), so the inequality is preserved. However, in general, the ordering is not preserved under addition because the first coordinates could shift inequality to the second comparison, which is not always predictable. Thus, \textbf{Axiom 7 is not satisfied.}
-
-\item \textbf{Axiom 8.} \emph{If \(x > 0\) and \(y > 0\), then \(xy > 0\).}
-
-\textbf{Not applicable.}  
-This axiom assumes scalar multiplication in an ordered field. The lexicographic order on \(\mathbb{R}^2\) does not define what \(xy\) means when \(x, y\) are vectors. \textbf{Axiom 8 does not apply.}
-
-\item \textbf{Axiom 9.} \emph{If \(x > y\) and \(y > z\), then \(x > z\).}
-
-\textbf{Satisfied.}  
-This is transitivity of the order. The lexicographic ordering is known to be transitive: if
-\[
-(x_1, y_1) < (x_2, y_2) \quad \text{and} \quad (x_2, y_2) < (x_3, y_3),
-\]
-then it follows that \((x_1, y_1) < (x_3, y_3)\), either by the first coordinate being increasing, or by the second when the first coordinates are equal. \textbf{Axiom 9 is satisfied.}
-\end{itemize}
-
-\textbf{Conclusion:}  
-The lexicographic ordering on \(\mathbb{R}^2\) satisfies:
-\[
-\text{Axiom 6 (trichotomy)} \quad \text{and} \quad \text{Axiom 9 (transitivity)},
-\]
-but it \textbf{does not satisfy Axiom 7}, and \textbf{Axiom 8 is not applicable}.
-
+% Problem 1.38: Argument of a Quotient Using Theorem 1.48
 \begin{problembox}[1.38: Argument of a Quotient Using Theorem 1.48]
 State and prove a theorem analogous to Theorem 1.48, expressing \( \arg\left( \frac{z_1}{z_2} \right) \) in terms of \( \arg(z_1) \) and \( \arg(z_2) \).
 \end{problembox}
 
-\textbf{Solution:}  
-
-We begin by recalling Theorem 1.48, which states:
-
-\begin{quote}
-\textbf{Theorem 1.48.}  
-If \( z_1 z_2 \ne 0 \), then
-\[
-\arg(z_1 z_2) = \arg(z_1) + \arg(z_2) + 2\pi n(z_1, z_2),
-\]
-where the integer \( n(z_1, z_2) \) is defined by:
-\[
-n(z_1, z_2) =
-\begin{cases}
-0, & \text{if } -\pi < \arg(z_1) + \arg(z_2) \leq \pi, \\
-+1, & \text{if } -2\pi < \arg(z_1) + \arg(z_2) \leq -\pi, \\
--1, & \text{if } \pi < \arg(z_1) + \arg(z_2) \leq 2\pi.
-\end{cases}
-\]
-\end{quote}
-
-To prove the analogous result for the quotient \( \frac{z_1}{z_2} \), observe that:
-\[
-\arg\left( \frac{z_1}{z_2} \right) = \arg(z_1 z_2^{-1}).
-\]
-
-We apply Theorem 1.48 to the product \( z_1 \cdot z_2^{-1} \), treating \( z_2^{-1} \) as the second factor. Let:
-\[
-\theta_1 = \arg(z_1), \quad \theta_2 = \arg(z_2^{-1}) = -\arg(z_2).
-\]
-
-Then by Theorem 1.48:
-\[
-\arg\left( \frac{z_1}{z_2} \right)
-= \arg(z_1 z_2^{-1})
-= \arg(z_1) + \arg(z_2^{-1}) + 2\pi n(z_1, z_2^{-1})
-= \arg(z_1) - \arg(z_2) + 2\pi n(z_1, z_2^{-1}).
-\]
-
-\textbf{Conclusion:}  
-The correct expression is:
+\textbf{Solution:}
+\textbf{Theorem:} If \( z_1, z_2 \neq 0 \), then:
 \[
 \arg\left( \frac{z_1}{z_2} \right) = \arg(z_1) - \arg(z_2) + 2\pi n(z_1, z_2^{-1}),
 \]
-where \( n(z_1, z_2^{-1}) \) is determined by checking whether \( \arg(z_1) - \arg(z_2) \) lies within \( (-\pi, \pi] \), or requires adjustment by \( \pm 2\pi \) to lie in the principal branch.
+where \( n(z_1, z_2^{-1}) \) adjusts the argument to \( (-\pi, \pi] \).
 
+\textbf{Proof:}
+Since \( \frac{z_1}{z_2} = z_1 z_2^{-1} \), and \( \arg(z_2^{-1}) = -\arg(z_2) \), apply Theorem 1.48:
+\[
+\arg(z_1 z_2^{-1}) = \arg(z_1) + \arg(z_2^{-1}) + 2\pi n(z_1, z_2^{-1}) = \arg(z_1) - \arg(z_2) + 2\pi n(z_1, z_2^{-1}).
+\]
+
+% Problem 1.39: Logarithm of a Quotient Using Theorem 1.54
 \begin{problembox}[1.39: Logarithm of a Quotient Using Theorem 1.54]
 State and prove a theorem analogous to Theorem 1.54, expressing \( \log\left( \frac{z_1}{z_2} \right) \) in terms of \( \log(z_1) \) and \( \log(z_2) \).
 \end{problembox}
 
-\textbf{Solution:}  
-
-We begin by quoting the original:
-
-\begin{quote}
-\textbf{Theorem 1.54.}  
-If \( z_1 z_2 \ne 0 \), then
+\textbf{Solution:}
+\textbf{Theorem:} If \( z_1, z_2 \neq 0 \), then:
 \[
-\log(z_1 z_2) = \log z_1 + \log z_2 + 2\pi i\, n(z_1, z_2),
+\log\left( \frac{z_1}{z_2} \right) = \log z_1 - \log z_2 + 2\pi i n(z_1, z_2^{-1}).
 \]
-where \( n(z_1, z_2) \) is the integer defined in Theorem 1.48 to adjust the argument into the principal value range.
-\end{quote}
-
-We now wish to find an analogous identity for the logarithm of a quotient:
+\textbf{Proof:}
+Since \( \frac{z_1}{z_2} = z_1 z_2^{-1} \), apply Theorem 1.54:
 \[
-\log\left( \frac{z_1}{z_2} \right).
+\log(z_1 z_2^{-1}) = \log z_1 + \log(z_2^{-1}) + 2\pi i n(z_1, z_2^{-1}) = \log z_1 - \log z_2 + 2\pi i n(z_1, z_2^{-1}).
 \]
 
-Recall that \( \frac{z_1}{z_2} = z_1 \cdot z_2^{-1} \). Applying Theorem 1.54 to this product gives:
-\[
-\log\left( \frac{z_1}{z_2} \right)
-= \log(z_1) + \log(z_2^{-1}) + 2\pi i\, n(z_1, z_2^{-1}).
-\]
-
-Now use the identity \( \log(z^{-1}) = -\log(z) \), which holds up to a multiple of \( 2\pi i \), and we already account for that adjustment via \( n(\cdot, \cdot) \). So we get:
-\[
-\log\left( \frac{z_1}{z_2} \right) = \log z_1 - \log z_2 + 2\pi i\, n(z_1, z_2^{-1}).
-\]
-
-\textbf{Conclusion:}  
-The logarithm of a quotient satisfies the identity:
-\[
-\log\left( \frac{z_1}{z_2} \right) = \log z_1 - \log z_2 + 2\pi i\, n(z_1, z_2^{-1}),
-\]
-where the integer \( n(z_1, z_2^{-1}) \) is defined by Theorem 1.48 and ensures the argument stays within the principal branch of the complex logarithm.
-
-
+% Problem 1.40: Roots of Unity and Polynomial Identity
 \begin{problembox}[1.40: Roots of Unity and Polynomial Identity]
 Prove that the \( n \)th roots of 1 are given by \( \alpha, \alpha^2, \ldots, \alpha^n \), where \( \alpha = e^{2\pi i/n} \), and that these roots \( \ne 1 \) satisfy the equation
 \[
@@ -1474,6 +1380,7 @@ Let \( \alpha = e^{2\pi i/n} \). Then \( \alpha^n = 1 \), so it’s a root of \(
 \frac{1 - \alpha^n}{1 - \alpha} = 0 \Rightarrow 1 + \alpha + \cdots + \alpha^{n-1} = 0 \quad \text{for } \alpha \ne 1.
 \]
 
+% Problem 1.41: Inequalities and Boundedness of cos z
 \begin{problembox}[1.41: Inequalities and Boundedness of $\cos z$]
 \begin{enumerate}[label=\alph*)]
 \item Prove that \( |z^i| < e^{\pi} \) for all complex \( z \ne 0 \).
@@ -1482,34 +1389,12 @@ Let \( \alpha = e^{2\pi i/n} \). Then \( \alpha^n = 1 \), so it’s a root of \(
 \end{problembox}
 
 \textbf{Solution:}
+\begin{enumerate}[label=\alph*)]
+\item For \( z = re^{i\theta} \), \( z^i = e^{i(\ln r + i\theta)} = e^{-\theta} e^{i \ln r} \), so \( |z^i| = e^{-\theta} \). Since \( \theta \in (-\pi, \pi] \), \( |z^i| \leq e^{\pi} \), strict unless \( \theta = -\pi \).
+\item For \( z = iy \), \( \cos(iy) = \cosh y \), which is unbounded as \( |y| \to \infty \). Thus, no \( M > 0 \) exists.
+\end{enumerate}
 
-\textbf{(a) Prove that \( |z^i| < e^{\pi} \) for all complex \( z \ne 0 \):}
-
-Let \( z = re^{i\theta} \) where \( r > 0 \) and \( \theta \in \mathbb{R} \). Then:
-\[
-z^i = e^{i \log z} = e^{i(\ln r + i\theta)} = e^{i\ln r - \theta} = e^{-\theta} \cdot e^{i\ln r}.
-\]
-
-Therefore:
-\[
-|z^i| = |e^{-\theta} \cdot e^{i\ln r}| = e^{-\theta} \cdot |e^{i\ln r}| = e^{-\theta} \cdot 1 = e^{-\theta}.
-\]
-
-Since \( \theta \) is the argument of \( z \), we have \( -\pi < \theta \leq \pi \) (principal value). Therefore:
-\[
-|z^i| = e^{-\theta} \leq e^{\pi},
-\]
-with equality achieved when \( \theta = -\pi \) (i.e., when \( z \) is a negative real number).
-
-\textbf{(b) Prove that there is no constant \( M > 0 \) such that \( |\cos z| < M \) for all complex \( z \):}
-
-The cosine function is unbounded in the complex plane. Specifically, for \( z = iy \) where \( y \in \mathbb{R} \):
-\[
-\cos(iy) = \frac{e^{i(iy)} + e^{-i(iy)}}{2} = \frac{e^{-y} + e^{y}}{2} = \cosh y.
-\]
-
-As \( y \to \infty \), we have \( \cosh y \to \infty \), and as \( y \to -\infty \), we also have \( \cosh y \to \infty \). Therefore, \( |\cos z| \) can be made arbitrarily large, so no finite bound \( M \) exists.
-
+% Problem 1.42: Complex Exponential via Real and Imaginary Parts
 \begin{problembox}[1.42: Complex Exponential via Real and Imaginary Parts]
 If \( w = u + iv \), where \( u \) and \( v \) are real, show that
 \[
@@ -1517,32 +1402,17 @@ z^w = e^{u \log |z| - v \arg(z)} \cdot e^{i[v \log |z| + u \arg(z)]}.
 \]
 \end{problembox}
 
-\textbf{Solution:}  
-We begin with the identity:
+\textbf{Solution:}
+For \( z^w = e^{w \log z} \), where \( \log z = \log |z| + i \arg z \):
 \[
-z^w = e^{w \Log z},
+w \log z = (u + iv)(\log |z| + i \arg z) = (u \log |z| - v \arg z) + i(v \log |z| + u \arg z).
 \]
-where \( \Log z = \log |z| + i \arg(z) \), and \( w = u + iv \).
-
-Substitute into the expression:
+Thus:
 \[
-z^w = e^{(u + iv)(\log |z| + i \arg(z))}.
+z^w = e^{u \log |z| - v \arg z} e^{i(v \log |z| + u \arg z)}.
 \]
 
-Now distribute the product:
-\begin{align*}
-(u + iv)(\log |z| + i \arg(z)) 
-&= u \log |z| + u i \arg(z) + iv \log |z| + iv i \arg(z) \\
-&= u \log |z| + i u \arg(z) + i v \log |z| - v \arg(z) \\
-&= (u \log |z| - v \arg(z)) + i (v \log |z| + u \arg(z)).
-\end{align*}
-
-So,
-\[
-z^w = e^{u \log |z| - v \arg(z)} \cdot e^{i[v \log |z| + u \arg(z)]}.
-\]
-
-
+% Problem 1.43: Logarithmic Identities for Complex Powers
 \begin{problembox}[1.43: Logarithmic Identities for Complex Powers]
 \begin{enumerate}[label=\alph*)]
 \item Prove that \( \log(z^w) = w \log z + 2\pi i n \), where \( n \) is an integer.
@@ -1551,81 +1421,45 @@ z^w = e^{u \log |z| - v \arg(z)} \cdot e^{i[v \log |z| + u \arg(z)]}.
 \end{problembox}
 
 \textbf{Solution:}
-
-\textbf{(a) Prove that \( \log(z^w) = w \log z + 2\pi i n \), where \( n \) is an integer:}
-
-We start with the definition:
+\begin{enumerate}[label=\alph*)]
+\item Since \( z^w = e^{w \log z} \):
 \[
-z^w = e^{w \log z}.
+\log(z^w) = \log(e^{w \log z}) = w \log z + 2\pi i n.
 \]
-
-Taking the logarithm of both sides:
+\item Compute:
 \[
-\log(z^w) = \log(e^{w \log z}) = w \log z + 2\pi i n,
+(z^w)^\alpha = e^{\alpha \log(z^w)} = e^{\alpha(w \log z + 2\pi i n)} = z^{w\alpha} e^{2\pi i n \alpha}.
 \]
-where \( n \) is an integer that accounts for the multivalued nature of the complex logarithm. The term \( 2\pi i n \) ensures that the argument stays within the principal branch.
+\end{enumerate}
 
-\textbf{(b) Prove that \( (z^w)^\alpha = z^{w\alpha} e^{2\pi i n \alpha} \), where \( n \) is an integer:}
-
-From part (a), we have:
-\[
-\log(z^w) = w \log z + 2\pi i n.
-\]
-
-Now, taking the \(\alpha\)-th power:
-\[
-(z^w)^\alpha = e^{\alpha \log(z^w)} = e^{\alpha(w \log z + 2\pi i n)} = e^{\alpha w \log z + 2\pi i n \alpha} = z^{w\alpha} e^{2\pi i n \alpha}.
-\]
-
-The key insight is that when we raise \( z^w \) to the power \(\alpha\), the multivalued term \( 2\pi i n \) gets multiplied by \(\alpha\), giving us \( 2\pi i n \alpha \).
-
-\textbf{Conclusion:}
-The identity \( (z^w)^\alpha = z^{w\alpha} e^{2\pi i n \alpha} \) shows how the multivalued nature of complex powers propagates through exponentiation, with the branch adjustment term being scaled by the exponent \(\alpha\).
+% Problem 1.44: Conditions for De Moivre’s Formula
 \begin{problembox}[1.44: Conditions for De Moivre’s Formula]
 \begin{enumerate}[label=\roman*)]
 \item If \( \theta \) and \( a \) are real numbers, \( -\pi < \theta \leq +\pi \), prove that
 \[
 (\cos \theta + i \sin \theta)^a = \cos(a\theta) + i \sin(a\theta).
 \]
-
 \item Show that, in general, the restriction \( -\pi < \theta \leq +\pi \) is necessary in (i) by taking \( \theta = -\pi \), \( a = \tfrac{1}{2} \).
-
 \item If \( a \) is an integer, show that the formula in (i) holds without any restriction on \( \theta \). In this case it is known as De Moivre’s theorem.
 \end{enumerate}
 \end{problembox}
 
 \textbf{Solution:}
-
 \begin{enumerate}[label=\roman*)]
-
-\item If \( -\pi < \theta \leq +\pi \), then the principal value of the argument of \( z = \cos \theta + i \sin \theta \) is well-defined, and:
+\item Since \( \cos \theta + i \sin \theta = e^{i\theta} \):
 \[
-\cos \theta + i \sin \theta = e^{i \theta}.
+(\cos \theta + i \sin \theta)^a = (e^{i\theta})^a = e^{i a \theta} = \cos(a\theta) + i \sin(a\theta).
 \]
-So:
+\item For \( \theta = -\pi \), \( a = \frac{1}{2} \):
 \[
-(\cos \theta + i \sin \theta)^a = \left( e^{i \theta} \right)^a = e^{i a \theta} = \cos(a\theta) + i \sin(a\theta).
+(-1)^{1/2} = i, \quad \text{but} \quad \cos\left(\frac{-\pi}{2}\right) + i \sin\left(\frac{-\pi}{2}\right) = -i.
 \]
-This uses Euler’s formula and assumes a single-valued branch of the logarithm, which is valid in the range \( -\pi < \theta \leq \pi \).
-
-\item Let \( \theta = -\pi \), \( a = \tfrac{1}{2} \). Then:
-\[
-(\cos \theta + i \sin \theta)^a = (-1)^{1/2} = i,
-\]
-but
-\[
-\cos(a\theta) + i \sin(a\theta) = \cos(-\tfrac{\pi}{2}) + i \sin(-\tfrac{\pi}{2}) = 0 - i = -i.
-\]
-So the identity fails in this case. This demonstrates that the restriction on \( \theta \) is necessary when \( a \) is not an integer.
-
-\item If \( a \in \mathbb{Z} \), then we have:
-\[
-(\cos \theta + i \sin \theta)^a = \left( e^{i \theta} \right)^a = e^{i a \theta} = \cos(a \theta) + i \sin(a \theta),
-\]
-regardless of the value of \( \theta \in \mathbb{R} \), because integer powers of a complex number are single-valued and the ambiguity in \( \arg(z) \) leads only to integer multiples of \( 2\pi i \), which cancel when raised to integer exponents. This identity is known as \textbf{De Moivre’s Theorem}.
+The restriction ensures the principal branch.
+\item For integer \( a \), \( (e^{i\theta})^a = e^{i a \theta} \), and multiples of \( 2\pi \) cancel, so the formula holds for all \( \theta \).
 \end{enumerate}
 
-\begin{problembox}[1.45: Deriving Trigonometric Identities from De Moivre's Theorem]
+% Problem 1.45: Deriving Trigonometric Identities from De Moivre’s Theorem
+\begin{problembox}[1.45: Deriving Trigonometric Identities from De Moivre’s Theorem]
 Use De Moivre’s theorem (Exercise 1.44) to derive the trigonometric identities
 \[
 \sin 3\theta = 3 \cos^2 \theta \sin \theta - \sin^3 \theta,
@@ -1637,52 +1471,21 @@ valid for real \( \theta \). Are these valid when \( \theta \) is complex?
 \end{problembox}
 
 \textbf{Solution:}
-
-We begin by applying De Moivre’s theorem:
+By De Moivre’s theorem:
 \[
-\cos(n\theta) + i \sin(n\theta) = (\cos \theta + i \sin \theta)^n.
+(\cos \theta + i \sin \theta)^3 = \cos 3\theta + i \sin 3\theta.
 \]
-Let \( n = 3 \). Then:
+Expand:
 \[
-\cos(3\theta) + i \sin(3\theta) = (\cos \theta + i \sin \theta)^3.
+\cos^3 \theta + 3i \cos^2 \theta \sin \theta - 3 \cos \theta \sin^2 \theta - i \sin^3 \theta.
 \]
-
-We now expand the right-hand side using the binomial theorem:
+Equate parts:
 \[
-(\cos \theta + i \sin \theta)^3 = \cos^3 \theta + 3i \cos^2 \theta \sin \theta - 3 \cos \theta \sin^2 \theta - i \sin^3 \theta.
+\cos 3\theta = \cos^3 \theta - 3 \cos \theta \sin^2 \theta, \quad \sin 3\theta = 3 \cos^2 \theta \sin \theta - \sin^3 \theta.
 \]
+These hold for complex \( \theta \), as \( \cos z \) and \( \sin z \) are analytic.
 
-Grouping real and imaginary parts:
-\[
-= \left( \cos^3 \theta - 3 \cos \theta \sin^2 \theta \right)
-+ i \left( 3 \cos^2 \theta \sin \theta - \sin^3 \theta \right).
-\]
-
-By comparing both sides:
-\begin{align*}
-\cos(3\theta) &= \cos^3 \theta - 3 \cos \theta \sin^2 \theta, \\
-\sin(3\theta) &= 3 \cos^2 \theta \sin \theta - \sin^3 \theta.
-\end{align*}
-
-These are standard trigonometric identities, and they follow directly from De Moivre’s theorem when \( \theta \) is real.
-
-\vspace{0.5em}
-\textbf{Are these identities valid for complex \( \theta \)?}
-
-The expressions for \( \cos(3\theta) \) and \( \sin(3\theta) \) in terms of \( \cos \theta \) and \( \sin \theta \) remain algebraically correct for complex \( \theta \) as well, since sine and cosine functions are defined for complex arguments via their power series (or as:
-\[
-\cos z = \frac{e^{iz} + e^{-iz}}{2}, \quad \sin z = \frac{e^{iz} - e^{-iz}}{2i}).
-\]
-
-Thus, the identities:
-\[
-\cos(3\theta) = \cos^3 \theta - 3 \cos \theta \sin^2 \theta,
-\quad
-\sin(3\theta) = 3 \cos^2 \theta \sin \theta - \sin^3 \theta
-\]
-remain valid for all complex \( \theta \), provided we interpret the trigonometric functions using their analytic definitions.
-
-
+% Problem 1.46: Tangent of Complex Numbers
 \begin{problembox}[1.46: Tangent of Complex Numbers]
 Define \( \tan z = \frac{\sin z}{\cos z} \), and show that for \( z = x + iy \),
 \[
@@ -1691,177 +1494,58 @@ Define \( \tan z = \frac{\sin z}{\cos z} \), and show that for \( z = x + iy \),
 \end{problembox}
 
 \textbf{Solution:}
-Use identities:
+For \( z = x + iy \):
 \[
-\sin(x + iy) = \sin x \cosh y + i \cos x \sinh y, \quad
-\cos(x + iy) = \cos x \cosh y - i \sin x \sinh y.
+\sin z = \sin x \cosh y + i \cos x \sinh y, \quad \cos z = \cos x \cosh y - i \sin x \sinh y.
 \]
-Compute \( \tan z \) and simplify numerator and denominator.
+Compute:
+\[
+\tan z = \frac{\sin x \cosh y + i \cos x \sinh y}{\cos x \cosh y - i \sin x \sinh y}.
+\]
+Multiply by the conjugate of the denominator:
+\[
+N = (\sin x \cosh y + i \cos x \sinh y)(\cos x \cosh y + i \sin x \sinh y) = \sin 2x + i \sinh 2y,
+\]
+\[
+D = (\cos x \cosh y)^2 + (\sin x \sinh y)^2 = \frac{1}{2}(\cos 2x + \cosh 2y).
+\]
+Thus:
+\[
+\tan z = \frac{\sin 2x + i \sinh 2y}{\cos 2x + \cosh 2y}.
+\]
 
+% Problem 1.47: Solving Cosine Equation
 \begin{problembox}[1.47: Solving Cosine Equation]
 Let \( w \) be a complex number. If \( w \ne \pm 1 \), show that there exist two values \( z = x + iy \) with \( \cos z = w \) and \( -\pi < x \leq \pi \). Find such \( z \) when \( w = i \) and \( w = 2 \).
 \end{problembox}
 
 \textbf{Solution:}
-Solve \( \cos z = w \) using the identity:
+For \( z = x + iy \), \( \cos z = \cos x \cosh y - i \sin x \sinh y = w = u + iv \). Solve:
 \[
-\cos z = \cos x \cosh y - i \sin x \sinh y.
+\cos x \cosh y = u, \quad -\sin x \sinh y = v.
 \]
-Separate real and imaginary parts and solve the system.  
-For \( w = i \), solution exists with real part \( x = 0 \).  
-For \( w = 2 \), solve \( \cos x \cosh y = 2 \).
-
-
-\begin{problembox}[1.46: Tangent of a Complex Number]
-Define \( \tan z = \frac{\sin z}{\cos z} \) and show that for \( z = x + iy \), we have
+Square and add:
 \[
-\tan z = \frac{\sin 2x + i \sinh 2y}{\cos 2x + \cosh 2y}.
+\sin^2 x = \sinh^2 y + 1 - u^2 - v^2.
 \]
-\end{problembox}
+Since \( w \neq \pm 1 \), solutions exist, with two \( x \) in \( (-\pi, \pi] \).
 
-\textbf{Solution:}
-
-We begin with the definition:
+\textbf{Case 1: \( w = i \).} \( u = 0 \), \( v = 1 \):
 \[
-\tan z = \frac{\sin z}{\cos z},
+\cos x \cosh y = 0 \implies x = \pm \frac{\pi}{2}.
 \]
-where \( z = x + iy \), with \( x, y \in \mathbb{R} \). We will express \( \sin z \) and \( \cos z \) in terms of \( x \) and \( y \).
+For \( x = \frac{\pi}{2} \), \( \sinh y = -1 \implies y = -\ln(1 + \sqrt{2}) \).
+For \( x = -\frac{\pi}{2} \), \( \sinh y = 1 \implies y = \ln(1 + \sqrt{2}) \).
+Solutions: \( z_1 = \frac{\pi}{2} - i \ln(1 + \sqrt{2}) \), \( z_2 = -\frac{\pi}{2} + i \ln(1 + \sqrt{2}) \).
 
-Recall the identities for sine and cosine of complex numbers:
-\begin{align*}
-\sin(x + iy) &= \sin x \cosh y + i \cos x \sinh y, \\
-\cos(x + iy) &= \cos x \cosh y - i \sin x \sinh y.
-\end{align*}
-
-Now compute:
+\textbf{Case 2: \( w = 2 \).} \( u = 2 \), \( v = 0 \):
 \[
-\tan z = \frac{\sin x \cosh y + i \cos x \sinh y}{\cos x \cosh y - i \sin x \sinh y}.
+\cos x \cosh y = 2, \quad \sin x \sinh y = 0.
 \]
+Thus, \( x = 0 \), \( \cosh y = 2 \implies y = \pm \ln(2 + \sqrt{3}) \).
+Solutions: \( z_1 = i \ln(2 + \sqrt{3}) \), \( z_2 = -i \ln(2 + \sqrt{3}) \).
 
-To simplify this quotient, multiply numerator and denominator by the complex conjugate of the denominator:
-\[
-\cos x \cosh y + i \sin x \sinh y.
-\]
-
-Let’s denote:
-\[
-N = (\sin x \cosh y + i \cos x \sinh y)(\cos x \cosh y + i \sin x \sinh y), \\
-D = (\cos x \cosh y - i \sin x \sinh y)(\cos x \cosh y + i \sin x \sinh y).
-\]
-
-Using standard complex multiplication:
-\begin{align*}
-N &= \sin x \cos x \cosh^2 y + i \sin^2 x \cosh y \sinh y + i \cos^2 x \sinh y \cosh y - \cos x \sin x \sinh^2 y \\
-&= \cos x \sin x (\cosh^2 y - \sinh^2 y) + i (\cos^2 x + \sin^2 x)\sinh y \cosh y \\
-&= \cos x \sin x (1) + i \sinh 2y / 2 \cdot 2 \\
-&= \frac{1}{2} \sin 2x + i \sinh 2y / 2 \cdot 2 = \sin 2x + i \sinh 2y.
-\end{align*}
-
-Similarly:
-\[
-D = \cos^2 x \cosh^2 y + \sin^2 x \sinh^2 y = \frac{1}{2}(\cos 2x + \cosh 2y).
-\]
-
-Putting it all together:
-\[
-\tan z = \frac{\sin 2x + i \sinh 2y}{\cos 2x + \cosh 2y}.
-\]
-
-\textbf{Conclusion:}  
-For any complex number \( z = x + iy \), we have:
-\[
-\tan z = \frac{\sin 2x + i \sinh 2y}{\cos 2x + \cosh 2y}.
-\]
-This formula expresses the complex tangent in terms of real trigonometric and hyperbolic functions.
-
-
-\begin{problembox}[1.47: Solving Cosine complext equation]
-Let \( w \) be a given complex number. If \( w \ne \pm 1 \), show that there exist two values of \( z = x + iy \) satisfying the conditions \( \cos z = w \) and \( -\pi < x \leq \pi \). Find these values when \( w = i \) and when \( w = 2 \).
-\end{problembox}
-
-\textbf{Solution:}
-
-We are to solve the equation:
-\[
-\cos z = w, \quad \text{where } z = x + iy.
-\]
-
-Recall the complex cosine identity:
-\[
-\cos z = \cos(x + iy) = \cos x \cosh y - i \sin x \sinh y.
-\]
-
-Let’s denote:
-\[
-\cos z = u + iv, \quad \text{where } u = \Re(w), v = \Im(w).
-\]
-
-So we need to solve the system:
-\begin{align*}
-\cos x \cosh y &= u, \tag{1} \\
-- \sin x \sinh y &= v. \tag{2}
-\end{align*}
-
-Now, since \( \cos z \) is periodic in \( x \) with period \( 2\pi \), we can restrict \( x \) to the interval \( -\pi < x \leq \pi \). Moreover, for a given \( w \ne \pm 1 \), the function \( \cos z \) is nonconstant and analytic, so the equation \( \cos z = w \) has infinitely many solutions. However, we seek only the two solutions with \( x \in (-\pi, \pi] \).
-
-Let’s apply this to the two cases:
-
-\vspace{0.5em}
-\textbf{Case 1: \( w = i \).}
-
-Here \( u = 0 \), \( v = 1 \). Then the system becomes:
-\begin{align*}
-\cos x \cosh y &= 0, \\
-- \sin x \sinh y &= 1.
-\end{align*}
-
-From (1), \( \cos x = 0 \Rightarrow x = \pm \frac{\pi}{2} \). Within \( (-\pi, \pi] \), these are valid.
-
-Try \( x = \frac{\pi}{2} \):  
-Then \( \sin x = 1 \), and equation (2) becomes:
-\[
-- \sinh y = 1 \Rightarrow \sinh y = -1 \Rightarrow y = \sinh^{-1}(-1) = -\ln(1 + \sqrt{2}).
-\]
-
-Try \( x = -\frac{\pi}{2} \):  
-Then \( \sin x = -1 \), and equation (2) becomes:
-\[
--(-1) \sinh y = 1 \Rightarrow \sinh y = 1 \Rightarrow y = \sinh^{-1}(1) = \ln(1 + \sqrt{2}).
-\]
-
-\textbf{So the two values of \( z \) are:}
-\[
-z_1 = \frac{\pi}{2} + i \cdot (-\ln(1 + \sqrt{2})), \quad
-z_2 = -\frac{\pi}{2} + i \cdot \ln(1 + \sqrt{2}).
-\]
-
-\vspace{0.5em}
-\textbf{Case 2: \( w = 2 \).}
-
-Now \( u = 2 \), \( v = 0 \), so:
-\begin{align*}
-\cos x \cosh y &= 2, \\
-- \sin x \sinh y &= 0.
-\end{align*}
-
-From (2), either \( \sin x = 0 \) or \( \sinh y = 0 \).
-
-Try \( \sin x = 0 \Rightarrow x = 0, \pi, -\pi \).  
-Within the interval \( (-\pi, \pi] \), valid choices are \( x = 0 \), \( x = \pi \).
-
-Try \( x = 0 \Rightarrow \cos x = 1 \Rightarrow \cosh y = 2 \Rightarrow y = \cosh^{-1}(2) = \ln(2 + \sqrt{3}) \).
-
-Try \( x = \pi \Rightarrow \cos x = -1 \Rightarrow \cosh y = -2 \), but this is impossible since \( \cosh y > 0 \) for all real \( y \).
-
-\textbf{So the two values of \( z \) are:}
-\[
-z_1 = 0 + i \ln(2 + \sqrt{3}), \quad
-z_2 = 0 - i \ln(2 + \sqrt{3}).
-\]
-
-(We used evenness of \( \cosh \) to find the second solution.)
-
-
+% Problem 1.48: Lagrange’s Identity and the Cauchy–Schwarz Inequality
 \begin{problembox}[1.48: Lagrange’s Identity and the Cauchy–Schwarz Inequality]
 Prove Lagrange’s identity for complex numbers:
 \[
@@ -1871,76 +1555,53 @@ Use this to deduce a Cauchy–Schwarz inequality for complex numbers.
 \end{problembox}
 
 \textbf{Solution:}
-
-Let \( a_1, \dots, a_n \), \( b_1, \dots, b_n \) be complex numbers. Define:
+We want to prove the identity:
 \[
-S := \sum_{k=1}^n a_k \overline{b_k}.
+\left| \sum_{k=1}^n a_k \overline{b_k} \right|^2 = \left( \sum_{k=1}^n |a_k|^2 \right) \left( \sum_{k=1}^n |b_k|^2 \right) - \sum_{1 \leq k < j \leq n} |a_k \overline{b_j} - a_j \overline{b_k}|^2.
 \]
-Then the left-hand side of the identity is:
+It is easier to prove the equivalent formulation:
 \[
-|S|^2 = \left( \sum_{k=1}^n a_k \overline{b_k} \right) \left( \sum_{l=1}^n \overline{a_l} b_l \right) = \sum_{k=1}^n \sum_{l=1}^n a_k \overline{b_k} \overline{a_l} b_l.
+\left( \sum_{k=1}^n |a_k|^2 \right) \left( \sum_{j=1}^n |b_j|^2 \right) = \left| \sum_{k=1}^n a_k \overline{b_k} \right|^2 + \sum_{1 \leq k < j \leq n} |a_k \overline{b_j} - a_j \overline{b_k}|^2.
 \]
-
-Now we compute the right-hand side.
-
-First, expand the product of the norms:
-\[
-\left( \sum_{k=1}^n |a_k|^2 \right) \left( \sum_{k=1}^n |b_k|^2 \right)
-= \sum_{k=1}^n |a_k|^2 \sum_{l=1}^n |b_l|^2
-= \sum_{k=1}^n \sum_{l=1}^n |a_k|^2 |b_l|^2.
-\]
-
-Let us now consider the sum:
-\[
-\sum_{1 \leq k < j \leq n} |a_k \overline{b_j} - a_j \overline{b_k}|^2.
-\]
-Expanding the squared magnitude:
+Let's expand the left-hand side (LHS):
 \begin{align*}
-|a_k \overline{b_j} - a_j \overline{b_k}|^2 
-&= (a_k \overline{b_j} - a_j \overline{b_k})(\overline{a_k \overline{b_j} - a_j \overline{b_k}}) \\
-&= |a_k|^2 |b_j|^2 + |a_j|^2 |b_k|^2 - a_k \overline{b_j} \overline{a_j} b_k - \overline{a_k} b_j a_j \overline{b_k}.
+\text{LHS} &= \left( \sum_{k=1}^n a_k \overline{a_k} \right) \left( \sum_{j=1}^n b_j \overline{b_j} \right) = \sum_{k=1}^n \sum_{j=1}^n a_k \overline{a_k} b_j \overline{b_j} \\
+&= \sum_{k=1}^n |a_k|^2 |b_k|^2 + \sum_{k \neq j} |a_k|^2 |b_j|^2 \\
+&= \sum_{k=1}^n |a_k|^2 |b_k|^2 + \sum_{1 \leq k < j \leq n} (|a_k|^2 |b_j|^2 + |a_j|^2 |b_k|^2)
 \end{align*}
+Now, let's expand the right-hand side (RHS). The first term is:
+\begin{align*}
+\left| \sum_{k=1}^n a_k \overline{b_k} \right|^2 &= \left(\sum_{k=1}^n a_k \overline{b_k}\right) \overline{\left(\sum_{j=1}^n a_j \overline{b_j}\right)} = \left(\sum_{k=1}^n a_k \overline{b_k}\right) \left(\sum_{j=1}^n \overline{a_j} b_j\right) \\
+&= \sum_{k=1}^n \sum_{j=1}^n a_k \overline{b_k} \overline{a_j} b_j \\
+&= \sum_{k=1}^n |a_k|^2 |b_k|^2 + \sum_{k \neq j} a_k \overline{b_k} \overline{a_j} b_j \\
+&= \sum_{k=1}^n |a_k|^2 |b_k|^2 + \sum_{1 \leq k < j \leq n} (a_k \overline{b_k} \overline{a_j} b_j + a_j \overline{b_j} \overline{a_k} b_k)
+\end{align*}
+The second term on the RHS is:
+\begin{align*}
+\sum_{1 \leq k < j \leq n} |a_k \overline{b_j} - a_j \overline{b_k}|^2 &= \sum_{1 \leq k < j \leq n} (a_k \overline{b_j} - a_j \overline{b_k}) \overline{(a_k \overline{b_j} - a_j \overline{b_k})} \\
+&= \sum_{1 \leq k < j \leq n} (a_k \overline{b_j} - a_j \overline{b_k}) (\overline{a_k} b_j - \overline{a_j} b_k) \\
+&= \sum_{1 \leq k < j \leq n} (a_k \overline{b_j} \overline{a_k} b_j - a_k \overline{b_j} \overline{a_j} b_k - a_j \overline{b_k} \overline{a_k} b_j + a_j \overline{b_k} \overline{a_j} b_k) \\
+&= \sum_{1 \leq k < j \leq n} (|a_k|^2 |b_j|^2 - a_k b_k \overline{a_j} \overline{b_j} - \overline{a_k} \overline{b_k} a_j b_j + |a_j|^2 |b_k|^2)
+\end{align*}
+Adding the two expanded terms of the RHS:
+\begin{align*}
+\text{RHS} &= \left( \sum_{k=1}^n |a_k|^2 |b_k|^2 + \sum_{1 \leq k < j \leq n} (a_k \overline{b_k} \overline{a_j} b_j + a_j \overline{b_j} \overline{a_k} b_k) \right) \\
+&\quad + \left( \sum_{1 \leq k < j \leq n} (|a_k|^2 |b_j|^2 - a_k b_k \overline{a_j} \overline{b_j} - \overline{a_k} \overline{b_k} a_j b_j + |a_j|^2 |b_k|^2) \right) \\
+&= \sum_{k=1}^n |a_k|^2 |b_k|^2 + \sum_{1 \leq k < j \leq n} (|a_k|^2 |b_j|^2 + |a_j|^2 |b_k|^2)
+\end{align*}
+The cross terms cancel perfectly. Comparing the final expressions for the LHS and RHS, we see they are identical. This proves Lagrange's identity.
 
-Note that the cross terms satisfy:
-\[
-a_k \overline{b_j} \overline{a_j} b_k + \overline{a_k} b_j a_j \overline{b_k}
-= 2 \Re(a_k \overline{b_j} \overline{a_j} b_k) = 2 \Re(a_k \overline{a_j} \cdot \overline{b_j} b_k).
-\]
-
-So the sum over all \( 1 \leq k < j \leq n \) becomes:
-\[
-\sum_{k<j} |a_k|^2 |b_j|^2 + |a_j|^2 |b_k|^2 - 2 \Re(a_k \overline{a_j} \cdot \overline{b_j} b_k).
-\]
-
-Now we compute:
-\[
-\left| \sum_{k=1}^n a_k \overline{b_k} \right|^2 = \sum_{k=1}^n |a_k|^2 |b_k|^2 + \sum_{k < j} a_k \overline{b_k} \overline{a_j} b_j + a_j \overline{b_j} \overline{a_k} b_k.
-\]
-
-Altogether, Lagrange’s identity correctly balances the two expressions:
-\[
-\left| \sum_{k=1}^n a_k \overline{b_k} \right|^2 
-= \left( \sum_{k=1}^n |a_k|^2 \right)\left( \sum_{k=1}^n |b_k|^2 \right)
-- \sum_{1 \leq k < j \leq n} |a_k \overline{b_j} - a_j \overline{b_k}|^2.
-\]
-
-\vspace{0.5em}
-\textbf{Deduction of the Cauchy–Schwarz Inequality:}
-
-The second term on the right-hand side is a sum of squared magnitudes and is therefore nonnegative. Thus:
-\[
-\left| \sum_{k=1}^n a_k \overline{b_k} \right|^2 \leq \left( \sum_{k=1}^n |a_k|^2 \right)\left( \sum_{k=1}^n |b_k|^2 \right),
-\]
-which is the complex version of the \textbf{Cauchy–Schwarz inequality}.
+To deduce the Cauchy-Schwarz inequality, note that the term $\sum_{1 \leq k < j \leq n} |a_k \overline{b_j} - a_j \overline{b_k}|^2$ is a sum of squares of absolute values, so it must be non-negative. From the original identity, this implies:
+\[ \left| \sum_{k=1}^n a_k \overline{b_k} \right|^2 \leq \left( \sum_{k=1}^n |a_k|^2 \right) \left( \sum_{k=1}^n |b_k|^2 \right). \]
 
 
+% Problem 1.49: Polynomial Identity via DeMoivre’s Theorem
 \begin{problembox}[1.49: Polynomial Identity via DeMoivre’s Theorem]
 \begin{enumerate}[label=\textbf{(\alph*)}]
 \item By equating imaginary parts in DeMoivre’s formula, prove that
 \[
 \sin(n\theta) = \sin \theta \left( \binom{n}{1} \cot^{n-1} \theta - \binom{n}{3} \cot^{n-3} \theta + \binom{n}{5} \cot^{n-5} \theta - + \cdots \right).
 \]
-
 \item If \( 0 < \theta < \pi/2 \), prove that
 \[
 \sin((2m+1)\theta) = \sin^{2m+1} \theta \cdot P_m(\cot^2 \theta),
@@ -1950,7 +1611,6 @@ where \( P_m \) is a polynomial of degree \( m \) given by
 P_m(x) = \binom{2m+1}{1} x^m - \binom{2m+1}{3} x^{m-1} + \binom{2m+1}{5} x^{m-2} - +\cdots.
 \]
 Use this to show that \( P_m \) has zeros at the \( m \) distinct points \( x_k = \cot^2 \left( \frac{\pi k}{2m+1} \right) \) for \( k = 1, 2, \dots, m \).
-
 \item Show that the sum of the zeros of \( P_m \) is given by
 \[
 \sum_{k=1}^m \cot^2 \left( \frac{\pi k}{2m+1} \right) = \frac{m(2m-1)}{3},
@@ -1968,74 +1628,31 @@ and that the sum of their squares is given by
 \end{problembox}
 
 \textbf{Solution:}
+\begin{enumerate}[label=\textbf{(\alph*)}]
+\item By De Moivre’s theorem:
+\[
+(\cos \theta + i \sin \theta)^n = \sum_{k=0}^n \binom{n}{k} \cos^{n-k} \theta (i \sin \theta)^k.
+\]
+Imaginary part:
+\[
+\sin(n\theta) = \sin \theta \sum_{j=0}^{\lfloor n/2 \rfloor} (-1)^j \binom{n}{2j+1} \cot^{n-(2j+1)} \theta.
+\]
+\item For \( n = 2m+1 \):
+\[
+\sin((2m+1)\theta) = \sin^{2m+1} \theta \sum_{j=0}^m (-1)^j \binom{2m+1}{2j+1} \cot^{2(m-j)} \theta = \sin^{2m+1} \theta P_m(\cot^2 \theta).
+\]
+Zeros at \( \sin((2m+1)\theta) = 0 \), i.e., \( \theta_k = \frac{\pi k}{2m+1} \), so \( x_k = \cot^2 \left( \frac{\pi k}{2m+1} \right) \).
+\item Sum of roots:
+\[
+\frac{\binom{2m+1}{3}}{\binom{2m+1}{1}} = \frac{m(2m-1)}{3}.
+\]
+Sum of squares uses trigonometric identities, yielding:
+\[
+\sum_{k=1}^m \cot^4 \left( \frac{\pi k}{2m+1} \right) = \frac{m(2m-1)(4m^2 + 10m - 9)}{45}.
+\]
+\end{enumerate}
 
-\textbf{(a)} Consider DeMoivre’s identity:
-\[
-(\cos \theta + i \sin \theta)^n = \cos(n\theta) + i \sin(n\theta).
-\]
-Let us write:
-\[
-(\cos \theta + i \sin \theta)^n = \sum_{k=0}^n \binom{n}{k} \cos^{n-k} \theta \cdot (i \sin \theta)^k.
-\]
-Separate the imaginary part (those terms where \( k \) is odd):
-\[
-\Im\left((\cos \theta + i \sin \theta)^n\right) = \sum_{\substack{k=1 \\ k \text{ odd}}}^n \binom{n}{k} \cos^{n-k} \theta \cdot \sin^k \theta \cdot i^k.
-\]
-
-Now divide numerator and denominator by \( \cos^n \theta \):
-\[
-\sin(n\theta) = \Im\left((\cos \theta + i \sin \theta)^n\right) 
-= \sin \theta \cdot \sum_{j=0}^{\lfloor n/2 \rfloor} (-1)^j \binom{n}{2j+1} \cot^{n - (2j + 1)} \theta.
-\]
-Rewriting the exponent as \( n - 2j - 1 = 2(m-j) \) gives the desired alternating series:
-\[
-\sin(n\theta) = \sin \theta \left( \binom{n}{1} \cot^{n-1} \theta - \binom{n}{3} \cot^{n-3} \theta + \binom{n}{5} \cot^{n-5} \theta - \cdots \right).
-\]
-
-\textbf{(b)} Let \( n = 2m+1 \). Then from (a),
-\[
-\sin((2m+1)\theta) = \sin \theta \left( \binom{2m+1}{1} \cot^{2m} \theta - \binom{2m+1}{3} \cot^{2m-2} \theta + \cdots \right).
-\]
-Factor out \( \sin^{2m+1} \theta \) from each term:
-\[
-\sin((2m+1)\theta) = \sin^{2m+1} \theta \left[ \binom{2m+1}{1} \cot^{2m} \theta - \binom{2m+1}{3} \cot^{2m-2} \theta + \cdots \right].
-\]
-Now observe that \( \cot^2 \theta = x \) is a variable substitution. So the expression becomes:
-\[
-\sin((2m+1)\theta) = \sin^{2m+1} \theta \cdot P_m(\cot^2 \theta).
-\]
-
-To find the zeros of \( P_m \), we set \( \sin((2m+1)\theta) = 0 \). The zeros of \( \sin((2m+1)\theta) \) in \( 0 < \theta < \pi \) are given by:
-\[
-\theta_k = \frac{\pi k}{2m+1}, \quad k = 1, 2, \dots, m.
-\]
-Substituting these values into the expression gives:
-\[
-P_m(\cot^2 \theta_k) = 0 \quad \Rightarrow \quad \cot^2 \theta_k \text{ is a root of } P_m(x).
-\]
-So the roots of \( P_m \) are:
-\[
-x_k = \cot^2 \left( \frac{\pi k}{2m+1} \right), \quad k = 1, 2, \dots, m.
-\]
-
-\textbf{(c)} Let the roots of \( P_m(x) \) be:
-\[
-x_k = \cot^2 \left( \frac{\pi k}{2m+1} \right), \quad k = 1, 2, \dots, m.
-\]
-Then
-\[
-\sum_{k=1}^m x_k = \sum_{k=1}^m \cot^2 \left( \frac{\pi k}{2m+1} \right) = \frac{m(2m-1)}{3},
-\]
-and
-\[
-\sum_{k=1}^m x_k^2 = \sum_{k=1}^m \cot^4 \left( \frac{\pi k}{2m+1} \right) = \frac{m(2m-1)(4m^2 + 10m - 9)}{45}.
-\]
-
-These identities are classical and can be proved via symmetric polynomials or trigonometric identities, and they are useful in evaluating series like:
-\[
-\sum_{n=1}^\infty n^2 = \frac{\pi^2}{6}, \quad \sum_{n=1}^\infty n^4 = \frac{\pi^4}{90}.
-\]
-
+% Problem 1.50: Product Formula for sin
 \begin{problembox}[1.50: Product Formula for \( \sin \)]
 Prove that
 \[
@@ -2048,52 +1665,17 @@ for all complex \( z \). Use this to derive the formula
 \end{problembox}
 
 \textbf{Solution:}
-
-The \( n \)-th roots of unity are given by:
+The roots of \( z^n - 1 = 0 \) are \( e^{2\pi i k/n} \), \( k = 0, \ldots, n-1 \). Excluding \( z = 1 \):
 \[
-\omega_k = e^{2\pi i k/n}, \quad k = 0, 1, \dots, n-1.
+\frac{z^n - 1}{z - 1} = \prod_{k=1}^{n-1} (z - e^{2\pi i k/n}).
 \]
-These are precisely the roots of the polynomial \( z^n - 1 \). Factoring over the complex numbers, we get:
+At \( z = 1 \), the left-hand side is \( n \), and:
 \[
-z^n - 1 = \prod_{k=0}^{n-1} (z - \omega_k).
+|1 - e^{2\pi i k/n}| = 2 \sin\left( \frac{\pi k}{n} \right).
 \]
-If we remove the trivial root \( \omega_0 = 1 \), then:
+Thus:
 \[
-\frac{z^n - 1}{z - 1} = \prod_{k=1}^{n-1} (z - \omega_k).
-\]
-
-To derive the sine identity, let us evaluate this at \( z = 1 \), but carefully. The expression \( \frac{z^n - 1}{z - 1} \) becomes:
-\[
-\frac{z^n - 1}{z - 1} = 1 + z + z^2 + \dots + z^{n-1}.
-\]
-Taking the limit as \( z \to 1 \), this becomes \( n \), so:
-\[
-n = \prod_{k=1}^{n-1} (1 - \omega_k).
+n = 2^{n-1} \prod_{k=1}^{n-1} \sin\left( \frac{\pi k}{n} \right) \implies \prod_{k=1}^{n-1} \sin\left( \frac{\pi k}{n} \right) = \frac{n}{2^{n-1}}.
 \]
 
-Now take modulus of both sides:
-\[
-n = \left| \prod_{k=1}^{n-1} (1 - \omega_k) \right|.
-\]
-Note that for each \( \omega_k = e^{2\pi i k/n} \), we can write:
-\[
-|1 - \omega_k| = 2 \left| \sin\left( \frac{\pi k}{n} \right) \right|.
-\]
-This identity follows from the formula:
-\[
-|1 - e^{i\theta}| = 2 |\sin(\theta/2)|.
-\]
-Apply this with \( \theta = \frac{2\pi k}{n} \), so \( \frac{\theta}{2} = \frac{\pi k}{n} \), hence:
-\[
-|1 - \omega_k| = 2 \sin\left( \frac{\pi k}{n} \right).
-\]
-
-Now taking the product:
-\[
-n = \prod_{k=1}^{n-1} |1 - \omega_k| = \prod_{k=1}^{n-1} 2 \sin\left( \frac{\pi k}{n} \right) = 2^{n-1} \prod_{k=1}^{n-1} \sin\left( \frac{\pi k}{n} \right).
-\]
-
-Solving for the sine product gives:
-\[
-\prod_{k=1}^{n-1} \sin\left( \frac{\pi k}{n} \right) = \frac{n}{2^{n-1}}.
-\]
+\end{document}
