@@ -1,3 +1,5 @@
+\chapter{Elements of Point Set Topology}
+
 \begin{problembox}[3.1: Open and Closed Intervals ]
 Prove that an open interval in $\mathbb{R}^1$ is an open set and that a closed interval is a closed set.
 \end{problembox}
@@ -24,15 +26,16 @@ Determine all the accumulation points of the following sets in $\mathbb{R}^1$ an
 \textbf{Solution:} 
 (a) The set of integers has no accumulation points since each integer has a neighborhood containing no other integers. The set is closed (its complement is open) but not open.
 
-(b) The interval $(a,b)$ has accumulation points $[a,b]$. The set is open but not closed.
+(b) The interval $(a,b)$ has accumulation points $[a,b]$. For any $x \in [a,b]$, a sequence $\{x_n\} \subset (a,b)$ with $x_n \to x$ exists (e.g., $x_n = x + (b-a)/(n+1)$ if $x < b$, or $x_n = a + (b-a)/(n+1)$ if $x = a$). The set is open (every point is interior) but not closed (its closure is $[a,b]$).
 
-(c) The set $\{1/n : n \in \mathbb{N}\}$ has 0 as its only accumulation point. The set is neither open nor closed.
+(c) The set $\{1/n : n \in \mathbb{N}\}$ has 0 as its only accumulation point. The set is not closed, because its closure includes 0. It is also not open, as no point in the set has a neighborhood entirely contained within the set. Therefore, the set is neither open nor closed.
+
 
 (d) The set of rational numbers has all real numbers as accumulation points. The set is neither open nor closed.
 
-(e) The set $\{2^{-n} + 5^{-m} : m,n \in \mathbb{N}\}$ has accumulation points $\{2^{-n} : n \in \mathbb{N}\} \cup \{5^{-m} : m \in \mathbb{N}\} \cup \{0\}$. The set is neither open nor closed.
+(e) The set $\{2^{-n} + 5^{-m} : m,n \in \mathbb{N}\}$ has accumulation points $\{2^{-n} + 5^{-m} : m,n \in \mathbb{N}\} \cup \{2^{-n} : n \in \mathbb{N}\} \cup \{5^{-m} : m \in \mathbb{N}\} \cup \{0\}$. For any $x = 2^{-k} + 5^{-l}$, take $m_n = n + l$, so $2^{-k} + 5^{-m_n} \to 2^{-k}$. Similarly, for $x = 5^{-l}$, take $n_m = m + k$, so $2^{-n_m} + 5^{-l} \to 5^{-l}$. For $x = 0$, take $n = m$, so $2^{-n} + 5^{-n} \to 0$. The set is neither open nor closed (no point is interior; closure includes accumulation points).
 
-(f) The set $\{(-1)^n + 1/m : m,n \in \mathbb{N}\}$ has accumulation points $\{-1, 1\}$. The set is neither open nor closed.
+(g) The set $\{1/n + 1/m : m,n \in \mathbb{N}\}$ has accumulation points $\{k/n : k,n \in \mathbb{N}, k \leq n\} \cup \{0\}$. For $x = k/n$, take $m_i = i + n$, so $1/n + 1/m_i \to 1/n$; for $k/n$ with $k \geq 2$, set $m = n_i = i$, so $(k-1)/i + 1/i = k/i \to k/n$. For $x = 0$, take $n = m = i$, so $1/i + 1/i \to 0$. The set is neither open nor closed (no point is interior; closure includes accumulation points).
 
 (g) The set $\{1/n + 1/m : m,n \in \mathbb{N}\}$ has accumulation points $\{1/n : n \in \mathbb{N}\} \cup \{0\}$. The set is neither open nor closed.
 
@@ -55,7 +58,7 @@ The same as Exercise 3.2 for the following sets in $\mathbb{R}^2$:
 
 (b) The set $\{z \in \mathbb{C} : |z| \geq 1\}$ has accumulation points $\{z \in \mathbb{C} : |z| \geq 1\}$. The set is closed but not open.
 
-(c) The set $\{1/n + i/m : m,n \in \mathbb{N}\}$ has accumulation points $\{1/n : n \in \mathbb{N}\} \cup \{i/m : m \in \mathbb{N}\} \cup \{0\}$. The set is neither open nor closed.
+(c) The set $\{(1/n, 1/m) : m,n \in \mathbb{N}\}$ has accumulation points $\{(1/n, 0) : n \in \mathbb{N}\} \cup \{(0, 1/m) : m \in \mathbb{N}\} \cup \{(0, 0)\}$. For $(1/k, 0)$, take $(1/k, 1/m_n)$ with $m_n \to \infty$; for $(0, 1/l)$, take $(1/n_m, 1/l)$ with $n_m \to \infty$; for $(0, 0)$, take $(1/n, 1/n)$. The set is neither open nor closed (no point is interior; closure includes accumulation points).
 
 (d) The set $\{(x,y) : x^2 - y^2 < 1\}$ has accumulation points $\{(x,y) : x^2 - y^2 \leq 1\}$. The set is open but not closed.
 
@@ -79,11 +82,41 @@ Therefore, every nonempty open set contains both rational and irrational numbers
 Prove that the only sets in $\mathbb{R}^1$ which are both open and closed are the empty set and $\mathbb{R}^1$ itself. Is a similar statement true for $\mathbb{R}^2$?
 \end{problembox}
 
-\textbf{Solution:} Let $S$ be a subset of $\mathbb{R}^1$ that is both open and closed. If $S$ is empty or $S = \mathbb{R}^1$, we're done. Otherwise, let $a = \inf S$ and $b = \sup S$ (allowing $a = -\infty$ or $b = \infty$).
+\textbf{Solution:}
+This property is known as \textbf{connectedness}. A space is connected if its only subsets that are both open and closed (often called "clopen" sets) are the empty set and the space itself.
 
-Since $S$ is closed, $a, b \in S$ if they are finite. Since $S$ is open, there exists $\varepsilon > 0$ such that $(a-\varepsilon, a+\varepsilon) \subset S$ and $(b-\varepsilon, b+\varepsilon) \subset S$. This contradicts the definition of infimum and supremum unless $a = -\infty$ and $b = \infty$, meaning $S = \mathbb{R}^1$.
+\subsubsection*{Proof for $\mathbb{R}^1$}
+Let $S$ be a subset of $\mathbb{R}^1$ that is both open and closed. We'll assume, for the sake of contradiction, that $S$ is not empty and $S \neq \mathbb{R}^1$.
 
-The same proof works for $\mathbb{R}^2$ using the fact that $\mathbb{R}^2$ is connected. The only subsets of $\mathbb{R}^2$ that are both open and closed are the empty set and $\mathbb{R}^2$ itself.
+Since $S$ is a non-empty proper subset, its complement $S^c = \mathbb{R}^1 \setminus S$ is also non-empty. Because $S$ is closed, its complement $S^c$ is open. Because $S$ is open, its complement $S^c$ is closed. So, $S^c$ is also a non-empty clopen set.
+
+Since both $S$ and $S^c$ are non-empty, we can choose a point $x \in S$ and a point $y \in S^c$. Without loss of generality, let's assume $x < y$.
+
+Now, consider the set $A = S \cap [x, y]$.
+\begin{itemize}
+    \item The set $A$ is non-empty because $x \in A$.
+    \item The set $A$ is a subset of the bounded interval $[x,y]$, so it's bounded.
+    \item Since $S$ is closed and $[x, y]$ is closed, their intersection $A$ is also closed.
+\end{itemize}
+Because $A$ is a non-empty, closed, and bounded subset of $\mathbb{R}^1$, the least upper bound property guarantees that its supremum exists and belongs to the set. Let $s = \sup A$. Since $A$ is closed, we must have $s \in A$. This implies $s \in S$.
+
+We know $s \le y$. Since $s \in S$ and $y \in S^c$, the points must be different, so $s < y$.
+
+Since $s \in S$ and $S$ is an open set, there must exist an $\varepsilon > 0$ such that the open interval $(s - \varepsilon, s + \varepsilon)$ is entirely contained in $S$. We can choose $\varepsilon$ to be small enough such that $s + \varepsilon/2 < y$.
+Consider the point $z = s + \varepsilon/2$.
+\begin{enumerate}
+    \item  $z \in (s - \varepsilon, s + \varepsilon)$, so $z \in S$.
+    \item  $x \le s < z < y$, so $z \in [x, y]$.
+\end{enumerate}
+From these two points, $z \in S \cap [x, y]$, which means $z \in A$. However, $z > s$, which contradicts the fact that $s$ is the supremum (the least upper bound) of $A$.
+
+This contradiction proves our initial assumption was false. Therefore, the only subsets of $\mathbb{R}^1$ that are both open and closed are $\emptyset$ and $\mathbb{R}^1$.
+
+
+\subsubsection*{For $\mathbb{R}^2$}
+Yes, a similar statement is true for $\mathbb{R}^2$. The only subsets of $\mathbb{R}^2$ that are both open and closed are $\emptyset$ and $\mathbb{R}^2$. This is because $\mathbb{R}^2$ is also a connected space. A common way to prove this is by showing that $\mathbb{R}^2$ is \textbf{path-connected} (any two points can be joined by a continuous path), which is a stronger condition that implies connectedness. If $\mathbb{R}^2$ were the union of two disjoint non-empty open sets, any path between a point in one set and a point in the other would have to cross the boundary, leading to a contradiction similar to the one-dimensional case.
+
+
 
 \begin{problembox}[3.6: Closed Sets as Intersection of Open Sets]
 Prove that every closed set in $\mathbb{R}^1$ is the intersection of a countable collection of open sets.
@@ -158,21 +191,23 @@ Let $S'$ denote the derived set and $\overline{S}$ the closure of a set $S$ in $
 \item $\overline{S}$ is the intersection of all closed subsets of $\mathbb{R}^n$ containing $S$. That is, $\overline{S}$ is the smallest closed set containing $S$.
 \end{enumerate}
 \end{problembox}
+\textbf{Solution:}\\
+(a) To prove $S'$ is closed, we must show that its derived set $(S')'$ is a subset of $S'$. Let $\mathbf{x} \in (S')'$. This means every neighborhood of $\mathbf{x}$ contains a point of $S'$ other than $\mathbf{x}$. Let $B(\mathbf{x}, \varepsilon)$ be an arbitrary open ball centered at $\mathbf{x}$. By definition of $(S')'$, there is a point $\mathbf{y} \in B(\mathbf{x}, \varepsilon) \cap S'$. Since $B(\mathbf{x}, \varepsilon)$ is an open set, it is a neighborhood for $\mathbf{y}$. Because $\mathbf{y} \in S'$, $\mathbf{y}$ is an accumulation point of $S$, so this neighborhood must contain infinitely many points from $S$. Thus, the ball $B(\mathbf{x}, \varepsilon)$ contains infinitely many points from $S$. As $B(\mathbf{x}, \varepsilon)$ was an arbitrary neighborhood of $\mathbf{x}$, this shows that $\mathbf{x}$ is an accumulation point of $S$, so $\mathbf{x} \in S'$. Therefore, $(S')' \subseteq S'$, which proves that $S'$ is a closed set.
 
-\textbf{Solution:} 
-(a) Let $x \in \overline{S'}$. Then every neighborhood of $x$ contains a point of $S'$. Let $\varepsilon > 0$ and $y \in B(x;\varepsilon/2) \cap S'$. Since $y$ is an accumulation point of $S$, $B(y;\varepsilon/2)$ contains infinitely many points of $S$. But $B(y;\varepsilon/2) \subset B(x;\varepsilon)$, so $B(x;\varepsilon)$ contains infinitely many points of $S$. This shows $x \in S'$.
+(b) Let $\mathbf{x} \in S'$. Then every neighborhood of $\mathbf{x}$ contains a point $\mathbf{y} \in S$ with $\mathbf{y} \neq \mathbf{x}$. Since $S \subseteq T$, this point $\mathbf{y}$ is also in $T$. Thus, every neighborhood of $\mathbf{x}$ contains a point $\mathbf{y} \in T$ with $\mathbf{y} \neq \mathbf{x}$. This means $\mathbf{x} \in T'$. So $S' \subseteq T'$.
 
-(b) If $x \in S'$, then every neighborhood of $x$ contains infinitely many points of $S$. Since $S \subseteq T$, these points are also in $T$, so $x \in T'$.
+(c) Using (b), since $S \subseteq S \cup T$ and $T \subseteq S \cup T$, we have $S' \subseteq (S \cup T)'$ and $T' \subseteq (S \cup T)'$. Therefore, $S' \cup T' \subseteq (S \cup T)'$. For the reverse inclusion, let $\mathbf{x} \in (S \cup T)'$. If $\mathbf{x} \notin S'$, then there is a neighborhood of $\mathbf{x}$ that contains no points of $S$ (other than possibly $\mathbf{x}$). But since $\mathbf{x} \in (S \cup T)'$, this neighborhood must contain infinitely many points from $S \cup T$. These points must therefore come from $T$. This implies $\mathbf{x} \in T'$. So, every point in $(S \cup T)'$ must be in $S'$ or $T'$. Thus, $(S \cup T)' \subseteq S' \cup T'$.
 
-(c) Since $S \subseteq S \cup T$ and $T \subseteq S \cup T$, we have $S' \subseteq (S \cup T)'$ and $T' \subseteq (S \cup T)'$ by (b). Therefore, $S' \cup T' \subseteq (S \cup T)'$.
+(d) The closure $\overline{S}$ consists of all points adherent to $S$. A point $\mathbf{x}$ is adherent to $S$ if every neighborhood of $\mathbf{x}$ intersects $S$.
+($\overline{S} \subseteq S \cup S'$): Let $\mathbf{x} \in \overline{S}$. If $\mathbf{x} \in S$, we are done. If $\mathbf{x} \notin S$, then every neighborhood of $\mathbf{x}$ must contain a point from $S$, and that point cannot be $\mathbf{x}$. This is the definition of an accumulation point, so $\mathbf{x} \in S'$. Thus $\overline{S} \subseteq S \cup S'$.
+($S \cup S' \subseteq \overline{S}$): If $\mathbf{x} \in S$, it is in $\overline{S}$ because every neighborhood contains $\mathbf{x}$. If $\mathbf{x} \in S'$, every neighborhood contains a point of $S$, so $\mathbf{x}$ is an adherent point. Thus $S' \subseteq \overline{S}$. This gives $S \cup S' \subseteq \overline{S}$.
 
-For the reverse inclusion, if $x \in (S \cup T)'$, then every neighborhood of $x$ contains infinitely many points of $S \cup T$. If infinitely many of these points are in $S$, then $x \in S'$. Otherwise, infinitely many are in $T$, so $x \in T'$. In either case, $x \in S' \cup T'$.
+(e) To prove $\overline{S}$ is closed, we show its derived set $(\overline{S})'$ is a subset of $\overline{S}$. From (d), $\overline{S} = S \cup S'$. Using (c), we get $(\overline{S})' = (S \cup S')' = S' \cup (S')'$. From (a), $S'$ is closed, which means $(S')' \subseteq S'$. Therefore, $(\overline{S})' \subseteq S' \cup S' = S'$. Since $S' \subseteq S \cup S' = \overline{S}$, we have $(\overline{S})' \subseteq \overline{S}$. This proves that $\overline{S}$ is closed.
 
-(d) Clearly $S \cup S' \subseteq \overline{S}$. For the reverse inclusion, if $x \in \overline{S}$, then every neighborhood of $x$ contains a point of $S$. If $x \notin S$, then every neighborhood contains a point of $S$ different from $x$, so $x \in S'$.
-
-(e) By (d), $\overline{S} = S \cup S'$. Since $S'$ is closed by (a), and the union of a set with a closed set is closed, $\overline{S}$ is closed.
-
-(f) Let $\mathcal{F}$ be the collection of all closed sets containing $S$. Since $\overline{S}$ is closed and contains $S$, we have $\bigcap_{F \in \mathcal{F}} F \subseteq \overline{S}$. For the reverse inclusion, since each $F \in \mathcal{F}$ is closed and contains $S$, we have $S' \subseteq F$ for all $F$. Therefore, $\overline{S} = S \cup S' \subseteq F$ for all $F$, so $\overline{S} \subseteq \bigcap_{F \in \mathcal{F}} F$.
+(f) Let $\mathcal{C}$ be the collection of all closed sets containing $S$. Let $C_{min} = \bigcap_{F \in \mathcal{C}} F$.
+($\overline{S} \subseteq C_{min}$): Let $F$ be any set in $\mathcal{C}$. Then $F$ is closed and $S \subseteq F$. The closure of a set is the smallest closed set containing it, so we must have $\overline{S} \subseteq F$. Since this holds for all $F \in \mathcal{C}$, we have $\overline{S} \subseteq \bigcap_{F \in \mathcal{C}} F = C_{min}$.
+($C_{min} \subseteq \overline{S}$): By part (e), $\overline{S}$ is a closed set. It also contains $S$. Therefore, $\overline{S}$ is one of the sets in the collection $\mathcal{C}$. The intersection of all sets in $\mathcal{C}$ must be a subset of any particular member, so $C_{min} \subseteq \overline{S}$.
+Thus, $\overline{S} = C_{min}$.
 
 \begin{problembox}[3.13: Closure under Intersection of Sets]
 
@@ -181,9 +216,25 @@ Let $S$ and $T$ be subsets of $\mathbb{R}^k$. Prove that $\overline{S \cup T} = 
 \textit{NOTE.} The statements in Exercises 3.9 through 3.13 are true in any metric space.
 \end{problembox}
 
-\textbf{Solution:} For the first equality, by Exercise 3.12(c), $(S \cup T)' = S' \cup T'$. Therefore, $\overline{S \cup T} = (S \cup T) \cup (S \cup T)' = (S \cup T) \cup (S' \cup T') = (S \cup S') \cup (T \cup T') = \overline{S} \cup \overline{T}$.
+\textbf{Solution:}
+\subsubsection*{Closure of a Union: $\overline{S \cup T} = \overline{S} \cup \overline{T}$}
+A concise way to prove this is by using the results from Exercise 3.12:
+\begin{align*}
+\overline{S \cup T} &= (S \cup T) \cup (S \cup T)' && (\text{by 3.12d}) \\
+&= (S \cup T) \cup (S' \cup T') && (\text{by 3.12c}) \\
+&= (S \cup S') \cup (T \cup T') && (\text{by associativity and commutativity of } \cup) \\
+&= \overline{S} \cup \overline{T} && (\text{by 3.12d})
+\end{align*}
 
-For the second inclusion, let $x \in \overline{S \cap T}$. Then $x \in S \cap T$ or $x \in (S \cap T)'$. If $x \in S \cap T$, then $x \in \overline{S} \cap \overline{T}$. If $x \in (S \cap T)'$, then every neighborhood of $x$ contains a point of $S \cap T$ different from $x$. Since $S$ is open, there exists $\varepsilon > 0$ such that $B(x;\varepsilon) \subset S$. Any point $y \in B(x;\varepsilon) \cap T$ different from $x$ shows that $x \in T'$, so $x \in \overline{T}$. Similarly, $x \in \overline{S}$. Therefore, $x \in \overline{S} \cap \overline{T}$.
+\subsubsection*{Closure of an Intersection: $\overline{S \cap T} \subseteq \overline{S} \cap \overline{T}$}
+Let $\mathbf{x} \in \overline{S \cap T}$. By the definition of closure, this means every neighborhood of $\mathbf{x}$ contains at least one point from $S \cap T$.
+Let $U$ be any neighborhood of $\mathbf{x}$. Then $U \cap (S \cap T) \neq \emptyset$.
+Since $S \cap T \subseteq S$, it follows that $U \cap S \neq \emptyset$. As $U$ was an arbitrary neighborhood of $\mathbf{x}$, this implies that $\mathbf{x}$ is an adherent point of $S$, so $\mathbf{x} \in \overline{S}$.
+Similarly, since $S \cap T \subseteq T$, it follows that $U \cap T \neq \emptyset$. This implies that $\mathbf{x}$ is an adherent point of $T$, so $\mathbf{x} \in \overline{T}$.
+Since $\mathbf{x} \in \overline{S}$ and $\mathbf{x} \in \overline{T}$, we have $\mathbf{x} \in \overline{S} \cap \overline{T}$.
+Therefore, $\overline{S \cap T} \subseteq \overline{S} \cap \overline{T}$.
+
+\textit{Note: The inclusion can be strict. For example, in $\mathbb{R}^1$, let $S = \mathbb{Q}$ and $T = \mathbb{R} \setminus \mathbb{Q}$. Then $S \cap T = \emptyset$, so $\overline{S \cap T} = \emptyset$. However, $\overline{S} = \mathbb{R}$ and $\overline{T} = \mathbb{R}$, so $\overline{S} \cap \overline{T} = \mathbb{R}$.}
 
 \begin{problembox}[3.14: Properties of Convex Sets]
 A set \( S \) in \( \mathbb{R}^n \) is called convex if, for every pair of points \( x \) and \( y \) in \( S \) and every real \( \theta \) satisfying \( 0 < \theta < 1 \), we have \( \theta x + (1 - \theta)y \in S \). Interpret this statement geometrically (in \( \mathbb{R}^2 \) and \( \mathbb{R}^3 \)) and prove that:
@@ -213,10 +264,19 @@ Let $\mathcal{F}$ be a collection of sets in $\mathbb{R}^k$, and let $S = \bigcu
 \end{enumerate}
 \end{problembox}
 
-\textbf{Solution:} 
-(a) This statement is false. Let $\mathcal{F} = \{A_1, A_2\}$ where $A_1 = \{1/n : n \in \mathbb{N}\}$ and $A_2 = \{-1/n : n \in \mathbb{N}\}$. Then $T = A_1 \cap A_2 = \emptyset$, so $T$ has no accumulation points. However, if we consider $T = \{0\}$ (a singleton), then $0$ is an accumulation point of $T$ but not of $A_1$ or $A_2$.
+\textbf{Solution:}\\
+(a) This statement is \textbf{true}.\\
+\textbf{Proof:} Let $\mathbf{x}$ be an accumulation point of $T$. This means that for any $\varepsilon > 0$, the ball $B(\mathbf{x}; \varepsilon)$ contains a point $\mathbf{y} \in T$ such that $\mathbf{y} \neq \mathbf{x}$. By definition, $T = \bigcap_{A \in \mathcal{F}} A$. So, if $\mathbf{y} \in T$, then $\mathbf{y} \in A$ for every set $A$ in the collection $\mathcal{F}$. Therefore, for any $\varepsilon > 0$, the ball $B(\mathbf{x}; \varepsilon)$ contains a point $\mathbf{y} \in A$ (for every $A \in \mathcal{F}$) with $\mathbf{y} \neq \mathbf{x}$. This is precisely the definition of $\mathbf{x}$ being an accumulation point of $A$. Thus, $\mathbf{x}$ is an accumulation point of each set $A \in \mathcal{F}$.
 
-(b) This statement is true. Let $x$ be an accumulation point of $S$. Then every neighborhood of $x$ contains infinitely many points of $S$. Since $S = \bigcup_{A \in \mathcal{F}} A$, at least one set $A \in \mathcal{F}$ must contain infinitely many of these points. Therefore, $x$ is an accumulation point of that set $A$.
+(b) This statement is \textbf{false} for an infinite collection $\mathcal{F}$.\\
+\textbf{Counterexample:} Let the collection of sets in $\mathbb{R}^1$ be $\mathcal{F} = \{A_n : n \in \mathbb{N}\}$ where each set $A_n$ is a singleton: $A_n = \{1/n\}$.
+The union is the set $S = \bigcup_{n=1}^{\infty} A_n = \{1, 1/2, 1/3, \dots\}$.
+The set $S$ has exactly one accumulation point: $0$, since the sequence of points converges to $0$.
+However, none of the individual sets $A_n$ have any accumulation points, as they each contain only a single isolated point.
+Thus, $0$ is an accumulation point of $S$, but not of any set $A_n$ in the collection $\mathcal{F}$.
+
+\textit{(Note: The statement is true if the collection $\mathcal{F}$ is finite. If $\mathbf{x}$ is an accumulation point of a finite union $S = A_1 \cup \dots \cup A_m$, then any neighborhood of $\mathbf{x}$ contains infinitely many points from $S$. By the pigeonhole principle, at least one of the sets $A_i$ must contribute infinitely many of these points, making $\mathbf{x}$ an accumulation point of that $A_i$.)}
+
 
 \begin{problembox}[3.16: Rationals  Not a Countable Intersection of Open Sets]
 Prove that the set \( S \) of rational numbers in the interval \( (0, 1) \) cannot be expressed as the intersection of a countable collection of open sets. 
@@ -234,27 +294,45 @@ By the Cantor intersection theorem, $\bigcap_{n=1}^{\infty} Q_n$ is nonempty. Le
 If \( S \subseteq \mathbb{R}^n \), prove that the collection of isolated points of \( S \) is countable.
 \end{problembox}
 
-\textbf{Solution:} Let $I$ be the set of isolated points of $S$. For each $x \in I$, there exists $\varepsilon_x > 0$ such that $B(x;\varepsilon_x) \cap S = \{x\}$.
+\textbf{Solution:}\\
+Let $I$ be the set of isolated points of $S$. By definition, for each point $\mathbf{x} \in I$, there exists a radius $\varepsilon_{\mathbf{x}} > 0$ such that the open ball $B(\mathbf{x}; \varepsilon_{\mathbf{x}})$ contains no other point of $S$; that is, $B(\mathbf{x}; \varepsilon_{\mathbf{x}}) \cap S = \{\mathbf{x}\}$.
 
-For each $x \in I$, let $q_x$ be a rational point in $B(x;\varepsilon_x/2)$ (which exists since rational points are dense). Then $B(q_x;\varepsilon_x/4)$ contains $x$ and no other point of $S$.
+Consider the collection of smaller open balls $\mathcal{C} = \{ B(\mathbf{x}; \varepsilon_{\mathbf{x}}/2) : \mathbf{x} \in I \}$. We claim these balls are pairwise disjoint.
+To prove this, let $\mathbf{x}_1$ and $\mathbf{x}_2$ be two distinct points in $I$. Suppose their corresponding balls in $\mathcal{C}$ have a point $\mathbf{y}$ in common. Then $d(\mathbf{x}_1, \mathbf{y}) < \varepsilon_{\mathbf{x}_1}/2$ and $d(\mathbf{x}_2, \mathbf{y}) < \varepsilon_{\mathbf{x}_2}/2$.
+By the triangle inequality:
+$$d(\mathbf{x}_1, \mathbf{x}_2) \le d(\mathbf{x}_1, \mathbf{y}) + d(\mathbf{y}, \mathbf{x}_2) < \frac{\varepsilon_{\mathbf{x}_1}}{2} + \frac{\varepsilon_{\mathbf{x}_2}}{2}$$
+Assuming, without loss of generality, that $\varepsilon_{\mathbf{x}_1} \le \varepsilon_{\mathbf{x}_2}$, we get $d(\mathbf{x}_1, \mathbf{x}_2) < \varepsilon_{\mathbf{x}_2}/2 + \varepsilon_{\mathbf{x}_2}/2 = \varepsilon_{\mathbf{x}_2}$.
+This implies that $\mathbf{x}_1 \in B(\mathbf{x}_2; \varepsilon_{\mathbf{x}_2})$. But $\mathbf{x}_1 \in S$ and $\mathbf{x}_1 \neq \mathbf{x}_2$. This contradicts the fact that $B(\mathbf{x}_2; \varepsilon_{\mathbf{x}_2})$ contains only one point from $S$, namely $\mathbf{x}_2$.
+Therefore, the balls in the collection $\mathcal{C}$ must be pairwise disjoint.
 
-If $x, y \in I$ are distinct, then $B(q_x;\varepsilon_x/4) \cap B(q_y;\varepsilon_y/4) = \emptyset$, since otherwise we would have a point in $S$ other than $x$ or $y$ in one of these balls.
-
-Since the collection of balls $\{B(q_x;\varepsilon_x/4) : x \in I\}$ is pairwise disjoint and each contains a rational point, this collection is countable. Therefore, $I$ is countable.
+Now we use the fact that $\mathbb{R}^n$ is \textbf{separable}, meaning it contains a countable dense subset, such as $\mathbb{Q}^n$ (the set of points with rational coordinates).
+Since each ball in $\mathcal{C}$ is a non-empty open set, each must contain at least one point from the dense set $\mathbb{Q}^n$. Because the balls in $\mathcal{C}$ are disjoint, each ball must contain a \textit{different} rational point.
+This allows us to define an injective (one-to-one) function from the set of isolated points $I$ to the countable set $\mathbb{Q}^n$ (by mapping each $\mathbf{x} \in I$ to a rational point in $B(\mathbf{x}; \varepsilon_{\mathbf{x}}/2)$). A set that can be mapped injectively into a countable set must itself be countable.
+Thus, the set of isolated points $I$ is countable.
 
 \begin{problembox}[3.18: Countable Covering of the First Quadrant]
 Prove that the set of open disks in the \(xy\)-plane with center at \( (x, x) \) and radius \( x > 0 \), where \( x \) is rational, is a countable covering of the set \( \{(x, y) : x > 0, y > 0\} \).
 \end{problembox}
 
-\textbf{Solution:} Let $\mathcal{F}$ be the collection of open disks with center at $(x,x)$ and radius $x$ where $x$ is rational and positive. We need to show that every point $(a,b)$ with $a > 0, b > 0$ is contained in some disk in $\mathcal{F}$.
+\textbf{Solution:}\\
+Let $\mathcal{F}$ be the collection of open disks $B((q,q); q)$ where $q \in \mathbb{Q}$ and $q > 0$. Since $\mathbb{Q}$ is countable, the collection $\mathcal{F}$ is countable. We need to show that $\mathcal{F}$ covers the first quadrant $S = \{(x, y) : x > 0, y > 0\}$.
 
-Let $(a,b)$ be a point in the first quadrant. Let $r = \min\{a,b\}$. Since the rationals are dense in $\mathbb{R}$, there exists a rational number $x$ such that $r/2 < x < r$.
+Let $(x, y)$ be an arbitrary point in $S$. We need to find a rational number $q > 0$ such that the disk $B((q,q); q)$ contains $(x, y)$. The condition for this is:
+$$\sqrt{(x-q)^2 + (y-q)^2} < q$$
+Since both sides are positive, we can square the inequality:
+$$(x-q)^2 + (y-q)^2 < q^2$$
+$$x^2 - 2xq + q^2 + y^2 - 2yq + q^2 < q^2$$
+$$q^2 - 2(x+y)q + (x^2+y^2) < 0$$
+Let $f(q) = q^2 - 2(x+y)q + (x^2+y^2)$. We are looking for a rational $q > 0$ that makes this quadratic expression negative. The graph of $z=f(q)$ is an upward-opening parabola. It will be negative between its roots. The roots are found using the quadratic formula:
+$$q = \frac{2(x+y) \pm \sqrt{4(x+y)^2 - 4(x^2+y^2)}}{2} = (x+y) \pm \sqrt{(x+y)^2 - (x^2+y^2)}$$
+$$q = (x+y) \pm \sqrt{2xy}$$
+Let the roots be $q_1 = (x+y) - \sqrt{2xy}$ and $q_2 = (x+y) + \sqrt{2xy}$. Since $x,y > 0$, the term $\sqrt{2xy}$ is real and positive, so $q_1 < q_2$. The interval $(q_1, q_2)$ is non-empty.
+Since the rational numbers are dense in $\mathbb{R}$, we can always find a rational number $q$ in this interval: $q_1 < q < q_2$. For any such $q$, the inequality $f(q) < 0$ holds.
 
-Then $\|(a,b) - (x,x)\| = \sqrt{(a-x)^2 + (b-x)^2} < \sqrt{(r-x)^2 + (r-x)^2} = \sqrt{2}(r-x) < \sqrt{2}(r-r/2) = \sqrt{2}(r/2) < r < x$.
+We must also ensure that we can choose $q$ to be positive. The product of the roots is $q_1 q_2 = x^2+y^2 > 0$. Since $q_2 = (x+y) + \sqrt{2xy}$ is clearly positive, the other root $q_1$ must also be positive.
+Since the interval $(q_1, q_2)$ consists of positive numbers and contains a rational number, we can always find a suitable rational $q > 0$.
+Thus, for any point $(x,y)$ in the first quadrant, we can find a disk in $\mathcal{F}$ that contains it. The countable collection $\mathcal{F}$ therefore covers the first quadrant.
 
-Therefore, $(a,b) \in B((x,x); x)$ where $x$ is rational, so $\mathcal{F}$ covers the first quadrant.
-
-Since the rational numbers are countable, $\mathcal{F}$ is countable.
 
 \begin{problembox}[3.19: Non-Finite Subcover of \(0,1\)]
 The collection \( \mathcal{F} \) of open intervals of the form \( (1/n, 2/n) \), where \( n = 2, 3, \ldots \), is an open covering of the open interval \( (0, 1) \). Prove (without using Theorem 3.31) that no finite subcollection of \( \mathcal{F} \) covers \( (0, 1) \).
@@ -282,13 +360,20 @@ Therefore, $\mathcal{F}$ is a countable open covering of $S$ with no finite subc
 Given a set \( S \) in \( \mathbb{R}^n \) with the property that for every \( x \) in \( S \) there is an \( n \)-ball \( B(x) \) such that \( B(x) \cap S \) is countable. Prove that \( S \) is countable.
 \end{problembox}
 
-\textbf{Solution:} For each $x \in S$, let $B_x$ be an $n$-ball centered at $x$ such that $B_x \cap S$ is countable. Let $\mathcal{B} = \{B_x : x \in S\}$.
+\textbf{Solution:}\\
+For each point $\mathbf{x} \in S$, we are given that there exists an open ball $B_\mathbf{x}$ centered at $\mathbf{x}$ such that the set $B_\mathbf{x} \cap S$ is countable.
 
-Since $\mathbb{R}^n$ is separable, there exists a countable dense subset $D$. For each $B_x \in \mathcal{B}$, there exists a point $d \in D$ such that $d \in B_x$. Let $r_x$ be the radius of $B_x$, and let $q_x$ be a rational number such that $r_x/2 < q_x < r_x$.
+The collection of all such balls, $\mathcal{C} = \{B_\mathbf{x} : \mathbf{x} \in S\}$, forms an open covering of the set $S$ (since each $\mathbf{x} \in S$ is in its own ball $B_\mathbf{x}$).
 
-Then $B_x$ is uniquely determined by the pair $(d_x, q_x)$ where $d_x$ is the center of $B_x$ and $q_x$ is the rational radius. Since $D$ is countable and the rationals are countable, the set of such pairs is countable.
+The space $\mathbb{R}^n$ is a \textbf{separable} metric space because it contains a countable dense subset, $\mathbb{Q}^n$. A key theorem in topology states that every separable metric space has the \textbf{Lindelöf property}. This property guarantees that any open covering of a set in that space has a countable subcovering.
 
-Therefore, $\mathcal{B}$ is countable, and since each $B_x \cap S$ is countable, we have $S = \bigcup_{B_x \in \mathcal{B}} (B_x \cap S)$ is a countable union of countable sets, hence countable.
+Applying the Lindelöf property to our open cover $\mathcal{C}$ of $S$, we can extract a countable subcollection, say $\mathcal{C}' = \{B_{\mathbf{x}_k} : k \in \mathbb{N}\}$, that still covers $S$. This means:
+$$S \subseteq \bigcup_{k=1}^{\infty} B_{\mathbf{x}_k}$$
+From this, we can express the set $S$ as:
+$$S = S \cap \left( \bigcup_{k=1}^{\infty} B_{\mathbf{x}_k} \right) = \bigcup_{k=1}^{\infty} (S \cap B_{\mathbf{x}_k})$$
+By the initial hypothesis, each set in this union, $(S \cap B_{\mathbf{x}_k})$, is countable.
+Therefore, $S$ is a countable union of countable sets. A fundamental result of set theory states that a countable union of countable sets is itself countable. Thus, we conclude that the set $S$ must be countable.
+
 
 \begin{problembox}[3.22: Countability of Disjoint Open Sets]
 Prove that a collection of disjoint open sets in \( \mathbb{R}^n \) is necessarily countable. Give an example of a collection of disjoint closed sets which is not countable.
@@ -387,17 +472,29 @@ Let \( d_1 \) and \( d_2 \) be the metrics of Exercise 3.27 and let \( \|x - y\|
 \[d_1(x, y) \leq \|x - y\| \leq d_2(x, y) \quad \text{and} \quad d_2(x, y) \leq \sqrt{n} \|x - y\| \leq n\,d_1(x, y).\]
 \end{problembox}
 
-\textbf{Solution:} Let $x, y \in \mathbb{R}^n$. For the first set of inequalities:
+\textbf{Solution:} Let $x, y \in \mathbb{R}^n$. Let $a_i = |x_i - y_i|$ for $1 \leq i \leq n$. Then:
 
-Since $d_1(x,y) = \max_{1 \leq i \leq n} |x_i - y_i|$, we have $d_1(x,y)^2 = \max_{1 \leq i \leq n} |x_i - y_i|^2 \leq \sum_{i=1}^n |x_i - y_i|^2 = \|x-y\|^2$. Taking square roots gives $d_1(x,y) \leq \|x-y\|$.
+(1) \( d_1(x, y) = \max_i a_i \leq \sqrt{\sum a_i^2} = \|x - y\| \) (since each $a_i^2 \leq \sum a_i^2$)
 
-For the upper bound, by the triangle inequality for the absolute value, $\|x-y\| = \sqrt{\sum_{i=1}^n |x_i - y_i|^2} \leq \sqrt{\sum_{i=1}^n |x_i - y_i|^2 + 2\sum_{i < j} |x_i - y_i||x_j - y_j|} = \sum_{i=1}^n |x_i - y_i| = d_2(x,y)$.
+(2) \( \|x - y\| = \sqrt{\sum a_i^2} \leq \sum a_i = d_2(x,y) \) (by the inequality \( \sqrt{a_1^2 + \dots + a_n^2} \leq a_1 + \dots + a_n \))
 
-For the second set of inequalities:
+(3) By the Cauchy-Schwarz inequality:
+\[
+\left(\sum a_i\right)^2 \leq n \sum a_i^2 \Rightarrow d_2(x,y) \leq \sqrt{n} \|x - y\|
+\]
 
-By the Cauchy-Schwarz inequality, $d_2(x,y)^2 = (\sum_{i=1}^n |x_i - y_i|)^2 \leq n\sum_{i=1}^n |x_i - y_i|^2 = n\|x-y\|^2$. Taking square roots gives $d_2(x,y) \leq \sqrt{n}\|x-y\|$.
+(4) Also, since \( \|x - y\| = \sqrt{\sum a_i^2} \leq \sqrt{n \cdot \max_i a_i^2} = \sqrt{n} \cdot \max a_i = \sqrt{n} d_1(x, y) \), it follows that:
 
-For the last inequality, $\sqrt{n}\|x-y\| = \sqrt{n}\sqrt{\sum_{i=1}^n |x_i - y_i|^2} \leq \sqrt{n}\sqrt{n}\max_{1 \leq i \leq n} |x_i - y_i| = n\,d_1(x,y)$.
+\[
+\sqrt{n} \|x - y\| \leq n d_1(x, y)
+\]
+
+Hence, all inequalities hold:
+
+\[
+d_1(x,y) \leq \|x - y\| \leq d_2(x,y), \quad d_2(x, y) \leq \sqrt{n} \|x - y\| \leq n\,d_1(x, y)
+\]
+
 
 \begin{problembox}[3.29: Bounded Metric]
 If \( (M, d) \) is a metric space, define
@@ -492,17 +589,31 @@ If \( A \) is dense in \( S \) and if \( B \) is open in \( S \), prove that \( 
 \textit{Hint.} Exercise 3.13.
 \end{problembox}
 
-\textbf{Solution:} Let $x \in B$. Since $B$ is open in $S$, there exists $\varepsilon > 0$ such that $B(x;\varepsilon) \cap S \subset B$.
+\textbf{Solution:}\\
+The statement "$A$ is dense in $S$" means $S \subseteq \overline{A}$. We are given that $A \subseteq S$.
+The statement "$B$ is open in $S$" means that $B = V \cap S$ for some set $V$ that is open in the larger metric space $M$.
 
-Since $A$ is dense in $S$, every neighborhood of $x$ contains a point of $A$. In particular, $B(x;\varepsilon) \cap A \neq \emptyset$.
+Let $x \in B$. We want to show that $x \in \overline{A \cap B}$. This requires showing that any open neighborhood of $x$ in $M$ has a non-empty intersection with the set $A \cap B$.
 
-Let $y \in B(x;\varepsilon) \cap A$. Since $y \in S$ and $B(x;\varepsilon) \cap S \subset B$, we have $y \in B$.
+Let $U$ be an arbitrary open neighborhood of $x$ in $M$.
+Since $x \in B$ and $B = V \cap S$, we have $x \in V$.
+The set $U \cap V$ is also an open neighborhood of $x$ because it is the intersection of two open sets.
 
-Therefore, $y \in A \cap B$, so $B(x;\varepsilon) \cap (A \cap B) \neq \emptyset$.
+Since $x \in B \subseteq S$ and $A$ is dense in $S$, $x$ is an adherent point of $A$. Therefore, the open neighborhood $U \cap V$ must contain a point from $A$. Let's call this point $y$.
+So, $y \in (U \cap V) \cap A$.
 
-This shows that every neighborhood of $x$ contains a point of $A \cap B$, so $x \in \overline{A \cap B}$.
+Now we check if this point $y$ is in the required sets:
+\begin{itemize}
+    \item $y \in U$, so $y$ is in the arbitrary neighborhood of $x$.
+    \item $y \in A$.
+    \item We need to show $y \in B$. We know $y \in V$. Since we are given $A \subseteq S$, and $y \in A$, it follows that $y \in S$.
+\end{itemize}
+Since $y \in V$ and $y \in S$, we have $y \in V \cap S$, which means $y \in B$.
 
-Therefore, $B \subseteq \overline{A \cap B}$.
+So we have found a point $y$ such that $y \in U$ and $y \in A \cap B$. This means $U \cap (A \cap B) \neq \emptyset$.
+Since $U$ was an arbitrary open neighborhood of $x$, this proves that $x \in \overline{A \cap B}$.
+As this holds for any $x \in B$, we conclude that $B \subseteq \overline{A \cap B}$.
+
 
 \begin{problembox}[3.36: Intersection of Dense and Open Sets]
 If each of \( A \) and \( B \) is dense in \( S \) and if \( B \) is open in \( S \), prove that \( A \cap B \) is dense in \( S \).
