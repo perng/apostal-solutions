@@ -1,0 +1,3 @@
+Insert solutions to the problems if the solution hasn't been inserted.
+Solution starts with \noindent\textbf{Solution.}
+use \begin{enumerate}[label=(\alph*)] for items. Make sure they match the problem statement. 

@@ -1,4 +1,5 @@
-\chapter{Cauchy's Theorem and the residue calculus}
+
+\chapter{Cauchy's Theorem and the Residue Calculus}
 \section{Complex Integration; Cauchy's Integral Formulas}
 
 \begin{problembox}[16.1: Path Integral of Analytic Function]
@@ -37,7 +38,7 @@ Let \( f = u + iv \) be analytic on a disk \( B(a; R) \). If \( 0 < r < R \), pr
 Assume that \( f \) is analytic on \( B(0; R) \). Let \( y \) denote the positively oriented circle with center at 0 and radius \( r \), where \( 0 < r < R \). If \( a \) is inside \( y \), show that
 \[f(a) = \frac{1}{2\pi i} \int_{y} f(z) \left( \frac{1}{z - a} - \frac{1}{z - r^2 / \bar{a}} \right) dz.\]
 If \( a = Ae^{i\alpha} \), show that this reduces to the formula
-\[f(a) = \frac{1}{2\pi} \int_{0}^{2\pi} \frac{(r^2 - A^2)f(re^{i\theta})}{r^2 - 2rA \cos (\alpha - \theta) + A^2} d\theta.\]
+\[f(a) = \frac{1}{2\pi} \int_0^{2\pi} \frac{(r^2 - A^2)f(re^{i\theta})}{r^2 - 2rA \cos (\alpha - \theta) + A^2} d\theta.\]
 By equating the real parts of this equation we obtain an expression known as Poisson's integral formula.
 \end{problembox}
 
@@ -45,7 +46,17 @@ By equating the real parts of this equation we obtain an expression known as Poi
 Assume that \( f \) is analytic on the closure of the disk \( B(0; 1) \). If \( |a| < 1 \), show that
 \[(1 - |a|^2)f(a) = \frac{1}{2\pi i} \int_{y} f(z) \frac{1 - z\bar{a}}{z - a} dz,\]
 where \( y \) is the positively oriented unit circle with center at 0. Deduce the inequality
-\[(1 - |a|^2) |f(a)| \leq \frac{1}{2\pi} \int_{0}^{2\pi} |f(e^{i\theta})| d\theta.\]
+\[(1 - |a|^2) |f(a)| \leq \frac{1}{2\pi} \int_0^{2\pi} |f(e^{i\theta})| d\theta.\]
+\end{problembox}
+
+\begin{problembox}[16.7: Integral with Combined Functions]
+Let \( f(z) = \sum_{n=0}^{\infty} \frac{2^n z^n}{3^n} \) if \( |z| < \frac{3}{2} \), and let \( g(z) = \sum_{n=0}^{\infty} (2z)^{-n} \) if \( |z| > \frac{1}{2} \). Let \( y \) be the positively oriented circular path of radius 1 and center 0, and define \( h(a) \) for \( |a| \neq 1 \) as follows:
+\[h(a) = \frac{1}{2\pi i} \int_y \left( \frac{f(z)}{z - a} + \frac{a^2 g(z)}{z^2 - az} \right) dz.\]
+Prove that
+\[h(a) = \begin{cases} 
+\frac{3}{3 - 2a} & \text{if } |a| < 1, \\ 
+\frac{2a^2}{1 - 2a} & \text{if } |a| > 1.
+\end{cases}\]
 \end{problembox}
 
 \section{Taylor Expansions}
@@ -56,9 +67,41 @@ Define \( f \) on the disk \( B(0; 1) \) by the equation \( f(z) = \sum_{n=0}^{\
 
 \begin{problembox}[16.9: Taylor Expansion of Averaged Function]
 Assume that \( f \) has the Taylor expansion \( f(z) = \sum_{n=0}^{\infty} a(n)z^n \), valid in \( B(0; R) \). Let
-\[g(z) = \frac{1}{p} \sum_{k=0}^{p-1} f(z e^{2\pi ik/p}).\]
+\[g(z) = \frac{1}{p} \sum_{k=0}^{p-1} f(ze^{2\pi ik/p}).\]
 Prove that the Taylor expansion of \( g \) consists of every \( p \)th term in that of \( f \). That is, if \( z \in B(0; R) \) we have
 \[g(z) = \sum_{n=0}^{\infty} a(pn)z^{pn}.\]
+\end{problembox}
+
+\begin{problembox}[16.10: Partial Sum via Integral]
+Assume that \( f \) has the Taylor expansion \( f(z) = \sum_{n=0}^{\infty} a_n z^n \), valid in \( B(0; R) \). Let \( s_n(z) = \sum_{k=0}^{n} a_k z^k \). If \( 0 < r < R \) and \( |z| < r \), show that
+\[ s_n(z) = \frac{1}{2\pi i} \int_y \frac{f(w) w^{n+1}}{w^{n+1} (w - z)} dw, \]
+where \( y \) is the positively oriented circle with center at 0 and radius \( r \).
+\end{problembox}
+
+\begin{problembox}[16.11: Product of Taylor Series]
+Given the Taylor expansions \( f(z) = \sum_{n=0}^{\infty} a_n z^n \) and \( g(z) = \sum_{n=0}^{\infty} b_n z^n \), valid for \( |z| < R_1 \) and \( |z| < R_2 \), respectively. Prove that if \( |z| < R_1 R_2 \) we have
+\[ \frac{1}{2\pi i} \int_y \frac{f(w) g(z/w)}{w} dw = \sum_{n=0}^{\infty} a_n b_n z^n, \]
+where \( y \) is the positively oriented circle of radius \( R_1 \) with center at 0.
+\end{problembox}
+
+\begin{problembox}[16.12: Parseval's Identity and Maximum Modulus]
+Assume that \( f \) has the Taylor expansion \( f(z) = \sum_{n=0}^{\infty} a_n (z - a)^n \), valid in \( B(a; R) \).
+\begin{enumerate}[label=(\alph*)]
+\item If \( 0 \leq r < R \), deduce Parseval's identity:
+\[ \frac{1}{2\pi} \int_0^{2\pi} |f(a + r e^{i\theta})|^2 d\theta = \sum_{n=0}^{\infty} |a_n|^2 r^{2n}. \]
+\item Use (a) to deduce the inequality
+\[ \sum_{n=0}^{\infty} |a_n|^2 r^{2n} \leq M(r)^2, \]
+where \( M(r) \) is the maximum of \( |f| \) on the circle \( |z - a| = r \).
+\item Use (b) to give another proof of the local maximum modulus principle (Theorem 16.27).
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[16.13: Schwarz's Lemma]
+Prove Schwarz's lemma: Let \( f \) be analytic on the disk \( B(0; 1) \). Suppose that \( f(0) = 0 \) and \( |f(z)| \leq 1 \) if \( |z| < 1 \). Then
+\[ |f'(0)| \leq 1 \quad \text{and} \quad |f(z)| \leq |z|, \quad \text{if } |z| < 1. \]
+If \( |f'(0)| = 1 \) or if \( |f(z_0)| = |z_0| \) for at least one \( z_0 \in B'(0; 1) \), then
+\[ f(z) = e^{i\alpha} z, \]
+where \( \alpha \) is real. Hint. Apply the maximum-modulus theorem to \( g \), where \( g(0) = f'(0) \) and \( g(z) = f(z)/z \) if \( z \neq 0 \).
 \end{problembox}
 
 \section{Laurent Expansions, Singularities, Residues}
@@ -67,22 +110,209 @@ Prove that the Taylor expansion of \( g \) consists of every \( p \)th term in t
 Let \( f \) and \( g \) be analytic on an open region \( S \). Let \( y \) be a Jordan circuit with graph \( \Gamma \) such that both \( \Gamma \) and its inner region lie within \( S \). Suppose that \( |g(z)| < |f(z)| \) for every \( z \) on \( \Gamma \).
 \begin{enumerate}[label=(\alph*)]
 \item Show that
-\[\frac{1}{2\pi i} \int_{y} \frac{f'(z) + g'(z)}{f(z) + g(z)} dz = \frac{1}{2\pi i} \int_{y} \frac{f'(z)}{f(z)} dz.\]
+\[ \frac{1}{2\pi i} \int_{y} \frac{f'(z) + g'(z)}{f(z) + g(z)} dz = \frac{1}{2\pi i} \int_{y} \frac{f'(z)}{f(z)} dz. \]
 Hint. Let \( m = \inf \{ |f(z)| - |g(z)| : z \in \Gamma \} \). Then \( m > 0 \) and hence
-\[|f(z) + tg(z)| \geq m > 0\]
+\[ |f(z) + t g(z)| \geq m > 0 \]
 for each \( t \) in \( [0, 1] \) and each \( z \) on \( \Gamma \). Now let
-\[\phi(t) = \frac{1}{2\pi i} \int_{y} \frac{f'(z) + tg'(z)}{f(z) + tg(z)} dz, \quad \text{if} \quad 0 \leq t \leq 1.\]
+\[ \phi(t) = \frac{1}{2\pi i} \int_{y} \frac{f'(z) + t g'(z)}{f(z) + t g(z)} dz, \quad \text{if } 0 \leq t \leq 1. \]
 Then \( \phi \) is continuous, and hence constant, on \( [0, 1] \). Thus, \( \phi(0) = \phi(1) \).
-
 \item Use (a) to prove that \( f \) and \( f + g \) have the same number of zeros inside \(\Gamma\) (Rouché's theorem).
 \end{enumerate}
 \end{problembox}
 
 \begin{problembox}[16.15: Zeros of Polynomial]
-Let \( p \) be a polynomial of degree \( n \), say \( p(z) = a_0 + a_1 z + \cdots + a_n z^n \), where \( a_n \neq 0 \). Take \( f(z) = a_n z^n, g(z) = p(z) - f(z) \) in Rouché's theorem, and prove that \( p \) has exactly \( n \) zeros in C.
+Let \( p \) be a polynomial of degree \( n \), say \( p(z) = a_0 + a_1 z + \cdots + a_n z^n \), where \( a_n \neq 0 \). Take \( f(z) = a_n z^n \), \( g(z) = p(z) - f(z) \) in Rouché's theorem, and prove that \( p \) has exactly \( n \) zeros in \( \mathbb{C} \).
 \end{problembox}
 
-\section{Möbius Transformations}
+\begin{problembox}[16.16: Fixed Point via Rouché's Theorem]
+Let \( f \) be analytic on the closure of the disk \( B(0; 1) \) and suppose \( |f(z)| < 1 \) if \( |z| = 1 \). Show that there is one, and only one, point \( z_0 \in B(0; 1) \) such that \( f(z_0) = z_0 \). Hint. Use Rouché's theorem.
+\end{problembox}
+
+\begin{problembox}[16.17: Nonzero Partial Sums]
+Let \( p_n(z) \) denote the \( n \)th partial sum of the Taylor expansion \( e^z = \sum_{k=0}^{\infty} \frac{z^k}{k!} \). Using Rouché's theorem (or otherwise), prove that for every \( r > 0 \) there exists an \( N \) (depending on \( r \)) such that \( n \geq N \) implies \( p_n(z) \neq 0 \) for every \( z \in B(0; r) \).
+\end{problembox}
+
+\begin{problembox}[16.18: Zeros of Exponential Polynomial]
+If \( a > e \), find the number of zeros of the function \( f(z) = e^z - a z^n \) which lie inside the circle \( |z| = 1 \).
+\end{problembox}
+
+\begin{problembox}[16.19: Function with Specific Singularities]
+Give an example of a function which has all the following properties, or else explain why there is no such function: \( f \) is analytic everywhere in \( \mathbb{C} \) except for a pole of order 2 at 0 and simple poles at \( i \) and \( -i \); \( f(z) = f(-z) \) for all \( z \); \( f(1) = 1 \); the function \( g(z) = f(1/z) \) has a zero of order 2 at \( z = 0 \); and \( \text{Res}_{z=i} f(z) = 2i \).
+\end{problembox}
+
+\begin{problembox}[16.20: Laurent Expansions]
+Show that each of the following Laurent expansions is valid in the region indicated:
+\begin{enumerate}[label=(\alph*)]
+\item \[ \frac{1}{(z - 1)(2 - z)} = \sum_{n=0}^{\infty} \frac{z^n}{2^{n+1}} + \sum_{n=1}^{\infty} \frac{1}{z^n}, \quad \text{if } 1 < |z| < 2. \]
+\item \[ \frac{1}{(z - 1)(2 - z)} = \sum_{n=2}^{\infty} \frac{1 - 2^{1-n}}{z^n}, \quad \text{if } |z| > 2. \]
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[16.21: Bessel Function Coefficients]
+For each fixed \( t \in \mathbb{C} \), define \( J_n(t) \) to be the coefficient of \( z^n \) in the Laurent expansion
+\[ e^{(z - 1/z)t/2} = \sum_{n=-\infty}^{\infty} J_n(t) z^n. \]
+Show that for \( n \geq 0 \) we have
+\[ J_n(t) = \frac{1}{2\pi} \int_0^{2\pi} \cos (t \sin \theta - n \theta) d\theta, \]
+and that \( J_{-n}(t) = (-1)^n J_n(t) \). Deduce the power series expansion
+\[ J_n(t) = \sum_{k=0}^{\infty} \frac{(-1)^k (t/2)^{n + 2k}}{k! (n + k)!}, \quad (n \geq 0). \]
+The function \( J_n \) is called the Bessel function of order \( n \).
+\end{problembox}
+
+\begin{problembox}[16.22: Riemann's Theorem]
+Prove Riemann's theorem: If \( z_0 \) is an isolated singularity of \( f \) and if \( f \) is bounded on some deleted neighborhood \( B'(z_0) \), then \( z_0 \) is a removable singularity. Hint. Estimate the integrals for the coefficients \( a_n \) in the Laurent expansion of \( f \) and show that \( a_n = 0 \) for each \( n < 0 \).
+\end{problembox}
+
+\begin{problembox}[16.23: Casorati-Weierstrass Theorem]
+Prove the Casorati-Weierstrass theorem: Assume that \( z_0 \) is an essential singularity of \( f \) and let \( c \) be an arbitrary complex number. Then, for every \( \epsilon > 0 \) and every disk \( B(z_0) \), there exists a point \( z \) in \( B(z_0) \) such that \( |f(z) - c| < \epsilon \). Hint. Assume that the theorem is false and arrive at a contradiction by applying Exercise 16.22 to \( g \), where \( g(z) = 1/[f(z) - c] \).
+\end{problembox}
+
+\begin{problembox}[16.24: Singularities at Infinity]
+The point at infinity. A function \( f \) is said to be analytic at \( \infty \) if the function \( g \) defined by the equation \( g(z) = f(1/z) \) is analytic at the origin. Similarly, we say that \( f \) has a zero, a pole, a removable singularity, or an essential singularity at \( \infty \) if \( g \) has a zero, a pole, etc., at 0. Liouville's theorem states that a function which is analytic everywhere in \( \mathbb{C}^* \) must be a constant. Prove that
+\begin{enumerate}[label=(\alph*)]
+\item \( f \) is a polynomial if, and only if, the only singularity of \( f \) in \( \mathbb{C}^* \) is a pole at \( \infty \), in which case the order of the pole is equal to the degree of the polynomial.
+\item \( f \) is a rational function if, and only if, \( f \) has no singularities in \( \mathbb{C}^* \) other than poles.
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[16.25: Residue Shortcuts]
+Derive the following "short cuts" for computing residues:
+\begin{enumerate}[label=(\alph*)]
+\item If \( a \) is a first order pole for \( f \), then
+\[ \text{Res}_{z=a} f(z) = \lim_{z \to a} (z - a) f(z). \]
+\item If \( a \) is a pole of order 2 for \( f \), then
+\[ \text{Res}_{z=a} f(z) = g'(a), \]
+where \( g(z) = (z - a)^2 f(z) \).
+\item Suppose \( f \) and \( g \) are both analytic at \( a \), with \( f(a) \neq 0 \) and \( a \) a first-order zero for \( g \). Show that
+\[ \text{Res}_{z=a} \frac{f(z)}{g(z)} = \frac{f(a)}{g'(a)}. \]
+\item If \( f \) and \( g \) are as in (c), except that \( a \) is a second-order zero for \( g \), then
+\[ \text{Res}_{z=a} \frac{f(z)}{g(z)} = \frac{6 f'(a) g''(a) - 2 f(a) g'''(a)}{3 [g''(a)]^2}. \]
+\end{enumerate}
+\end{problembox}
+
+\section{Laurent Expansions, Singularities, Residues}
+
+\begin{problembox}[16.26: Compute Residues]
+Compute the residues at the poles of \( f \) if
+\begin{enumerate}[label=(\alph*)]
+\item \( f(z) = \frac{ze^z}{z^2 - 1} \).
+\item \( f(z) = \frac{e^z}{z(z - 1)^2} \).
+\item \( f(z) = \frac{\sin z}{z \cos z} \).
+\item \( f(z) = \frac{1}{1 - e^z} \).
+\item \( f(z) = \frac{1}{1 - z^n} \) (where \( n \) is a positive integer).
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[16.27: Residue Integrals]
+If \( y(a; r) \) denotes the positively oriented circle with center at \( a \) and radius \( r \), show that
+\begin{enumerate}[label=(\alph*)]
+\item \[ \int_{y(0;4)} \frac{3z - 1}{(z + 1)(z - 3)} dz = 6\pi i. \]
+\item \[ \int_{y(0;2)} \frac{2z}{z^2 + 1} dz = 4\pi i. \]
+\item \[ \int_{y(0;2)} \frac{z^3}{z^4 - 1} dz = 2\pi i. \]
+\item \[ \int_{y(2;1)} \frac{e^z}{(z - 2)^2} dz = 2\pi ie^2. \]
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[16.28: Residue Integral]
+Evaluate the integral by means of residues:
+\[ \int_0^{2\pi} \frac{dt}{(a + b \cos t)^2} = \frac{2\pi a}{(a^2 - b^2)^{3/2}}, \quad \text{if } 0 < b < a. \]
+\end{problembox}
+
+\begin{problembox}[16.29: Residue Integral]
+Evaluate the integral by means of residues:
+\[ \int_0^{2\pi} \frac{\cos 2t}{1 - 2a \cos t + a^2} dt = \frac{2\pi a^2}{1 - a^2}, \quad \text{if } a^2 < 1. \]
+\end{problembox}
+
+\begin{problembox}[16.30: Residue Integral]
+Evaluate the integral by means of residues:
+\[ \int_0^{2\pi} \frac{1 + \cos 3t}{1 - 2a \cos t + a^2} dt = \frac{\pi (a^3 + a)}{1 - a^2}, \quad \text{if } 0 < a < 1. \]
+\end{problembox}
+
+\begin{problembox}[16.31: Residue Integral]
+Evaluate the integral by means of residues:
+\[ \int_0^{2\pi} \frac{\sin^2 t}{a + b \cos t} dt = \frac{2\pi (a - \sqrt{a^2 - b^2})}{b^2}, \quad \text{if } 0 < b < a. \]
+\end{problembox}
+
+\begin{problembox}[16.32: Residue Integral]
+Evaluate the integral by means of residues:
+\[ \int_{-\infty}^{\infty} \frac{1}{x^2 + x + 1} dx = \frac{2\pi \sqrt{3}}{3}. \]
+\end{problembox}
+
+\begin{problembox}[16.33: Residue Integral]
+Evaluate the integral by means of residues:
+\[ \int_{-\infty}^{\infty} \frac{x^6}{(1 + x^4)^2} dx = \frac{3\pi}{16}. \]
+\end{problembox}
+
+\begin{problembox}[16.34: Residue Integral]
+Evaluate the integral by means of residues:
+\[ \int_0^{\infty} \frac{x^2}{(x^2 + 4)^2 (x^2 + 9)} dx = \frac{\pi}{200}. \]
+\end{problembox}
+
+\begin{problembox}[16.35: Residue Integrals]
+Evaluate the integrals by means of residues:
+\begin{enumerate}[label=(\alph*)]
+\item \[ \int_0^{\infty} \frac{x}{1 + x^5} dx = \frac{\pi}{5} \sin \frac{2\pi}{5}. \]
+Hint. Integrate \( z / (1 + z^5) \) around the boundary of the circular sector \( S = \{ r e^{i\theta} : 0 \leq r \leq R, 0 \leq \theta \leq 2\pi / 5 \} \), and let \( R \to \infty \).
+\item \[ \int_0^{\infty} \frac{x^{2m}}{1 + x^{2n}} dx = \frac{\pi}{2n} \sin \left( \frac{(2m + 1) \pi}{2n} \right), \]
+where \( m, n \) are integers, \( 0 < m < n \).
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[16.36: Residue Formula for Rational Functions]
+Prove that formula (38) holds if \( f \) is the quotient of two polynomials, say \( f = P/Q \), where the degree of \( Q \) exceeds that of \( P \) by 2 or more.
+\end{problembox}
+
+\begin{problembox}[16.37: Residue Formula for Exponential Rational Functions]
+Prove that formula (38) holds if \( f(z) = e^{imz} P(z) / Q(z) \), where \( m > 0 \) and \( P \) and \( Q \) are polynomials such that the degree of \( Q \) exceeds that of \( P \) by 1 or more. This makes it possible to evaluate integrals of the form
+\[ \int_{-\infty}^{\infty} \frac{e^{imx} P(x)}{Q(x)} dx \]
+by the method described in Theorem 16.37.
+\end{problembox}
+
+\begin{problembox}[16.38: Exponential Integrals]
+Use the method suggested in Exercise 16.37 to evaluate the following integrals:
+\begin{enumerate}[label=(\alph*)]
+\item \[ \int_0^{\infty} \frac{x}{(a^2 + x^2)} e^{imx} dx = \frac{\pi}{2} e^{-ma}, \quad \text{if } m \neq 0, a > 0. \]
+\item \[ \int_0^{\infty} \frac{x^4}{(1 + x^4)} e^{imx} dx = \frac{\pi}{2} (1 - e^{-m}), \quad \text{if } m > 0, a > 0. \]
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[16.39: Integral with Cube Roots]
+Let \( w = e^{2\pi i / 3} \) and let \( y \) be a positively oriented circle whose graph does not pass through 1, \( w \), or \( w^2 \). (The numbers 1, \( w \), \( w^2 \) are the cube roots of 1.) Prove that the integral
+\[ \int_y \frac{z + 1}{z^3 - 1} dz \]
+is equal to \( 2\pi i (m + n w) / 3 \), where \( m \) and \( n \) are integers. Determine the possible values of \( m \) and \( n \) and describe how they depend on \( y \).
+\end{problembox}
+
+\begin{problembox}[16.40: Bernoulli Polynomial Integrals]
+Let \( y \) be a positively oriented circle with center 0 and radius \( < 2\pi \). If \( a \) is complex and \( n \) is an integer, let
+\[ I(n, a) = \frac{1}{2\pi i} \int_y \frac{z^{n-1} e^{az}}{1 - e^z} dz. \]
+Prove that
+\[ I(0, a) = \frac{1}{2} - a, \quad I(1, a) = -\frac{1}{2}, \quad \text{and} \quad I(n, a) = 0 \quad \text{if } n > 1. \]
+Calculate \( I(-n, a) \) in terms of Bernoulli polynomials when \( n \geq 1 \) (see Exercise 9.38).
+\end{problembox}
+
+\begin{problembox}[16.41: Details of Theorem 16.38]
+Let
+\[ g(z) = \sum_{r=0}^{n-1} e^{2\pi i a (z + r)^2 / n}, \quad f(z) = \frac{g(z)}{e^{2\pi i z} - 1}, \]
+where \( a \) and \( n \) are positive integers with \( na \) even. Prove that:
+\begin{enumerate}[label=(\alph*)]
+\item \( g(z + 1) - g(z) = e^{2\pi i a z^2 / n} (e^{2\pi i z} - 1) \sum_{m=0}^{n-1} e^{2\pi i m z}. \)
+\item \( \text{Res}_{z=0} f(z) = g(0) / (2\pi i). \)
+\item The real part of \( i (t + R e^{i\pi / 4} + r)^2 \) is \( R^2 + \sqrt{2} r R \).
+\end{enumerate}
+\end{problembox}
+
+\section{One-to-One Analytic Functions}
+
+\begin{problembox}[16.42: Properties of One-to-One Analytic Functions]
+Let \( S \) be an open subset of \( \mathbb{C} \) and assume that \( f \) is analytic and one-to-one on \( S \). Prove that:
+\begin{enumerate}[label=(\alph*)]
+\item \( f'(z) \neq 0 \) for each \( z \) in \( S \). (Hence \( f \) is conformal at each point of \( S \).)
+\item If \( g \) is the inverse of \( f \), then \( g \) is analytic on \( f(S) \) and \( g'(w) = 1 / f'(g(w)) \) if \( w \in f(S) \).
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[16.43: One-to-One Entire Functions]
+Let \( f : \mathbb{C} \to \mathbb{C} \) be analytic and one-to-one on \( \mathbb{C} \). Prove that \( f(z) = a z + b \), where \( a \neq 0 \). What can you conclude if \( f \) is one-to-one on \( \mathbb{C}^* \) and analytic on \( \mathbb{C}^* \) except possibly for a finite number of poles?
+\end{problembox}
 
 \begin{problembox}[16.44: Composition of Möbius Transformations]
 If \( f \) and \( g \) are Möbius transformations, show that the composition \( f \circ g \) is also a Möbius transformation.
@@ -92,26 +322,79 @@ If \( f \) and \( g \) are Möbius transformations, show that the composition \(
 Describe geometrically what happens to a point \( z \) when it is carried into \( f(z) \) by the following special Möbius transformations:
 \begin{enumerate}[label=(\alph*)]
 \item \( f(z) = z + b \) (Translation).
-\item \( f(z) = az \), where \( a > 0 \) (Stretching or contraction).
-\item \( f(z) = e^{iz}z \), where \( a \) is real (Rotation).
-\item \( f(z) = 1/z \) (Inversion).
+\item \( f(z) = a z \), where \( a > 0 \) (Stretching or contraction).
+\item \( f(z) = e^{i \alpha} z \), where \( \alpha \) is real (Rotation).
+\item \( f(z) = \frac{1}{z} \) (Inversion).
 \end{enumerate}
 \end{problembox}
 
 \begin{problembox}[16.46: Circles under Möbius Transformations]
 If \( c \neq 0 \), we have
-\[\frac{az + b}{cz + d} = \frac{a}{c} + \frac{bc - ad}{c(cz + d)}.\]
+\[ \frac{a z + b}{c z + d} = \frac{a}{c} + \frac{b c - a d}{c (c z + d)}. \]
 Hence every Möbius transformation can be expressed as a composition of the special cases described in Exercise 16.45. Use this fact to show that Möbius transformations carry circles into circles (where straight lines are considered as special cases of circles).
+\end{problembox}
+
+\begin{problembox}[16.47: Möbius Transformations Mapping Half-Plane to Disk]
+\begin{enumerate}[label=(\alph*)]
+\item Show that all Möbius transformations which map the upper half-plane \( T = \{ x + i y : y \geq 0 \} \) onto the closure of the disk \( B(0; 1) \) can be expressed in the form \( f(z) = e^{i \delta} \frac{z - a}{z - \bar{a}} \), where \( \alpha \) is real and \( \alpha \in T \).
+\item Show that \( \alpha \) and \( \delta \) can always be chosen to map any three given points of the real axis onto any three given points on the unit circle.
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[16.48: Möbius Transformations Mapping Right Half-Plane]
+Find all Möbius transformations which map the right half-plane \( S = \{ x + i y : x \geq 0 \} \) onto the closure of \( B(0; 1) \).
+\end{problembox}
+
+\begin{problembox}[16.49: Möbius Transformations Mapping Unit Disk]
+Find all Möbius transformations which map the closure of \( B(0; 1) \) onto itself.
+\end{problembox}
+
+\begin{problembox}[16.50: Fixed Points of Möbius Transformations]
+The fixed points of a Möbius transformation
+\[ f(z) = \frac{a z + b}{c z + d} \quad (ad - bc \neq 0) \]
+are those points \( z \) for which \( f(z) = z \). Let \( D = (d - a)^2 + 4bc \).
+\begin{enumerate}[label=(\alph*)]
+\item Determine all fixed points when \( c = 0 \).
+\item If \( c \neq 0 \) and \( D \neq 0 \), prove that \( f \) has exactly 2 fixed points \( z_1 \) and \( z_2 \) (both finite) and that they satisfy the equation
+\[ \frac{f(z) - z_1}{f(z) - z_2} = R e^{i \theta} \frac{z - z_1}{z - z_2}, \]
+where \( R > 0 \) and \( \theta \) is real.
+\item If \( c \neq 0 \) and \( D = 0 \), prove that \( f \) has exactly one fixed point \( z_1 \) and that it satisfies the equation
+\[ \frac{1}{f(z) - z_1} = \frac{1}{z - z_1} + C, \quad \text{for some } C \neq 0. \]
+\item Given any Möbius transformation, investigate the successive images of a given point \( w \). That is, let
+\[ w_1 = f(w), \quad w_2 = f(w_1), \quad \ldots, \quad w_n = f(w_{n-1}), \quad \ldots, \]
+and study the behavior of the sequence \( \{ w_n \} \). Consider the special case \( a, b, c, d \) real, \( ad - bc = 1 \).
+\end{enumerate}
+\end{problembox}
+
+\section{Miscellaneous Exercises}
+
+\begin{problembox}[16.51: Complex Sum Equation]
+Determine all complex \( z \) such that
+\[ z = \sum_{n=2}^{\infty} \sum_{k=1}^{n} e^{2\pi i k z / n}. \]
+\end{problembox}
+
+\begin{problembox}[16.52: Bound on Entire Function Coefficients]
+If \( f(z) = \sum_{n=0}^{\infty} a_n z^n \) is an entire function such that \( |f(r e^{i\theta})| < M e^{r k} \) for all \( r > 0 \), where \( M > 0 \) and \( k > 0 \), prove that
+\[ |a_n| \leq \frac{M}{(n/k)^{n/k}}, \quad \text{for } n \geq 1. \]
+\end{problembox}
+
+\begin{problembox}[16.53: Limit at Isolated Singularity]
+Assume \( f \) is analytic on a deleted neighborhood \( B'(0; a) \). Prove that \( \lim_{z \to 0} f(z) \) exists (possibly infinite) if, and only if, there exists an integer \( n \) and a function \( g \), analytic on \( B(0; a) \), with \( g(0) \neq 0 \), such that \( f(z) = z^n g(z) \) in \( B'(0; a) \).
 \end{problembox}
 
 \section{Miscellaneous Exercises}
 
 \begin{problembox}[16.54: Zeros of Polynomial with Decreasing Coefficients]
-Let \( p(z) = \sum_{k=0}^{n} a_k z^k \) be a polynomial of degree \( n \) with real coefficients satisfying
+Let \( p(z) = \sum_{k=0}^n a_k z^k \) be a polynomial of degree \( n \) with real coefficients satisfying
 \[a_0 > a_1 > \cdots > a_{n-1} > a_n > 0.\]
 Prove that \( p(z) = 0 \) implies \( |z| > 1 \). Hint. Consider \( (1 - z)p(z) \).
 \end{problembox}
 
+
+\begin{problembox}[16.55: Zero of Infinite Order]
+A function \( f \), defined on a disk \( B(a; r) \), is said to have a zero of infinite order at \( a \) if, for every integer \( k > 0 \), there is a function \( g_k \), analytic at \( a \), such that \( f(z) = (z - a)^k g_k(z) \) on \( B(a; r) \). If \( f \) has a zero of infinite order at \( a \), prove that \( f = 0 \) everywhere in \( B(a; r) \).
+\end{problembox}
+
 \begin{problembox}[16.56: Morera's Theorem]
-Prove Morera's theorem: If \( f \) is continuous on an open region \( S \) in \( C \) and if \( \int_S f = 0 \) for every polygonal circuit \( y \) in \( S \), then \( f \) is analytic on \( S \).
+Prove Morera's theorem: If \( f \) is continuous on an open region \( S \) in \( \mathbb{C} \) and if \( \int_y f = 0 \) for every polygonal circuit \( y \) in \( S \), then \( f \) is analytic on \( S \).
 \end{problembox}
