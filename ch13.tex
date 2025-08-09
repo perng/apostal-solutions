@@ -1,0 +1,135 @@
+\chapter{Implicit Functions and Extremum Problems}
+
+\section{Jacobians}
+\begin{problembox}[13.1: Complex Function Jacobian]
+Let \( f \) be the complex-valued function defined for each complex \( z \neq 0 \) by the equation \( f(z) = 1/\bar{z} \). Show that \( J_f(z) = -|z|^{-4} \). Show that \( f \) is one-to-one and compute \( f^{-1} \) explicitly.
+\end{problembox}
+
+\begin{problembox}[13.2: Vector-Valued Function Jacobian]
+Let \( f = (f_1, f_2, f_3) \) be the vector-valued function defined (for every point \( (x_1, x_2, x_3) \) in \( R^3 \) for which \( x_1 + x_2 + x_3 \neq -1 \)) as follows:
+\[f_k(x_1, x_2, x_3) = \frac{x_k}{1 + x_1 + x_2 + x_3} \quad (k = 1, 2, 3).\]
+Show that \( J_f(x_1, x_2, x_3) = (1 + x_1 + x_2 + x_3)^{-4} \). Show that \( f \) is one-to-one and compute \( f^{-1} \) explicitly.
+\end{problembox}
+
+\begin{problembox}[13.3: Composition of Functions Jacobian]
+Let \( f = (f_1, \ldots, f_n) \) be a vector-valued function defined in \( R^n \), suppose \( f \in C' \) on \( R^n \), and let \( J_f(x) \) denote the Jacobian determinant. Let \( g_1, \ldots, g_n \) be \( n \) real-valued functions defined on \( R^1 \) and having continuous derivatives \( g'_1, \ldots, g'_n \). Let \( h_k(x) = f_k[g_1(x_1), \ldots, g_n(x_n)], k = 1, 2, \ldots, n \), and put \( h = (h_1, \ldots, h_n) \). Show that
+\[J_h(x) = J_f[g_1(x_1), \ldots, g_n(x_n)]g'_1(x_1) \cdots g'_n(x_n).\]
+\end{problembox}
+
+\begin{problembox}[13.4: Polar and Spherical Coordinates]
+\begin{enumerate}[label=(\alph*)]
+    \item If \( x(r, \theta) = r \cos \theta, y(r, \theta) = r \sin \theta \), show that
+    \[\frac{\partial (x, y)}{\partial (r, \theta)} = r.\]
+    \item If \( x(r, \theta, \phi) = r \cos \theta \sin \phi, y(r, \theta, \phi) = r \sin \theta \sin \phi, z = r \cos \phi \), show that
+    \[\frac{\partial (x, y, z)}{\partial (r, \theta, \phi)} = -r^2 \sin \phi.\]
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[13.5: Implicit Function Theorem Application]
+\begin{enumerate}[label=(\alph*)]
+    \item State conditions on \( f \) and \( g \) which will ensure that the equations \( x = f(u, v), y = g(u, v) \) can be solved for \( u \) and \( v \) in a neighborhood of \( (x_0, y_0) \). If the solutions are \( u = F(x, y), v = G(x, y) \), and if \( J = \partial (f, g)/\partial (u, v) \), show that
+    \[\frac{\partial F}{\partial x} = \frac{1}{J} \frac{\partial g}{\partial v}, \quad \frac{\partial F}{\partial y} = -\frac{1}{J} \frac{\partial f}{\partial v}, \quad \frac{\partial G}{\partial x} = -\frac{1}{J} \frac{\partial g}{\partial u}, \quad \frac{\partial G}{\partial y} = \frac{1}{J} \frac{\partial f}{\partial u}.\]
+    \item Compute \( J \) and the partial derivatives of \( F \) and \( G \) at \((x_0, y_0) = (1, 1)\) when \( f(u, v) = u^2 - v^2 \), \( g(u, v) = 2uv \).
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[13.6: Jacobian Matrix Identity]
+Let \( f \) and \( g \) be related as in Theorem 13.6. Consider the case \( n = 3 \) and show that we have
+\[J_i(x)D_1g_i(y) =
+\begin{vmatrix}
+\delta_{i,1} & D_1f_2(x) & D_1f_3(x)\\
+\delta_{i,2} & D_2f_2(x) & D_2f_3(x)\\
+\delta_{i,3} & D_3f_2(x) & D_3f_3(x)
+\end{vmatrix}
+(i = 1, 2, 3),\]
+where \( y = f(x) \) and \( \delta_{i,j} = 0 \) or 1 according as \( i \neq j \) or \( i = j \). Use this to deduce the formula
+\[D_1g_1 = \frac{\partial (f_2, f_3)}{\partial (x_2, x_3)} \left| \frac{\partial (f_1, f_2, f_3)}{\partial (x_1, x_2, x_3)} \right|.\]
+There are similar expressions for the other eight derivatives \( D_kg_l \).
+\end{problembox}
+
+\begin{problembox}[13.7: Complex Function Properties]
+Let \( f = u + iv \) be a complex-valued function satisfying the following conditions: \( u \in C' \) and \( v \in C' \) on the open disk \( A = \{z : |z| < 1\}; f \) is continuous on the closed disk \( \bar{A} = \{z : |z| \leq 1\}; u(x, y) = x \) and \( v(x, y) = y \) whenever \( x^2 + y^2 = 1 \); the Jacobian \( J_f(z) > 0 \) if \( z \in A \). Let \( B = f(A) \) denote the image of \( A \) under \( f \) and prove that:
+\begin{enumerate}[label=(\alph*)]
+    \item If \( X \) is an open subset of \( A \), then \( f(X) \) is an open subset of \( B \).
+    \item \( B \) is an open disk of radius 1.
+    \item For each point \( u_0 + iv_0 \) in \( B \), there is only a finite number of points \( z \) in \( A \) such that \( f(z) = u_0 + iv_0 \).
+\end{enumerate}
+\end{problembox}
+
+\section{Extremum Problems}
+\begin{problembox}[13.8: Extreme Value Classification]
+Find and classify the extreme values (if any) of the functions defined by the following equations:
+\begin{enumerate}[label=(\alph*)]
+    \item \( f(x, y) = y^2 + x^2y + x^4 \),
+    \item \( f(x, y) = x^2 + y^2 + x + y + xy \),
+    \item \( f(x, y) = (x - 1)^4 + (x - y)^4 \),
+    \item \( f(x, y) = y^2 - x^3 \).
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[13.9: Shortest Distance to Parabola]
+Find the shortest distance from the point \((0, b)\) on the \( y \)-axis to the parabola \( x^2 - 4y = 0 \). Solve this problem using Lagrange's method and also without using Lagrange's method.
+\end{problembox}
+
+\begin{problembox}[13.10: Geometric Problems]
+Solve the following geometric problems by Lagrange's method:
+\begin{enumerate}[label=(\alph*)]
+    \item Find the shortest distance from the point \((a_1, a_2, a_3)\) in \( R^3 \) to the plane whose equation is \( b_1x_1 + b_2x_2 + b_3x_3 + b_0 = 0 \).
+    \item Find the point on the line of intersection of the two planes
+    \[a_1x_1 + a_2x_2 + a_3x_3 + a_0 = 0\]
+    and
+    \[b_1x_1 + b_2x_2 + b_3x_3 + b_0 = 0\]
+    which is nearest the origin.
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[13.11: Maximum Value with Constraint]
+Find the maximum value of \(| \sum_{k=1}^n a_k x_k |\), if \(\sum_{k=1}^n x_k^2 = 1\), by using 
+\begin{enumerate}[label=(\alph*)]
+    \item the Cauchy-Schwarz inequality.
+    \item Lagrange's method.
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[13.12: Maximum of Product under Constraint]
+Find the maximum of \((x_1 x_2 \cdots x_n)^2\) under the restriction
+\[ x_1^2 + \cdots + x_n^2 = 1. \]
+Use the result to derive the following inequality, valid for positive real numbers \(a_1, \ldots, a_n\)
+\[ (a_1 \cdots a_n)^{1/n} \leq \frac{a_1 + \cdots + a_n}{n}. \]
+\end{problembox}
+
+\begin{problembox}[13.13: Local Extremum with Condition]
+If \(f(x) = x_1^k + \cdots + x_n^k, x = (x_1, \ldots, x_n)\), show that a local extreme of \(f\), subject to the condition \(x_1 + \cdots + x_n = a\), is \(d^k n^{1-k}\).
+\end{problembox}
+
+\begin{problembox}[13.14: Local Extremum with Side Conditions]
+Show that all points \((x_1, x_2, x_3, x_4)\) where \(x_1^2 + x_2^2\) has a local extremum subject to the two side conditions \(x_1^2 + x_3^2 + x_4^2 = 4, x_2^2 + 2x_3^2 + 3x_4^2 = 9\), are found among 
+\[ (0, 0, \pm \sqrt{3}, \pm 1), (0, \pm 1, +2, 0), (\pm 1, 0, 0, \pm \sqrt{3}), (\pm 2, \pm 3, 0, 0). \]
+Which of these yield a local maximum and which yield a local minimum? Give reasons for your conclusions.
+\end{problembox}
+
+\begin{problembox}[13.15: Extreme Values with Side Conditions]
+Show that the extreme values of \(f(x_1, x_2, x_3) = x_1^2 + x_2^2 + x_3^2\), subject to the two side conditions
+\[ \sum_{j=1}^3 \sum_{i=1}^3 a_{ij} x_i x_j = 1 \quad (a_{ij} = a_{ji}) \]
+and
+\[ b_1 x_1 + b_2 x_2 + b_3 x_3 = 0, \quad (b_1, b_2, b_3) \neq (0, 0, 0), \]
+are \(t_1^{-1}, t_2^{-1}\), where \(t_1\) and \(t_2\) are the roots of the equation
+\[\begin{vmatrix}
+b_1 & b_2 & b_3 & 0 \\
+a_{11} - t & a_{12} & a_{13} & b_1 \\
+a_{21} & a_{22} - t & a_{23} & b_2 \\
+a_{31} & a_{32} & a_{33} - t & b_3
+\end{vmatrix} = 0.\]
+Show that this is a quadratic equation in \(t\) and give a geometric argument to explain why the roots \(t_1, t_2\) are real and positive.
+\end{problembox}
+
+\begin{problembox}[13.16: Hadamard's Theorem]
+Let \(\Delta = \det [x_{ij}]\) and let \(X_i = (x_{i1}, \ldots, x_{in})\). A famous theorem of Hadamard states that \(|\Delta| \leq d_1 \cdots d_n\), if \(d_1, \ldots, d_n\) are \(n\) positive constants such that \(\| X_i \|^2 = d_i^2 (i = 1, 2, \ldots, n)\). Prove this by treating \(\Delta\) as a function of \(n^2\) variables subject to \(n\) constraints, using Lagrange's method to show that, when \(\Delta\) has an extreme under these conditions, we must have
+\[\Delta^2 = 
+\begin{vmatrix}
+d_1^2 & 0 & 0 & \cdots & 0 \\
+0 & d_2^2 & 0 & \cdots & 0 \\
+\vdots & \vdots & \ddots & \vdots & \vdots \\
+0 & 0 & 0 & \cdots & d_n^2
+\end{vmatrix}.\]
+\end{problembox}

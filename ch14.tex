@@ -1,0 +1,123 @@
+\chapter{Multiple Riemann Integrals}
+\section{Multiple Integrals}
+
+\begin{problembox}[14.1: Product of Riemann Integrable Functions]
+If \( f_1 \in R \) on \([a_1, b_1], \ldots, f_n \in R \) on \([a_n, b_n]\), prove that
+\[ \int_{S} f_1(x_1) \cdots f_n(x_n) \, d(x_1, \ldots, x_n) = \left( \int_{a_1}^{b_1} f_1(x_1) \, dx_1 \right) \cdots \left( \int_{a_n}^{b_n} f_n(x_n) \, dx_n \right), \]
+where \( S = [a_1, b_1] \times \cdots \times [a_n, b_n] \).
+\end{problembox}
+
+\begin{problembox}[14.2: Riemann Integrability of Monotone Functions]
+Let \( f \) be defined and bounded on a compact rectangle \( Q = [a, b] \times [c, d] \) in \( \mathbb{R}^2 \). Assume that for each fixed \( y \) in \([c, d]\), \( f(x, y) \) is an increasing function of \( x \), and that for each fixed \( x \) in \([a, b]\), \( f(x, y) \) is an increasing function of \( y \). Prove that \( f \in R \) on \( Q \).
+\end{problembox}
+
+\begin{problembox}[14.3: Evaluation of Double Integrals]
+Evaluate each of the following double integrals.
+\begin{enumerate}[label=(\alph*)]
+    \item \[ \iint_{Q} \sin^2 x \, \sin^2 y \, dx \, dy, \quad \text{where } Q = [0, \pi] \times [0, \pi]. \]
+    \item \[ \iint_{Q} |\cos (x + y)| \, dx \, dy, \quad \text{where } Q = [0, \pi] \times [0, \pi]. \]
+    \item \[ \iint_{Q} [x + y] \, dx \, dy, \quad \text{where } Q = [0, 2] \times [0, 2], \text{ and } [t] \text{ is the greatest integer } \leq t. \]
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[14.4: Integrals over Unit Square]
+Let \( Q = [0, 1] \times [0, 1] \) and calculate \( \int_{Q} f(x, y) \, dx \, dy \) in each case.
+\begin{enumerate}[label=(\alph*)]
+    \item \( f(x, y) = 1 - x - y \) if \( x + y \leq 1, \quad f(x, y) = 0 \) otherwise.
+    \item \( f(x, y) = x^2 + y^2 \) if \( x^2 + y^2 \leq 1, \quad f(x, y) = 0 \) otherwise.
+    \item \( f(x, y) = x + y \) if \( x^2 \leq y \leq 2x^2, \quad f(x, y) = 0 \) otherwise.
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[14.5: Mixed Partial Integrals]
+Define \( f \) on the square \( Q = [0, 1] \times [0, 1] \) as follows:
+\[ f(x, y) = 
+\begin{cases} 
+1 & \text{if } x \text{ is rational}, \\
+2y & \text{if } x \text{ is irrational}. 
+\end{cases} \]
+\begin{enumerate}[label=(\alph*)]
+    \item Prove that \( \int_{0}^{t} f(x, y) \, dy \) exists for \( 0 \leq t \leq 1 \) and that
+    \[ \int_{0}^{1} \left[ \int_{0}^{t} f(x, y) \, dy \right] \, dx = t^2, \]
+    and \[ \int_{0}^{1} \left[ \int_{0}^{t} f(x, y) \, dy \right] \, dx = t. \]
+    This shows that \( \int_{0}^{1} \left[ \int_{0}^{1} f(x, y) \, dy \right] \, dx \) exists and equals 1.
+    
+    \item Prove that \( \int_{0}^{1} \left[ \int_{0}^{1} f(x, y) \, dx \right] \, dy \) exists and find its value.
+    \item Prove that the double integral \( \int_{Q} f(x, y) \, d(x, y) \) does not exist.
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[14.6: Discontinuous Integrand]
+Define \( f \) on the square \( Q = [0, 1] \times [0, 1] \) as follows:
+\[f(x, y) = 
+\begin{cases} 
+0 & \text{if at least one of } x, y \text{ is irrational}, \\ 
+1/n & \text{if } y \text{ is rational and } x = m/n,
+\end{cases}\]
+where \( m \) and \( n \) are relatively prime integers, \( n > 0 \). Prove that
+\[\int_{0}^{1} f(x, y) \, dx = \int_{0}^{1} \left[ \int_{0}^{1} f(x, y) \, dx \right] \, dy = \int_{Q} f(x, y) \, d(x, y) = 0\]
+but that \( \int_{0}^{1} f(x, y) \, dy \) does not exist for rational \( x \).
+\end{problembox}
+
+\begin{problembox}[14.7: Dense Set with Finite Cross-Sections]
+If \( p_k \) denotes the \( k \)th prime number, let
+\[S(p_k) = \left\{ \begin{pmatrix}
+n & m \\
+p_k & p_k
+\end{pmatrix} : n = 1, 2, \ldots, p_k - 1, \quad m = 1, 2, \ldots, p_k - 1 \right\},\]
+let \( S = \bigcup_{k=1}^{\infty} S(p_k) \), and let \( Q = [0, 1] \times [0, 1] \).
+
+\begin{enumerate}[label=(\alph*)]
+    \item Prove that \( S \) is dense in \( Q \) (that is, the closure of \( S \) contains \( Q \)) but that any line parallel to the coordinate axes contains at most a finite subset of \( S \).
+    
+    \item Define \( f \) on \( Q \) as follows:
+    \[f(x, y) = 0 \quad \text{if } (x, y) \in S, \quad f(x, y) = 1 \quad \text{if } (x, y) \in Q - S.\]
+    Prove that \( \int_{0}^{1} \left[ \int_{0}^{1} f(x, y) \, dy \right] \, dx = \int_{0}^{1} \left[ \int_{0}^{1} f(x, y) \, dx \right] \, dy = 1 \), but that the double integral \( \int_{Q} f(x, y) \, d(x, y) \) does not exist.
+\end{enumerate}
+\end{problembox}
+
+\section{Jordan Content}
+
+\begin{problembox}[14.8: Jordan Content of Finite Accumulation Points]
+Let \( S \) be a bounded set in \( \mathbb{R}^n \) having at most a finite number of accumulation points. Prove that \( c(S) = 0 \).
+\end{problembox}
+
+\begin{problembox}[14.9: Graph of Continuous Function has Zero Content]
+Let \( f \) be a continuous real-valued function defined on \([a, b]\). Let \( S \) denote the graph of \( f \), that is, \( S = \{(x, y) : y = f(x), a \leq x \leq b\} \). Prove that \( S \) has two-dimensional Jordan content zero.
+\end{problembox}
+
+\begin{problembox}[14.10: Rectifiable Curve has Zero Content]
+Let \( \Gamma \) be a rectifiable curve in \( \mathbb{R}^n \). Prove that \( \Gamma \) has \( n \)-dimensional Jordan content zero.
+\end{problembox}
+
+\begin{problembox}[14.11: Ordinate Set Content]
+Let \( f \) be a nonnegative function defined on a set \( S \) in \( \mathbb{R}^n \). The ordinate set of \( f \) over \( S \) is defined to be the following subset of \( \mathbb{R}^{n+1} \):
+\[\{(x_1, \ldots, x_n, x_{n+1}) : (x_1, \ldots, x_n) \in S, \quad 0 \leq x_{n+1} \leq f(x_1, \ldots, x_n)\}.\]
+If \( S \) is a Jordan-measurable region in \( \mathbb{R}^n \) and if \( f \) is continuous on \( S \), prove that the ordinate set of \( f \) over \( S \) has \( (n + 1) \)-dimensional Jordan content whose value is
+\[\int_{S} f(x_1, \ldots, x_n) \, d(x_1, \ldots, x_n).\]
+Interpret this problem geometrically when \( n = 1 \) and \( n = 2 \).
+\end{problembox}
+
+\section{Advanced Topics}
+
+\begin{problembox}[14.12: Zero Integral Implies Zero Function]
+Assume that \( f \in R \) on \( S \) and suppose \( \int_S f(x) \, dx = 0 \). (\( S \) is a subset of \( \mathbb{R}^n \)). Let \( A = \{ x : x \in S, f(x) < 0 \} \) and assume that \( c(A) = 0 \). Prove that there exists a set \( B \) of measure zero such that \( f(x) = 0 \) for each \( x \) in \( S - B \).
+\end{problembox}
+
+\begin{problembox}[14.13: Mean Value Theorem for Integrals]
+Assume that \( f \in R \) on \( S \), where \( S \) is a region in \( \mathbb{R}^n \) and \( f \) is continuous on \( S \). Prove that there exists an interior point \( x_0 \) of \( S \) such that
+\[\int_S f(x) \, dx = f(x_0)c(S).\]
+\end{problembox}
+
+\begin{problembox}[14.14: Mixed Partial Derivatives]
+Let \( f \) be continuous on a rectangle \( Q = [a, b] \times [c, d] \). For each interior point \( (x_1, x_2) \) in \( Q \), define
+\[F(x_1, x_2) = \int_a^{x_1} \left( \int_c^{x_2} f(x, y) \, dy \right) \, dx.\]
+Prove that \( D_{1,2} F(x_1, x_2) = D_{2,1} F(x_1, x_2) = f(x_1, x_2) \).
+\end{problembox}
+
+\begin{problembox}[14.15: Integral of Mixed Partial Derivative]
+Let \( T \) denote the following triangular region in the plane:
+\[T = \left\{ (x, y) : 0 \leq \frac{x}{a} + \frac{y}{b} \leq 1 \right\}, \quad \text{where } a > 0, \, b > 0.\]
+Assume that \( f \) has a continuous second-order partial derivative \( D_{1,2} f \) on \( T \). Prove that there is a point \( (x_0, y_0) \) on the segment joining \( (a, 0) \) and \( (0, b) \) such that
+\[\int_T D_{1,2} f(x, y) \, d(x, y) = f(0, 0) - f(a, 0) + aD_1 f(x_0, y_0).\]
+\end{problembox}

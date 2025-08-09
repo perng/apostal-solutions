@@ -1,0 +1,435 @@
+\chapter{Fourier Series and Fourier Integrals}
+
+\section{Orthogonal Systems}
+
+\begin{problembox}[11.1: Orthonormality of Trigonometric System]
+Verify that the trigonometric system in (1) is orthonormal on $[0, 2\pi]$.
+\end{problembox}
+
+\begin{problembox}[11.2: Linear Independence of Orthonormal Systems]
+A finite collection of functions $\{\varphi_0, \varphi_1, \dots, \varphi_M\}$ is said to be linearly independent on $[a, b]$ if the equation
+\[
+\sum_{k=0}^M c_k \varphi_k(x) = 0
+\]
+for all $x$ in $[a, b]$ implies $c_0 = c_1 = \dots = c_M = 0$. An infinite collection is called linearly independent on $[a, b]$ if every finite subset is linearly independent on $[a, b]$. Prove that every orthonormal system on $[a, b]$ is linearly independent on $[a, b]$.
+\end{problembox}
+
+\begin{problembox}[11.3: Gram-Schmidt Orthogonalization]
+Let $\{f_0, f_1, \dots\}$ be a linearly independent system on $[a, b]$ (as defined in Exercise 11.2). Define a new system $\{g_0, g_1, \dots\}$ recursively as follows:
+\[
+g_0 = f_0, \quad g_{n+1} = f_{n+1} - \sum_{k=0}^n a_k g_k,
+\]
+where $a_k = (f_{n+1}, g_k)/(g_k, g_k)$ if $\|g_k\| \neq 0$, and $a_k = 0$ if $\|g_k\| = 0$. Prove that $g_{n+1}$ is orthogonal to each of $g_0, g_1, \dots, g_n$ for every $n \geq 0$.
+\end{problembox}
+
+\begin{problembox}[11.4: Gram-Schmidt on Polynomials]
+Let $(f, g) = \int_{-1}^1 f(t)g(t) \, dt$. Apply the Gram-Schmidt process to the system of polynomials $\{1, t, t^2, \dots\}$ on the interval $[-1, 1]$ and show that
+\[
+g_1(t) = t, \quad g_2(t) = t^2 - \frac{1}{3}, \quad g_3(t) = t^3 - \frac{3}{5}t, \quad g_4(t) = t^4 - \frac{6}{7}t^2 + \frac{3}{35}.
+\]
+\end{problembox}
+
+\begin{problembox}[11.5: Approximation of Periodic Functions]
+\begin{enumerate}[label=(\alph*)]
+\item Assume $f \in \mathcal{R}$ on $[0, 2\pi]$, where $f$ is real and has period $2\pi$. Prove that for every $\epsilon > 0$, there is a continuous function $g$ of period $2\pi$ such that $\|f - g\| < \epsilon$.
+\begin{itemize}
+\item \textit{Hint:} Choose a partition $P$ of $[0, 2\pi]$ for which $f$ satisfies Riemann's condition $U(P, f) - L(P, f) < \epsilon$ and construct a piecewise linear $g$ which agrees with $f$ at the points of $P$.
+\end{itemize}
+\item Use part (a) to show that Theorem 11.16(a), (b), and (c) holds if $f$ is Riemann integrable on $[0, 2\pi]$.
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[11.6: Completeness of Orthonormal Systems]
+In this exercise, all functions are assumed to be continuous on a compact interval $[a, b]$. Let $\{\varphi_0, \varphi_1, \dots\}$ be an orthonormal system on $[a, b]$.
+\begin{enumerate}[label=(\alph*)]
+\item Prove that the following three statements are equivalent:
+\begin{enumerate}[label=\arabic*)]
+\item $(f, \varphi_n) = (g, \varphi_n)$ for all $n$ implies $f = g$. (Two distinct continuous functions cannot have the same Fourier coefficients.)
+\item $(f, \varphi_n) = 0$ for all $n$ implies $f = 0$. (The only continuous function orthogonal to every $\varphi_n$ is the zero function.)
+\item If $T$ is an orthonormal set on $[a, b]$ such that $\{\varphi_0, \varphi_1, \dots\} \subseteq T$, then $\{\varphi_0, \varphi_1, \dots\} = T$. (We cannot enlarge the orthonormal set.) This property is described by saying that $\{\varphi_0, \varphi_1, \dots\}$ is maximal or complete.
+\end{enumerate}
+\item Let $\varphi_n(x) = e^{inx}/\sqrt{2\pi}$ for $n$ an integer, and verify that the set $\{\varphi_n : n \in \mathbb{Z}\}$ is complete on every interval of length $2\pi$.
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[11.7: Properties of Legendre Polynomials]
+If $x \in \mathbb{R}$ and $n = 1, 2, \dots$, let $f_n(x) = (x^2 - 1)^n$ and define
+\[
+\varphi_0(x) = 1, \quad \varphi_n(x) = \frac{1}{n!} f_n^{(n)}(x).
+\]
+It is clear that $\varphi_n$ is a polynomial. This is called the Legendre polynomial of order $n$. The first few are
+\[
+\varphi_1(x) = x, \quad \varphi_2(x) = \frac{1}{2}(3x^2 - 1), \quad \varphi_3(x) = \frac{1}{2}(5x^3 - 3x), \quad \varphi_4(x) = \frac{1}{8}(35x^4 - 30x^2 + 3).
+\]
+Derive the following properties of Legendre polynomials:
+\begin{enumerate}[label=(\alph*)]
+\item $\varphi_n'(x) = x \varphi_{n-1}'(x) + n \varphi_{n-1}(x)$.
+\item $\varphi_n'(x) = x \varphi_{n-1}'(x) + \frac{n}{x^2 - 1} \varphi_{n-1}(x)$.
+\item $(n + 1) \varphi_{n+1}(x) = (2n + 1) x \varphi_n(x) - n \varphi_{n-1}(x)$.
+\item $\varphi_n$ satisfies the differential equation $[(1 - x^2) y']' + n(n + 1) y = 0$.
+\item $[(1 - x^2) \Delta(x)]' + [m(m + 1) - n(n + 1)] \varphi_m(x) \varphi_n(x) = 0$, where $\Delta = \varphi_n' \varphi_m - \varphi_m' \varphi_n$.
+\item The set $\{\varphi_0, \varphi_1, \varphi_2, \dots\}$ is orthogonal on $[-1, 1]$.
+\item $\int_{-1}^1 \varphi_n^2(x) \, dx = \frac{2}{2n + 1}$.
+\item $\int_{-1}^1 x \varphi_n^2(x) \, dx = 0$.
+\end{enumerate}
+\textit{Note:} The polynomials $g_n(t) = \sqrt{\frac{2n + 1}{2}} \varphi_n(t)$ arise by applying the Gram-Schmidt process to the system $\{1, t, t^2, \dots\}$ on the interval $[-1, 1]$. (See Exercise 11.4.)
+\end{problembox}
+
+\section{Trigonometric Fourier Series}
+
+\begin{problembox}[11.8: Fourier Series for Even and Odd Functions]
+Assume that $f \in L([-\pi, \pi])$ and that $f$ has period $2\pi$. Show that the Fourier series generated by $f$ assumes the following special forms under the conditions stated:
+\begin{enumerate}[label=(\alph*)]
+\item If $f(-x) = f(x)$ when $0 < x < \pi$, then
+\[
+f(x) \sim \frac{a_0}{2} + \sum_{n=1}^\infty a_n \cos nx,
+\]
+where $a_n = \frac{2}{\pi} \int_0^\pi f(t) \cos nt \, dt$.
+\item If $f(-x) = -f(x)$ when $0 < x < \pi$, then
+\[
+f(x) \sim \sum_{n=1}^\infty b_n \sin nx,
+\]
+where $b_n = \frac{2}{\pi} \int_0^\pi f(t) \sin nt \, dt$.
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[11.9: Fourier Series for Linear and Quadratic Functions]
+Show that each of the expansions is valid in the range indicated.
+\begin{enumerate}[label=(\alph*)]
+\item $x = \pi - 2 \sum_{n=1}^\infty \frac{\sin nx}{n}$ if $0 < x < 2\pi$.
+\begin{itemize}
+\item \textit{Note:} When $x = 0$, this gives $\zeta(2) = \pi^2/6$.
+\end{itemize}
+\item $x^2 = \pi x - \frac{\pi^2}{3} + 2 \sum_{n=1}^\infty \frac{\cos nx}{n^2}$ if $0 < x < 2\pi$.
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[11.10: Fourier Series for Odd and Even Terms]
+Show that each of the expansions is valid in the range indicated.
+\begin{enumerate}[label=(\alph*)]
+\item $|x| = \frac{\pi}{2} - \frac{4}{\pi} \sum_{n=1}^\infty \frac{\sin (2n - 1)x}{2n - 1}$ if $0 < x < \pi$.
+\item $x = \frac{4}{\pi} \sum_{n=1}^\infty \frac{\cos (2n - 1)x}{(2n - 1)^2}$ if $-\pi < x < \pi$.
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[11.11: Fourier Series for Linear Functions]
+Show that each of the expansions is valid in the range indicated.
+\begin{enumerate}[label=(\alph*)]
+\item $x = 2 \sum_{n=1}^\infty \frac{(-1)^{n-1} \sin nx}{n}$ if $-\pi < x < \pi$.
+\item $x^2 = \frac{\pi^2}{3} + 4 \sum_{n=1}^\infty \frac{(-1)^n \cos nx}{n^2}$ if $-\pi < x < \pi$.
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[11.12: Fourier Series for Trigonometric Functions]
+Show that each of the expansions is valid in the range indicated.
+\begin{enumerate}[label=(\alph*)]
+\item $\cos x = \frac{4}{\pi} - \frac{4}{\pi} \sum_{n=1}^\infty \frac{\cos (2n - 1)x}{(2n - 1)^2}$ if $-\pi < x < \pi$.
+\item $\sin x = \frac{2}{\pi} - \frac{4}{\pi} \sum_{n=1}^\infty \frac{\cos 2nx}{4n^2 - 1}$ if $-\pi < x < \pi$.
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[11.13: Fourier Series for Cosine and Sine]
+Show that each of the expansions is valid in the range indicated.
+\begin{enumerate}[label=(\alph*)]
+\item $\cos x = \frac{\pi}{2} - \frac{8}{\pi} \sum_{n=1}^\infty \frac{n \sin 2nx}{4n^2 - 1}$ if $0 < x < 2\pi$.
+\item $\sin x = \frac{2}{\pi} - \frac{4}{\pi} \sum_{n=1}^\infty \frac{\cos 2nx}{4n^2 - 1}$ if $0 < x < \pi$.
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[11.14: Fourier Series for Products]
+Show that each of the expansions is valid in the range indicated.
+\begin{enumerate}[label=(\alph*)]
+\item $x \cos x = -\frac{1}{2} \sin x + 2 \sum_{n=2}^\infty \frac{(-1)^{n-1} n \sin nx}{n^2 - 1}$ if $-\pi < x < \pi$.
+\item $x \sin x = \frac{1}{2} - \frac{1}{2} \cos x - 2 \sum_{n=2}^\infty \frac{(-1)^n \cos nx}{n^2 - 1}$ if $-\pi < x < \pi$.
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[11.15: Fourier Series for Logarithmic Functions]
+Show that each of the expansions is valid in the range indicated.
+\begin{enumerate}[label=(\alph*)]
+\item $\log \left| \sin \frac{x}{2} \right| = -\log 2 - \sum_{n=1}^\infty \frac{\cos nx}{n}$ if $x \neq 2k\pi$ (k an integer).
+\item $\log \left| \cos \frac{x}{2} \right| = -\log 2 - \sum_{n=1}^\infty \frac{(-1)^n \cos nx}{n}$ if $x \neq (2k + 1)\pi$.
+\item $\log \left| \tan \frac{x}{2} \right| = -2 \sum_{n=1}^\infty \frac{\cos (2n - 1)x}{2n - 1}$ if $x \neq (2k + 1)\pi$.
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[11.16: Fourier Series and Zeta Function]
+\begin{enumerate}[label=(\alph*)]
+\item Find a continuous function on $[-\pi, \pi]$ which generates the Fourier series $\sum_{n=1}^\infty \frac{(-1)^{n-1}}{n^3} \sin nx$. Then use Parseval's formula to prove that $\zeta(6) = \frac{\pi^6}{945}$.
+\item Use an appropriate Fourier series in conjunction with Parseval's formula to show that $\zeta(4) = \frac{\pi^4}{90}$.
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[11.17: Parseval's Formula Application]
+Assume that $f$ has a continuous derivative on $[0, 2\pi]$, that $f(0) = f(2\pi)$, and that $\int_0^{2\pi} f(t) \, dt = 0$. Prove that
+\[
+\|f'\| \geq \|f\|,
+\]
+with equality if and only if $f(x) = a \cos x + b \sin x$.
+\begin{itemize}
+\item \textit{Hint:} Use Parseval's formula.
+\end{itemize}
+\end{problembox}
+
+\begin{problembox}[11.18: Bernoulli Functions]
+A sequence $\{B_n\}$ of periodic functions (of period 1) is defined on $\mathbb{R}$ as follows:
+\[
+B_{2n}(x) = (-1)^{n+1} \frac{2}{(2n)!} \sum_{k=1}^\infty \frac{\cos 2\pi k x}{(\pi k)^{2n}}, \quad (n = 0, 1, 2, \dots),
+\]
+\[
+B_{2n+1}(x) = \frac{2}{(2n + 1)!} \sum_{k=1}^\infty \frac{\sin 2\pi k x}{(\pi k)^{2n+1}}, \quad (n = 0, 1, 2, \dots).
+\]
+($B_n$ is called the Bernoulli function of order $n$.) Show that:
+\begin{enumerate}[label=(\alph*)]
+\item $B_1(x) = x - [x] - \frac{1}{2}$ if $x$ is not an integer. ($[x]$ is the greatest integer $\leq x$.)
+\item $\int_0^1 B_n(x) \, dx = 0$ if $n \geq 1$ and $B_n'(x) = n B_{n-1}(x)$ if $n \geq 2$.
+\item $B_n(x) = P_n(x)$ if $0 < x < 1$, where $P_n$ is the $n$th Bernoulli polynomial. (See Exercise 9.38 for the definition of $P_n$.)
+\item $B_n(x) = -\sum_{k \neq 0} \frac{e^{2\pi i k x}}{(2\pi i k)^n}$, ($n = 1, 2, \dots$).
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[11.19: Gibbs' Phenomenon]
+Let $f$ be the function of period $2\pi$ whose values on $[-\pi, \pi]$ are
+\[
+f(x) = 
+\begin{cases} 
+1 & \text{if } 0 < x < \pi, \\
+0 & \text{if } x = 0 \text{ or } x = \pi, \\
+-1 & \text{if } -\pi < x < 0.
+\end{cases}
+\]
+\begin{enumerate}[label=(\alph*)]
+\item Show that
+\[
+f(x) = \frac{4}{\pi} \sum_{n=1}^\infty \frac{\sin (2n - 1)x}{2n - 1},
+\]
+for every $x$.
+\item Show that
+\[
+s_n(x) = \frac{2}{\pi} \int_0^x \frac{\sin 2nt}{\sin t} \, dt,
+\]
+where $s_n(x)$ denotes the $n$th partial sum of the series in part (a).
+\item Show that, in $(0, \pi)$, $s_n$ has local maxima at $x_1, x_3, \dots, x_{2n-1}$ and local minima at $x_2, x_4, \dots, x_{2n-2}$, where $x_m = \frac{m\pi}{n}$ ($m = 1, 2, \dots, 2n - 1$).
+\item Show that $s_n\left(\frac{\pi}{n}\right)$ is the largest of the numbers $s_n(x_m)$ ($m = 1, 2, \dots, 2n - 1$).
+\item Interpret $s_n\left(\frac{\pi}{n}\right)$ as a Riemann sum and prove that
+\[
+\lim_{n \to \infty} s_n\left(\frac{\pi}{n}\right) = \frac{2}{\pi} \int_0^\pi \frac{\sin t}{t} \, dt.
+\]
+The value of the limit in (e) is about 1.179. Thus, although $f$ has a jump equal to 2 at the origin, the graphs of the approximating curves $s_n$ tend to approximate a vertical segment of length 2.358 in the vicinity of the origin. This is the Gibbs phenomenon.
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[11.20: Fourier Coefficients of Bounded Variation]
+If $f(x) \sim \frac{a_0}{2} + \sum_{n=1}^\infty (a_n \cos nx + b_n \sin nx)$ and if $f$ is of bounded variation on $[0, 2\pi]$, show that $a_n = O(1/n)$ and $b_n = O(1/n)$.
+\begin{itemize}
+\item \textit{Hint:} Write $f = g - h$, where $g$ and $h$ are increasing on $[0, 2\pi]$. Then
+\[
+a_n = \frac{2}{n\pi} \int_0^{2\pi} g(x) \, d(\sin nx) - \frac{2}{n\pi} \int_0^{2\pi} h(x) \, d(\sin nx).
+\]
+Now apply Theorem 7.31.
+\end{itemize}
+\end{problembox}
+
+\begin{problembox}[11.21: Lipschitz Condition and Lebesgue Integral]
+Suppose $g \in L([a, \delta])$ for every $a$ in $(0, \delta)$ and assume that $g$ satisfies a "right-handed" Lipschitz condition at 0. (See the Note following Theorem 11.9.) Show that the Lebesgue integral $\int_0^\delta \frac{|g(t) - g(0+)|}{t} \, dt$ exists.
+\end{problembox}
+
+\begin{problembox}[11.22: Fourier Series Convergence]
+Use Exercise 11.21 to prove that differentiability of $f$ at a point implies convergence of its Fourier series at the point.
+\end{problembox}
+
+\begin{problembox}[11.23: Orthogonality to Polynomials]
+Let $g$ be continuous on $[0, 1]$ and assume that $\int_0^1 t^n g(t) \, dt = 0$ for $n = 0, 1, 2, \dots$. Show that:
+\begin{enumerate}[label=(\alph*)]
+\item $\int_0^1 g(t)^2 \, dt = \int_0^1 g(t)(g(t) - P(t)) \, dt$ for every polynomial $P$.
+\item $\int_0^1 g(t)^2 \, dt = 0$.
+\begin{itemize}
+\item \textit{Hint:} Use Theorem 11.17.
+\end{itemize}
+\item $g(t) = 0$ for every $t$ in $[0, 1]$.
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[11.24: Weierstrass Approximation]
+Use the Weierstrass approximation theorem to prove each of the following statements.
+\begin{enumerate}[label=(\alph*)]
+\item If $f$ is continuous on $[1, +\infty)$ and if $f(x) \to a$ as $x \to +\infty$, then $f$ can be uniformly approximated on $[1, +\infty)$ by a function $g$ of the form $g(x) = p(1/x)$, where $p$ is a polynomial.
+\item If $f$ is continuous on $[0, +\infty)$ and if $f(x) \to a$ as $x \to +\infty$, then $f$ can be uniformly approximated on $[0, +\infty)$ by a function $g$ of the form $g(x) = p(e^{-x})$, where $p$ is a polynomial.
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[11.25: Arithmetic Means of Fourier Series]
+Assume that $f(x) \sim \frac{a_0}{2} + \sum_{n=1}^\infty (a_n \cos nx + b_n \sin nx)$ and let $\{\sigma_n\}$ be the sequence of arithmetic means of the partial sums of this series, as it was given in (23). Show that:
+\begin{enumerate}[label=(\alph*)]
+\item $\sigma_n(x) = \frac{a_0}{2} + \sum_{k=1}^{n-1} \left(1 - \frac{k}{n}\right) (a_k \cos kx + b_k \sin kx)$.
+\item $\int_0^{2\pi} |f(x) - \sigma_n(x)|^2 \, dx = \frac{\pi}{n^2} \sum_{k=1}^{n-1} k^2 (a_k^2 + b_k^2)$.
+\item If $f$ is continuous on $[0, 2\pi]$ and has period $2\pi$, then
+\[
+\lim_{n \to \infty} \frac{1}{n} \sum_{k=1}^{n-1} k^2 (a_k^2 + b_k^2) = 0.
+\]
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[11.26: Convergence of Exponential Fourier Series]
+Consider the Fourier series (in exponential form) generated by a function $f$ which is continuous on $[0, 2\pi]$ and periodic with period $2\pi$, say
+\[
+f(x) \sim \sum_{n=-\infty}^{+\infty} a_n e^{inx}.
+\]
+Assume also that the derivative $f' \in \mathcal{R}$ on $[0, 2\pi]$. 
+\begin{enumerate}[label=(\alph*)]
+\item Prove that the series $\sum n^2 |a_n|^2$ converges; then use the Cauchy-Schwarz inequality to deduce that $\sum |a_n|$ converges.
+\item From (a), deduce that the series $\sum a_n e^{inx}$ converges uniformly to a continuous sum function $g$ on $[0, 2\pi]$. Then prove that $f = g$.
+\end{enumerate}
+\end{problembox}
+
+\section{Fourier Integrals}
+
+\begin{problembox}[11.27: Fourier Integral for Even and Odd Functions]
+If $f$ satisfies the hypotheses of the Fourier integral theorem, show that:
+\begin{enumerate}[label=(\alph*)]
+\item If $f$ is even, that is, if $f(-t) = f(t)$ for every $t$, then
+\[
+\frac{f(x+) + f(x-)}{2} = \frac{2}{\pi} \int_0^\infty \left[ \int_0^\infty f(u) \cos vu \, du \right] \cos vx \, dv.
+\]
+\item If $f$ is odd, that is, if $f(-t) = -f(t)$ for every $t$, then
+\[
+\frac{f(x+) + f(x-)}{2} = \frac{2}{\pi} \int_0^\infty \left[ \int_0^\infty f(u) \sin vu \, du \right] \sin vx \, dv.
+\]
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[11.28: Fourier Integral Evaluation]
+Use the Fourier integral theorem to evaluate the improper integral:
+\[
+\int_0^\infty \frac{\sin v \cos vx}{v} \, dv = 
+\begin{cases} 
+\frac{\pi}{2} & \text{if } -1 < x < 1, \\
+0 & \text{if } |x| > 1, \\
+\frac{\pi}{4} & \text{if } |x| = 1.
+\end{cases}
+\]
+\begin{itemize}
+\item \textit{Suggestion:} Use Exercise 11.27 when possible.
+\end{itemize}
+\end{problembox}
+
+\begin{problembox}[11.29: Fourier Integral with Exponential]
+Use the Fourier integral theorem to evaluate the improper integral:
+\[
+\int_0^\infty \cos ax e^{-b|x|} \, dx = \frac{2b}{b^2 + a^2}, \quad \text{if } b > 0.
+\]
+\begin{itemize}
+\item \textit{Hint:} Apply Exercise 11.27 with $f(u) = e^{-b|u|}$.
+\end{itemize}
+\end{problembox}
+
+\begin{problembox}[11.30: Fourier Integral with Rational Function]
+Use the Fourier integral theorem to evaluate the improper integral:
+\[
+\int_0^\infty \frac{x \sin ax}{1 + x^2} \, dx = \pi e^{-|a|}, \quad \text{if } a \neq 0.
+\]
+\end{problembox}
+
+\begin{problembox}[11.31: Gamma Function Properties]
+\begin{enumerate}[label=(\alph*)]
+\item Prove that
+\[
+\Gamma(p) \Gamma(p) = \frac{2}{\Gamma(2p)} \int_0^1 x^{p-1} (1 - x)^{p-1} \, dx.
+\]
+\item Make a suitable change of variable in (a) and derive the duplication formula for the Gamma function:
+\[
+\Gamma(2p) \Gamma\left(\frac{1}{2}\right) = 2^{2p-1} \Gamma(p) \Gamma\left(p + \frac{1}{2}\right).
+\]
+\begin{itemize}
+\item \textit{Note:} In Exercise 10.30, it is shown that $\Gamma\left(\frac{1}{2}\right) = \sqrt{\pi}$.
+\end{itemize}
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[11.32: Fourier Transform of Gaussian]
+If $f(x) = e^{-x^2/2}$ and $g(x) = x f(x)$ for all $x$, prove that
+\[
+\int_0^\infty f(x) \cos xy \, dx = f(y), \quad \text{and} \quad \int_0^\infty g(x) \sin xy \, dx = g(y).
+\]
+\end{problembox}
+
+\begin{problembox}[11.33: Poisson Summation Formula]
+This exercise describes another form of Poisson's summation formula. Assume that $f$ is nonnegative, decreasing, and continuous on $[0, +\infty)$ and that $\int_0^\infty f(x) \, dx$ exists as an improper Riemann integral. Let
+\[
+g(y) = \frac{2}{\pi} \int_0^\infty f(x) \cos xy \, dx.
+\]
+If $a$ and $b$ are positive numbers such that $ab = 2\pi$, prove that
+\[
+\sqrt{a} \left\{ f(0) + \sum_{m=1}^\infty f(ma) \right\} = \sqrt{b} \left\{ g(0) + \sum_{n=1}^\infty g(nb) \right\}.
+\]
+\end{problembox}
+
+\begin{problembox}[11.34: Transformation Formula]
+Prove that the transformation formula (55) for $\theta(x)$ can be put in the form
+\[
+\sum_{m=1}^\infty e^{-\pi m^2 a^2} + \frac{1}{2} = \frac{1}{\sqrt{a}} \left( \sum_{n=1}^\infty e^{-\pi n^2 b^2} + \frac{1}{2} \right),
+\]
+where $ab = 2\pi$, $a > 0$.
+\end{problembox}
+
+\begin{problembox}[11.35: Zeta Function and Integral]
+If $s > 1$, prove that
+\[
+\pi^{-s/2} \sum_{n=1}^\infty n^{-s} = \frac{1}{\Gamma(s/2)} \int_0^\infty e^{-\pi x^2} x^{s/2-1} \, dx,
+\]
+and derive the formula
+\[
+\sum_{n=1}^\infty n^{-s} = \pi^{s/2} \Gamma\left(\frac{s}{2}\right) \zeta(s) = \int_0^\infty \left( \theta(x) - 1 \right) x^{s/2-1} \, dx,
+\]
+where $\theta(x) = \sum_{n=-\infty}^\infty e^{-\pi n^2 x}$. Use this and the transformation formula for $\theta(x)$ to prove that
+\[
+\pi^{s/2} \Gamma\left(\frac{s}{2}\right) \zeta(s) = \int_0^\infty \left[ x^{s/2-1} + x^{(1-s)/2-1} \right] \theta(x) \, dx.
+\]
+\end{problembox}
+
+\section{Laplace Transforms}
+
+\begin{problembox}[11.36: Laplace Transform Table]
+Verify the entries in the following table of Laplace transforms:
+\[
+\begin{array}{ll}
+f(t) & F(z) = \int_0^\infty e^{-zt} f(t) \, dt, \quad z = x + iy \\
+e^{at} & (z - a)^{-1}, \quad (x > a) \\
+\cos at & z/(z^2 + a^2), \quad (x > 0) \\
+\sin at & a/(z^2 + a^2), \quad (x > 0) \\
+t^p e^{at} & \Gamma(p + 1)/(z - a)^{p+1}, \quad (x > a, p > 0)
+\end{array}
+\]
+\end{problembox}
+
+\begin{problembox}[11.37: Convolution and Laplace Transform]
+Show that the convolution $h = f * g$ assumes the form
+\[
+h(t) = \int_0^t f(x) g(t - x) \, dx,
+\]
+when both $f$ and $g$ vanish on the negative real axis. Use the convolution theorem for Fourier transforms to prove that $\mathcal{L}(f * g) = \mathcal{L}(f) \cdot \mathcal{L}(g)$.
+\end{problembox}
+
+\begin{problembox}[11.38: Properties of Laplace Transform]
+Assume $f$ is continuous on $(0, +\infty)$ and let $F(z) = \int_0^\infty e^{-zt} f(t) \, dt$ for $z = x + iy$, $x > c > 0$. If $s > c$ and $a > 0$, prove that:
+\begin{enumerate}[label=(\alph*)]
+\item $F(s + a) = a \int_0^\infty g(t) e^{-at} \, dt$, where $g(x) = \int_0^\infty e^{-st} f(t) \, dt$.
+\item If $F(s + na) = 0$ for $n = 0, 1, 2, \dots$, then $f(t) = 0$ for $t > 0$.
+\begin{itemize}
+\item \textit{Hint:} Use Exercise 11.23.
+\end{itemize}
+\item If $h$ is continuous on $(0, +\infty)$ and if $f$ and $h$ have the same Laplace transform, then $f(t) = h(t)$ for every $t > 0$.
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[11.39: Inversion Formula for Laplace Transforms]
+Let $F(z) = \int_0^\infty e^{-zt} f(t) \, dt$ for $z = x + iy$, $x > c > 0$. Let $t$ be a point at which $f$ satisfies one of the "local" conditions (a) or (b) of the Fourier integral theorem (Theorem 11.18). Prove that for each $a > c$, we have
+\[
+\frac{f(t+) + f(t-)}{2} = \frac{1}{2\pi} \lim_{T \to +\infty} \int_{-T}^T e^{(a + iv)t} F(a + iv) \, dv.
+\]
+This is called the inversion formula for Laplace transforms. The limit on the right is usually evaluated with the help of residue calculus, as described in Section 16.26.
+\begin{itemize}
+\item \textit{Hint:} Let $g(t) = e^{-at} f(t)$ for $t > 0$, $g(t) = 0$ for $t < 0$, and apply Theorem 11.19 to $g$.
+\end{itemize}
+\end{problembox}
+

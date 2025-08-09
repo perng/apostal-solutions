@@ -1,0 +1,43 @@
+extract all problems, format out in LaTeX format. Give each problem a name.
+Output in the strict LaTeX source format (as ASCII text). 
+Each problem should be formatted as
+\begin{problembox}[x.xx: <problem name>]
+<problem statement>
+\end{problembox}
+
+Also add the sections like \section{Uniform convergence} if there are section names in the file. If there is not section name in the file, add sections based on the problem contents.
+
+Include all descriptions and hints in the file. 
+use \begin{enumerate}[label=(\alph*)] for items
+
+No need to generate LaTeX Prefix. \begin{document} is already in a master tex file, which has the following
+\documentclass{book}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{wrapfig}
+
+% Custom environment for problem statements
+\newtcolorbox{problembox}[1][]{
+    colback=blue!10,
+    colframe=blue!50,
+    arc=3pt,
+    boxrule=1pt,
+    left=10pt,
+    right=10pt,
+    top=10pt,
+    bottom=10pt,
+    fonttitle=\bfseries,
+    title={\mbox{#1}},
+    before upper={\parindent0pt}
+}
+
+\newcommand{\Log}{\log}
+\newcommand{\shortsearrow}{\mathrel{\vcenter{\hbox{$\scriptscriptstyle\searrow$}}}}
+
+\begin{document}
+

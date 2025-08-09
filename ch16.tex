@@ -1,0 +1,117 @@
+\chapter{Cauchy's Theorem and the residue calculus}
+\section{Complex Integration; Cauchy's Integral Formulas}
+
+\begin{problembox}[16.1: Path Integral of Analytic Function]
+Let \( y \) be a piecewise smooth path with domain \([a, b]\) and graph \(\Gamma\). Assume that the integral \( \int_y f \) exists. Let \( S \) be an open region containing \(\Gamma\) and let \( g \) be a function such that \( g'(z) \) exists and equals \( f(z) \) for each \( z \) on \(\Gamma\). Prove that
+\[\int_y f = \int_y g' = g(B) - g(A), \quad \text{where } A = y(a) \text{ and } B = y(b).\]
+In particular, if \( y \) is a circuit, then \( A = B \) and the integral is 0. Hint. Apply Theorem 7.34 to each interval of continuity of \( y' \).
+\end{problembox}
+
+\begin{problembox}[16.2: Verification of Cauchy's Integral Formulas]
+Let \( y \) be a positively oriented circular path with center 0 and radius 2. Verify each of the following by using one of Cauchy's integral formulas.
+\begin{enumerate}[label=(\alph*)]
+\item \[ \int_y \frac{e^z}{z} dz = 2\pi i. \]
+\item \[ \int_y \frac{e^z}{z^3} dz = \pi i. \]
+\item \[ \int_y \frac{e^z}{z^4} dz = \frac{\pi i}{3}. \]
+\item \[ \int_y \frac{e^z}{z - 1} dz = 2\pi ie. \]
+\item \[ \int_y \frac{e^z}{z(z - 1)} dz = 2\pi i(e - 1). \]
+\item \[ \int_y \frac{e^z}{z^2(z - 1)} dz = 2\pi i(e - 2). \]
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[16.3: Derivative via Integral Formula]
+Let \( f = u + iv \) be analytic on a disk \( B(a; R) \). If \( 0 < r < R \), prove that
+\[f'(a) = \frac{1}{\pi r} \int_0^{2\pi} u(a + re^{i\theta}) e^{-i\theta} d\theta.\]
+\end{problembox}
+
+\begin{problembox}[16.4: Stronger Liouville's Theorem]
+\begin{enumerate}[label=(\alph*)]
+\item Prove the following stronger version of Liouville's theorem: If \( f \) is an entire function such that \( \lim_{z \to \infty} |f(z)|/|z| = 0 \), then \( f \) is a constant.
+\item What can you conclude about an entire function which satisfies an inequality of the form \( |f(z)| \leq M|z|^c \) for every complex \( z \), where \( c > 0 \)?
+\end{enumerate}
+\end{problembox}
+
+\section{Poisson's Formula and Applications}
+
+\begin{problembox}[16.5: Poisson's Integral Formula]
+Assume that \( f \) is analytic on \( B(0; R) \). Let \( y \) denote the positively oriented circle with center at 0 and radius \( r \), where \( 0 < r < R \). If \( a \) is inside \( y \), show that
+\[f(a) = \frac{1}{2\pi i} \int_{y} f(z) \left( \frac{1}{z - a} - \frac{1}{z - r^2 / \bar{a}} \right) dz.\]
+If \( a = Ae^{i\alpha} \), show that this reduces to the formula
+\[f(a) = \frac{1}{2\pi} \int_{0}^{2\pi} \frac{(r^2 - A^2)f(re^{i\theta})}{r^2 - 2rA \cos (\alpha - \theta) + A^2} d\theta.\]
+By equating the real parts of this equation we obtain an expression known as Poisson's integral formula.
+\end{problembox}
+
+\begin{problembox}[16.6: Analytic Function Inequality]
+Assume that \( f \) is analytic on the closure of the disk \( B(0; 1) \). If \( |a| < 1 \), show that
+\[(1 - |a|^2)f(a) = \frac{1}{2\pi i} \int_{y} f(z) \frac{1 - z\bar{a}}{z - a} dz,\]
+where \( y \) is the positively oriented unit circle with center at 0. Deduce the inequality
+\[(1 - |a|^2) |f(a)| \leq \frac{1}{2\pi} \int_{0}^{2\pi} |f(e^{i\theta})| d\theta.\]
+\end{problembox}
+
+\section{Taylor Expansions}
+
+\begin{problembox}[16.8: Taylor Expansion of Power Series]
+Define \( f \) on the disk \( B(0; 1) \) by the equation \( f(z) = \sum_{n=0}^{\infty} z^n \). Find the Taylor expansion of \( f \) about the point \( a = \frac{1}{2} \) and also about the point \( a = -\frac{1}{2} \). Determine the radius of convergence in each case.
+\end{problembox}
+
+\begin{problembox}[16.9: Taylor Expansion of Averaged Function]
+Assume that \( f \) has the Taylor expansion \( f(z) = \sum_{n=0}^{\infty} a(n)z^n \), valid in \( B(0; R) \). Let
+\[g(z) = \frac{1}{p} \sum_{k=0}^{p-1} f(z e^{2\pi ik/p}).\]
+Prove that the Taylor expansion of \( g \) consists of every \( p \)th term in that of \( f \). That is, if \( z \in B(0; R) \) we have
+\[g(z) = \sum_{n=0}^{\infty} a(pn)z^{pn}.\]
+\end{problembox}
+
+\section{Laurent Expansions, Singularities, Residues}
+
+\begin{problembox}[16.14: Rouché's Theorem]
+Let \( f \) and \( g \) be analytic on an open region \( S \). Let \( y \) be a Jordan circuit with graph \( \Gamma \) such that both \( \Gamma \) and its inner region lie within \( S \). Suppose that \( |g(z)| < |f(z)| \) for every \( z \) on \( \Gamma \).
+\begin{enumerate}[label=(\alph*)]
+\item Show that
+\[\frac{1}{2\pi i} \int_{y} \frac{f'(z) + g'(z)}{f(z) + g(z)} dz = \frac{1}{2\pi i} \int_{y} \frac{f'(z)}{f(z)} dz.\]
+Hint. Let \( m = \inf \{ |f(z)| - |g(z)| : z \in \Gamma \} \). Then \( m > 0 \) and hence
+\[|f(z) + tg(z)| \geq m > 0\]
+for each \( t \) in \( [0, 1] \) and each \( z \) on \( \Gamma \). Now let
+\[\phi(t) = \frac{1}{2\pi i} \int_{y} \frac{f'(z) + tg'(z)}{f(z) + tg(z)} dz, \quad \text{if} \quad 0 \leq t \leq 1.\]
+Then \( \phi \) is continuous, and hence constant, on \( [0, 1] \). Thus, \( \phi(0) = \phi(1) \).
+
+\item Use (a) to prove that \( f \) and \( f + g \) have the same number of zeros inside \(\Gamma\) (Rouché's theorem).
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[16.15: Zeros of Polynomial]
+Let \( p \) be a polynomial of degree \( n \), say \( p(z) = a_0 + a_1 z + \cdots + a_n z^n \), where \( a_n \neq 0 \). Take \( f(z) = a_n z^n, g(z) = p(z) - f(z) \) in Rouché's theorem, and prove that \( p \) has exactly \( n \) zeros in C.
+\end{problembox}
+
+\section{Möbius Transformations}
+
+\begin{problembox}[16.44: Composition of Möbius Transformations]
+If \( f \) and \( g \) are Möbius transformations, show that the composition \( f \circ g \) is also a Möbius transformation.
+\end{problembox}
+
+\begin{problembox}[16.45: Geometric Interpretation of Möbius Transformations]
+Describe geometrically what happens to a point \( z \) when it is carried into \( f(z) \) by the following special Möbius transformations:
+\begin{enumerate}[label=(\alph*)]
+\item \( f(z) = z + b \) (Translation).
+\item \( f(z) = az \), where \( a > 0 \) (Stretching or contraction).
+\item \( f(z) = e^{iz}z \), where \( a \) is real (Rotation).
+\item \( f(z) = 1/z \) (Inversion).
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[16.46: Circles under Möbius Transformations]
+If \( c \neq 0 \), we have
+\[\frac{az + b}{cz + d} = \frac{a}{c} + \frac{bc - ad}{c(cz + d)}.\]
+Hence every Möbius transformation can be expressed as a composition of the special cases described in Exercise 16.45. Use this fact to show that Möbius transformations carry circles into circles (where straight lines are considered as special cases of circles).
+\end{problembox}
+
+\section{Miscellaneous Exercises}
+
+\begin{problembox}[16.54: Zeros of Polynomial with Decreasing Coefficients]
+Let \( p(z) = \sum_{k=0}^{n} a_k z^k \) be a polynomial of degree \( n \) with real coefficients satisfying
+\[a_0 > a_1 > \cdots > a_{n-1} > a_n > 0.\]
+Prove that \( p(z) = 0 \) implies \( |z| > 1 \). Hint. Consider \( (1 - z)p(z) \).
+\end{problembox}
+
+\begin{problembox}[16.56: Morera's Theorem]
+Prove Morera's theorem: If \( f \) is continuous on an open region \( S \) in \( C \) and if \( \int_S f = 0 \) for every polygonal circuit \( y \) in \( S \), then \( f \) is analytic on \( S \).
+\end{problembox}

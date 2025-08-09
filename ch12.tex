@@ -1,0 +1,195 @@
+\chapter{Multivariable Differential Calculus}
+
+\section{Differentiable Functions}
+
+\begin{problembox}[12.1: Local Extrema and Partial Derivatives]
+Let \( S \) be an open subset of \( \mathbb{R}^n \), and let \( f: S \to \mathbb{R} \) be a real-valued function with finite partial derivatives \( D_1f, \ldots, D_nf \) on \( S \). If \( f \) has a local maximum or a local minimum at a point \( c \) in \( S \), prove that \( D_kf(c) = 0 \) for each \( k \).
+\end{problembox}
+
+\begin{problembox}[12.2: Partial and Directional Derivatives]
+Calculate all first-order partial derivatives and the directional derivative \( f'(x; u) \) for each of the real-valued functions defined on \( \mathbb{R}^n \) as follows:
+\begin{enumerate}[label=(\alph*)]
+\item \( f(x) = a \cdot x \), where \( a \) is a fixed vector in \( \mathbb{R}^n \).
+\item \( f(x) = \|x\|^4 \).
+\item \( f(x) = x \cdot L(x) \), where \( L : \mathbb{R}^n \to \mathbb{R}^n \) is a linear function.
+\item \( f(x) = \sum_{i=1}^{n} \sum_{j=1}^{n} a_{ij}x_i x_j \), where \( a_{ij} = a_{ji} \).
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[12.3: Directional Derivatives of Sum and Product]
+Let \( f \) and \( g \) be functions with values in \( \mathbb{R}^m \) such that the directional derivatives \( f'(c; u) \) and \( g'(c; u) \) exist. Prove that the sum \( f + g \) and dot product \( f \cdot g \) have directional derivatives given by
+\[(f + g)'(c; u) = f'(c; u) + g'(c; u)\]
+and
+\[(f \cdot g)'(c; u) = f(c) \cdot g'(c; u) + g(c) \cdot f'(c; u).\]
+\end{problembox}
+
+\begin{problembox}[12.4: Differentiability of Vector-Valued Functions]
+If \( S \subseteq \mathbb{R}^n \), let \( f: S \to \mathbb{R}^m \) be a function with values in \( \mathbb{R}^m \), and write \( f = (f_1, \ldots, f_m) \). Prove that \( f \) is differentiable at an interior point \( c \) of \( S \) if, and only if, each \( f_i \) is differentiable at \( c \).
+\end{problembox}
+
+\begin{problembox}[12.5: Differentiability of Sum of Univariate Functions]
+Given \( n \) real-valued functions \( f_1, \ldots, f_n \), each differentiable on an open interval \( (a, b) \) in \( \mathbb{R} \). For each \( x = (x_1, \ldots, x_n) \) in the \( n \)-dimensional open interval
+\[S = \{(x_1, \ldots, x_n): a < x_k < b, \quad k = 1, 2, \ldots, n\},\]
+define \( f(x) = f_1(x_1) + \cdots + f_n(x_n) \). Prove that \( f \) is differentiable at each point of \( S \) and that
+\[f'(x)(u) = \sum_{i=1}^{n} f_i'(x_i)u_i, \quad \text{where } u = (u_1, \ldots, u_n).\]
+\end{problembox}
+
+\begin{problembox}[12.6: Differentiability with Partial Limits]
+Given \( n \) real-valued functions \( f_1, \ldots, f_n \) defined on an open set \( S \) in \( \mathbb{R}^n \). For each \( x \) in \( S \), define \( f(x) = f_1(x) + \cdots + f_n(x) \). Assume that for each \( k = 1, 2, \ldots, n \), the following limit exists:
+\[\lim_{\substack{y \to x \\ y_k \neq x_k}} \frac{f_k(y) - f_k(x)}{y_k - x_k}.\]
+Call this limit \( a_k(x) \). Prove that \( f \) is differentiable at \( x \) and that
+\[f'(x)(u) = \sum_{k=1}^{n} a_k(x) u_k \quad \text{if } u = (u_1, \ldots, u_n).\]
+\end{problembox}
+
+\begin{problembox}[12.7: Differentiability of Product at Zero]
+Let \( f \) and \( g \) be functions from \( \mathbb{R}^n \) to \( \mathbb{R}^m \). Assume that \( f \) is differentiable at \( c \), that \( f(c) = 0 \), and that \( g \) is continuous at \( c \). Let \( h(x) = g(x) \cdot f(x) \). Prove that \( h \) is differentiable at \( c \) and that
+\[h'(c)(u) = g(c) \cdot \{f'(c)(u)\} \quad \text{if } u \in \mathbb{R}^n.\]
+\end{problembox}
+
+\begin{problembox}[12.8: Jacobian Matrix Calculation]
+Let \( f : \mathbb{R}^2 \to \mathbb{R}^3 \) be defined by the equation
+\[f(x, y) = (\sin x \cos y, \sin x \sin y, \cos x \cos y).\]
+Determine the Jacobian matrix \( Df(x, y) \).
+\end{problembox}
+
+
+\begin{problembox}[12.9: Nonexistence of Positive Directional Derivative]
+Prove that there is no real-valued function \( f \) such that \( f'(c; u) > 0 \) for a fixed point \( c \) in \( \mathbb{R}^n \) and every nonzero vector \( u \) in \( \mathbb{R}^n \). Give an example such that \( f'(c; u) > 0 \) for a fixed direction \( u \) and every \( c \) in \( \mathbb{R}^n \).
+\end{problembox}
+
+\begin{problembox}[12.10: Complex Differentiability and Directional Derivatives]
+Let \( f = u + iv \) be a complex-valued function such that the derivative \( f'(c) \) exists for some complex \( c \). Write \( z = c + re^{i\alpha} \) (where \( \alpha \) is real and fixed) and let \( r \to 0 \) in the difference quotient \( [f(z) - f(c)]/(z - c) \) to obtain
+\[f'(c) = e^{-i\alpha}[u'(c; a) + iv'(c; a)],\]
+where \( a = (\cos \alpha, \sin \alpha) \), and \( u'(c; a) \) and \( v'(c; a) \) are directional derivatives. Let \( b = (\cos \beta, \sin \beta) \), where \( \beta = \alpha + \frac{1}{2}\pi \), and show by a similar argument that
+\[f'(c) = e^{-i\alpha}[v'(c; b) - iu'(c; b)].\]
+Deduce that \( u'(c; a) = v'(c; b) \) and \( v'(c; a) = -u'(c; b) \). The Cauchy-Riemann equations (Theorem 5.22) are a special case.
+\end{problembox}
+
+
+\section{Gradients and the Chain Rule}
+
+\begin{problembox}[12.11: Maximum Directional Derivative]
+Let \( f \) be real-valued and differentiable at a point \( c \) in \( \mathbb{R}^n \), and assume that \( \| \nabla f(c) \| \neq 0 \). Prove that there is one and only one unit vector \( u \) in \( \mathbb{R}^n \) such that \( |f'(c; u)| = \| \nabla f(c) \| \), and that this is the unit vector for which \( |f'(c; u)| \) has its maximum value.
+\end{problembox}
+
+\begin{problembox}[12.12: Gradient Calculations]
+Compute the gradient vector \( \nabla f(x, y) \) at those points \( (x, y) \) in \( \mathbb{R}^2 \) where it exists:
+\begin{enumerate}[label=(\alph*)]
+\item \( f(x, y) = x^2 y^2 \log (x^2 + y^2) \) if \( (x, y) \ne (0, 0) \), \( f(0, 0) = 0 \).
+\item \( f(x, y) = xy \sin \frac{1}{x^2 + y^2} \) if \( (x, y) \ne (0, 0) \), \( f(0, 0) = 0 \).
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[12.13: Second Order Partials of Composition]
+Let \( f \) and \( g \) be real-valued functions defined on \( \mathbb{R}^1 \) with continuous second derivatives \( f'' \) and \( g'' \). Define
+\[F(x, y) = f[x + g(y)] \text{ for each } (x, y) \text{ in } \mathbb{R}^2.\]
+Find formulas for all partials of \( F \) of first and second order in terms of the derivatives of \( f \) and \( g \). Verify the relation
+\[(D_1F)(D_{1,2}F) = (D_2F)(D_{1,1}F).\]
+\end{problembox}
+
+\begin{problembox}[12.14: Polar Coordinate Transformation]
+Given a function \( f \) defined in \( \mathbb{R}^2 \). Let
+\[F(r, \theta) = f(r \cos \theta, r \sin \theta).\]
+\begin{enumerate}[label=(\alph*)]
+\item Assume appropriate differentiability properties of \( f \) and show that
+\[D_1F(r, \theta) = \cos \theta D_1f(x, y) + \sin \theta D_2f(x, y),\]
+\[D_{1,1}F(r, \theta) = \cos^2 \theta D_{1,1}f(x, y) + 2 \sin \theta \cos \theta D_{1,2}f(x, y) + \sin^2 \theta D_{2,2}f(x, y),\]
+where \( x = r \cos \theta, y = r \sin \theta \).
+\item Find similar formulas for \( D_2F, D_{1,2}F, \) and \( D_{2,2}F \).
+\item Verify the formula
+\[\| \nabla f(r \cos \theta, r \sin \theta) \|^2 = [D_1F(r, \theta)]^2 + \frac{1}{r^2} [D_2F(r, \theta)]^2.\]
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[12.15: Gradient of Product and Quotient]
+If \( f \) and \( g \) have gradient vectors \( \nabla f(x) \) and \( \nabla g(x) \) at a point \( x \) in \( \mathbb{R}^n \) show that the product function \( h \) defined by \( h(x) = f(x)g(x) \) also has a gradient vector at \( x \) and that
+\[\nabla h(x) = f(x)\nabla g(x) + g(x)\nabla f(x).\]
+State and prove a similar result for the quotient \( f/g \).
+\end{problembox}
+
+\begin{problembox}[12.16: Gradient of Composition]
+Let \( f \) be a function having a derivative \( f' \) at each point in \( \mathbb{R}^1 \) and let \( g \) be defined on \( \mathbb{R}^3 \) by the equation
+\[g(x, y, z) = x^2 + y^2 + z^2.\]
+If \( h \) denotes the composite function \( h = f \circ g \), show that
+\[\| \nabla h(x, y, z) \|^2 = 4g(x, y, z)[f'[g(x, y, z)]]^2.\]
+\end{problembox}
+
+\begin{problembox}[12.17: Gradient of Vector-Valued Composition]
+Assume \( f \) is differentiable at each point \( (x, y) \) in \( \mathbb{R}^2 \). Let \( g_1 \) and \( g_2 \) be defined on \( \mathbb{R}^3 \) by the equations
+\[g_1(x, y, z) = x^2 + y^2 + z^2, \quad g_2(x, y, z) = x + y + z,\]
+and let \( g \) be the vector-valued function whose values (in \( \mathbb{R}^2 \)) are given by
+\[g(x, y, z) = (g_1(x, y, z), g_2(x, y, z)).\]
+Let \( h \) be the composite function \( h = f \circ g \) and show that
+\[\| \nabla h \|^2 = 4(D_1f)^2g_1 + 4(D_1f)(D_2f)g_2 + 3(D_2f)^2.\]
+\end{problembox}
+
+\begin{problembox}[12.18: Euler's Theorem for Homogeneous Functions]
+Let \( f \) be defined on an open set \( S \) in \( \mathbb{R}^n \). We say that \( f \) is homogeneous of degree \( p \) over \( S \) if \( f(\lambda x) = \lambda^p f(x) \) for every real \( \lambda \) and for every \( x \) in \( S \) for which \( \lambda x \in S \). If such a function is differentiable at \( x \), show that
+\[x \cdot \nabla f(x) = p f(x).\]
+NOTE. This is known as Euler's theorem for homogeneous functions. Hint. For fixed \( x \), define \( g(\lambda) = f(\lambda x) \) and compute \( g'(1) \).
+
+Also prove the converse. That is, show that if \( x \cdot \nabla f(x) = p f(x) \) for all \( x \) in an open set \( S \), then \( f \) must be homogeneous of degree \( p \) over \( S \).
+\end{problembox}
+
+\section{Mean-Value Theorems}
+
+\begin{problembox}[12.19: Mean-Value Theorem for Vector Functions]
+Let \( f: \mathbb{R} \rightarrow \mathbb{R}^2 \) be defined by the equation \( f(t) = (\cos t, \sin t) \). Then \( f'(t)(u) = u(-\sin t, \cos t) \) for every real \( u \). The Mean-Value formula
+\[f(y) - f(x) = f'(z)(y - x)\]
+cannot hold when \( x = 0, y = 2\pi \), since the left member is zero and the right member is a vector of length \( 2\pi \). Nevertheless, Theorem 12.9 states that for every vector \( a \) in \( \mathbb{R}^2 \) there is a \( z \) in the interval \( (0, 2\pi) \) such that
+\[a \cdot (f(y) - f(x)) = a \cdot (f'(z)(y - x)).\]
+Determine \( z \) in terms of \( a \) when \( x = 0 \) and \( y = 2\pi \).
+\end{problembox}
+
+\begin{problembox}[12.20: Mean-Value Theorem in Two Variables]
+Let \( f \) be a real-valued function differentiable on a 2-ball \( B(x) \). By considering the function
+\[g(t) = f[ty_1 + (1 - t)x_1, y_2] + f[x_1, ty_2 + (1 - t)x_2]\]
+prove that
+\[f(y) - f(x) = (y_1 - x_1)D_1f(z_1, y_2) + (y_2 - x_2)D_2f(x_1, z_2),\]
+where \( z_1 \in L(x_1, y_1) \) and \( z_2 \in L(x_2, y_2) \).
+\end{problembox}
+
+\begin{problembox}[12.21: Generalized Mean-Value Theorem]
+State and prove a generalization of the result in Exercise 12.20 for a real-valued function differentiable on an \( n \)-ball \( B(x) \).
+\end{problembox}
+
+\begin{problembox}[12.22: Mean-Value Theorem for Directional Derivatives]
+Let \( f \) be real-valued and assume that the directional derivative \( f'(c + tu; u) \) exists for each \( t \) in the interval \( 0 \leq t \leq 1 \). Prove that for some \( \theta \) in the open interval \( (0, 1) \) we have
+\[f(c + u) - f(c) = f'(c + \theta u; u).\]
+\end{problembox}
+
+\begin{problembox}[12.23: Zero Directional Derivatives]
+\begin{enumerate}[label=(\alph*)]
+\item If \( f \) is real-valued and if the directional derivative \( f'(x; u) = 0 \) for every \( x \) in an \( n \)-ball \( B(c) \) and every direction \( u \), prove that \( f \) is constant on \( B(c) \).
+\item What can you conclude about \( f \) if \( f'(x; u) = 0 \) for a fixed direction \( u \) and every \( x \) in \( B(c) \)?
+\end{enumerate}
+\end{problembox}
+
+\section{Derivatives of Higher Order and Taylor's Formula}
+
+\begin{problembox}[12.24: Equality of Mixed Partials]
+For each of the following functions, verify that the mixed partial derivatives \( D_{1,2}f \) and \( D_{2,1}f \) are equal.
+\begin{enumerate}[label=(\alph*)]
+\item \( f(x, y) = x^4 + y^4 - 4x^2y^2 \).
+\item \( f(x, y) = \log (x^2 + y^2) \), \( (x, y) \neq (0, 0) \).
+\item \( f(x, y) = \tan (x^2/y) \), \( y \neq 0 \).
+\end{enumerate}
+\end{problembox}
+
+\begin{problembox}[12.25: Equality of Higher-Order Mixed Partials]
+Let \( f \) be a function of two variables. Use induction and Theorem 12.13 to prove that if the \( 2^k \) partial derivatives of \( f \) of order \( k \) are continuous in a neighborhood of a point \( (x, y) \), then all mixed partials of the form \( D_{r_1, \ldots, r_k} f \) and \( D_{p_1, \ldots, p_k} f \) will be equal at \( (x, y) \) if the \( k \)-tuple \( (r_1, \ldots, r_k) \) contains the same number of ones as the \( k \)-tuple \( (p_1, \ldots, p_k) \).
+\end{problembox}
+
+\begin{problembox}[12.26: Taylor's Formula for Two Variables]
+If \( f \) is a function of two variables having continuous partials of order \( k \) on some open set \( S \) in \( \mathbb{R}^2 \), show that
+\[f^{(k)} (x; t) = \sum_{r=0}^{k} \binom{k}{r} t_1^r t_2^{k-r} D_{p_1}, \ldots, p_k f(x), \quad \text{if } x \in S, \quad t = (t_1, t_2),\]
+where in the \( r \)th term we have \( p_1 = \cdots = p_r = 1 \) and \( p_{r+1} = \cdots = p_k = 2 \). Use this result to give an alternative expression for Taylor's formula (Theorem 12.14) in the case when \( n = 2 \). The symbol \( \binom{k}{r} \) is the binomial coefficient \( k! / [r! (k - r)!] \).
+\end{problembox}
+
+\begin{problembox}[12.27: Taylor Expansion]
+Use Taylor's formula to express the following in powers of \( (x - 1) \) and \( (y - 2) \):
+\begin{enumerate}[label=(\alph*)]
+\item \( f(x, y) = x^3 + y^3 + xy^2 \),
+\item \( f(x, y) = x^2 + xy + y^2 \).
+\end{enumerate}
+\end{problembox}
