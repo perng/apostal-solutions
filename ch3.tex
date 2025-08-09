@@ -1,5 +1,6 @@
 \chapter{Elements of Point Set Topology}
 
+\section{Open and Closed Sets in $\mathbb{R}^1$ and $\mathbb{R}^2$}
 \begin{problembox}[3.1: Open and Closed Intervals ]
 Prove that an open interval in $\mathbb{R}^1$ is an open set and that a closed interval is a closed set.
 \end{problembox}
@@ -36,8 +37,6 @@ Determine all the accumulation points of the following sets in $\mathbb{R}^1$ an
 (e) The set $\{2^{-n} + 5^{-m} : m,n \in \mathbb{N}\}$ has accumulation points $\{2^{-n} + 5^{-m} : m,n \in \mathbb{N}\} \cup \{2^{-n} : n \in \mathbb{N}\} \cup \{5^{-m} : m \in \mathbb{N}\} \cup \{0\}$. For any $x = 2^{-k} + 5^{-l}$, take $m_n = n + l$, so $2^{-k} + 5^{-m_n} \to 2^{-k}$. Similarly, for $x = 5^{-l}$, take $n_m = m + k$, so $2^{-n_m} + 5^{-l} \to 5^{-l}$. For $x = 0$, take $n = m$, so $2^{-n} + 5^{-n} \to 0$. The set is neither open nor closed (no point is interior; closure includes accumulation points).
 
 (g) The set $\{1/n + 1/m : m,n \in \mathbb{N}\}$ has accumulation points $\{k/n : k,n \in \mathbb{N}, k \leq n\} \cup \{0\}$. For $x = k/n$, take $m_i = i + n$, so $1/n + 1/m_i \to 1/n$; for $k/n$ with $k \geq 2$, set $m = n_i = i$, so $(k-1)/i + 1/i = k/i \to k/n$. For $x = 0$, take $n = m = i$, so $1/i + 1/i \to 0$. The set is neither open nor closed (no point is interior; closure includes accumulation points).
-
-(g) The set $\{1/n + 1/m : m,n \in \mathbb{N}\}$ has accumulation points $\{1/n : n \in \mathbb{N}\} \cup \{0\}$. The set is neither open nor closed.
 
 (h) The set $\{(-1)^n/(1+1/n) : n \in \mathbb{N}\}$ has accumulation points $\{-1, 1\}$. The set is neither open nor closed.
 
@@ -137,6 +136,8 @@ Prove that a nonempty, bounded closed set $S$ in $\mathbb{R}^1$ is either a clos
 If $S = [a,b]$, we're done. Otherwise, the complement $[a,b] \setminus S$ is open and can be written as a countable union of disjoint open intervals $(a_i, b_i)$. Since $S$ is closed, the endpoints $a_i, b_i$ must belong to $S$.
 
 Therefore, $S = [a,b] \setminus \bigcup_{i=1}^{\infty} (a_i, b_i)$, which is the desired representation.
+
+\section{Open and Closed Sets in $\mathbb{R}^n$}
 
 \begin{problembox}[3.8: Open Balls and Intervals in Rn]
 Prove that open n-balls and n-dimensional open intervals are open sets in $\mathbb{R}^n$.
@@ -290,6 +291,8 @@ For each $n$, since $S_n$ is open and contains all rationals in $(0,1)$, we can 
 
 By the Cantor intersection theorem, $\bigcap_{n=1}^{\infty} Q_n$ is nonempty. Let $x \in \bigcap_{n=1}^{\infty} Q_n$. Then $x \in \bigcap_{k=1}^{\infty} S_k = S$, so $x$ is rational. But $x \neq x_n$ for any $n$ since $x_n \notin Q_n$ for each $n$. This contradicts the fact that $S$ contains all rationals in $(0,1)$.
 
+\section{Covering Theorems in $\mathbb{R}^n$}
+
 \begin{problembox}[3.17: Countability of Isolated Points]
 If \( S \subseteq \mathbb{R}^n \), prove that the collection of isolated points of \( S \) is countable.
 \end{problembox}
@@ -431,7 +434,7 @@ We need to show that $A$ is perfect. Since $T$ is closed by Exercise 3.24(c), $A
 
 Therefore, $A$ is perfect, and we have the desired decomposition $F = A \cup B$.
 
-\textbf{Metric Spaces}
+\section{Metric Spaces}
 
 \begin{problembox}[3.26: Open and Closed Sets in Metric Spaces]
 In any metric space \((M, d)\), prove that the empty set \( \emptyset \) and the whole space \( M \) are both open and closed.
@@ -650,6 +653,10 @@ Other examples of product metrics include:
 - $\rho(x,y) = \sqrt{d_1(x_1,y_1)^2 + d_2(x_2,y_2)^2}$
 - $\rho(x,y) = (d_1(x_1,y_1)^p + d_2(x_2,y_2)^p)^{1/p}$ for $p \geq 1$
 
+
+\section{Compact subsets of a metric space}
+Prove each of the following statements concerning an arbitrary metric space $(M,d)$ and subsets $S$, $T$ of $M$.
+
 \begin{problembox}[3.38: Relative Compactness]
 Assume \( S \subseteq T \subseteq M \). Then \( S \) is compact in \((M, d)\) if, and only if, \( S \) is compact in the metric subspace \((T, d)\).
 \end{problembox}
@@ -709,6 +716,9 @@ Therefore, $S$ is closed and bounded but not compact.
 \begin{problembox}[Miscellaneous Properties of Interior and Boundary]
 The following problems involve arbitrary subsets \( A \) and \( B \) of a metric space \( M \).
 \end{problembox}
+
+\section{Miscellaneous Properties of Interior and Boundary}
+If $A$ and $B$ are subsets of a metric space $M$, prove that:
 
 \begin{problembox}[3.43: Interior via Closure]
 Prove that \(\text{int } A = M - \overline{M - A}\).
