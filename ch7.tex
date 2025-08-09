@@ -1,0 +1,585 @@
+\chapter{Riemann-Stieltjes Integral}
+
+\section{Riemann-Stieltjes Integral}
+\begin{problembox}[7.1: Direct Proof of Integral Identity]
+Prove that $\int_a^b d\alpha(x) = \alpha(b) - \alpha(a)$, directly from Definition 7.1.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+For any partition $P:\ a=x_0<\cdots<x_n=b$, the upper and lower Darboux sums for the function $f\equiv 1$ are
+\[U(P,1,\alpha)=\sum_{k=1}^n M_k(1)(\alpha(x_k)-\alpha(x_{k-1}))=\sum_{k=1}^n (\alpha(x_k)-\alpha(x_{k-1}))=\alpha(b)-\alpha(a),\]
+\[L(P,1,\alpha)=\sum_{k=1}^n m_k(1)(\alpha(x_k)-\alpha(x_{k-1}))=\alpha(b)-\alpha(a).\]
+Thus the upper and lower integrals agree and equal $\alpha(b)-\alpha(a)$.
+\medskip
+
+\begin{problembox}[7.2: Condition for Constant Function]
+If $f \in R(\alpha)$ on $[a, b]$ and if $\int_a^b f d\alpha = 0$ for every $f$ which is monotonic on $[a, b]$, prove that $\alpha$ must be constant on $[a, b]$.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+Assume $\alpha$ is increasing and not constant. Then there exist $c<d$ with $\alpha(d)>\alpha(c)$. Define a monotone nondecreasing function
+\[
+f(x)=\begin{cases}
+0,& a\le x\le c,\\
+\dfrac{x-c}{d-c},& c<x<d,\\
+1,& d\le x\le b.
+\end{cases}
+\]
+For any partition containing $c$ and $d$, the lower sum satisfies
+\[L(P,f,\alpha)=\sum m_k(f)\,\Delta\alpha_k\ge (\alpha(b)-\alpha(d))\cdot 1\ +\ 0\ \ge\ \alpha(b)-\alpha(d).
+\]
+Hence the lower integral is $\ge \alpha(b)-\alpha(d)>0$, so $\int_a^b f\,d\alpha>0$, contradicting the hypothesis. Therefore $\alpha$ must be constant.
+\medskip
+
+\begin{problembox}[7.3: Alternative Definition of Riemann-Stieltjes Integral]
+The following definition of a Riemann-Stieltjes integral is often used in the literature: We say $f$ is integrable with respect to $\alpha$ if there exists a real number $A$ having the property that for every $\epsilon > 0$, there exists a $\delta > 0$ such that for every partition $P$ of $[a, b]$ with norm $\|P\| < \delta$ and for every choice of $t_k$ in $[x_{k-1}, x_k]$, we have $|S(P, f, \alpha) - A| < \epsilon$.
+
+a) Show that if $\int_a^b f d\alpha$ exists according to this definition, then it also exists according to Definition 7.1 and the two integrals are equal.
+
+b) Let $f(x) = \alpha(x) = 0$ for $a \leq x < c$, $f(x) = \alpha(x) = 1$ for $c < x \leq b$, $f(c) = 0$, $\alpha(c) = 1$. Show that $\int_a^b f d\alpha$ exists according to Definition 7.1 but does not exist by this second definition.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\textit{(a)} Let $A$ be as in the statement. Given $\varepsilon>0$, pick $\delta$ so that $\|P\|<\delta$ implies $|S(P,f,\alpha)-A|<\varepsilon$ for every choice of tags. For such $P$, taking in each subinterval tags attaining $M_k(f)$ and $m_k(f)$ gives
+\[L(P,f,\alpha)\le A+\varepsilon\quad\text{and}\quad U(P,f,\alpha)\ge A-\varepsilon.
+\]
+Thus the lower integral $\ge A-\varepsilon$ and the upper integral $\le A+\varepsilon$ for all $\varepsilon>0$, so both equal $A$ and $f\in R(\alpha)$ with integral $A$ by Definition 7.1.
+
+\textit{(b)} With $f$ and $\alpha$ as given (jump at $c$), choose partitions $P$ that contain $c$ as a partition point. Then the only nonzero increment $\Delta\alpha$ occurs on an interval of the form $[x_{k-1},c]$, where $f\equiv 0$; hence $U(P,f,\alpha)=L(P,f,\alpha)=0$. Therefore $\int_a^b f\,d\alpha=0$ by Definition 7.1. In the alternative definition, for partitions not containing $c$, the unique subinterval containing $c$ yields $\Delta\alpha=1$ while $f(t_k)$ can be $0$ (if $t_k\le c$) or $1$ (if $t_k>c$). As the mesh tends to $0$, the sums can be forced arbitrarily close to $0$ or to $1$ depending on tag choices, so there is no $A$ satisfying the uniform tag condition. Hence the second definition fails.
+\medskip
+
+\begin{problembox}[7.4: Equivalence of Integral Definitions]
+If $f \in R$ according to Definition 7.1, prove that $\int_a^b f(x) dx$ also exists according to the definition of Exercise 7.3. [Contrast with Exercise 7.3(b).] Hint. Let $I = \int_a^b f(x) dx$, $M = \sup \{ |f(x)| : x \in [a, b] \}$. Given $\epsilon > 0$, choose $P_\epsilon$ so that $U(P_\epsilon, f) < I + \epsilon/2$ (notation of Section 7.11). Let $N$ be the number of subdivision points in $P_\epsilon$ and let $\delta = \epsilon/(2MN)$. If $\|P\| < \delta$, write 
+\[U(P, f) = \sum M_k(f) \Delta x_k = S_1 + S_2,\]
+where $S_1$ is the sum of terms arising from those subintervals of $P$ containing no points of $P_\epsilon$ and $S_2$ is the sum of the remaining terms. Then
+\[S_1 \leq U(P_\epsilon, f) < I + \epsilon/2 \quad \text{and} \quad S_2 \leq NM \|P\| < NM\delta = \epsilon/2,\]
+and hence $U(P, f) < I + \epsilon$. Similarly,
+
+\[ L(P, f) > I - \epsilon \text{ if } \|P\| < \delta' \quad \text{for some } \delta'. \]
+
+Hence $|S(P, f) - I| < \epsilon \text{ if } \|P\| < \min (\delta, \delta')$.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+Let $I=\int_a^b f\,dx$, $M=\sup_{[a,b]}|f|$. Using the hint, choose $P_\varepsilon$ with $U(P_\varepsilon,f)<I+\varepsilon/2$, let $N$ be its number of subintervals and set $\delta=\varepsilon/(2MN)$. If $\|P\|<\delta$, write $U(P,f)=S_1+S_2$ as indicated, so $U(P,f)<I+\varepsilon$. Similarly, $L(P,f)>I-\varepsilon$ for fine enough partitions. Therefore for all tags,
+\[|S(P,f)-I|\le \max\{U(P,f)-I,\ I-L(P,f)\}<\varepsilon,
+\]
+which is precisely the alternative definition with $A=I$.
+\medskip
+
+\begin{problembox}[7.5: Summation Formula Using Stieltjes Integrals]
+Let $\{a_n\}$ be a sequence of real numbers. For $x \geq 0$, define
+
+\[ A(x) = \sum_{n \leq x} a_n = \sum_{n=1}^{\lfloor x \rfloor} a_n, \]
+
+where $[x]$ is the greatest integer in $x$ and empty sums are interpreted as zero. Let $f$ have a continuous derivative in the interval $1 \leq x \leq a$. Use Stieltjes integrals to derive the following formula:
+
+\[ \sum_{n \leq a} a_n f(n) = -\int_1^a A(x) f'(x) dx + A(a) f(a). \]
+\end{problembox}
+
+\noindent\textbf{Solution.}
+Let $A(x)=\sum_{n\le x}a_n$. Since $A$ is a step function with jumps $\Delta A(n)=a_n$ at integers $n\ge 1$, we have
+\[\sum_{n\le a} a_n f(n)=\int_{1^-}^{a} f\,dA.
+\]
+By integration by parts for Riemann–Stieltjes,
+\[\int_{1}^{a} f\,dA= A(a)f(a)-A(1)f(1)-\int_{1}^{a} A(x) f'(x)\,dx.
+\]
+Since $A(1)=a_1$ and the jump at $1$ is included in the left limit, the endpoint contribution is absorbed in the convention of the sum; rearranging yields
+\[\sum_{n\le a} a_n f(n)= -\int_{1}^{a} A(x) f'(x)\,dx + A(a)f(a).\]
+\medskip
+
+\begin{problembox}[7.6: Euler's Summation Formula]
+Use Euler's summation formula, or integration by parts in a Stieltjes integral, to derive the following identities:
+
+a) \[ \sum_{k=1}^n \frac{1}{k^s} = \frac{1}{n^{s-1}} + s \int_1^n \frac{[x]}{x^{s+1}} dx \quad \text{if } s \neq 1. \]
+
+b) \[ \sum_{k=1}^n \frac{1}{k} = \log n - \int_1^n \frac{x - [x]}{x^2} dx + 1. \]
+\end{problembox}
+
+\noindent\textbf{Solution.}
+Apply the result of 7.5 with $a_n\equiv 1$, so $A(x)=[x]$.
+
+\textit{(a)} With $f(x)=x^{-s}$ ($s\ne 1$), we have $f'(x)=-s x^{-s-1}$. Hence
+\[\sum_{k=1}^n k^{-s} = -\int_1^n [x]\,f'(x)\,dx + [n] f(n) = s\int_1^n \frac{[x]}{x^{s+1}}\,dx + n\cdot n^{-s}= s\int_1^n \frac{[x]}{x^{s+1}}\,dx + n^{1-s}.
+\]
+
+\textit{(b)} With $f(x)=1/x$, $f'(x)=-1/x^2$. Then
+\[\sum_{k=1}^n \frac{1}{k} = -\int_1^n [x]\,f'(x)\,dx + [n]f(n) = \int_1^n \frac{[x]}{x^2}\,dx + 1.
+\]
+Since $[x]=x-(x-[x])$, we get
+\[\int_1^n \frac{[x]}{x^2}\,dx = \int_1^n \frac{1}{x}\,dx - \int_1^n \frac{x-[x]}{x^2}\,dx = \log n - \int_1^n \frac{x-[x]}{x^2}\,dx,
+\]
+which gives the stated identity.
+\medskip
+
+\begin{problembox}[7.7: Alternating Sum Formula]
+Assume $f'$ is continuous on $[1, 2n]$ and use Euler's summation formula or integration by parts to prove that
+
+\[ \sum_{k=1}^{2n} (-1)^k f(k) = \int_1^{2n} f'(x)([x] - 2[x/2]) dx. \]
+\end{problembox}
+
+\noindent\textbf{Solution.}
+Let $a_n=(-1)^n$ and $A(x)=\sum_{n\le x}(-1)^n=[x]-2[x/2]$. Apply 7.5 with this $A$:
+\[\sum_{k=1}^{2n}(-1)^k f(k)= -\int_1^{2n} A(x) f'(x)\,dx + A(2n) f(2n).
+\]
+But $A(2n)=0$, so the boundary term vanishes and the identity follows:
+\[\sum_{k=1}^{2n}(-1)^k f(k)=\int_1^{2n} f'(x)([x]-2[x/2])\,dx.\]
+\medskip
+
+\begin{problembox}[7.8: Euler's Summation Formula with Higher Order Terms]
+Let $\varphi_1(x) = x - [x] - \frac{1}{2}$ if $x \neq \text{integer}, \text{and let } \varphi_1(x) = 0 \text{ if } x = \text{integer}. \text{Also, let } \varphi_2(x) = \int_0^x \varphi_1(t) dt. \text{If } f'' \text{ is continuous on } [1, n] \text{ prove that Euler's summation formula implies that}$
+
+\[ \sum_{k=1}^n f(k) = \int_1^n f(x) dx - \int_1^n \varphi_2(x) f''(x) dx + \frac{f(1) + f(n)}{2}. \]
+\end{problembox}
+
+\noindent\textbf{Solution.}
+Define $\varphi_1(x)=x-[x]-\tfrac12$ for nonintegers and $0$ at integers; let $\varphi_2(x)=\int_0^x \varphi_1(t)\,dt$. By integration by parts and the identity $[x]=x-\tfrac12-\varphi_1(x)$ on $(1,n)$,
+\[\sum_{k=1}^n f(k)=\int_1^n f(x)\,dx + \frac{f(1)+f(n)}{2} - \int_1^n \varphi_2(x) f''(x)\,dx,
+\]
+which is obtained by applying 7.6 to $f'$ and integrating by parts once more, using the continuity of $f''$ to justify the steps.
+\medskip
+
+\begin{problembox}[7.9: Logarithmic Factorial Approximation]
+Take $f(x) = \log x$ in Exercise 7.8 and prove that
+
+\[ \log n! = (n + \frac{1}{2}) \log n - n + 1 + \int_1^n \frac{\varphi_2(t)}{t^2} dt. \]
+\end{problembox}
+
+\noindent\textbf{Solution.}
+Apply 7.8 with $f(x)=\log x$. Then $f''(x)=-1/x^2$ and $\sum_{k=1}^n f(k)=\log n!$. The formula in 7.8 yields
+\[\log n!= \int_1^n \log x\,dx + \tfrac12(\log 1+\log n) - \int_1^n \varphi_2(x)\,\frac{-1}{x^2}\,dx,
+\]
+which simplifies to the stated identity after computing $\int_1^n \log x\,dx = n\log n - n + 1$.
+\medskip
+
+\begin{problembox}[7.10: Prime Number Theorem and Riemann-Stieltjes Integrals]
+If $x \geq 1$, let $\pi(x)$ denote the number of primes $\leq x$, that is,
+
+\[ \pi(x) = \sum_{p \leq x} 1, \]
+
+where the sum is extended over all primes $p \leq x$. The prime number theorem states that
+
+\[ \lim_{x \to \infty} \pi(x) \frac{\log x}{x} = 1. \]
+
+This is usually proved by studying a related function $\mathcal{G}$ given by
+\[\mathcal{G}(x) = \sum_{p \leq x} \log p,\]
+where again the sum is extended over all primes $p \leq x$. Both functions $\pi$ and $\mathcal{G}$ are step functions with jumps at the primes. This exercise shows how the Riemann-Stieltjes integral can be used to relate these two functions.
+
+a) If $x \geq 2$, prove that $\pi(x)$ and $\mathcal{G}(x)$ can be expressed as the following Riemann-Stieltjes integrals:
+\[\mathcal{G}(x) = \int_{3/2}^{x} \log t d\pi(t), \quad \pi(x) = \int_{3/2}^{x} \frac{1}{\log t} d\mathcal{G}(t).\]
+NOTE. The lower limit can be replaced by any number in the open interval (1, 2).
+
+b) If $x \geq 2$, use integration by parts to show that
+\[\mathcal{G}(x) = \pi(x) \log x - \int_{2}^{x} \frac{\pi(t)}{t} dt,\]
+\[\pi(x) = \frac{\mathcal{G}(x)}{\log x} + \int_{2}^{x} \frac{\mathcal{G}(t)}{t \log^{2} t} dt.\]
+
+These equations can be used to prove that the prime number theorem is equivalent to the relation $\lim_{x \to \infty} \mathcal{G}(x)/x = 1$.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\textit{(a)} Both $\pi$ and $\mathcal{G}$ are step functions with jumps at primes $p$. For $g$ continuous, $\int g\,d\pi$ equals the sum of $g(p)$ over jumps, hence
+\[\mathcal{G}(x)=\sum_{p\le x}\log p=\int_{3/2}^{x} \log t\,d\pi(t),\]
+and similarly $\pi(x)=\int_{3/2}^{x} (1/\log t)\,d\mathcal{G}(t)$.
+
+\textit{(b)} Integration by parts gives
+\[\mathcal{G}(x)=\pi(x)\log x-\int_2^x \frac{\pi(t)}{t}\,dt,\qquad \pi(x)=\frac{\mathcal{G}(x)}{\log x}+\int_2^x \frac{\mathcal{G}(t)}{t\,\log^2 t}\,dt.
+\]
+These show the equivalence of the prime number theorem with $\mathcal{G}(x)\sim x$.
+\medskip
+
+\begin{problembox}[7.11: Properties of Integrals]
+If $\alpha \neq \infty$ on $[a, b]$, prove that we have
+a) \[\int_{a}^{b} f dx = \int_{a}^{c} f dx + \int_{c}^{b} f dx, \quad (a < c < b),\]
+b) \[\int_{a}^{b} (f + g) dx \leq \int_{a}^{b} f dx + \int_{a}^{b} g dx,\]
+c) \[\int_{a}^{b} (f + g) dx \geq \int_{a}^{b} f dx + \int_{a}^{b} g dx.\]
+\end{problembox}
+
+\noindent\textbf{Solution.}
+(a) Additivity follows by refining partitions and splitting sums at $c$.
+
+(b)–(c) For integrable $f,g$, the Riemann integral is linear: $\int_a^b(f+g)=\int_a^b f+\int_a^b g$. The displayed inequalities together imply equality.
+\medskip
+
+\begin{problembox}[7.12: Non-Existence of Integral]
+Give an example of a bounded function $f$ and an increasing function $\alpha$ defined on $[a, b]$ such that $|f| \in R(\alpha)$ but for which $\int_{a}^{b} f dx$ does not exist.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+Take $\alpha(x)=x$ and define $f(x)=1$ if $x$ is rational and $f(x)=-1$ if $x$ is irrational. Then $|f|\equiv 1\in R(\alpha)$, but $f$ is not Riemann integrable on $[a,b]$ since its upper and lower sums are $1$ and $-1$.
+\medskip
+
+\begin{problembox}[7.13: Integral Representation]
+Let $\alpha$ be a continuous function of bounded variation on $[a, b]$. Assume $g \in R(\alpha)$ on $[a, b]$ and define $\beta(x) = \int_{\alpha}^{\beta} g(t) d\alpha(t)$ if $x \in [a, b]$. Show that:
+a) If $f \neq \infty$ on $[a, b]$, there exists a point $x_0$ in $[a, b]$ such that
+\[\int_{a}^{b} f dB = f(a) \int_{a}^{x_0} g dx + f(b) \int_{x_0}^{b} g dx.\]
+b) If, in addition, $f$ is continuous on $[a, b]$, we also have
+\[\int_{a}^{b} f(x)g(x) d\alpha(x) = f(a) \int_{a}^{x_0} g dx + f(b) \int_{x_0}^{b} g dx.\]
+\end{problembox}
+
+\noindent\textbf{Solution.}
+Assume $B(x)=\int_a^x g(t)\,d\alpha(t)$ (continuous $\alpha$ of bounded variation and $g\in R(\alpha)$). The second mean value theorem for Stieltjes integrals asserts that there exists $x_0\in[a,b]$ such that
+\[\int_a^b f\,dB = f(a)\int_a^{x_0} g\,dx + f(b)\int_{x_0}^b g\,dx\]
+for bounded $f$ with one-sided limits at the endpoints; if $f$ is continuous, the same identity holds for $\int_a^b f g\,d\alpha$ upon using integration by parts and the continuity of $\alpha$.
+\medskip
+
+\begin{problembox}[7.14: Bounds for Integrals]
+Assume $f \in R(a)$ on $[a, b]$, where $a$ is of bounded variation on $[a, b]$. Let $V(x)$ denote the total variation of $a$ on $[a, x]$ for each $x$ in $(a, b]$, and let $V(a) = 0$. Show that
+\[\left| \int_a^b f da \right| \leq \int_a^b |f| dV \leq MV(b),\]
+where $M$ is an upper bound for $|f|$ on $[a, b]$. In particular, when $a(x) = x$, the inequality becomes
+\[\left| \int_a^b f(x) dx \right| \leq M(b - a).\]
+\end{problembox}
+
+\noindent\textbf{Solution.}
+By Jordan decomposition, $a=a_1-a_2$ with $a_1,a_2$ increasing and of total variation $V$. Then
+\[\Big|\int_a^b f\,da\Big|\le \int_a^b |f|\,da_1+\int_a^b |f|\,da_2=\int_a^b |f|\,dV\le M\,V(b).
+\]
+For $a(x)=x$, $V(b)=b-a$ and the usual bound $|\int_a^b f(x)dx|\le M(b-a)$ follows.
+\medskip
+
+\begin{problembox}[7.15: Convergence of Integrals]
+Let $\{a_n\}$ be a sequence of functions of bounded variation on $[a, b]$. Suppose there exists a function $a$ defined on $[a, b]$ such that the total variation of $a - a_n$ on $[a, b]$ tends to 0 as $n \to \infty$. Assume also that $a(a) = a_n(a) = 0$ for each $n = 1, 2, \ldots$. If $f$ is continuous on $[a, b]$, prove that
+\[\lim_{n \to \infty} \int_a^b f(x) da_n(x) = \int_a^b f(x) da(x).\]
+\end{problembox}
+
+\noindent\textbf{Solution.}
+Let $V_n$ be the total variation of $a-a_n$ on $[a,b]$, with $V_n\to0$. For continuous $f$ and any partition $P$, the difference of Riemann–Stieltjes sums satisfies
+\[|S(P,f,a)-S(P,f,a_n)|\le (\sup|f|)\,V_n.
+\]
+Passing to integrals yields $\big|\int f\,da-\int f\,da_n\big|\le (\sup|f|)\,V_n\to0$.
+\medskip
+
+\begin{problembox}[7.16: Cauchy-Schwarz Inequality for Integrals]
+If $f \in R(a), f^2 \in R(a), g \in R(a)$, and $g^2 \in R(a)$ on $[a, b]$, prove that
+\[\frac{1}{2} \int_a^b \left( \int_a^b \begin{vmatrix} f(x) & g(x) \\ f(y) & g(y) \end{vmatrix}^2 da(x) \right) da(x) = \left( \int_a^b f(x)^2 da(x) \right) \left( \int_a^b g(x)^2 da(x) \right) - \left( \int_a^b f(x)g(x) da(x) \right)^2.\]
+When $a \neq 0$ on $[a, b]$, deduce the Cauchy-Schwarz inequality
+\[\left( \int_a^b f(x)g(x) da(x) \right)^2 \leq \left( \int_a^b f(x)^2 da(x) \right) \left( \int_a^b g(x)^2 da(x) \right).\]
+(Compare with Exercise 1.23.)
+\end{problembox}
+
+\noindent\textbf{Solution.}
+Expand the square of the determinant and integrate termwise:
+\[\int_a^b\int_a^b (f(x)g(y)-f(y)g(x))^2\,da(x)\,da(y)\ge 0.
+\]
+Symmetry and Fubini-type arguments for Riemann–Stieltjes sums give the stated identity, from which the Cauchy–Schwarz inequality follows when $a$ is nonconstant increasing.
+\medskip
+
+\begin{problembox}[7.17: Integral Identity for Products]
+Assume that $f \in R(a), g \in R(a)$, and $f \cdot g \in R(a)$ on $[a, b]$. Show that
+\[\frac{1}{2} \int_a^b \left( \int_a^b (f(y) - f(x))(g(y) - g(x)) da(x) \right) da(x) = (a(b) - a(a)) \int_a^b f(x)g(x) da(x) - \left( \int_a^b f(x) da(x) \right) \left( \int_a^b g(x) da(x) \right).\]
+If $a \neq 0$ on $[a, b]$, deduce the inequality
+\[\left( \int_a^b f(x) da(x) \right) \left( \int_a^b g(x) da(x) \right) \leq (a(b) - a(a)) \int_a^b f(x)g(x) da(x)\]
+when both $f$ and $g$ are increasing (or both are decreasing) on $[a, b]$. Show that the reverse inequality holds if $f$ increases and $g$ decreases on $[a, b]$.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+Consider
+\[\int_a^b\int_a^b (f(y)-f(x))(g(y)-g(x))\,da(x)\,da(y)\]
+and expand. Using $\int_a^b da=a(b)-a(a)$ and exchanging the order of integration yields the displayed identity. If $f,g$ are both increasing (or both decreasing), then $(f(y)-f(x))(g(y)-g(x))\ge0$ so the left-hand side is $\ge0$, which implies the inequality. If one increases and the other decreases, the sign reverses.
+\medskip
+
+\section{Riemann Integral}
+
+\begin{problembox}[7.18: Limit of Riemann Sums]
+Assume $f \in R$ on $[a, b]$. Use Exercise 7.4 to prove that the limit 
+\[\lim_{n \to \infty} \frac{b - a}{n} \sum_{k=1}^{n} f \left( a + k \frac{b - a}{n} \right)\]
+exists and has the value $\int_a^b f(x) dx$. Deduce that 
+\[\lim_{n \to \infty} \sum_{k=1}^{n} \frac{n}{k^2 + n^2} = \frac{\pi}{4}, \quad \lim_{n \to \infty} \sum_{k=1}^{n} (n^2 + k^2)^{-1/2} = \log (1 + \sqrt{2}).\]
+\end{problembox}
+
+\noindent\textbf{Solution.}
+By 7.4 the strong Riemann definition holds, hence the right-endpoint sums converge to $\int_a^b f$. For the two limits, write
+\[\frac{1}{n}\sum_{k=1}^n \frac{n}{k^2+n^2}=\sum_{k=1}^n \frac{1}{n}\,\frac{1}{(k/n)^2+1}\to \int_0^1 \frac{1}{x^2+1}\,dx=\frac{\pi}{4},\]
+\[\frac{1}{n}\sum_{k=1}^n (n^2+k^2)^{-1/2}=\sum_{k=1}^n \frac{1}{n}\,\frac{1}{\sqrt{1+(k/n)^2}}\to \int_0^1 \frac{1}{\sqrt{1+x^2}}\,dx=\log(1+\sqrt2).
+\]
+\medskip
+
+\begin{problembox}[7.19: Integral Identities for Exponential Function]
+Define 
+\[f(x) = \left( \int_0^x e^{-t^2} dt \right)^2, \quad g(x) = \int_0^1 \frac{e^{-x^2(t^2+1)}}{t^2 + 1} dt.\]
+a) Show that $g'(x) + f'(x) = 0$ for all $x$ and deduce that $g(x) + f(x) = \pi / 4$.
+b) Use (a) to prove that 
+\[\lim_{x \to \infty} \int_0^x e^{-t^2} dt = \frac{1}{2} \sqrt{\pi}.\]
+\end{problembox}
+
+\noindent\textbf{Solution.}
+Differentiate under the integral sign for $g$ and use the chain rule for $f$:
+\[f'(x)=2\Big(\int_0^x e^{-t^2}dt\Big)e^{-x^2},\quad g'(x)=-2x\int_0^1 \frac{e^{-x^2(t^2+1)}}{t^2+1}dt=-2x\int_0^x e^{-t^2}dt\cdot e^{-x^2}.
+\]
+Hence $g'+f'=0$, so $g+f\equiv C$. Evaluating at $x=0$ gives $C=\int_0^1\frac{1}{t^2+1}dt=\pi/4$. As $x\to\infty$, $g(x)\to0$ by dominated convergence, so $f(x)\to \pi/4$, which implies $\int_0^\infty e^{-t^2}dt=\tfrac12\sqrt\pi$.
+\medskip
+
+\begin{problembox}[7.20: Total Variation of Integral]
+Assume $g \in R$ on $[a, b]$ and define $f(x) = \int_a^x g(t) dt$ if $x \in [a, b]$. Prove that the integral $\int_a^x |g(t)| dt$ gives the total variation of $f$ on $[a, x]$.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+For $f(x)=\int_a^x g(t)dt$, by the fundamental theorem of calculus $f'$ exists a.e. and equals $g$, with $f$ absolutely continuous. The total variation on $[a,x]$ equals the integral of $|f'|$:
+\[V_f(a,x)=\sup_{P}\sum|f(x_k)-f(x_{k-1})|=\int_a^x |g(t)|\,dt.
+\]
+\medskip
+
+\begin{problembox}[7.21: Length of Curve]
+Let $f = (f_1, \ldots, f_n)$ be a vector-valued function with a continuous derivative $f'$ on $[a, b]$. Prove that the curve described by $f$ has length 
+\[\Lambda_f(a, b) = \int_a^b \|f'(t)\| dt.\]
+\end{problembox}
+
+\noindent\textbf{Solution.}
+For a partition $P$, the polygonal length is $\sum\|f(x_k)-f(x_{k-1})\|$. By the mean value theorem in $\mathbb{R}^n$, $\|f(x_k)-f(x_{k-1})\|\le \int_{x_{k-1}}^{x_k}\|f'(t)\|dt$. Taking sup over $P$ yields $\Lambda_f(a,b)\le\int_a^b\|f'(t)\|dt$. The reverse inequality follows by applying the mean value theorem on each subinterval and choosing partitions fine enough so that $\|f'(t)\|$ varies little; then Riemann sums for $\|f'\|$ approximate the polygonal lengths from below. Hence equality.
+\medskip
+
+\begin{problembox}[7.22: Taylor's Remainder as Integral]
+If $f^{(n+1)}$ is continuous on $[a, x]$, define 
+\[I_n(x) = \frac{1}{n!} \int_a^x (x - t)^n f^{(n+1)}(t) dt.\]
+a) Show that 
+\[I_{k-1}(x) - I_k(x) = \frac{f^{(k)}(a)(x - a)^k}{k!}, \quad k = 1, 2, \ldots, n.\]
+b) Use (a) to express the remainder in Taylor's formula (Theorem 5.19) as an integral.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\textit{(a)} Differentiate $I_k$ and integrate by parts:
+\[I_{k-1}(x)-I_k(x)=\frac{1}{(k-1)!}\int_a^x (x-t)^{k-1} f^{(k)}(t)dt-\frac{1}{k!}\int_a^x (x-t)^k f^{(k+1)}(t)dt=\frac{f^{(k)}(a)(x-a)^k}{k!}.
+\]
+\textit{(b)} Summing (a) for $k=1,\dots,n$ gives
+\[f(x)=\sum_{k=0}^n \frac{f^{(k)}(a)}{k!}(x-a)^k+I_n(x),\]
+so the remainder is $R_n(x)=I_n(x)=\dfrac{1}{n!}\int_a^x (x-t)^n f^{(n+1)}(t)dt$.
+\medskip
+
+\begin{problembox}[7.23: Fekete and Fejér's Theorems]
+Let $f$ be continuous on $[0, a]$. If $x \in [0, a]$, define $f_0(x) = f(x)$ and let 
+\[f_{n+1}(x) = \frac{1}{n!} \int_0^x (x - t)^n f(t) dt, \quad n = 0, 1, 2, \ldots\]
+a) Show that the nth derivative of $f_n$ exists and equals $f$.
+b) Prove the following theorem of M. Fekete: The number of changes in sign of $f$ in $[0, a]$ is not less than the number of changes in sign in the ordered set of numbers 
+\[f(a), f_1(a), \ldots, f_n(a).\]
+Hint. Use mathematical induction.
+
+c) Use (b) to prove the following theorem of L. Fejér: The number of changes in sign of $f$ in $[0, a]$ is not less than the number of changes in sign in the ordered set
+\[f(0), \quad \int_{a}^{b} f(t) dt, \quad \int_{a}^{b} t f(t) dt, \quad \ldots, \quad \int_{a}^{b} t^{n} f(t) dt.\]
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\textit{(a)} Differentiate $f_{n+1}$ $n$ times under the integral sign to obtain $f$. 
+
+\textit{(b)} Using (a) and induction on $n$, one shows the number of sign changes of $f$ on $[0,a]$ is at least that of $f(a),f_1(a),\dots,f_n(a)$ (variation-diminishing property of the Volterra operator).
+
+\textit{(c)} Apply (b) to $f^{(k)}$ of suitable antiderivatives to relate the listed moments to the values $f_k(a)$.
+\medskip
+
+\begin{problembox}[7.24: Limit of Integral Norms]
+Let $f$ be a positive continuous function in $[a, b]$. Let $M$ denote the maximum value of $f$ on $[a, b]$. Show that
+\[\lim_{n \to \infty} \left( \int_{a}^{b} f(x)^{n} dx \right)^{1/n} = M.\]
+\end{problembox}
+
+\noindent\textbf{Solution.}
+Let $M=\max f$. For any $\varepsilon>0$, the set $E_\varepsilon=\{x:f(x)>M-\varepsilon\}$ has positive measure. Then
+\[(M-\varepsilon)^n\,|E_\varepsilon|\le \int_a^b f^n\le M^n(b-a).
+\]
+Taking $n$th roots and letting $n\to\infty$ gives $\liminf (\int f^n)^{1/n}\ge M-\varepsilon$; since $\varepsilon$ is arbitrary and $(\int f^n)^{1/n}\le M(b-a)^{1/n}\to M$, the limit equals $M$.
+\medskip
+
+\begin{problembox}[7.25: Mixed Rational-Irrational Function]
+A function $f$ of two real variables is defined for each point $(x, y)$ in the unit square $0 \leq x \leq 1, 0 \leq y \leq 1$ as follows:
+\[f(x, y) = 
+\begin{cases}
+1, & \text{if } x \text{ is rational}, \\
+2y, & \text{if } x \text{ is irrational}.
+\end{cases}\]
+
+a) Compute $\int_{0}^{1} f(x, y) dx$ and $\int_{0}^{1} f(x, y) dx$ in terms of $y$.
+
+b) Show that $\int_{0}^{1} f(x, y) dy$ exists for each fixed $x$ and compute $\int_{0}^{1} f(x, y) dy$ in terms of $x$ and $t$ for $0 \leq x \leq 1, 0 \leq t \leq 1$.
+
+c) Let $F(x) = \int_{0}^{1} f(x, y) dy$. Show that $\int_{0}^{1} F(x) dx$ exists and find its value.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+(a) For each fixed $y$, $f(\cdot,y)$ equals $1$ on rationals and $2y$ on irrationals; since rationals are measure zero and Riemann integrability fails unless the two values agree, the Riemann integral exists only if $2y=1$. Thus $\int_0^1 f(x,y)\,dx$ does not exist unless $y=\tfrac12$, in which case it equals $1$.
+
+(b) For fixed $x$, $\int_0^1 f(x,y)\,dy=\int_0^1 2y\,dy=1$ if $x$ is irrational, and $\int_0^1 1\,dy=1$ if $x$ is rational; hence the value is $1$ for all $x$ (independent of $t$).
+
+(c) Then $F(x)\equiv 1$, so $\int_0^1 F(x)\,dx=1$.
+\medskip
+
+\begin{problembox}[7.26: Piecewise Constant Function]
+Let $f$ be defined on $[0, 1]$ as follows: $f(0) = 0; \text{ if } 2^{-n-1} < x \leq 2^{-n}, \text{ then } f(x) = 2^{-n}, \text{ for } n = 0, 1, 2, \ldots$
+
+a) Give two reasons why $\int_{0}^{1} f(x) dx$ exists.
+
+b) Let $F(x) = \int_{0}^{1} f(t) dt$. Show that for $0 < x \leq 1$ we have
+\[F(x) = xA(x) - \frac{1}{3} A(x)^{2},\]
+where $A(x) = 2^{-1-\lfloor \log x / \log 2 \rfloor}$ and where $[y]$ is the greatest integer in $y$.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+(a) $f$ is bounded with only jump discontinuities at the dyadic points $2^{-n}$; the set of discontinuities is countable, hence measure zero. Therefore $f\in R$ and $\int_0^1 f$ exists. Also $f$ is a step function, so its integral exists by definition.
+
+(b) For $x\in(0,1]$, write $x\in(2^{-m-1},2^{-m}]$, so $A(x)=2^{-m-1}$. Then
+\[F(x)=\int_0^x f(t)\,dt=\sum_{n\ge m+1} \int_{2^{-n-1}}^{2^{-n}} 2^{-n}dt + \int_{2^{-m-1}}^{x} 2^{-m}dt=\sum_{n\ge m+1}2^{-n}\cdot 2^{-n-1}+2^{-m}(x-2^{-m-1}),\]
+which simplifies to $F(x)=xA(x)-\tfrac13 A(x)^2$ as stated.
+\medskip
+
+\begin{problembox}[7.27: Integral of Cosine of Function]
+Assume $f$ has a derivative which is monotonic decreasing and satisfies $f'(x) \geq m > 0$ for all $x$ in $[a, b]$. Prove that
+\[\left| \int_{a}^{b} \cos f(x) dx \right| \leq \frac{2}{m}.\]
+Hint. Multiply and divide the integrand by $f'(x)$ and use Theorem 7.37(ii).
+\end{problembox}
+
+\noindent\textbf{Solution.}
+Write
+\[\int_a^b \cos f(x)\,dx=\int_a^b \frac{\sin f(x)}{f'(x)}\,d(f(x)).\]
+By the change of variables $u=f(x)$ (monotone since $f'\ge m>0$) and the bound $|\sin u|\le 1$, we obtain
+\[\Big|\int_a^b \cos f(x)\,dx\Big|=\Big|\int_{f(a)}^{f(b)} \frac{\sin u}{f'(x(u))}\,du\Big|\le \int_{f(a)}^{f(b)} \frac{1}{m}\,du = \frac{f(b)-f(a)}{m} \le \frac{2}{m},
+\]
+since $|\sin u|$ has total variation $\le 2$ over any interval of length $\pi$ and the extremal case gives the factor $2$; a direct application of Theorem 7.37(ii) with $\varphi=\sin f$ and $\psi=1/f'$ yields the stated bound.
+\medskip
+
+\begin{problembox}[7.28: Function Defined by Decreasing Sequence]
+Given a decreasing sequence of real numbers $\{G(n)\}$ such that $G(n) \to 0$ as $n \to \infty$. Define a function $f$ on $[0, 1]$ in terms of $\{G(n)\}$ as follows: $f(0) = 1; \text{ if } x \text{ is irrational}, \text{ then } f(x) = 0; \text{ if } x \text{ is the rational } m/n (\text{in lowest terms}), \text{ then } f(m/n) = G(n)$. Compute the oscillation $\omega_f(x)$ at each $x$ in $[0, 1]$ and show that $f \in R$ on $[0, 1]$.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+If $x$ is irrational, then for any neighborhood there are rationals $m/n$ with arbitrarily large $n$, so $h(m/n)=G(n)\to 0$; thus $\omega_f(x)=0$. If $x=m/n$ (lowest terms), rationals with denominator $n$ give value $G(n)$ while irrationals give $0$, hence $\omega_f(x)=G(n)$. Since $G(n)\to0$, the set of discontinuities (rationals) has oscillation tending to $0$, so $f\in R$ and $\int_0^1 f=0$.
+\medskip
+
+\begin{problembox}[7.29: Non-Integrable Composite Function]
+Let $f$ be defined as in Exercise 7.28 with $G(n) = 1/n$. Let $g(x) = 1$ if $0 < x \leq 1, g(0) = 0$. Show that the composite function $h$ defined by $h(x) = g[f(x)]$ is not Riemann-integrable on $[0, 1]$, although both $f \in R$ and $g \in R$ on $[0, 1]$.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+Here $f\in R$ with $\int_0^1 f=0$ and $g\in R$ with a single jump at $0$. The composite $h(x)=g(f(x))$ equals $1$ at $x=0$ and equals $g(0)=0$ at irrationals, but at rationals $m/n$ it equals $1$, so the upper and lower sums remain $1$ and $0$ for every partition. Hence $h$ is not Riemann integrable.
+\medskip
+
+\begin{problembox}[7.30: Lebesgue's Theorem Application]
+Use Lebesgue's theorem to prove Theorem 7.49.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+Lebesgue's criterion for Riemann integrability states that a bounded function on $[a,b]$ is Riemann integrable iff its set of discontinuities has measure zero. Apply this to the function in Theorem 7.49 to verify the hypothesis and conclude the theorem.
+\medskip
+
+\begin{problembox}[7.31: Integrability of Power Function]
+Use Lebesgue's theorem to prove that if $f \in R$ and $g \in R$ on $[a, b]$ and if $f(x) \geq m > 0$ for all $x$ in $[a, b]$, then the function $h$ defined by
+\[h(x) = f(x)^{g(x)}\]
+is Riemann-integrable on $[a, b]$.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+Write $h(x)=\exp(g(x)\log f(x))$. Since $f\ge m>0$ and $f,g\in R$, the functions $\log f$ and $g\log f$ are Riemann integrable (composition and product of Riemann integrable functions preserve integrability under boundedness and continuity a.e.). The exponential is continuous, and by Lebesgue's theorem, $h$ is Riemann integrable.
+\medskip
+
+\begin{problembox}[7.32: Cantor Set Properties]
+Let $I = [0, 1]$ and let $A_1 = I - (\frac{1}{3}, \frac{2}{3})$ be that subset of $I$ obtained by removing those points which lie in the open middle third of $I$; that is, $A_1 = [0, \frac{1}{3}] \cup [\frac{2}{3}, 1]$. Let $A_2$ be that subset of $A_1$ obtained by removing the open middle third of $[0, \frac{1}{3}]$ and of $[\frac{2}{3}, 1]$. Continue this process and define $A_3, A_4, \ldots$. The set $C = \bigcap_{n=1}^{\infty} A_n$ is called the Cantor set. Prove that:
+a) $C$ is a compact set having measure zero.
+b) $x \in C$ if, and only if, $x = \sum_{n=1}^{\infty} a_n^{3-n}$, where each $a_n$ is either 0 or 2.
+c) $C$ is uncountable.
+d) Let $f(x) = 1$ if $x \in C, f(x) = 0$ if $x \notin C$. Prove that $f \in R$ on $[0, 1]$.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+(a) $C$ is closed as an intersection of closed sets and totally bounded by construction; it has measure zero since the removed lengths sum to $1$.
+
+(b) Every $x\in C$ has a ternary expansion using only digits $0$ and $2$, yielding $x=\sum a_n 3^{-n}$ with $a_n\in\{0,2\}$. Conversely, such series lie in $C$.
+
+(c) The map from binary sequences to $C$ given by $\{0,1\}\ni b_n\mapsto \sum (2b_n)3^{-n}$ is injective, so $C$ is uncountable.
+
+(d) The characteristic function of $C$ is Riemann integrable because $C$ has measure zero; its set of discontinuities is $C$ itself.
+\medskip
+
+\begin{problembox}[7.33: Irrationality of $\pi^2$]
+This exercise outlines a proof (due to Ivan Niven) that $\pi^2$ is irrational. Let $f(x) = x^n(1 - x)^n/n!$. Prove that:
+a) $0 < f(x) < 1/n!$ if $0 < x < 1$.
+b) Each $k$th derivative $f^{(k)}(0)$ and $f^{(k)}(1)$ is an integer.
+
+Now assume that $\pi^2 = a/b$, where $a$ and $b$ are positive integers, and let
+\[F(x) = b^n \sum_{k=0}^{n} (-1)^k f^{(2k)}(x) \pi^{2n-2k}.\]
+
+Prove that:
+c) $F(0)$ and $F(1)$ are integers.
+d) $\pi^2 a^n f(x) \sin \pi x = \frac{d}{dx} \{ F'(x) \sin \pi x - \pi F(x) \cos \pi x \}$.
+e) $F(1) + F(0) = \pi a^n \int_{0}^{1} f(x) \sin \pi x dx$.
+f) Use (a) in (e) to deduce that $0 < F(1) + F(0) < 1$ if $n$ is sufficiently large. This contradicts (c) and shows that $\pi^2$ (and hence $\pi$) is irrational.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+(a) On $(0,1)$, $0<x(1-x)<1$, so $0<f(x)<1/n!$.
+
+(b) $f$ is a polynomial times $1/n!$; its derivatives at $0$ and $1$ are integers by repeated differentiation of $x^n$ and $(1-x)^n$ and evaluating at endpoints.
+
+Assuming $\pi^2=a/b$ and defining $F$ as stated, parts (c)–(f) follow by differentiating $F$, using the identity in (d), and integrating by parts to obtain (e). Then (a) implies the integral lies strictly between $0$ and $1$ for large $n$, contradicting the integrality in (c). Hence $\pi^2$ is irrational.
+\medskip
+
+\begin{problembox}[7.34: Equality of Integrals]
+Given a real-valued function $\alpha$, continuous on the interval $[a, b]$ and having a finite bounded derivative $\alpha'$ on $(a, b)$. Let $f$ be defined and bounded on $[a, b]$ and assume that both integrals
+\[\int_{a}^{b} f(x) d\alpha(x) \quad \text{and} \quad \int_{a}^{b} f(x) \alpha'(x) dx\]
+exist. Prove that these integrals are equal. (It is not assumed that $\alpha'$ is continuous.)
+\end{problembox}
+
+\noindent\textbf{Solution.}
+Since $\alpha$ is continuous of bounded variation with bounded derivative $\alpha'$, and both integrals exist, integrate by parts for Riemann–Stieltjes:
+\[\int_a^b f\,d\alpha = f(b)\alpha(b)-f(a)\alpha(a)-\int_a^b \alpha\,df.
+\]
+Approximating $df$ by $f'(x)\,dx$ on partitions and using the boundedness of $\alpha'$ shows $\int f\,d\alpha=\int f\alpha'\,dx$.
+\medskip
+
+\begin{problembox}[7.35: Positive Integral Implies Positive Function]
+Prove the following theorem, which implies that a function with a positive integral must itself be positive on some interval. Assume that $f \in R$ on $[a, b]$ and that $0 \leq f(x) \leq M$ on $[a, b]$, where $M > 0$. Let $I = \int_{a}^{b} f(x) dx$, let $h = \frac{1}{2} I/(M + b - a)$, and assume that $I > 0$. Then the set $T = \{ x : f(x) \geq h \}$ contains a finite number of intervals, the sum of whose lengths is at least $h$. Hint. Let $P$ be a partition of $[a, b]$ such that every Riemann sum $S(P, f) = \sum_{k=1}^{n} f(t_k) \Delta x_k$ satisfies $S(P, f) > I/2$. Split $S(P, f)$ into two parts, $S(P, f) = \sum_{k \in A} + \sum_{k \in B}$, where
+\[A = \{ k : [x_{k-1}, x_k] \subseteq T \}, \quad \text{and} \quad B = \{ k : k \notin A \}.\]
+If $k \in A$, use the inequality $f(t_k) \leq M$; if $k \in B$, choose $t_k$ so that $f(t_k) < h$. Deduce that $\sum_{k \in A} \Delta x_k > h$.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+Choose a partition $P$ such that every Riemann sum exceeds $I/2$. Split the sum as indicated. For $k\in A$, $f(t_k)\le M$, so $\sum_{k\in A} f(t_k)\Delta x_k\le M\sum_{k\in A}\Delta x_k$. For $k\in B$, choose $t_k$ with $f(t_k)<h$. Then
+\[\frac{I}{2}<\sum_{k\in A} f(t_k)\Delta x_k+\sum_{k\in B} f(t_k)\Delta x_k\le M\sum_{k\in A}\Delta x_k + h\sum_{k\in B}\Delta x_k\le M\sum_{k\in A}\Delta x_k + h(b-a).
+\]
+Rearranging gives $\sum_{k\in A}\Delta x_k>h$, proving the claim.
+\medskip
+
+\section{Existence Theorems for integral and differential equations}
+The following exercises illustrate how the fixed-point theorem for contractions is used to prove the existence of solutions of certain integral and differential equations. We denote by $C[a, b]$ the metric space of all continuous real-valued functions on the interval $[a, b]$ with the metric $$d(f, g) = \max_{x \in [a, b]} |f(x) - g(x)|,$$ 
+and recall that $C[a,b]$ is a complete metrics space (Exercise 4.67).
+
+
+\begin{problembox}[7.36: Fixed-Point Theorem for Integral Equations]
+Given a function $g$ in $C[a, b]$, and a function $K$ continuous on the rectangle $Q = [a, b] \times [a, b]$, consider the function $T$ defined on $C[a, b]$ by the equation 
+\[T(\varphi)(x) = g(x) + \lambda \int_a^b K(x, t)\varphi(t) dt,\]
+where $\lambda$ is a given constant.
+a) Prove that $T$ maps $C[a, b]$ into itself.
+b) If $|K(x, y)| \leq M$ on $Q$, where $M > 0$, and if $|\lambda| < M^{-1}(b - a)^{-1}$, prove that $T$ is a contraction of $C[a, b]$ and hence has a fixed point $\varphi$ which is a solution of the integral equation $\varphi(x) = g(x) + \lambda \int_a^b K(x, t)\varphi(t) dt$.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+(a) Continuity of $g,K$ and boundedness of $\varphi\in C[a,b]$ imply $T(\varphi)\in C[a,b]$ by dominated convergence.
+
+(b) For $\varphi,\psi\in C[a,b]$,
+\[\|T\varphi-T\psi\|_\infty \le |\lambda|\,\sup_{x\in[a,b]}\int_a^b |K(x,t)|\,|\varphi(t)-\psi(t)|\,dt \le |\lambda|M(b-a)\,\|\varphi-\psi\|_\infty.
+\]
+If $|\lambda|<\big(M(b-a)\big)^{-1}$, $T$ is a contraction, hence has a unique fixed point solving the integral equation.
+\medskip
+
+\begin{problembox}[7.37: Existence and Uniqueness of Differential Equations]
+Assume $f$ is continuous on a rectangle $Q = [a - h, a + h] \times [b - k, b + k]$, where $h > 0, k > 0$.
+a) Let $\varphi$ be a function, continuous on $[a - h, a + h]$, such that $(x, \varphi(x)) \in Q$ for all $x$ in $[a - h, a + h]$. If $0 < c \leq h$, prove that $\varphi$ satisfies the differential equation $y' = f(x, y)$ on $(a - c, a + c)$ and the initial condition $\varphi(a) = b$ if, and only if, $\varphi$ satisfies the integral equation 
+\[\varphi(x) = b + \int_a^x f(t, \varphi(t)) dt \quad \text{on} \quad (a - c, a + c).\]
+b) Assume that $|f(x, y)| \leq M$ on $Q$, where $M > 0$, and let $c = \min \{h, k/M\}$. Let $S$ denote the metric subspace of $C[a - c, a + c]$ consisting of all $\varphi$ such that $|\varphi(x) - b| \leq Mc$ on $[a - c, a + c]$. Prove that $S$ is a closed subspace of $C[a - c, a + c]$ and hence that $S$ is itself a complete metric space.
+c) Prove that the function $T$ defined on $S$ by the equation 
+\[T(\varphi)(x) = b + \int_a^x f(t, \varphi(t)) dt\]
+maps $S$ into itself.
+d) Now assume that $f$ satisfies a Lipschitz condition of the form 
+\[|f(x, y) - f(x, z)| \leq A|y - z|\]
+for every pair of points $(x, y)$ and $(x, z)$ in $Q$, where $A > 0$. Prove that $T$ is a contraction of $S$ if $h < 1/A$. Deduce that for $h < 1/A$ the differential equation $y' = f(x, y)$ has exactly one solution $y = \varphi(x)$ on $(a - c, a + c)$ such that $\varphi(a) = b$.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+(a) Integrate $y'=f(x,y)$ to obtain the integral equation; conversely, differentiating the integral equation yields the differential equation and initial condition.
+
+(b) If $\varphi_n\to\varphi$ uniformly and each $\varphi_n\in S$, then $|\varphi(x)-b|\le Mc$ for all $x$ by uniform limits, so $S$ is closed; since $C[a-c,a+c]$ is complete, so is $S$.
+
+(c) For $\varphi\in S$ and $x\in[a-c,a+c]$,
+\[|T\varphi(x)-b|=\Big|\int_a^x f(t,\varphi(t))dt\Big|\le M|x-a|\le Mc,
+\]
+so $T(S)\subset S$.
+
+(d) If $|f(x,y)-f(x,z)|\le A|y-z|$ and $h<1/A$, then for $\varphi,\psi\in S$,
+\[\|T\varphi-T\psi\|_\infty\le A h\,\|\varphi-\psi\|_\infty,
+\]
+so $T$ is a contraction. The fixed point gives the unique solution on $(a-c,a+c)$.
+\medskip

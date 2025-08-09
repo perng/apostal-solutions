@@ -1,0 +1,229 @@
+\chapter{Sequences of Functions}
+
+\section{Uniform convergence}
+
+\begin{problembox}[9.1: Uniform boundedness of uniformly convergent sequence]
+Assume that \( f_n \to f \) uniformly on \( S \) and that each \( f_n \) is bounded on \( S \). Prove that \(\{f_n\}\) is uniformly bounded on \( S \).
+\end{problembox}
+
+\begin{problembox}[9.2: Uniform convergence of product sequences]
+Define two sequences \(\{f_n\}\) and \(\{g_n\}\) as follows:
+\[f_n(x) = x \left( 1 + \frac{1}{n} \right) \quad \text{if } x \in R, \quad n = 1, 2, \ldots,\]
+\[g_n(x) = 
+\begin{cases}
+\frac{1}{n} & \text{if } x = 0 \text{ or if } x \text{ is irrational,} \\
+b + \frac{1}{n} & \text{if } x \text{ is rational, say } x = \frac{a}{b}, \quad b > 0.
+\end{cases}\]
+Let \( h_n(x) = f_n(x) g_n(x) \).
+
+a) Prove that both \(\{f_n\}\) and \(\{g_n\}\) converge uniformly on every bounded interval.
+
+b) Prove that \(\{h_n\}\) does not converge uniformly on any bounded interval.
+\end{problembox}
+
+\begin{problembox}[9.3: Uniform convergence of sum and product sequences]
+Assume that \( f_n \to f \) uniformly on \( S \), \( g_n \to g \) uniformly on \( S \).
+
+a) Prove that \( f_n + g_n \to f + g \) uniformly on \( S \).
+
+b) Let \( h_n(x) = f_n(x) g_n(x) \), \( h(x) = f(x) g(x) \), if \( x \in S \). Exercise 9.2 shows that the assertion \( h_n \to h \) uniformly on \( S \) is, in general, incorrect. Prove that it is correct if each \( f_n \) and each \( g_n \) is bounded on \( S \).
+\end{problembox}
+
+\begin{problembox}[9.4: Uniform convergence of composition]
+Assume that \( f_n \to f \) uniformly on \( S \) and suppose there is a constant \( M > 0 \) such that \( |f_n(x)| \leq M \) for all \( x \) in \( S \) and all \( n \). Let \( g \) be continuous on the closure of the disk \( B(0; M) \) and define \( h_n(x) = g[f_n(x)] \), \( h(x) = g[f(x)] \), if \( x \in S \). Prove that \( h_n \to h \) uniformly on \( S \).
+\end{problembox}
+
+\begin{problembox}[9.5: Pointwise vs uniform convergence]
+a) Let \( f_n(x) = 1/(nx + 1) \) if \( 0 < x < 1, n = 1, 2, \ldots \). Prove that \( \{f_n\} \) converges pointwise but not uniformly on (0, 1).
+
+b) Let \( g_n(x) = x/(nx + 1) \) if \( 0 < x < 1, n = 1, 2, \ldots \). Prove that \( g_n \to 0 \) uniformly on (0, 1).
+\end{problembox}
+
+\begin{problembox}[9.6: Uniform convergence of product with function]
+Let \( f_n(x) = x^n \). The sequence \( \{f_n\} \) converges pointwise but not uniformly on [0, 1]. Let \( g \) be continuous on [0, 1] with \( g(1) = 0 \). Prove that the sequence \( \{g(x)x^n\} \) converges uniformly on [0, 1].
+\end{problembox}
+
+\begin{problembox}[9.7: Convergence of function values at convergent points]
+Assume that \( f_n \to f \) uniformly on \( S \), and that each \( f_n \) is continuous on \( S \). If \( x \in S \), let \( \{x_n\} \) be a sequence of points in \( S \) such that \( x_n \to x \). Prove that \( f_n(x_n) \to f(x) \).
+\end{problembox}
+
+\begin{problembox}[9.8: Uniform convergence on compact sets]
+Let \( \{f_n\} \) be a sequence of continuous functions defined on a compact set \( S \) and assume that \( \{f_n\} \) converges pointwise on \( S \) to a limit function \( f \). Prove that \( f_n \to f \) uniformly on \( S \) if, and only if, the following two conditions hold:
+
+i) The limit function \( f \) is continuous on \( S \).
+
+ii) For every \( \varepsilon > 0 \), there exists an \( m > 0 \) and a \( \delta > 0 \) such that \( n > m \) and \( |f_k(x) - f(x)| < \delta \) implies \( |f_{k+n}(x) - f(x)| < \varepsilon \) for all \( x \) in \( S \) and all \( k = 1, 2, \ldots \).
+
+Hint. To prove the sufficiency of (i) and (ii), show that for each \( x_0 \) in \( S \) there is a neighborhood \( B(x_0) \) and an integer \( k \) (depending on \( x_0 \)) such that
+\[|f_k(x) - f(x)| < \delta \quad \text{if } x \in B(x_0).\]
+By compactness, a finite set of integers, say \( A = \{k_1, \ldots, k_r\} \), has the property that, for each \( x \) in \( S \), some \( k \) in \( A \) satisfies \( |f_k(x) - f(x)| < \delta \). Uniform convergence is an easy consequence of this fact.
+\end{problembox}
+
+\begin{problembox}[9.9: Dini's theorem]
+a) Use Exercise 9.8 to prove the following theorem of Dini: If \( \{f_n\} \) is a sequence of real-valued continuous functions converging pointwise to a continuous limit function \( f \) on a compact set \( S \), and if \( f_n(x) \geq f_{n+1}(x) \) for each \( x \) in \( S \) and every \( n = 1, 2, \ldots \), then \( f_n \to f \) uniformly on \( S \).
+
+b) Use the sequence in Exercise 9.5(a) to show that compactness of \( S \) is essential in Dini's theorem.
+\end{problembox}
+
+\begin{problembox}[9.10: Convergence and integration]
+Let \( f_n(x) = n^c x(1 - x^2)^n \) for \( x \) real and \( n \geq 1 \). Prove that \( \{f_n\} \) converges pointwise on [0, 1] for every real \( c \). Determine those \( c \) for which the convergence is uniform on [0, 1] and those for which term-by-term integration on [0, 1] leads to a correct result.
+\end{problembox}
+
+\begin{problembox}[9.11: Uniform convergence of alternating series]
+Prove that \( \sum x^n (1 - x) \) converges pointwise but not uniformly on [0, 1], whereas \( \sum (-1)^n x^n (1 - x) \) converges uniformly on [0, 1]. This illustrates that uniform convergence of \( \sum f_n(x) \) along with pointwise convergence of \( \sum |f_n(x)| \) does not necessarily imply uniform convergence of \( \sum |f_n(x)| \).
+\end{problembox}
+
+\begin{problembox}[9.12: Uniform convergence of alternating series]
+Assume that \( g_{n+1}(x) \leq g_n(x) \) for each \( x \) in \( T \) and each \( n = 1, 2, \ldots \), and suppose that \( g_n \to 0 \) uniformly on \( T \). Prove that \( \sum (-1)^{n+1} g_n(x) \) converges uniformly on \( T \).
+\end{problembox}
+
+\begin{problembox}[9.13: Abel's test for uniform convergence]
+Prove Abel's test for uniform convergence: Let \( \{g_n\} \) be a sequence of real-valued functions such that \( g_{n+1}(x) \leq g_n(x) \) for each \( x \) in \( T \) and for every \( n = 1, 2, \ldots \). If \( \{g_n\} \) is uniformly bounded on \( T \) and if \(\sum f_n(x)\) converges uniformly on \( T \), then \(\sum f_n(x)g_n(x)\) also converges uniformly on \( T \).
+\end{problembox}
+
+\begin{problembox}[9.14: Convergence of derivatives]
+Let \( f_n(x) = x/(1 + nx^2) \) if \( x \in R, n = 1, 2, \ldots \). Find the limit function \( f \) of the sequence \(\{f_n\}\) and the limit function \( g \) of the sequence \(\{f'_n\}\).
+
+a) Prove that \( f'(x) \) exists for every \( x \) but that \( f'(0) \neq g(0) \). For what values of \( x \) is \( f'(x) = g(x) \)?
+
+b) In what subintervals of \( R \) does \( f_n \to f \) uniformly?
+
+c) In what subintervals of \( R \) does \( f'_n \to g \) uniformly?
+\end{problembox}
+
+\begin{problembox}[9.15: Non-uniform convergence of derivatives]
+Let \( f_n(x) = (1/n)e^{-n^2x^2} \) if \( x \in R, n = 1, 2, \ldots \). Prove that \( f_n \to 0 \) uniformly on \( R \), that \( f'_n \to 0 \) pointwise on \( R \), but that the convergence of \(\{f'_n\}\) is not uniform on any interval containing the origin.
+\end{problembox}
+
+\begin{problembox}[9.16: Limit of integrals]
+Let \(\{f_n\}\) be a sequence of real-valued continuous functions defined on \([0, 1]\) and assume that \( f_n \to f \) uniformly on \([0, 1]\). Prove or disprove
+\[\lim_{n \to \infty} \int_0^{1 - 1/n} f_n(x) \, dx = \int_0^1 f(x) \, dx.\]
+\end{problembox}
+
+\begin{problembox}[9.17: Slobkovian integral]
+Mathematicians from Slobkovia decided that the Riemann integral was too complicated so they replaced it by the Slobkovian integral, defined as follows: If \( f \) is a function defined on the set \( Q \) of rational numbers in \([0, 1]\), the Slobkovian integral of \( f \), denoted by \( S(f) \), is defined to be the limit
+\[S(f) = \lim_{n \to \infty} \frac{1}{n} \sum_{k=1}^n f \left( \frac{k}{n} \right),\]
+whenever this limit exists. Let \(\{f_n\}\) be a sequence of functions such that \( S(f_n) \) exists for each \( n \) and such that \( f_n \to f \) uniformly on \( Q \). Prove that \(\{S(f_n)\}\) converges, that \( S(f) \) exists, and that \( S(f_n) \to S(f) \) as \( n \to \infty \).
+\end{problembox}
+
+\begin{problembox}[9.18: Pointwise convergence and integration]
+Let \( f_n(x) = 1/(1 + n^2x^2) \) if \( 0 \leq x \leq 1, n = 1, 2, \ldots \). Prove that \(\{f_n\}\) converges pointwise but not uniformly on \([0, 1]\). Is term-by-term integration permissible?
+\end{problembox}
+
+\begin{problembox}[9.19: Uniform convergence of series]
+Prove that \(\sum_{n=1}^{\infty} x/n^\alpha (1 + nx^2)\) converges uniformly on every finite interval in \( R \) if \( \alpha > \frac{1}{2} \). Is the convergence uniform on \( R \)?
+\end{problembox}
+
+\begin{problembox}[9.20: Uniform convergence of trigonometric series]
+Prove that the series \(\sum_{n=1}^{\infty} ((-1)^n/\sqrt{n}) \sin (1 + (x/n))\) converges uniformly on every compact subset of \( R \).
+\end{problembox}
+
+\begin{problembox}[9.21: Pointwise convergence of series]
+Prove that the series \(\sum_{n=0}^{\infty} (x^{2n+1}/(2n + 1) - x^{n+1}/(2n + 2))\) converges pointwise but not uniformly on \([0, 1]\).
+\end{problembox}
+
+\begin{problembox}[9.22: Uniform convergence of trigonometric series]
+Prove that \(\sum_{n=1}^{\infty} a_n \sin nx \) and \(\sum_{n=1}^{\infty} a_n \cos nx \) are uniformly convergent on \( R \) if \(\sum_{n=1}^{\infty} |a_n| \) converges.
+\end{problembox}
+
+\begin{problembox}[9.23: Uniform convergence of sine series]
+Let \(\{a_n\}\) be a decreasing sequence of positive terms. Prove that the series \(\sum a_n \sin nx \) converges uniformly on \( R \) if, and only if, \( na_n \to 0 \) as \( n \to \infty \).
+\end{problembox}
+
+\begin{problembox}[9.24: Uniform convergence of Dirichlet series]
+Given a convergent series \(\sum_{n=1}^{\infty} a_n \). Prove that the Dirichlet series \(\sum_{n=1}^{\infty} a_n n^{-s}\) converges uniformly on the half-infinite interval \( 0 \leq s < +\infty \). Use this to prove that \(\lim_{s \to 0} \sum_{n=1}^{\infty} a_n n^{-s} = \sum_{n=1}^{\infty} a_n\).
+\end{problembox}
+
+\section{Mean convergence}
+
+\begin{problembox}[9.26: Pointwise vs mean convergence]
+Let \( f_n(x) = n^{3/2}xe^{-n^2x^2} \). Prove that \( \{f_n\} \) converges pointwise to 0 on [-1, 1] but that l.i.m.\(_{n\to\infty}\) \( f_n \neq 0 \) on [-1, 1].
+\end{problembox}
+
+\begin{problembox}[9.27: Continuity and mean convergence]
+Assume that \( \{f_n\} \) converges pointwise to \( f \) on [a, b] and that l.i.m.\(_{n\to\infty}\) \( f_n = g \) on [a, b]. Prove that \( f = g \) if both \( f \) and \( g \) are continuous on [a, b].
+\end{problembox}
+
+\begin{problembox}[9.28: Mean convergence of cosine sequence]
+Let \( f_n(x) = \cos^n x \) if \( 0 \leq x \leq \pi \).
+
+a) Prove that l.i.m.\(_{n\to\infty}\) \( f_n = 0 \) on [0, \(\pi\)] but that \( \{f_n(\pi)\} \) does not converge.
+
+b) Prove that \( \{f_n\} \) converges pointwise but not uniformly on [0, \(\pi/2\)].
+\end{problembox}
+
+\begin{problembox}[9.29: Pointwise vs mean convergence]
+Let \( f_n(x) = 0 \) if \( 0 \leq x \leq 1/n \) or if \( 2/n \leq x \leq 1 \), and let \( f_n(x) = n \) if \( 1/n < x < 2/n \). Prove that \( \{f_n\} \) converges pointwise to 0 on [0, 1] but that l.i.m.\(_{n\to\infty}\) \( f_n \neq 0 \) on [0, 1].
+\end{problembox}
+
+\section{Power series}
+
+\begin{problembox}[9.30: Radius of convergence]
+If \( r \) is the radius of convergence of \( \sum a_n(z - z_0)^n \), where each \( a_n \neq 0 \), show that
+\[ \liminf_{n\to\infty} \left| \frac{a_n}{a_{n+1}} \right| \leq r \leq \limsup_{n\to\infty} \left| \frac{a_n}{a_{n+1}} \right|.\]
+\end{problembox}
+
+\begin{problembox}[9.31: Radius of convergence variations]
+Given that the power series \( \sum_{n=0}^{\infty} a_nz^n \) has radius of convergence 2. Find the radius of convergence of each of the following series:
+
+a) \( \sum_{n=0}^{\infty} a_n^k z^n \),    b) \( \sum_{n=0}^{\infty} a_nz^{kn} \),    c) \( \sum_{n=0}^{\infty} a_nz^{n^2} \).
+
+In (a) and (b), \( k \) is a fixed positive integer.
+\end{problembox}
+
+\begin{problembox}[9.32: Power series with recurrence relation]
+Given a power series \( \sum_{n=0}^{\infty} a_nx^n \) whose coefficients are related by an equation of the form
+\[ a_n + Aa_{n-1} + Ba_{n-2} = 0 \quad (n = 2, 3, \ldots). \]
+Show that for any \( x \) for which the series converges, its sum is
+\[ \frac{a_0 + (a_1 + Aa_0)x}{1 + Ax + Bx^2}. \]
+\end{problembox}
+
+\begin{problembox}[9.33: Non-analytic function]
+Let \( f(x) = e^{-1/x^2} \) if \( x \neq 0 \), \( f(0) = 0 \).
+
+a) Show that \( f^{(n)}(0) \) exists for all \( n \geq 1 \).
+
+b) Show that the Taylor's series about 0 generated by \( f \) converges everywhere on \( R \) but that it represents \( f \) only at the origin.
+\end{problembox}
+
+\begin{problembox}[9.34: Binomial series convergence]
+Show that the binomial series \( (1 + x)^\alpha = \sum_{n=0}^\infty \binom{\alpha}{n} x^n \) exhibits the following behavior at the points \( x = \pm 1 \).
+
+a) If \( x = -1 \), the series converges for \( \alpha \geq 0 \) and diverges for \( \alpha < 0 \).
+
+b) If \( x = 1 \), the series diverges for \( \alpha \leq -1 \), converges conditionally for \( \alpha \) in the interval \(-1 < \alpha < 0 \), and converges absolutely for \( \alpha \geq 0 \).
+\end{problembox}
+
+\begin{problembox}[9.35: Abel's limit theorem via uniform convergence]
+Show that \( \sum a_n x^n \) converges uniformly on [0, 1] if \( \sum a_n \) converges. Use this fact to give another proof of Abel's limit theorem.
+\end{problembox}
+
+\begin{problembox}[9.36: Divergent series behavior]
+If each \( a_n \geq 0 \) and if \( \sum a_n \) diverges, show that \( \sum a_n x^n \to + \infty \) as \( x \to 1- \). (Assume \( \sum a_n x^n \) converges for \( |x| < 1 \))
+\end{problembox}
+
+\begin{problembox}[9.37: Tauberian theorem for power series]
+If each \( a_n \geq 0 \) and if \( \lim_{x \to 1-} \sum a_n x^n \) exists and equals \( A \), prove that \( \sum a_n \) converges and has sum \( A \). (Compare with Theorem 9.33.)
+\end{problembox}
+
+\begin{problembox}[9.38: Bernoulli polynomials]
+For each real \( t \), define \( f_t(x) = xe^{xt}/(e^x - 1) \) if \( x \in R \), \( x \neq 0 \), \( f_t(0) = 1 \).
+
+a) Show that there is a disk \( B(0; \delta) \) in which \( f_t \) is represented by a power series in \( x \).
+
+b) Define \( P_0(t), P_1(t), P_2(t), \ldots \), by the equation
+\[f_t(x) = \sum_{n=0}^\infty P_n(t) \frac{x^n}{n!}, \quad \text{if } x \in B(0; \delta),\]
+and use the identity
+\[\sum_{n=0}^\infty P_n(t) \frac{x^n}{n!} = e^{tx} \sum_{n=0}^\infty P_n(0) \frac{x^n}{n!}\]
+to prove that \( P_n(t) = \sum_{k=0}^n \binom{n}{k} P_k(0)t^{n-k} \). This shows that each function \( P_n \) is a polynomial. These are the Bernoulli polynomials. The numbers \( B_n = P_n(0) \) (\( n = 0, 1, 2, \ldots \)) are called the Bernoulli numbers. Derive the following further properties:
+
+c) \( B_0 = 1, \quad B_1 = -\frac{1}{2}, \quad \sum_{k=0}^{n-1} \binom{n}{k} B_k = 0, \quad \text{if } n = 2, 3, \ldots \)
+
+d) \( P_n'(t) = nP_{n-1}(t), \quad \text{if } n = 1, 2, \ldots \)
+
+e) \( P_n(t + 1) - P_n(t) = nt^{n-1} \quad \text{if } n = 1, 2, \ldots \)
+
+f) \( P_n(1 - t) = (-1)^n P_n(t) \quad g) B_{2n+1} = 0 \quad \text{if } n = 1, 2, \ldots \)
+
+h) \( 1^n + 2^n + \cdots + (k - 1)^n = \frac{P_{n+1}(k) - P_{n+1}(0)}{n + 1} \quad (n = 2, 3, \ldots ) \).
+\end{problembox}

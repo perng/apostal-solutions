@@ -1,0 +1,215 @@
+\chapter{Functions of Bounded Variation and Rectifiable Curves}
+
+\section{Functions of bounded variation}
+\begin{problembox}[6.1: Functions of Bounded Variation]
+Determine which of the following functions are of bounded variation on $[0, 1]$.
+
+a) $f(x) = x^2 \sin (1/x)$ if $x \neq 0$, $f(0) = 0$.
+
+b) $f(x) = \sqrt{x} \sin (1/x)$ if $x \neq 0$, $f(0) = 0$.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\,(a) On $(0,1]$, $f'(x)=2x\sin(1/x)-\cos(1/x)$ and
+\[\int_0^1 |\cos(1/x)|\,dx=\int_1^{\infty}\frac{|\cos u|}{u^2}\,du<\infty,\qquad \int_0^1 2x|\sin(1/x)|\,dx<\infty.
+\]
+Hence $f'\in L^1(0,1)$ and, integrating $f'$ from $\varepsilon$ to $x$ and letting $\varepsilon\downarrow 0$, one gets $f(x)=\int_0^x f'(t)\,dt$, so $f$ is absolutely continuous and therefore of bounded variation on $[0,1]$.
+
+\,(b) Let $a_n=\dfrac{1}{(n+\tfrac12)\pi}$. Then $f(a_n)=(-1)^n\sqrt{a_n}$. If $P$ is the partition with the points $\{a_n\}_{n\ge N}$, then
+\[V_f(0,1)\;\ge\;\sum_{n\ge N}\big|f(a_{n+1})-f(a_n)\big|\ge \sum_{n\ge N}\big(\sqrt{a_{n+1}}+\sqrt{a_n}\big)\asymp\sum_{n\ge N}\frac{1}{\sqrt{n}}=\infty.
+\]
+Thus $f(x)=\sqrt{x}\sin(1/x)$ is not of bounded variation on $[0,1]$.
+
+\begin{problembox}[6.2: Uniform Lipschitz Condition]
+A function $f$, defined on $[a, b]$, is said to satisfy a uniform Lipschitz condition of order $\alpha > 0$ on $[a, b]$ if there exists a constant $M > 0$ such that $|f(x) - f(y)| < M |x - y|^\alpha$ for all $x$ and $y$ in $[a, b]$. (Compare with Exercise 5.1.)
+
+a) If $f$ is such a function, show that $\alpha > 1$ implies $f$ is constant on $[a, b]$, whereas $\alpha = 1$ implies $f$ is of bounded variation on $[a, b]$.
+
+b) Give an example of a function $f$ satisfying a uniform Lipschitz condition of order $\alpha < 1$ on $[a, b]$ such that $f$ is not of bounded variation on $[a, b]$.
+
+c) Give an example of a function $f$ which is of bounded variation on $[a, b]$ but which satisfies no uniform Lipschitz condition on $[a, b]$.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\,(a) If $\alpha>1$, subdivide $[x,y]$ into $n$ equal parts: then
+\[|f(y)-f(x)|\le n\,M\Big(\tfrac{y-x}{n}\Big)^{\!\alpha}=M(y-x)^{\alpha}\,n^{1-\alpha}\to 0\ (n\to\infty),\]
+so $f(y)=f(x)$ for all $x<y$ and $f$ is constant. If $\alpha=1$, the estimate $|f(x)-f(y)|\le M|x-y|$ shows $f$ is Lipschitz; hence $f$ is absolutely continuous and has $V_f(a,b)\le M(b-a)$.
+
+\,(b) For $0<\alpha<1$, a standard example is the Weierstrass-type series on $[0,2\pi]$:
+\[f(x)=\sum_{k=0}^{\infty}2^{-k\alpha}\sin(2^k x).\]
+One checks (by splitting frequencies at the dyadic scale $2^k\approx |x-y|^{-1}$) that $|f(x)-f(y)|\le C|x-y|^{\alpha}$ for some $C$. Moreover, the total variation of the $N$th partial sum satisfies $V\big(\sum_{k=0}^N2^{-k\alpha}\sin(2^k x)\big)\ge c\sum_{k=0}^N2^{k(1-\alpha)}\to\infty$, so $f$ is not of bounded variation.
+
+\,(c) Let $f$ be the step function $f(x)=\mathbf{1}_{[c,b]}(x)$ for some $c\in(a,b)$. Then $f$ has bounded variation $V_f(a,b)=1$ but is discontinuous, hence it satisfies no uniform Lipschitz condition on $[a,b]$.
+
+\begin{problembox}[6.3: Polynomials and Bounded Variation]
+Show that a polynomial $f$ is of bounded variation on every compact interval $[a, b]$. Describe a method for finding the total variation of $f$ on $[a, b]$ if the zeros of the derivative $f'$ are known.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+Polynomials are $C^1$, hence absolutely continuous on $[a,b]$, so $f\in BV[a,b]$ and
+\[V_f(a,b)=\int_a^b |f'(x)|\,dx.\]
+If $a=t_0<t_1<\cdots<t_m<t_{m+1}=b$ are the ordered zeros of $f'$ in $(a,b)$, then $f$ is monotone on each $[t_j,t_{j+1}]$ and
+\[V_f(a,b)=\sum_{j=0}^{m}\big|f(t_{j+1})-f(t_j)\big|.\]
+
+\begin{problembox}[6.4: Linear Space of Functions]
+A nonempty set $S$ of real-valued functions defined on an interval $[a, b]$ is called a linear space of functions if it has the following two properties:
+
+a) If $f \in S$, then $cf \in S$ for every real number $c$.
+
+b) If $f \in S$ and $g \in S$, then $f + g \in S$.
+
+Theorem 6.9 shows that the set $V$ of all functions of bounded variation on $[a, b]$ is a linear space. If $S$ is any linear space which contains all monotonic functions on $[a, b]$, prove that $V \subseteq S$. This can be described by saying that the functions of bounded variation form the smallest linear space containing all monotonic functions.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+By Jordan’s theorem (Theorem 6.13), every $f\in V$ can be written $f=g-h$ with $g,h$ increasing on $[a,b]$. Since $S$ contains all monotone functions and is a linear space, $g,h\in S$ and therefore $f=g-h\in S$. Hence $V\subseteq S$.
+
+\begin{problembox}[6.5: Monotonic Function Properties]
+Let $f$ be a real-valued function defined on $[0, 1]$ such that $f(0) > 0$, $f(x) \neq x$ for all $x$, and $f(x) \leq f(y)$ whenever $x \leq y$. Let $A = \{x: f(x) > x\}$. Prove that $\sup A \in A$ and that $f(1) > 1$.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+Let $A=\{x\in[0,1]: f(x)>x\}$. Since $f(0)>0$, we have $0\in A$, so $A\neq\emptyset$. If also $B=\{x: f(x)<x\}$ were nonempty, let $s=\sup A$ and $t=\inf B$; then $s\le t$. From $x_n\uparrow s$ in $A$ we get $f(x_n)>x_n$ and, by monotonicity, $\limsup f(x_n)\le f(s)$, whence $f(s)\ge s$. From $y_n\downarrow t$ in $B$ we get similarly $f(t)\le t$. Since $s\le t$, this forces some $u$ with $f(u)=u$, contradicting $f(x)\ne x$. Thus $B=\emptyset$ and $f(x)>x$ for all $x\in[0,1]$. Hence $\sup A=1\in A$ and $f(1)>1$.
+
+\begin{problembox}[6.6: Bounded Variation on Infinite Intervals]
+If $f$ is defined everywhere in $\mathbb{R}^1$, then $f$ is said to be of bounded variation on $(-\infty, +\infty)$ if $f$ is of bounded variation on every finite interval and if there exists a positive number $M$ such that $V_f(a, b) < M$ for all compact intervals $[a, b]$. The total variation of $f$ on $(-\infty, +\infty)$ is then defined to be the sup of all numbers $V_f(a, b)$, $-\infty < a < b < +\infty$, and is denoted by $V_f(-\infty, +\infty)$. Similar definitions apply to half-open infinite intervals $[a, +\infty)$ and $(-\infty, b]$.
+
+a) State and prove theorems for the infinite interval $(-\infty, +\infty)$ analogous to Theorems 6.7, 6.9, 6.10, 6.11, and 6.12.
+
+b) Show that Theorem 6.5 is true for $(-\infty, +\infty)$ if "monotonic" is replaced by "bounded and monotonic." State and prove a similar modification of Theorem 6.13.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\,(a) With $V_f(-\infty,\infty)=\sup\{V_f(a,b): a<b\}$, all finite-interval results extend: linearity and subadditivity of variation, stability under addition and scalar multiplication, and the characterization $f\in BV(-\infty,\infty)$ iff $V_f(-\infty,\infty)<\infty$. Proofs reduce to restricting to finite $[a,b]$ and taking sups.
+
+\,(b) For $(-\infty,\infty)$, a monotone function has
+\[V_f(-\infty,\infty)=\lim_{x\to\infty}f(x)-\lim_{x\to-\infty}f(x),\]
+so it is of bounded variation iff it is bounded and monotone. Similarly, Jordan’s theorem becomes: $f\in BV(-\infty,\infty)$ iff $f=g-h$ with $g,h$ bounded monotone on $\mathbb{R}$.
+
+\begin{problembox}[6.7: Positive and Negative Variations]
+Assume that $f$ is of bounded variation on $[a, b]$ and let
+\[P = \{x_0, x_1, \ldots, x_n\} \in \mathcal{P}[a, b].\]
+As usual, write $\Delta f_k = f(x_k) - f(x_{k-1})$, $k = 1, 2, \ldots, n$. Define
+\[A(P) = \{k : \Delta f_k > 0\}, \quad B(P) = \{k : \Delta f_k < 0\}.\]
+The numbers
+\[p_f(a, b) = \sup \left\{ \sum_{k \in A(P)} \Delta f_k : P \in \mathcal{P}[a, b] \right\}\]
+and
+\[n_f(a, b) = \sup \left\{ \sum_{k \in B(P)} |\Delta f_k| : P \in \mathcal{P}[a, b] \right\}\]
+are called, respectively, the positive and negative variations of $f$ on $[a, b]$. For each $x$ in $(a, b]$, let $V(x) = V_f(a, x)$, $p(x) = p_f(a, x)$, $n(x) = n_f(a, x)$, and let $V(a) = p(a) = n(a) = 0$. Show that we have:
+a) $V(x) = p(x) + n(x)$.
+b) $0 \leq p(x) \leq V(x)$ and $0 \leq n(x) \leq V(x)$.
+c) $p$ and $n$ are increasing on $[a, b]$.
+d) $f(x) = f(a) + p(x) - n(x)$. Part (d) gives an alternative proof of Theorem 6.13.
+e) $2p(x) = V(x) + f(x) - f(a)$, $2n(x) = V(x) - f(x) + f(a)$.
+f) Every point of continuity of $f$ is also a point of continuity of $p$ and of $n$.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+Fix $x\in[a,b]$. For a partition $P$ of $[a,x]$ write $\Delta f_k=f(x_k)-f(x_{k-1})$. Refining $P$ if necessary we may separate positive and negative increments. Taking sups then yields
+\[V(x)=\sup_P\sum_k |\Delta f_k|=\sup_P\Big(\sum_{k\in A(P)}\!\Delta f_k+\sum_{k\in B(P)}\!|\Delta f_k|\Big)=p(x)+n(x),\]
+which gives (a) and (b). Monotonicity of $p,n$ in $x$ gives (c). For (d), observe that for any partition of $[a,x]$,
+\[f(x)-f(a)=\sum_k \Delta f_k=\sum_{k\in A(P)}\!\Delta f_k-\sum_{k\in B(P)}\!|\Delta f_k|\le p(x)-n(x),\]
+and taking sups in the positive and negative parts separately gives equality: $f(x)=f(a)+p(x)-n(x)$. Then (e) follows by adding/subtracting (a) and (d). For (f), if $f$ is continuous at $x_0$, then $V$ is continuous at $x_0$ and (e) implies the continuity of $p$ and $n$ there.
+
+\section{Curves}
+
+\begin{problembox}[6.8: Equivalent Paths]
+Let $f$ and $g$ be complex-valued functions defined as follows:
+\[f(t) = e^{2\pi it} \quad \text{if } t \in [0, 1], \quad g(t) = e^{2\pi it} \quad \text{if } t \in [0, 2].\]
+
+a) Prove that $f$ and $g$ have the same graph but are not equivalent according to the definition in Section 6.12.
+b) Prove that the length of $g$ is twice that of $f$.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+As sets, $\{e^{2\pi it}:t\in[0,1]\}=\{e^{2\pi it}:t\in[0,2]\}$, so the graphs coincide (the unit circle). If $f$ and $g$ were equivalent, there would be a strictly increasing bijection $\phi:[0,2]\to[0,1]$ with $g=f\circ\phi$, impossible since $g$ traverses the circle twice while $f$ traverses it once. For lengths, repeating a rectifiable path twice doubles its length, so $\Lambda(g)=2\Lambda(f)$.
+
+\begin{problembox}[6.9: Arc-Length Parameter]
+Let $f$ be a rectifiable path of length $L$ defined on $[a, b]$, and assume that $f$ is not constant on any subinterval of $[a, b]$. Let $s$ denote the arc-length function given by $s(x) = \Lambda_s(a, x)$ if $a < x \leq b$, $s(a) = 0$.
+
+a) Prove that $s^{-1}$ exists and is continuous on $[0, L]$.
+b) Define $g(t) = f[s^{-1}(t)]$ if $t \in [0, L]$ and show that $g$ is equivalent to $f$. Since $f(t) = g[s(t)]$, the function $g$ is said to provide a representation of the graph of $f$ with arc length as parameter.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\,(a) The arc-length function $s$ is increasing and continuous on $[a,b]$, and strictly increasing under the hypothesis that $f$ is not constant on any subinterval. Hence $s$ is a homeomorphism from $[a,b]$ onto $[0,L]$ and $s^{-1}$ is continuous.
+
+\,(b) With $g(t)=f\big(s^{-1}(t)\big)$, the map $t\mapsto s^{-1}(t)$ is increasing and onto, so $g$ is a reparametrization of $f$; thus $g$ is equivalent to $f$ and $f(t)=g\big(s(t)\big)$.
+
+\begin{problembox}[6.10: Symmetrization of Regions]
+Let $f$ and $g$ be two real-valued continuous functions of bounded variation defined on $[a, b]$, with $0 < f(x) < g(x)$ for each $x$ in $(a, b)$, $f(a) = g(a)$, $f(b) = g(b)$. Let $h$ be the complex-valued function defined on the interval $[a, 2b - a]$ as follows:
+\[h(t) = t + i f(t), \quad \text{if } a \leq t \leq b,\]
+\[h(t) = 2b - t + ig(2b - t), \quad \text{if } b \leq t \leq 2b - a.\]
+
+a) Show that $h$ describes a rectifiable curve $\Gamma$.
+b) Explain, by means of a sketch, the geometric relationship between $f$, $g$, and $h$.
+c) Show that the set of points
+\[S = \{ (x, y) : a \leq x \leq b, \quad f(x) \leq y \leq g(x) \}\]
+is a region in $\mathbb{R}^2$ whose boundary is the curve $\Gamma$.
+d) Let $H$ be the complex-valued function defined on $[a, 2b - a]$ as follows:
+\[H(t) = t - \frac{1}{2} [g(t) - f(t)], \quad \text{if } a \leq t \leq b,\]
+\[H(t) = t + \frac{1}{2} [g(2b - t) - f(2b - t)], \quad \text{if } b \leq t \leq 2b - a.\]
+Show that $H$ describes a rectifiable curve $\Gamma_0$ which is the boundary of the region
+\[S_0 = \{ (x, y) : a \leq x \leq b, \quad f(x) - g(x) \leq 2y \leq g(x) - f(x) \}.\]
+e) Show that $S_0$ has the $x$-axis as a line of symmetry. (The region $S_0$ is called the symmetrization of $S$ with respect to the $x$-axis.)
+f) Show that the length of $\Gamma_0$ does not exceed the length of $\Gamma$.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\,(a) Since $f,g\in BV[a,b]$, the graphs $t\mapsto t+if(t)$ and $t\mapsto t+ig(t)$ are rectifiable; concatenating them as in the definition of $h$ yields a rectifiable closed curve $\Gamma$.
+
+\,(b) The curve $\Gamma$ runs along the upper graph $y=g(x)$ from $x=a$ to $x=b$ and returns along the lower graph $y=f(x)$ from $x=b$ to $x=a$, closing the boundary of the vertical strip between the two graphs.
+
+\,(c) The region $S=\{(x,y): a\le x\le b,\ f(x)\le y\le g(x)\}$ has boundary given by the two graphs $y=f(x)$ and $y=g(x)$ together with the vertical segments at $x=a$ and $x=b$, which is exactly the image of $h$.
+
+\,(d) Writing $y_0(x)=\tfrac12\big(g(x)-f(x)\big)$, the curve $\Gamma_0$ is traced by $x\mapsto x\pm i y_0(x)$, hence is rectifiable and bounds the symmetric vertical strip
+\[S_0=\{(x,y): a\le x\le b,\ -y_0(x)\le y\le y_0(x)\}.\]
+
+\,(e) Immediate from the definition of $S_0$ since $y\mapsto -y$ preserves the set.
+
+\,(f) Parameterizing by $x\in[a,b]$, the lengths are
+\[L(\Gamma)=\int_a^b\!\sqrt{1+f'(x)^2}\,dx+\int_a^b\!\sqrt{1+g'(x)^2}\,dx,\quad L(\Gamma_0)=2\int_a^b\!\sqrt{1+\Big(\tfrac{g'(x)-f'(x)}{2}\Big)^{\!2}}\,dx,
+\]
+with $f',g'$ understood a.e. Using the inequality
+\[\sqrt{1+u^2}+\sqrt{1+v^2}\;\ge\;2\sqrt{1+\Big(\tfrac{u-v}{2}\Big)^{\!2}}\qquad(u,v\in\mathbb{R}),\]
+and integrating yields $L(\Gamma)\ge L(\Gamma_0)$.
+
+\section{Absolute continuous functions}
+A real-valued function $f$ defined on an interval $[a,b]$ is said to be absolutely continuous on $[a,b]$ if for every $\varepsilon > 0$ there is a $\delta > 0$ such that
+\[\sum_{k=1}^{n} |f(b_k) - f(a_k)| < \varepsilon\]
+for every $n$ disjoint open subintervals $(a_k, b_k)$ of $[a, b]$, $n = 1, 2, \ldots$, the sum of whose lengths $\sum_{k=1}^{n} (b_k - a_k)$ is less than $\delta$.
+Absolutely continuous functions occur in the Lebesgue theory of integration and differentiation. The following exercises give some of their elementary properties.
+
+\begin{problembox}[6.11: Absolutely Continuous Functions]
+A real-valued function $f$ defined on $[a, b]$ is said to be absolutely continuous on $[a, b]$ if for every $\varepsilon > 0$ there is a $\delta > 0$ such that
+\[\sum_{k=1}^{n} |f(b_k) - f(a_k)| < \varepsilon\]
+for every $n$ disjoint open subintervals $(a_k, b_k)$ of $[a, b]$, $n = 1, 2, \ldots$, the sum of whose lengths $\sum_{k=1}^{n} (b_k - a_k)$ is less than $\delta$. Absolutely continuous functions occur in the Lebesgue theory of integration and differentiation. The following exercises give some of their elementary properties.
+
+Prove that every absolutely continuous function on $[a, b]$ is continuous and of bounded variation on $[a, b]$. Note. There exist functions which are continuous and of bounded variation but not absolutely continuous.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+Absolute continuity implies uniform continuity; hence $f$ is continuous. Given $\varepsilon>0$, choose $\delta$ from the definition. For any partition $P$ with mesh $<\delta$,
+\[\sum_k |f(x_k)-f(x_{k-1})|\le\varepsilon,\]
+so $V_f(a,b)<\infty$. Thus every absolutely continuous function is continuous and of bounded variation.
+
+\begin{problembox}[6.12: Lipschitz and Absolute Continuity]
+Prove that $f$ is absolutely continuous if it satisfies a uniform Lipschitz condition of order 1 on $[a, b]$. (See Exercise 6.2.)
+\end{problembox}
+
+\noindent\textbf{Solution.}
+If $|f(x)-f(y)|\le M|x-y|$ on $[a,b]$, then for any disjoint intervals $(a_k,b_k)$ with $\sum(b_k-a_k)<\delta$, we have
+\[\sum_{k=1}^n |f(b_k)-f(a_k)|\le M\sum_{k=1}^n(b_k-a_k)<M\delta.
+\]
+Choosing $\delta=\varepsilon/M$ proves absolute continuity.
+
+\begin{problembox}[6.13: Operations on Absolutely Continuous Functions]
+If $f$ and $g$ are absolutely continuous on $[a, b]$, prove that each of the following is also: $|f|$, $cf$ ($c$ constant), $f + g$, $f \cdot g$; also $f/g$ if $g$ is bounded away from zero.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+If $f,g$ are absolutely continuous on $[a,b]$, then they are bounded. The functions $cf$ and $f+g$ are absolutely continuous by linearity of the defining inequality. Also
+\[\big||f(b_k)|-|f(a_k)|\big|\le |f(b_k)-f(a_k)|,\]
+so $|f|$ is absolutely continuous. For the product,
+\[|(fg)(b_k)-(fg)(a_k)|\le |f(b_k)|\,|g(b_k)-g(a_k)|+|g(a_k)|\,|f(b_k)-f(a_k)|,\]
+and summing over $k$ shows $fg$ is absolutely continuous. If $|g|\ge m>0$ on $[a,b]$, then $u\mapsto 1/u$ is Lipschitz on $[m,\infty)$, hence $1/g$ is absolutely continuous; therefore $f/g=f\cdot(1/g)$ is absolutely continuous.
