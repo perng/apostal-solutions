@@ -1,0 +1,1702 @@
+\chapter{Probability Theory}
+
+\section{Probability Basics}
+
+\begin{problembox}[1.1: Sample Space Description]
+For each of the following experiments, describe the sample space.
+\begin{enumerate}[label=(\alph*)]
+    \item Toss a coin four times.
+    \item Count the number of insect-damaged leaves on a plant.
+    \item Measure the lifetime (in hours) of a particular brand of light bulb.
+    \item Record the weights of ten-day-old rats.
+    \item Observe the proportion of defectives in a shipment of electronic components.
+\end{enumerate}
+
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+    \item The sample space consists of all possible sequences of heads (H) and tails (T) of length 4:
+    \begin{align*}
+    S = \{&HHHH, HHHT, HHTH, HTHH, THHH, \\
+    &HHTT, HTHT, HTTH, THHT, THTH, TTHH, \\
+    &HTTT, THTT, TTHT, TTTH, TTTT\}
+    \end{align*}
+    There are $2^4 = 16$ possible outcomes.
+    
+    \item The sample space is the set of non-negative integers: $S = \{0, 1, 2, 3, \ldots\}$, since we can count 0, 1, 2, or any number of damaged leaves.
+    
+    \item The sample space is the set of positive real numbers: $S = (0, \infty)$, since a light bulb's lifetime can be any positive number of hours.
+    
+    \item The sample space is the set of positive real numbers: $S = (0, \infty)$, since weights are positive real numbers.
+    
+    \item The sample space is the interval $[0, 1]$, since a proportion must be between 0 and 1 inclusive.
+\end{enumerate}
+
+\begin{problembox}[1.2: Set Identities]
+Verify the following identities.
+\begin{enumerate}[label=(\alph*)]
+    \item $A \backslash B = A \backslash (A \cap B) = A \cap B^c$
+    \item $B = (B \cap A) \cup (B \cap A^c)$
+    \item $B \backslash A = B \cap A^c$
+    \item $A \cup B = A \cup (B \cap A^c)$
+\end{enumerate}
+
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+    \item We need to show $A \backslash B = A \backslash (A \cap B) = A \cap B^c$.
+    
+    First, $A \backslash B = A \cap B^c$ by definition of set difference.
+    
+    Next, $A \backslash (A \cap B) = A \cap (A \cap B)^c = A \cap (A^c \cup B^c) = (A \cap A^c) \cup (A \cap B^c) = \emptyset \cup (A \cap B^c) = A \cap B^c$.
+    
+    Therefore, $A \backslash B = A \backslash (A \cap B) = A \cap B^c$.
+    
+    \item We need to show $B = (B \cap A) \cup (B \cap A^c)$.
+    
+    Let $x \in B$. Then either $x \in A$ or $x \notin A$ (i.e., $x \in A^c$). If $x \in A$, then $x \in B \cap A$. If $x \in A^c$, then $x \in B \cap A^c$. Therefore, $x \in (B \cap A) \cup (B \cap A^c)$.
+    
+    Conversely, if $x \in (B \cap A) \cup (B \cap A^c)$, then $x \in B \cap A$ or $x \in B \cap A^c$, which means $x \in B$ in both cases.
+    
+    \item We need to show $B \backslash A = B \cap A^c$.
+    
+    This is the definition of set difference: $B \backslash A = \{x : x \in B \text{ and } x \notin A\} = B \cap A^c$.
+    
+    \item We need to show $A \cup B = A \cup (B \cap A^c)$.
+    
+    Let $x \in A \cup B$. Then $x \in A$ or $x \in B$. If $x \in A$, then $x \in A \cup (B \cap A^c)$. If $x \in B$ and $x \notin A$, then $x \in B \cap A^c$, so $x \in A \cup (B \cap A^c)$.
+    
+    Conversely, if $x \in A \cup (B \cap A^c)$, then either $x \in A$ or $x \in B \cap A^c$. In both cases, $x \in A \cup B$.
+\end{enumerate}
+
+\begin{problembox}[1.3: Theorem 1.1.4 Completion]
+Finish the proof of Theorem 1.1.4. For any events $A, B,$ and $C$ defined on a sample space $S$, show that
+\begin{enumerate}[label=(\alph*)]
+    \item $A \cup B = B \cup A$ and $A \cap B = B \cap A$. (Commutativity)
+    \item $A \cup (B \cup C) = (A \cup B) \cup C$ and $A \cap (B \cap C) = (A \cap B) \cap C$. (Associativity)
+    \item $(A \cup B)^c = A^c \cap B^c$ and $(A \cap B)^c = A^c \cup B^c$. (DeMorgan's Laws)
+\end{enumerate}\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+    \item \textbf{Commutativity:}
+    
+    For union: $A \cup B = \{x : x \in A \text{ or } x \in B\} = \{x : x \in B \text{ or } x \in A\} = B \cup A$.
+    
+    For intersection: $A \cap B = \{x : x \in A \text{ and } x \in B\} = \{x : x \in B \text{ and } x \in A\} = B \cap A$.
+    
+    \item \textbf{Associativity:}
+    
+    For union: Let $x \in A \cup (B \cup C)$. Then $x \in A$ or $x \in B \cup C$. If $x \in A$, then $x \in A \cup B$, so $x \in (A \cup B) \cup C$. If $x \in B \cup C$, then $x \in B$ or $x \in C$. If $x \in B$, then $x \in A \cup B$, so $x \in (A \cup B) \cup C$. If $x \in C$, then $x \in (A \cup B) \cup C$. The reverse inclusion follows similarly.
+    
+    For intersection: Let $x \in A \cap (B \cap C)$. Then $x \in A$ and $x \in B \cap C$, which means $x \in A$, $x \in B$, and $x \in C$. Therefore, $x \in A \cap B$ and $x \in C$, so $x \in (A \cap B) \cap C$. The reverse inclusion follows similarly.
+    
+    \item \textbf{DeMorgan's Laws:}
+    
+    First law: Let $x \in (A \cup B)^c$. Then $x \notin A \cup B$, which means $x \notin A$ and $x \notin B$. Therefore, $x \in A^c$ and $x \in B^c$, so $x \in A^c \cap B^c$. The reverse inclusion follows similarly.
+    
+    Second law: Let $x \in (A \cap B)^c$. Then $x \notin A \cap B$, which means $x \notin A$ or $x \notin B$. Therefore, $x \in A^c$ or $x \in B^c$, so $x \in A^c \cup B^c$. The reverse inclusion follows similarly.
+\end{enumerate}
+
+\begin{problembox}[1.4: Event Probabilities]
+For events $A$ and $B$, find formulas for the probabilities of the following events in terms of the quantities $P(A), P(B),$ and $P(A \cap B)$.
+\begin{enumerate}[label=(\alph*)]
+    \item either $A$ or $B$ or both
+    \item either $A$ or $B$ but not both
+    \item at least one of $A$ or $B$
+    \item at most one of $A$ or $B$
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+    \item This is the union of $A$ and $B$: $P(A \cup B) = P(A) + P(B) - P(A \cap B)$.
+    
+    \item This is the symmetric difference: $P(A \cup B) - P(A \cap B) = P(A) + P(B) - 2P(A \cap B)$.
+    
+    \item This is the same as (a): $P(A \cup B) = P(A) + P(B) - P(A \cap B)$.
+    
+    \item This is the complement of both events occurring: $P((A \cap B)^c) = 1 - P(A \cap B)$.
+\end{enumerate}
+
+
+\section{Probability Calculations}
+
+\begin{problembox}[1.5: Twin Probabilities]
+Approximately one-third of all human twins are identical (one-egg) and two-thirds are fraternal (two-egg) twins. Identical twins are necessarily the same sex, with male and female being equally likely. Among fraternal twins, approximately one-fourth are both female, one-fourth are both male, and half are one male and one female. Finally, among all U.S. births, approximately 1 in 90 is a twin birth. Define the following events:
+\[ A = \{a \text{ U.S. birth results in twin females}\} \]
+\[ B = \{a \text{ U.S. birth results in identical twins}\} \]
+\[ C = \{a \text{ U.S. birth results in twins}\} \]
+\begin{enumerate}[label=(\alph*)]
+    \item State, in words, the event $A \cap B \cap C$.
+    \item Find $P(A \cap B \cap C)$.
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+    \item The event $A \cap B \cap C$ is the event that a U.S. birth results in identical twin females.
+    
+    \item We need to find $P(A \cap B \cap C)$. Since $A \cap B \cap C = A \cap B$ (because $A \cap B \subseteq C$), we have:
+    
+    $P(A \cap B \cap C) = P(A \cap B) = P(B) \cdot P(A|B)$
+    
+    We know $P(B) = \frac{1}{3} \cdot \frac{1}{90} = \frac{1}{270}$ (one-third of twin births are identical, and twin births occur with probability $\frac{1}{90}$).
+    
+    Given that twins are identical, the probability they are both female is $\frac{1}{2}$ (since identical twins are the same sex and male/female are equally likely).
+    
+    Therefore, $P(A \cap B \cap C) = \frac{1}{270} \cdot \frac{1}{2} = \frac{1}{540}$.
+\end{enumerate}
+
+
+\begin{problembox}[1.6: Biased Coin Tossing]
+Two pennies, one with $P(\text{head})=u$ and one with $P(\text{head})=w$, are to be tossed together independently. Define
+\[ p_0 = P(0 \text{ heads occur}), \]
+\[ p_1 = P(1 \text{ head occurs}), \]
+\[ p_2 = P(2 \text{ heads occur}). \]
+Can $u$ and $w$ be chosen such that $p_0 = p_1 = p_2$? Prove your answer.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+
+We can express the probabilities in terms of $u$ and $w$:
+\begin{align*}
+p_0 &= P(\text{tail on first coin}) \cdot P(\text{tail on second coin}) = (1-u)(1-w) \\
+p_1 &= P(\text{head on first, tail on second}) + P(\text{tail on first, head on second}) = u(1-w) + (1-u)w \\
+p_2 &= P(\text{head on first coin}) \cdot P(\text{head on second coin}) = uw
+\end{align*}
+
+If $p_0 = p_1 = p_2$, then:
+\begin{align*}
+(1-u)(1-w) &= u(1-w) + (1-u)w = uw
+\end{align*}
+
+From the first equality: $(1-u)(1-w) = u(1-w) + (1-u)w$
+Expanding: $1 - u - w + uw = u - uw + w - uw$
+Simplifying: $1 - u - w + uw = u + w - 2uw$
+Rearranging: $1 = 2u + 2w - 3uw$
+
+From the second equality: $u(1-w) + (1-u)w = uw$
+Expanding: $u - uw + w - uw = uw$
+Simplifying: $u + w - 2uw = uw$
+Rearranging: $u + w = 3uw$
+
+Substituting into the first equation: $1 = 2(u + w) - 3uw = 2(3uw) - 3uw = 6uw - 3uw = 3uw$
+
+Therefore, $uw = \frac{1}{3}$ and $u + w = 3 \cdot \frac{1}{3} = 1$.
+
+This means $u$ and $w$ are roots of the quadratic equation $x^2 - x + \frac{1}{3} = 0$.
+
+The discriminant is $1 - 4 \cdot \frac{1}{3} = 1 - \frac{4}{3} = -\frac{1}{3} < 0$.
+
+Since the discriminant is negative, there are no real values of $u$ and $w$ that satisfy the equation. Therefore, it is impossible to choose $u$ and $w$ such that $p_0 = p_1 = p_2$.
+
+
+\section{Dart Game Problems}
+
+\begin{problembox}[1.7: Dart Probability Function]
+Refer to the dart game of Example 1.2.7. Suppose we do not assume that the probability of hitting the dart board is 1, but rather is proportional to the area of the dart board. Assume that the dart board is mounted on a wall that is hit with probability 1, and the wall has area $A$.
+\begin{enumerate}[label=(\alph*)]
+    \item Using the fact that the probability of hitting a region is proportional to area, construct a probability function for $P(\text{scoring } i \text{ points})$, $i = 0, \ldots, 5$. (No points are scored if the dart board is not hit.)
+    \item Show that the conditional probability distribution $P(\text{scoring } i \text{ points}|\text{board is hit})$ is exactly the probability distribution of Example 1.2.7.
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+    \item Let $A_i$ be the area of the region that gives $i$ points, and let $A_B$ be the total area of the dart board. Then the probability of hitting the dart board is $P(\text{board is hit}) = \frac{A_B}{A}$.
+    
+    The probability of scoring $i$ points is:
+    \[ P(\text{scoring } i \text{ points}) = \frac{A_i}{A} \]
+    
+    For $i = 0$, this represents the probability of hitting the wall but missing the dart board: $P(\text{scoring } 0 \text{ points}) = 1 - \frac{A_B}{A}$.
+    
+    For $i = 1, 2, \ldots, 5$, we have $P(\text{scoring } i \text{ points}) = \frac{A_i}{A}$.
+    
+    \item The conditional probability is:
+    \[ P(\text{scoring } i \text{ points}|\text{board is hit}) = \frac{P(\text{scoring } i \text{ points} \cap \text{board is hit})}{P(\text{board is hit})} \]
+    
+    For $i = 0$, $P(\text{scoring } 0 \text{ points} \cap \text{board is hit}) = 0$, so $P(\text{scoring } 0 \text{ points}|\text{board is hit}) = 0$.
+    
+    For $i = 1, 2, \ldots, 5$:
+    \[ P(\text{scoring } i \text{ points}|\text{board is hit}) = \frac{A_i/A}{A_B/A} = \frac{A_i}{A_B} \]
+    
+    This is exactly the probability distribution from Example 1.2.7, where the probability of scoring $i$ points is proportional to the area $A_i$ relative to the total board area $A_B$.
+\end{enumerate}
+
+
+\begin{problembox}[1.8: Dart Game Analysis]
+Again refer to the game of darts explained in Example 1.2.7.
+\begin{enumerate}[label=(\alph*)]
+    \item Derive the general formula for the probability of scoring $i$ points.
+    \item Show that $P(\text{scoring } i \text{ points})$ is a decreasing function of $i$, that is, as the points increase, the probability of scoring them decreases.
+    \item Show that $P(\text{scoring } i \text{ points})$ is a probability function according to the Kolmogorov Axioms.
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+    \item In the dart game, the board is divided into concentric circles. Let $r_i$ be the radius of the circle that gives at least $6-i$ points (so $r_1$ is the smallest radius for the bullseye, and $r_5$ is the radius of the whole board). The area of the region that gives exactly $i$ points (for $i=1, \ldots, 5$, where $i=1$ is the lowest score and $i=5$ is the highest) is the area of an annulus, $A_i = \pi(r_{6-i}^2 - r_{5-i}^2)$, where $r_0 = 0$.
+    \vspace{1ex} %
+    The total board area is $A_{board} = \pi r_5^2$.
+    \vspace{1ex} %
+    Therefore, $P(\text{scoring } i \text{ points}) = \frac{A_i}{A_{board}} = \frac{r_{6-i}^2 - r_{5-i}^2}{r_5^2}$.
+    \vspace{1ex} %
+    \item To show that $P(\text{scoring } i \text{ points})$ is a decreasing function of $i$, we need to show that $P(\text{scoring } i \text{ points}) > P(\text{scoring } i+1 \text{ points})$ for $i=1, \ldots, 4$. This is equivalent to showing $A_i > A_{i+1}$.
+    \vspace{1ex} %
+    This means we must show $\pi(r_{6-i}^2 - r_{5-i}^2) > \pi(r_{5-i}^2 - r_{4-i}^2)$, or $r_{6-i}^2 - r_{5-i}^2 > r_{5-i}^2 - r_{4-i}^2$.
+    \vspace{1ex} %
+    This inequality is \textbf{not guaranteed} by the fact that $0 < r_1 < r_2 < r_3 < r_4 < r_5$. Whether the probability decreases as the point value increases is a function of the dartboard's specific design---that is, the choice of the radii $r_i$. For example, if the radii are chosen such that the width of each scoring ring is constant, the areas of the rings (and thus their probabilities) will \textit{increase} for scores further from the center. A decreasing probability function requires that the higher-scoring rings be narrower than the lower-scoring ones.
+    \vspace{1ex} %
+    \item To verify the Kolmogorov Axioms:
+    \vspace{1ex} %
+    (i) $P(\text{scoring } i \text{ points}) = A_i/A_{board} \geq 0$ for all $i$ since areas are non-negative.
+    \vspace{1ex} %
+    (ii) $\sum_{i=1}^5 P(\text{scoring } i \text{ points}) = \frac{1}{A_{board}} \sum_{i=1}^5 A_i = \frac{1}{\pi r_5^2} \sum_{i=1}^5 \pi(r_{6-i}^2 - r_{5-i}^2)$. This is a telescoping sum:
+    \vspace{1ex} %
+    $\frac{1}{r_5^2} [ (r_5^2-r_4^2) + (r_4^2-r_3^2) + (r_3^2-r_2^2) + (r_2^2-r_1^2) + (r_1^2-r_0^2) ] = \frac{r_5^2 - r_0^2}{r_5^2} = \frac{r_5^2}{r_5^2} = 1$.
+    \vspace{1ex} %
+    (iii) For any disjoint events (e.g., scoring 1 point and scoring 2 points), the probability of their union is the sum of their probabilities. This follows from the additivity of the areas of the disjoint rings.
+\end{enumerate}
+
+
+\section{DeMorgan's Laws}
+
+\begin{problembox}[1.9: General DeMorgan's Laws]
+Prove the general version of DeMorgan's Laws. Let $\{A_\alpha : \alpha \in \Gamma\}$ be a (possibly uncountable) collection of sets. Prove that
+\begin{enumerate}[label=(\alph*)]
+    \item $( \cup_{\alpha} A_\alpha )^c = \cap_{\alpha} A_\alpha^c$.
+    \item $( \cap_{\alpha} A_\alpha )^c = \cup_{\alpha} A_\alpha^c$.
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+    \item Let $x \in (\cup_{\alpha} A_\alpha)^c$. Then $x \notin \cup_{\alpha} A_\alpha$, which means $x \notin A_\alpha$ for any $\alpha \in \Gamma$. Therefore, $x \in A_\alpha^c$ for all $\alpha \in \Gamma$, so $x \in \cap_{\alpha} A_\alpha^c$.
+    
+    Conversely, let $x \in \cap_{\alpha} A_\alpha^c$. Then $x \in A_\alpha^c$ for all $\alpha \in \Gamma$, which means $x \notin A_\alpha$ for any $\alpha \in \Gamma$. Therefore, $x \notin \cup_{\alpha} A_\alpha$, so $x \in (\cup_{\alpha} A_\alpha)^c$.
+    
+    \item Let $x \in (\cap_{\alpha} A_\alpha)^c$. Then $x \notin \cap_{\alpha} A_\alpha$, which means there exists some $\alpha \in \Gamma$ such that $x \notin A_\alpha$. Therefore, $x \in A_\alpha^c$ for some $\alpha \in \Gamma$, so $x \in \cup_{\alpha} A_\alpha^c$.
+    
+    Conversely, let $x \in \cup_{\alpha} A_\alpha^c$. Then there exists some $\alpha \in \Gamma$ such that $x \in A_\alpha^c$, which means $x \notin A_\alpha$ for some $\alpha \in \Gamma$. Therefore, $x \notin \cap_{\alpha} A_\alpha$, so $x \in (\cap_{\alpha} A_\alpha)^c$.
+\end{enumerate}
+
+
+\begin{problembox}[1.10: Finite DeMorgan's Laws]
+Formulate and prove a version of DeMorgan's Laws that applies to a finite collection of sets $A_1, \ldots, A_n$.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+
+For a finite collection of sets $A_1, A_2, \ldots, A_n$, DeMorgan's Laws state:
+\begin{enumerate}[label=(\alph*)]
+    \item $(A_1 \cup A_2 \cup \cdots \cup A_n)^c = A_1^c \cap A_2^c \cap \cdots \cap A_n^c$
+    \item $(A_1 \cap A_2 \cap \cdots \cap A_n)^c = A_1^c \cup A_2^c \cup \cdots \cup A_n^c$
+\end{enumerate}
+
+\textbf{Proof:}
+
+We can prove this by induction on $n$. The base case $n = 2$ is the standard DeMorgan's Laws.
+
+For the inductive step, assume the laws hold for $n$ sets. Then for $n + 1$ sets:
+
+For (a): $(A_1 \cup A_2 \cup \cdots \cup A_n \cup A_{n+1})^c = ((A_1 \cup A_2 \cup \cdots \cup A_n) \cup A_{n+1})^c = (A_1 \cup A_2 \cup \cdots \cup A_n)^c \cap A_{n+1}^c = (A_1^c \cap A_2^c \cap \cdots \cap A_n^c) \cap A_{n+1}^c = A_1^c \cap A_2^c \cap \cdots \cap A_n^c \cap A_{n+1}^c$.
+
+For (b): $(A_1 \cap A_2 \cap \cdots \cap A_n \cap A_{n+1})^c = ((A_1 \cap A_2 \cap \cdots \cap A_n) \cap A_{n+1})^c = (A_1 \cap A_2 \cap \cdots \cap A_n)^c \cup A_{n+1}^c = (A_1^c \cup A_2^c \cup \cdots \cup A_n^c) \cup A_{n+1}^c = A_1^c \cup A_2^c \cup \cdots \cup A_n^c \cup A_{n+1}^c$.
+
+By the principle of mathematical induction, the laws hold for all finite collections of sets.
+
+
+\section{Sigma Algebras}
+
+\begin{problembox}[1.11: Sigma Algebra Verification]
+Let $S$ be a sample space.
+\begin{enumerate}[label=(\alph*)]
+    \item Show that the collection $\mathcal{B} = \{0, S\}$ is a sigma algebra.
+    \item Let $\mathcal{B} = \{\text{all subsets of } S, \text{ including } S \text{ itself}\}$. Show that $\mathcal{B}$ is a sigma algebra.
+    \item Show that the intersection of two sigma algebras is a sigma algebra.
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+    \item We need to verify the three properties of a sigma algebra:
+    
+    (i) $S \in \mathcal{B}$ (by definition)
+    
+    (ii) If $A \in \mathcal{B}$, then $A^c \in \mathcal{B}$:
+    - If $A = \emptyset$, then $A^c = S \in \mathcal{B}$
+    - If $A = S$, then $A^c = \emptyset \in \mathcal{B}$
+    
+    (iii) If $A_1, A_2, \ldots \in \mathcal{B}$, then $\cup_{i=1}^{\infty} A_i \in \mathcal{B}$:
+    Since $\mathcal{B}$ only contains $\emptyset$ and $S$, any countable union will be either $\emptyset$ (if all $A_i = \emptyset$) or $S$ (if at least one $A_i = S$), both of which are in $\mathcal{B}$
+    
+    \item We need to verify the three properties:
+    
+    (i) $S \in \mathcal{B}$ (by definition)
+    
+    (ii) If $A \in \mathcal{B}$, then $A^c \in \mathcal{B}$:
+    Since $\mathcal{B}$ contains all subsets, $A^c$ is also a subset and therefore in $\mathcal{B}$
+    
+    (iii) If $A_1, A_2, \ldots \in \mathcal{B}$, then $\cup_{i=1}^{\infty} A_i \in \mathcal{B}$:
+    The union of any collection of subsets is still a subset, so it's in $\mathcal{B}$
+    
+    \item Let $\mathcal{B}_1$ and $\mathcal{B}_2$ be two sigma algebras. We need to show that $\mathcal{B}_1 \cap \mathcal{B}_2$ is a sigma algebra:
+    
+    (i) $S \in \mathcal{B}_1$ and $S \in \mathcal{B}_2$ (since both are sigma algebras), so $S \in \mathcal{B}_1 \cap \mathcal{B}_2$
+    
+    (ii) If $A \in \mathcal{B}_1 \cap \mathcal{B}_2$, then $A \in \mathcal{B}_1$ and $A \in \mathcal{B}_2$. Therefore, $A^c \in \mathcal{B}_1$ and $A^c \in \mathcal{B}_2$, so $A^c \in \mathcal{B}_1 \cap \mathcal{B}_2$
+    
+    (iii) If $A_1, A_2, \ldots \in \mathcal{B}_1 \cap \mathcal{B}_2$, then $A_i \in \mathcal{B}_1$ and $A_i \in \mathcal{B}_2$ for all $i$. Therefore, $\cup_{i=1}^{\infty} A_i \in \mathcal{B}_1$ and $\cup_{i=1}^{\infty} A_i \in \mathcal{B}_2$, so $\cup_{i=1}^{\infty} A_i \in \mathcal{B}_1 \cap \mathcal{B}_2$
+\end{enumerate}
+
+
+\section{Additivity Axioms}
+
+\begin{problembox}[1.12: Countable vs Finite Additivity]
+It was noted in Section 1.2.1 that statisticians who follow the De Finetti school do not accept the Axiom of Countable Additivity, instead adhering to the Axiom of Finite Additivity.
+\begin{enumerate}[label=(\alph*)]
+    \item Show that the Axiom of Countable Additivity implies Finite Additivity.
+    \item Although, by itself, the Axiom of Finite Additivity does not imply Countable Additivity, suppose we supplement it with the following. Let $A_1 \supseteq A_2 \supseteq \cdots \supseteq A_n \supseteq \cdots$ be an infinite sequence of nested sets whose limit is the empty set, which we denote by $A_n \downarrow 0$. Consider the following:
+    
+    \textbf{Axiom of Continuity:} If $A_n \downarrow 0$ then $P(A_n) \to 0$.
+    
+    Prove that the Axiom of Continuity together with the Axiom of Finite Additivity imply Countable Additivity.
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+    \item Let $A_1, A_2, \ldots, A_n$ be pairwise disjoint events. We can extend this to a countably infinite sequence by setting $A_{n+1} = A_{n+2} = \cdots = \emptyset$. Then by countable additivity:
+    \[ P(\cup_{i=1}^{\infty} A_i) = \sum_{i=1}^{\infty} P(A_i) \]
+    
+    Since $A_i = \emptyset$ for $i > n$, we have $P(A_i) = 0$ for $i > n$, so:
+    \[ P(\cup_{i=1}^{n} A_i) = \sum_{i=1}^{n} P(A_i) \]
+    
+    This is exactly finite additivity.
+    
+    \item Let $A_1, A_2, \ldots$ be pairwise disjoint events. We need to show that $P(\cup_{i=1}^{\infty} A_i) = \sum_{i=1}^{\infty} P(A_i)$.
+    
+    Let $B_n = \cup_{i=n+1}^{\infty} A_i$. Then $B_1 \supseteq B_2 \supseteq \cdots$ and $\cap_{n=1}^{\infty} B_n = \emptyset$ (since the $A_i$ are pairwise disjoint).
+    
+    By the Axiom of Continuity, $P(B_n) \to 0$ as $n \to \infty$.
+    
+    Now, $\cup_{i=1}^{\infty} A_i = (\cup_{i=1}^{n} A_i) \cup B_n$, and these are disjoint. By finite additivity:
+    \[ P(\cup_{i=1}^{\infty} A_i) = P(\cup_{i=1}^{n} A_i) + P(B_n) = \sum_{i=1}^{n} P(A_i) + P(B_n) \]
+    
+    Taking the limit as $n \to \infty$:
+    \[ P(\cup_{i=1}^{\infty} A_i) = \sum_{i=1}^{\infty} P(A_i) + 0 = \sum_{i=1}^{\infty} P(A_i) \]
+    
+    This establishes countable additivity.
+\end{enumerate}
+
+
+\section{Basic Probability Problems}
+
+\begin{problembox}[1.13: Disjoint Events]
+If $P(A) = \frac{1}{3}$ and $P(B^c) = \frac{1}{4}$, can $A$ and $B$ be disjoint? Explain.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+
+If $A$ and $B$ are disjoint, then $A \cap B = \emptyset$, so $P(A \cap B) = 0$.
+
+We know that $P(B^c) = \frac{1}{4}$, so $P(B) = 1 - \frac{1}{4} = \frac{3}{4}$.
+
+By the inclusion-exclusion principle: $P(A \cup B) = P(A) + P(B) - P(A \cap B) = \frac{1}{3} + \frac{3}{4} - 0 = \frac{4}{12} + \frac{9}{12} = \frac{13}{12} > 1$.
+
+This is impossible since probabilities cannot exceed 1. Therefore, $A$ and $B$ cannot be disjoint.
+
+
+\begin{problembox}[1.14: Subset Counting]
+Suppose that a sample space $S$ has $n$ elements. Prove that the number of subsets that can be formed from the elements of $S$ is $2^n$.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+
+Let $S = \{s_1, s_2, \ldots, s_n\}$. To form a subset, we must decide for each element whether to include it or not. For each element $s_i$, we have 2 choices: include it or exclude it.
+
+By the multiplication principle, the total number of possible subsets is $2 \times 2 \times \cdots \times 2 = 2^n$.
+
+Alternatively, we can use the binomial theorem. The number of subsets with exactly $k$ elements is $\binom{n}{k}$. The total number of subsets is:
+\[ \sum_{k=0}^{n} \binom{n}{k} = (1 + 1)^n = 2^n \]
+
+
+\begin{problembox}[1.15: Theorem 1.2.14 Completion]
+Theorem 1.2.14: If a job consists of $k$ separate tasks, the $i$-th of which can be done in $n_{i}$ ways, $i=1,\ldots,k$, then the entire job can be done in $n_{1} \times n_{2} \times \cdots \times n_{k}$ ways.
+
+Finish the proof of Theorem 1.2.14. Use the result established for $k = 2$ as the basis of an induction argument.
+
+\end{problembox}
+
+\noindent\textbf{Solution.}
+
+We will prove this theorem using mathematical induction on the number of tasks $k$.
+
+\textbf{Base Case ($k = 2$):} 
+For $k = 2$, we have two tasks that can be done in $n_1$ and $n_2$ ways respectively. By the multiplication principle (which is the fundamental counting principle), the total number of ways to complete both tasks is $n_1 \times n_2$. This establishes our base case.
+
+\textbf{Inductive Step:}
+Assume the theorem holds for $k = m$ tasks, where $m \geq 2$. That is, if we have $m$ tasks with the $i$-th task having $n_i$ ways to complete it, then the total number of ways to complete all $m$ tasks is $n_1 \times n_2 \times \cdots \times n_m$.
+
+Now consider $k = m + 1$ tasks. We can think of this as:
+\begin{enumerate}
+\item First completing the first $m$ tasks (which by our inductive hypothesis can be done in $n_1 \times n_2 \times \cdots \times n_m$ ways)
+\item Then completing the $(m+1)$-th task (which can be done in $n_{m+1}$ ways)
+\end{enumerate}
+
+By the multiplication principle (our base case with $k=2$), the total number of ways to complete all $m+1$ tasks is:
+\[(n_1 \times n_2 \times \cdots \times n_m) \times n_{m+1} = n_1 \times n_2 \times \cdots \times n_m \times n_{m+1}\]
+
+This shows that if the theorem holds for $k = m$ tasks, it also holds for $k = m + 1$ tasks.
+
+\textbf{Conclusion:}
+By the principle of mathematical induction, the theorem holds for all positive integers $k \geq 2$. The case $k = 1$ is trivial (one task with $n_1$ ways gives $n_1$ total ways), so the theorem holds for all positive integers $k$.
+
+Therefore, if a job consists of $k$ separate tasks, the $i$-th of which can be done in $n_i$ ways, then the entire job can be done in $n_1 \times n_2 \times \cdots \times n_k$ ways.
+
+
+\begin{problembox}[1.16: Initial Counting]
+How many different sets of initials can be formed if every person has one surname and
+\begin{enumerate}[label=(\alph*)]
+    \item exactly two given names?
+    \item either one or two given names?
+    \item either one or two or three given names?
+\end{enumerate}
+(Answers: (a) $26^3$ (b) $26^3 + 26^2$ (c) $26^4 + 26^3 + 26^2$)
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+    \item With exactly two given names, each person has 3 initials (first given name, second given name, surname). Each initial can be any of the 26 letters, so the number of possible sets of initials is $26^3$.
+    
+    \item With either one or two given names, we have:
+    - One given name: 2 initials, so $26^2$ possibilities
+    - Two given names: 3 initials, so $26^3$ possibilities
+    
+    Total: $26^3 + 26^2$
+    
+    \item With either one, two, or three given names, we have:
+    - One given name: 2 initials, so $26^2$ possibilities
+    - Two given names: 3 initials, so $26^3$ possibilities
+    - Three given names: 4 initials, so $26^4$ possibilities
+    
+    Total: $26^4 + 26^3 + 26^2$
+\end{enumerate}
+
+
+\section{Combinatorial Problems}
+
+\begin{problembox}[1.17: Domino Counting]
+In the game of dominoes, each piece is marked with two numbers. The pieces are symmetrical so that the number pair is not ordered (so, for example, $(2,6)=(6,2)$). How many different pieces can be formed using the numbers $1,2,\ldots,n$?
+(Answer: $n(n+1)/2$)
+\end{problembox}
+
+\noindent\textbf{Solution.}
+
+We are counting the number of sets of size 2, $\{i, j\}$, that can be formed from the set of numbers $\{1, 2, \ldots, n\}$, where repetition is allowed. We can categorize the dominoes into two types:
+
+\begin{enumerate}
+    \item Pieces with two different numbers ($i \neq j$). This is equivalent to choosing 2 distinct numbers from $n$, which can be done in $\binom{n}{2}$ ways.
+    \item Pieces with two identical numbers ($i = j$). These are the "doubles." There are $n$ such pieces, from $(1,1)$ to $(n,n)$.
+\end{enumerate}
+
+The total number of different pieces is the sum of these two cases:
+\[ \text{Total} = \binom{n}{2} + n = \frac{n(n-1)}{2} + n = \frac{n^2 - n + 2n}{2} = \frac{n^2+n}{2} = \frac{n(n+1)}{2} \]
+
+Alternatively, this is a problem of choosing $k=2$ items from $n$ categories with replacement, where order does not matter. This is a classic "stars and bars" or multiset coefficient problem. The formula is $\binom{n+k-1}{k}$:
+\[ \binom{n+2-1}{2} = \binom{n+1}{2} = \frac{(n+1)n}{2} \]
+
+
+\begin{problembox}[1.18: Ball Distribution]
+If $n$ balls are placed at random into $n$ cells, find the probability that exactly one cell remains empty.
+(Answer: $\binom{n}{2}n!/n^{n}$)
+\end{problembox}
+
+\noindent\textbf{Solution.}
+
+The total number of ways to place $n$ distinguishable balls into $n$ distinguishable cells is $n^n$, as each of the $n$ balls can independently be placed in any of the $n$ cells. This is the size of our sample space.
+
+For the favorable outcomes, we need to count the arrangements where exactly one cell remains empty. This means one cell must contain exactly two balls, and the other $n-2$ cells must contain exactly one ball each. We can construct such an arrangement with the following steps:
+
+\begin{enumerate}
+    \item \textbf{Choose the cell that will remain empty.} There are $\binom{n}{1} = n$ ways to do this.
+    \item \textbf{From the remaining $n-1$ cells, choose the cell that will contain two balls.} There are $\binom{n-1}{1} = n-1$ ways.
+    \item \textbf{From the $n$ balls, choose the two balls that will go into that designated cell.} There are $\binom{n}{2}$ ways.
+    \item \textbf{Place the remaining $n-2$ balls into the remaining $n-2$ cells, one ball per cell.} There are $(n-2)!$ ways to arrange these balls.
+\end{enumerate}
+
+By the multiplication principle, the total number of favorable outcomes is:
+\[ n \times (n-1) \times \binom{n}{2} \times (n-2)! = n(n-1) \cdot \frac{n(n-1)}{2} \cdot (n-2)! = \binom{n}{2} \cdot [n(n-1)(n-2)!] = \binom{n}{2} n! \]
+
+The probability is the ratio of favorable outcomes to the total number of outcomes:
+\[ P(\text{exactly one cell is empty}) = \frac{\binom{n}{2} n!}{n^n} \]
+
+\begin{problembox}[1.19: Partial Derivatives]
+If a multivariate function has continuous partial derivatives, the order in which the derivatives are calculated does not matter. Thus, for example, the function $f(x,y)$ of two variables has equal third partials
+\[ \frac{\partial^{3}}{\partial x^{2}\partial y}f(x,y)=\frac{\partial^{3}}{\partial y\partial x^{2}}f(x,y). \]
+\begin{enumerate}[label=(\alph*)]
+    \item How many fourth partial derivatives does a function of three variables have?
+    \item Prove that a function of $n$ variables has $\binom{n+r-1}{r}$ rth partial derivatives.
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+    \item For a function of three variables, a fourth partial derivative is determined by how many times we differentiate with respect to each variable. We need to find the number of solutions to $a + b + c = 4$ where $a, b, c$ are non-negative integers representing the number of derivatives with respect to $x$, $y$, and $z$ respectively.
+    
+    This is equivalent to placing 4 indistinguishable balls into 3 distinguishable boxes, which is $\binom{4+3-1}{4} = \binom{6}{4} = 15$.
+    
+    \item For a function of $n$ variables, an $r$th partial derivative is determined by how many times we differentiate with respect to each variable. We need to find the number of solutions to $x_1 + x_2 + \cdots + x_n = r$ where $x_i$ are non-negative integers.
+    
+    This is equivalent to placing $r$ indistinguishable balls into $n$ distinguishable boxes, which is $\binom{r+n-1}{r}$.
+\end{enumerate}
+
+
+\begin{problembox}[1.20: Telephone Calls]
+My telephone rings 12 times each week, the calls being randomly distributed among the seven days. What is the probability that I get at least one call each day?
+(Answer: .2285)
+\end{problembox}
+
+\noindent\textbf{Solution.}
+
+This problem can be interpreted in two ways: with distinguishable calls (the standard interpretation) or indistinguishable calls. The provided answer in the text (0.2285) does not seem to correspond to either standard model. We will solve for the standard model of distinguishable calls.
+
+We are distributing $k=12$ distinguishable calls into $n=7$ distinguishable days.
+The total number of ways to distribute the calls is $n^k = 7^{12}$, since each of the 12 calls can be on any of the 7 days.
+
+We want the number of distributions where every day gets at least one call. This is equivalent to finding the number of surjective (onto) functions from a set of size 12 to a set of size 7. The formula for this, using the principle of inclusion-exclusion, is:
+\[ \sum_{j=0}^{n} (-1)^j \binom{n}{j} (n-j)^k \]
+For our case, this is:
+\[ N_{fav} = \sum_{j=0}^{7} (-1)^j \binom{7}{j} (7-j)^{12} \]
+\[ = \binom{7}{0}7^{12} - \binom{7}{1}6^{12} + \binom{7}{2}5^{12} - \binom{7}{3}4^{12} + \binom{7}{4}3^{12} - \binom{7}{5}2^{12} + \binom{7}{6}1^{12} - \binom{7}{7}0^{12} \]
+\[ = 1(13,841,287,201) - 7(2,176,782,336) + 21(244,140,625) - 35(16,777,216) + 35(531,441) - 21(4,096) + 7(1) - 0 \]
+\[ = 13,841,287,201 - 15,237,476,352 + 5,126,953,125 - 587,202,560 + 18,500,435 - 86,016 + 7 \]
+\[ N_{fav} = 3,162,075,840 \]
+
+The probability is the ratio of favorable outcomes to the total number of outcomes:
+\[ P(\text{at least one call each day}) = \frac{3,162,075,840}{7^{12}} = \frac{3,162,075,840}{13,841,287,201} \approx 0.22845 \]
+This matches the answer given in the original problem.
+
+
+\begin{problembox}[1.21: Shoe Selection]
+A closet contains $n$ pairs of shoes. If $2r$ shoes are chosen at random ($2r<n$), what is the probability that there will be no matching pair in the sample?
+(Answer: $\binom{n}{2r}2^{2r}/\binom{2n}{2r}$)
+\end{problembox}
+
+\noindent\textbf{Solution.}
+
+The total number of ways to choose $2r$ shoes from $2n$ shoes is $\binom{2n}{2r}$.
+
+To have no matching pair, we must choose $2r$ shoes from $n$ different pairs, with at most one shoe from each pair. This means we choose $2r$ pairs from $n$ pairs, and then for each chosen pair, we choose either the left or right shoe.
+
+The number of ways to choose $2r$ pairs from $n$ pairs is $\binom{n}{2r}$.
+
+For each of the $2r$ chosen pairs, we have 2 choices (left or right shoe), so we multiply by $2^{2r}$.
+
+Therefore, the number of favorable outcomes is $\binom{n}{2r} \cdot 2^{2r}$.
+
+The probability is:
+\[ \frac{\binom{n}{2r} \cdot 2^{2r}}{\binom{2n}{2r}} \]
+
+
+\begin{problembox}[1.22: Draft Lottery]
+\begin{enumerate}[label=(\alph*)]
+    \item In a draft lottery containing the 366 days of the year (including February 29), what is the probability that the first 180 days drawn (without replacement) are evenly distributed among the 12 months?
+    \item What is the probability that the first 30 days drawn contain none from September?
+\end{enumerate}
+(Answers: (a) $.167\times 10^{-8}$ (b) $\binom{336}{30}/\binom{366}{30}$)
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+    \item For the first 180 days to be evenly distributed among 12 months, each month must have exactly 15 days drawn.
+    
+    The number of ways to choose 15 days from each month is $\prod_{i=1}^{12} \binom{d_i}{15}$, where $d_i$ is the number of days in month $i$.
+    
+    The total number of ways to choose 180 days from 366 days is $\binom{366}{180}$.
+    
+    Therefore, the probability is:
+    \[ \frac{\prod_{i=1}^{12} \binom{d_i}{15}}{\binom{366}{180}} \]
+    
+    This is approximately $0.167 \times 10^{-8}$.
+    
+    \item September has 30 days, so there are 336 days not in September.
+    
+    The number of ways to choose 30 days from the 336 non-September days is $\binom{336}{30}$.
+    
+    The total number of ways to choose 30 days from 366 days is $\binom{366}{30}$.
+    
+    Therefore, the probability is:
+    \[ \frac{\binom{336}{30}}{\binom{366}{30}} \]
+\end{enumerate}
+
+
+\begin{problembox}[1.23: Coin Tossing Match]
+Two people each toss a fair coin $n$ times. Find the probability that they will score the same number of heads.
+(Answer: $(\frac{1}{4})^{n}\binom{2n}{n}$)
+\end{problembox}
+
+\noindent\textbf{Solution.}
+
+Let $X$ be the number of heads for the first person and $Y$ be the number of heads for the second person. Both $X$ and $Y$ follow a binomial distribution with parameters $n$ and $\frac{1}{2}$.
+
+The probability that both get exactly $k$ heads is:
+\[ P(X = k) \cdot P(Y = k) = \binom{n}{k} \left(\frac{1}{2}\right)^k \left(\frac{1}{2}\right)^{n-k} \cdot \binom{n}{k} \left(\frac{1}{2}\right)^k \left(\frac{1}{2}\right)^{n-k} = \binom{n}{k}^2 \left(\frac{1}{4}\right)^n \]
+
+The probability that they get the same number of heads is:
+\[ \sum_{k=0}^{n} \binom{n}{k}^2 \left(\frac{1}{4}\right)^n = \left(\frac{1}{4}\right)^n \sum_{k=0}^{n} \binom{n}{k}^2 \]
+
+We can use the identity $\sum_{k=0}^{n} \binom{n}{k}^2 = \binom{2n}{n}$ (Vandermonde's identity).
+
+Therefore, the probability is:
+\[ \left(\frac{1}{4}\right)^n \binom{2n}{n} \]
+
+
+\begin{problembox}[1.24: Alternating Coin Game]
+Two players, A and B, alternately and independently flip a coin and the first player to obtain a head wins. Assume player A flips first.
+\begin{enumerate}[label=(\alph*)]
+    \item If the coin is fair, what is the probability that A wins?
+    \item Suppose that $P(\text{head})=p$, not necessarily $\frac{1}{2}$. What is the probability that A wins?
+    \item Show that for all $p,0<p<1,P(\text{A wins})>\frac{1}{2}$. (Hint: Try to write $P(\text{A wins})$ in terms of the events $E_{1},E_{2},\ldots$, where $E_{i}=\{\text{head first appears on }i\text{th toss}\}$)
+\end{enumerate}
+(Answers: (a) $2/3$ (b) $\frac{p}{1-(1-p)^{2}}$)
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+    \item For a fair coin, $p = \frac{1}{2}$.
+    
+    Player A wins if:
+    - A gets heads on the first toss, OR
+    - A gets tails, B gets tails, A gets heads on the third toss, OR
+    - A gets tails, B gets tails, A gets tails, B gets tails, A gets heads on the fifth toss, OR
+    - And so on...
+    
+    The probability is:
+    \[ P(\text{A wins}) = \frac{1}{2} + \frac{1}{2} \cdot \frac{1}{2} \cdot \frac{1}{2} + \frac{1}{2} \cdot \frac{1}{2} \cdot \frac{1}{2} \cdot \frac{1}{2} \cdot \frac{1}{2} + \cdots \]
+    \[ = \frac{1}{2} \left(1 + \frac{1}{4} + \frac{1}{16} + \cdots\right) = \frac{1}{2} \cdot \frac{1}{1 - \frac{1}{4}} = \frac{1}{2} \cdot \frac{4}{3} = \frac{2}{3} \]
+    
+    \item For a biased coin with $P(\text{head}) = p$:
+    
+    Following the same logic:
+    \[ P(\text{A wins}) = p + (1-p)(1-p)p + (1-p)^2(1-p)^2p + \cdots \]
+    \[ = p \left(1 + (1-p)^2 + (1-p)^4 + \cdots\right) = p \cdot \frac{1}{1 - (1-p)^2} = \frac{p}{1 - (1-p)^2} \]
+    
+    \item We need to show that $\frac{p}{1 - (1-p)^2} > \frac{1}{2}$ for all $0 < p < 1$.
+    
+    This is equivalent to $2p > 1 - (1-p)^2 = 1 - (1 - 2p + p^2) = 2p - p^2$.
+    
+    Simplifying: $2p > 2p - p^2$, which gives $0 > -p^2$, or $p^2 > 0$.
+    
+    Since $p > 0$, this inequality holds for all $0 < p < 1$.
+\end{enumerate}
+
+
+\begin{problembox}[1.25: Smith Children]
+The Smiths have two children. At least one of them is a boy. What is the probability that both children are boys? (See Gardner (1961) for a complete discussion of this problem.)
+\end{problembox}
+
+\noindent\textbf{Solution.}
+
+This is a classic conditional probability problem. The key is to understand how the information "at least one is a boy" was obtained.
+
+If we assume that the information was obtained by randomly selecting a family with two children and asking if they have at least one boy, then:
+
+Let $A$ be the event "both children are boys" and $B$ be the event "at least one child is a boy".
+
+We want $P(A|B) = \frac{P(A \cap B)}{P(B)} = \frac{P(A)}{P(B)}$.
+
+The sample space for two children is $\{BB, BG, GB, GG\}$, where $B$ = boy and $G$ = girl.
+
+$P(A) = P(BB) = \frac{1}{4}$.
+
+$P(B) = P(BB) + P(BG) + P(GB) = \frac{3}{4}$.
+
+Therefore, $P(A|B) = \frac{1/4}{3/4} = \frac{1}{3}$.
+
+However, if the information was obtained differently (e.g., by meeting one of the children who happens to be a boy), the answer could be different. This is known as the "Boy or Girl Paradox."
+
+
+\begin{problembox}[1.26: Die Casting]
+A fair die is cast until a 6 appears. What is the probability that it must be cast more than five times?
+\end{problembox}
+
+\noindent\textbf{Solution.}
+
+This is a geometric distribution problem. We need the probability that the first 6 appears after the 5th roll.
+
+The probability of not getting a 6 on any single roll is $\frac{5}{6}$.
+
+The probability of not getting a 6 on the first 5 rolls is $\left(\frac{5}{6}\right)^5$.
+
+Therefore, the probability that we need more than 5 rolls to get the first 6 is:
+\[ \left(\frac{5}{6}\right)^5 = \frac{3125}{7776} \approx 0.4019 \]
+
+
+\section{Identities and Approximations}
+
+\begin{problembox}[1.27: Combinatorial Identities]
+Verify the following identities for $n\geq 2$.
+\begin{enumerate}[label=(\alph*)]
+    \item $\sum_{k=0}^{n}(-1)^{k}\binom{n}{k}=0$
+    \item $\sum_{k=1}^{n}k\binom{n}{k}=n2^{n-1}$
+    \item $\sum_{k=1}^{n}(-1)^{k+1}k\binom{n}{k}=0$
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+    \item This is the binomial expansion of $(1 + (-1))^n = 0^n = 0$:
+    \[ \sum_{k=0}^{n} \binom{n}{k} \cdot 1^{n-k} \cdot (-1)^k = (1 + (-1))^n = 0 \]
+    
+    \item We can use the identity $\sum_{k=0}^{n} k \binom{n}{k} = n2^{n-1}$.
+    
+    To prove this, consider the binomial expansion of $(1 + x)^n = \sum_{k=0}^{n} \binom{n}{k} x^k$.
+    
+    Differentiating both sides with respect to $x$:
+    \[ n(1 + x)^{n-1} = \sum_{k=1}^{n} k \binom{n}{k} x^{k-1} \]
+    
+    Setting $x = 1$:
+    \[ n \cdot 2^{n-1} = \sum_{k=1}^{n} k \binom{n}{k} \]
+    
+    \item This follows from part (a) and (b). We have:
+    \[ \sum_{k=1}^{n} (-1)^{k+1} k \binom{n}{k} = \sum_{k=1}^{n} k \binom{n}{k} - 2 \sum_{k=1}^{n} k \binom{n}{k} \text{ (for even k)} \]
+    
+    But a simpler approach is to use the binomial expansion of $(1 - x)^n$ and differentiate:
+    \[ (1 - x)^n = \sum_{k=0}^{n} \binom{n}{k} (-1)^k x^k \]
+    
+    Differentiating: $-n(1 - x)^{n-1} = \sum_{k=1}^{n} k \binom{n}{k} (-1)^k x^{k-1}$
+    
+    Setting $x = 1$: $-n \cdot 0^{n-1} = \sum_{k=1}^{n} k \binom{n}{k} (-1)^k$
+    
+    For $n \geq 2$, $0^{n-1} = 0$, so the sum is 0.
+\end{enumerate}
+
+
+\begin{problembox}[1.28: Stirling's Formula]
+A way of approximating large factorials is through the use of Stirling's Formula:
+\[ n!\approx\sqrt{2\pi}n^{n+(1/2)}e^{-n}, \]
+a complete derivation of which is difficult. Instead, prove the easier fact
+\[ \lim_{n\to\infty}\frac{n!}{n^{n+(1/2)}e^{-n}}=\text{a constant}. \]
+(Hint: Feller (1968) proceeds by using the monotonicity of the logarithm to establish that
+\[ \int_{k-1}^{k}\log x\,dx<\log k<\int_{k}^{k+1}\log x\,dx,\quad k=1,\ldots,n, \]
+and hence
+\[ \int_{0}^{n}\log x\,dx<\log n!<\int_{1}^{n+1}\log x\,dx. \]
+Now compare $\log n!$ to the average of the two integrals. See Exercise 5.35 for another derivation.)
+\end{problembox}
+
+\noindent\textbf{Solution.}
+We want to show that $\lim_{n\to\infty}\frac{n!}{n^{n+(1/2)}e^{-n}}$ is a constant. This is equivalent to showing that the sequence $a_n = \log\left(\frac{n!}{n^{n+(1/2)}e^{-n}}\right) = \log(n!) - (n+\frac{1}{2})\log n + n$ converges to a finite limit.
+
+Let $d_n = a_n - a_{n-1}$ for $n \geq 2$.
+$d_n = (\log n! - \log(n-1)!) - [(n+\frac{1}{2})\log n - (n-\frac{1}{2})\log(n-1)] + (n-(n-1))$
+$d_n = \log n - (n+\frac{1}{2})\log n + (n-\frac{1}{2})\log(n-1) + 1$
+$d_n = 1 - (n+\frac{1}{2})\log n + (n-\frac{1}{2})\log(n-1) = 1 - (n+\frac{1}{2})\log n + (n-\frac{1}{2})\log\left(n(1-\frac{1}{n})\right)$
+$d_n = 1 - (n+\frac{1}{2})\log n + (n-\frac{1}{2})\left[\log n + \log(1-\frac{1}{n})\right]$
+$d_n = 1 - (n+\frac{1}{2})\log n + (n-\frac{1}{2})\log n + (n-\frac{1}{2})\log(1-\frac{1}{n})$
+$d_n = 1 - \log n + (n-\frac{1}{2})\log(1-\frac{1}{n})$
+
+Now, we use the Taylor expansion for $\log(1-x) = -x - \frac{x^2}{2} - \frac{x^3}{3} - \dots$ with $x = 1/n$:
+$d_n = 1 - \log n + (n-\frac{1}{2}) \left(-\frac{1}{n} - \frac{1}{2n^2} - \frac{1}{3n^3} - \dots\right)$
+$d_n = 1 - \log n - (1 - \frac{1}{2n}) - (\frac{1}{2n} - \frac{1}{4n^2}) - (\frac{1}{3n^2} - \dots)$
+This seems overly complicated. Let's follow the hint's structure.
+
+Let $a_n = \log(n!) - (n+\frac{1}{2})\log n + n$. We want to show $\sum (a_{k}-a_{k-1})$ converges.
+$a_k-a_{k-1} = \log k - (k+\frac{1}{2})\log k + (k-\frac{1}{2})\log(k-1) + 1 = 1 - (k-\frac{1}{2})\log(\frac{k}{k-1})$.
+Let $x = \frac{1}{2k-1}$. Then $\frac{k}{k-1} = \frac{2k}{2k-2} = \frac{2k-1+1}{2k-1-1} = \frac{1+1/(2k-1)}{1-1/(2k-1)} = \frac{1+x}{1-x}$.
+So, $(k-\frac{1}{2})\log(\frac{k}{k-1}) = \frac{1}{2x} \log(\frac{1+x}{1-x})$.
+Using the Taylor series $\log(\frac{1+x}{1-x}) = 2(x + \frac{x^3}{3} + \frac{x^5}{5} + \dots)$:
+$\frac{1}{2x} \log(\frac{1+x}{1-x}) = 1 + \frac{x^2}{3} + \frac{x^4}{5} + \dots = 1 + \frac{1}{3(2k-1)^2} + \frac{1}{5(2k-1)^4} + \dots$
+Thus, $a_k - a_{k-1} = 1 - (1 + \frac{1}{3(2k-1)^2} + \dots) = -\frac{1}{3(2k-1)^2} - \dots$
+This term is of order $O(1/k^2)$. Since the series $\sum_{k=2}^\infty \frac{1}{k^2}$ converges (p-series with $p=2>1$), the series $\sum_{k=2}^\infty (a_k-a_{k-1})$ converges by the limit comparison test.
+If $\sum (a_k-a_{k-1})$ converges, this means the sequence of partial sums $S_n = \sum_{k=2}^n (a_k-a_{k-1}) = a_n - a_1$ converges to a finite limit $L$.
+Therefore, $\lim_{n\to\infty} a_n = L+a_1$, which is a finite constant.
+If $\lim_{n\to\infty} \log(\frac{n!}{\dots}) = C$, then $\lim_{n\to\infty} \frac{n!}{\dots} = e^C$, which is a constant.
+
+\section{Sampling Problems}
+
+\begin{problembox}[1.29: Ordered and Unordered Samples]
+\begin{enumerate}[label=(\alph*)]
+    \item For the situation of Example 1.2.20, enumerate the ordered samples that make up the unordered samples $\{4,4,12,12\}$ and $\{2,9,9,12\}$.
+    \item Suppose that we had a collection of six numbers $\{1,2,7,8,14,20\}$. What is the probability of drawing, with replacement, the unordered sample $\{2,7,7,8,14,14\}$?
+    \item Verify that an unordered sample of size $k$, from $m$ different numbers repeated $k_{1},k_{2},\ldots,k_{m}$ times, has $\frac{k!}{k_{1}\,!k_{2}!\cdots k_{m}!}$ ordered components, where $k_{1}+k_{2}+\cdots+k_{m}=k$.
+    \item Use the result of the previous part to establish the identity
+    \[ \sum_{k_{1},k_{2},\ldots,k_{m}:k_{1}+k_{2}+\cdots+k_{m}=k}\frac{k!}{k_{1}\,!k_{2}!\cdots k_{m}!}=\binom{k+m-1}{k}. \]
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+    \item For the unordered sample $\{4,4,12,12\}$, the number of distinct permutations (ordered samples) is given by the multinomial coefficient $\frac{4!}{2!2!} = \frac{24}{4} = 6$.
+    \vspace{1ex} %
+    For the unordered sample $\{2,9,9,12\}$, the number of distinct permutations is $\frac{4!}{1!2!1!} = \frac{24}{2} = 12$.
+    \item The total number of ordered samples of size 6 drawn with replacement from the 6 numbers is $6^6 = 46656$. The unordered sample $\{2,7,7,8,14,14\}$ consists of 1 instance of 2, 2 instances of 7, 1 instance of 8, and 2 instances of 14. The number of ordered samples corresponding to this unordered sample is $\frac{6!}{1!2!1!2!} = \frac{720}{4} = 180$.
+    \vspace{1ex} %
+    The probability is $\frac{180}{6^6} = \frac{180}{46656} = \frac{5}{1296}$.
+    \item This is the definition of the multinomial coefficient. For a sample of size $k$ with $m$ different numbers, where the $i$-th number appears $k_i$ times (with $\sum k_i=k$), the number of distinct ordered arrangements is the number of permutations of this multiset, which is $\frac{k!}{k_1!k_2!\cdots k_m!}$.
+    \item The identity as stated, $\sum_{k_1+\dots+k_m=k}\frac{k!}{k_1!\cdots k_m!} = \binom{k+m-1}{k}$, is \textbf{false}.
+    \vspace{1ex} %
+    The left side of the identity can be simplified using the Multinomial Theorem, which states that $(x_1 + \dots + x_m)^k = \sum_{k_1+\dots+k_m=k}\frac{k!}{k_1!\cdots k_m!} x_1^{k_1}\cdots x_m^{k_m}$.
+    \vspace{1ex} %
+    If we set $x_1 = x_2 = \dots = x_m = 1$, the left side becomes $\sum \frac{k!}{k_1!\cdots k_m!} = (1+1+\dots+1)^k = m^k$.
+    \vspace{1ex} %
+    The right side, $\binom{k+m-1}{k}$, is the formula for the number of ways to choose $k$ items from $m$ with replacement, where order does not matter (i.e., the number of unordered samples).
+    \vspace{1ex} %
+    In general, $m^k \neq \binom{k+m-1}{k}$. For example, if $m=2, k=2$, then $m^k = 4$, but $\binom{2+2-1}{2} = \binom{3}{2} = 3$. The identity is incorrect.
+\end{enumerate}
+
+
+\begin{problembox}[1.30: Sample Averages Histogram]
+For the collection of six numbers, $\{1,2,7,8,14,20\}$, draw a histogram of the distribution of all possible sample averages calculated from samples drawn with replacement.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+
+To draw a histogram of sample averages, we need to:
+1. Generate all possible samples of size 4 with replacement from $\{1,2,7,8,14,20\}$
+2. Calculate the average of each sample
+3. Count the frequency of each average value
+4. Create a histogram
+
+Since there are $6^4 = 1296$ possible ordered samples, this would be quite extensive to enumerate manually. However, we can make some observations:
+
+\begin{itemize}
+\item The minimum possible average is 1 (from the sample $(1,1,1,1)$)
+\item The maximum possible average is 20 (from the sample $(20,20,20,20)$)
+\item The most likely average is around the population mean $\frac{1+2+7+8+14+20}{6} = 8.67$
+\end{itemize}
+
+The distribution will be approximately normal due to the Central Limit Theorem, with the highest frequency around the population mean.
+
+For a complete solution, one would need to write a computer program to enumerate all samples and calculate their averages, then create the histogram.
+
+
+\section{Optimization Problems}
+
+\begin{problembox}[1.31: Most Likely Average]
+For the situation of Example 1.2.20, the average of the original set of numbers $\{2,4,9,12\}$ is $\frac{29}{4}$, and has the highest probability.
+\begin{enumerate}[label=(\alph*)]
+    \item Prove that, in general, sampling with replacement from the set $\{x_{1},x_{2},\ldots,x_{n}\}$, the outcome with average $(x_{1}+x_{2}+\cdots+x_{n})/n$ is the most likely, having probability $\frac{n!}{n^{n}}$.
+    \item Use Stirling's Formula (Exercise 1.28) to show that $n!/n^{n}\approx\sqrt{2n\pi}/e^{n}$ (Hall 1992, Appendix I).
+    \item Show that the probability that a particular $x_{i}$ is missing from an outcome is $(1-\frac{1}{n})^{n}\to e^{-1}$ as $n\to\infty$.
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+    \item To get the average $\frac{x_1 + x_2 + \cdots + x_n}{n}$, we need to sample each $x_i$ exactly once. This means we need a permutation of the $n$ elements.
+    
+    The number of permutations is $n!$.
+    
+    The total number of possible samples of size $n$ with replacement is $n^n$.
+    
+    Therefore, the probability is $\frac{n!}{n^n}$.
+    
+    \item By Stirling's formula: $n! \approx \sqrt{2\pi n} \cdot n^n \cdot e^{-n}$
+    
+    Therefore: $\frac{n!}{n^n} \approx \frac{\sqrt{2\pi n} \cdot n^n \cdot e^{-n}}{n^n} = \sqrt{2\pi n} \cdot e^{-n} = \sqrt{2n\pi}/e^n$
+    
+    \item The probability that a particular $x_i$ is missing from a sample of size $n$ is the probability that none of the $n$ draws selects $x_i$.
+    
+    Since each draw has probability $\frac{n-1}{n}$ of not selecting $x_i$, the probability that all $n$ draws miss $x_i$ is:
+    \[ \left(\frac{n-1}{n}\right)^n = \left(1 - \frac{1}{n}\right)^n \]
+    
+    As $n \to \infty$, this converges to $e^{-1}$.
+\end{enumerate}
+
+
+\begin{problembox}[1.32: Hiring Problem]
+An employer is about to hire one new employee from a group of $N$ candidates, whose future potential can be rated on a scale from 1 to $N$. The employer proceeds according to the following rules:
+\begin{enumerate}[label=(\roman*)]
+    \item Each candidate is seen in succession (in random order) and a decision is made whether to hire the candidate.
+    \item Having rejected $m-1$ candidates $(m>1)$, the employer can hire the $m$th candidate only if the $m$th candidate is better than the previous $m-1$.
+\end{enumerate}
+Suppose a candidate is hired on the $i$th trial. What is the probability that the best candidate was hired?
+\end{problembox}
+
+\noindent\textbf{Solution.}
+Let $N$ be the number of candidates. Let $B$ be the event that the best candidate is hired. Let $H_i$ be the event that a candidate is hired on the $i$-th trial. We want to find $P(B|H_i)$.
+By definition, $P(B|H_i) = \frac{P(B \cap H_i)}{P(H_i)}$.
+
+The strategy is: reject the first $m-1$ candidates, then hire the first subsequent candidate who is better than all previous $m-1$ candidates.
+
+Let's first analyze the event $H_i$. For a candidate to be hired on trial $i$ (where $i \ge m$), two conditions must be met:
+\begin{enumerate}
+    \item The $i$-th candidate must be better than all previous $i-1$ candidates. The probability of this is $\frac{1}{i}$, since any of the first $i$ candidates is equally likely to be the best among them.
+    \item No candidate was hired from trial $m$ to $i-1$. This means that the best candidate among the first $j$ candidates must have been in the first $m-1$ positions, for all $j$ from $m$ to $i-1$.
+\end{enumerate}
+Let's consider the event $B \cap H_i$. This is the event that the best overall candidate is at position $i$ AND is hired. For this to happen:
+\begin{enumerate}
+    \item The best of all $N$ candidates must be at position $i$. The probability is $\frac{1}{N}$.
+    \item The hiring rule must select the candidate at position $i$. Since this candidate is the best overall, they are automatically better than the first $i-1$. The hiring rule will trigger as long as it didn't already trigger for some candidate from $m$ to $i-1$. For the rule not to have triggered, the best candidate among the first $j$ people (for $j=m, \dots, i-1$) must have been in the first $m-1$ positions. The best of the first $i-1$ people is in the first $m-1$ positions with probability $\frac{m-1}{i-1}$.
+\end{enumerate}
+The probability $P(H_i)$ is $\frac{m-1}{i-1}\frac{1}{i}$ for $i\geq m$. The probability of hiring the best candidate, if they are in position $i$, is $P(H_i| \text{best is at } i) = \frac{m-1}{i-1}$.
+So $P(B \cap H_i) = P(H_i | B_i)P(B_i) = \frac{m-1}{i-1}\frac{1}{N}$ where $B_i$ is best is at $i$.
+The probability of hiring on the $i$-th trial, $P(H_i)$ is $\sum_{j=1}^N P(H_i | \text{best of first } j \text{ is at } i \text{ and best overall is at } j)$.
+This is getting complicated. Let's use a simpler argument based on ranks.
+
+Let candidate $i$ have rank $R_i$. We hire at step $i$ if $R_i$ is the best so far (rank 1 among first $i$) and $i \ge m$.
+$P(H_i) = P(\text{best of first } i-1 \text{ is in first } m-1 \text{ AND } i\text{th is best of first }i)$.
+$P(H_i) = \frac{m-1}{i-1} \times \frac{1}{i}$. (for $i \ge m$).
+
+Now, $P(B \cap H_i)$ is the event that we hire on step $i$ AND that person is the best overall.
+For this to happen, the best of all $N$ candidates must be at position $i$, and the best of the first $i-1$ candidates must be in the first $m-1$ positions.
+$P(B \cap H_i) = P(\text{best overall is at } i \text{ AND best of first } i-1 \text{ is in first } m-1)$.
+These events are independent given the random ordering of candidates.
+$P(B \cap H_i) = \frac{1}{N} \times \frac{m-1}{i-1}$.
+
+Therefore, $P(B|H_i) = \frac{P(B \cap H_i)}{P(H_i)} = \frac{\frac{1}{N} \frac{m-1}{i-1}}{\frac{m-1}{i-1} \frac{1}{i}} = \frac{i}{N}$.
+
+The probability that the hired person is the best overall, given they were hired on the $i$-th trial, is simply $\frac{i}{N}$.
+
+\section{Conditional Probability}
+
+\begin{problembox}[1.33: Color-blindness]
+Suppose that 5\% of men and .25\% of women are color-blind. A person is chosen at random and that person is color-blind. What is the probability that the person is male? (Assume males and females to be in equal numbers.)
+\end{problembox}
+
+\noindent\textbf{Solution.}
+
+Let $M$ be the event "person is male" and $C$ be the event "person is color-blind."
+
+We want $P(M|C) = \frac{P(C|M)P(M)}{P(C)}$.
+
+Given:
+\begin{itemize}
+\item $P(M) = 0.5$ (equal numbers of males and females)
+\item $P(C|M) = 0.05$ (5% of men are color-blind)
+\item $P(C|M^c) = 0.0025$ (0.25% of women are color-blind)
+\end{itemize}
+
+By the law of total probability:
+$P(C) = P(C|M)P(M) + P(C|M^c)P(M^c) = 0.05 \cdot 0.5 + 0.0025 \cdot 0.5 = 0.025 + 0.00125 = 0.02625$
+
+Therefore:
+$P(M|C) = \frac{0.05 \cdot 0.5}{0.02625} = \frac{0.025}{0.02625} = \frac{20}{21} \approx 0.9524$
+
+So there's about a 95.24% chance that a randomly selected color-blind person is male.
+
+
+\begin{problembox}[1.34: Rodent Hair Color]
+Two litters of a particular rodent species have been born, one litter with two brown-haired and one gray-haired rodents (litter 1), and the other litter with three brown-haired and two gray-haired rodents (litter 2). We select a litter at random, and then select an offspring at random from the selected litter.
+\begin{enumerate}[label=(\alph*)]
+    \item What is the probability that the animal chosen is brown-haired?
+    \item Given that a brown-haired offspring was selected, what is the probability that the sampling was from litter 1?
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+    \item Let $L_1$ be the event "litter 1 is selected" and $B$ be the event "brown-haired animal is selected."
+    
+    $P(L_1) = P(L_2) = \frac{1}{2}$ (litter selected at random)
+    
+    $P(B|L_1) = \frac{2}{3}$ (2 brown out of 3 total in litter 1)
+    $P(B|L_2) = \frac{3}{5}$ (3 brown out of 5 total in litter 2)
+    
+    By the law of total probability:
+    $P(B) = P(B|L_1)P(L_1) + P(B|L_2)P(L_2) = \frac{2}{3} \cdot \frac{1}{2} + \frac{3}{5} \cdot \frac{1}{2} = \frac{1}{3} + \frac{3}{10} = \frac{10}{30} + \frac{9}{30} = \frac{19}{30}$
+    
+    \item We want $P(L_1|B) = \frac{P(B|L_1)P(L_1)}{P(B)} = \frac{\frac{2}{3} \cdot \frac{1}{2}}{\frac{19}{30}} = \frac{\frac{1}{3}}{\frac{19}{30}} = \frac{10}{19}$
+\end{enumerate}
+
+
+\begin{problembox}[1.35: Conditional Probability Axioms]
+Prove that if $P(\cdot)$ is a legitimate probability function and $B$ is a set with $P(B)>0$, then $P(\cdot|B)$ also satisfies Kolmogorov's Axioms.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+
+We need to verify that $P(\cdot|B)$ satisfies the three Kolmogorov axioms:
+
+1. **Non-negativity**: For any event $A$, $P(A|B) = \frac{P(A \cap B)}{P(B)} \geq 0$ since both numerator and denominator are non-negative.
+
+2. **Normalization**: $P(S|B) = \frac{P(S \cap B)}{P(B)} = \frac{P(B)}{P(B)} = 1$.
+
+3. **Countable additivity**: For any countable collection of disjoint events $A_1, A_2, \ldots$:
+   \[ P(\cup_{i=1}^{\infty} A_i|B) = \frac{P((\cup_{i=1}^{\infty} A_i) \cap B)}{P(B)} = \frac{P(\cup_{i=1}^{\infty} (A_i \cap B))}{P(B)} \]
+   
+   Since the $A_i$ are disjoint, the $A_i \cap B$ are also disjoint, so:
+   \[ = \frac{\sum_{i=1}^{\infty} P(A_i \cap B)}{P(B)} = \sum_{i=1}^{\infty} \frac{P(A_i \cap B)}{P(B)} = \sum_{i=1}^{\infty} P(A_i|B) \]
+
+Therefore, $P(\cdot|B)$ is a legitimate probability function.
+
+
+\begin{problembox}[1.36: Target Shooting]
+If the probability of hitting a target is $\frac{1}{3}$, and ten shots are fired independently, what is the probability of the target being hit at least twice? What is the conditional probability that the target is hit at least twice, given that it is hit at least once?
+\end{problembox}
+
+\noindent\textbf{Solution.}
+
+Let $X$ be the number of hits. Then $X \sim \text{Binomial}(10, \frac{1}{3})$.
+
+The probability of hitting at least twice is:
+\[ P(X \geq 2) = 1 - P(X = 0) - P(X = 1) = 1 - \binom{10}{0}\left(\frac{1}{3}\right)^0\left(\frac{2}{3}\right)^{10} - \binom{10}{1}\left(\frac{1}{3}\right)^1\left(\frac{2}{3}\right)^9 \]
+\[ = 1 - \left(\frac{2}{3}\right)^{10} - 10 \cdot \frac{1}{3} \cdot \left(\frac{2}{3}\right)^9 \]
+\[ = 1 - \frac{1024}{59049} - \frac{5120}{59049} = 1 - \frac{6144}{59049} = \frac{52905}{59049} \approx 0.896 \]
+
+The conditional probability is:
+\[ P(X \geq 2|X \geq 1) = \frac{P(X \geq 2 \cap X \geq 1)}{P(X \geq 1)} = \frac{P(X \geq 2)}{P(X \geq 1)} \]
+
+We have $P(X \geq 1) = 1 - P(X = 0) = 1 - \left(\frac{2}{3}\right)^{10} = 1 - \frac{1024}{59049} = \frac{58025}{59049}$.
+
+Therefore:
+\[ P(X \geq 2|X \geq 1) = \frac{52905/59049}{58025/59049} = \frac{52905}{58025} \approx 0.912 \]
+
+
+\section{The Prisoner's Problem}
+
+\begin{problembox}[1.37: Warden's Problem Variations]
+Here we will look at some variations of Example 1.3.4.
+\begin{enumerate}[label=(\alph*)]
+    \item In the warden's calculation of Example 1.3.4 it was assumed that if A were to be pardoned, then with equal probability the warden would tell A that either B or C would die. However, this need not be the case. The warden can assign probabilities $\gamma$ and $1-\gamma$ to these events, as shown here:
+    
+    \begin{tabular}{|c|c|}
+    \hline
+    Prisoner pardoned & Warden tells A \\
+    \hline
+    A & B dies with probability $\gamma$ \\
+    A & C dies with probability $1-\gamma$ \\
+    B & C dies \\
+    C & B dies \\
+    \hline
+    \end{tabular}
+    
+    Calculate $P(A|\mathcal{W})$ as a function of $\gamma$. For what values of $\gamma$ is $P(A|\mathcal{W})$ less than, equal to, or greater than $\frac{1}{3}$?
+    
+    \item Suppose again that $\gamma=\frac{1}{2}$, as in the example. After the warden tells A that B will die, A thinks for a while and realizes that his original calculation was false. However, A then gets a bright idea. A asks the warden if he can swap fates with C. The warden, thinking that no information has been passed, agrees to this. Prove that A's reasoning is now correct and that his probability of survival has jumped to $\frac{2}{3}$!
+\end{enumerate}
+A similar, but somewhat more complicated, problem, the "Monty Hall problem" is discussed by Selvin (1975). The problem in this guise gained a fair amount of notariaty when it appeared in a Sunday magazine (vos Savant 1990) along with a correct answer but with questionable explanation. The ensuing debate even was reported on the front page of the Sunday New York Times (Tierney 1991). A complete and somewhat amusing treatment is given by Morgan et al. (1991) (see also the response by vos Savant 1991). Chun (1999) pretty much exhausts the problem with a very thorough analysis.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+    \item Let $\mathcal{W}$ be the event "warden tells A that B will die."
+    
+    We need to calculate $P(A|\mathcal{W}) = \frac{P(\mathcal{W}|A)P(A)}{P(\mathcal{W})}$.
+    
+    $P(A) = \frac{1}{3}$ (each prisoner has equal probability of being pardoned).
+    
+    $P(\mathcal{W}|A) = \gamma$ (if A is pardoned, warden tells A that B dies with probability $\gamma$).
+    
+    $P(\mathcal{W}) = P(\mathcal{W}|A)P(A) + P(\mathcal{W}|B)P(B) + P(\mathcal{W}|C)P(C) = \gamma \cdot \frac{1}{3} + 0 \cdot \frac{1}{3} + 1 \cdot \frac{1}{3} = \frac{\gamma + 1}{3}$.
+    
+    Therefore:
+    \[ P(A|\mathcal{W}) = \frac{\gamma \cdot \frac{1}{3}}{\frac{\gamma + 1}{3}} = \frac{\gamma}{\gamma + 1} \]
+    
+    - If $\gamma < \frac{1}{2}$, then $P(A|\mathcal{W}) < \frac{1}{3}$
+    - If $\gamma = \frac{1}{2}$, then $P(A|\mathcal{W}) = \frac{1}{3}$
+    - If $\gamma > \frac{1}{2}$, then $P(A|\mathcal{W}) > \frac{1}{3}$
+    
+    \item When A swaps with C, the situation becomes equivalent to the original problem where A asks the warden to reveal one of the other prisoners who will die, and then A switches to the remaining prisoner.
+    
+    In this case, A's probability of survival becomes $\frac{2}{3}$ because:
+    - If A was originally pardoned (probability $\frac{1}{3}$), switching leads to death
+    - If A was not originally pardoned (probability $\frac{2}{3}$), switching leads to pardon
+    
+    Therefore, the probability of survival after switching is $\frac{2}{3}$.
+\end{enumerate}
+
+
+\section{Probability Properties}
+
+\begin{problembox}[1.38: Probability Statements]
+Prove each of the following statements. (Assume that any conditioning event has positive probability.)
+\begin{enumerate}[label=(\alph*)]
+    \item If $P(B)=1$ then $P(A|B)=P(A)$ for any $A$.
+    \item If $A\subset B$ then $P(B|A)=1$ and $P(A|B)=P(A)/P(B)$.
+    \item If $A$ and $B$ are mutually exclusive, then
+    \[ P(A|A\cup B)=\frac{P(A)}{P(A)+P(B)}. \]
+    \item $P(A\cap B\cap C)=P(A|B\cap C)P(B|C)P(C)$.
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+    \item If $P(B) = 1$, then $P(A|B) = \frac{P(A \cap B)}{P(B)} = \frac{P(A \cap B)}{1} = P(A \cap B)$.
+    
+    Since $P(B) = 1$, we have $P(B^c) = 0$, so $P(A \cap B^c) = 0$.
+    
+    Therefore, $P(A) = P(A \cap B) + P(A \cap B^c) = P(A \cap B) + 0 = P(A \cap B)$.
+    
+    So $P(A|B) = P(A)$.
+    
+    \item If $A \subset B$, then $A \cap B = A$.
+    
+    $P(B|A) = \frac{P(B \cap A)}{P(A)} = \frac{P(A)}{P(A)} = 1$.
+    
+    $P(A|B) = \frac{P(A \cap B)}{P(B)} = \frac{P(A)}{P(B)}$.
+    
+    \item If $A$ and $B$ are mutually exclusive, then $A \cap B = \emptyset$.
+    
+    $P(A|A \cup B) = \frac{P(A \cap (A \cup B))}{P(A \cup B)} = \frac{P(A)}{P(A \cup B)}$.
+    
+    Since $A$ and $B$ are mutually exclusive, $P(A \cup B) = P(A) + P(B)$.
+    
+    Therefore, $P(A|A \cup B) = \frac{P(A)}{P(A) + P(B)}$.
+    
+    \item This is the chain rule for conditional probability:
+    \[ P(A \cap B \cap C) = P(A|B \cap C) \cdot P(B \cap C) = P(A|B \cap C) \cdot P(B|C) \cdot P(C) \]
+\end{enumerate}
+
+
+\begin{problembox}[1.39: Mutual Exclusivity and Independence]
+A pair of events $A$ and $B$ cannot be simultaneously mutually exclusive and independent. Prove that if $P(A)>0$ and $P(B)>0$, then
+\begin{enumerate}[label=(\alph*)]
+    \item if $A$ and $B$ are mutually exclusive they cannot be independent.
+    \item if $A$ and $B$ are independent they cannot be mutually exclusive.
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+    \item If $A$ and $B$ are mutually exclusive, then $A \cap B = \emptyset$, so $P(A \cap B) = 0$.
+    
+    If they were also independent, then $P(A \cap B) = P(A)P(B)$.
+    
+    Since $P(A) > 0$ and $P(B) > 0$, we have $P(A)P(B) > 0$.
+    
+    This contradicts $P(A \cap B) = 0$, so they cannot be independent.
+    
+    \item If $A$ and $B$ are independent, then $P(A \cap B) = P(A)P(B) > 0$ (since both probabilities are positive).
+    
+    If they were also mutually exclusive, then $P(A \cap B) = 0$.
+    
+    This is a contradiction, so they cannot be mutually exclusive.
+\end{enumerate}
+
+
+\begin{problembox}[1.40: Theorem 1.3.9 Completion]
+Finish the proof of Theorem 1.3.9 by proving parts (b) and (c).
+\end{problembox}
+
+\noindent\textbf{Solution.}
+
+Theorem 1.3.9 likely states that if $A_1, A_2, \ldots$ are independent events, then:
+(a) $P(\cap_{i=1}^{n} A_i) = \prod_{i=1}^{n} P(A_i)$ for any finite $n$
+(b) $P(\cap_{i=1}^{\infty} A_i) = \prod_{i=1}^{\infty} P(A_i)$
+(c) $P(\cup_{i=1}^{\infty} A_i) = 1 - \prod_{i=1}^{\infty} (1 - P(A_i))$
+
+For part (b): By the continuity of probability measures, $P(\cap_{i=1}^{\infty} A_i) = \lim_{n \to \infty} P(\cap_{i=1}^{n} A_i) = \lim_{n \to \infty} \prod_{i=1}^{n} P(A_i) = \prod_{i=1}^{\infty} P(A_i)$.
+
+For part (c): By DeMorgan's law, $P(\cup_{i=1}^{\infty} A_i) = 1 - P((\cup_{i=1}^{\infty} A_i)^c) = 1 - P(\cap_{i=1}^{\infty} A_i^c)$.
+
+Since the $A_i$ are independent, the $A_i^c$ are also independent, so by part (b):
+$P(\cap_{i=1}^{\infty} A_i^c) = \prod_{i=1}^{\infty} P(A_i^c) = \prod_{i=1}^{\infty} (1 - P(A_i))$.
+
+Therefore, $P(\cup_{i=1}^{\infty} A_i) = 1 - \prod_{i=1}^{\infty} (1 - P(A_i))$.
+
+
+\section{Telegraph Signals}
+
+\begin{problembox}[1.41: Telegraph Transmission]
+As in Example 1.3.6, consider telegraph signals "dot" and "dash" sent in the proportion $3:4$, where erratic transmissions cause a dot to become a dash with probability $\frac{1}{4}$, and a dash to become a dot with probability $\frac{1}{3}$.
+\begin{enumerate}[label=(\alph*)]
+    \item If a dash is received, what is the probability that a dash has been sent?
+    \item Assuming independence between signals, if the message dot-dot was received, what is the probability distribution of the four possible messages that could have been sent?
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+Let $S_D$ be the event that a dot was sent, and $S_H$ be the event a dash was sent.
+Let $R_D$ be the event a dot was received, and $R_H$ be the event a dash was received.
+We are given the prior probabilities: $P(S_D) = 3/7$ and $P(S_H) = 4/7$.
+The transmission error probabilities (likelihoods) are:
+\begin{itemize}
+    \item $P(R_H|S_D) = 1/4$ (dot becomes dash)
+    \item $P(R_D|S_D) = 1 - 1/4 = 3/4$
+    \item $P(R_D|S_H) = 1/3$ (dash becomes dot)
+    \item $P(R_H|S_H) = 1 - 1/3 = 2/3$
+\end{itemize}
+
+\begin{enumerate}[label=(\alph*)]
+    \item We want to find $P(S_H|R_H)$. Using Bayes' theorem: $P(S_H|R_H) = \frac{P(R_H|S_H)P(S_H)}{P(R_H)}$.
+    First, find the total probability of receiving a dash, $P(R_H)$, using the law of total probability:
+    $P(R_H) = P(R_H|S_H)P(S_H) + P(R_H|S_D)P(S_D)$
+    $P(R_H) = (\frac{2}{3})(\frac{4}{7}) + (\frac{1}{4})(\frac{3}{7}) = \frac{8}{21} + \frac{3}{28} = \frac{32}{84} + \frac{9}{84} = \frac{41}{84}$.
+    \vspace{1ex} %
+    Now, $P(S_H|R_H) = \frac{(2/3)(4/7)}{41/84} = \frac{8/21}{41/84} = \frac{8}{21} \times \frac{84}{41} = \frac{8 \times 4}{41} = \frac{32}{41}$.
+
+    \item We received dot-dot ($R_{DD}$). We need the posterior probability distribution for the four possible sent messages: dot-dot ($S_{DD}$), dot-dash ($S_{DH}$), dash-dot ($S_{HD}$), dash-dash ($S_{HH}$). Let $E$ be the event $R_{DD}$. We need $P(S_{ij}|E)$.
+    Assuming independence, the prior probabilities are:
+    $P(S_{DD}) = (3/7)(3/7) = 9/49$
+    $P(S_{DH}) = (3/7)(4/7) = 12/49$
+    $P(S_{HD}) = (4/7)(3/7) = 12/49$
+    $P(S_{HH}) = (4/7)(4/7) = 16/49$
+
+    The likelihoods $P(E|S_{ij})$ are:
+    $P(E|S_{DD}) = P(R_D|S_D)P(R_D|S_D) = (3/4)(3/4) = 9/16$
+    $P(E|S_{DH}) = P(R_D|S_D)P(R_D|S_H) = (3/4)(1/3) = 3/12 = 1/4$
+    $P(E|S_{HD}) = P(R_D|S_H)P(R_D|S_D) = (1/3)(3/4) = 3/12 = 1/4$
+    $P(E|S_{HH}) = P(R_D|S_H)P(R_D|S_H) = (1/3)(1/3) = 1/9$
+
+    Now find the joint probabilities $P(E \cap S_{ij}) = P(E|S_{ij})P(S_{ij})$:
+    $P(E \cap S_{DD}) = (9/16)(9/49) = 81/784$
+    $P(E \cap S_{DH}) = (1/4)(12/49) = 12/196 = 48/784$
+    $P(E \cap S_{HD}) = (1/4)(12/49) = 12/196 = 48/784$
+    $P(E \cap S_{HH}) = (1/9)(16/49) = 16/441 \approx 0.03628$
+    Let's use a common denominator for the first three: $16 \times 9 \times 49 = 7056$.
+    $P(E \cap S_{DD}) = (81/784) = 729/7056$
+    $P(E \cap S_{DH}) = (48/784) = 432/7056$
+    $P(E \cap S_{HD}) = (48/784) = 432/7056$
+    $P(E \cap S_{HH}) = (16/441) = 256/7056$
+
+    The sum is the total probability $P(E) = \frac{729+432+432+256}{7056} = \frac{1849}{7056}$.
+
+    The posterior probabilities $P(S_{ij}|E) = P(E \cap S_{ij})/P(E)$ are:
+    $P(S_{DD}|E) = \frac{729/7056}{1849/7056} = \frac{729}{1849} \approx 0.3943$
+    $P(S_{DH}|E) = \frac{432/7056}{1849/7056} = \frac{432}{1849} \approx 0.2336$
+    $P(S_{HD}|E) = \frac{432/7056}{1849/7056} = \frac{432}{1849} \approx 0.2336$
+    $P(S_{HH}|E) = \frac{256/7056}{1849/7056} = \frac{256}{1849} \approx 0.1384$
+\end{enumerate}
+
+
+\section{Inclusion-Exclusion Principle}
+
+\begin{problembox}[1.42: Inclusion-Exclusion Proof]
+The inclusion-exclusion identity of Miscellanea 1.8.1 gets its name from the fact that it is proved by the method of inclusion and exclusion (Feller 1968, Section IV.1). Here we go into the details. The probability $P(\cup_{i=1}^{n}A_{i})$ is the sum of the probabilities of all the sample points that are contained in at least one of the $A_{i}$s. The method of inclusion and exclusion is a recipe for counting these points.
+\begin{enumerate}[label=(\alph*)]
+    \item If $E_{k}$ denotes the set of all sample points that are contained in exactly $k$ of the events $A_{1},A_{2},\ldots,A_{n}$, show that $P(\cup_{i=1}^{n}A_{i})=\sum_{i=1}^{n}P(E_{i})$.
+    \item Suppose that $x\in E_{1}$. Show that $P(x\in E_{1})=\sum_{i=1}^{n}P(x\in A_{i})$.
+    \item Suppose that $x\in E_{k}$, where without loss of generality we can assume that $x\in A_{1},A_{2},\ldots,A_{k}$ and $x\notin A_{k+1},A_{k+2},\ldots,A_{n}$. Show that $P(x\in E_{k})$ appears $k$ times in the sum $P_{1}$, $\binom{k}{2}$ times in the sum $P_{2}$, $\binom{k}{3}$ times in the sum $P_{3}$, etc.
+    \item Show that \[k-\binom{k}{2}+\binom{k}{3}-+\ldots\pm\binom{k}{k}=1.\] (See Problem 1.27.)
+    \item Show that (a)-(c) imply $\sum_{i=1}^{n}P(E_{i})=P_{1}-P_{2}=\ldots\pm P_{n}$, establishing the inclusion-exclusion identity.
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+    \item The events $E_1, E_2, \ldots, E_n$ are pairwise disjoint and their union is $\cup_{i=1}^{n} A_i$. Therefore, by the additivity of probability:
+    \[ P(\cup_{i=1}^{n} A_i) = \sum_{i=1}^{n} P(E_i) \]
+    
+    \item If $x \in E_1$, then $x$ is in exactly one of the $A_i$s. Let's say $x \in A_j$ and $x \notin A_i$ for $i \neq j$. Then:
+    \[ P(x \in E_1) = P(x \in A_j) = \sum_{i=1}^{n} P(x \in A_i) \]
+    since $P(x \in A_i) = 0$ for $i \neq j$.
+    
+    \item If $x \in E_k$ and $x \in A_1, A_2, \ldots, A_k$ but $x \notin A_{k+1}, \ldots, A_n$, then:
+    - $x$ appears in $k$ single events in $P_1$
+    - $x$ appears in $\binom{k}{2}$ pairs in $P_2$
+    - $x$ appears in $\binom{k}{3}$ triples in $P_3$
+    - And so on...
+    
+    \item This is the binomial expansion of $(1 - 1)^k = 0$ with the first term missing:
+    \[ \sum_{i=0}^{k} \binom{k}{i} (-1)^i = (1 - 1)^k = 0 \]
+    \[ 1 + \sum_{i=1}^{k} \binom{k}{i} (-1)^i = 0 \]
+    \[ \sum_{i=1}^{k} \binom{k}{i} (-1)^i = -1 \]
+    \[ k - \binom{k}{2} + \binom{k}{3} - \cdots \pm \binom{k}{k} = 1 \]
+    
+    \item From (c), each sample point in $E_k$ contributes $k - \binom{k}{2} + \binom{k}{3} - \cdots = 1$ to the alternating sum $P_1 - P_2 + P_3 - \cdots$.
+    
+    Therefore, the total contribution from all sample points is $\sum_{i=1}^{n} P(E_i)$, which equals $P_1 - P_2 + P_3 - \cdots \pm P_n$.
+\end{enumerate}
+
+
+\begin{problembox}[1.43: Inclusion-Exclusion Properties]
+For the inclusion-exclusion identity of Miscellanea 1.8.1:
+\begin{enumerate}[label=(\alph*)]
+    \item Derive both Boole's and Bonferroni's inequality from the inclusion-exclusion identity.
+    \item Show that the $P_{i}$ satisfy $P_{i}\geq P_{j}$ if $i\geq j$, and that the sequence of bounds in Miscellanea 1.8.1 improves as the number of terms increases.
+    \item Typically as the number of terms in the bound increases, the bound becomes more useful. However, Schwager (1984) cautions that there are some cases where there is not much improvement, in particular if the $A_{i}$s are highly correlated. Examine what happens to the sequence of bounds in the extreme case when $A_{i}=A$ for every $i$. (See Worsley (1982) and the correspondence between Worsley (1985) and Schwager (1985).)
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+    \item The inclusion-exclusion identity states $P(\cup_{i=1}^{n} A_i) = P_1 - P_2 + P_3 - \cdots \pm P_n$. The partial sums of this alternating series provide bounds on the true probability. Let $U = P(\cup A_i)$.
+    \vspace{1ex} %
+    The sequence of sums is $S_k = \sum_{j=1}^k (-1)^{j-1} P_j$. We have $S_{2m} \le U \le S_{2m-1}$ for $m \ge 1$.
+    \vspace{1ex} %
+    \textbf{Boole's Inequality}: For $m=1$, we have $U \le S_1$. Thus, $P(\cup_{i=1}^{n} A_i) \leq P_1 = \sum_i P(A_i)$.
+    \vspace{1ex} %
+    \textbf{Bonferroni's Inequality}: For $m=1$, we also have $S_2 \le U$. Thus, $P(\cup_{i=1}^{n} A_i) \geq S_2 = P_1 - P_2 = \sum_i P(A_i) - \sum_{i<j} P(A_i \cap A_j)$.
+
+    \item The statement should be $P_i \ge P_j$ if $i \le j$.
+    $P_k = \sum_{i_1 < \dots < i_k} P(A_{i_1} \cap \dots \cap A_{i_k})$. The sum $P_{k+1}$ is a sum over intersections of $k+1$ sets. Any intersection of $k+1$ sets, $A_{i_1} \cap \dots \cap A_{i_{k+1}}$, is a subset of any intersection of $k$ of those same sets, e.g., $A_{i_1} \cap \dots \cap A_{i_k}$. Therefore, the probabilities in the sum for $P_{k+1}$ are smaller than or equal to the probabilities in the sum for $P_k$. While this is true term-wise, it does not guarantee $P_k \ge P_{k+1}$ because the number of terms is different ($\binom{n}{k}$ vs $\binom{n}{k+1}$). A better justification for the improving bounds is that they are successive partial sums of a converging alternating series.
+
+    \item If $A_i=A$ for every $i=1, \dots, n$, then $\cup A_i = A$, so $P(\cup A_i) = P(A)$.
+    $P_k = \sum_{i_1 < \dots < i_k} P(A \cap \dots \cap A) = \binom{n}{k} P(A)$.
+    The inclusion-exclusion identity becomes: $P(A) = \binom{n}{1}P(A) - \binom{n}{2}P(A) + \dots + (-1)^{n-1}\binom{n}{n}P(A)$.
+    Dividing by $P(A)$ (assuming $P(A)>0$) gives $1 = \binom{n}{1} - \binom{n}{2} + \dots + (-1)^{n-1}\binom{n}{n}$.
+    From the binomial expansion of $(1-1)^n = 0$, we know $\sum_{k=0}^n \binom{n}{k}(-1)^k = 0$, so $\binom{n}{0} - \binom{n}{1} + \binom{n}{2} - \dots = 0$. Since $\binom{n}{0}=1$, this gives $1 = \binom{n}{1} - \binom{n}{2} + \dots$, which is consistent.
+    \vspace{1ex} %
+    The sequence of bounds is:
+    \begin{itemize}
+        \item $S_1 = P_1 = nP(A)$. This is an upper bound.
+        \item $S_2 = P_1 - P_2 = nP(A) - \binom{n}{2}P(A) = (n - \frac{n(n-1)}{2})P(A)$. This is a lower bound.
+    \end{itemize}
+    For $n > 2$, $S_1$ can be a very poor bound. For $n=5$, $S_1=5P(A)$. For large $n$, the bounds can oscillate wildly and not provide much improvement until many terms are included. For example, for $n=5$, the sequence of bounds is $5P(A)$, $-5P(A)$, $5P(A)$, $-P(A)$, $P(A)$. The bounds do not monotonically tighten around the true value $P(A)$.
+\end{enumerate}
+
+\section{Standardized Tests}
+
+\begin{problembox}[1.44: Multiple Choice Test]
+Standardized tests provide an interesting application of probability theory. Suppose first that a test consists of 20 multiple-choice questions, each with four possible answers. If the student guesses on each question, then the taking of the exam can be modeled as a sequence of 20 independent events. Find the probability that the student gets at least ten questions correct, given that he is guessing.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+
+Let $X$ be the number of correct answers. Then $X \sim \text{Binomial}(20, \frac{1}{4})$.
+
+We need to find $P(X \geq 10) = \sum_{k=10}^{20} \binom{20}{k} \left(\frac{1}{4}\right)^k \left(\frac{3}{4}\right)^{20-k}$.
+
+This can be calculated as:
+\[ P(X \geq 10) = 1 - P(X \leq 9) = 1 - \sum_{k=0}^{9} \binom{20}{k} \left(\frac{1}{4}\right)^k \left(\frac{3}{4}\right)^{20-k} \]
+
+Using a calculator or statistical software, this probability is approximately 0.0139, or about 1.39%.
+
+This shows that even with random guessing, getting at least 10 out of 20 questions correct is quite unlikely (less than 1.4% chance).
+
+
+\section{Probability Functions}
+
+\begin{problembox}[1.45: Induced Probability Verification]
+Show that the induced probability function defined in (1.4.1) defines a legitimate probability function in that it satisfies the Kolmogorov Axioms.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+
+The induced probability function is typically defined as $P_X(B) = P(X^{-1}(B))$ for any Borel set $B$.
+
+We need to verify the three Kolmogorov axioms:
+
+1. **Non-negativity**: $P_X(B) = P(X^{-1}(B)) \geq 0$ since $P$ is a probability function.
+
+2. **Normalization**: $P_X(\mathbb{R}) = P(X^{-1}(\mathbb{R})) = P(S) = 1$ where $S$ is the sample space.
+
+3. **Countable additivity**: For any countable collection of disjoint Borel sets $B_1, B_2, \ldots$:
+   \[ P_X(\cup_{i=1}^{\infty} B_i) = P(X^{-1}(\cup_{i=1}^{\infty} B_i)) = P(\cup_{i=1}^{\infty} X^{-1}(B_i)) \]
+   
+   Since the $B_i$ are disjoint, the $X^{-1}(B_i)$ are also disjoint, so:
+   \[ = \sum_{i=1}^{\infty} P(X^{-1}(B_i)) = \sum_{i=1}^{\infty} P_X(B_i) \]
+
+Therefore, $P_X$ satisfies the Kolmogorov axioms and is a legitimate probability function.
+
+
+\begin{problembox}[1.46: Ball Distribution]
+Seven balls are distributed randomly into seven cells. Let $X_{i}=$ the number of cells containing exactly $i$ balls. What is the probability distribution of $X_{3}$? (That is, find $P(X_{3}=x)$ for every possible $x$.)
+\end{problembox}
+
+\noindent\textbf{Solution.}
+We are distributing $k=7$ distinguishable balls into $n=7$ distinguishable cells. The total number of arrangements is $n^k = 7^7 = 823,543$.
+Let $X_3$ be the number of cells containing exactly 3 balls. The possible values for $X_3$ are $x=0, 1, 2$. It is not possible to have $X_3=3$ as that would require $3 \times 3 = 9$ balls.
+
+We calculate $P(X_3=x)$ for each possible value of $x$.
+
+\textbf{Case 1: $x=2$} (Two cells have 3 balls each, one cell has 1 ball, four cells are empty)
+\begin{enumerate}
+    \item Choose the 2 cells that get 3 balls: $\binom{7}{2}$ ways.
+    \item Choose the 1 cell that gets 1 ball: $\binom{5}{1}$ ways.
+    \item Partition the 7 balls into groups of size 3, 3, and 1: $\frac{1}{2!}\binom{7}{3}\binom{4}{3}\binom{1}{1}$ ways. The $\frac{1}{2!}$ is because the two groups of 3 are of equal size.
+    \item Assign the groups to the chosen cells. The group of 1 must go to the cell chosen for 1 ball. The two groups of 3 can be assigned to the two cells chosen for 3 balls in $2!$ ways.
+\end{enumerate}
+Number of ways for $x=2$: $\binom{7}{2}\binom{5}{1} \times \frac{1}{2!}\binom{7}{3}\binom{4}{3}\binom{1}{1} \times 1 \times 2! = 21 \times 5 \times \frac{35 \times 4}{2} = 105 \times 70 = 7350$.
+$P(X_3=2) = \frac{7350}{7^7} \approx 0.008925$.
+
+\textbf{Case 2: $x=1$} (One cell has 3 balls, other cells have remaining 4 balls with no other cell having 3)
+This is complex. It's easier to count the arrangements directly.
+Let's find the number of ways to have exactly one cell with 3 balls.
+\begin{enumerate}
+    \item Choose the cell that gets 3 balls: $\binom{7}{1}$ ways.
+    \item Choose the 3 balls to place in it: $\binom{7}{3}$ ways.
+    \item Distribute the remaining 4 balls into the other 6 cells, with the condition that no cell gets 3 balls. The only way for this to happen is if one of the 6 cells gets 4 balls (which is allowed). The total ways to distribute 4 balls into 6 cells is $6^4=1296$. From this we must subtract cases where one of the 6 cells gets 3 balls.
+        To get a cell with 3 balls from the 4 balls: choose the cell ($\binom{6}{1}$ ways), choose the 3 balls ($\binom{4}{3}$ ways), place the last ball in one of the other 5 cells ($\binom{5}{1}$ ways). This is $6 \times 4 \times 5 = 120$ ways.
+        So, ways to distribute the 4 balls are $6^4 - 120 = 1296 - 120 = 1176$.
+\end{enumerate}
+Number of ways for $x=1$: $7 \times \binom{7}{3} \times (6^4 - \binom{6}{1}\binom{4}{3}\binom{5}{1}) = 7 \times 35 \times (1296 - 120) = 245 \times 1176 = 288,120$.
+$P(X_3=1) = \frac{288120}{7^7} \approx 0.350$.
+
+\textbf{Case 3: $x=0$} (No cell has 3 balls)
+This is $P(X_3=0) = 1 - P(X_3=1) - P(X_3=2)$.
+$P(X_3=0) \approx 1 - 0.350 - 0.008925 = 0.641$.
+
+The probability distribution of $X_3$ is:
+\[ P(X_3=x) = \begin{cases}
+    288120/823543 \approx 0.350 & x=1 \\
+    7350/823543 \approx 0.0089 & x=2 \\
+    528073/823543 \approx 0.6411 & x=0 \\
+    0 & \text{otherwise}
+\end{cases}
+\]
+
+
+\begin{problembox}[1.47: CDF Verification]
+Prove that the following functions are cdfs.
+\begin{enumerate}[label=(\alph*)]
+    \item $\frac{1}{2}+\frac{1}{\pi}\tan^{-1}(x),x\in(-\infty,\infty)$
+    \item $(1+e^{-x})^{-1},x\in(-\infty,\infty)$
+    \item $e^{-e^{-x}},x\in(-\infty,\infty)$
+    \item $1-e^{-x},x\in(0,\infty)$
+    \item the function defined in (1.5.3).
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+    \item $F(x) = \frac{1}{2} + \frac{1}{\pi}\tan^{-1}(x)$
+    
+    - Non-decreasing: $\frac{d}{dx}F(x) = \frac{1}{\pi} \cdot \frac{1}{1+x^2} > 0$ for all $x$
+    - Right-continuous: $\tan^{-1}(x)$ is continuous
+    - Limits: $\lim_{x \to -\infty} F(x) = \frac{1}{2} + \frac{1}{\pi} \cdot (-\frac{\pi}{2}) = 0$
+    - Limits: $\lim_{x \to \infty} F(x) = \frac{1}{2} + \frac{1}{\pi} \cdot \frac{\pi}{2} = 1$
+    
+    \item $F(x) = (1 + e^{-x})^{-1}$
+    
+    - Non-decreasing: $\frac{d}{dx}F(x) = \frac{e^{-x}}{(1 + e^{-x})^2} > 0$ for all $x$
+    - Right-continuous: continuous everywhere
+    - Limits: $\lim_{x \to -\infty} F(x) = 0$
+    - Limits: $\lim_{x \to \infty} F(x) = 1$
+    
+    \item $F(x) = e^{-e^{-x}}$
+    
+    - Non-decreasing: $\frac{d}{dx}F(x) = e^{-e^{-x}} \cdot e^{-x} > 0$ for all $x$
+    - Right-continuous: continuous everywhere
+    - Limits: $\lim_{x \to -\infty} F(x) = 0$
+    - Limits: $\lim_{x \to \infty} F(x) = 1$
+    
+    \item $F(x) = 1 - e^{-x}$ for $x > 0$
+    
+    - Non-decreasing: $\frac{d}{dx}F(x) = e^{-x} > 0$ for $x > 0$
+    - Right-continuous: continuous for $x > 0$
+    - Limits: $\lim_{x \to 0^+} F(x) = 0$
+    - Limits: $\lim_{x \to \infty} F(x) = 1$
+    
+    \item Without the specific function from (1.5.3), I cannot verify it, but the same properties would need to be checked.
+\end{enumerate}
+
+
+\begin{problembox}[1.48: Theorem 1.5.3 Necessity]
+Prove the necessity part of Theorem 1.5.3.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+
+Theorem 1.5.3 likely states that a function $F$ is a cdf if and only if it satisfies certain properties.
+
+The necessity part means: if $F$ is a cdf, then it must satisfy the required properties.
+
+The required properties are typically:
+1. Non-decreasing
+2. Right-continuous
+3. $\lim_{x \to -\infty} F(x) = 0$
+4. $\lim_{x \to \infty} F(x) = 1$
+
+If $F$ is a cdf, then by definition $F(x) = P(X \leq x)$ for some random variable $X$.
+
+1. **Non-decreasing**: If $x_1 < x_2$, then $\{X \leq x_1\} \subset \{X \leq x_2\}$, so $F(x_1) = P(X \leq x_1) \leq P(X \leq x_2) = F(x_2)$.
+
+2. **Right-continuous**: This follows from the continuity of probability measures for decreasing sequences of events.
+
+3. **Limit at $-\infty$**: $\lim_{x \to -\infty} F(x) = \lim_{x \to -\infty} P(X \leq x) = P(\emptyset) = 0$.
+
+4. **Limit at $\infty$**: $\lim_{x \to \infty} F(x) = \lim_{x \to \infty} P(X \leq x) = P(S) = 1$.
+
+
+\begin{problembox}[1.49: Stochastic Ordering]
+A cdf $F_{X}$ is stochastically greater than a cdf $F_{Y}$ if $F_{X}(t)\leq F_{Y}(t)$ for all $t$ and $F_{X}(t)<F_{Y}(t)$ for some $t$. Prove that if $X\sim F_{X}$ and $Y\sim F_{Y}$, then
+\[ P(X>t)\geq P(Y>t)\quad\text{for every }t \]
+and
+\[ P(X>t)>P(Y>t)\quad\text{for some }t, \]
+that is, $X$ tends to be bigger than $Y$.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+
+If $F_X(t) \leq F_Y(t)$ for all $t$, then:
+\[ P(X > t) = 1 - P(X \leq t) = 1 - F_X(t) \geq 1 - F_Y(t) = 1 - P(Y \leq t) = P(Y > t) \]
+
+Since $F_X(t) < F_Y(t)$ for some $t$, we have:
+\[ P(X > t) = 1 - F_X(t) > 1 - F_Y(t) = P(Y > t) \]
+for that same $t$.
+
+This means that for every threshold $t$, $X$ is at least as likely as $Y$ to exceed $t$, and for some threshold, $X$ is strictly more likely to exceed it.
+
+This is the definition of stochastic ordering: $X$ is stochastically greater than $Y$.
+
+
+\begin{problembox}[1.50: Geometric Series]
+Verify formula (1.5.4), the formula for the partial sum of the geometric series.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+
+The formula for the partial sum of a geometric series is:
+\[ \sum_{k=0}^{n} ar^k = a \frac{1 - r^{n+1}}{1 - r} \]
+for $r \neq 1$.
+
+To verify this, let $S_n = \sum_{k=0}^{n} ar^k$.
+
+Then:
+\[ rS_n = \sum_{k=0}^{n} ar^{k+1} = \sum_{k=1}^{n+1} ar^k \]
+
+Subtracting:
+\[ S_n - rS_n = ar^0 - ar^{n+1} = a(1 - r^{n+1}) \]
+
+Therefore:
+\[ S_n(1 - r) = a(1 - r^{n+1}) \]
+\[ S_n = a \frac{1 - r^{n+1}}{1 - r} \]
+
+This is the formula (1.5.4) for the partial sum of a geometric series.
+
+
+\begin{problembox}[1.51: Defective Microwaves]
+An appliance store receives a shipment of 30 microwave ovens, five of which are (unknown to the manager) defective. The store manager selects four ovens at random, without replacement, and tests to see if they are defective. Let $X=\text{number of defective ovens found}$. Calculate the pmf and cdf of $X$ and plot the cdf.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+
+$X$ follows a hypergeometric distribution with parameters $N = 30$ (total ovens), $K = 5$ (defective ovens), and $n = 4$ (sample size).
+
+The pmf is:
+\[ P(X = k) = \frac{\binom{5}{k} \binom{25}{4-k}}{\binom{30}{4}} \]
+for $k = 0, 1, 2, 3, 4$.
+
+Calculating:
+\begin{itemize}
+\item $P(X = 0) = \frac{\binom{5}{0} \binom{25}{4}}{\binom{30}{4}} = \frac{1 \cdot 12650}{27405} \approx 0.462$
+\item $P(X = 1) = \frac{\binom{5}{1} \binom{25}{3}}{\binom{30}{4}} = \frac{5 \cdot 2300}{27405} \approx 0.420$
+\item $P(X = 2) = \frac{\binom{5}{2} \binom{25}{2}}{\binom{30}{4}} = \frac{10 \cdot 300}{27405} \approx 0.109$
+\item $P(X = 3) = \frac{\binom{5}{3} \binom{25}{1}}{\binom{30}{4}} = \frac{10 \cdot 25}{27405} \approx 0.009$
+\item $P(X = 4) = \frac{\binom{5}{4} \binom{25}{0}}{\binom{30}{4}} = \frac{5 \cdot 1}{27405} \approx 0.0002$
+\end{itemize}
+
+The cdf is:
+\begin{itemize}
+\item $F(0) = P(X \leq 0) = 0.462$
+\item $F(1) = P(X \leq 1) = 0.462 + 0.420 = 0.882$
+\item $F(2) = P(X \leq 2) = 0.882 + 0.109 = 0.991$
+\item $F(3) = P(X \leq 3) = 0.991 + 0.009 = 1.000$
+\item $F(4) = P(X \leq 4) = 1.000$
+\end{itemize}
+
+The cdf plot would show a step function with jumps at $x = 0, 1, 2, 3, 4$.
+
+
+\begin{problembox}[1.52: Truncated PDF]
+Let $X$ be a continuous random variable with pdf $f(x)$ and cdf $F(x)$. For a fixed number $x_{0}$, define the function
+\[ g(x)=\left\{\begin{array}{ll}
+f(x)/[1-F(x_{0})] & x\geq x_{0}\\
+0 & x<x_{0}.
+\end{array}\right. \]
+Prove that $g(x)$ is a pdf. (Assume that $F(x_{0})<1$.)
+\end{problembox}
+
+\noindent\textbf{Solution.}
+
+We need to verify that $g(x)$ satisfies the properties of a pdf:
+
+1. **Non-negativity**: $g(x) \geq 0$ for all $x$ since $f(x) \geq 0$ and $1 - F(x_0) > 0$.
+
+2. **Integrates to 1**:
+   \[ \int_{-\infty}^{\infty} g(x) \, dx = \int_{-\infty}^{x_0} 0 \, dx + \int_{x_0}^{\infty} \frac{f(x)}{1 - F(x_0)} \, dx = \frac{1}{1 - F(x_0)} \int_{x_0}^{\infty} f(x) \, dx \]
+   
+   Since $\int_{x_0}^{\infty} f(x) \, dx = 1 - F(x_0)$, we have:
+   \[ \int_{-\infty}^{\infty} g(x) \, dx = \frac{1 - F(x_0)}{1 - F(x_0)} = 1 \]
+
+Therefore, $g(x)$ is a legitimate pdf. This is the pdf of the conditional distribution of $X$ given $X \geq x_0$.
+
+
+\section{River Flooding}
+
+\begin{problembox}[1.53: Flood Mark Distribution]
+A certain river floods every year. Suppose that the low-water mark is set at 1 and the high-water mark $Y$ has distribution function
+\[ F_Y(y) = P(Y \leq y) = 1 - \frac{1}{y^2}, \quad 1 \leq y < \infty. \]
+\begin{enumerate}[label=(\alph*)]
+    \item Verify that $F_Y(y)$ is a cdf.
+    \item Find $f_Y(y)$, the pdf of $Y$.
+    \item If the low-water mark is reset at zero and we use a unit of measurement which is $\frac{1}{10}$ of that given previously, the high-water mark becomes $Z = 10(Y - 1)$. Find $F_Z(z)$.
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+    \item To verify $F_Y(y)$ is a cdf:
+    
+    \begin{itemize}
+    \item Non-decreasing: $\frac{d}{dy}F_Y(y) = \frac{2}{y^3} > 0$ for $y \geq 1$
+    \item Right-continuous: continuous for $y \geq 1$
+    \item Limits: $\lim_{y \to 1^+} F_Y(y) = 1 - 1 = 0$
+    \item Limits: $\lim_{y \to \infty} F_Y(y) = 1 - 0 = 1$
+    \end{itemize}
+    
+    \item The pdf is the derivative of the cdf:
+    \[ f_Y(y) = \frac{d}{dy}F_Y(y) = \frac{2}{y^3}, \quad 1 \leq y < \infty \]
+    
+    \item We have $Z = 10(Y - 1)$, so $Y = \frac{Z}{10} + 1$.
+    
+    The cdf of $Z$ is:
+    \[ F_Z(z) = P(Z \leq z) = P(10(Y - 1) \leq z) = P(Y \leq \frac{z}{10} + 1) = F_Y(\frac{z}{10} + 1) \]
+    
+    Since $Y \geq 1$, we have $Z \geq 0$.
+    
+    \[ F_Z(z) = 1 - \frac{1}{(\frac{z}{10} + 1)^2} = 1 - \frac{100}{(z + 10)^2}, \quad z \geq 0 \]
+\end{enumerate}
+
+
+\section{PDF Normalization}
+
+\begin{problembox}[1.54: PDF Normalization]
+For each of the following, determine the value of $c$ that makes $f(x)$ a pdf.
+\begin{enumerate}[label=(\alph*)]
+    \item $f(x) = c \sin x, \quad 0 < x < \pi/2$
+    \item $f(x) = ce^{-|x|}, \quad -\infty < x < \infty$
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+    \item We need $\int_{0}^{\pi/2} c \sin x \, dx = 1$.
+    
+    \[ \int_{0}^{\pi/2} c \sin x \, dx = c[-\cos x]_{0}^{\pi/2} = c[-\cos(\pi/2) + \cos(0)] = c[0 + 1] = c \]
+    
+    Therefore, $c = 1$.
+    
+    \item We need $\int_{-\infty}^{\infty} ce^{-|x|} \, dx = 1$.
+    
+    \[ \int_{-\infty}^{\infty} ce^{-|x|} \, dx = c \left( \int_{-\infty}^{0} e^{x} \, dx + \int_{0}^{\infty} e^{-x} \, dx \right) = c([e^{x}]_{-\infty}^{0} + [-e^{-x}]_{0}^{\infty}) = c(1 + 1) = 2c \]
+    
+    Therefore, $2c = 1$, so $c = \frac{1}{2}$.
+\end{enumerate}
+
+
+\begin{problembox}[1.55: Device Lifetime Value]
+An electronic device has a lifetime denoted by $T$. The device has value $V = 5$ if it fails before time $t = 3$; otherwise, it has value $V = 2T$. Find the cdf of $V$, if $T$ has pdf
+\[ f_T(t) = \frac{1}{1.5} e^{-t/(1.5)}, \quad t > 0. \]
+\end{problembox}
+
+\noindent\textbf{Solution.}
+The lifetime $T$ follows an exponential distribution with pdf $f_T(t) = \frac{1}{1.5}e^{-t/1.5}$ for $t>0$. The cdf of $T$ is $F_T(t) = P(T \le t) = 1 - e^{-t/1.5}$.
+
+The value $V$ is a random variable defined as:
+\[ V = \begin{cases} 5 & \text{if } T < 3 \\ 2T & \text{if } T \ge 3 \end{cases} \]
+This is a mixed random variable. It has a discrete probability mass at one point and a continuous distribution over an interval.
+The possible values for $V$ are the point $\{5\}$ and the interval $[6, \infty)$, since if $T \ge 3$, then $V = 2T \ge 6$.
+
+Let's find the cdf of $V$, $F_V(v) = P(V \le v)$.
+
+For $v < 5$:
+$P(V \le v) = 0$, since $V$ cannot be less than 5.
+
+For $v$ in the interval $[5, 6)$:
+$P(V \le v) = P(V=5) + P(\text{V is in } [6, v])$. Since the second part is an empty set, this is just $P(V=5)$.
+$P(V=5) = P(T < 3) = F_T(3) = 1 - e^{-3/1.5} = 1 - e^{-2}$.
+So for $5 \le v < 6$, $F_V(v) = 1 - e^{-2}$.
+
+For $v \ge 6$:
+$P(V \le v) = P(V=5) + P(6 \le V \le v)$.
+The second term corresponds to the event that $T \ge 3$ and $2T \le v$.
+$P(6 \le V \le v) = P(3 \le T \le v/2)$.
+$P(3 \le T \le v/2) = F_T(v/2) - F_T(3) = (1 - e^{-(v/2)/1.5}) - (1 - e^{-3/1.5}) = (1 - e^{-v/3}) - (1 - e^{-2}) = e^{-2} - e^{-v/3}$.
+So, for $v \ge 6$:
+$F_V(v) = P(V=5) + P(6 \le V \le v) = (1 - e^{-2}) + (e^{-2} - e^{-v/3}) = 1 - e^{-v/3}$.
+
+Combining these pieces, the cdf of $V$ is:
+\[ F_V(v) = \begin{cases}
+0 & \text{if } v < 5 \\
+1 - e^{-2} & \text{if } 5 \le v < 6 \\
+1 - e^{-v/3} & \text{if } v \ge 6
+\end{cases}
+\]
+This cdf has a jump discontinuity at $v=5$ of size $1-e^{-2} \approx 0.8647$.

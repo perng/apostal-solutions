@@ -2,6 +2,8 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{hyperref}
 \usepackage{enumitem}
 \usepackage{xcolor}
 \usepackage{tcolorbox}
@@ -22,6 +24,10 @@
     title={\mbox{#1}},
     before upper={\parindent0pt}
 }
+
+% Custom environments for definitions and theorems
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
 
 \newcommand{\Log}{\log}
 \newcommand{\shortsearrow}{\mathrel{\vcenter{\hbox{$\scriptscriptstyle\searrow$}}}}

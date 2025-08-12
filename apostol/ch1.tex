@@ -1,11 +1,64 @@
 \chapter{The Real and Complex Number Systems}
+
 \section{Integers}
+
+\subsection*{Definitions and Theorems for Integers}
+
+\begin{definition}[Prime Number]
+A positive integer $p > 1$ is prime if its only positive divisors are $1$ and $p$ itself.
+\end{definition}
+
+\begin{definition}[Factorial]
+For a positive integer $n$, the factorial $n!$ is defined as $n! = n \cdot (n-1) \cdot (n-2) \cdots 2 \cdot 1$.
+\end{definition}
+
+\begin{theorem}[Fundamental Theorem of Arithmetic]
+Every positive integer greater than $1$ can be written uniquely as a product of prime numbers, up to the order of the factors.
+\end{theorem}
+
+\begin{theorem}[Euclid's Theorem on Primes]
+There are infinitely many prime numbers.
+\end{theorem}
+
+\begin{definition}[Mersenne Prime]
+A prime number of the form $2^p - 1$, where $p$ is prime, is called a Mersenne prime.
+\end{definition}
+
+\begin{definition}[Fermat Prime]
+A prime number of the form $2^{2^n} + 1$ is called a Fermat prime.
+\end{definition}
+
+\begin{definition}[Fibonacci Sequence]
+The Fibonacci sequence is defined by the recurrence relation $F_{n+1} = F_n + F_{n-1}$ with initial conditions $F_1 = F_2 = 1$.
+\end{definition}
+
+\begin{theorem}[Well-Ordering Principle]
+Every nonempty set of positive integers contains a smallest member.
+\end{theorem}
+
+\begin{theorem}[Mathematical Induction]
+Let $P(n)$ be a statement about the positive integer $n$. If:
+\begin{enumerate}
+\item $P(1)$ is true (base case)
+\item For every positive integer $k$, if $P(k)$ is true, then $P(k+1)$ is true (inductive step)
+\end{enumerate}
+Then $P(n)$ is true for all positive integers $n$.
+\end{theorem}
+
+\begin{theorem}[Strong Induction]
+Let $P(n)$ be a statement about the positive integer $n$. If:
+\begin{enumerate}
+\item $P(1)$ is true (base case)
+\item For every positive integer $k$, if $P(1), P(2), \ldots, P(k)$ are all true, then $P(k+1)$ is true (strong inductive step)
+\end{enumerate}
+Then $P(n)$ is true for all positive integers $n$.
+\end{theorem}
 
 \begin{problembox}[1.1: No Largest Prime]
 Prove that there is no largest prime. (A proof was known to Euclid.)
 \end{problembox}
 
-\textbf{Solution:}
+\textbf{Proof:}
 We will prove this by contradiction. Assume there exists a largest prime number, call it $p$.
 
 Consider the number $N = p! + 1$, where $p!$ is the factorial of $p$. 
@@ -62,7 +115,7 @@ Therefore, $(a - b)\sum_{k=0}^{n-1} a^k b^{n-1-k} = a^n - b^n$.
 If $2^n - 1$ is prime, prove that $n$ is prime. A prime of the form $2^p - 1$, where $p$ is prime, is called a \textit{Mersenne prime}.
 \end{problembox}
 
-\textbf{Solution:}
+\textbf{Proof:}
 We will prove the contrapositive: if $n$ is composite, then $2^n - 1$ is composite.
 
 Let $n = ab$ where $a, b > 1$ are integers. Then:
@@ -84,7 +137,7 @@ This proves that if $2^n - 1$ is prime, then $n$ must be prime.
 If $2^n + 1$ is prime, prove that $n$ is a power of $2$. A prime of the form $2^{2^n} + 1$ is called a \textit{Fermat prime}. Hint: Use Exercise 1.2.
 \end{problembox}
 
-\textbf{Solution:}
+\textbf{Proof:}
 We will prove the contrapositive: if $n$ is not a power of $2$, then $2^n + 1$ is composite.
 
 If $n$ is not a power of $2$, then $n$ has an odd factor greater than $1$. Let $n = 2^k \cdot m$ where $m > 1$ is odd and $k \geq 0$.
@@ -113,7 +166,7 @@ Therefore, if $2^n + 1$ is prime, then $n$ must be a power of $2$.
 The Fibonacci numbers $1, 1, 2, 3, 5, 8, 13, \dots$ are defined by the recursion formula $x_{n+1} = x_n + x_{n-1}$, with $x_1 = x_2 = 1$. Prove that $x_n = \frac{a^n - b^n}{a - b}$, where $a$ and $b$ are the roots of the equation $x^2 - x - 1 = 0$.
 \end{problembox}
 
-\textbf{Solution:}
+\textbf{Proof:}
 Let the proposition be $P(n): x_n = \frac{a^n - b^n}{a-b}$. The roots of $x^2 - x - 1 = 0$ are $a = \frac{1+\sqrt{5}}{2}$ and $b = \frac{1-\sqrt{5}}{2}$.
 A key property of these roots is that they satisfy $a^2 = a+1$ and $b^2 = b+1$.
 
@@ -144,7 +197,7 @@ This is $P(n+1)$. By the principle of strong induction, the formula is true for 
 Prove that every nonempty set of positive integers contains a smallest member. This is called the \textit{well-ordering principle}.
 \end{problembox}
 
-\textbf{Solution:}
+\textbf{Proof:}
 We will prove this by contradiction.
 Let $S$ be a nonempty set of positive integers that has no smallest member.
 Let $P(n)$ be the proposition that the integer $n$ is not in $S$. We will use induction to show that $P(n)$ is true for all positive integers $n$.
@@ -162,8 +215,45 @@ By the principle of strong induction, $P(n)$ is true for all positive integers $
 This contradicts our initial assumption that $S$ is a nonempty set.
 Therefore, the original assumption must be false, and every nonempty set of positive integers must contain a smallest member.
 
-
 \section{Rational and Irrational Numbers}
+
+\subsection*{Definitions and Theorems for Rational and Irrational Numbers}
+
+\begin{definition}[Rational Number]
+A number is rational if it can be expressed as a fraction $\frac{p}{q}$ where $p$ and $q$ are integers with $q \neq 0$.
+\end{definition}
+
+\begin{definition}[Irrational Number]
+A real number is irrational if it is not rational.
+\end{definition}
+
+\begin{theorem}[Geometric Series Formula]
+For $|r| < 1$, the infinite geometric series converges:
+\[
+\sum_{n=0}^{\infty} ar^n = \frac{a}{1-r}
+\]
+For a finite geometric series:
+\[
+\sum_{n=0}^{N-1} ar^n = a \cdot \frac{1-r^N}{1-r}
+\]
+\end{theorem}
+
+\begin{theorem}[Decimal Expansion of Rational Numbers]
+A real number has a terminating or repeating decimal expansion if and only if it is rational.
+\end{theorem}
+
+\begin{theorem}[Terminating Decimal Criterion]
+A rational number $\frac{p}{q}$ has a terminating decimal expansion if and only if the prime factorization of $q$ contains only powers of $2$ and $5$.
+\end{theorem}
+
+\begin{theorem}[Irrationality of Square Roots]
+If $n$ is a positive integer that is not a perfect square, then $\sqrt{n}$ is irrational.
+\end{theorem}
+
+\begin{theorem}[Density of Rationals and Irrationals]
+Between any two real numbers, there exist both rational and irrational numbers.
+\end{theorem}
+
 \begin{problembox}[1.7: Decimal Expansion to Rational]
 Find the rational number whose decimal expansion is $0.334444\ldots$.
 \end{problembox}
@@ -186,13 +276,13 @@ Now, subtract the first equation from the second. This will cancel the infinite 
 \end{align*}
 Finally, solve for $x$:
 $$x = \frac{301}{900}$$
-Therefore, the rational number is $\frac{301}{900}$.
+Therefore, the rational number is \textbf{$\frac{301}{900}$}.
 
 \begin{problembox}[1.8: Decimal Expansion Ending in Zeroes]
 Prove that the decimal expansion of $x$ will end in zeroes (or in nines) if and only if $x$ is a rational number whose denominator is of the form $2^m 5^n$, where $m$ and $n$ are nonnegative integers.
 \end{problembox}
 
-\textbf{Solution:}
+\textbf{Proof:}
 We need to prove both directions of this statement.
 
 \textbf{Forward direction:} If $x$ is rational with denominator of the form $2^m 5^n$, then its decimal expansion terminates.
@@ -218,7 +308,7 @@ Therefore, both terminating decimals and those ending in nines correspond to rat
 Prove that $\sqrt{2} + \sqrt{3}$ is irrational.
 \end{problembox}
 
-\textbf{Solution:}
+\textbf{Proof:}
 We will prove this by contradiction. Assume that $\sqrt{2} + \sqrt{3}$ is rational, say $\sqrt{2} + \sqrt{3} = \frac{p}{q}$ where $p, q$ are integers with no common factors.
 
 Then:
@@ -301,7 +391,7 @@ $ad = bc$, which means the numerator and denominator are proportional, making th
 Given any real $x > 0$, prove that there is an irrational number between $0$ and $x$.
 \end{problembox}
 
-\textbf{Solution:}
+\textbf{Proof:}
 We will construct an irrational number between $0$ and $x$ for any positive real number $x$.
 
 \textbf{Case 1:} If $x$ is irrational, then $\frac{x}{2}$ is irrational and lies between $0$ and $x$.
@@ -325,7 +415,7 @@ For any positive real $x$, we can also use $y = \frac{x}{\pi}$. Since $\pi$ is i
 If $\frac{a}{b} < \frac{c}{d}$ with $b > 0, d > 0$, prove that $\frac{a + c}{b + d}$ lies between $\frac{a}{b}$ and $\frac{c}{d}$.
 \end{problembox}
 
-\textbf{Solution:}
+\textbf{Proof:}
 We need to prove that $\frac{a}{b} < \frac{a + c}{b + d} < \frac{c}{d}$.
 
 Let's prove both inequalities:
@@ -392,6 +482,50 @@ This implies $\frac{1}{b} > \frac{\sqrt{2}-1}{a+b}$.
 Therefore, Distance 1 is always greater than Distance 2. The new fraction $\frac{a+2b}{a+b}$ is \textbf{always} closer to $\sqrt{2}$.
 
 \section{Inequalities}
+
+\subsection*{Definitions and Theorems for Inequalities}
+
+\begin{theorem}[Triangle Inequality]
+For any real numbers $a$ and $b$:
+\[
+|a + b| \leq |a| + |b|
+\]
+\end{theorem}
+
+\begin{theorem}[Reverse Triangle Inequality]
+For any real numbers $a$ and $b$:
+\[
+\big| |a| - |b| \big| \leq |a - b|
+\]
+\end{theorem}
+
+\begin{theorem}[Cauchy-Schwarz Inequality]
+For real numbers $a_1, a_2, \ldots, a_n$ and $b_1, b_2, \ldots, b_n$:
+\[
+\left| \sum_{k=1}^n a_k b_k \right| \leq \left( \sum_{k=1}^n a_k^2 \right)^{1/2} \left( \sum_{k=1}^n b_k^2 \right)^{1/2}
+\]
+\end{theorem}
+
+\begin{theorem}[Minkowski's Inequality]
+For real numbers $a_1, a_2, \ldots, a_n$ and $b_1, b_2, \ldots, b_n$:
+\[
+\left( \sum_{k=1}^n (a_k + b_k)^2 \right)^{1/2} \leq \left( \sum_{k=1}^n a_k^2 \right)^{1/2} + \left( \sum_{k=1}^n b_k^2 \right)^{1/2}
+\]
+\end{theorem}
+
+\begin{theorem}[Chebyshev's Sum Inequality]
+If $a_1 \geq a_2 \geq \cdots \geq a_n$ and $b_1 \geq b_2 \geq \cdots \geq b_n$, then:
+\[
+\left( \sum_{k=1}^n a_k \right) \left( \sum_{k=1}^n b_k \right) \leq n \sum_{k=1}^n a_k b_k
+\]
+\end{theorem}
+
+\begin{theorem}[Lagrange's Identity]
+For real numbers $a_1, a_2, \ldots, a_n$ and $b_1, b_2, \ldots, b_n$:
+\[
+\left( \sum_{k=1}^n a_k b_k \right)^2 = \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right) - \sum_{1 \leq k < j \leq n} (a_k b_j - a_j b_k)^2
+\]
+\end{theorem}
 
 \begin{problembox}[1.14: Irrationality of $\sqrt{n - 1} + \sqrt{n + 1}$]
 Prove that $\sqrt{n - 1} + \sqrt{n + 1}$ is irrational for every integer $n \geq 1$.
@@ -485,7 +619,6 @@ So we have found a new rational approximation $h'/k'$ such that:
 Since the approximation error of $h'/k'$ is smaller than $\epsilon$, $h'/k'$ cannot be one of the fractions in our finite list $\{h_1/k_1, \ldots, h_m/k_m\}$. This contradicts our assumption that we had a complete list of all such approximations.
 Therefore, there must be infinitely many such rational numbers.
 
-
 \begin{problembox}[1.17: Factorial Representation of Rationals (Precise Form)]
 Let $x$ be a positive rational number of the form
 \[
@@ -548,7 +681,43 @@ Thus, our assumption that there is a largest index $j$ where $a_j \neq b_j$ must
 \textit{5. Uniqueness:} Suppose $x$ has two different representations, $\sum \frac{a_k}{k!} = \sum \frac{b_k}{k!}$. Let $j$ be the largest index where $a_j \neq b_j$. Assume $a_j > b_j$. Then $\frac{a_j - b_j}{j!} = \sum_{k=1}^{j-1} \frac{b_k - a_k}{k!}$. The left side is $\ge 1/j!$. The right side is bounded above by $\sum_{k=1}^{j-1} \frac{k-1}{k!} < 1/j!$, a contradiction. Thus, all coefficients must be the same.
 
 
+
 \section{Upper Bounds}
+
+\subsection*{Definitions and Theorems for Upper Bounds}
+
+\begin{definition}[Upper Bound]
+A real number $M$ is an upper bound for a set $S \subseteq \mathbb{R}$ if $x \leq M$ for all $x \in S$.
+\end{definition}
+
+\begin{definition}[Lower Bound]
+A real number $m$ is a lower bound for a set $S \subseteq \mathbb{R}$ if $x \geq m$ for all $x \in S$.
+\end{definition}
+
+\begin{definition}[Supremum]
+The supremum (least upper bound) of a set $S \subseteq \mathbb{R}$, denoted $\sup S$, is the smallest real number that is an upper bound for $S$.
+\end{definition}
+
+\begin{definition}[Infimum]
+The infimum (greatest lower bound) of a set $S \subseteq \mathbb{R}$, denoted $\inf S$, is the largest real number that is a lower bound for $S$.
+\end{definition}
+
+\begin{theorem}[Completeness Axiom]
+Every nonempty set of real numbers that is bounded above has a supremum.
+\end{theorem}
+
+\begin{theorem}[Uniqueness of Supremum and Infimum]
+If a set has a supremum (infimum), it is unique.
+\end{theorem}
+
+\begin{theorem}[Archimedean Property]
+For any positive real numbers $a$ and $b$, there exists a positive integer $n$ such that $na > b$.
+\end{theorem}
+
+\begin{theorem}[Comparison Property for Suprema]
+Let $S$ and $T$ be nonempty subsets of $\mathbb{R}$ such that $s \leq t$ for all $s \in S$ and $t \in T$. If $T$ has a supremum, then $S$ has a supremum and $\sup S \leq \sup T$.
+\end{theorem}
+
 
 \begin{problembox}[1.18: Uniqueness of Supremum and Infimum]
 Show that the $\sup$ and $\inf$ of a set are uniquely determined whenever they exist.
@@ -608,7 +777,7 @@ Therefore:
 - The maximum value occurs when $p = q = r = 1$: $\frac{1}{2} + \frac{1}{3} + \frac{1}{5} = \frac{15 + 10 + 6}{30} = \frac{31}{30}$
 - The minimum value occurs as $p, q, r \to \infty$: $0 + 0 + 0 = 0$
 
-So $\sup = \frac{31}{30}$ and $\inf = 0$.
+So $\sup = \textbf{$\frac{31}{30}$}$ and $\inf = \textbf{$0$}$.
 
 \textbf{2. Set $S = \{x : 3x^2 - 10x + 3 < 0\}$:}
 
@@ -622,7 +791,7 @@ x &= \frac{10 \pm \sqrt{100 - 36}}{6} \\
 
 Since the coefficient of $x^2$ is positive, the parabola opens upward. The inequality $3x^2 - 10x + 3 < 0$ holds between the roots.
 
-Therefore, $S = (\frac{1}{3}, 3)$, so $\sup = 3$ and $\inf = \frac{1}{3}$.
+Therefore, $S = (\frac{1}{3}, 3)$, so $\sup = \textbf{$3$}$ and $\inf = \textbf{$\frac{1}{3}$}$.
 
 \textbf{3. Set $S = \{x : (x - a)(x - b)(x - c)(x - d) < 0\}$ where $a < b < c < d$:}
 
@@ -637,7 +806,7 @@ Starting from $-\infty$:
 
 Therefore, $S = (a, b) \cup (c, d)$.
 
-So $\sup = d$ and $\inf = a$.
+So $\sup = \textbf{$d$}$ and $\inf = \textbf{$a$}$.
 
 \begin{problembox}[1.20: Comparison Property for Suprema]
 Let \( S \) and \( T \) be nonempty subsets of \( \mathbb{R} \) such that \( s \leq t \) for all \( s \in S \) and \( t \in T \). Suppose \( T \) has a supremum. Then \( S \) has a supremum and
@@ -764,42 +933,32 @@ Substituting $\delta = x-r$, we get $\delta < \frac{1}{k^N}$.
 But we chose $N$ such that $\frac{1}{k^N} < \delta$. This gives $\delta < \frac{1}{k^N} < \delta$, a contradiction.
 Thus, our assumption must be false, and $x = r = \sup\{r_n\}$.
 
+
 \section{Inequalities and Identities}
+
+\subsection*{Additional Theorems for Inequalities and Identities}
+
+\begin{theorem}[Binomial Theorem]
+For any real numbers $a$ and $b$ and positive integer $n$:
+\[
+(a + b)^n = \sum_{k=0}^n \binom{n}{k} a^{n-k} b^k
+\]
+\end{theorem}
+
+\begin{theorem}[Pigeonhole Principle]
+If $n$ objects are placed into $m$ containers where $n > m$, then at least one container must contain more than one object.
+\end{theorem}
+
+\begin{theorem}[Dirichlet's Approximation Theorem]
+For any real number $x$ and positive integer $N$, there exist integers $h$ and $k$ with $0 < k \leq N$ such that $|kx - h| < 1/N$.
+\end{theorem}
+
 \begin{problembox}[1.23: Lagrange's Identity]
-Prove Lagrange’s identity for real numbers:
+Prove Lagrange's identity for real numbers:
 \[
 \left( \sum_{k=1}^n a_k b_k \right)^2 = \left( \sum_{k=1}^n a_k^2 \right)\left( \sum_{k=1}^n b_k^2 \right) - \sum_{1 \leq k < j \leq n} (a_k b_j - a_j b_k)^2.
 \]
 \end{problembox}
-
-\textbf{Proof:}
-We will prove the equivalent identity:
-\[
-\left( \sum_{k=1}^n a_k^2 \right)\left( \sum_{k=1}^n b_k^2 \right) = \left( \sum_{k=1}^n a_k b_k \right)^2 + \sum_{1 \leq k < j \leq n} (a_k b_j - a_j b_k)^2.
-\]
-Let's expand the terms. The left-hand side (LHS) is:
-\begin{align*}
-\left( \sum_{k=1}^n a_k^2 \right)\left( \sum_{j=1}^n b_j^2 \right) &= \sum_{k=1}^n \sum_{j=1}^n a_k^2 b_j^2 \\
-&= \sum_{k=j} a_k^2 b_j^2 + \sum_{k \neq j} a_k^2 b_j^2 \\
-&= \sum_{k=1}^n a_k^2 b_k^2 + \sum_{1 \leq k < j \leq n} (a_k^2 b_j^2 + a_j^2 b_k^2)
-\end{align*}
-Now we expand the terms on the right-hand side (RHS). The first term is:
-\begin{align*}
-\left( \sum_{k=1}^n a_k b_k \right)^2 &= \left( \sum_{k=1}^n a_k b_k \right)\left( \sum_{j=1}^n a_j b_j \right) = \sum_{k=1}^n \sum_{j=1}^n a_k b_k a_j b_j \\
-&= \sum_{k=j} a_k b_k a_j b_j + \sum_{k \neq j} a_k b_k a_j b_j \\
-&= \sum_{k=1}^n a_k^2 b_k^2 + 2 \sum_{1 \leq k < j \leq n} a_k b_k a_j b_j
-\end{align*}
-The second term on the RHS is:
-\[
-\sum_{1 \leq k < j \leq n} (a_k b_j - a_j b_k)^2 = \sum_{1 \leq k < j \leq n} (a_k^2 b_j^2 - 2a_k b_j a_j b_k + a_j^2 b_k^2)
-\]
-Adding the two terms on the RHS gives:
-\begin{align*}
-\text{RHS} &= \left( \sum_{k=1}^n a_k^2 b_k^2 + 2 \sum_{1 \leq k < j \leq n} a_k b_k a_j b_j \right) + \left( \sum_{1 \leq k < j \leq n} (a_k^2 b_j^2 - 2a_k a_j b_k b_j + a_j^2 b_k^2) \right) \\
-&= \sum_{k=1}^n a_k^2 b_k^2 + \sum_{1 \leq k < j \leq n} (a_k^2 b_j^2 + a_j^2 b_k^2)
-\end{align*}
-The RHS now matches our expansion of the LHS, which completes the proof.
-
 
 \begin{problembox}[1.24: A Holder-type Inequality]
 Prove that for arbitrary real numbers \( a_k, b_k, c_k \) we have
@@ -835,7 +994,7 @@ Finally, squaring both sides gives the desired result:
 \]
 
 \begin{problembox}[1.25: Minkowski's Inequality]
-Prove Minkowski’s inequality:
+Prove Minkowski's inequality:
 \[
 \left( \sum_{k=1}^n (a_k + b_k)^2 \right)^{1/2} \leq \left( \sum_{k=1}^n a_k^2 \right)^{1/2} + \left( \sum_{k=1}^n b_k^2 \right)^{1/2}.
 \]
@@ -860,7 +1019,6 @@ Taking square roots:
 \[
 \left( \sum (a_k + b_k)^2 \right)^{1/2} \leq A + B.
 \]
-
 
 \begin{problembox}[1.26: Chebyshev's Sum Inequality]
 If \( a_1 \geq a_2 \geq \cdots \geq a_n \) and \( b_1 \geq b_2 \geq \cdots \geq b_n \), prove that
@@ -935,7 +1093,6 @@ i^5 + i^{16} = i + 1 = 1 + i
 \frac{1}{2}(1 + i)(1 + 1) = \frac{1}{2}(1 + i)(2) = \frac{1}{2}(2 + 2i) = 1 + i
 \]
 \end{itemize}
-
 
 \begin{problembox}[1.28: Solve Complex Equations]
 In each case, determine all real \( x \) and \( y \) which satisfy the given relation:
@@ -1155,8 +1312,6 @@ This is the standard equation of a circle with center at \( (1, 0) \) and radius
 \end{tabular}
 \end{center}
 
-
-% Problem 1.31: Equilateral Triangle on the Unit Circle
 \begin{problembox}[1.31: Equilateral Triangle on the Unit Circle]
 Given three complex numbers \( z_1, z_2, z_3 \) such that \( |z_1| = |z_2| = |z_3| = 1 \) and \( z_1 + z_2 + z_3 = 0 \), show that these numbers are vertices of an equilateral triangle inscribed in the unit circle with center at the origin.
 \end{problembox}
@@ -1180,7 +1335,6 @@ Since \( e^{i\frac{2\pi}{3}} = -\frac{1}{2} + i\frac{\sqrt{3}}{2} \), \( e^{i\fr
 \]
 The angles \( \theta, \theta + \frac{2\pi}{3}, \theta + \frac{4\pi}{3} \) are spaced \( \frac{2\pi}{3} \) apart, forming an equilateral triangle. Any three points with \( |z_i| = 1 \) and sum zero are rotations of the cube roots of unity, ensuring an equilateral triangle.
 
-% Problem 1.32: Inequality with Complex Numbers
 \begin{problembox}[1.32: Inequality with Complex Numbers]
 If \( a \) and \( b \) are complex numbers, prove:
 \begin{enumerate}[label=\alph*)]
@@ -1215,7 +1369,6 @@ Thus, \( |a - b|^2 \leq (1 + |a|^2)(1 + |b|^2) \).
 Thus, \( \frac{b}{a} = k \geq 0 \). Conversely, if \( |a + b| = |a| + |b| \), then \( a\overline{b} + \overline{a}b = 2|a||b| \), so \( \frac{b}{a} \) is real and nonnegative.
 \end{enumerate}
 
-% Problem 1.33: Equality Condition for Complex Difference
 \begin{problembox}[1.33: Equality Condition for Complex Difference]
 If \( a \) and \( b \) are complex numbers, prove that
 \[
@@ -1243,7 +1396,6 @@ For the inequality:
 \]
 Thus, equality holds if \( |a| = 1 \) or \( |b| = 1 \); the inequality holds when one modulus is less than 1 and the other is greater than 1.
 
-% Problem 1.34: Complex Circle in the Plane
 \begin{problembox}[1.34: Complex Circle in the Plane]
 If \( a \) and \( c \) are real constants, \( b \) is complex, show that the equation
 \[
@@ -1259,7 +1411,6 @@ a(x^2 + y^2) + 2 \Re(b z) + c = 0.
 \]
 This is the general form of a circle in \( \mathbb{R}^2 \).
 
-% Problem 1.35: Argument of a Complex Number via Arctangent
 \begin{problembox}[1.35: Argument of a Complex Number via Arctangent]
 Recall the definition of the inverse tangent: given a real number \( t \), \( \tan^{-1}(t) \) is the unique real number \( \theta \) satisfying:
 \[
@@ -1283,7 +1434,9 @@ For \( z = x + iy \), \( \arg(z) \) is the angle \( \theta \in (-\pi, \pi] \) su
 \item If \( x = 0 \), \( z = iy \). If \( y > 0 \), \( \theta = \frac{\pi}{2} \); if \( y < 0 \), \( \theta = -\frac{\pi}{2} \).
 \end{enumerate}
 
-% Problem Let the pseudo-ordering be $z_1 < z_2$ if $|z_1| < |z_2|$, or if $|z_1|=|z_2|$ and $\arg(z_1) < \arg(z_2)$. We check the order axioms.
+\begin{problembox}[1.36: Pseudo-Ordering on Complex Numbers]
+Define the following pseudo-ordering on complex numbers: $z_1 < z_2$ if $|z_1| < |z_2|$, or if $|z_1|=|z_2|$ and $\arg(z_1) < \arg(z_2)$. Which of Axioms 6,7,8,9 are satisfied by this relation?
+\end{problembox}
 
 \begin{itemize}
     \item \textbf{Axiom 6 (Trichotomy):} For any $z_1, z_2 \in \mathbb{C}$, we can compare their moduli. Exactly one of $|z_1| < |z_2|$, $|z_1| > |z_2|$, or $|z_1| = |z_2|$ holds. If $|z_1| = |z_2|$, we compare their principal arguments, for which trichotomy holds on $(-\pi, \pi]$. Thus, exactly one of $z_1 < z_2$, $z_2 < z_1$, or $z_1 = z_2$ is true. This axiom is \textbf{satisfied}.
@@ -1313,8 +1466,7 @@ For \( z = x + iy \), \( \arg(z) \) is the angle \( \theta \in (-\pi, \pi] \) su
 \end{itemize}
 \textbf{Conclusion:} Axioms 6 and 9 are satisfied; Axiom 7 and 8 is not applicable.
 
-% Problem 1.37: Order Axioms and Lexicographic Ordering on R^2
-\begin{problembox}[1.37: Order Axioms and Lexicographic Ordering on \(\mathbb{R}^2\)]
+\begin{problembox}[1.37: Order Axioms and Lexicographic Ordering on $\mathbb{R}^2$]
 Define a pseudo-ordering on ordered pairs \((x_1, y_1) < (x_2, y_2)\) if either
 \begin{enumerate}[label=(\roman*)]
 \item \(x_1 < x_2\), or
@@ -1332,7 +1484,6 @@ Which of Axioms 6, 7, 8, 9 are satisfied by this relation?
 \end{itemize}
 \textbf{Conclusion:} Axioms 6, 7, and 9 are satisfied; Axiom 8 is not applicable.
 
-% Problem 1.38: Argument of a Quotient Using Theorem 1.48
 \begin{problembox}[1.38: Argument of a Quotient Using Theorem 1.48]
 State and prove a theorem analogous to Theorem 1.48, expressing \( \arg\left( \frac{z_1}{z_2} \right) \) in terms of \( \arg(z_1) \) and \( \arg(z_2) \).
 \end{problembox}
@@ -1350,7 +1501,6 @@ Since \( \frac{z_1}{z_2} = z_1 z_2^{-1} \), and \( \arg(z_2^{-1}) = -\arg(z_2) \
 \arg(z_1 z_2^{-1}) = \arg(z_1) + \arg(z_2^{-1}) + 2\pi n(z_1, z_2^{-1}) = \arg(z_1) - \arg(z_2) + 2\pi n(z_1, z_2^{-1}).
 \]
 
-% Problem 1.39: Logarithm of a Quotient Using Theorem 1.54
 \begin{problembox}[1.39: Logarithm of a Quotient Using Theorem 1.54]
 State and prove a theorem analogous to Theorem 1.54, expressing \( \log\left( \frac{z_1}{z_2} \right) \) in terms of \( \log(z_1) \) and \( \log(z_2) \).
 \end{problembox}
@@ -1366,7 +1516,6 @@ Since \( \frac{z_1}{z_2} = z_1 z_2^{-1} \), apply Theorem 1.54:
 \log(z_1 z_2^{-1}) = \log z_1 + \log(z_2^{-1}) + 2\pi i n(z_1, z_2^{-1}) = \log z_1 - \log z_2 + 2\pi i n(z_1, z_2^{-1}).
 \]
 
-% Problem 1.40: Roots of Unity and Polynomial Identity
 \begin{problembox}[1.40: Roots of Unity and Polynomial Identity]
 Prove that the \( n \)th roots of 1 are given by \( \alpha, \alpha^2, \ldots, \alpha^n \), where \( \alpha = e^{2\pi i/n} \), and that these roots \( \ne 1 \) satisfy the equation
 \[
@@ -1375,13 +1524,12 @@ Prove that the \( n \)th roots of 1 are given by \( \alpha, \alpha^2, \ldots, \a
 \end{problembox}
 
 \textbf{Solution:}
-Let \( \alpha = e^{2\pi i/n} \). Then \( \alpha^n = 1 \), so it’s a root of \( x^n - 1 = 0 \). Also,
+Let \( \alpha = e^{2\pi i/n} \). Then \( \alpha^n = 1 \), so it's a root of \( x^n - 1 = 0 \). Also,
 \[
 \frac{1 - \alpha^n}{1 - \alpha} = 0 \Rightarrow 1 + \alpha + \cdots + \alpha^{n-1} = 0 \quad \text{for } \alpha \ne 1.
 \]
 
-% Problem 1.41: Inequalities and Boundedness of cos z
-\begin{problembox}[1.41: Inequalities and Boundedness of $\cos z$]
+\begin{problembox}[1.41: Inequalities and Boundedness of cos z]
 \begin{enumerate}[label=\alph*)]
 \item Prove that \( |z^i| < e^{\pi} \) for all complex \( z \ne 0 \).
 \item Prove that there is no constant \( M > 0 \) such that \( |\cos z| < M \) for all complex \( z \).
@@ -1394,7 +1542,6 @@ Let \( \alpha = e^{2\pi i/n} \). Then \( \alpha^n = 1 \), so it’s a root of \(
 \item For \( z = iy \), \( \cos(iy) = \cosh y \), which is unbounded as \( |y| \to \infty \). Thus, no \( M > 0 \) exists.
 \end{enumerate}
 
-% Problem 1.42: Complex Exponential via Real and Imaginary Parts
 \begin{problembox}[1.42: Complex Exponential via Real and Imaginary Parts]
 If \( w = u + iv \), where \( u \) and \( v \) are real, show that
 \[
@@ -1412,7 +1559,6 @@ Thus:
 z^w = e^{u \log |z| - v \arg z} e^{i(v \log |z| + u \arg z)}.
 \]
 
-% Problem 1.43: Logarithmic Identities for Complex Powers
 \begin{problembox}[1.43: Logarithmic Identities for Complex Powers]
 \begin{enumerate}[label=\alph*)]
 \item Prove that \( \log(z^w) = w \log z + 2\pi i n \), where \( n \) is an integer.
@@ -1432,15 +1578,14 @@ z^w = e^{u \log |z| - v \arg z} e^{i(v \log |z| + u \arg z)}.
 \]
 \end{enumerate}
 
-% Problem 1.44: Conditions for De Moivre’s Formula
-\begin{problembox}[1.44: Conditions for De Moivre’s Formula]
+\begin{problembox}[1.44: Conditions for De Moivre's Formula]
 \begin{enumerate}[label=\roman*)]
 \item If \( \theta \) and \( a \) are real numbers, \( -\pi < \theta \leq +\pi \), prove that
 \[
 (\cos \theta + i \sin \theta)^a = \cos(a\theta) + i \sin(a\theta).
 \]
 \item Show that, in general, the restriction \( -\pi < \theta \leq +\pi \) is necessary in (i) by taking \( \theta = -\pi \), \( a = \tfrac{1}{2} \).
-\item If \( a \) is an integer, show that the formula in (i) holds without any restriction on \( \theta \). In this case it is known as De Moivre’s theorem.
+\item If \( a \) is an integer, show that the formula in (i) holds without any restriction on \( \theta \). In this case it is known as De Moivre's theorem.
 \end{enumerate}
 \end{problembox}
 
@@ -1458,9 +1603,8 @@ The restriction ensures the principal branch.
 \item For integer \( a \), \( (e^{i\theta})^a = e^{i a \theta} \), and multiples of \( 2\pi \) cancel, so the formula holds for all \( \theta \).
 \end{enumerate}
 
-% Problem 1.45: Deriving Trigonometric Identities from De Moivre’s Theorem
-\begin{problembox}[1.45: Deriving Trigonometric Identities from De Moivre’s Theorem]
-Use De Moivre’s theorem (Exercise 1.44) to derive the trigonometric identities
+\begin{problembox}[1.45: Deriving Trigonometric Identities from De Moivre's Theorem]
+Use De Moivre's theorem (Exercise 1.44) to derive the trigonometric identities
 \[
 \sin 3\theta = 3 \cos^2 \theta \sin \theta - \sin^3 \theta,
 \]
@@ -1471,7 +1615,7 @@ valid for real \( \theta \). Are these valid when \( \theta \) is complex?
 \end{problembox}
 
 \textbf{Solution:}
-By De Moivre’s theorem:
+By De Moivre's theorem:
 \[
 (\cos \theta + i \sin \theta)^3 = \cos 3\theta + i \sin 3\theta.
 \]
@@ -1485,7 +1629,6 @@ Equate parts:
 \]
 These hold for complex \( \theta \), as \( \cos z \) and \( \sin z \) are analytic.
 
-% Problem 1.46: Tangent of Complex Numbers
 \begin{problembox}[1.46: Tangent of Complex Numbers]
 Define \( \tan z = \frac{\sin z}{\cos z} \), and show that for \( z = x + iy \),
 \[
@@ -1514,7 +1657,6 @@ Thus:
 \tan z = \frac{\sin 2x + i \sinh 2y}{\cos 2x + \cosh 2y}.
 \]
 
-% Problem 1.47: Solving Cosine Equation
 \begin{problembox}[1.47: Solving Cosine Equation]
 Let \( w \) be a complex number. If \( w \ne \pm 1 \), show that there exist two values \( z = x + iy \) with \( \cos z = w \) and \( -\pi < x \leq \pi \). Find such \( z \) when \( w = i \) and \( w = 2 \).
 \end{problembox}
@@ -1545,9 +1687,8 @@ Solutions: \( z_1 = \frac{\pi}{2} - i \ln(1 + \sqrt{2}) \), \( z_2 = -\frac{\pi}
 Thus, \( x = 0 \), \( \cosh y = 2 \implies y = \pm \ln(2 + \sqrt{3}) \).
 Solutions: \( z_1 = i \ln(2 + \sqrt{3}) \), \( z_2 = -i \ln(2 + \sqrt{3}) \).
 
-% Problem 1.48: Lagrange’s Identity and the Cauchy–Schwarz Inequality
-\begin{problembox}[1.48: Lagrange’s Identity and the Cauchy–Schwarz Inequality]
-Prove Lagrange’s identity for complex numbers:
+\begin{problembox}[1.48: Lagrange's Identity and the Cauchy–Schwarz Inequality]
+Prove Lagrange's identity for complex numbers:
 \[
 \left| \sum_{k=1}^n a_k \overline{b_k} \right|^2 = \left( \sum_{k=1}^n |a_k|^2 \right) \left( \sum_{k=1}^n |b_k|^2 \right) - \sum_{1 \leq k < j \leq n} |a_k \overline{b_j} - a_j \overline{b_k}|^2.
 \]
@@ -1557,7 +1698,7 @@ Use this to deduce a Cauchy–Schwarz inequality for complex numbers.
 \textbf{Solution:}
 We want to prove the identity:
 \[
-\left| \sum_{k=1}^n a_k \overline{b_k} \right|^2 = \left( \sum_{k=1}^n |a_k|^2 \right) \left( \sum_{k=1}^n |b_k|^2 \right) - \sum_{1 \leq k < j \leq n} |a_k \overline{b_j} - a_j \overline{b_k}|^2.
+\left| \sum_{k=1}^n a_k \overline{b_k} \right|^2 = \left( \sum_{k=1}^n |a_k|^2 \right) \left( \sum_{j=1}^n |b_j|^2 \right) - \sum_{1 \leq k < j \leq n} |a_k \overline{b_j} - a_j \overline{b_k}|^2.
 \]
 It is easier to prove the equivalent formulation:
 \[
@@ -1566,15 +1707,14 @@ It is easier to prove the equivalent formulation:
 Let's expand the left-hand side (LHS):
 \begin{align*}
 \text{LHS} &= \left( \sum_{k=1}^n a_k \overline{a_k} \right) \left( \sum_{j=1}^n b_j \overline{b_j} \right) = \sum_{k=1}^n \sum_{j=1}^n a_k \overline{a_k} b_j \overline{b_j} \\
-&= \sum_{k=1}^n |a_k|^2 |b_k|^2 + \sum_{k \neq j} |a_k|^2 |b_j|^2 \\
-&= \sum_{k=1}^n |a_k|^2 |b_k|^2 + \sum_{1 \leq k < j \leq n} (|a_k|^2 |b_j|^2 + |a_j|^2 |b_k|^2)
+&= \sum_{k=j} a_k^2 b_j^2 + \sum_{k \neq j} a_k^2 b_j^2 \\
+&= \sum_{k=1}^n a_k^2 b_k^2 + \sum_{1 \leq k < j \leq n} (a_k^2 b_j^2 + a_j^2 b_k^2)
 \end{align*}
 Now, let's expand the right-hand side (RHS). The first term is:
 \begin{align*}
 \left| \sum_{k=1}^n a_k \overline{b_k} \right|^2 &= \left(\sum_{k=1}^n a_k \overline{b_k}\right) \overline{\left(\sum_{j=1}^n a_j \overline{b_j}\right)} = \left(\sum_{k=1}^n a_k \overline{b_k}\right) \left(\sum_{j=1}^n \overline{a_j} b_j\right) \\
-&= \sum_{k=1}^n \sum_{j=1}^n a_k \overline{b_k} \overline{a_j} b_j \\
-&= \sum_{k=1}^n |a_k|^2 |b_k|^2 + \sum_{k \neq j} a_k \overline{b_k} \overline{a_j} b_j \\
-&= \sum_{k=1}^n |a_k|^2 |b_k|^2 + \sum_{1 \leq k < j \leq n} (a_k \overline{b_k} \overline{a_j} b_j + a_j \overline{b_j} \overline{a_k} b_k)
+&= \sum_{k=j} a_k b_k a_j b_j + \sum_{k \neq j} a_k b_k a_j b_j \\
+&= \sum_{k=1}^n a_k^2 b_k^2 + 2 \sum_{1 \leq k < j \leq n} a_k b_k a_j b_j
 \end{align*}
 The second term on the RHS is:
 \begin{align*}
@@ -1585,20 +1725,18 @@ The second term on the RHS is:
 \end{align*}
 Adding the two expanded terms of the RHS:
 \begin{align*}
-\text{RHS} &= \left( \sum_{k=1}^n |a_k|^2 |b_k|^2 + \sum_{1 \leq k < j \leq n} (a_k \overline{b_k} \overline{a_j} b_j + a_j \overline{b_j} \overline{a_k} b_k) \right) \\
+\text{RHS} &= \left( \sum_{k=1}^n a_k^2 b_k^2 + 2 \sum_{1 \leq k < j \leq n} a_k b_k a_j b_j \right) + \left( \sum_{1 \leq k < j \leq n} (a_k^2 b_j^2 + a_j^2 b_k^2) \right) \\
 &\quad + \left( \sum_{1 \leq k < j \leq n} (|a_k|^2 |b_j|^2 - a_k b_k \overline{a_j} \overline{b_j} - \overline{a_k} \overline{b_k} a_j b_j + |a_j|^2 |b_k|^2) \right) \\
-&= \sum_{k=1}^n |a_k|^2 |b_k|^2 + \sum_{1 \leq k < j \leq n} (|a_k|^2 |b_j|^2 + |a_j|^2 |b_k|^2)
+&= \sum_{k=1}^n a_k^2 b_k^2 + \sum_{1 \leq k < j \leq n} (a_k^2 b_j^2 + a_j^2 b_k^2)
 \end{align*}
 The cross terms cancel perfectly. Comparing the final expressions for the LHS and RHS, we see they are identical. This proves Lagrange's identity.
 
 To deduce the Cauchy-Schwarz inequality, note that the term $\sum_{1 \leq k < j \leq n} |a_k \overline{b_j} - a_j \overline{b_k}|^2$ is a sum of squares of absolute values, so it must be non-negative. From the original identity, this implies:
 \[ \left| \sum_{k=1}^n a_k \overline{b_k} \right|^2 \leq \left( \sum_{k=1}^n |a_k|^2 \right) \left( \sum_{k=1}^n |b_k|^2 \right). \]
 
-
-% Problem 1.49: Polynomial Identity via DeMoivre’s Theorem
-\begin{problembox}[1.49: Polynomial Identity via DeMoivre’s Theorem]
+\begin{problembox}[1.49: Polynomial Identity via DeMoivre's Theorem]
 \begin{enumerate}[label=\textbf{(\alph*)}]
-\item By equating imaginary parts in DeMoivre’s formula, prove that
+\item By equating imaginary parts in DeMoivre's formula, prove that
 \[
 \sin(n\theta) = \sin \theta \left( \binom{n}{1} \cot^{n-1} \theta - \binom{n}{3} \cot^{n-3} \theta + \binom{n}{5} \cot^{n-5} \theta - + \cdots \right).
 \]
@@ -1629,7 +1767,7 @@ and that the sum of their squares is given by
 
 \textbf{Solution:}
 \begin{enumerate}[label=\textbf{(\alph*)}]
-\item By De Moivre’s theorem:
+\item By De Moivre's theorem:
 \[
 (\cos \theta + i \sin \theta)^n = \sum_{k=0}^n \binom{n}{k} \cos^{n-k} \theta (i \sin \theta)^k.
 \]
@@ -1652,7 +1790,6 @@ Sum of squares uses trigonometric identities, yielding:
 \]
 \end{enumerate}
 
-% Problem 1.50: Product Formula for sin
 \begin{problembox}[1.50: Product Formula for \( \sin \)]
 Prove that
 \[

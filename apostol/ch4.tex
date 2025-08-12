@@ -2,6 +2,28 @@
 
 \section{Limits of Sequences}
 
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Convergence of Sequences]
+A sequence $(x_n)$ in a metric space $(S,d)$ converges to $x \in S$ if for every $\varepsilon > 0$ there exists $N \in \mathbb{N}$ such that $d(x_n, x) < \varepsilon$ for all $n \geq N$. We write $x_n \to x$ or $\lim_{n \to \infty} x_n = x$.
+\end{definition}
+
+\begin{definition}[Cauchy Sequence]
+A sequence $(x_n)$ in a metric space $(S,d)$ is Cauchy if for every $\varepsilon > 0$ there exists $N \in \mathbb{N}$ such that $d(x_n, x_m) < \varepsilon$ for all $n, m \geq N$.
+\end{definition}
+
+\begin{theorem}[Geometric Sequence Convergence]
+If $|z| < 1$, then $z^n \to 0$. If $|z| > 1$, then $(z^n)$ diverges.
+\end{theorem}
+
+\begin{theorem}[Ratio Test]
+Let $(a_n)$ be a sequence of positive numbers. If $\limsup_{n \to \infty} \frac{a_{n+1}}{a_n} < 1$, then $\sum a_n$ converges. If $\liminf_{n \to \infty} \frac{a_{n+1}}{a_n} > 1$, then $\sum a_n$ diverges.
+\end{theorem}
+
+\begin{theorem}[Bounded Monotone Convergence]
+Every bounded monotone sequence converges.
+\end{theorem}
+
 \begin{problembox}[4.1: Limits of Sequences]
 Prove each of the following statements about sequences in $\mathbb{C}$:
 \begin{enumerate}[label=(\alph*)]
@@ -12,7 +34,7 @@ Prove each of the following statements about sequences in $\mathbb{C}$:
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Proof.}
 \begin{enumerate}[label=(\alph*)]
 \item If $|z|<1$, then $|z^n|=|z|^n\to 0$ by the geometric sequence property, hence $z^n\to 0$. If $|z|>1$, then $|z^n|=|z|^n\to +\infty$, so $(z^n)$ is unbounded and therefore not convergent in $\mathbb{C}$.
 \item If $|c_n|\le M$ for all $n$ and $z_n\to 0$, then $|c_n z_n|\le M|z_n|\to 0$.
@@ -35,18 +57,28 @@ If $a_{n+2} = (a_{n+1} + a_n)/2$ for all $n \geq 1$, show that $a_n \to (a_1 + 2
 \end{problembox}
 
 \noindent\textbf{Solution.}
-Solve the linear recurrence $a_{n+2}=(a_{n+1}+a_n)/2$. The characteristic equation is $2r^2-r-1=0$, with roots $r_1=1$ and $r_2=-\tfrac12$. Hence
+Using the hint, we have $a_{n+2} - a_{n+1} = \frac{1}{2}(a_n - a_{n+1})$. Let $d_n = a_{n+1} - a_n$ be the difference between consecutive terms. Then the recurrence becomes $d_{n+1} = -\frac{1}{2}d_n$.
+
+This gives us $d_n = d_1 \cdot \left(-\frac{1}{2}\right)^{n-1}$, where $d_1 = a_2 - a_1$. Since $\left(-\frac{1}{2}\right)^n \to 0$ as $n \to \infty$, we have $d_n \to 0$.
+
+Now, we can express $a_n$ in terms of the initial terms and the differences:
 \[
-a_n=A+B\Big(-\tfrac12\Big)^{\!n}.
+a_n = a_1 + \sum_{k=1}^{n-1} d_k = a_1 + d_1 \sum_{k=1}^{n-1} \left(-\frac{1}{2}\right)^{k-1}
 \]
-Using $a_1$ and $a_2$ to solve for $A,B$ shows that $A=\displaystyle\frac{a_1+2a_2}{3}$. Since $\big(-\tfrac12\big)^n\to 0$, we have $a_n\to A=(a_1+2a_2)/3$.
+
+The sum $\sum_{k=1}^{n-1} \left(-\frac{1}{2}\right)^{k-1}$ is a geometric series that converges to $\frac{1}{1 - \left(-\frac{1}{2}\right)} = \frac{2}{3}$ as $n \to \infty$.
+
+Therefore, as $n \to \infty$:
+\[
+a_n \to a_1 + d_1 \cdot \frac{2}{3} = a_1 + (a_2 - a_1) \cdot \frac{2}{3} = a_1 + \frac{2a_2}{3} - \frac{2a_1}{3} = \frac{a_1 + 2a_2}{3}
+\]
 \medskip
 
 \begin{problembox}[4.3: Recursive Sequence]
 If $0 < x_1 < 1$ and if $x_{n+1} = 1 - \sqrt{1 - x_n}$ for all $n \geq 1$, prove that $\{x_n\}$ is a decreasing sequence with limit 0. Prove also that $x_{n+1}/x_n \to \frac{1}{2}$.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Proof.}
 For $t\in(0,1)$, the inequality $\sqrt{1-t}>1-\tfrac{t}{2}$ holds (concavity of $\sqrt{\cdot}$ or binomial expansion). Thus
 \[
 x_{n+1}=1-\sqrt{1-x_n}<1-\Big(1-\tfrac{x_n}{2}\Big)=\tfrac{x_n}{2}<x_n,
@@ -65,7 +97,7 @@ Two sequences of positive integers $\{a_n\}$ and $\{b_n\}$ are defined recursive
 Prove that $a_n^2 - 2b_n^2 = 1$ for $n \geq 2$. Deduce that $a_n/b_n \to \sqrt{2}$ through values $> \sqrt{2}$, and that $2b_n/a_n \to \sqrt{2}$ through values $< \sqrt{2}$.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Proof.}
 From $(a+b\sqrt2)^2=(a^2+2b^2)+2ab\sqrt2$ we get
 \[
 a_n=a_{n-1}^{\,2}+2b_{n-1}^{\,2},\qquad b_n=2a_{n-1}b_{n-1}.
@@ -88,13 +120,13 @@ Let $f(x)=\dfrac{x^3+6}{7}$. Then $f'(x)=\dfrac{3x^2}{7}\ge 0$, so $f$ is increa
 \[
 f(x)-x=\frac{x^3-7x+6}{7}=\frac{(x-1)(x+3)(x-2)}{7}>0,
 \]
-so $f$ maps $[0,1]$ into itself and $f(x)>x$ for $x\in(0,1)$. Starting with $x_1=\tfrac12$, we get $0<x_1<x_2<\cdots\le 1$, hence $x_n\uparrow L\in[0,1]$. Passing to the limit in $x_{n+1}=f(x_n)$ gives $L=f(L)$, i.e., $L=1$. Thus for $x_1=\tfrac12$, $x_n\uparrow 1$.
+so $f$ maps $[0,1]$ into itself and $f(x)>x$ for $x\in(0,1)$. Starting with $x_1=\tfrac12$, we get $0<x_1<x_2<\cdots\le 1$, hence $x_n\uparrow L\in[0,1]$. Passing to the limit in $x_{n+1}=f(x_n)$ gives $L=f(L)$, i.e., $L=\textbf{$1$}$. Thus for $x_1=\tfrac12$, $x_n\uparrow \textbf{$1$}$.
 
 If $x_1=\tfrac32\in(1,2)$, then using the same factorization,
 \[
 f(x)-x=\frac{(x-1)(x+3)(x-2)}{7}<0\quad(1<x<2),
 \]
-so $x_{n+1}<x_n$ and $x_n>1$; the sequence decreases and is bounded below by $1$, hence $x_n\downarrow 1$.
+so $x_{n+1}<x_n$ and $x_n>1$; the sequence decreases and is bounded below by $1$, hence $x_n\downarrow \textbf{$1$}$.
 
 If $x_1=\tfrac52>2$, then $f(x)-x>0$ (all three factors positive), so $x_{n+1}>x_n$ and $x_n\to+\infty$ (since for large $x$, $f(x)\sim x^3/7>x$).
 \medskip
@@ -103,7 +135,7 @@ If $x_1=\tfrac52>2$, then $f(x)-x>0$ (all three factors positive), so $x_{n+1}>x
 If $|a_n| < 2$ and $|a_{n+2} - a_{n+1}| \leq \frac{1}{8} |a_{n+1}^2 - a_n^2|$ for all $n \geq 1$, prove that $\{a_n\}$ converges.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Proof.}
 Since $|a_{n+1}|,|a_n|<2$, we have $|a_{n+1}+a_n|<4$. Hence
 \[
 |a_{n+2}-a_{n+1}|\le\tfrac18|a_{n+1}^2-a_n^2|=\tfrac18|a_{n+1}-a_n||a_{n+1}+a_n|
@@ -120,7 +152,7 @@ so $(a_n)$ is Cauchy and converges.
 In a metric space $(S, d)$, assume that $x_n \to x$ and $y_n \to y$. Prove that $d(x_n, y_n) \to d(x, y)$.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Proof.}
 By the reverse triangle inequality,
 \[
 \big|d(x_n,y_n)-d(x,y)\big|\le d(x_n,x)+d(y_n,y)\to 0.
@@ -131,7 +163,7 @@ By the reverse triangle inequality,
 Prove that in a compact metric space $(S, d)$, every sequence in $S$ has a subsequence which converges in $S$. This property also implies that $S$ is compact but you are not required to prove this. (For a proof see either Reference 4.2 or 4.3.)
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Proof.}
 Let $(x_n)$ be a sequence in compact $S$. The open cover by balls of radius $1$ has a finite subcover, so all $x_n$ lie in some ball of radius $1$. Iterating with radii $1/2,1/4,\dots$ and using compactness (via the finite subcover property) yields a nested sequence of closed balls with radii $\to 0$ that contain infinitely many terms of the sequence. Choose one point from each ball in order to form a subsequence; by completeness of compact metric spaces (or Cantor's intersection theorem), the radii shrink to $0$ around some $x\in S$ and the subsequence converges to $x$.
 \medskip
 
@@ -139,13 +171,29 @@ Let $(x_n)$ be a sequence in compact $S$. The open cover by balls of radius $1$ 
 Let $A$ be a subset of a metric space $S$. If $A$ is complete, prove that $A$ is closed. Prove that the converse also holds if $S$ is complete.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Proof.}
 If $A$ is complete and $x\in\overline{A}$, then there exists $(a_n)\subset A$ with $a_n\to x$. Any convergent sequence is Cauchy; since $A$ is complete, its limit must lie in $A$, so $x\in A$. Thus $A$ is closed.
 
 Conversely, if $S$ is complete and $A$ is closed in $S$, then every Cauchy sequence in $A$ converges in $S$ (completeness) to some $x\in S$, and closeness of $A$ forces $x\in A$. Hence $A$ is complete.
 \medskip
 
 \section{Limits of Functions}
+
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Metric Space]
+A metric space is a set $S$ together with a function $d: S \times S \to [0,\infty)$ (called a metric) satisfying:
+\begin{enumerate}
+\item $d(x,y) = 0$ if and only if $x = y$
+\item $d(x,y) = d(y,x)$ for all $x,y \in S$
+\item $d(x,z) \leq d(x,y) + d(y,z)$ for all $x,y,z \in S$ (triangle inequality)
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[Reverse Triangle Inequality]
+For any metric space $(S,d)$ and $x,y,z \in S$: $|d(x,y) - d(x,z)| \leq d(y,z)$
+\end{theorem}
+
 Note: In Exercise 4.10 through 4.28, all functions are real-valued.
 
 \begin{problembox}[4.10: Function Limit Properties]
@@ -195,6 +243,24 @@ For fixed $m$, the inner limit is $\lim_{n\to\infty}\cos^{2n}(\theta)=\begin{cas
 \medskip
 
 \section{Continuity of real-valued functions}
+
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Continuity at a Point]
+A function $f: S \to T$ between metric spaces is continuous at $x \in S$ if for every $\varepsilon > 0$ there exists $\delta > 0$ such that $d_S(x,y) < \delta$ implies $d_T(f(x), f(y)) < \varepsilon$.
+\end{definition}
+
+\begin{theorem}[Sequential Continuity]
+A function $f: S \to T$ is continuous at $x$ if and only if $f(x_n) \to f(x)$ whenever $x_n \to x$.
+\end{theorem}
+
+\begin{theorem}[Extreme Value Theorem]
+A continuous function on a compact set attains its maximum and minimum values.
+\end{theorem}
+
+\begin{theorem}[Intermediate Value Theorem]
+If $f$ is continuous on $[a,b]$ and $f(a) < c < f(b)$, then there exists $x \in (a,b)$ such that $f(x) = c$.
+\end{theorem}
 
 \begin{problembox}[4.13: Zero Function on Rationals]
 Let \( f \) be continuous on \([a, b]\) and let \( f(x) = 0 \) when \( x \) is rational. Prove that \( f(x) = 0 \) for every \( x \) in \([a, b]\).
@@ -362,7 +428,7 @@ Let \( f \) be a function defined on \([0, 1]\) with the following property: For
 \end{problembox}
 
 \noindent\textbf{Solution.}
-(a) If $f$ is continuous on $[0,1]$, its image is an interval. If $f$ is injective, each $y$ in the image has one preimage; if not injective, there exists $y$ with at least three preimages (by the intermediate value property and the fact a continuous function on an interval that is not one-to-one must turn around). Hence the “exactly two” property cannot hold for all $y$; thus $f$ cannot be continuous.
+(a) If $f$ is continuous on $[0,1]$, its image is an interval. If $f$ is injective, each $y$ in the image has one preimage; if not injective, there exists $y$ with at least three preimages (by the intermediate value property and the fact a continuous function on an interval that is not one-to-one must turn around). Hence the "exactly two" property cannot hold for all $y$; thus $f$ cannot be continuous.
 
 (b) Define
 \[
@@ -375,7 +441,7 @@ f(x)=\begin{cases}
 \]
 Then $f((0,\tfrac12))=f((\tfrac12,1))=(0,1)$, so every $y\in(0,1)$ has exactly two preimages. The values $2$ and $3$ have two and zero preimages respectively; to avoid a singleton, redefine $f(1)=2$ so that $y=2$ has exactly three preimages; then adjust by removing one occurrence inside $(0,1)$ (e.g., set $f(1/4)=0$ and remove $0$ from the range elsewhere). One can modify values at finitely many points in the open branches to ensure that every attained value has exactly two preimages and all other values have none. Such a function is necessarily discontinuous.
 
-(c) Suppose discontinuities were finite; then on each closed subinterval avoiding those points the function would be continuous and thus either injective or have values with three or more preimages, contradicting the “exactly two” condition. Hence discontinuities must be infinite (indeed dense).
+(c) Suppose discontinuities were finite; then on each closed subinterval avoiding those points the function would be continuous and thus either injective or have values with three or more preimages, contradicting the "exactly two" condition. Hence discontinuities must be infinite (indeed dense).
 \medskip
 
 \begin{problembox}[4.28: Continuous Image Examples]
@@ -432,6 +498,37 @@ In each case, give an example of a real-valued function $f$, continuous on $S$ a
 \medskip
 
 \section{Continuity in metric spaces}
+
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Complete Metric Space]
+A metric space $(S,d)$ is complete if every Cauchy sequence in $S$ converges to a point in $S$.
+\end{definition}
+
+\begin{definition}[Compact Metric Space]
+A metric space $(S,d)$ is compact if every open cover has a finite subcover.
+\end{definition}
+
+\begin{theorem}[Sequential Compactness]
+A metric space is compact if and only if every sequence has a convergent subsequence.
+\end{theorem}
+
+\begin{theorem}[Heine-Borel Theorem]
+A subset of $\mathbb{R}^n$ is compact if and only if it is closed and bounded.
+\end{theorem}
+
+\begin{theorem}[Cantor's Intersection Theorem]
+Let $(F_n)$ be a nested sequence of nonempty closed sets in a complete metric space with $\text{diam}(F_n) \to 0$. Then $\bigcap_{n=1}^{\infty} F_n$ contains exactly one point.
+\end{theorem}
+
+\begin{theorem}[Continuity and Open Sets]
+A function $f: S \to T$ is continuous if and only if $f^{-1}(U)$ is open in $S$ for every open set $U$ in $T$.
+\end{theorem}
+
+\begin{theorem}[Continuity and Closed Sets]
+A function $f: S \to T$ is continuous if and only if $f^{-1}(C)$ is closed in $S$ for every closed set $C$ in $T$.
+\end{theorem}
+
 In Exercises 4.29 through 4.33, we assume that $f:S\to T$ is a function from one metric space $(S,d_S)$ to another $(T,d_T)$.
 
 \begin{problembox}[4.29: Continuity via Interior]
@@ -494,6 +591,32 @@ Suppose $f$ is continuous and injective with image $[0,1]^2$. Remove a point $p\
 \medskip
 
 \section{Connectedness}
+
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Connected Space]
+A metric space $S$ is connected if it cannot be written as the union of two disjoint nonempty open sets.
+\end{definition}
+
+\begin{definition}[Path-Connected Space]
+A metric space $S$ is path-connected if for any two points $x,y \in S$ there exists a continuous function $f: [0,1] \to S$ with $f(0) = x$ and $f(1) = y$.
+\end{definition}
+
+\begin{theorem}[Connectedness Characterization]
+A metric space $S$ is connected if and only if the only subsets of $S$ that are both open and closed are $\emptyset$ and $S$.
+\end{theorem}
+
+\begin{theorem}[Connected Subsets of $\mathbb{R}$]
+The only connected subsets of $\mathbb{R}$ are intervals (including single points and the empty set).
+\end{theorem}
+
+\begin{theorem}[Continuous Image of Connected Set]
+The continuous image of a connected set is connected.
+\end{theorem}
+
+\begin{theorem}[Closure of Connected Set]
+The closure of a connected set is connected.
+\end{theorem}
 
 \begin{problembox}[4.36: Disconnected Metric Spaces]
 Prove that a metric space $S$ is disconnected if, and only if, there is a nonempty subset $A$ of $S$, $A \neq S$, which is both open and closed in $S$.
@@ -615,6 +738,25 @@ The map $x\mapsto d(x,a)$ is continuous $S\to[0,\infty)$. Since $S$ is connected
 \medskip
 
 \section{Uniform Continuity}
+
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Uniform Continuity]
+A function $f: S \to T$ between metric spaces is uniformly continuous if for every $\varepsilon > 0$ there exists $\delta > 0$ such that $d_S(x,y) < \delta$ implies $d_T(f(x), f(y)) < \varepsilon$ for all $x,y \in S$.
+\end{definition}
+
+\begin{theorem}[Uniform Continuity on Compact Sets]
+A continuous function on a compact metric space is uniformly continuous.
+\end{theorem}
+
+\begin{theorem}[Distance Function Properties]
+Let $A$ be a nonempty subset of a metric space $(S,d)$. The distance function $f_A(x) = \inf\{d(x,y) : y \in A\}$ is uniformly continuous and satisfies $\overline{A} = \{x : f_A(x) = 0\}$.
+\end{theorem}
+
+\begin{theorem}[Urysohn's Lemma]
+Let $A$ and $B$ be disjoint closed subsets of a metric space $(S,d)$. Then there exist disjoint open sets $U$ and $V$ such that $A \subseteq U$ and $B \subseteq V$.
+\end{theorem}
+
 \begin{problembox}[4.50: Uniform Implies Continuous]
 Prove that a function which is uniformly continuous on $S$ is also continuous on $S$.
 \end{problembox}
@@ -690,6 +832,17 @@ Define $g(x)=f_A(x)-f_B(x)$, which is continuous as a difference of Lipschitz fu
 
 \section{Discontinuities}
 
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Types of Discontinuities]
+Let $f$ be defined on an interval containing $c$ except possibly at $c$ itself.
+\begin{enumerate}
+\item $f$ has a removable discontinuity at $c$ if $\lim_{x \to c} f(x)$ exists but is not equal to $f(c)$
+\item $f$ has a jump discontinuity at $c$ if both one-sided limits exist but are not equal
+\item $f$ has an essential discontinuity at $c$ if at least one one-sided limit does not exist
+\end{enumerate}
+\end{definition}
+
 \begin{problembox}[4.58: Classification of Discontinuities]
 Locate and classify the discontinuities of the functions $f$ defined on $\mathbb{R}^1$ by the following equations:
 \begin{enumerate}[label=(\alph*)]
@@ -719,6 +872,27 @@ Not applicable as stated here: Exercise 4.11 in this text does not list specific
 \medskip
 
 \section{Monotonic Functions}
+
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Monotonic Function]
+A function $f: [a,b] \to \mathbb{R}$ is:
+\begin{enumerate}
+\item Increasing if $x < y$ implies $f(x) \leq f(y)$
+\item Strictly increasing if $x < y$ implies $f(x) < f(y)$
+\item Decreasing if $x < y$ implies $f(x) \geq f(y)$
+\item Strictly decreasing if $x < y$ implies $f(x) > f(y)$
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[Monotonic Function Properties]
+Let $f$ be monotonic on $[a,b]$. Then:
+\begin{enumerate}
+\item $f$ has one-sided limits at every point in $(a,b)$
+\item The set of discontinuities of $f$ is countable
+\item $f$ has points of continuity in every open subinterval
+\end{enumerate}
+\end{theorem}
 
 \begin{problembox}[4.60: Local Increasing Implies Increasing]
 Let $f$ be defined in the open interval $(a, b)$ and assume that for each interior point $x$ of $(a, b)$ there exists a 1-ball $B(x)$ in which $f$ is increasing. Prove that $f$ is an increasing function throughout $(a, b)$.
@@ -787,6 +961,20 @@ A strictly increasing function on $\mathbb{R}$ has only jump discontinuities. A 
 \medskip
 
 \section{Metric spaces and fixed points}
+
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Contraction Mapping]
+A function $f: S \to S$ on a metric space $(S,d)$ is a contraction if there exists $\alpha \in [0,1)$ such that $d(f(x), f(y)) \leq \alpha d(x,y)$ for all $x,y \in S$.
+\end{definition}
+
+\begin{theorem}[Contraction Mapping Theorem]
+Let $(S,d)$ be a complete metric space and $f: S \to S$ a contraction. Then $f$ has a unique fixed point $p$, and for any $x \in S$, the sequence $f^n(x)$ converges to $p$.
+\end{theorem}
+
+\begin{theorem}[Invariance of Domain]
+If $f: \mathbb{R}^n \to \mathbb{R}^n$ is continuous and injective, then $f$ is open.
+\end{theorem}
 
 \begin{problembox}[4.66: The Metric Space of Bounded Functions]
 Let $B(S)$ denote the set of all real-valued functions which are defined and bounded on a nonempty set $S$. If $f \in B(S)$, let $\|f\| = \sup_{x \in S} |f(x)|$. The number $\|f\|$ is called the "sup norm" of $f$.
@@ -896,4 +1084,3 @@ so $(c_n)$ is strictly decreasing and converges to some $c\ge 0$.
 c=\lim c_{k(n)}=\lim d(p_{k(n)},p_{k(n)+1})=d(q,f(q)),
 \]
 and similarly $c=\lim c_{k(n)+1}=d(f(q),f(f(q)))$. Applying the shrinking property to $q$ and $f(q)$ yields $d(f(q),f(f(q)))<d(q,f(q))$ unless $q=f(q)$. Therefore $c=0$ and $q$ is a fixed point. Then $c_n\to 0$ and $(p_n)$ is Cauchy; in a compact (or complete with suitable conditions) space it converges to $q$.
-\medskip

@@ -61,14 +61,14 @@ b) If $f \in S$ and $g \in S$, then $f + g \in S$.
 Theorem 6.9 shows that the set $V$ of all functions of bounded variation on $[a, b]$ is a linear space. If $S$ is any linear space which contains all monotonic functions on $[a, b]$, prove that $V \subseteq S$. This can be described by saying that the functions of bounded variation form the smallest linear space containing all monotonic functions.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Proof.}
 By Jordan’s theorem (Theorem 6.13), every $f\in V$ can be written $f=g-h$ with $g,h$ increasing on $[a,b]$. Since $S$ contains all monotone functions and is a linear space, $g,h\in S$ and therefore $f=g-h\in S$. Hence $V\subseteq S$.
 
 \begin{problembox}[6.5: Monotonic Function Properties]
 Let $f$ be a real-valued function defined on $[0, 1]$ such that $f(0) > 0$, $f(x) \neq x$ for all $x$, and $f(x) \leq f(y)$ whenever $x \leq y$. Let $A = \{x: f(x) > x\}$. Prove that $\sup A \in A$ and that $f(1) > 1$.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Proof.}
 Let $A=\{x\in[0,1]: f(x)>x\}$. Since $f(0)>0$, we have $0\in A$, so $A\neq\emptyset$. If also $B=\{x: f(x)<x\}$ were nonempty, let $s=\sup A$ and $t=\inf B$; then $s\le t$. From $x_n\uparrow s$ in $A$ we get $f(x_n)>x_n$ and, by monotonicity, $\limsup f(x_n)\le f(s)$, whence $f(s)\ge s$. From $y_n\downarrow t$ in $B$ we get similarly $f(t)\le t$. Since $s\le t$, this forces some $u$ with $f(u)=u$, contradicting $f(x)\ne x$. Thus $B=\emptyset$ and $f(x)>x$ for all $x\in[0,1]$. Hence $\sup A=1\in A$ and $f(1)>1$.
 
 \begin{problembox}[6.6: Bounded Variation on Infinite Intervals]

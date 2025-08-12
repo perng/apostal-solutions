@@ -2,13 +2,59 @@
 
 \section{Ordered Pairs, Relations, and Functions}
 
+\subsection*{Definitions and Theorems}
+
+\begin{definition}[Ordered Pair]
+The ordered pair $(a,b)$ is defined as the set $\{\{a\}, \{a,b\}\}$ (Kuratowski definition).
+\end{definition}
+
+\begin{theorem}[Equality of Ordered Pairs]
+$(a,b) = (c,d)$ if and only if $a=c$ and $b=d$.
+\end{theorem}
+
+\begin{definition}[Relation]
+A relation $R$ on a set $S$ is a subset of $S \times S$.
+\end{definition}
+
+\begin{definition}[Reflexive Relation]
+A relation $R$ on $S$ is reflexive if $(x,x) \in R$ for all $x \in S$.
+\end{definition}
+
+\begin{definition}[Symmetric Relation]
+A relation $R$ on $S$ is symmetric if $(x,y) \in R$ implies $(y,x) \in R$ for all $x,y \in S$.
+\end{definition}
+
+\begin{definition}[Transitive Relation]
+A relation $R$ on $S$ is transitive if $(x,y) \in R$ and $(y,z) \in R$ implies $(x,z) \in R$ for all $x,y,z \in S$.
+\end{definition}
+
+\begin{definition}[Equivalence Relation]
+A relation $R$ on $S$ is an equivalence relation if it is reflexive, symmetric, and transitive.
+\end{definition}
+
+\begin{definition}[Function]
+A function $f: S \to T$ is a relation $f \subseteq S \times T$ such that for each $x \in S$, there exists exactly one $y \in T$ with $(x,y) \in f$.
+\end{definition}
+
+\begin{definition}[Domain and Codomain]
+For a function $f: S \to T$, the set $S$ is called the domain and $T$ is called the codomain.
+\end{definition}
+
+\begin{definition}[Function Composition]
+For functions $f: S \to T$ and $g: T \to U$, the composition $g \circ f: S \to U$ is defined by $(g \circ f)(x) = g(f(x))$.
+\end{definition}
+
+\begin{theorem}[Associativity of Function Composition]
+If $f: S \to T$, $g: T \to U$, and $h: U \to V$ are functions, then $(h \circ g) \circ f = h \circ (g \circ f)$.
+\end{theorem}
+
 \begin{problembox}[2.1: Equality of Ordered Pairs]
 Prove Theorem 2.2: $(a, b) = (c, d)$ if and only if $a=c$ and $b=d$.
 
 Hint: $(a, b) = (c, d)$ means $\{\{a\}, \{a, b\}\} = \{\{c\}, \{c, d\}\}$. Now appeal to the definition of set equality.
 \end{problembox}
 
-\textbf{Solution:}  
+\textbf{Proof:}  
 We must prove that $(a, b) = (c, d)$ if and only if $a=c$ and $b=d$.
 The Kuratowski definition of an ordered pair is $(x, y) = \{\{x\}, \{x, y\}\}$.
 If $a=c$ and $b=d$, then $(a,b) = \{\{a\}, \{a,b\}\} = \{\{c\}, \{c,d\}\} = (c,d)$. This direction is straightforward.
@@ -194,6 +240,102 @@ Under these conditions,
 So function composition is associative wherever defined.
 
 \section{Set Operations, Images, and Injectivity}
+
+\subsection*{Definitions and Theorems}
+
+\begin{definition}[Union]
+The union of sets $A$ and $B$ is $A \cup B = \{x : x \in A \text{ or } x \in B\}$.
+\end{definition}
+
+\begin{definition}[Intersection]
+The intersection of sets $A$ and $B$ is $A \cap B = \{x : x \in A \text{ and } x \in B\}$.
+\end{definition}
+
+\begin{definition}[Set Difference]
+The difference of sets $A$ and $B$ is $A - B = \{x : x \in A \text{ and } x \notin B\}$.
+\end{definition}
+
+\begin{definition}[Complement]
+The complement of a set $A$ with respect to a universal set $U$ is $A' = U - A$.
+\end{definition}
+
+\begin{definition}[Subset]
+A set $A$ is a subset of a set $B$, written $A \subseteq B$, if every element of $A$ is also an element of $B$.
+\end{definition}
+
+\begin{definition}[Power Set]
+The power set of a set $S$, denoted $\mathcal{P}(S)$, is the set of all subsets of $S$.
+\end{definition}
+
+\begin{theorem}[Set-Theoretic Identities]
+For any sets $A$, $B$, and $C$:
+\begin{enumerate}
+\item $A \cup (B \cup C) = (A \cup B) \cup C$ (associativity of union)
+\item $A \cap (B \cap C) = (A \cap B) \cap C$ (associativity of intersection)
+\item $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$ (distributivity)
+\item $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$ (distributivity)
+\item $A \cap (B - C) = (A \cap B) - (A \cap C)$
+\item $(A - C) \cap (B - C) = (A \cap B) - C$
+\item $(A - B) \cup B = A$ if and only if $B \subseteq A$
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Subset Transitivity]
+If $A \subseteq B$ and $B \subseteq C$, then $A \subseteq C$.
+\end{theorem}
+
+\begin{definition}[Image]
+For a function $f: S \to T$ and a subset $A \subseteq S$, the image of $A$ under $f$ is $f(A) = \{f(x) : x \in A\}$.
+\end{definition}
+
+\begin{definition}[Inverse Image]
+For a function $f: S \to T$ and a subset $Y \subseteq T$, the inverse image of $Y$ under $f$ is $f^{-1}(Y) = \{x \in S : f(x) \in Y\}$.
+\end{definition}
+
+\begin{definition}[Injective Function]
+A function $f: S \to T$ is injective (one-to-one) if $f(x_1) = f(x_2)$ implies $x_1 = x_2$ for all $x_1, x_2 \in S$.
+\end{definition}
+
+\begin{definition}[Surjective Function]
+A function $f: S \to T$ is surjective (onto) if for every $y \in T$, there exists $x \in S$ such that $f(x) = y$.
+\end{definition}
+
+\begin{definition}[Bijective Function]
+A function $f: S \to T$ is bijective if it is both injective and surjective.
+\end{definition}
+
+\begin{theorem}[Image of Unions and Intersections]
+For a function $f: S \to T$ and subsets $A, B \subseteq S$:
+\begin{enumerate}
+\item $f(A \cup B) = f(A) \cup f(B)$
+\item $f(A \cap B) \subseteq f(A) \cap f(B)$
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Inverse Image Laws]
+For a function $f: S \to T$ and subsets $Y_1, Y_2 \subseteq T$:
+\begin{enumerate}
+\item $f^{-1}(Y_1 \cup Y_2) = f^{-1}(Y_1) \cup f^{-1}(Y_2)$
+\item $f^{-1}(Y_1 \cap Y_2) = f^{-1}(Y_1) \cap f^{-1}(Y_2)$
+\item $f^{-1}(T - Y) = S - f^{-1}(Y)$
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Image of Preimage and Surjectivity]
+For a function $f: S \to T$, $f[f^{-1}(Y)] = Y$ for every $Y \subseteq T$ if and only if $f$ is surjective.
+\end{theorem}
+
+\begin{theorem}[Equivalent Conditions for Injectivity]
+For a function $f: S \to T$, the following are equivalent:
+\begin{enumerate}
+\item $f$ is injective
+\item $f(A \cap B) = f(A) \cap f(B)$ for all $A, B \subseteq S$
+\item $f^{-1}[f(A)] = A$ for all $A \subseteq S$
+\item For disjoint sets $A, B \subseteq S$, $f(A) \cap f(B) = \emptyset$
+\item If $B \subseteq A$, then $f(A - B) = f(A) - f(B)$
+\end{enumerate}
+\end{theorem}
+
 \begin{problembox}[2.5: Set-Theoretic Identities]
 Prove the following set-theoretic identities:
 \begin{itemize}
@@ -207,7 +349,7 @@ Prove the following set-theoretic identities:
 \end{itemize}
 \end{problembox}
 
-\textbf{Solution:}  
+\textbf{Proof:}  
 Each identity can be proven by element-chasing: assuming \( x \in \) one side and showing \( x \in \) the other side.  
 For example, for (b), if \( x \in A \cap (B \cup C) \), then \( x \in A \) and \( x \in B \cup C \Rightarrow x \in (A \cap B) \cup (A \cap C) \). Similar for the reverse.
 
@@ -219,7 +361,7 @@ f(A \cup B) = f(A) \cup f(B), \quad f(A \cap B) \subseteq f(A) \cap f(B)
 Generalize to arbitrary unions and intersections.
 \end{problembox}
 
-\textbf{Solution:}  
+\textbf{Proof:}  
 For any \( x \in A \cup B \), \( f(x) \in f(A) \cup f(B) \).  
 For intersections, \( x \in A \cap B \Rightarrow f(x) \in f(A) \cap f(B) \), but the converse need not hold.  
 Generalization:  
@@ -240,7 +382,7 @@ Prove:
 Generalize to arbitrary unions and intersections.
 \end{problembox}
 
-\textbf{Solution:}  
+\textbf{Proof:}  
 (a) If \( x \in f^{-1}(Y_1 \cup Y_2) \), then \( f(x) \in Y_1 \cup Y_2 \Rightarrow x \in f^{-1}(Y_1) \cup f^{-1}(Y_2) \), and vice versa.  
 (b) \( f(x) \notin Y \iff x \notin f^{-1}(Y) \Rightarrow x \in S - f^{-1}(Y) \)
 
@@ -248,7 +390,7 @@ Generalize to arbitrary unions and intersections.
 Prove that \( f[f^{-1}(Y)] = Y \) for every \( Y \subseteq T \) if and only if \( f \) is surjective.
 \end{problembox}
 
-\textbf{Solution:}  
+\textbf{Proof:}  
 If \( f \) is surjective, every \( y \in Y \) has a preimage in \( S \), so is included in \( f[f^{-1}(Y)] \).  
 If \( f \) is not surjective, then some \( y \notin f(S) \), and so not in the image of any preimage — thus excluded from \( f[f^{-1}(Y)] \).
 
@@ -263,7 +405,7 @@ Let \( f: S \to T \) be a function. Show the following are equivalent:
 \end{itemize}
 \end{problembox}
 
-\textbf{Solution:}  
+\textbf{Proof:}  
 Each condition implies the others under the assumption that \( f(x_1) = f(x_2) \Rightarrow x_1 = x_2 \).  
 E.g., (c) implies \( f^{-1}[f(\{x\})] = \{x\} \Rightarrow \) only one \( x \) maps to any \( f(x) \).
 
@@ -271,33 +413,134 @@ E.g., (c) implies \( f^{-1}[f(\{x\})] = \{x\} \Rightarrow \) only one \( x \) ma
 Prove that if \( A \subseteq B \) and \( B \subseteq C \), then \( A \subseteq C \).
 \end{problembox}
 
-\textbf{Solution:}  
+\textbf{Proof:}  
 If \( x \in A \), then since \( A \subseteq B \), we have \( x \in B \), and since \( B \subseteq C \), we get \( x \in C \).  
 Thus, every element of \( A \) is in \( C \), so \( A \subseteq C \).
 
 \section{Cardinality and Countability}
+
+\subsection*{Definitions and Theorems}
+
+\begin{definition}[Equinumerous Sets]
+Two sets $A$ and $B$ are equinumerous (or have the same cardinality), written $A \sim B$, if there exists a bijection between them.
+\end{definition}
+
+\begin{definition}[Finite Set]
+A set $S$ is finite if it is equinumerous to $\{1, 2, \ldots, n\}$ for some $n \in \mathbb{N}$.
+\end{definition}
+
+\begin{definition}[Infinite Set]
+A set $S$ is infinite if it is not finite.
+\end{definition}
+
+\begin{definition}[Countable Set]
+A set $S$ is countable if it is finite or equinumerous to $\mathbb{N}$.
+\end{definition}
+
+\begin{definition}[Uncountable Set]
+A set $S$ is uncountable if it is not countable.
+\end{definition}
+
+\begin{theorem}[Finite Set Bijection Implies Equal Size]
+If $\{1, 2, \ldots, n\} \sim \{1, 2, \ldots, m\}$, then $m = n$.
+\end{theorem}
+
+\begin{theorem}[Infinite Sets Contain Countable Subsets]
+Every infinite set contains a countably infinite subset.
+\end{theorem}
+
+\begin{theorem}[Infinite Set Similar to Proper Subset]
+Every infinite set $S$ contains a proper subset similar (bijective) to $S$ itself.
+\end{theorem}
+
+\begin{theorem}[Removing Countable from Uncountable]
+If $A$ is countable and $B$ is uncountable, then $B - A \sim B$.
+\end{theorem}
+
+\begin{theorem}[Power Set of Finite Set]
+If $S$ is a finite set with $n$ elements, then $\mathcal{P}(S)$ has $2^n$ elements.
+\end{theorem}
+
+\begin{theorem}[Real Functions vs Real Numbers]
+The set of all real-valued functions with domain $\mathbb{R}$ has strictly greater cardinality than $\mathbb{R}$.
+\end{theorem}
+
+\begin{theorem}[Binary Sequences are Uncountable]
+The set of all infinite sequences of 0s and 1s is uncountable.
+\end{theorem}
+
+\begin{theorem}[Countability of Algebraic Numbers]
+The set of algebraic numbers (roots of polynomials with integer coefficients) is countable.
+\end{theorem}
+
+\begin{theorem}[Countability via Local Countability]
+If every point in a set $S$ has a neighborhood whose intersection with $S$ is countable, then $S$ is countable.
+\end{theorem}
+
+\begin{theorem}[Countable Support for Real Function]
+Let $f$ be a real-valued function on $[0,1]$ such that for any finite set $\{x_1, \ldots, x_n\} \subset [0,1]$, $\sum_{i=1}^n |f(x_i)| \leq M$ for some $M > 0$. Then the set $\{x \in [0,1] : f(x) \neq 0\}$ is countable.
+\end{theorem}
+
+\begin{theorem}[Countability of Specific Sets]
+The following sets are countable:
+\begin{enumerate}
+\item Circles in the complex plane with rational radii and centers with rational coordinates
+\item Any collection of disjoint intervals of positive length
+\item The set of all polynomials with integer coefficients
+\item The set of all finite sequences of integers
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Cardinality of Cartesian Product]
+If $A$ and $B$ are countable sets, then $A \times B$ is countable.
+\end{theorem}
+
+\begin{theorem}[Cardinality of Countable Union]
+A countable union of countable sets is countable.
+\end{theorem}
+
+\begin{theorem}[Cardinality of Power Set]
+For any set $S$, the cardinality of $\mathcal{P}(S)$ is strictly greater than the cardinality of $S$.
+\end{theorem}
+
+\begin{theorem}[Cantor's Diagonal Argument]
+The set of all infinite sequences of 0s and 1s is uncountable.
+\end{theorem}
+
+\begin{theorem}[Existence of Transcendental Numbers]
+There exist transcendental numbers (real numbers that are not algebraic).
+\end{theorem}
+
+\begin{theorem}[Density of Rationals]
+The rational numbers are dense in the real numbers.
+\end{theorem}
+
+\begin{theorem}[Uniqueness of Countable Decomposition]
+If a set can be written as a countable union of countable sets, then it is countable.
+\end{theorem}
+
 \begin{problembox}[2.11: Finite Set Bijection Implies Equal Size]
 If \( \{1, 2, \ldots, n\} \sim \{1, 2, \ldots, m\} \), prove that \( m = n \).
 \end{problembox}
 
-\textbf{Solution:}  
+\textbf{Proof:}  
 A bijection between two finite sets implies they have the same number of elements.  
-So if such a bijection exists, then \( \#\{1, \ldots, n\} = n = m = \#\{1, \ldots, m\} \), hence \( n = m \).
+So if such a bijection exists, then $\#\{1, \ldots, n\} = n = m = \#\{1, \ldots, m\}$, hence $n = m$.
 
 \begin{problembox}[2.12: Infinite Sets Contain Countable Subsets]
 If \( S \) is an infinite set, prove that \( S \) contains a countably infinite subset.
 \end{problembox}
 
-\textbf{Solution:}  
+\textbf{Proof:}  
 We can construct an injection from \( \mathbb{N} \) into \( S \):  
 Select \( a_1 \in S \), then pick \( a_2 \in S \setminus \{a_1\} \), then \( a_3 \in S \setminus \{a_1, a_2\} \), and so on.  
-Since \( S \) is infinite, this process never terminates. Thus, \( \{a_1, a_2, \ldots\} \subseteq S \) is countably infinite.
+Since \( S \) is infinite, this process never terminates. Thus, $\{a_1, a_2, \ldots\} \subseteq S$ is countably infinite.
 
 \begin{problembox}[2.13: Infinite Set Similar to a Proper Subset]
 Prove that every infinite set \( S \) contains a proper subset similar (i.e., bijective) to \( S \) itself.
 \end{problembox}
 
-\textbf{Solution:}  
+\textbf{Proof:}  
 Let $S$ be an infinite set. By the result of Exercise 2.12, $S$ contains a countably infinite subset. Let this subset be $A = \{a_1, a_2, a_3, \dots \}$.
 Let $S' = S \setminus A$ be the set of elements in $S$ but not in $A$. Then $S = A \cup S'$, and this union is disjoint.
 
@@ -333,7 +576,7 @@ Since $f$ is a bijection from $S$ to its proper subset $T$, the set $S$ is simil
 If \( A \) is a countable set and \( B \) an uncountable set, prove that \( B - A \sim B \).
 \end{problembox}
 
-\textbf{Solution:}  
+\textbf{Proof:}  
 Since \( A \) is countable and \( B \) is uncountable, \( B - A \) is uncountable.  
 Also, \( A \cup (B - A) = B \). Define a bijection \( f \) from \( B \) to \( B - A \cup \{a_0\} \subset B \) by remapping countably many points.  
 Thus, \( B \sim B - A \).
@@ -343,7 +586,7 @@ A real number is called \emph{algebraic} if it is a root of a polynomial with in
 Prove that the set of all polynomials with integer coefficients is countable, and deduce that the set of algebraic numbers is also countable.
 \end{problembox}
 
-\textbf{Solution:}  
+\textbf{Proof:}  
 Each polynomial can be represented by a finite tuple of integers (its coefficients). The set of finite sequences of integers is countable (a countable union of countable sets).  
 Each polynomial has finitely many roots, so the set of all algebraic numbers is a countable union of finite sets → countable.
 
@@ -355,7 +598,7 @@ Show that \( T \) is finite, and determine how many elements it contains.
 
 \textbf{Solution:}  
 Each element of \( S \) may either be in or not in a subset.  
-So the number of subsets is \( 2^n \). Hence \( \#T = 2^n \), and \( T \) is finite.
+So the number of subsets is \( 2^n \). Hence \( \#T = \textbf{$2^n$} \), and \( T \) is finite.
 
 \begin{problembox}[2.17: Real Functions vs Real Numbers]
 Let \( R \) be the set of real numbers and \( S \) the set of all real-valued functions with domain \( R \).  
@@ -431,6 +674,29 @@ So this does not establish a one-to-one correspondence between intervals and \( 
 Hence, the proof is invalid.
 
 \section{Additive Set Functions}
+
+\subsection*{Definitions and Theorems}
+
+\begin{definition}[Additive Function]
+A function $f: \mathcal{P}(S) \to \mathbb{R}$ is additive if $f(A \cup B) = f(A) + f(B)$ whenever $A \cap B = \emptyset$.
+\end{definition}
+
+\begin{theorem}[Properties of Additive Functions]
+For an additive function $f: \mathcal{P}(S) \to \mathbb{R}$ and any sets $A, B \subseteq S$:
+\begin{enumerate}
+\item $f(A \cup B) = f(A) + f(B - A)$
+\item $f(A \cup B) = f(A) + f(B) - f(A \cap B)$
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Inclusion-Exclusion Principle]
+For an additive function $f$ and any sets $A_1, A_2, \ldots, A_n$:
+\begin{align*}
+f\left(\bigcup_{i=1}^n A_i\right) &= \sum_{i=1}^n f(A_i) - \sum_{1 \leq i < j \leq n} f(A_i \cap A_j) \\
+&\quad + \sum_{1 \leq i < j < k \leq n} f(A_i \cap A_j \cap A_k) - \cdots + (-1)^{n+1} f\left(\bigcap_{i=1}^n A_i\right)
+\end{align*}
+\end{theorem}
+
 \begin{problembox}[2.22: Additive Set Functions]
 Let \( S \) be the collection of all subsets of a given set \( T \).  
 A function \( f: S \to \mathbb{R} \) is additive if:
@@ -529,3 +795,4 @@ Therefore, the relations uniquely determine the value of \(f(T)\). That value is
 \[
 \boxed{f(T) = 2}
 \]
+

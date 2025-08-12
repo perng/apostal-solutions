@@ -39,7 +39,7 @@ where \( x_1 \neq x_2 \) and \( a_1, a_2, b_1, b_2 \) are given real numbers.
 \end{problembox}
 
 \noindent\textbf{Solution.}
-The minimal degree is $3$ (Hermite data at two nodes). The unique cubic can be written with Hermite basis polynomials:
+The minimal degree is \textbf{$3$} (Hermite data at two nodes). The unique cubic can be written with Hermite basis polynomials:
 \[\begin{aligned}
 f(x)&=a_1 H_{10}(x)+a_2 H_{20}(x)+b_1 H_{11}(x)+b_2 H_{21}(x),\\
 H_{10}(x)&=\Big(1-2\frac{x-x_1}{x_2-x_1}\Big)\Big(\frac{x-x_2}{x_1-x_2}\Big)^2,\quad H_{11}(x)=(x-x_1)\Big(\frac{x-x_2}{x_1-x_2}\Big)^2,\\
@@ -53,7 +53,7 @@ a) \( f \) is continuous for all \( x \).
 b) \( f^{(n)} \) is continuous for all \( x \), and that \( f^{(n)}(0) = 0, (n = 1, 2, \ldots ) \).
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Proof.}
 For $x\ne 0$, $f$ is $C^{\infty}$. At $0$, $f(x)\to 0$ as $x\to 0$, so $f$ is continuous. Moreover, for each $n\ge 1$ there is a polynomial $P_n(1/x)$ such that $f^{(n)}(x)=P_n(1/x)\,e^{-1/x^2}$ for $x\ne 0$. Since $e^{-1/x^2}$ decays faster than any power as $x\to 0$, $\lim_{x\to 0}f^{(n)}(x)=0$. Define $f^{(n)}(0)=0$; then $f^{(n)}$ is continuous for all $n$.
 
 \begin{problembox}[5.5: Derivatives of Trigonometric Functions]
@@ -63,7 +63,7 @@ b) \( g'(x) = \sin (1/x) - 1/x \cos (1/x), \) if \( x \neq 0; \quad g'(0) \) doe
 c) \( h'(x) = 2x \sin (1/x) - \cos (1/x), \) if \( x \neq 0; \quad h'(0) = 0; \lim_{x \to 0} h'(x) \) does not exist.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Proof.}
 For $x\ne 0$, use the chain and product rules:
 \[f'(x)=\cos(1/x)\cdot(-1/x^2),\quad g'(x)=\sin(1/x)+x\cos(1/x)\cdot(-1/x^2),\]
 \[h'(x)=2x\sin(1/x)+x^2\cos(1/x)\cdot(-1/x^2)=2x\sin(1/x)-\cos(1/x).\]
@@ -74,7 +74,7 @@ Derive Leibnitz's formula for the nth derivative of the product \( h \) of two f
 \[ h^{(n)}(x) = \sum_{k=0}^{n} \binom{n}{k} f^{(k)}(x)g^{(n-k)}(x), \quad \text{where} \quad \binom{n}{k} = \frac{n!}{k!(n-k)!}. \]
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Proof.}
 Induct on $n$. For $n=1$ the statement is the product rule. Assume true for $n$. Differentiate
 \[h^{(n)}=\sum_{k=0}^n\binom{n}{k}f^{(k)}g^{(n-k)}\]
 to get
@@ -93,7 +93,7 @@ e) Show that \( f \) and \( g \) have the same Schwarzian derivative if
 \[ g(x) = [af(x) + b][cf(x) + d], \text{where} ad - bc \neq 0. \]
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Proof.}
 Since $fg\equiv 1$, $(\ln f)'+(\ln g)'=0$, which gives (a): $f'/f+g'/g=0$. Differentiating (a) and simplifying yields (b). Repeating once more yields (c). For (d), differentiate $\dfrac{f''}{f'}-\dfrac{3}{2}\Big(\dfrac{f''}{f'}\Big)^{\!2}$ and use (a)–(c) to see the derivatives of the two sides agree and the values coincide at one point, hence they are equal. For (e), interpreting $g$ as the fractional linear transform $g=\dfrac{af+b}{cf+d}$ (with $ad-bc\ne 0$), the Schwarzian derivative is invariant under Möbius transformations, so $Sf\equiv Sg$.
 
 \begin{problembox}[5.8: Derivative of a Determinant]
