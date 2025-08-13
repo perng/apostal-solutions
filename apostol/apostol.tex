@@ -1,4 +1,6 @@
 \documentclass{book}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsfonts}
@@ -7,11 +9,13 @@
 \usepackage{enumitem}
 \usepackage{xcolor}
 \usepackage{tcolorbox}
+\tcbuselibrary{breakable}
 \usepackage{tikz}
 \usepackage{wrapfig}
 
 % Custom environment for problem statements
 \newtcolorbox{problembox}[1][]{
+    breakable,
     colback=blue!10,
     colframe=blue!50,
     arc=3pt,
@@ -20,6 +24,7 @@
     right=10pt,
     top=10pt,
     bottom=10pt,
+    before skip=3em,
     fonttitle=\bfseries,
     title={\mbox{#1}},
     before upper={\parindent0pt}

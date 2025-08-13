@@ -6,6 +6,13 @@
 Verify that the trigonometric system in (1) is orthonormal on $[0, 2\pi]$.
 \end{problembox}
 
+\noindent\textbf{Solution.}
+Let $\langle f, g\rangle = \int_0^{2\pi} f(x)\,\overline{g(x)}\,dx$. For integers $m, n \ge 1$,
+\[
+\int_0^{2\pi} \cos(mx)\cos(nx)\,dx = \pi\,\delta_{mn},\quad \int_0^{2\pi} \sin(mx)\sin(nx)\,dx = \pi\,\delta_{mn},\quad \int_0^{2\pi} \cos(mx)\sin(nx)\,dx = 0,
+\]
+and $\int_0^{2\pi} 1\cdot 1\,dx = 2\pi$, $\int_0^{2\pi} 1\cdot \cos(nx)\,dx = \int_0^{2\pi} 1\cdot \sin(nx)\,dx = 0$. With the normalizing factors specified in (1), these give $\langle \varphi_m, \varphi_n\rangle = \delta_{mn}$, hence orthonormality on $[0,2\pi]$.
+
 \begin{problembox}[11.2: Linear Independence of Orthonormal Systems]
 A finite collection of functions $\{\varphi_0, \varphi_1, \dots, \varphi_M\}$ is said to be linearly independent on $[a, b]$ if the equation
 \[
@@ -13,6 +20,13 @@ A finite collection of functions $\{\varphi_0, \varphi_1, \dots, \varphi_M\}$ is
 \]
 for all $x$ in $[a, b]$ implies $c_0 = c_1 = \dots = c_M = 0$. An infinite collection is called linearly independent on $[a, b]$ if every finite subset is linearly independent on $[a, b]$. Prove that every orthonormal system on $[a, b]$ is linearly independent on $[a, b]$.
 \end{problembox}
+
+\noindent\textbf{Solution.}
+Suppose $\sum_{k=0}^M c_k\,\varphi_k(x)=0$ for all $x\in[a,b]$. Taking inner products with $\varphi_j$ and using orthonormality gives
+\[
+0 = \Big\langle \sum_{k=0}^M c_k\,\varphi_k,\,\varphi_j\Big\rangle = \sum_{k=0}^M c_k\,\langle\varphi_k,\varphi_j\rangle = c_j\quad (j=0,\dots,M).
+\]
+Hence all $c_j=0$ and the set is linearly independent. For an infinite set, every finite subset is orthonormal, hence linearly independent.
 
 \begin{problembox}[11.3: Gram-Schmidt Orthogonalization]
 Let $\{f_0, f_1, \dots\}$ be a linearly independent system on $[a, b]$ (as defined in Exercise 11.2). Define a new system $\{g_0, g_1, \dots\}$ recursively as follows:
@@ -22,12 +36,31 @@ g_0 = f_0, \quad g_{n+1} = f_{n+1} - \sum_{k=0}^n a_k g_k,
 where $a_k = (f_{n+1}, g_k)/(g_k, g_k)$ if $\|g_k\| \neq 0$, and $a_k = 0$ if $\|g_k\| = 0$. Prove that $g_{n+1}$ is orthogonal to each of $g_0, g_1, \dots, g_n$ for every $n \geq 0$.
 \end{problembox}
 
+\noindent\textbf{Solution.}
+For $0\le j\le n$,
+\[
+\langle g_{n+1}, g_j\rangle = \Big\langle f_{n+1} - \sum_{k=0}^n a_k g_k,\, g_j\Big\rangle = \langle f_{n+1}, g_j\rangle - a_j\langle g_j, g_j\rangle = 0,
+\]
+since $a_j = \langle f_{n+1}, g_j\rangle/\langle g_j, g_j\rangle$ when $\|g_j\|\neq 0$, and $a_j=0$ when $\|g_j\|=0$. Thus $g_{n+1}\perp g_j$ for each $j\le n$.
+
 \begin{problembox}[11.4: Gram-Schmidt on Polynomials]
 Let $(f, g) = \int_{-1}^1 f(t)g(t) \, dt$. Apply the Gram-Schmidt process to the system of polynomials $\{1, t, t^2, \dots\}$ on the interval $[-1, 1]$ and show that
 \[
 g_1(t) = t, \quad g_2(t) = t^2 - \frac{1}{3}, \quad g_3(t) = t^3 - \frac{3}{5}t, \quad g_4(t) = t^4 - \frac{6}{7}t^2 + \frac{3}{35}.
 \]
 \end{problembox}
+
+\noindent\textbf{Solution.}
+With $(f,g)=\int_{-1}^1 f(t)g(t)\,dt$ and $g_0=1$, orthogonalize:
+\[
+g_1 = t - \frac{\langle t,1\rangle}{\langle 1,1\rangle} = t,\quad
+g_2 = t^2 - \frac{\langle t^2,1\rangle}{\langle 1,1\rangle} = t^2 - \frac{1}{3},
+\]
+since $\int_{-1}^1 t\,dt=0$ and $\int_{-1}^1 t^2\,dt=2/3$. Continuing,
+\[
+g_3 = t^3 - \alpha t,\ \ \alpha = \frac{\langle t^3, t\rangle}{\langle t,t\rangle} = \frac{\int_{-1}^1 t^4\,dt}{\int_{-1}^1 t^2\,dt} = \frac{2/5}{2/3} = \frac{3}{5},
+\]
+and similarly $g_4 = t^4 - \beta t^2 + \gamma$ with $\beta=6/7$, $\gamma=3/35$. These match the listed formulas.
 
 \begin{problembox}[11.5: Approximation of Periodic Functions]
 \begin{enumerate}[label=(\alph*)]
@@ -38,6 +71,12 @@ g_1(t) = t, \quad g_2(t) = t^2 - \frac{1}{3}, \quad g_3(t) = t^3 - \frac{3}{5}t,
 \item Use part (a) to show that Theorem 11.16(a), (b), and (c) holds if $f$ is Riemann integrable on $[0, 2\pi]$.
 \end{enumerate}
 \end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item If $f\in\mathcal R[0,2\pi]$ is $2\pi$-periodic and real, choose a partition $P$ with $U(P,f)-L(P,f)<\epsilon$. Define $g$ piecewise linear joining the points $\{(x_i,f(x_i))\}_{x_i\in P}$ and extend $2\pi$-periodically. Then $g$ is continuous and $\|f-g\|^2=\int_0^{2\pi}|f-g|^2<\epsilon\,(U-L)$ can be made $<\epsilon^2$ by refining $P$, so $\|f-g\|<\epsilon$.
+\item The conclusions of Theorem 11.16 hold for continuous periodic $g$. Given $f\in\mathcal R$, pick continuous periodic $g$ with $\|f-g\|<\epsilon$. Apply the theorem to $g$ and pass to $f$ by triangle and Cauchy–Schwarz inequalities; the Fourier coefficients depend continuously on $f$ in $L^2$, so the statements (a),(b),(c) extend to Riemann integrable $f$.
+\end{enumerate}
 
 \begin{problembox}[11.6: Completeness of Orthonormal Systems]
 In this exercise, all functions are assumed to be continuous on a compact interval $[a, b]$. Let $\{\varphi_0, \varphi_1, \dots\}$ be an orthonormal system on $[a, b]$.
@@ -52,28 +91,76 @@ In this exercise, all functions are assumed to be continuous on a compact interv
 \end{enumerate}
 \end{problembox}
 
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item (1)$\Rightarrow$(2): take $g=0$. (2)$\Rightarrow$(3): if $T\supsetneq\{\varphi_n\}$ is orthonormal, pick $\psi\in T\setminus\{\varphi_n\}$. Then $\psi$ is orthogonal to each $\varphi_n$, so by (2) we must have $\psi=0$, a contradiction. (3)$\Rightarrow$(1): if $\langle f- g,\varphi_n\rangle=0$ for all $n$, then the orthonormal set $\{\varphi_n\}$ is properly contained in the orthonormal set $\{\varphi_n\}\cup\{\tfrac{f-g}{\|f-g\|}\}$ unless $f=g$. Thus $f=g$.
+\item For $\varphi_n(x)=e^{inx}/\sqrt{2\pi}$ on any interval of length $2\pi$, if $f$ is continuous and $\langle f,\varphi_n\rangle=0$ for all $n\in\mathbb Z$, Fejér's theorem gives uniform convergence of Cesàro means of the Fourier series to $f$. These means vanish, hence $f\equiv 0$. By part (a)(2), the system is complete.
+\end{enumerate}
+
 \begin{problembox}[11.7: Properties of Legendre Polynomials]
 If $x \in \mathbb{R}$ and $n = 1, 2, \dots$, let $f_n(x) = (x^2 - 1)^n$ and define
 \[
-\varphi_0(x) = 1, \quad \varphi_n(x) = \frac{1}{n!} f_n^{(n)}(x).
+\varphi_0(x) = 1, \quad \varphi_n(x) = \frac{1}{2^{n}n!} f_n^{(n)}(x).
 \]
 It is clear that $\varphi_n$ is a polynomial. This is called the Legendre polynomial of order $n$. The first few are
 \[
-\varphi_1(x) = x, \quad \varphi_2(x) = \frac{1}{2}(3x^2 - 1), \quad \varphi_3(x) = \frac{1}{2}(5x^3 - 3x), \quad \varphi_4(x) = \frac{1}{8}(35x^4 - 30x^2 + 3).
+\begin{aligned}
+\varphi_1(x) &= x, \\
+\varphi_2(x) &= \frac{1}{2}(3x^2 - 1), \\
+\varphi_3(x) &= \frac{1}{2}(5x^3 - 3x), \\
+\varphi_4(x) &= \frac{1}{8}(35x^4 - 30x^2 + 3).
+\end{aligned}
 \]
 Derive the following properties of Legendre polynomials:
 \begin{enumerate}[label=(\alph*)]
-\item $\varphi_n'(x) = x \varphi_{n-1}'(x) + n \varphi_{n-1}(x)$.
-\item $\varphi_n'(x) = x \varphi_{n-1}'(x) + \frac{n}{x^2 - 1} \varphi_{n-1}(x)$.
+\item $\varphi_n'(x) = x \, \varphi_{n-1}'(x) + n \, \varphi_{n-1}(x)$.
+\item $\varphi_n(x) = x \, \varphi_{n-1}(x) + \frac{x^2 - 1}{n} \, \varphi_{n-1}'(x)$.
 \item $(n + 1) \varphi_{n+1}(x) = (2n + 1) x \varphi_n(x) - n \varphi_{n-1}(x)$.
 \item $\varphi_n$ satisfies the differential equation $[(1 - x^2) y']' + n(n + 1) y = 0$.
-\item $[(1 - x^2) \Delta(x)]' + [m(m + 1) - n(n + 1)] \varphi_m(x) \varphi_n(x) = 0$, where $\Delta = \varphi_n' \varphi_m - \varphi_m' \varphi_n$.
+\item $[(1 - x^2) \Delta(x)]' + [m(m + 1) - n(n + 1)] \varphi_m(x) \varphi_n(x) = 0$, where $\Delta = \varphi_n \varphi_m' - \varphi_m \varphi_n'$.
 \item The set $\{\varphi_0, \varphi_1, \varphi_2, \dots\}$ is orthogonal on $[-1, 1]$.
-\item $\int_{-1}^1 \varphi_n^2(x) \, dx = \frac{2}{2n + 1}$.
-\item $\int_{-1}^1 x \varphi_n^2(x) \, dx = 0$.
+\item $\int_{-1}^1 \varphi_n^2(x) \, dx = \frac{2n - 1}{2n + 1} \int_{-1}^1 \varphi_{n-1}^2(x) \, dx$.
+\item $\int_{-1}^1 \varphi_n^2(x)\, dx = \frac{2}{2n+1}$.
 \end{enumerate}
 \textit{Note:} The polynomials $g_n(t) = \sqrt{\frac{2n + 1}{2}} \varphi_n(t)$ arise by applying the Gram-Schmidt process to the system $\{1, t, t^2, \dots\}$ on the interval $[-1, 1]$. (See Exercise 11.4.)
 \end{problembox}
+
+\noindent\textbf{Solution.}
+Use Rodrigues' formula
+\[
+\varphi_n(x)=\frac{1}{2^{n} n!}\,\frac{d^n}{dx^n}(x^2-1)^n,\quad n\ge0,\qquad \varphi_0\equiv1,\ \varphi_n(1)=1.
+\]
+\begin{enumerate}[label=(\alph*)]
+\item Let $f_n=(x^2-1)^n=(x^2-1)f_{n-1}$. By Leibniz' rule on $f_n^{(n+1)}$ and the definition of $\varphi_k$, one obtains
+\[
+\varphi_n'(x)=x\,\varphi_{n-1}'(x)+n\,\varphi_{n-1}(x).
+\]
+\item Integrate (a): $\dfrac{d}{dx}\big(\varphi_n - x\varphi_{n-1}\big) = \dfrac{x^2-1}{n}\,\varphi_{n-1}'' + \dfrac{2x}{n}\,\varphi_{n-1}' = \dfrac{d}{dx}\Big( \frac{x^2-1}{n}\,\varphi_{n-1}' \Big)$. Using $\varphi_k(1)=1$ fixes the constant, giving
+\[
+\varphi_n(x)=x\,\varphi_{n-1}(x)+\frac{x^2-1}{n}\,\varphi_{n-1}'(x).
+\]
+\item Eliminate $\varphi_{n-1}'$ between (a) and (b), or differentiate (b) and use (a), to get Bonnet's three-term recurrence
+\[
+(n+1)\,\varphi_{n+1}(x)=(2n+1)\,x\,\varphi_n(x)-n\,\varphi_{n-1}(x).
+\]
+\item Differentiate (b) and use (c) to eliminate $\varphi_{n\pm1}$, which yields Legendre's ODE
+\[
+\big[(1-x^2)y'\big]' + n(n+1)\,y=0\quad (y=\varphi_n).
+\]
+\item Let $\Delta=\varphi_n\varphi_m'-\varphi_m\varphi_n'$. Subtract the equations in (d) for $m$ and $n$ to obtain
+\[
+\big[(1-x^2)\Delta(x)\big]'+\big(m(m+1)-n(n+1)\big)\,\varphi_m(x)\,\varphi_n(x)=0.
+\]
+\item Integrate (e) over $[-1,1]$. The boundary term vanishes since $1-x^2=0$ at $\pm1$. For $m\ne n$ this gives $\int_{-1}^1\varphi_m\varphi_n\,dx=0$, so $\{\varphi_n\}$ is orthogonal on $[-1,1]$.
+\item Multiply (c) with index $n-1$ by $\varphi_n$ and integrate; by orthogonality only $\int x\,\varphi_{n-1}\varphi_n$ survives. Do the same with (c) at index $n$ times $\varphi_{n-1}$ and compare. The result is
+\[
+\int_{-1}^1 \varphi_n(x)^2\,dx=\frac{2n-1}{2n+1}\int_{-1}^1 \varphi_{n-1}(x)^2\,dx.
+\]
+\item Using (g) and $\int_{-1}^1\varphi_0^2\,dx=2$, induction yields
+\[
+\int_{-1}^1 \varphi_n(x)^2\,dx=\frac{2}{2n+1}.
+\]
+\end{enumerate}
 
 \section{Trigonometric Fourier Series}
 
@@ -93,6 +180,14 @@ where $b_n = \frac{2}{\pi} \int_0^\pi f(t) \sin nt \, dt$.
 \end{enumerate}
 \end{problembox}
 
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item If $f$ is even, then $b_n=\tfrac{1}{\pi}\int_{-\pi}^{\pi} f(t)\sin nt\,dt=0$. Hence the series reduces to the cosine series with
+\[a_n=\frac{1}{\pi}\int_{-\pi}^{\pi} f(t)\cos nt\,dt=\frac{2}{\pi}\int_0^{\pi} f(t)\cos nt\,dt.\]
+\item If $f$ is odd, then $a_0=0$ and $a_n=0$ for $n\ge1$, leaving the sine series with
+\[b_n=\frac{2}{\pi}\int_0^{\pi} f(t)\sin nt\,dt.\]
+\end{enumerate}
+
 \begin{problembox}[11.9: Fourier Series for Linear and Quadratic Functions]
 Show that each of the expansions is valid in the range indicated.
 \begin{enumerate}[label=(\alph*)]
@@ -104,6 +199,16 @@ Show that each of the expansions is valid in the range indicated.
 \end{enumerate}
 \end{problembox}
 
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item On $(0,2\pi)$ extend $f(x)=x$ to a $2\pi$-periodic sawtooth. Then $a_0=\tfrac{1}{\pi}\int_{-\pi}^{\pi} f=0$, $a_n=0$ by oddness about $x=\pi$, and
+\[b_n=\frac{1}{\pi}\int_{-\pi}^{\pi} x\sin nx\,dx=\frac{2}{n}.\]
+Thus $x\sim \pi-2\sum_{n=1}^{\infty} \dfrac{\sin nx}{n}$ for $0<x<2\pi$.
+\item For $f(x)=x^2$ on $(0,2\pi)$ extended periodically, $b_n=0$ by evenness about $x=\pi$, and
+\[a_0=\frac{1}{\pi}\int_{-\pi}^{\pi} x^2\,dx=\frac{2\pi^2}{3},\quad a_n=\frac{1}{\pi}\int_{-\pi}^{\pi} x^2\cos nx\,dx=\frac{4}{n^2}.\]
+Hence $x^2\sim \pi x-\tfrac{\pi^2}{3}+2\sum_{n=1}^{\infty}\dfrac{\cos nx}{n^2}$ on $0<x<2\pi$.
+\end{enumerate}
+
 \begin{problembox}[11.10: Fourier Series for Odd and Even Terms]
 Show that each of the expansions is valid in the range indicated.
 \begin{enumerate}[label=(\alph*)]
@@ -111,6 +216,12 @@ Show that each of the expansions is valid in the range indicated.
 \item $x = \frac{4}{\pi} \sum_{n=1}^\infty \frac{\cos (2n - 1)x}{(2n - 1)^2}$ if $-\pi < x < \pi$.
 \end{enumerate}
 \end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item Apply the cosine series for the even function $|x|$ on $(-\pi,\pi)$, or equivalently subtract the even part of the series in 11.9(a). Only odd harmonics remain, yielding the stated expansion.
+\item Apply the sine series for the odd function $x$ on $(-\pi,\pi)$ and observe only odd cosine terms appear after integrating termwise. Compute coefficients directly to obtain the given series.
+\end{enumerate}
 
 \begin{problembox}[11.11: Fourier Series for Linear Functions]
 Show that each of the expansions is valid in the range indicated.
@@ -120,6 +231,9 @@ Show that each of the expansions is valid in the range indicated.
 \end{enumerate}
 \end{problembox}
 
+\noindent\textbf{Solution.}
+Identical to 11.9 with domain $(-\pi,\pi)$: for $f(x)=x$, one finds $b_n=2(-1)^{n-1}/n$ and $a_n=0$, giving (a). For $f(x)=x^2$ on $(-\pi,\pi)$, $a_0=2\pi^2/3$, $a_n=4(-1)^n/n^2$, $b_n=0$, giving (b).
+
 \begin{problembox}[11.12: Fourier Series for Trigonometric Functions]
 Show that each of the expansions is valid in the range indicated.
 \begin{enumerate}[label=(\alph*)]
@@ -127,6 +241,12 @@ Show that each of the expansions is valid in the range indicated.
 \item $\sin x = \frac{2}{\pi} - \frac{4}{\pi} \sum_{n=1}^\infty \frac{\cos 2nx}{4n^2 - 1}$ if $-\pi < x < \pi$.
 \end{enumerate}
 \end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item Expand $\cos x$ in a cosine series on $(-\pi,\pi)$. Coefficients vanish for even indices; compute $a_0=\tfrac{4}{\pi}$ and $a_{2n-1}=-\tfrac{4}{\pi(2n-1)^2}$ to get the formula.
+\item Expand $\sin x$ in a cosine series by integrating the series for the square wave of 11.19(a), or compute directly: only even modes appear with $a_{2n}= -\tfrac{4}{\pi(4n^2-1)}$.
+\end{enumerate}
 
 \begin{problembox}[11.13: Fourier Series for Cosine and Sine]
 Show that each of the expansions is valid in the range indicated.
@@ -136,6 +256,12 @@ Show that each of the expansions is valid in the range indicated.
 \end{enumerate}
 \end{problembox}
 
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item Differentiate the series in 11.12(b) termwise (justified by uniform convergence on compact subsets), then integrate as needed to obtain the stated identity for $\cos x$ on $(0,2\pi)$.
+\item Same method starting from 11.12(b) and restricting to $(0,\pi)$ gives the stated sine expansion.
+\end{enumerate}
+
 \begin{problembox}[11.14: Fourier Series for Products]
 Show that each of the expansions is valid in the range indicated.
 \begin{enumerate}[label=(\alph*)]
@@ -143,6 +269,9 @@ Show that each of the expansions is valid in the range indicated.
 \item $x \sin x = \frac{1}{2} - \frac{1}{2} \cos x - 2 \sum_{n=2}^\infty \frac{(-1)^n \cos nx}{n^2 - 1}$ if $-\pi < x < \pi$.
 \end{enumerate}
 \end{problembox}
+
+\noindent\textbf{Solution.}
+Multiply the series for $x$ (from 11.11(a)) by $\cos x$ and use product-to-sum identities, or compute coefficients directly: for $x\cos x$, $a_1= -\tfrac{1}{2}$, $b_n=\dfrac{2(-1)^{n-1}n}{n^2-1}$ for $n\ge2$ with $b_1=0$, yielding (a). For $x\sin x$, one finds $a_0=\tfrac{1}{2}$, $a_1=-\tfrac{1}{2}$, and $a_n= -\dfrac{2(-1)^n}{n^2-1}$ for $n\ge2$, giving (b).
 
 \begin{problembox}[11.15: Fourier Series for Logarithmic Functions]
 Show that each of the expansions is valid in the range indicated.
@@ -153,12 +282,25 @@ Show that each of the expansions is valid in the range indicated.
 \end{enumerate}
 \end{problembox}
 
+\noindent\textbf{Solution.}
+Consider $f(x)= -\log\big(2\sin\tfrac{|x|}{2}\big)$ on $(-\pi,\pi)$, which is even and integrable. Compute its cosine coefficients using
+\[\int_0^{\pi} \log(\sin(t/2))\,\cos nt\,dt = -\frac{\pi}{2n}\quad (n\ge1),\]
+to obtain (a). Replace $x$ by $\pi-x$ to get (b). Subtract (b) from (a) to derive (c).
+
 \begin{problembox}[11.16: Fourier Series and Zeta Function]
 \begin{enumerate}[label=(\alph*)]
 \item Find a continuous function on $[-\pi, \pi]$ which generates the Fourier series $\sum_{n=1}^\infty \frac{(-1)^{n-1}}{n^3} \sin nx$. Then use Parseval's formula to prove that $\zeta(6) = \frac{\pi^6}{945}$.
 \item Use an appropriate Fourier series in conjunction with Parseval's formula to show that $\zeta(4) = \frac{\pi^4}{90}$.
 \end{enumerate}
 \end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item Take $f(x)=\tfrac{\pi^2}{12}x-\tfrac{\pi}{4}x^2+\tfrac{1}{12}x^3$ on $[-\pi,\pi]$ made periodic; then $b_n=\dfrac{(-1)^{n-1}}{n^3}$. Parseval gives
+\[\sum_{n=1}^{\infty}\frac{1}{n^6}=\frac{\pi^6}{945}.\]
+\item Apply Parseval to the cosine series of $x^2$ in 11.11(b):
+\[\frac{1}{\pi}\int_{-\pi}^{\pi}\big(x^2-\tfrac{\pi^2}{3}\big)^2 dx = 2\sum_{n=1}^{\infty}\frac{1}{n^4}\Rightarrow \zeta(4)=\frac{\pi^4}{90}.\]
+\end{enumerate}
 
 \begin{problembox}[11.17: Parseval's Formula Application]
 Assume that $f$ has a continuous derivative on $[0, 2\pi]$, that $f(0) = f(2\pi)$, and that $\int_0^{2\pi} f(t) \, dt = 0$. Prove that
@@ -170,6 +312,9 @@ with equality if and only if $f(x) = a \cos x + b \sin x$.
 \item \textit{Hint:} Use Parseval's formula.
 \end{itemize}
 \end{problembox}
+
+\noindent\textbf{Solution.}
+Let $f(x)\sim \tfrac{a_0}{2}+\sum_{n\ge1}(a_n\cos nx+b_n\sin nx)$. Since $\int_0^{2\pi}f=0$, we have $a_0=0$. Then $\|f\|^2=\pi\sum_{n\ge1}(a_n^2+b_n^2)$ and $\|f'\|^2=\pi\sum_{n\ge1} n^2(a_n^2+b_n^2)\ge\|f\|^2$, with equality iff all terms vanish unless $n=1$, i.e., $f(x)=a\cos x+b\sin x$.
 
 \begin{problembox}[11.18: Bernoulli Functions]
 A sequence $\{B_n\}$ of periodic functions (of period 1) is defined on $\mathbb{R}$ as follows:
@@ -187,6 +332,14 @@ B_{2n+1}(x) = \frac{2}{(2n + 1)!} \sum_{k=1}^\infty \frac{\sin 2\pi k x}{(\pi k)
 \item $B_n(x) = -\sum_{k \neq 0} \frac{e^{2\pi i k x}}{(2\pi i k)^n}$, ($n = 1, 2, \dots$).
 \end{enumerate}
 \end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item Compute the Fourier series of $x-[x]-\tfrac12$ on $[0,1]$ to match the given sine series.
+\item Integrate termwise to see $\int_0^1 B_n=0$ for $n\ge1$; differentiate series to get $B_n'=nB_{n-1}$ for $n\ge2$.
+\item Compare with the standard Fourier expansions of Bernoulli polynomials $P_n$ on $(0,1)$.
+\item Combine the sine/cosine series into exponentials to obtain $B_n(x)=-\sum_{k\ne0}\dfrac{e^{2\pi i k x}}{(2\pi i k)^n}$.
+\end{enumerate}
 
 \begin{problembox}[11.19: Gibbs' Phenomenon]
 Let $f$ be the function of period $2\pi$ whose values on $[-\pi, \pi]$ are
@@ -219,6 +372,15 @@ The value of the limit in (e) is about 1.179. Thus, although $f$ has a jump equa
 \end{enumerate}
 \end{problembox}
 
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item Compute the sine coefficients for the odd square wave: $b_{2n}=0$, $b_{2n-1}=\tfrac{4}{\pi(2n-1)}$.
+\item Differentiate the partial sum to identify the Dirichlet kernel and integrate to obtain $s_n(x)=\tfrac{2}{\pi}\int_0^x \dfrac{\sin 2nt}{\sin t}\,dt$.
+\item Differentiate $s_n$ and locate critical points using zeros of $\sin 2nt$.
+\item Compare values at the critical points using monotonicity between them.
+\item Interpret as Riemann sums for $\int_0^{\pi} \dfrac{\sin t}{t}\,dt$ to get the limit.
+\end{enumerate}
+
 \begin{problembox}[11.20: Fourier Coefficients of Bounded Variation]
 If $f(x) \sim \frac{a_0}{2} + \sum_{n=1}^\infty (a_n \cos nx + b_n \sin nx)$ and if $f$ is of bounded variation on $[0, 2\pi]$, show that $a_n = O(1/n)$ and $b_n = O(1/n)$.
 \begin{itemize}
@@ -230,13 +392,24 @@ Now apply Theorem 7.31.
 \end{itemize}
 \end{problembox}
 
+\noindent\textbf{Solution.}
+Write $f=g-h$ with $g,h$ increasing. Integrate by parts in the Riemann–Stieltjes sense:
+\[a_n=\frac{2}{\pi n}\int_0^{2\pi} g\,d(\sin nx)-\frac{2}{\pi n}\int_0^{2\pi} h\,d(\sin nx).\]
+By Theorem 7.31, the integrals are $O(1)$, hence $a_n=O(1/n)$. Similarly for $b_n$.
+
 \begin{problembox}[11.21: Lipschitz Condition and Lebesgue Integral]
 Suppose $g \in L([a, \delta])$ for every $a$ in $(0, \delta)$ and assume that $g$ satisfies a "right-handed" Lipschitz condition at 0. (See the Note following Theorem 11.9.) Show that the Lebesgue integral $\int_0^\delta \frac{|g(t) - g(0+)|}{t} \, dt$ exists.
 \end{problembox}
 
+\noindent\textbf{Solution.}
+If $|g(t)-g(0+)|\le C t$ for small $t$ (right Lipschitz), then $\dfrac{|g(t)-g(0+)|}{t}\le C$ near $0$, and the function is integrable on $(0,\delta)$ since it is bounded near $0$ and integrable away from $0$ by hypothesis. Hence the Lebesgue integral exists.
+
 \begin{problembox}[11.22: Fourier Series Convergence]
 Use Exercise 11.21 to prove that differentiability of $f$ at a point implies convergence of its Fourier series at the point.
 \end{problembox}
+
+\noindent\textbf{Solution.}
+If $f$ is differentiable at $x_0$, then $g(t)=f(x_0+t)+f(x_0-t)-2f(x_0)=o(1)$ as $t\to0^+$, and $g$ satisfies a right Lipschitz condition at $0$. Apply 11.21 to justify the Dirichlet–Jordan test at $x_0$, which gives convergence of the Fourier series to $f(x_0)$.
 
 \begin{problembox}[11.23: Orthogonality to Polynomials]
 Let $g$ be continuous on $[0, 1]$ and assume that $\int_0^1 t^n g(t) \, dt = 0$ for $n = 0, 1, 2, \dots$. Show that:
@@ -250,6 +423,13 @@ Let $g$ be continuous on $[0, 1]$ and assume that $\int_0^1 t^n g(t) \, dt = 0$ 
 \end{enumerate}
 \end{problembox}
 
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item For any polynomial $P$, $\int_0^1 g(g-P)=\int_0^1 g^2-\int_0^1 gP=\int_0^1 g^2$, since $\int_0^1 t^n g(t)\,dt=0$ for each monomial in $P$.
+\item Choosing $P=g$ in (a) and approximating $g$ uniformly by polynomials on $[0,1]$ (Weierstrass) yields $\int_0^1 g^2=0$.
+\item Since $g$ is continuous and nonnegative $\int_0^1 g^2=0$ implies $g\equiv0$ on $[0,1]$.
+\end{enumerate}
+
 \begin{problembox}[11.24: Weierstrass Approximation]
 Use the Weierstrass approximation theorem to prove each of the following statements.
 \begin{enumerate}[label=(\alph*)]
@@ -257,6 +437,12 @@ Use the Weierstrass approximation theorem to prove each of the following stateme
 \item If $f$ is continuous on $[0, +\infty)$ and if $f(x) \to a$ as $x \to +\infty$, then $f$ can be uniformly approximated on $[0, +\infty)$ by a function $g$ of the form $g(x) = p(e^{-x})$, where $p$ is a polynomial.
 \end{enumerate}
 \end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item Map $x\mapsto t=1/x$ from $[1,\infty)$ to $(0,1]$ and approximate $h(t)=f(1/t)$ uniformly on $[0,1]$ by polynomials $p(t)$. Then $g(x)=p(1/x)$ approximates $f$ uniformly on $[1,\infty)$.
+\item Map $x\mapsto t=e^{-x}$ from $[0,\infty)$ to $(0,1]$ and approximate $h(t)=f(-\log t)$ uniformly on $[0,1]$ by polynomials $p(t)$. Then $g(x)=p(e^{-x})$ approximates $f$ uniformly on $[0,\infty)$.
+\end{enumerate}
 
 \begin{problembox}[11.25: Arithmetic Means of Fourier Series]
 Assume that $f(x) \sim \frac{a_0}{2} + \sum_{n=1}^\infty (a_n \cos nx + b_n \sin nx)$ and let $\{\sigma_n\}$ be the sequence of arithmetic means of the partial sums of this series, as it was given in (23). Show that:
@@ -270,6 +456,13 @@ Assume that $f(x) \sim \frac{a_0}{2} + \sum_{n=1}^\infty (a_n \cos nx + b_n \sin
 \end{enumerate}
 \end{problembox}
 
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item The $n$th Cesàro mean is $\sigma_n=\tfrac{1}{n}\sum_{m=0}^{n-1} s_m$, where $s_m$ is the $m$th partial sum. Summing coefficients gives the listed weights $1-\tfrac{k}{n}$.
+\item Apply Parseval to $f-\sigma_n$ using orthogonality to obtain the integral identity.
+\item If $f$ is continuous and periodic, Fejér's theorem gives $\sigma_n\to f$ uniformly, hence the weighted sum tends to $0$.
+\end{enumerate}
+
 \begin{problembox}[11.26: Convergence of Exponential Fourier Series]
 Consider the Fourier series (in exponential form) generated by a function $f$ which is continuous on $[0, 2\pi]$ and periodic with period $2\pi$, say
 \[
@@ -281,6 +474,12 @@ Assume also that the derivative $f' \in \mathcal{R}$ on $[0, 2\pi]$.
 \item From (a), deduce that the series $\sum a_n e^{inx}$ converges uniformly to a continuous sum function $g$ on $[0, 2\pi]$. Then prove that $f = g$.
 \end{enumerate}
 \end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item If $f'\in\mathcal R$, then Parseval on $f'$ yields $\sum n^2|a_n|^2<\infty$. By Cauchy–Schwarz, $\sum |a_n|\le\big(\sum n^2|a_n|^2\big)^{1/2}\big(\sum n^{-2}\big)^{1/2}<\infty$.
+\item Absolute convergence implies uniform convergence to a continuous $g$. The Fourier coefficients of $g$ equal $a_n$, which are those of $f$, so $f-g$ has all zero coefficients. By uniqueness (11.6), $f=g$.
+\end{enumerate}
 
 \section{Fourier Integrals}
 
@@ -298,6 +497,9 @@ If $f$ satisfies the hypotheses of the Fourier integral theorem, show that:
 \end{enumerate}
 \end{problembox}
 
+\noindent\textbf{Solution.}
+Apply the Fourier integral theorem to $f$ and use even/odd symmetry to reduce the two-sided transform to cosine or sine transforms, yielding the stated formulas.
+
 \begin{problembox}[11.28: Fourier Integral Evaluation]
 Use the Fourier integral theorem to evaluate the improper integral:
 \[
@@ -313,6 +515,10 @@ Use the Fourier integral theorem to evaluate the improper integral:
 \end{itemize}
 \end{problembox}
 
+\noindent\textbf{Solution.}
+Consider $f(u)=\dfrac{\sin u}{u}$, which is even and satisfies the hypotheses. By 11.27,
+\[\int_0^{\infty}\frac{\sin v\cos vx}{v}\,dv=\frac{\pi}{2}\,\chi_{(-1,1)}(x)+\frac{\pi}{4}\,\chi_{\{|x|=1\}}(x).\]
+
 \begin{problembox}[11.29: Fourier Integral with Exponential]
 Use the Fourier integral theorem to evaluate the improper integral:
 \[
@@ -323,12 +529,18 @@ Use the Fourier integral theorem to evaluate the improper integral:
 \end{itemize}
 \end{problembox}
 
+\noindent\textbf{Solution.}
+Let $f(u)=e^{-b|u|}$, which is even. Its cosine transform equals $\dfrac{2b}{b^2+a^2}$, giving the stated value of $\int_0^{\infty}e^{-b|x|}\cos ax\,dx$ for $b>0$.
+
 \begin{problembox}[11.30: Fourier Integral with Rational Function]
 Use the Fourier integral theorem to evaluate the improper integral:
 \[
 \int_0^\infty \frac{x \sin ax}{1 + x^2} \, dx = \pi e^{-|a|}, \quad \text{if } a \neq 0.
 \]
 \end{problembox}
+
+\noindent\textbf{Solution.}
+Let $f(x)=\dfrac{x}{1+x^2}$, an odd function. Its sine transform is $\int_0^{\infty}\dfrac{x\sin ax}{1+x^2}\,dx$, which equals $\pi e^{-|a|}$ by evaluating the Fourier transform of $e^{-|x|}$ and differentiating with respect to $a$.
 
 \begin{problembox}[11.31: Gamma Function Properties]
 \begin{enumerate}[label=(\alph*)]
@@ -346,12 +558,21 @@ Use the Fourier integral theorem to evaluate the improper integral:
 \end{enumerate}
 \end{problembox}
 
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item Start from $\Gamma(p)=\int_0^{\infty} t^{p-1}e^{-t}\,dt$ and write $\Gamma(p)^2=\int_0^{\infty}\int_0^{\infty} x^{p-1}y^{p-1}e^{-(x+y)}\,dx\,dy$. Substitute $x=ru$, $y=r(1-u)$ to obtain the beta integral and the stated identity.
+\item Substitute $x=\tfrac{1+z}{2}$ in (a) to get $B(p,\tfrac12)=\dfrac{\Gamma(p)\Gamma(1/2)}{\Gamma(p+1/2)}=2^{1-2p}\dfrac{\Gamma(p)^2}{\Gamma(2p)}$ and rearrange to the duplication formula.
+\end{enumerate}
+
 \begin{problembox}[11.32: Fourier Transform of Gaussian]
 If $f(x) = e^{-x^2/2}$ and $g(x) = x f(x)$ for all $x$, prove that
 \[
 \int_0^\infty f(x) \cos xy \, dx = f(y), \quad \text{and} \quad \int_0^\infty g(x) \sin xy \, dx = g(y).
 \]
 \end{problembox}
+
+\noindent\textbf{Solution.}
+Integrate by parts or differentiate under the integral sign noting $f'= -x f$ and $g'= f- x g$ to obtain that $F(y)=\int_0^{\infty} f(x)\cos(xy)\,dx$ satisfies $F''+F=0$ with $F(0)=\int_0^{\infty} e^{-x^2/2}\,dx=\sqrt{\pi/2}$ and $F'(0)=0$. Comparing with $f(y)=e^{-y^2/2}$ and using uniqueness gives $F(y)=f(y)$; similarly for $g$ with sine.
 
 \begin{problembox}[11.33: Poisson Summation Formula]
 This exercise describes another form of Poisson's summation formula. Assume that $f$ is nonnegative, decreasing, and continuous on $[0, +\infty)$ and that $\int_0^\infty f(x) \, dx$ exists as an improper Riemann integral. Let
@@ -364,6 +585,9 @@ If $a$ and $b$ are positive numbers such that $ab = 2\pi$, prove that
 \]
 \end{problembox}
 
+\noindent\textbf{Solution.}
+Apply the Poisson summation formula to the even extension of $f$ and its cosine transform $g$; the hypotheses ensure absolute convergence and justification of termwise operations. With $ab=2\pi$, rescale to obtain the stated equality.
+
 \begin{problembox}[11.34: Transformation Formula]
 Prove that the transformation formula (55) for $\theta(x)$ can be put in the form
 \[
@@ -371,6 +595,9 @@ Prove that the transformation formula (55) for $\theta(x)$ can be put in the for
 \]
 where $ab = 2\pi$, $a > 0$.
 \end{problembox}
+
+\noindent\textbf{Solution.}
+Apply 11.33 to $f(x)=e^{-\pi a^2 x^2}$ to connect the two Gaussian sums. Using $ab=2\pi$ and separating the $m=n=0$ terms yields the displayed relation for $\theta$.
 
 \begin{problembox}[11.35: Zeta Function and Integral]
 If $s > 1$, prove that
@@ -387,6 +614,13 @@ where $\theta(x) = \sum_{n=-\infty}^\infty e^{-\pi n^2 x}$. Use this and the tra
 \]
 \end{problembox}
 
+\noindent\textbf{Solution.}
+For $s>1$, use the Mellin transform of $e^{-\pi x^2}$:
+\[\int_0^{\infty} e^{-\pi x^2} x^{s/2-1}\,dx = \tfrac{1}{2}\,\pi^{-s/4}\,\Gamma\!\left(\tfrac{s}{2}\right)\sum_{n=1}^{\infty} n^{-s},\]
+which gives the first identity. Then
+\[\sum_{n=1}^{\infty} n^{-s}=\pi^{s/2}\,\Gamma\!\left(\tfrac{s}{2}\right)\zeta(s)=\int_0^{\infty} (\theta(x)-1)\,x^{s/2-1}\,dx,\]
+and applying the transformation law for $\theta$ yields the final integral identity.
+
 \section{Laplace Transforms}
 
 \begin{problembox}[11.36: Laplace Transform Table]
@@ -402,6 +636,9 @@ t^p e^{at} & \Gamma(p + 1)/(z - a)^{p+1}, \quad (x > a, p > 0)
 \]
 \end{problembox}
 
+\noindent\textbf{Solution.}
+Compute directly from $F(z)=\int_0^{\infty} e^{-zt} f(t)\,dt$: for $f(t)=e^{at}$, $F(z)=(z-a)^{-1}$ when $\Re z>a$. Using Euler's formulas for $\cos at$ and $\sin at$ gives the listed entries. For $t^p e^{at}$, integrate by parts or use $\Gamma$ to obtain $\Gamma(p+1)/(z-a)^{p+1}$.
+
 \begin{problembox}[11.37: Convolution and Laplace Transform]
 Show that the convolution $h = f * g$ assumes the form
 \[
@@ -409,6 +646,9 @@ h(t) = \int_0^t f(x) g(t - x) \, dx,
 \]
 when both $f$ and $g$ vanish on the negative real axis. Use the convolution theorem for Fourier transforms to prove that $\mathcal{L}(f * g) = \mathcal{L}(f) \cdot \mathcal{L}(g)$.
 \end{problembox}
+
+\noindent\textbf{Solution.}
+If $f$ and $g$ vanish on $(-\infty,0)$, then $(f*g)(t)=\int_{-\infty}^{\infty} f(x)g(t-x)\,dx=\int_0^t f(x)g(t-x)\,dx$. The Fourier transform converts convolution into multiplication; restricting to $t>0$ gives $\mathcal L(f*g)=\mathcal L(f)\,\mathcal L(g)$.
 
 \begin{problembox}[11.38: Properties of Laplace Transform]
 Assume $f$ is continuous on $(0, +\infty)$ and let $F(z) = \int_0^\infty e^{-zt} f(t) \, dt$ for $z = x + iy$, $x > c > 0$. If $s > c$ and $a > 0$, prove that:
@@ -422,6 +662,14 @@ Assume $f$ is continuous on $(0, +\infty)$ and let $F(z) = \int_0^\infty e^{-zt}
 \end{enumerate}
 \end{problembox}
 
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item With $g(x)=\int_0^{\infty} e^{-st} f(t)\,dt$ and $a>0$,
+\[F(s+a)=\int_0^{\infty} e^{-(s+a)t}f(t)\,dt=a\int_0^{\infty} \Big(\int_t^{\infty} e^{-au}\,du\Big) e^{-st}f(t)\,dt=a\int_0^{\infty} g(t)e^{-at}\,dt.\]
+\item If $F(s+na)=0$ for all $n\ge0$, then the moments $\int_0^{\infty} g(t) e^{-nat}\,dt$ vanish; by 11.23 applied to $g$ on $[0,\infty)$ via a compactification and density of polynomials in $e^{-at}$, we get $g\equiv0$, hence $f\equiv0$ on $(0,\infty)$.
+\item If $\mathcal L(f)=\mathcal L(h)$ on a right half-plane, their inverse Laplace transforms coincide (11.39), so $f=h$ for $t>0$.
+\end{enumerate}
+
 \begin{problembox}[11.39: Inversion Formula for Laplace Transforms]
 Let $F(z) = \int_0^\infty e^{-zt} f(t) \, dt$ for $z = x + iy$, $x > c > 0$. Let $t$ be a point at which $f$ satisfies one of the "local" conditions (a) or (b) of the Fourier integral theorem (Theorem 11.18). Prove that for each $a > c$, we have
 \[
@@ -432,4 +680,8 @@ This is called the inversion formula for Laplace transforms. The limit on the ri
 \item \textit{Hint:} Let $g(t) = e^{-at} f(t)$ for $t > 0$, $g(t) = 0$ for $t < 0$, and apply Theorem 11.19 to $g$.
 \end{itemize}
 \end{problembox}
+
+\noindent\textbf{Solution.}
+Let $g(t)=e^{-at}f(t)$ for $t>0$, $g(t)=0$ for $t<0$. Its Fourier transform is $\widehat g(v)=F(a+iv)$. Apply the Fourier inversion formula (Theorem 11.19) at a point where $f$ satisfies a local condition to get
+\[\frac{f(t+)+f(t-)}{2}=\frac{1}{2\pi}\lim_{T\to\infty}\int_{-T}^T e^{(a+iv)t}F(a+iv)\,dv.\]
 

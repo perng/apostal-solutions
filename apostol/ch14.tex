@@ -1,5 +1,12 @@
 \chapter{Multiple Riemann Integrals}
 \section{Multiple Integrals}
+\noindent\textbf{Definitions and Theorems needed.}
+\begin{enumerate}[label=(\roman*)]
+    \item Riemann integral on a rectangle: upper and lower sums, oscillation on subrectangles, and the integrability criterion via vanishing total oscillation.
+    \item Product formula for separable integrands: if $f \in R[a,b]$ and $g \in R[c,d]$, then $\int_c^d \! \int_a^b f(x)g(y)\,dx\,dy = \left(\int_a^b f\right)\!\left(\int_c^d g\right)$.
+    \item If a bounded function on a rectangle is monotone in each variable separately, then it is Riemann integrable on that rectangle.
+    \item For continuous (or piecewise continuous) integrands, iterated integrals agree with the double integral (Fubini for Riemann), and symmetry/geometric decompositions may be used to evaluate integrals.
+\end{enumerate}
 
 \begin{problembox}[14.1: Product of Riemann Integrable Functions]
 If \( f_1 \in R \) on \([a_1, b_1], \ldots, f_n \in R \) on \([a_n, b_n]\), prove that
@@ -7,9 +14,23 @@ If \( f_1 \in R \) on \([a_1, b_1], \ldots, f_n \in R \) on \([a_n, b_n]\), prov
 where \( S = [a_1, b_1] \times \cdots \times [a_n, b_n] \).
 \end{problembox}
 
+\noindent\textbf{Solution.}
+For $n=2$, write $g(x,y)=f_1(x)f_2(y)$. Since $f_1\in R[a_1,b_1]$ and $f_2\in R[a_2,b_2]$, for any $\varepsilon>0$ there are partitions $\mathcal P_1,\mathcal P_2$ such that $U(f_i,\mathcal P_i)-L(f_i,\mathcal P_i)<\varepsilon$ $(i=1,2)$. For the product partition $\mathcal P=\mathcal P_1\times\mathcal P_2$ on $S$, the oscillation of $g$ on each rectangle factors, and one obtains
+\[ U(g,\mathcal P)-L(g,\mathcal P) \le (U(f_1,\mathcal P_1)-L(f_1,\mathcal P_1))\,\int f_2 + (U(f_2,\mathcal P_2)-L(f_2,\mathcal P_2))\,\int f_1 + O(\varepsilon^2), \]
+which can be made arbitrarily small. Hence $g\in R$ and
+\[ \iint_S f_1(x)f_2(y)\,d(x,y) = \int_{a_1}^{b_1} f_1(x)\,dx\,\int_{a_2}^{b_2} f_2(y)\,dy. \]
+The case $n>2$ follows by induction by grouping variables two at a time and applying the $n=2$ case repeatedly.
+
 \begin{problembox}[14.2: Riemann Integrability of Monotone Functions]
 Let \( f \) be defined and bounded on a compact rectangle \( Q = [a, b] \times [c, d] \) in \( \mathbb{R}^2 \). Assume that for each fixed \( y \) in \([c, d]\), \( f(x, y) \) is an increasing function of \( x \), and that for each fixed \( x \) in \([a, b]\), \( f(x, y) \) is an increasing function of \( y \). Prove that \( f \in R \) on \( Q \).
 \end{problembox}
+
+\noindent\textbf{Solution.}
+Partition $[a,b]$ and $[c,d]$ into subintervals of mesh smaller than $\delta>0$. On each rectangle $R=I\times J$, monotonicity in each variable gives
+\[ \operatorname{osc}(f;R) \le \max_{x\in I}\!f(x,\sup J)-\min_{x\in I}\!f(x,\inf J) \le f(\sup I,\sup J)-f(\inf I,\inf J). \]
+Summing over the grid yields
+\[ U(f)-L(f) \le \sum_{i,j} \big(f(x_{i+1},y_{j+1})-f(x_i,y_j)\big) \le (\text{Var}_x f)\,\delta + (\text{Var}_y f)\,\delta, \]
+which can be made $<\varepsilon$ by choosing $\delta$ small. Thus $U(f)=L(f)$ and $f\in R$ on $Q$.
 
 \begin{problembox}[14.3: Evaluation of Double Integrals]
 Evaluate each of the following double integrals.
@@ -20,6 +41,16 @@ Evaluate each of the following double integrals.
 \end{enumerate}
 \end{problembox}
 
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+    \item The integrand factors, so
+    \[ \iint_Q \sin^2 x\,\sin^2 y\,dx\,dy = \left(\int_0^{\pi} \sin^2 x\,dx\right)^2 = \left(\tfrac{\pi}{2}\right)^2 = \tfrac{\pi^2}{4}. \]
+    \item Let $t=x+y$. For $t\in[0,\pi]$ the fiber length is $t$; for $t\in[\pi,2\pi]$ it is $2\pi-t$. Hence
+    \[ \iint_Q |\cos(x+y)|\,dx\,dy = \int_0^{2\pi} |\cos t|\,m(t)\,dt = 2\int_0^{\pi} t\,|\cos t|\,dt = 2\pi. \]
+    \item With $m(t)$ the fiber length in $[0,2]^2$, $m(t)=t$ on $[0,2]$ and $m(t)=4-t$ on $[2,4]$. Thus
+    \[ \iint_Q [x+y]\,dx\,dy = \sum_{k=0}^3 k\int_k^{k+1} m(t)\,dt = 0\cdot\tfrac{1}{2} + 1\cdot\tfrac{3}{2} + 2\cdot\tfrac{3}{2} + 3\cdot\tfrac{1}{2} = 6. \]
+\end{enumerate}
+
 \begin{problembox}[14.4: Integrals over Unit Square]
 Let \( Q = [0, 1] \times [0, 1] \) and calculate \( \int_{Q} f(x, y) \, dx \, dy \) in each case.
 \begin{enumerate}[label=(\alph*)]
@@ -28,6 +59,19 @@ Let \( Q = [0, 1] \times [0, 1] \) and calculate \( \int_{Q} f(x, y) \, dx \, dy
     \item \( f(x, y) = x + y \) if \( x^2 \leq y \leq 2x^2, \quad f(x, y) = 0 \) otherwise.
 \end{enumerate}
 \end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+    \item Over $\{x+y\le 1\}$,
+    \[ \int_0^1 \!\int_0^{1-x} (1-x-y)\,dy\,dx = \int_0^1 \tfrac{(1-x)^2}{2}\,dx = \tfrac{1}{6}. \]
+    \item Quarter-disk of radius 1: in polar coordinates,
+    \[ \int_0^{\pi/2}\!\int_0^1 (x^2+y^2)\,r\,dr\,d\theta = \int_0^{\pi/2}\!\int_0^1 r^3\,dr\,d\theta = \tfrac{\pi}{8}. \]
+    \item Decompose by $x$:
+    \[ \int_0^{1/\sqrt{2}} \!\int_{x^2}^{2x^2} (x+y)\,dy\,dx\; +\; \int_{1/\sqrt{2}}^{1} \!\int_{x^2}^{1} (x+y)\,dy\,dx. \]
+    The first term equals $\int_0^{1/\sqrt{2}} \big(x^3+\tfrac{3}{2}x^4\big)dx= \tfrac{1}{16}+\tfrac{3}{40\sqrt{2}}$. The second term equals
+    \[ \int_{1/\sqrt{2}}^{1} \Big(x(1-x^2)+\tfrac{1-x^4}{2}\Big)dx = \left[\tfrac{x^2}{2}-\tfrac{x^4}{4}+\tfrac{x}{2}-\tfrac{x^5}{10}\right]_{1/\sqrt{2}}^{1} = \tfrac{37}{80}-\tfrac{19}{40\sqrt{2}}. \]
+    Summing gives $\tfrac{21}{40}-\tfrac{2}{5\sqrt{2}}$.
+\end{enumerate}
 
 \begin{problembox}[14.5: Mixed Partial Integrals]
 Define \( f \) on the square \( Q = [0, 1] \times [0, 1] \) as follows:
@@ -38,14 +82,36 @@ Define \( f \) on the square \( Q = [0, 1] \times [0, 1] \) as follows:
 \end{cases} \]
 \begin{enumerate}[label=(\alph*)]
     \item Prove that \( \int_{0}^{t} f(x, y) \, dy \) exists for \( 0 \leq t \leq 1 \) and that
-    \[ \int_{0}^{1} \left[ \int_{0}^{t} f(x, y) \, dy \right] \, dx = t^2, \]
-    and \[ \int_{0}^{1} \left[ \int_{0}^{t} f(x, y) \, dy \right] \, dx = t. \]
+    \[ \underline\int_{0}^{1} \left[ \int_{0}^{t} f(x, y) \, dy \right] \, dx = t^2, \]
+    and \[ \overline\int_{0}^{1} \left[ \int_{0}^{t} f(x, y) \, dy \right] \, dx = t. \]
     This shows that \( \int_{0}^{1} \left[ \int_{0}^{1} f(x, y) \, dy \right] \, dx \) exists and equals 1.
     
-    \item Prove that \( \int_{0}^{1} \left[ \int_{0}^{1} f(x, y) \, dx \right] \, dy \) exists and find its value.
+    \item Prove that \( \int_{0}^{1} \left[ \overline\int_{0}^{1} f(x, y) \, dx \right] \, dy \) exists and find its value.
     \item Prove that the double integral \( \int_{Q} f(x, y) \, d(x, y) \) does not exist.
 \end{enumerate}
 \end{problembox}
+
+
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item For fixed $x$ and $t\in[0,1]$, the function $y\mapsto f(x,y)$ is Riemann integrable on $[0,t]$ and
+\[\int_0^t f(x,y)\,dy = \begin{cases} t, & x\in\mathbb Q, \\[4pt] t^2, & x\notin\mathbb Q.\end{cases}\]
+As a function of $x$, this takes the two values $t$ and $t^2$ on dense sets. Hence on every subinterval of $[0,1]$ the supremum is $\max\{t,t^2\}=t$ and the infimum is $\min\{t,t^2\}=t^2$. Therefore
+\[ \underline\int_0^1\!\Big[\int_0^t f(x,y)\,dy\Big]dx = t^2,\qquad \overline\int_0^1\!\Big[\int_0^t f(x,y)\,dy\Big]dx = t. \]
+In particular, for $t=1$ we have $\int_0^1\!\big[\int_0^1 f(x,y)\,dy\big]dx=1$ since both cases give the value $1$.
+
+\item For fixed $y\in[0,1]$, as a function of $x$ the values $1$ and $2y$ occur on dense sets, so on every subinterval the supremum is $\max\{1,2y\}$ and the infimum is $\min\{1,2y\}$. Hence the upper integral in $x$ exists and equals
+\[ \overline\int_0^1 f(x,y)\,dx = \max\{1,2y\} = \begin{cases} 1, & 0\le y\le \tfrac12, \\[4pt] 2y, & \tfrac12< y\le 1. \end{cases} \]
+Thus
+\[ \int_0^1\!\Big[\overline\int_0^1 f(x,y)\,dx\Big]dy = \int_0^{1/2}\!1\,dy + \int_{1/2}^1\!2y\,dy = \tfrac12 + (1-\tfrac14) = \tfrac{5}{4}. \]
+
+\item Let $R=I\times J$ with $J=[\alpha,\beta]$. Because rationals and irrationals in $x$ are dense, we have
+\[ \sup_R f = \max\{1,2\beta\},\qquad \inf_R f=\min\{1,2\alpha\}. \]
+Consequently, for any partition $\mathcal P$ of $Q$,
+\[ L(f,\mathcal P) \le \int_0^1 \min\{1,2y\}\,dy = \tfrac{3}{4},\qquad U(f,\mathcal P) \ge \int_0^1 \max\{1,2y\}\,dy = \tfrac{5}{4}. \]
+Hence $\underline{\iint_Q} f \le \tfrac34 < \tfrac54 \le \overline{\iint_Q} f$, so the double Riemann integral $\int_Q f$ does not exist.
+\end{enumerate}
 
 \begin{problembox}[14.6: Discontinuous Integrand]
 Define \( f \) on the square \( Q = [0, 1] \times [0, 1] \) as follows:
@@ -58,6 +124,10 @@ where \( m \) and \( n \) are relatively prime integers, \( n > 0 \). Prove that
 \[\int_{0}^{1} f(x, y) \, dx = \int_{0}^{1} \left[ \int_{0}^{1} f(x, y) \, dx \right] \, dy = \int_{Q} f(x, y) \, d(x, y) = 0\]
 but that \( \int_{0}^{1} f(x, y) \, dy \) does not exist for rational \( x \).
 \end{problembox}
+
+\noindent\textbf{Solution.}
+For fixed $y$, $f(\cdot,y)$ is zero except possibly on the countable set $\{m/n\}$ when $y$ is rational. Given $\varepsilon>0$, choose a partition of $[0,1]$ so that the total length of intervals covering those rationals is $<\varepsilon$; the contribution to upper sums is then $<\varepsilon\cdot\sup f\le \varepsilon$, hence $\int_0^1 f(x,y)\,dx=0$. Therefore $\int_0^1\!\Big[\int_0^1 f(x,y)\,dx\Big]dy=0$.
+Similarly, on any rectangle in $Q$ the set where $f\ne 0$ is a countable subset with total contribution to upper sums made arbitrarily small, so $\int_Q f=0$. However, for rational $x=m/n$, the function $y\mapsto f(m/n,y)$ equals $\tfrac{1}{n}$ on rationals and $0$ on irrationals, which is not Riemann integrable, so $\int_0^1 f(x,y)\,dy$ does not exist for rational $x$.
 
 \begin{problembox}[14.7: Dense Set with Finite Cross-Sections]
 If \( p_k \) denotes the \( k \)th prime number, let
@@ -76,19 +146,41 @@ let \( S = \bigcup_{k=1}^{\infty} S(p_k) \), and let \( Q = [0, 1] \times [0, 1]
 \end{enumerate}
 \end{problembox}
 
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+    \item For any rectangle in $Q$ and any large prime $p$, the grid $\{(n/p,m/p):1\le n,m\le p-1\}$ lies $1/p$-dense, hence $S$ is dense. A vertical line $x=x_0$ meets $S$ only when $x_0=n/p$ with $p$ prime; for a reduced rational $x_0=a/b$, this forces $b$ prime and yields at most $p-1$ points, otherwise none. Similarly for horizontal lines; hence each axis-parallel line meets $S$ in a finite set.
+    \item For fixed $x$, the vertical section $\{y:(x,y)\in S\}$ is finite, so it has Jordan content zero and $\int_0^1 f(x,y)\,dy=1$. Thus $\int_0^1\![\int_0^1 f(x,y)dy]dx=1$. The same holds with $x$ and $y$ interchanged. However, every rectangle contains points of $S$ and of $Q\setminus S$, so the oscillation of $f$ on every subrectangle is $1$; lower sums are $0$ and upper sums are $1$, hence $\int_Q f$ does not exist.
+\end{enumerate}
+
 \section{Jordan Content}
+\noindent\textbf{Definitions and Theorems needed.}
+\begin{enumerate}[label=(\roman*)]
+    \item Jordan outer/inner content; a bounded set is Jordan-measurable iff its boundary has content zero.
+    \item Sets of content zero: countable sets and images of small coverings have arbitrarily small total content.
+    \item Tube/strip coverings: graphs of continuous functions and rectifiable curves can be covered by thin rectangles with arbitrarily small total area.
+    \item Cavalieri’s principle for Jordan content: content of an ordinate set of a continuous function over a Jordan region equals the integral of the function over the base.
+\end{enumerate}
 
 \begin{problembox}[14.8: Jordan Content of Finite Accumulation Points]
 Let \( S \) be a bounded set in \( \mathbb{R}^n \) having at most a finite number of accumulation points. Prove that \( c(S) = 0 \).
 \end{problembox}
 
+\noindent\textbf{Solution.}
+Let $\{a_1,\dots,a_m\}$ be the accumulation points (possibly empty). Cover each $a_j$ by a cube of content $<\varepsilon/(2m)$. The remaining points of $S$ are isolated; choose disjoint cubes around each, with total content $<\varepsilon/2$ (possible since only finitely many lie outside any given compact exhaustion). Thus $S$ is covered by cubes of total content $<\varepsilon$. As $\varepsilon>0$ is arbitrary, $c(S)=0$.
+
 \begin{problembox}[14.9: Graph of Continuous Function has Zero Content]
 Let \( f \) be a continuous real-valued function defined on \([a, b]\). Let \( S \) denote the graph of \( f \), that is, \( S = \{(x, y) : y = f(x), a \leq x \leq b\} \). Prove that \( S \) has two-dimensional Jordan content zero.
 \end{problembox}
 
+\noindent\textbf{Solution.}
+By uniform continuity of $f$ on $[a,b]$, for $\varepsilon>0$ choose $\delta$ so that $|x-x'|<\delta$ implies $|f(x)-f(x')|<\varepsilon/(b-a)$. Partition $[a,b]$ into subintervals of length $<\delta$ and cover the graph over each subinterval by a rectangle of width $\Delta x$ and height $<\varepsilon/(b-a)$. The total area is $<\varepsilon$. Hence the graph has content zero.
+
 \begin{problembox}[14.10: Rectifiable Curve has Zero Content]
 Let \( \Gamma \) be a rectifiable curve in \( \mathbb{R}^n \). Prove that \( \Gamma \) has \( n \)-dimensional Jordan content zero.
 \end{problembox}
+
+\noindent\textbf{Solution.}
+Approximate $\Gamma$ by a polygonal path of length within $\varepsilon$ of its total length $L$. Cover each segment by a tube of thickness $\eta>0$; the $n$-dimensional content of the tube is bounded by $C_n\,L\,\eta$, which can be made arbitrarily small by choosing $\eta$. Therefore $c(\Gamma)=0$.
 
 \begin{problembox}[14.11: Ordinate Set Content]
 Let \( f \) be a nonnegative function defined on a set \( S \) in \( \mathbb{R}^n \). The ordinate set of \( f \) over \( S \) is defined to be the following subset of \( \mathbb{R}^{n+1} \):
@@ -98,16 +190,34 @@ If \( S \) is a Jordan-measurable region in \( \mathbb{R}^n \) and if \( f \) is
 Interpret this problem geometrically when \( n = 1 \) and \( n = 2 \).
 \end{problembox}
 
+\noindent\textbf{Solution.}
+Vertical sections at $x\in S$ are intervals of length $f(x)$; outside $S$ they are empty. By continuity of $f$ and Jordan-measurability of $S$, the ordinate set is Jordan-measurable and its content equals the integral of section lengths:
+\[ c_{n+1}(\text{ord}(f,S)) = \int_S f(x)\,dx. \]
+Geometrically: for $n=1$, the area under the curve $y=f(x)$ over $S\subset\mathbb R$; for $n=2$, the volume under the surface $z=f(x,y)$ over a planar region $S$.
+
 \section{Advanced Topics}
+\noindent\textbf{Definitions and Theorems needed.}
+\begin{enumerate}[label=(\roman*)]
+    \item Content-zero sets and ``almost everywhere'' statements for Riemann integrable functions.
+    \item Mean Value Theorem for integrals on Jordan regions with continuous integrands.
+    \item Equality of mixed partials: if $f$ is continuous, then $\partial_2\partial_1$ and $\partial_1\partial_2$ of the iterated integral coincide and equal $f$.
+    \item One-dimensional Mean Value Theorem applied along line segments; Fundamental Theorem of Calculus in each variable.
+\end{enumerate}
 
 \begin{problembox}[14.12: Zero Integral Implies Zero Function]
 Assume that \( f \in R \) on \( S \) and suppose \( \int_S f(x) \, dx = 0 \). (\( S \) is a subset of \( \mathbb{R}^n \)). Let \( A = \{ x : x \in S, f(x) < 0 \} \) and assume that \( c(A) = 0 \). Prove that there exists a set \( B \) of measure zero such that \( f(x) = 0 \) for each \( x \) in \( S - B \).
 \end{problembox}
 
+\noindent\textbf{Solution.}
+Let $E_\varepsilon=\{x\in S:f(x)>\varepsilon\}$. If $c(E_\varepsilon)>0$ for some $\varepsilon>0$, then $\int_S f\,dx\ge \varepsilon\,c(E_\varepsilon)>0$, a contradiction. Hence $c(E_\varepsilon)=0$ for all $\varepsilon>0$. Let $B=A\cup\bigcup_{m=1}^\infty E_{1/m}$. Then $c(B)=0$ and for $x\in S\setminus B$ we have $f(x)\ge 0$ and $f(x)\le 1/m$ for all $m$, hence $f(x)=0$.
+
 \begin{problembox}[14.13: Mean Value Theorem for Integrals]
 Assume that \( f \in R \) on \( S \), where \( S \) is a region in \( \mathbb{R}^n \) and \( f \) is continuous on \( S \). Prove that there exists an interior point \( x_0 \) of \( S \) such that
 \[\int_S f(x) \, dx = f(x_0)c(S).\]
 \end{problembox}
+
+\noindent\textbf{Solution.}
+Let $m=\min_{\overline S} f$ and $M=\max_{\overline S} f$ (attained by continuity). Then $m\,c(S)\le \int_S f\,dx\le M\,c(S)$. Choose $x_-,x_+\in S$ with $f(x_-)\le \frac{1}{c(S)}\int_S f\,dx\le f(x_+)$ (possible since $f(S)$ is an interval on each path-connected component and $S$ has nonempty interior). By continuity, along a path in $S$ joining $x_-$ to $x_+$, the intermediate value $\frac{1}{c(S)}\int_S f$ is assumed at some interior point $x_0$.
 
 \begin{problembox}[14.14: Mixed Partial Derivatives]
 Let \( f \) be continuous on a rectangle \( Q = [a, b] \times [c, d] \). For each interior point \( (x_1, x_2) \) in \( Q \), define
@@ -115,9 +225,21 @@ Let \( f \) be continuous on a rectangle \( Q = [a, b] \times [c, d] \). For eac
 Prove that \( D_{1,2} F(x_1, x_2) = D_{2,1} F(x_1, x_2) = f(x_1, x_2) \).
 \end{problembox}
 
+\noindent\textbf{Solution.}
+By the one-variable Fundamental Theorem of Calculus and continuity of $f$,
+\[ D_2 F(x_1,x_2) = \int_a^{x_1} f(x,x_2)\,dx, \qquad D_1 D_2 F(x_1,x_2) = f(x_1,x_2). \]
+Symmetrically, $D_1 F(x_1,x_2)=\int_c^{x_2} f(x_1,y)\,dy$ and then $D_2 D_1 F(x_1,x_2)=f(x_1,x_2)$.
+
 \begin{problembox}[14.15: Integral of Mixed Partial Derivative]
 Let \( T \) denote the following triangular region in the plane:
 \[T = \left\{ (x, y) : 0 \leq \frac{x}{a} + \frac{y}{b} \leq 1 \right\}, \quad \text{where } a > 0, \, b > 0.\]
 Assume that \( f \) has a continuous second-order partial derivative \( D_{1,2} f \) on \( T \). Prove that there is a point \( (x_0, y_0) \) on the segment joining \( (a, 0) \) and \( (0, b) \) such that
 \[\int_T D_{1,2} f(x, y) \, d(x, y) = f(0, 0) - f(a, 0) + aD_1 f(x_0, y_0).\]
 \end{problembox}
+
+\noindent\textbf{Solution.}
+Integrate $D_{1,2}f$ first in $y$ over $[0,\,b\,(1-\tfrac{x}{a})]$:
+\[ \int_0^{b(1-x/a)} D_{1,2}f(x,y)\,dy = D_1 f\big(x, b(1-\tfrac{x}{a})\big) - D_1 f(x,0). \]
+Integrating in $x\in[0,a]$ gives
+\[ \int_T D_{1,2}f = \int_0^a D_1 f\big(x, b(1-\tfrac{x}{a})\big)\,dx - \int_0^a D_1 f(x,0)\,dx = f(0,0)-f(a,0) + \int_0^a D_1 f\big(x, b(1-\tfrac{x}{a})\big)\,dx. \]
+By the one-dimensional Mean Value Theorem, there exists $\xi\in(0,a)$ such that the last integral equals $a\,D_1 f\big(\xi, b(1-\tfrac{\xi}{a})\big)$. This point lies on the segment joining $(a,0)$ and $(0,b)$, completing the proof.

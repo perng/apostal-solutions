@@ -290,25 +290,16 @@ Let $S$ and $T$ be subsets of $\mathbb{R}^k$. Prove that $\overline{S \cup T} = 
 \textit{NOTE.} The statements in Exercises 3.9 through 3.13 are true in any metric space.
 \end{problembox}
 
-\textbf{Proof:}
-\subsubsection*{Closure of a Union: $\overline{S \cup T} = \overline{S} \cup \overline{T}$}
-A concise way to prove this is by using the results from Exercise 3.12:
-\begin{align*}
-\overline{S \cup T} &= (S \cup T) \cup (S \cup T)' && (\text{by 3.12d}) \\
-&= (S \cup T) \cup (S' \cup T') && (\text{by 3.12c}) \\
-&= (S \cup S') \cup (T \cup T') && (\text{by associativity and commutativity of } \cup) \\
-&= \overline{S} \cup \overline{T} && (\text{by 3.12d})
-\end{align*}
+\textbf{Proof.}
+We use only the definition of closure via adherent points.
 
-\subsubsection*{Closure of an Intersection: $\overline{S \cap T} \subseteq \overline{S} \cap \overline{T}$}
-Let $\mathbf{x} \in \overline{S \cap T}$. By the definition of closure, this means every neighborhood of $\mathbf{x}$ contains at least one point from $S \cap T$.
-Let $U$ be any neighborhood of $\mathbf{x}$. Then $U \cap (S \cap T) \neq \emptyset$.
-Since $S \cap T \subseteq S$, it follows that $U \cap S \neq \emptyset$. As $U$ was an arbitrary neighborhood of $\mathbf{x}$, this implies that $\mathbf{x}$ is an adherent point of $S$, so $\mathbf{x} \in \overline{S}$.
-Similarly, since $S \cap T \subseteq T$, it follows that $U \cap T \neq \emptyset$. This implies that $\mathbf{x}$ is an adherent point of $T$, so $\mathbf{x} \in \overline{T}$.
-Since $\mathbf{x} \in \overline{S}$ and $\mathbf{x} \in \overline{T}$, we have $\mathbf{x} \in \overline{S} \cap \overline{T}$.
-Therefore, $\overline{S \cap T} \subseteq \overline{S} \cap \overline{T}$.
+For the union, first note $S\subseteq S\cup T$ and $T\subseteq S\cup T$, so by monotonicity of closure,
+\[\overline S\subseteq \overline{S\cup T},\qquad \overline T\subseteq \overline{S\cup T},\]
+whence $\overline S\cup\overline T\subseteq \overline{S\cup T}$. Conversely, if $x\in \overline{S\cup T}$, then every neighborhood of $x$ meets $S\cup T$, hence meets $S$ or $T$. Therefore $x\in\overline S\cup\overline T$. Thus $\overline{S\cup T}=\overline S\cup\overline T$.
 
-\textit{Note: The inclusion can be strict. For example, in $\mathbb{R}^1$, let $S = \mathbb{Q}$ and $T = \mathbb{R} \setminus \mathbb{Q}$. Then $S \cap T = \emptyset$, so $\overline{S \cap T} = \emptyset$. However, $\overline{S} = \mathbb{R}$ and $\overline{T} = \mathbb{R}$, so $\overline{S} \cap \overline{T} = \mathbb{R}$.}
+For the intersection, if $x\in \overline{S\cap T}$ then every neighborhood of $x$ meets $S\cap T$, hence meets both $S$ and $T$. Therefore $x\in\overline S$ and $x\in\overline T$, so
+\[\overline{S\cap T}\subseteq \overline S\cap \overline T.\]
+This inclusion holds without any hypothesis on $S$.
 
 \begin{problembox}[3.14: Properties of Convex Sets]
 A set \( S \) in \( \mathbb{R}^n \) is called convex if, for every pair of points \( x \) and \( y \) in \( S \) and every real \( \theta \) satisfying \( 0 < \theta < 1 \), we have \( \theta x + (1 - \theta)y \in S \). Interpret this statement geometrically (in \( \mathbb{R}^2 \) and \( \mathbb{R}^3 \)) and prove that:
@@ -448,7 +439,7 @@ The collection \( \mathcal{F} \) of open intervals of the form \( (1/n, 2/n) \),
 
 \textbf{Proof:} Let $\mathcal{G} = \{(1/n_1, 2/n_1), \ldots, (1/n_k, 2/n_k)\}$ be a finite subcollection of $\mathcal{F}$. Let $N = \max\{n_1, \ldots, n_k\}$.
 
-Then the largest interval in $\mathcal{G}$ is $(1/N, 2/N)$. For any $x \in (0, 1/N)$, we have $x < 1/N < 2/N$, so $x$ is not covered by any interval in $\mathcal{G}$.
+Then the leftmost interval in $\mathcal{G}$ is $(1/N, 2/N)$. For any $x \in (0, 1/N)$, we have $x < 1/N < 2/N$, so $x$ is not covered by any interval in $\mathcal{G}$.
 
 Therefore, $\mathcal{G}$ does not cover $(0,1)$, proving that no finite subcollection of $\mathcal{F}$ covers $(0,1)$.
 

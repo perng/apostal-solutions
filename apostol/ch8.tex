@@ -2,91 +2,240 @@
 
 \section{Limit Superior and Limit Inferior}
 
+\noindent\textbf{Key definitions and theorems used in this section.}
+\begin{enumerate}
+\item For a real sequence \(\{a_n\}\), define the tail supremum and infimum by
+\(u_n = \sup\{a_k : k \ge n\}\) and \(v_n = \inf\{a_k : k \ge n\}\). Then \(\{u_n\}\) is decreasing and \(\{v_n\}\) is increasing. The limits
+\[\limsup_{n\to\infty} a_n = \lim_{n\to\infty} u_n, \quad \liminf_{n\to\infty} a_n = \lim_{n\to\infty} v_n\]
+exist in \(\overline{\mathbb{R}}\).
+\item Monotone convergence for sequences: every monotone bounded sequence converges.
+\item Subsequence principle: there exist subsequences attaining \(\limsup\) and \(\liminf\).
+\item Basic limsup/liminf algebra: \(\limsup(a_n+b_n) \le \limsup a_n + \limsup b_n\); for \(a_n,b_n\ge 0\), \(\limsup(a_n b_n) \le (\limsup a_n)(\limsup b_n)\).
+\end{enumerate}
+
 \begin{problembox}[8.1: Supremum and Infimum Limits]
-a) Given a real-valued sequence \(\{a_n\}\) bounded above, let \(u_n = \sup \{a_k : k \geq n\}\). Then \(u_n \to \infty\) and hence \(U = \lim_{n \to \infty} u_n\) is either finite or \(-\infty\). Prove that
+\begin{enumerate}[label=\alph*)]
+\item Given a real-valued sequence \(\{a_n\}\) bounded above, let \(u_n = \sup \{a_k : k \geq n\}\). Then \(u_n \shortsearrow\) and hence \(U = \lim_{n \to \infty} u_n\) is either finite or \(-\infty\). Prove that
 \[U = \limsup_{n \to \infty} a_n = \lim_{n \to \infty} (\sup \{a_k : k \geq n\}).\]
-
-b) Similarly, if \(\{a_n\}\) is bounded below, prove that
+\item Similarly, if \(\{a_n\}\) is bounded below, prove that
 \[V = \liminf_{n \to \infty} a_n = \lim_{n \to \infty} (\inf \{a_k : k \geq n\}).\]
-
-If \( U \) and \( V \) are finite, show that:
-c) There exists a subsequence of \(\{a_n\}\) which converges to \( U \) and a subsequence which converges to \( V \).
-d) If \( U = V \), every subsequence of \(\{a_n\}\) converges to \( U \).
+\item If \( U \) and \( V \) are finite, show that there exists a subsequence of \(\{a_n\}\) which converges to \( U \) and a subsequence which converges to \( V \).
+\item Also assume \( U \) and \( V \) are finite, if \( U = V \), every subsequence of \(\{a_n\}\) converges to \( U \).
+\end{enumerate}
 \end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item The tail sets shrink with \(n\), so \(u_{n+1}\le u_n\). Since \(\{a_n\}\) is bounded above, \(u_n\le M\) for some \(M\). Thus \(\{u_n\}\) is decreasing and has a limit \(U\in\overline{\mathbb{R}}\) (in fact finite here). By definition, \(\limsup_{n\to\infty} a_n=\inf_n \sup_{k\ge n} a_k=\lim_{n\to\infty} u_n=U\).
+\item Similarly, \(v_{n+1}\ge v_n\). If \(\{a_n\}\) is bounded below, then \(\{v_n\}\) is bounded above and converges to \(V\). Moreover, \(\liminf_{n\to\infty} a_n=\sup_n \inf_{k\ge n} a_k=\lim_{n\to\infty} v_n=V\).
+\item Assume \(U\) and \(V\) are finite. For \(U\), since \(u_n\downarrow U\), for each \(j\) choose \(N_j\) with \(u_{N_j}<U+1/j\). By the definition of supremum, pick \(k_j\ge N_j\) with \(a_{k_j}>U-1/j\). Then \(a_{k_j}\to U\). For \(V\), pick \(N'_j\) with \(v_{N'_j}>V-1/j\) and then \(\ell_j\ge N'_j\) with \(a_{\ell_j}<V+1/j\); hence \(a_{\ell_j}\to V\).
+\item Also assume \(U\) and \(V\) are finite and \(U=V=L\). Since \(u_n\to L\) and \(v_n\to L\), for any \(\varepsilon>0\) there is \(N\) such that for all \(n\ge N\), \(L-\varepsilon<v_n\le a_n\le u_n<L+\varepsilon\). Thus \(a_n\to L\), and every subsequence converges to \(L\).
+\end{enumerate}
+
+
 
 \begin{problembox}[8.2: Sum and Product of Limits]
 Given two real-valued sequences \(\{a_n\}\) and \(\{b_n\}\) bounded below. Prove that
-a) \(\limsup_{n \to \infty} (a_n + b_n) \leq \limsup_{n \to \infty} a_n + \limsup_{n \to \infty} b_n\).
-
-b) \(\limsup_{n \to \infty} (a_n b_n) \leq (\limsup_{n \to \infty} a_n)(\limsup_{n \to \infty} b_n)\) if \(a_n > 0, b_n > 0\) for all \(n\), and if both \(\limsup_{n \to \infty} a_n\) and \(\limsup_{n \to \infty} b_n\) are finite or both are infinite.
+\begin{enumerate}[label=\alph*)]
+\item \(\limsup_{n \to \infty} (a_n + b_n) \leq \limsup_{n \to \infty} a_n + \limsup_{n \to \infty} b_n\).
+\item \(\limsup_{n \to \infty} (a_n b_n) \leq (\limsup_{n \to \infty} a_n)(\limsup_{n \to \infty} b_n)\) if \(a_n > 0, b_n > 0\) for all \(n\), and if both \(\limsup_{n \to \infty} a_n\) and \(\limsup_{n \to \infty} b_n\) are finite or both are infinite.
+\end{enumerate}
 \end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item Let \(u_n=\sup_{k\ge n} a_k\), \(v_n=\sup_{k\ge n} b_k\). Then for all \(k\ge n\), \(a_k+b_k\le u_n+v_n\), hence \(\sup_{k\ge n}(a_k+b_k)\le u_n+v_n\). Taking limits gives \(\limsup(a_n+b_n)\le \lim u_n+\lim v_n=\limsup a_n+\limsup b_n\).
+\item For \(a_n,b_n\ge 0\), write \(\sup_{k\ge n}(a_k b_k)\le \big(\sup_{k\ge n} a_k\big)\big(\sup_{k\ge n} b_k\big)=u_n v_n\). Passing to limits yields \(\limsup(a_n b_n)\le (\lim u_n)(\lim v_n)=(\limsup a_n)(\limsup b_n)\). The convention \(\infty\cdot c=\infty\) for \(c>0\) covers the infinite case.
+\end{enumerate}
 
 \begin{problembox}[8.3: Theorems 8.3 and 8.4]
 Prove Theorems 8.3 and 8.4.
+
+\begin{theorem}[Theorem 8.3]
+Let \(\{a_n\}\) be a sequence of real numbers. Then we have:
+\begin{enumerate}[label=\alph*)]
+\item \(\liminf_{n \to \infty} a_n \leq \limsup_{n \to \infty} a_n.\)
+\item The sequence converges if, and only if, \(\limsup_{n \to \infty} a_n\) and \(\liminf_{n \to \infty} a_n\) are both finite and equal, in which case \(\lim_{n \to \infty} a_n = \liminf_{n \to \infty} a_n = \limsup_{n \to \infty} a_n.\)
+\item The sequence diverges to \(+\infty\) if, and only if, \(\liminf_{n \to \infty} a_n = \limsup_{n \to \infty} a_n = +\infty.\)
+\item The sequence diverges to \(-\infty\) if, and only if, \(\liminf_{n \to \infty} a_n = \limsup_{n \to \infty} a_n = -\infty\).
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Theorem 8.4]
+Assume that \(a_n \leq b_n\) for each \(n = 1, 2, \ldots\). Then we have:
+\[
+\liminf_{n \to \infty} a_n \leq \liminf_{n \to \infty} b_n \quad \text{and} \quad \limsup_{n \to \infty} a_n \leq \limsup_{n \to \infty} b_n.
+\]
+\end{theorem}
+
 \end{problembox}
+
+\noindent\textbf{Solution.}
+\emph{Theorem 8.3.} Let \(u_n=\sup_{k\ge n} a_k\) and \(v_n=\inf_{k\ge n} a_k\). Then \(v_n\le u_n\) for all \(n\), hence taking limits gives \(\liminf a_n=\lim v_n\le \lim u_n=\limsup a_n\), proving (a). If \(a_n\to L\), then for every \(\varepsilon>0\) eventually \(L-\varepsilon\le a_n\le L+\varepsilon\), which implies \(v_n\to L\) and \(u_n\to L\), hence \(\liminf a_n=\limsup a_n=L\). Conversely, if \(\liminf a_n=\limsup a_n=L\in\mathbb{R}\), then for every \(\varepsilon>0\) there exists \(N\) such that for all \(n\ge N\), \(L-\varepsilon\le v_n\le a_n\le u_n\le L+\varepsilon\); hence \(a_n\to L\). This proves (b). For (c), if \(a_n\to +\infty\), then for every \(M\) there exists \(N\) such that \(a_n\ge M\) for all \(n\ge N\), whence \(v_n\ge M\) and \(u_n\ge M\) for all \(n\ge N\), so both limits are \(+\infty\). Conversely, if \(\liminf a_n=\limsup a_n=+\infty\), then for every \(M\) there exists \(N\) with \(v_n\ge M\) for \(n\ge N\), which forces \(a_n\ge M\) eventually, so \(a_n\to +\infty\). The case (d) for \(-\infty\) is analogous.
+
+\emph{Theorem 8.4.} Since \(a_n\le b_n\) for each \(n\), we have for every \(n\) and all \(k\ge n\) that \(a_k\le b_k\). Taking suprema over \(k\ge n\) yields \(\sup_{k\ge n} a_k\le \sup_{k\ge n} b_k\), hence \(\limsup a_n\le \limsup b_n\). Similarly, taking infima gives \(\inf_{k\ge n} a_k\le \inf_{k\ge n} b_k\), hence \(\liminf a_n\le \liminf b_n\).
 
 \begin{problembox}[8.4: Ratio and Root Test Bounds]
 If each \(a_n > 0\), prove that
 \[\liminf_{n \to \infty} \frac{a_{n+1}}{a_n} \leq \liminf_{n \to \infty} \sqrt[n]{a_n} \leq \limsup_{n \to \infty} \sqrt[n]{a_n} \leq \limsup_{n \to \infty} \frac{a_{n+1}}{a_n}.\]
 \end{problembox}
 
+\noindent\textbf{Solution.}
+Let \(r_n=\frac{a_{n+1}}{a_n}\). For any integers \(m<n\), \(a_n=a_m\,\prod_{k=m}^{n-1} r_k\), hence
+\[\sqrt[n]{a_n}=\sqrt[n]{a_m}\, \prod_{k=m}^{n-1} r_k^{1/n}.\]
+Fix \(m\) and let \(n\to\infty\): since \(\sqrt[n]{a_m}\to 1\) and each factor \(r_k^{1/n}\to 1\), the accumulation points of \(\sqrt[n]{a_n}\) lie between \(\liminf r_k\) and \(\limsup r_k\). A standard \(\varepsilon\)-argument yields the chain of inequalities in the statement.
+
 \begin{problembox}[8.5: Limit of Factorial Ratio]
 Let \(a_n = n^n / n!\). Show that \(\lim_{n \to \infty} a_{n+1} / a_n = e\) and use Exercise 8.4 to deduce that
 \[\lim_{n \to \infty} \frac{(n!)^{1/n}}{n} = \frac{1}{e}.\]
 \end{problembox}
+
+\noindent\textbf{Solution.}
+Compute
+\[\frac{a_{n+1}}{a_n}=\frac{(n+1)^{n+1}/(n+1)!}{n^n/n!}=\frac{(n+1)^n}{n^n}=\Big(1+\frac{1}{n}\Big)^n\xrightarrow[n\to\infty]{} e.\]
+By Exercise 8.4 applied to \(b_n=n!/n^n\), we have \(\lim \sqrt[n]{b_n}=\lim \frac{b_{n+1}}{b_n}=e^{-1}\). Thus \(\lim (n!)^{1/n}/n=1/e\).
 
 \begin{problembox}[8.6: Cesaro Means]
 Let \(\{a_n\}\) be a real-valued sequence and let \(\sigma_n = (a_1 + \cdots + a_n)/n\). Show that
 \[\liminf_{n \to \infty} a_n \leq \liminf_{n \to \infty} \sigma_n \leq \limsup_{n \to \infty} \sigma_n \leq \limsup_{n \to \infty} a_n.\]
 \end{problembox}
 
+\noindent\textbf{Solution.}
+Let \(L=\liminf a_n\) and \(U=\limsup a_n\). For any \(\varepsilon>0\), eventually \(a_n\ge L-\varepsilon\) and \(a_n\le U+\varepsilon\). Averaging yields \(\sigma_n\ge L-\varepsilon\) and \(\sigma_n\le U+\varepsilon\) for all large \(n\). Taking \(\liminf\) and \(\limsup\) and letting \(\varepsilon\downarrow 0\) gives the inequalities.
+
 \begin{problembox}[8.7: Limit Superior and Inferior Examples]
-Find \(\limsup_{n \to \infty} a_n\) and \(\liminf_{n \to \infty} a_n\) if \(a_n\) is given by
-a) \(\cos n\),    b) \(\left(1 + \frac{1}{n}\right) \cos n\pi\),    c) \(n \sin \frac{n\pi}{3}\), 
-d) \(\sin \frac{n\pi}{2} \cos \frac{n\pi}{2}\),    e) \(\frac{(-1)^n n}{1 + n}\),    f) \(\frac{n}{3} - \left[\frac{n}{3}\right]\).
+Find \(\limsup_{n \to \infty} a_n\) and \(\liminf_{n \to \infty} a_n\) in each case:
+\begin{enumerate}[label=\alph*)]
+\item \(a_n=\cos n\)
+\item \(a_n=\left(1 + \frac{1}{n}\right) \cos (n\pi)\)
+\item \(a_n=n \sin \frac{n\pi}{3}\)
+\item \(a_n=\sin \frac{n\pi}{2} \cos \frac{n\pi}{2}\)
+\item \(a_n=\frac{(-1)^n n}{1 + n}\)
+\item \(a_n=\frac{n}{3} - \left[\frac{n}{3}\right]\)
+\end{enumerate}
 \end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item \(\cos n\) is dense in \([-1,1]\) modulo \(2\pi\), so \(\limsup=1\), \(\liminf=-1\).
+\item \(\cos(n\pi)=(-1)^n\) and \(1+1/n\to 1\). Hence \(a_n\to (-1)^n\). Thus \(\limsup=1\), \(\liminf=-1\).
+\item Since \(\sin(n\pi/3)\) takes values in \(\{0,\pm\tfrac{\sqrt{3}}{2}\}\) periodically, \(|a_n|\) grows like \(cn\). Hence \(\limsup=+\infty\) and \(\liminf=-\infty\).
+\item Using identities, \(\sin(\tfrac{n\pi}{2})\cos(\tfrac{n\pi}{2})=\tfrac{1}{2}\sin(n\pi)=0\). Thus both limsup and liminf equal 0.
+\item \(a_n=(-1)^n\, \tfrac{n}{n+1}\to \pm 1\) with approach to 1 in magnitude. Hence \(\limsup=1\), \(\liminf=-1\).
+\item \(a_n=\{n/3\}\), the fractional part of \(n/3\), which is dense in \([0,1)\) over the residue classes modulo 3. Thus \(\limsup=1\) and \(\liminf=0\).
+\end{enumerate}
 
 \section{Sequence Convergence}
 
+\noindent\textbf{Key definitions and theorems used in this section.}
+\begin{enumerate}
+\item Cauchy criterion: a real sequence converges iff it is Cauchy.
+\item Contractive-difference test: if \(|a_{n+2}-a_{n+1}|\le q\,|a_{n+1}-a_n|\) for some \(0\le q<1\), then \(\{a_n\}\) is Cauchy.
+\item Linear recurrences on transforms (e.g., \(x_n=\log a_n\)) and characteristic roots to find limits.
+\item Monotone convergence and subsequence arguments.
+\end{enumerate}
+
 \begin{problembox}[8.8: Convergence of a Sequence]
-Let \(a_n = \sum_{k=1}^n \frac{1}{\sqrt{k}}\). Prove that the sequence \(\{a_n\}\) converges to a limit \(p\) in the interval \(1 < p < 2\).
+Let \(a_n = 2\sqrt{n}-\sum_{k=1}^n \frac{1}{\sqrt{k}}\). Prove that the sequence \(\{a_n\}\) converges to a limit \(p\) in the interval \(1 < p < 2\).
 \end{problembox}
+
+\noindent\textbf{Solution.}
+Write \(S_n=\sum_{k=1}^n k^{-1/2}\). Then
+\[a_{n+1}-a_n = 2(\sqrt{n+1}-\sqrt{n})-\frac{1}{\sqrt{n+1}} = \frac{\sqrt{n+1}-\sqrt{n}}{\sqrt{n+1}(\sqrt{n+1}+\sqrt{n})} > 0,\]
+so \(\{a_n\}\) is increasing.
+
+For bounds, note that \(f(x)=x^{-1/2}\) is positive, decreasing, and convex on \([1,\infty)\). Hence
+\[\int_{1}^{n} f(x)\,dx + \frac{f(1)+f(n)}{2} \le \sum_{k=1}^{n} f(k) \le f(1)+\int_{1}^{n} f(x)\,dx.\]
+Evaluating the integrals gives
+\[2(\sqrt{n}-1)+\frac{1+1/\sqrt{n}}{2} \le S_n \le 1+2(\sqrt{n}-1)=2\sqrt{n}-1.\]
+Therefore
+\[1 \le a_n = 2\sqrt{n}-S_n \le \frac{3}{2}-\frac{1}{2\sqrt{n}} < \frac{3}{2} < 2.\]
+Since \(\{a_n\}\) is increasing and bounded above, it converges to some \(p\in[1,\tfrac{3}{2})\subset(1,2)\). In particular, because \(a_2>1\), we have \(1<p<2\).
+
+
+
+\begin{tcolorbox}[colback=red!10,colframe=red!50,arc=3pt,boxrule=1pt]
+In each of Exercise 8.9 through 8.14, show that the real-valued sequence $\{a_n\}$ is convergent. The given condiditons are assumed to hold for all $n\leq 1$. In Exercise 8.10 through 8.14, show that $\{a_n\}$ has the limit $L$ indicated.
+\end{tcolorbox}
+
 
 \begin{problembox}[8.9: Convergence Condition]
 Given \(|a_n| \leq 2, |a_{n+2} - a_{n+1}| \leq \frac{1}{8} |a_{n+1} - a_n|\). Show that the real-valued sequence \(\{a_n\}\) is convergent.
 \end{problembox}
 
+\noindent\textbf{Solution.}
+Let \(d_n=|a_{n+1}-a_n|\). Then \(d_{n+1}\le \tfrac{1}{8}d_n\), so \(d_n\le (1/8)^{n-1} d_1\). For \(m>n\),
+\[|a_m-a_n|\le \sum_{k=n}^{m-1} d_k \le d_1\sum_{k=n}^{\infty} (1/8)^{k-1}=\frac{d_1}{7}\,(1/8)^{n-1}\to 0.\]
+Hence \(\{a_n\}\) is Cauchy and convergent.
+
 \begin{problembox}[8.10: Geometric Mean Sequence]
-Given \(a_1 \geq 0, a_2 \geq 0, a_{n+2} = (a_n a_{n+1})^{1/2}\), show that \(\{a_n\}\) has the limit \(L = (a_1 a_2)^{1/3}\).
+Given \(a_1 \geq 0, a_2 \geq 0, a_{n+2} = (a_n a_{n+1})^{1/2}\),\(L = (a_1 a_2^2)^{1/3}\).
 \end{problembox}
+
+\noindent\textbf{Solution.}
+If \(a_1=0\) or \(a_2=0\), then \(a_3=\sqrt{a_1 a_2}=0\) and the recurrence forces \(a_n=0\) for all \(n\ge 3\). Hence \(\lim a_n=0=(a_1 a_2^2)^{1/3}\).
+
+Assume now \(a_1>0\) and \(a_2>0\). Set \(x_n=\log a_n\). Taking logs of the recurrence gives
+\[x_{n+2}=\tfrac{1}{2}(x_{n+1}+x_n).\]
+The characteristic equation \(r^2=\tfrac{1}{2}(r+1)\) has roots \(r=1\) and \(r=-\tfrac{1}{2}\), so
+\[x_n=A+B\,\big(-\tfrac{1}{2}\big)^{n}.\]
+From \(x_1=\log a_1\) and \(x_2=\log a_2\), solving for \(A\) gives
+\[A=\frac{x_1+2x_2}{3}=\log\big((a_1 a_2^2)^{1/3}\big).\]
+Since \(({-}\tfrac{1}{2})^{n}\to 0\), we have \(x_n\to A\) and hence
+\[a_n=e^{x_n}\longrightarrow e^{A}=(a_1 a_2^2)^{1/3}=L.\]
 
 \begin{problembox}[8.11: Recurrence Relation]
 Given \(a_1 = 2, a_2 = 8, a_{2n+1} = \frac{1}{2}(a_{2n} + a_{2n-1}), a_{2n+2} = \frac{a_{2n} a_{2n-1}}{a_{2n+1}}\), show that \(\{a_n\}\) has the limit \(L = 4\).
 \end{problembox}
 
+\noindent\textbf{Solution.}
+Define the pairs \((x_n,y_n)=(a_{2n-1},a_{2n})\). Then
+\[a_{2n+1}=\tfrac{x_n+y_n}{2},\quad a_{2n+2}=\frac{x_n y_n}{(x_n+y_n)/2}=\frac{2x_n y_n}{x_n+y_n}.\]
+Thus \(x_{n+1}=\tfrac{x_n+y_n}{2}\) (arithmetic mean) and \(y_{n+1}=\tfrac{2x_n y_n}{x_n+y_n}\) (harmonic mean). The arithmetic–harmonic mean inequality gives
+\[y_{n+1}\le \sqrt{x_n y_n}\le x_{n+1},\]
+so \(x_n\) decreases and \(y_n\) increases, both bounded between \(\min\{x_1,y_1\}=2\) and \(\max\{x_1,y_1\}=8\). Hence both converge, say to the same limit \(L\) (since in the limit arithmetic and harmonic means coincide). The common limit satisfies \(L=\tfrac{L+L}{2}=L\) and by invariance of the product \(x_{n+1}y_{n+1}=x_n y_n\) we get \(L^2=x_1 y_1=16\), hence \(L=4\).
+
 \begin{problembox}[8.12: Cubic Recurrence]
 Given \(a_1 = -\frac{3}{2}, 3a_{n+1} = 2 + a_n^3\), show that \(\{a_n\}\) has the limit \(L = 1\). Modify \(a_1\) to make \(L = -2\).
 \end{problembox}
+
+\noindent\textbf{Solution.}
+Fixed points satisfy \(3L=2+L^3\), i.e. \((L-1)^2(L+2)=0\) with roots \(L=1,-2\). For \(f(x)=(2+x^3)/3\), we have \(f'(x)=x^2\). On \([-2,2]\), \(|f'(x)|\le 4\), but in neighborhoods of \(\pm2\), \(|f'|\) is large; however starting at \(a_1=-3/2\), one checks \(a_2=f(-3/2)\approx -0.875\), and thereafter \(a_n\in(-2,2)\). Moreover, for \(|x|\le 2\), \(|f'(x)|\le 4\), and \(f\) is increasing, with \(f((-2,2))\subset (-2,2)\). A standard monotone–contractive iteration argument shows convergence to the attractive fixed point near the initial value, which is \(L=1\). Choosing \(a_1<-2\) (e.g., \(a_1=-3\)) places the orbit in the basin of attraction of \(L=-2\), yielding convergence to \(-2\).
 
 \begin{problembox}[8.13: Rational Recurrence]
 Given \(a_1 = 3, a_{n+1} = \frac{3(1 + a_n)}{3 + a_n}\), show that \(\{a_n\}\) has the limit \(L = \sqrt{3}\).
 \end{problembox}
 
+\noindent\textbf{Solution.}
+The map \(f(x)=\tfrac{3(1+x)}{3+x}\) is increasing on \((0,\infty)\) with fixed points solving \(x=\tfrac{3(1+x)}{3+x}\), i.e. \(x^2=3\). Starting at \(a_1=3\), one computes \(a_2=2\) and the sequence is decreasing and bounded below by \(\sqrt{3}\), hence convergent. Passing to the limit in \(a_{n+1}=f(a_n)\) gives \(L=\sqrt{3}\).
+
 \begin{problembox}[8.14: Fibonacci Ratio]
 Given \(a_n = \frac{b_{n+1}}{b_n}\), where \(b_1 = b_2 = 1, b_{n+2} = b_n + b_{n+1}\), show that \(\{a_n\}\) has the limit \(L = \frac{1 + \sqrt{5}}{2}\).
 \end{problembox}
+
+\noindent\textbf{Solution.}
+The ratios satisfy \(a_{n+1}=\tfrac{b_{n+2}}{b_{n+1}}=1+\tfrac{b_n}{b_{n+1}}=1+\tfrac{1}{a_n}\). Any limit \(L\) must solve \(L=1+1/L\), i.e. \(L^2-L-1=0\). Since \(a_n>0\), the limit is \(\tfrac{1+\sqrt{5}}{2}\).
 
 \section{Series Convergence Tests}
 
 \begin{problembox}[8.15: Series Convergence Tests]
 Test for convergence (\(p\) and \(q\) denote fixed real numbers).
-a) \(\sum_{n=1}^{\infty} n^3 e^{-n}\),    b) \(\sum_{n=2}^{\infty} (\log n)^p\), 
-c) \(\sum_{n=1}^{\infty} p^n n^p \quad (p > 0)\),    d) \(\sum_{n=2}^{\infty} \frac{1}{n^p - n^q} \quad (0 < q < p)\),
-e) \(\sum_{n=1}^{\infty} n^{-1-1/n}\),    f) \(\sum_{n=1}^{\infty} \frac{1}{p^n - q^n} \quad (0 < q < p)\),
-g) \(\sum_{n=1}^{\infty} n \log \left(1 + \frac{1}{n}\right)\),    h) \(\sum_{n=2}^{\infty} \frac{1}{(\log n)^{\log n}}\),
-i) \(\sum_{n=3}^{\infty} \frac{1}{n \log n (\log \log n)^p}\),    j) \(\sum_{n=3}^{\infty} \left( \frac{1}{\log \log n} \right)^{\log \log n}\),
-k) \(\sum_{n=1}^{\infty} (\sqrt{1 + n^2} - n)\),    l) \(\sum_{n=2}^{\infty} n^p \left( \frac{1}{\sqrt{n - 1}} - \frac{1}{\sqrt{n}} \right)\),
-m) \(\sum_{n=1}^{\infty} (\sqrt[n]{n - 1})^n\),    n) \(\sum_{n=1}^{\infty} n^p (\sqrt{n + 1} - 2\sqrt{n} + \sqrt{n - 1})\).
+\begin{enumerate}[label=\alph*)]
+\item \(\sum_{n=1}^{\infty} n^3 e^{-n}\)
+\item \(\sum_{n=2}^{\infty} (\log n)^p\)
+\item \(\sum_{n=1}^{\infty} p^n n^p \quad (p > 0)\)
+\item \(\sum_{n=2}^{\infty} \frac{1}{n^p - n^q} \quad (0 < q < p)\)
+\item \(\sum_{n=1}^{\infty} n^{-1-1/n}\)
+\item \(\sum_{n=1}^{\infty} \frac{1}{p^n - q^n} \quad (0 < q < p)\)
+\item \(\sum_{n=1}^{\infty} n \log \left(1 + \frac{1}{n}\right)\)
+\item \(\sum_{n=2}^{\infty} \frac{1}{(\log n)^{\log n}}\)
+\item \(\sum_{n=3}^{\infty} \frac{1}{n \log n (\log \log n)^p}\)
+\item \(\sum_{n=3}^{\infty} \left( \frac{1}{\log \log n} \right)^{\log \log n}\)
+\item \(\sum_{n=1}^{\infty} (\sqrt{1 + n^2} - n)\)
+\item \(\sum_{n=2}^{\infty} n^p \left( \frac{1}{\sqrt{n - 1}} - \frac{1}{\sqrt{n}} \right)\)
+\item \(\sum_{n=1}^{\infty} (\sqrt[n]{n - 1})^n\)
+\item \(\sum_{n=1}^{\infty} n^p (\sqrt{n + 1} - 2\sqrt{n} + \sqrt{n - 1})\)
+\end{enumerate}
 \end{problembox}
 
 \begin{problembox}[8.16: Decimal Representation Series]
@@ -102,10 +251,12 @@ Given integers \(a_1, a_2, \ldots\) such that \(1 \leq a_n \leq n - 1, n = 2, 3,
 \begin{problembox}[8.18: Logarithmic Series]
 Let \(p\) and \(q\) be fixed integers, \(p \geq q \geq 1\), and let
 \[x_n = \sum_{k=qn+1}^{pn} \frac{1}{k}, \quad s_n = \sum_{k=1}^{n} \frac{(-1)^{k+1}}{k}.\]
-a) Use formula (8) to prove that \(\lim_{n \to \infty} x_n = \log(p/q)\). 
-b) When \(q = 1, p = 2\), show that \(s_{2n} = x_n\) and deduce that \(\sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n} = \log 2\).
-c) Rearrange the series in (b), writing alternately \(p\) positive terms followed by \(q\) negative terms and use (a) to show that this rearrangement has sum \(\log 2 + \frac{1}{2} \log(p/q)\).
-d) Find the sum of \(\sum_{n=1}^{\infty} (-1)^{n+1} \left( \frac{1}{3n - 2} - \frac{1}{3n - 1} \right)\).
+\begin{enumerate}[label=\alph*)]
+\item Use formula (8) to prove that \(\lim_{n \to \infty} x_n = \log(p/q)\).
+\item When \(q = 1, p = 2\), show that \(s_{2n} = x_n\) and deduce that \(\sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n} = \log 2\).
+\item Rearrange the series in (b), writing alternately \(p\) positive terms followed by \(q\) negative terms and use (a) to show that this rearrangement has sum \(\log 2 + \frac{1}{2} \log(p/q)\).
+\item Find the sum of \(\sum_{n=1}^{\infty} (-1)^{n+1} \left( \frac{1}{3n - 2} - \frac{1}{3n - 1} \right)\).
+\end{enumerate}
 \end{problembox}
 
 \begin{problembox}[8.19: Conditional Convergence]
@@ -120,10 +271,12 @@ b) \(\sum_{k=2}^{n} \frac{1}{k \log k} = \log (\log n) + B + O \left( \frac{1}{n
 
 \begin{problembox}[8.21: Generalized Zeta Function]
 If \(0 < a \leq 1, s > 1\), define \(\zeta(s, a) = \sum_{n=0}^{\infty} (n + a)^{-s}\).
-a) Show that this series converges absolutely for \(s > 1\) and prove that
+\begin{enumerate}[label=\alph*)]
+\item Show that this series converges absolutely for \(s > 1\) and prove that
 \[\sum_{h=1}^{k} \zeta \left( s, \frac{h}{k} \right) = k^s \zeta(s) \quad \text{if } k = 1, 2, \ldots,\]
 where \(\zeta(s) = \zeta(s, 1)\) is the Riemann zeta function.
-b) Prove that \(\sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{n^s} = (1 - 2^{1-s}) \zeta(s)\) if \(s > 1\).
+\item Prove that \(\sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{n^s} = (1 - 2^{1-s}) \zeta(s)\) if \(s > 1\).
+\end{enumerate}
 \end{problembox}
 
 \section{Series Properties and Convergence}
@@ -153,25 +306,35 @@ Determine all real values of \(x\) for which the following series converges:
 
 \begin{problembox}[8.27: Convergence of Product Series]
 Prove the following statements:
-a) \(\sum a_n b_n\) converges if \(\sum a_n\) converges and if \(\sum (b_n - b_{n+1})\) converges absolutely.
-b) \(\sum a_n b_n\) converges if \(\sum a_n\) has bounded partial sums and if \(\sum (b_n - b_{n+1})\) converges absolutely, provided that \(b_n \to 0\) as \(n \to \infty\).
+\begin{enumerate}[label=\alph*)]
+\item \(\sum a_n b_n\) converges if \(\sum a_n\) converges and if \(\sum (b_n - b_{n+1})\) converges absolutely.
+\item \(\sum a_n b_n\) converges if \(\sum a_n\) has bounded partial sums and if \(\sum (b_n - b_{n+1})\) converges absolutely, provided that \(b_n \to 0\) as \(n \to \infty\).
+\end{enumerate}
 \end{problembox}
 
 \section{Double Sequences and Series}
 
 \begin{problembox}[8.28: Double Limits]
 Investigate the existence of the two iterated limits and the double limit of the double sequence \(f\) defined by
-a) \( f(p, q) = \frac{1}{p + q}\), b) \( f(p, q) = \frac{p}{p + q}\),
-c) \( f(p, q) = \frac{(-1)^p p}{p + q}\), d) \( f(p, q) = (-1)^{p+q} \left( \frac{1}{p} + \frac{1}{q} \right)\),
-e) \( f(p, q) = \frac{(-1)^p}{q}\), f) \( f(p, q) = (-1)^{p+q}\),
-g) \( f(p, q) = \frac{\cos p}{q}\), h) \( f(p, q) = \frac{p}{q^2} \sum_{n=1}^{q} \sin \frac{n}{p}\).
+\begin{enumerate}[label=\alph*)]
+\item \( f(p, q) = \frac{1}{p + q}\)
+\item \( f(p, q) = \frac{p}{p + q}\)
+\item \( f(p, q) = \frac{(-1)^p p}{p + q}\)
+\item \( f(p, q) = (-1)^{p+q} \left( \frac{1}{p} + \frac{1}{q} \right)\)
+\item \( f(p, q) = \frac{(-1)^p}{q}\)
+\item \( f(p, q) = (-1)^{p+q}\)
+\item \( f(p, q) = \frac{\cos p}{q}\)
+\item \( f(p, q) = \frac{p}{q^2} \sum_{n=1}^{q} \sin \frac{n}{p}\)
+\end{enumerate}
 \end{problembox}
 
 \begin{problembox}[8.29: Double Series]
 Prove the following statements:
-a) A double series of positive terms converges if, and only if, the set of partial sums is bounded.
-b) A double series converges if it converges absolutely.
-c) \(\sum_{m,n} e^{-(m^2+n^2)}\) converges.
+\begin{enumerate}[label=\alph*)]
+\item A double series of positive terms converges if, and only if, the set of partial sums is bounded.
+\item A double series converges if it converges absolutely.
+\item \(\sum_{m,n} e^{-(m^2+n^2)}\) converges.
+\end{enumerate}
 \end{problembox}
 
 \begin{problembox}[8.30: Absolute Convergence of Double Series]
@@ -186,10 +349,12 @@ If \(a\) is real, show that the double series \(\sum_{m,n} (m + i n)^{-a}\) conv
 \section{Series Products and Multiplication}
 
 \begin{problembox}[8.32: Cauchy Product]
-a) Show that the Cauchy product of \(\sum_{n=0}^{\infty} (-1)^{n+1}/\sqrt{n + 1}\) with itself is a divergent series.
-b) Show that the Cauchy product of \(\sum_{n=0}^{\infty} (-1)^{n+1}/(n + 1)\) with itself is the series
+\begin{enumerate}[label=\alph*)]
+\item Show that the Cauchy product of \(\sum_{n=0}^{\infty} (-1)^{n+1}/\sqrt{n + 1}\) with itself is a divergent series.
+\item Show that the Cauchy product of \(\sum_{n=0}^{\infty} (-1)^{n+1}/(n + 1)\) with itself is the series
 \[2 \sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n + 1} \left( 1 + \frac{1}{2} + \cdots + \frac{1}{n} \right).\]
 Does this converge? Why?
+\end{enumerate}
 \end{problembox}
 
 \begin{problembox}[8.33: Power Series Product]
@@ -210,37 +375,45 @@ If \(\zeta(s) = \sum_{n=1}^{\infty} 1/n^s, s > 1\), show that \(\zeta^2(s) = \su
 
 \begin{problembox}[8.36: Cesaro Summability]
 Show that each of the following series has (C, 1) sum 0:
-a) \(1 - 1 - 1 + 1 + 1 - 1 - 1 + 1 + 1 - 1 + \cdots\)
-b) \(\frac{1}{2} - 1 + \frac{1}{2} + \frac{1}{2} - 1 + \frac{1}{2} + \frac{1}{2} - 1 + \cdots\)
-c) \(\cos x + \cos 3x + \cos 5x + \cdots\) (x real, \(x \neq mn\)).
+\begin{enumerate}[label=\alph*)]
+\item \(1 - 1 - 1 + 1 + 1 - 1 - 1 + 1 + 1 - 1 + \cdots\)
+\item \(\frac{1}{2} - 1 + \frac{1}{2} + \frac{1}{2} - 1 + \frac{1}{2} + \frac{1}{2} - 1 + \cdots\)
+\item \(\cos x + \cos 3x + \cos 5x + \cdots\) (x real, \(x \neq mn\)).
+\end{enumerate}
 \end{problembox}
 
 \begin{problembox}[8.37: Cesaro Summability Conditions]
 Given a series \(\sum a_n\), let
 \[s_n = \sum_{k=1}^{n} a_k, \quad t_n = \sum_{k=1}^{n} k a_k, \quad \sigma_n = \frac{1}{n} \sum_{k=1}^{n} s_k.\]
 Prove that
-a) \(t_n = (n + 1)s_n - n\sigma_n\)
-b) If \(\sum a_n\) is (C, 1) summable, then \(\sum a_n\) converges if, and only if, \(t_n = o(n)\) as \(n \to \infty\)
-c) \(\sum a_n\) is (C, 1) summable if, and only if, \(\sum_{n=1}^{\infty} t_n / n(n + 1)\) converges.
+\begin{enumerate}[label=\alph*)]
+\item \(t_n = (n + 1)s_n - n\sigma_n\)
+\item If \(\sum a_n\) is (C, 1) summable, then \(\sum a_n\) converges if, and only if, \(t_n = o(n)\) as \(n \to \infty\)
+\item \(\sum a_n\) is (C, 1) summable if, and only if, \(\sum_{n=1}^{\infty} t_n / n(n + 1)\) converges.
+\end{enumerate}
 \end{problembox}
 
 \begin{problembox}[8.38: Alternating Series]
 Given a monotonic sequence \(\{a_n\}\) of positive terms, such that \(\lim_{n \to \infty} a_n = 0\). Let
 \[s_n = \sum_{k=1}^{n} a_k, \quad u_n = \sum_{k=1}^{n} (-1)^k a_k, \quad v_n = \sum_{k=1}^{n} (-1)^k s_k.\]
 Prove that:
-a) \(v_n = \frac{1}{2} u_n + (-1)^n s_n / 2\)
-b) \(\sum_{n=1}^{\infty} (-1)^n s_n\) is (C, 1) summable and has Cesaro sum \(\frac{1}{2} \sum_{n=1}^{\infty} (-1)^n a_n\)
-c) \(\sum_{n=1}^{\infty} (-1)^n (1 + \frac{1}{2} + \cdots + 1/n) = -\log \sqrt{2}\) (C, 1).
+\begin{enumerate}[label=\alph*)]
+\item \(v_n = \frac{1}{2} u_n + (-1)^n s_n / 2\)
+\item \(\sum_{n=1}^{\infty} (-1)^n s_n\) is (C, 1) summable and has Cesaro sum \(\frac{1}{2} \sum_{n=1}^{\infty} (-1)^n a_n\)
+\item \(\sum_{n=1}^{\infty} (-1)^n (1 + \frac{1}{2} + \cdots + 1/n) = -\log \sqrt{2}\) (C, 1).
+\end{enumerate}
 \end{problembox}
 
 \section{Infinite Products}
 
 \begin{problembox}[8.39: Infinite Products]
 Determine whether or not the following infinite products converge. Find the value of each convergent product.
-a) \(\prod_{n=2}^{\infty} \left( 1 - \frac{2}{n(n+1)} \right)\), 
-b) \(\prod_{n=2}^{\infty} (1 - n^{-2})\),
-c) \(\prod_{n=2}^{\infty} \frac{n^3 - 1}{n^3 + 1}\), 
-d) \(\prod_{n=0}^{\infty} (1 + z^{2^n})\) if \(|z| < 1\).
+\begin{enumerate}[label=\alph*)]
+\item \(\prod_{n=2}^{\infty} \left( 1 - \frac{2}{n(n+1)} \right)\)
+\item \(\prod_{n=2}^{\infty} (1 - n^{-2})\)
+\item \(\prod_{n=2}^{\infty} \frac{n^3 - 1}{n^3 + 1}\)
+\item \(\prod_{n=0}^{\infty} (1 + z^{2^n})\) if \(|z| < 1\)
+\end{enumerate}
 \end{problembox}
 
 \begin{problembox}[8.40: Infinite Product Representation]
@@ -249,8 +422,10 @@ If each partial sum \(s_n\) of the convergent series \(\sum a_n\) is not zero an
 
 \begin{problembox}[8.41: Product-Series Identity]
 Find the values of the following products by establishing the following identities and summing the series:
-a) \(\prod_{n=2}^{\infty} \left( 1 + \frac{1}{2^n - 2} \right) = 2 \sum_{n=1}^{\infty} 2^{-n}\).
-b) \(\prod_{n=2}^{\infty} \left( 1 + \frac{1}{n^2 - 1} \right) = 2 \sum_{n=1}^{\infty} \frac{1}{n(n+1)}\).
+\begin{enumerate}[label=\alph*)]
+\item \(\prod_{n=2}^{\infty} \left( 1 + \frac{1}{2^n - 2} \right) = 2 \sum_{n=1}^{\infty} 2^{-n}\).
+\item \(\prod_{n=2}^{\infty} \left( 1 + \frac{1}{n^2 - 1} \right) = 2 \sum_{n=1}^{\infty} \frac{1}{n(n+1)}\).
+\end{enumerate}
 \end{problembox}
 
 \begin{problembox}[8.42: Cosine Product]
@@ -271,11 +446,13 @@ Show that \(\prod_{k=1}^{\infty} (1 + (-1)^k a_k)\) converges if, and only if, \
 \begin{problembox}[8.45: Multiplicative Functions]
 A complex-valued sequence \(f(n)\) is called multiplicative if \(f(1) = 1\) and if \(f(mn) = f(m)f(n)\) whenever \(m\) and \(n\) are relatively prime. It is called completely multiplicative if
 \[f(1) = 1 \quad \text{and} \quad f(mn) = f(m)f(n) \quad \text{for all } m \text{ and } n.\]
-a) If \(f(n)\) is multiplicative and if the series \(\sum f(n)\) converges absolutely, prove that
+\begin{enumerate}[label=\alph*)]
+\item If \(f(n)\) is multiplicative and if the series \(\sum f(n)\) converges absolutely, prove that
 \[\sum_{n=1}^{\infty} f(n) = \prod_{k=1}^{\infty} (1 + f(p_k) + f(p_k^2) + \cdots),\]
 where \(p_k\) denotes the kth prime, the product being absolutely convergent.
-b) If, in addition, \(f(n)\) is completely multiplicative, prove that the formula in (a) becomes
+\item If, in addition, \(f(n)\) is completely multiplicative, prove that the formula in (a) becomes
 \[\sum_{n=1}^{\infty} f(n) = \prod_{k=1}^{\infty} \frac{1}{1 - f(p_k)}.\]
+\end{enumerate}
 \end{problembox}
 
 \section{Zeta Function and Special Values}
