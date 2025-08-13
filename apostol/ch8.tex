@@ -3,293 +3,293 @@
 \section{Limit Superior and Limit Inferior}
 
 \begin{problembox}[8.1: Supremum and Infimum Limits]
-    a) Given a real-valued sequence \(\{a_n\}\) bounded above, let \(u_n = \sup \{a_k : k \geq n\}\). Then \(u_n \to \infty\) and hence \(U = \lim_{n \to \infty} u_n\) is either finite or \(-\infty\). Prove that
-    \[U = \limsup_{n \to \infty} a_n = \lim_{n \to \infty} (\sup \{a_k : k \geq n\}).\]
-    
-    b) Similarly, if \(\{a_n\}\) is bounded below, prove that
-    \[V = \liminf_{n \to \infty} a_n = \lim_{n \to \infty} (\inf \{a_k : k \geq n\}).\]
-    
-    If \( U \) and \( V \) are finite, show that:
-    c) There exists a subsequence of \(\{a_n\}\) which converges to \( U \) and a subsequence which converges to \( V \).
-    d) If \( U = V \), every subsequence of \(\{a_n\}\) converges to \( U \).
-    \end{problembox}
-    
-    \begin{problembox}[8.2: Sum and Product of Limits]
-    Given two real-valued sequences \(\{a_n\}\) and \(\{b_n\}\) bounded below. Prove that
-    a) \(\limsup_{n \to \infty} (a_n + b_n) \leq \limsup_{n \to \infty} a_n + \limsup_{n \to \infty} b_n\).
-    
-    b) \(\limsup_{n \to \infty} (a_n b_n) \leq (\limsup_{n \to \infty} a_n)(\limsup_{n \to \infty} b_n)\) if \(a_n > 0, b_n > 0\) for all \(n\), and if both \(\limsup_{n \to \infty} a_n\) and \(\limsup_{n \to \infty} b_n\) are finite or both are infinite.
-    \end{problembox}
-    
-    \begin{problembox}[8.3: Theorems 8.3 and 8.4]
-    Prove Theorems 8.3 and 8.4.
-    \end{problembox}
-    
-    \begin{problembox}[8.4: Ratio and Root Test Bounds]
-    If each \(a_n > 0\), prove that
-    \[\liminf_{n \to \infty} \frac{a_{n+1}}{a_n} \leq \liminf_{n \to \infty} \sqrt[n]{a_n} \leq \limsup_{n \to \infty} \sqrt[n]{a_n} \leq \limsup_{n \to \infty} \frac{a_{n+1}}{a_n}.\]
-    \end{problembox}
-    
-    \begin{problembox}[8.5: Limit of Factorial Ratio]
-    Let \(a_n = n^n / n!\). Show that \(\lim_{n \to \infty} a_{n+1} / a_n = e\) and use Exercise 8.4 to deduce that
-    \[\lim_{n \to \infty} \frac{(n!)^{1/n}}{n} = \frac{1}{e}.\]
-    \end{problembox}
-    
-    \begin{problembox}[8.6: Cesaro Means]
-    Let \(\{a_n\}\) be a real-valued sequence and let \(\sigma_n = (a_1 + \cdots + a_n)/n\). Show that
-    \[\liminf_{n \to \infty} a_n \leq \liminf_{n \to \infty} \sigma_n \leq \limsup_{n \to \infty} \sigma_n \leq \limsup_{n \to \infty} a_n.\]
-    \end{problembox}
-    
-    \begin{problembox}[8.7: Limit Superior and Inferior Examples]
-    Find \(\limsup_{n \to \infty} a_n\) and \(\liminf_{n \to \infty} a_n\) if \(a_n\) is given by
-    a) \(\cos n\),    b) \(\left(1 + \frac{1}{n}\right) \cos n\pi\),    c) \(n \sin \frac{n\pi}{3}\), 
-    d) \(\sin \frac{n\pi}{2} \cos \frac{n\pi}{2}\),    e) \(\frac{(-1)^n n}{1 + n}\),    f) \(\frac{n}{3} - \left[\frac{n}{3}\right]\).
-    \end{problembox}
+a) Given a real-valued sequence \(\{a_n\}\) bounded above, let \(u_n = \sup \{a_k : k \geq n\}\). Then \(u_n \to \infty\) and hence \(U = \lim_{n \to \infty} u_n\) is either finite or \(-\infty\). Prove that
+\[U = \limsup_{n \to \infty} a_n = \lim_{n \to \infty} (\sup \{a_k : k \geq n\}).\]
+
+b) Similarly, if \(\{a_n\}\) is bounded below, prove that
+\[V = \liminf_{n \to \infty} a_n = \lim_{n \to \infty} (\inf \{a_k : k \geq n\}).\]
+
+If \( U \) and \( V \) are finite, show that:
+c) There exists a subsequence of \(\{a_n\}\) which converges to \( U \) and a subsequence which converges to \( V \).
+d) If \( U = V \), every subsequence of \(\{a_n\}\) converges to \( U \).
+\end{problembox}
+
+\begin{problembox}[8.2: Sum and Product of Limits]
+Given two real-valued sequences \(\{a_n\}\) and \(\{b_n\}\) bounded below. Prove that
+a) \(\limsup_{n \to \infty} (a_n + b_n) \leq \limsup_{n \to \infty} a_n + \limsup_{n \to \infty} b_n\).
+
+b) \(\limsup_{n \to \infty} (a_n b_n) \leq (\limsup_{n \to \infty} a_n)(\limsup_{n \to \infty} b_n)\) if \(a_n > 0, b_n > 0\) for all \(n\), and if both \(\limsup_{n \to \infty} a_n\) and \(\limsup_{n \to \infty} b_n\) are finite or both are infinite.
+\end{problembox}
+
+\begin{problembox}[8.3: Theorems 8.3 and 8.4]
+Prove Theorems 8.3 and 8.4.
+\end{problembox}
+
+\begin{problembox}[8.4: Ratio and Root Test Bounds]
+If each \(a_n > 0\), prove that
+\[\liminf_{n \to \infty} \frac{a_{n+1}}{a_n} \leq \liminf_{n \to \infty} \sqrt[n]{a_n} \leq \limsup_{n \to \infty} \sqrt[n]{a_n} \leq \limsup_{n \to \infty} \frac{a_{n+1}}{a_n}.\]
+\end{problembox}
+
+\begin{problembox}[8.5: Limit of Factorial Ratio]
+Let \(a_n = n^n / n!\). Show that \(\lim_{n \to \infty} a_{n+1} / a_n = e\) and use Exercise 8.4 to deduce that
+\[\lim_{n \to \infty} \frac{(n!)^{1/n}}{n} = \frac{1}{e}.\]
+\end{problembox}
+
+\begin{problembox}[8.6: Cesaro Means]
+Let \(\{a_n\}\) be a real-valued sequence and let \(\sigma_n = (a_1 + \cdots + a_n)/n\). Show that
+\[\liminf_{n \to \infty} a_n \leq \liminf_{n \to \infty} \sigma_n \leq \limsup_{n \to \infty} \sigma_n \leq \limsup_{n \to \infty} a_n.\]
+\end{problembox}
+
+\begin{problembox}[8.7: Limit Superior and Inferior Examples]
+Find \(\limsup_{n \to \infty} a_n\) and \(\liminf_{n \to \infty} a_n\) if \(a_n\) is given by
+a) \(\cos n\),    b) \(\left(1 + \frac{1}{n}\right) \cos n\pi\),    c) \(n \sin \frac{n\pi}{3}\), 
+d) \(\sin \frac{n\pi}{2} \cos \frac{n\pi}{2}\),    e) \(\frac{(-1)^n n}{1 + n}\),    f) \(\frac{n}{3} - \left[\frac{n}{3}\right]\).
+\end{problembox}
 
 \section{Sequence Convergence}
 
 \begin{problembox}[8.8: Convergence of a Sequence]
-    Let \(a_n = \sum_{k=1}^n \frac{1}{\sqrt{k}}\). Prove that the sequence \(\{a_n\}\) converges to a limit \(p\) in the interval \(1 < p < 2\).
-    \end{problembox}
-    
-    \begin{problembox}[8.9: Convergence Condition]
-    Given \(|a_n| \leq 2, |a_{n+2} - a_{n+1}| \leq \frac{1}{8} |a_{n+1} - a_n|\). Show that the real-valued sequence \(\{a_n\}\) is convergent.
-    \end{problembox}
-    
-    \begin{problembox}[8.10: Geometric Mean Sequence]
-    Given \(a_1 \geq 0, a_2 \geq 0, a_{n+2} = (a_n a_{n+1})^{1/2}\), show that \(\{a_n\}\) has the limit \(L = (a_1 a_2)^{1/3}\).
-    \end{problembox}
-    
-    \begin{problembox}[8.11: Recurrence Relation]
-    Given \(a_1 = 2, a_2 = 8, a_{2n+1} = \frac{1}{2}(a_{2n} + a_{2n-1}), a_{2n+2} = \frac{a_{2n} a_{2n-1}}{a_{2n+1}}\), show that \(\{a_n\}\) has the limit \(L = 4\).
-    \end{problembox}
-    
-    \begin{problembox}[8.12: Cubic Recurrence]
-    Given \(a_1 = -\frac{3}{2}, 3a_{n+1} = 2 + a_n^3\), show that \(\{a_n\}\) has the limit \(L = 1\). Modify \(a_1\) to make \(L = -2\).
-    \end{problembox}
-    
-    \begin{problembox}[8.13: Rational Recurrence]
-    Given \(a_1 = 3, a_{n+1} = \frac{3(1 + a_n)}{3 + a_n}\), show that \(\{a_n\}\) has the limit \(L = \sqrt{3}\).
-    \end{problembox}
-    
-    \begin{problembox}[8.14: Fibonacci Ratio]
-    Given \(a_n = \frac{b_{n+1}}{b_n}\), where \(b_1 = b_2 = 1, b_{n+2} = b_n + b_{n+1}\), show that \(\{a_n\}\) has the limit \(L = \frac{1 + \sqrt{5}}{2}\).
-    \end{problembox}
+Let \(a_n = \sum_{k=1}^n \frac{1}{\sqrt{k}}\). Prove that the sequence \(\{a_n\}\) converges to a limit \(p\) in the interval \(1 < p < 2\).
+\end{problembox}
+
+\begin{problembox}[8.9: Convergence Condition]
+Given \(|a_n| \leq 2, |a_{n+2} - a_{n+1}| \leq \frac{1}{8} |a_{n+1} - a_n|\). Show that the real-valued sequence \(\{a_n\}\) is convergent.
+\end{problembox}
+
+\begin{problembox}[8.10: Geometric Mean Sequence]
+Given \(a_1 \geq 0, a_2 \geq 0, a_{n+2} = (a_n a_{n+1})^{1/2}\), show that \(\{a_n\}\) has the limit \(L = (a_1 a_2)^{1/3}\).
+\end{problembox}
+
+\begin{problembox}[8.11: Recurrence Relation]
+Given \(a_1 = 2, a_2 = 8, a_{2n+1} = \frac{1}{2}(a_{2n} + a_{2n-1}), a_{2n+2} = \frac{a_{2n} a_{2n-1}}{a_{2n+1}}\), show that \(\{a_n\}\) has the limit \(L = 4\).
+\end{problembox}
+
+\begin{problembox}[8.12: Cubic Recurrence]
+Given \(a_1 = -\frac{3}{2}, 3a_{n+1} = 2 + a_n^3\), show that \(\{a_n\}\) has the limit \(L = 1\). Modify \(a_1\) to make \(L = -2\).
+\end{problembox}
+
+\begin{problembox}[8.13: Rational Recurrence]
+Given \(a_1 = 3, a_{n+1} = \frac{3(1 + a_n)}{3 + a_n}\), show that \(\{a_n\}\) has the limit \(L = \sqrt{3}\).
+\end{problembox}
+
+\begin{problembox}[8.14: Fibonacci Ratio]
+Given \(a_n = \frac{b_{n+1}}{b_n}\), where \(b_1 = b_2 = 1, b_{n+2} = b_n + b_{n+1}\), show that \(\{a_n\}\) has the limit \(L = \frac{1 + \sqrt{5}}{2}\).
+\end{problembox}
 
 \section{Series Convergence Tests}
 
 \begin{problembox}[8.15: Series Convergence Tests]
-    Test for convergence (\(p\) and \(q\) denote fixed real numbers).
-    a) \(\sum_{n=1}^{\infty} n^3 e^{-n}\),    b) \(\sum_{n=2}^{\infty} (\log n)^p\), 
-    c) \(\sum_{n=1}^{\infty} p^n n^p \quad (p > 0)\),    d) \(\sum_{n=2}^{\infty} \frac{1}{n^p - n^q} \quad (0 < q < p)\),
-    e) \(\sum_{n=1}^{\infty} n^{-1-1/n}\),    f) \(\sum_{n=1}^{\infty} \frac{1}{p^n - q^n} \quad (0 < q < p)\),
-    g) \(\sum_{n=1}^{\infty} n \log \left(1 + \frac{1}{n}\right)\),    h) \(\sum_{n=2}^{\infty} \frac{1}{(\log n)^{\log n}}\),
-    i) \(\sum_{n=3}^{\infty} \frac{1}{n \log n (\log \log n)^p}\),    j) \(\sum_{n=3}^{\infty} \left( \frac{1}{\log \log n} \right)^{\log \log n}\),
-    k) \(\sum_{n=1}^{\infty} (\sqrt{1 + n^2} - n)\),    l) \(\sum_{n=2}^{\infty} n^p \left( \frac{1}{\sqrt{n - 1}} - \frac{1}{\sqrt{n}} \right)\),
-    m) \(\sum_{n=1}^{\infty} (\sqrt[n]{n - 1})^n\),    n) \(\sum_{n=1}^{\infty} n^p (\sqrt{n + 1} - 2\sqrt{n} + \sqrt{n - 1})\).
-    \end{problembox}
-    
-    \begin{problembox}[8.16: Decimal Representation Series]
-    Let \(S = \{n_1, n_2, \ldots\}\) denote the collection of those positive integers that do not involve the digit 0 in their decimal representation. Show that \(\sum_{k=1}^{\infty} 1/n_k\) converges and has a sum less than 90.
-    \end{problembox}
-    
-    \begin{problembox}[8.17: Rational Series Condition]
-    Given integers \(a_1, a_2, \ldots\) such that \(1 \leq a_n \leq n - 1, n = 2, 3, \ldots\). Show that the sum of the series \(\sum_{n=1}^{\infty} a_n / n!\) is rational if, and only if, there exists an integer \(N\) such that \(a_n = n - 1\) for all \(n \geq N\).
-    \end{problembox}
+Test for convergence (\(p\) and \(q\) denote fixed real numbers).
+a) \(\sum_{n=1}^{\infty} n^3 e^{-n}\),    b) \(\sum_{n=2}^{\infty} (\log n)^p\), 
+c) \(\sum_{n=1}^{\infty} p^n n^p \quad (p > 0)\),    d) \(\sum_{n=2}^{\infty} \frac{1}{n^p - n^q} \quad (0 < q < p)\),
+e) \(\sum_{n=1}^{\infty} n^{-1-1/n}\),    f) \(\sum_{n=1}^{\infty} \frac{1}{p^n - q^n} \quad (0 < q < p)\),
+g) \(\sum_{n=1}^{\infty} n \log \left(1 + \frac{1}{n}\right)\),    h) \(\sum_{n=2}^{\infty} \frac{1}{(\log n)^{\log n}}\),
+i) \(\sum_{n=3}^{\infty} \frac{1}{n \log n (\log \log n)^p}\),    j) \(\sum_{n=3}^{\infty} \left( \frac{1}{\log \log n} \right)^{\log \log n}\),
+k) \(\sum_{n=1}^{\infty} (\sqrt{1 + n^2} - n)\),    l) \(\sum_{n=2}^{\infty} n^p \left( \frac{1}{\sqrt{n - 1}} - \frac{1}{\sqrt{n}} \right)\),
+m) \(\sum_{n=1}^{\infty} (\sqrt[n]{n - 1})^n\),    n) \(\sum_{n=1}^{\infty} n^p (\sqrt{n + 1} - 2\sqrt{n} + \sqrt{n - 1})\).
+\end{problembox}
+
+\begin{problembox}[8.16: Decimal Representation Series]
+Let \(S = \{n_1, n_2, \ldots\}\) denote the collection of those positive integers that do not involve the digit 0 in their decimal representation. Show that \(\sum_{k=1}^{\infty} 1/n_k\) converges and has a sum less than 90.
+\end{problembox}
+
+\begin{problembox}[8.17: Rational Series Condition]
+Given integers \(a_1, a_2, \ldots\) such that \(1 \leq a_n \leq n - 1, n = 2, 3, \ldots\). Show that the sum of the series \(\sum_{n=1}^{\infty} a_n / n!\) is rational if, and only if, there exists an integer \(N\) such that \(a_n = n - 1\) for all \(n \geq N\).
+\end{problembox}
 
 \section{Special Series and Sums}
 
 \begin{problembox}[8.18: Logarithmic Series]
-    Let \(p\) and \(q\) be fixed integers, \(p \geq q \geq 1\), and let
-    \[x_n = \sum_{k=qn+1}^{pn} \frac{1}{k}, \quad s_n = \sum_{k=1}^{n} \frac{(-1)^{k+1}}{k}.\]
-    a) Use formula (8) to prove that \(\lim_{n \to \infty} x_n = \log(p/q)\). 
-    b) When \(q = 1, p = 2\), show that \(s_{2n} = x_n\) and deduce that \(\sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n} = \log 2\).
-    c) Rearrange the series in (b), writing alternately \(p\) positive terms followed by \(q\) negative terms and use (a) to show that this rearrangement has sum \(\log 2 + \frac{1}{2} \log(p/q)\).
-    d) Find the sum of \(\sum_{n=1}^{\infty} (-1)^{n+1} \left( \frac{1}{3n - 2} - \frac{1}{3n - 1} \right)\).
-    \end{problembox}
-    
-    \begin{problembox}[8.19: Conditional Convergence]
-    Let \(c_n = a_n + ib_n\), where \(a_n = (-1)^n/\sqrt{n}, b_n = 1/n^2\). Show that \(\sum c_n\) is conditionally convergent.
-    \end{problembox}
-    
-    \begin{problembox}[8.20: Asymptotic Formulas]
-    Use Theorem 8.23 to derive the following formulas:
-    a) \(\sum_{k=1}^{n} \frac{\log k}{k} = \frac{1}{2} \log^2 n + A + O \left( \frac{\log n}{n} \right)\) (A is constant).
-    b) \(\sum_{k=2}^{n} \frac{1}{k \log k} = \log (\log n) + B + O \left( \frac{1}{n \log n} \right)\) (B is constant).
-    \end{problembox}
-    
-    \begin{problembox}[8.21: Generalized Zeta Function]
-    If \(0 < a \leq 1, s > 1\), define \(\zeta(s, a) = \sum_{n=0}^{\infty} (n + a)^{-s}\).
-    a) Show that this series converges absolutely for \(s > 1\) and prove that
-    \[\sum_{h=1}^{k} \zeta \left( s, \frac{h}{k} \right) = k^s \zeta(s) \quad \text{if } k = 1, 2, \ldots,\]
-    where \(\zeta(s) = \zeta(s, 1)\) is the Riemann zeta function.
-    b) Prove that \(\sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{n^s} = (1 - 2^{1-s}) \zeta(s)\) if \(s > 1\).
-    \end{problembox}
+Let \(p\) and \(q\) be fixed integers, \(p \geq q \geq 1\), and let
+\[x_n = \sum_{k=qn+1}^{pn} \frac{1}{k}, \quad s_n = \sum_{k=1}^{n} \frac{(-1)^{k+1}}{k}.\]
+a) Use formula (8) to prove that \(\lim_{n \to \infty} x_n = \log(p/q)\). 
+b) When \(q = 1, p = 2\), show that \(s_{2n} = x_n\) and deduce that \(\sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n} = \log 2\).
+c) Rearrange the series in (b), writing alternately \(p\) positive terms followed by \(q\) negative terms and use (a) to show that this rearrangement has sum \(\log 2 + \frac{1}{2} \log(p/q)\).
+d) Find the sum of \(\sum_{n=1}^{\infty} (-1)^{n+1} \left( \frac{1}{3n - 2} - \frac{1}{3n - 1} \right)\).
+\end{problembox}
+
+\begin{problembox}[8.19: Conditional Convergence]
+Let \(c_n = a_n + ib_n\), where \(a_n = (-1)^n/\sqrt{n}, b_n = 1/n^2\). Show that \(\sum c_n\) is conditionally convergent.
+\end{problembox}
+
+\begin{problembox}[8.20: Asymptotic Formulas]
+Use Theorem 8.23 to derive the following formulas:
+a) \(\sum_{k=1}^{n} \frac{\log k}{k} = \frac{1}{2} \log^2 n + A + O \left( \frac{\log n}{n} \right)\) (A is constant).
+b) \(\sum_{k=2}^{n} \frac{1}{k \log k} = \log (\log n) + B + O \left( \frac{1}{n \log n} \right)\) (B is constant).
+\end{problembox}
+
+\begin{problembox}[8.21: Generalized Zeta Function]
+If \(0 < a \leq 1, s > 1\), define \(\zeta(s, a) = \sum_{n=0}^{\infty} (n + a)^{-s}\).
+a) Show that this series converges absolutely for \(s > 1\) and prove that
+\[\sum_{h=1}^{k} \zeta \left( s, \frac{h}{k} \right) = k^s \zeta(s) \quad \text{if } k = 1, 2, \ldots,\]
+where \(\zeta(s) = \zeta(s, 1)\) is the Riemann zeta function.
+b) Prove that \(\sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{n^s} = (1 - 2^{1-s}) \zeta(s)\) if \(s > 1\).
+\end{problembox}
 
 \section{Series Properties and Convergence}
 
 \begin{problembox}[8.22: Convergence of Square Root Series]
-    Given a convergent series \(\sum a_n\), where each \(a_n \geq 0\). Prove that \(\sum \sqrt{a_n} n^{-p}\) converges if \(p > \frac{1}{2}\). Give a counterexample for \(p = \frac{1}{2}\).
-    \end{problembox}
-    
-    \begin{problembox}[8.23: Divergence of Weighted Series]
-    Given that \(\sum a_n\) diverges. Prove that \(\sum n a_n\) also diverges.
-    \end{problembox}
-    
-    \begin{problembox}[8.24: Product Series Convergence]
-    Given that \(\sum a_n\) converges, where each \(a_n > 0\). Prove that \(\sum (a_n a_{n+1})^{1/2}\) also converges. Show that the converse is also true if \(\{a_n\}\) is monotonic.
-    \end{problembox}
-    
-    \begin{problembox}[8.25: Absolute Convergence Implications]
-    Given that \(\sum a_n\) converges absolutely. Show that each of the following series also converges absolutely:
-    a) \(\sum a_n^2\) b) \(\sum \frac{a_n}{1 + a_n}\) (if no \(a_n = -1\)),
-    c) \(\sum \frac{a_n^2}{1 + a_n^2}\).
-    \end{problembox}
-    
-    \begin{problembox}[8.26: Trigonometric Series Convergence]
-    Determine all real values of \(x\) for which the following series converges:
-    \[\sum_{n=1}^{\infty} \left( 1 + \frac{1}{2} + \cdots + \frac{1}{n} \right) \sin nx\]
-    \end{problembox}
-    
-    \begin{problembox}[8.27: Convergence of Product Series]
-    Prove the following statements:
-    a) \(\sum a_n b_n\) converges if \(\sum a_n\) converges and if \(\sum (b_n - b_{n+1})\) converges absolutely.
-    b) \(\sum a_n b_n\) converges if \(\sum a_n\) has bounded partial sums and if \(\sum (b_n - b_{n+1})\) converges absolutely, provided that \(b_n \to 0\) as \(n \to \infty\).
-    \end{problembox}
+Given a convergent series \(\sum a_n\), where each \(a_n \geq 0\). Prove that \(\sum \sqrt{a_n} n^{-p}\) converges if \(p > \frac{1}{2}\). Give a counterexample for \(p = \frac{1}{2}\).
+\end{problembox}
+
+\begin{problembox}[8.23: Divergence of Weighted Series]
+Given that \(\sum a_n\) diverges. Prove that \(\sum n a_n\) also diverges.
+\end{problembox}
+
+\begin{problembox}[8.24: Product Series Convergence]
+Given that \(\sum a_n\) converges, where each \(a_n > 0\). Prove that \(\sum (a_n a_{n+1})^{1/2}\) also converges. Show that the converse is also true if \(\{a_n\}\) is monotonic.
+\end{problembox}
+
+\begin{problembox}[8.25: Absolute Convergence Implications]
+Given that \(\sum a_n\) converges absolutely. Show that each of the following series also converges absolutely:
+a) \(\sum a_n^2\) b) \(\sum \frac{a_n}{1 + a_n}\) (if no \(a_n = -1\)),
+c) \(\sum \frac{a_n^2}{1 + a_n^2}\).
+\end{problembox}
+
+\begin{problembox}[8.26: Trigonometric Series Convergence]
+Determine all real values of \(x\) for which the following series converges:
+\[\sum_{n=1}^{\infty} \left( 1 + \frac{1}{2} + \cdots + \frac{1}{n} \right) \sin nx\]
+\end{problembox}
+
+\begin{problembox}[8.27: Convergence of Product Series]
+Prove the following statements:
+a) \(\sum a_n b_n\) converges if \(\sum a_n\) converges and if \(\sum (b_n - b_{n+1})\) converges absolutely.
+b) \(\sum a_n b_n\) converges if \(\sum a_n\) has bounded partial sums and if \(\sum (b_n - b_{n+1})\) converges absolutely, provided that \(b_n \to 0\) as \(n \to \infty\).
+\end{problembox}
 
 \section{Double Sequences and Series}
 
 \begin{problembox}[8.28: Double Limits]
-    Investigate the existence of the two iterated limits and the double limit of the double sequence \(f\) defined by
-    a) \( f(p, q) = \frac{1}{p + q}\), b) \( f(p, q) = \frac{p}{p + q}\),
-    c) \( f(p, q) = \frac{(-1)^p p}{p + q}\), d) \( f(p, q) = (-1)^{p+q} \left( \frac{1}{p} + \frac{1}{q} \right)\),
-    e) \( f(p, q) = \frac{(-1)^p}{q}\), f) \( f(p, q) = (-1)^{p+q}\),
-    g) \( f(p, q) = \frac{\cos p}{q}\), h) \( f(p, q) = \frac{p}{q^2} \sum_{n=1}^{q} \sin \frac{n}{p}\).
-    \end{problembox}
-    
-    \begin{problembox}[8.29: Double Series]
-    Prove the following statements:
-    a) A double series of positive terms converges if, and only if, the set of partial sums is bounded.
-    b) A double series converges if it converges absolutely.
-    c) \(\sum_{m,n} e^{-(m^2+n^2)}\) converges.
-    \end{problembox}
-    
-    \begin{problembox}[8.30: Absolute Convergence of Double Series]
-    Assume that the double series \(\sum_{m,n} a(n)x^{mn}\) converges absolutely for \(|x| < 1\). Call its sum \(S(x)\). Show that each of the following series also converges absolutely for \(|x| < 1\) and has sum \(S(x)\):
-    \[\sum_{n=1}^{\infty} a(n) \frac{x^n}{1 - x^n}, \quad \sum_{n=1}^{\infty} A(n)x^n, \quad \text{where } A(n) = \sum_{d|n} a(d).\]
-    \end{problembox}
-    
-    \begin{problembox}[8.31: Complex Double Series]
-    If \(a\) is real, show that the double series \(\sum_{m,n} (m + i n)^{-a}\) converges absolutely if, and only if, \(a > 2\).
-    \end{problembox}
+Investigate the existence of the two iterated limits and the double limit of the double sequence \(f\) defined by
+a) \( f(p, q) = \frac{1}{p + q}\), b) \( f(p, q) = \frac{p}{p + q}\),
+c) \( f(p, q) = \frac{(-1)^p p}{p + q}\), d) \( f(p, q) = (-1)^{p+q} \left( \frac{1}{p} + \frac{1}{q} \right)\),
+e) \( f(p, q) = \frac{(-1)^p}{q}\), f) \( f(p, q) = (-1)^{p+q}\),
+g) \( f(p, q) = \frac{\cos p}{q}\), h) \( f(p, q) = \frac{p}{q^2} \sum_{n=1}^{q} \sin \frac{n}{p}\).
+\end{problembox}
+
+\begin{problembox}[8.29: Double Series]
+Prove the following statements:
+a) A double series of positive terms converges if, and only if, the set of partial sums is bounded.
+b) A double series converges if it converges absolutely.
+c) \(\sum_{m,n} e^{-(m^2+n^2)}\) converges.
+\end{problembox}
+
+\begin{problembox}[8.30: Absolute Convergence of Double Series]
+Assume that the double series \(\sum_{m,n} a(n)x^{mn}\) converges absolutely for \(|x| < 1\). Call its sum \(S(x)\). Show that each of the following series also converges absolutely for \(|x| < 1\) and has sum \(S(x)\):
+\[\sum_{n=1}^{\infty} a(n) \frac{x^n}{1 - x^n}, \quad \sum_{n=1}^{\infty} A(n)x^n, \quad \text{where } A(n) = \sum_{d|n} a(d).\]
+\end{problembox}
+
+\begin{problembox}[8.31: Complex Double Series]
+If \(a\) is real, show that the double series \(\sum_{m,n} (m + i n)^{-a}\) converges absolutely if, and only if, \(a > 2\).
+\end{problembox}
 
 \section{Series Products and Multiplication}
 
 \begin{problembox}[8.32: Cauchy Product]
-    a) Show that the Cauchy product of \(\sum_{n=0}^{\infty} (-1)^{n+1}/\sqrt{n + 1}\) with itself is a divergent series.
-    b) Show that the Cauchy product of \(\sum_{n=0}^{\infty} (-1)^{n+1}/(n + 1)\) with itself is the series
-    \[2 \sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n + 1} \left( 1 + \frac{1}{2} + \cdots + \frac{1}{n} \right).\]
-    Does this converge? Why?
-    \end{problembox}
-    
-    \begin{problembox}[8.33: Power Series Product]
-    Given two absolutely convergent power series, say \(\sum_{n=0}^{\infty} a_n x^n\) and \(\sum_{n=0}^{\infty} b_n x^n\), having sums \(A(x)\) and \(B(x)\), respectively, show that \(\sum_{n=0}^{\infty} c_n x^n = A(x) B(x)\) where
-    \[c_n = \sum_{k=0}^{n} a_k b_{n-k}.\]
-    \end{problembox}
-    
-    \begin{problembox}[8.34: Dirichlet Series Product]
-    Given two absolutely convergent Dirichlet series, say \(\sum_{n=1}^{\infty} a_n / n^s\) and \(\sum_{n=1}^{\infty} b_n / n^s\), having sums \(A(s)\) and \(B(s)\), respectively, show that \(\sum_{n=1}^{\infty} c_n / n^s = A(s) B(s)\) where
-    \[c_n = \sum_{d|n} a_d b_{n/d}.\]
-    \end{problembox}
-    
-    \begin{problembox}[8.35: Zeta Function Divisors]
-    If \(\zeta(s) = \sum_{n=1}^{\infty} 1/n^s, s > 1\), show that \(\zeta^2(s) = \sum_{n=1}^{\infty} d(n) / n^s\), where \(d(n)\) is the number of positive divisors of \(n\) (including 1 and \(n\)).
-    \end{problembox}
+a) Show that the Cauchy product of \(\sum_{n=0}^{\infty} (-1)^{n+1}/\sqrt{n + 1}\) with itself is a divergent series.
+b) Show that the Cauchy product of \(\sum_{n=0}^{\infty} (-1)^{n+1}/(n + 1)\) with itself is the series
+\[2 \sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n + 1} \left( 1 + \frac{1}{2} + \cdots + \frac{1}{n} \right).\]
+Does this converge? Why?
+\end{problembox}
+
+\begin{problembox}[8.33: Power Series Product]
+Given two absolutely convergent power series, say \(\sum_{n=0}^{\infty} a_n x^n\) and \(\sum_{n=0}^{\infty} b_n x^n\), having sums \(A(x)\) and \(B(x)\), respectively, show that \(\sum_{n=0}^{\infty} c_n x^n = A(x) B(x)\) where
+\[c_n = \sum_{k=0}^{n} a_k b_{n-k}.\]
+\end{problembox}
+
+\begin{problembox}[8.34: Dirichlet Series Product]
+Given two absolutely convergent Dirichlet series, say \(\sum_{n=1}^{\infty} a_n / n^s\) and \(\sum_{n=1}^{\infty} b_n / n^s\), having sums \(A(s)\) and \(B(s)\), respectively, show that \(\sum_{n=1}^{\infty} c_n / n^s = A(s) B(s)\) where
+\[c_n = \sum_{d|n} a_d b_{n/d}.\]
+\end{problembox}
+
+\begin{problembox}[8.35: Zeta Function Divisors]
+If \(\zeta(s) = \sum_{n=1}^{\infty} 1/n^s, s > 1\), show that \(\zeta^2(s) = \sum_{n=1}^{\infty} d(n) / n^s\), where \(d(n)\) is the number of positive divisors of \(n\) (including 1 and \(n\)).
+\end{problembox}
 
 \section{Cesaro Summability}
 
 \begin{problembox}[8.36: Cesaro Summability]
-    Show that each of the following series has (C, 1) sum 0:
-    a) \(1 - 1 - 1 + 1 + 1 - 1 - 1 + 1 + 1 - 1 + \cdots\)
-    b) \(\frac{1}{2} - 1 + \frac{1}{2} + \frac{1}{2} - 1 + \frac{1}{2} + \frac{1}{2} - 1 + \cdots\)
-    c) \(\cos x + \cos 3x + \cos 5x + \cdots\) (x real, \(x \neq mn\)).
-    \end{problembox}
-    
-    \begin{problembox}[8.37: Cesaro Summability Conditions]
-    Given a series \(\sum a_n\), let
-    \[s_n = \sum_{k=1}^{n} a_k, \quad t_n = \sum_{k=1}^{n} k a_k, \quad \sigma_n = \frac{1}{n} \sum_{k=1}^{n} s_k.\]
-    Prove that
-    a) \(t_n = (n + 1)s_n - n\sigma_n\)
-    b) If \(\sum a_n\) is (C, 1) summable, then \(\sum a_n\) converges if, and only if, \(t_n = o(n)\) as \(n \to \infty\)
-    c) \(\sum a_n\) is (C, 1) summable if, and only if, \(\sum_{n=1}^{\infty} t_n / n(n + 1)\) converges.
-    \end{problembox}
-    
-    \begin{problembox}[8.38: Alternating Series]
-    Given a monotonic sequence \(\{a_n\}\) of positive terms, such that \(\lim_{n \to \infty} a_n = 0\). Let
-    \[s_n = \sum_{k=1}^{n} a_k, \quad u_n = \sum_{k=1}^{n} (-1)^k a_k, \quad v_n = \sum_{k=1}^{n} (-1)^k s_k.\]
-    Prove that:
-    a) \(v_n = \frac{1}{2} u_n + (-1)^n s_n / 2\)
-    b) \(\sum_{n=1}^{\infty} (-1)^n s_n\) is (C, 1) summable and has Cesaro sum \(\frac{1}{2} \sum_{n=1}^{\infty} (-1)^n a_n\)
-    c) \(\sum_{n=1}^{\infty} (-1)^n (1 + \frac{1}{2} + \cdots + 1/n) = -\log \sqrt{2}\) (C, 1).
-    \end{problembox}
+Show that each of the following series has (C, 1) sum 0:
+a) \(1 - 1 - 1 + 1 + 1 - 1 - 1 + 1 + 1 - 1 + \cdots\)
+b) \(\frac{1}{2} - 1 + \frac{1}{2} + \frac{1}{2} - 1 + \frac{1}{2} + \frac{1}{2} - 1 + \cdots\)
+c) \(\cos x + \cos 3x + \cos 5x + \cdots\) (x real, \(x \neq mn\)).
+\end{problembox}
+
+\begin{problembox}[8.37: Cesaro Summability Conditions]
+Given a series \(\sum a_n\), let
+\[s_n = \sum_{k=1}^{n} a_k, \quad t_n = \sum_{k=1}^{n} k a_k, \quad \sigma_n = \frac{1}{n} \sum_{k=1}^{n} s_k.\]
+Prove that
+a) \(t_n = (n + 1)s_n - n\sigma_n\)
+b) If \(\sum a_n\) is (C, 1) summable, then \(\sum a_n\) converges if, and only if, \(t_n = o(n)\) as \(n \to \infty\)
+c) \(\sum a_n\) is (C, 1) summable if, and only if, \(\sum_{n=1}^{\infty} t_n / n(n + 1)\) converges.
+\end{problembox}
+
+\begin{problembox}[8.38: Alternating Series]
+Given a monotonic sequence \(\{a_n\}\) of positive terms, such that \(\lim_{n \to \infty} a_n = 0\). Let
+\[s_n = \sum_{k=1}^{n} a_k, \quad u_n = \sum_{k=1}^{n} (-1)^k a_k, \quad v_n = \sum_{k=1}^{n} (-1)^k s_k.\]
+Prove that:
+a) \(v_n = \frac{1}{2} u_n + (-1)^n s_n / 2\)
+b) \(\sum_{n=1}^{\infty} (-1)^n s_n\) is (C, 1) summable and has Cesaro sum \(\frac{1}{2} \sum_{n=1}^{\infty} (-1)^n a_n\)
+c) \(\sum_{n=1}^{\infty} (-1)^n (1 + \frac{1}{2} + \cdots + 1/n) = -\log \sqrt{2}\) (C, 1).
+\end{problembox}
 
 \section{Infinite Products}
 
 \begin{problembox}[8.39: Infinite Products]
-    Determine whether or not the following infinite products converge. Find the value of each convergent product.
-    a) \(\prod_{n=2}^{\infty} \left( 1 - \frac{2}{n(n+1)} \right)\), 
-    b) \(\prod_{n=2}^{\infty} (1 - n^{-2})\),
-    c) \(\prod_{n=2}^{\infty} \frac{n^3 - 1}{n^3 + 1}\), 
-    d) \(\prod_{n=0}^{\infty} (1 + z^{2^n})\) if \(|z| < 1\).
-    \end{problembox}
-    
-    \begin{problembox}[8.40: Infinite Product Representation]
-    If each partial sum \(s_n\) of the convergent series \(\sum a_n\) is not zero and if the sum itself is not zero, show that the infinite product \(a_1 \prod_{n=2}^{\infty} (1 + a_n / s_{n-1})\) converges and has the value \(\sum_{n=1}^{\infty} a_n\).
-    \end{problembox}
-    
-    \begin{problembox}[8.41: Product-Series Identity]
-    Find the values of the following products by establishing the following identities and summing the series:
-    a) \(\prod_{n=2}^{\infty} \left( 1 + \frac{1}{2^n - 2} \right) = 2 \sum_{n=1}^{\infty} 2^{-n}\).
-    b) \(\prod_{n=2}^{\infty} \left( 1 + \frac{1}{n^2 - 1} \right) = 2 \sum_{n=1}^{\infty} \frac{1}{n(n+1)}\).
-    \end{problembox}
-    
-    \begin{problembox}[8.42: Cosine Product]
-    Determine all real \(x\) for which the product \(\prod_{n=1}^{\infty} \cos (x/2^n)\) converges and find the value of the product when it does converge.
-    \end{problembox}
-    
-    \begin{problembox}[8.43: Product and Series Convergence]
-    a) Let \(a_n = (-1)^n/\sqrt{n}\) for \(n = 1, 2, \ldots\). Show that \(\prod (1 + a_n)\) diverges but that \(\sum a_n\) converges.
-    b) Let \(a_{2n-1} = -1/\sqrt{n}, a_{2n} = 1/\sqrt{n} + 1/n\) for \(n = 1, 2, \ldots\). Show that \(\prod (1 + a_n)\) converges but that \(\sum a_n\) diverges.
-    \end{problembox}
-    
-    \begin{problembox}[8.44: Alternating Product Convergence]
-    Assume that \(a_n \geq 0\) for each \(n = 1, 2, \ldots\). Assume further that
-    \[a_{2n+2} < a_{2n+1} < \frac{a_{2n}}{1 + a_{2n}}, \quad \text{for } n = 1, 2, \ldots\]
-    Show that \(\prod_{k=1}^{\infty} (1 + (-1)^k a_k)\) converges if, and only if, \(\sum_{k=1}^{\infty} (-1)^k a_k\) converges.
-    \end{problembox}
-    
-    \begin{problembox}[8.45: Multiplicative Functions]
-    A complex-valued sequence \(f(n)\) is called multiplicative if \(f(1) = 1\) and if \(f(mn) = f(m)f(n)\) whenever \(m\) and \(n\) are relatively prime. It is called completely multiplicative if
-    \[f(1) = 1 \quad \text{and} \quad f(mn) = f(m)f(n) \quad \text{for all } m \text{ and } n.\]
-    a) If \(f(n)\) is multiplicative and if the series \(\sum f(n)\) converges absolutely, prove that
-    \[\sum_{n=1}^{\infty} f(n) = \prod_{k=1}^{\infty} (1 + f(p_k) + f(p_k^2) + \cdots),\]
-    where \(p_k\) denotes the kth prime, the product being absolutely convergent.
-    b) If, in addition, \(f(n)\) is completely multiplicative, prove that the formula in (a) becomes
-    \[\sum_{n=1}^{\infty} f(n) = \prod_{k=1}^{\infty} \frac{1}{1 - f(p_k)}.\]
-    \end{problembox}
+Determine whether or not the following infinite products converge. Find the value of each convergent product.
+a) \(\prod_{n=2}^{\infty} \left( 1 - \frac{2}{n(n+1)} \right)\), 
+b) \(\prod_{n=2}^{\infty} (1 - n^{-2})\),
+c) \(\prod_{n=2}^{\infty} \frac{n^3 - 1}{n^3 + 1}\), 
+d) \(\prod_{n=0}^{\infty} (1 + z^{2^n})\) if \(|z| < 1\).
+\end{problembox}
+
+\begin{problembox}[8.40: Infinite Product Representation]
+If each partial sum \(s_n\) of the convergent series \(\sum a_n\) is not zero and if the sum itself is not zero, show that the infinite product \(a_1 \prod_{n=2}^{\infty} (1 + a_n / s_{n-1})\) converges and has the value \(\sum_{n=1}^{\infty} a_n\).
+\end{problembox}
+
+\begin{problembox}[8.41: Product-Series Identity]
+Find the values of the following products by establishing the following identities and summing the series:
+a) \(\prod_{n=2}^{\infty} \left( 1 + \frac{1}{2^n - 2} \right) = 2 \sum_{n=1}^{\infty} 2^{-n}\).
+b) \(\prod_{n=2}^{\infty} \left( 1 + \frac{1}{n^2 - 1} \right) = 2 \sum_{n=1}^{\infty} \frac{1}{n(n+1)}\).
+\end{problembox}
+
+\begin{problembox}[8.42: Cosine Product]
+Determine all real \(x\) for which the product \(\prod_{n=1}^{\infty} \cos (x/2^n)\) converges and find the value of the product when it does converge.
+\end{problembox}
+
+\begin{problembox}[8.43: Product and Series Convergence]
+a) Let \(a_n = (-1)^n/\sqrt{n}\) for \(n = 1, 2, \ldots\). Show that \(\prod (1 + a_n)\) diverges but that \(\sum a_n\) converges.
+b) Let \(a_{2n-1} = -1/\sqrt{n}, a_{2n} = 1/\sqrt{n} + 1/n\) for \(n = 1, 2, \ldots\). Show that \(\prod (1 + a_n)\) converges but that \(\sum a_n\) diverges.
+\end{problembox}
+
+\begin{problembox}[8.44: Alternating Product Convergence]
+Assume that \(a_n \geq 0\) for each \(n = 1, 2, \ldots\). Assume further that
+\[a_{2n+2} < a_{2n+1} < \frac{a_{2n}}{1 + a_{2n}}, \quad \text{for } n = 1, 2, \ldots\]
+Show that \(\prod_{k=1}^{\infty} (1 + (-1)^k a_k)\) converges if, and only if, \(\sum_{k=1}^{\infty} (-1)^k a_k\) converges.
+\end{problembox}
+
+\begin{problembox}[8.45: Multiplicative Functions]
+A complex-valued sequence \(f(n)\) is called multiplicative if \(f(1) = 1\) and if \(f(mn) = f(m)f(n)\) whenever \(m\) and \(n\) are relatively prime. It is called completely multiplicative if
+\[f(1) = 1 \quad \text{and} \quad f(mn) = f(m)f(n) \quad \text{for all } m \text{ and } n.\]
+a) If \(f(n)\) is multiplicative and if the series \(\sum f(n)\) converges absolutely, prove that
+\[\sum_{n=1}^{\infty} f(n) = \prod_{k=1}^{\infty} (1 + f(p_k) + f(p_k^2) + \cdots),\]
+where \(p_k\) denotes the kth prime, the product being absolutely convergent.
+b) If, in addition, \(f(n)\) is completely multiplicative, prove that the formula in (a) becomes
+\[\sum_{n=1}^{\infty} f(n) = \prod_{k=1}^{\infty} \frac{1}{1 - f(p_k)}.\]
+\end{problembox}
 
 \section{Zeta Function and Special Values}
 
 \begin{problembox}[8.46: Zeta Function at 2]
-    This exercise outlines a simple proof of the formula \(\zeta(2) = \pi^2/6\). Start with the inequality \(\sin x < x < \tan x\), valid for \(0 < x < \pi/2\), take reciprocals, and square each member to obtain
-    \[\cot^2 x < \frac{1}{x^2} < 1 + \cot^2 x.\]
-    Now put \(x = k\pi/(2m + 1)\), where \(k\) and \(m\) are integers, with \(1 \leq k \leq m\), and sum on \(k\) to obtain
-    \[\sum_{k=1}^{m} \cot^2 \frac{k\pi}{2m + 1} < \frac{(2m + 1)^2}{\pi^2} \sum_{k=1}^{m} \frac{1}{k^2} < m + \sum_{k=1}^{m} \cot^2 \frac{k\pi}{2m + 1}.\]
-    Use the formula of Exercise 1.49(c) to deduce the inequality
-    \[\frac{m(2m - 1)\pi^2}{3(2m + 1)^2} < \sum_{k=1}^m \frac{1}{k^2} < \frac{2m(m + 1)\pi^2}{3(2m + 1)^2}.\]
-    Now let \(m \to \infty\) to obtain \(\zeta(2) = \pi^2/6\).
-    \end{problembox}
-    
-    \begin{problembox}[8.47: Zeta Function at 4]
-    Use an argument similar to that outlined in Exercise 8.46 to prove that \(\zeta(4) = \pi^4/90\).
-    \end{problembox}
+This exercise outlines a simple proof of the formula \(\zeta(2) = \pi^2/6\). Start with the inequality \(\sin x < x < \tan x\), valid for \(0 < x < \pi/2\), take reciprocals, and square each member to obtain
+\[\cot^2 x < \frac{1}{x^2} < 1 + \cot^2 x.\]
+Now put \(x = k\pi/(2m + 1)\), where \(k\) and \(m\) are integers, with \(1 \leq k \leq m\), and sum on \(k\) to obtain
+\[\sum_{k=1}^{m} \cot^2 \frac{k\pi}{2m + 1} < \frac{(2m + 1)^2}{\pi^2} \sum_{k=1}^{m} \frac{1}{k^2} < m + \sum_{k=1}^{m} \cot^2 \frac{k\pi}{2m + 1}.\]
+Use the formula of Exercise 1.49(c) to deduce the inequality
+\[\frac{m(2m - 1)\pi^2}{3(2m + 1)^2} < \sum_{k=1}^m \frac{1}{k^2} < \frac{2m(m + 1)\pi^2}{3(2m + 1)^2}.\]
+Now let \(m \to \infty\) to obtain \(\zeta(2) = \pi^2/6\).
+\end{problembox}
+
+\begin{problembox}[8.47: Zeta Function at 4]
+Use an argument similar to that outlined in Exercise 8.46 to prove that \(\zeta(4) = \pi^4/90\).
+\end{problembox}

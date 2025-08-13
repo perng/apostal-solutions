@@ -358,9 +358,11 @@ Prove that the set \( S \) of rational numbers in the interval \( (0, 1) \) cann
 \textit{Hint.} Write \( S = \{x_1, x_2, \ldots\} \), assume \( S = \bigcap_{k=1}^{\infty} S_k \), where each \( S_k \) is open, and construct a sequence \( (Q_n) \) of closed intervals such that \( Q_{n+1} \subseteq Q_n \subseteq S_n \) and such that \( x_n \notin Q_n \). Then use the Cantor intersection theorem to obtain a contradiction.
 \end{problembox}
 
-\textbf{Proof:} Suppose for contradiction that $S = \bigcap_{k=1}^{\infty} S_k$ where each $S_k$ is open. Let $S = \{x_1, x_2, \ldots\}$ be an enumeration of the rationals in $(0,1)$.
+\textbf{Proof:} The strategy is to use a proof by contradiction. We'll assume that the rationals can be written as a countable intersection of open sets, then construct a nested sequence of closed intervals that excludes each rational number one by one. This will lead to a point that must be in the intersection (by the Cantor intersection theorem) but cannot be any of the rational numbers we've excluded, creating a contradiction.
 
-For each $n$, since $S_n$ is open and contains all rationals in $(0,1)$, we can find a closed interval $Q_n \subset S_n$ such that $x_n \notin Q_n$. We can arrange that $Q_{n+1} \subseteq Q_n$ by taking $Q_{n+1} = Q_n \cap I_{n+1}$ where $I_{n+1}$ is a closed interval in $S_{n+1}$ that doesn't contain $x_{n+1}$.
+Suppose for contradiction that $S = \bigcap_{k=1}^{\infty} S_k$ where each $S_k$ is open. Let $S = \{x_1, x_2, \ldots\}$ be an enumeration of the rationals in $(0,1)$.
+
+For each $n$, since $S_n$ is open and contains all rationals in $(0,1)$, we can find a closed interval $Q_n \subset S_n$ such that $x_n \notin Q_n$. Here's why this is possible: Since $S_n$ is open, for any point $y \in S_n$ that is not $x_n$, there exists an open interval around $y$ that is entirely contained in $S_n$. We can choose a point $y \in S_n$ that is close to but not equal to $x_n$, and then take a small closed interval around $y$ that stays within $S_n$ but excludes $x_n$. For example, if $x_n$ is not at the boundary of $S_n$, we can find a point $y \in S_n$ with $y < x_n$ and take $Q_n = [y - \varepsilon, y + \varepsilon]$ for some small $\varepsilon > 0$ such that $x_n > y + \varepsilon$. We can arrange that $Q_{n+1} \subseteq Q_n$ by taking $Q_{n+1} = Q_n \cap I_{n+1}$ where $I_{n+1}$ is a closed interval in $S_{n+1}$ that doesn't contain $x_{n+1}$.
 
 By the Cantor intersection theorem, $\bigcap_{n=1}^{\infty} Q_n$ is nonempty. Let $x \in \bigcap_{n=1}^{\infty} Q_n$. Then $x \in \bigcap_{k=1}^{\infty} S_k = S$, so $x$ is rational. But $x \neq x_n$ for any $n$ since $x_n \notin Q_n$ for each $n$. This contradicts the fact that $S$ contains all rationals in $(0,1)$.
 
