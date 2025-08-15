@@ -1,11 +1,11 @@
-extract all problems, format out in LaTeX format. Give each problem a name.
+extract all exercise problems, format out in LaTeX format. Give each problem a name.
 Output in the strict LaTeX source format (as ASCII text). 
 Each problem should be formatted as
 \begin{problembox}[x.xx: <problem name>]
 <problem statement>
 \end{problembox}
 
-Also add the sections like \section{Uniform convergence} if there are section names in the file. If there is not section name in the file, add sections based on the problem contents.
+Also add the sections like \section{Uniform convergence} if there are section names in the file. If there is not section name in the file, add sections based on the problem contents. Extract and Add essential definitions and theorems required for the problems in the section at the beginning of each section. 
 
 Include all descriptions and hints in the file. 
 use \begin{enumerate}[label=(\alph*)] for items
@@ -40,4 +40,3 @@ No need to generate LaTeX Prefix. \begin{document} is already in a master tex fi
 \newcommand{\shortsearrow}{\mathrel{\vcenter{\hbox{$\scriptscriptstyle\searrow$}}}}
 
 \begin{document}
-

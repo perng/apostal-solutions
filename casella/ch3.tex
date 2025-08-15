@@ -1,0 +1,981 @@
+
+\chapter{Common Families of Distributions}
+
+\section{Discrete Distributions}
+
+\begin{problembox}[3.1: Discrete Uniform Distribution]
+Let \( X \) be a discrete uniform random variable on \( N_0, N_0+1, \ldots, N_1 \). Find the expected value and variance.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+Let \( X \) be a discrete uniform random variable on \( N_0, N_0+1, \ldots, N_1 \). 
+
+\begin{itemize}
+\item The expected value is:
+\[ EX = \frac{N_0 + N_1}{2} \]
+
+\item The variance is:
+\[ \text{Var}X = \frac{(N_1 - N_0 + 1)^2 - 1}{12} \]
+\end{itemize}
+
+\begin{problembox}[3.2: Acceptance Sampling]
+A lot of 100 items contains \( D \) defectives. A sample of \( K \) items is drawn without replacement.
+\begin{enumerate}[label=(\alph*)]
+\item Find the probability of accepting the lot if the rule is to accept only if no defectives are found.
+\item Find the probability with the modified rule: accept if at most 1 defective is found.
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item Let \( D \) be the number of defectives in the lot (assume \( D > 5 \)). The probability of accepting an unacceptable lot is:
+\[ P(\text{accept}) = \frac{\binom{100-D}{K}}{\binom{100}{K}} < 0.10 \]
+We need to find the smallest \( K \) satisfying this inequality.
+
+\item With the modified rule:
+\[ P(\text{accept}) = \frac{\binom{100-D}{K} + D\binom{100-D}{K-1}}{\binom{100}{K}} < 0.10 \]
+Again, find the minimal \( K \) satisfying this.
+\end{enumerate}
+
+\begin{problembox}[3.3: Bernoulli Traffic Model]
+A pedestrian waits at a crossing where cars pass with probability \( p \) each second. Find the probability that the pedestrian waits exactly 4 seconds.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+The pedestrian must wait exactly 4 seconds means:
+\begin{itemize}
+\item First 3 seconds have at least one car (probability \( 1 - (1-p)^3 \))
+\item 4th second has no car (probability \( 1-p \))
+\end{itemize}
+Thus:
+\[ P(\text{wait}=4) = (1 - (1-p)^3)(1-p) \]
+
+\begin{problembox}[3.4: Key Trials]
+A person tries keys from a set of \( n \) keys until finding the correct one.
+\begin{enumerate}[label=(\alph*)]
+\item Find the expected number of trials with replacement.
+\item Find the expected number of trials without replacement.
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item With replacement: Geometric distribution with mean \( n \)
+\item Without replacement: The mean is \( \frac{n+1}{2} \)
+\end{enumerate}
+
+\begin{problembox}[3.5: Drug Effectiveness]
+A drug is tested on 100 patients with success probability \( p = 0.8 \) under the null hypothesis. If 85 patients respond positively, test the null hypothesis at \( \alpha = 0.05 \).
+\end{problembox}
+
+\noindent\textbf{Solution.}
+Under the null hypothesis (\( p = 0.8 \)):
+\[ P(X \geq 85) = 1 - \sum_{k=0}^{84} \binom{100}{k} (0.8)^k (0.2)^{100-k} \]
+Approximate using normal distribution:
+\[ Z = \frac{85 - 80}{\sqrt{100 \times 0.8 \times 0.2}} = 1.25 \]
+The p-value is \( P(Z \geq 1.25) \approx 0.1056 \), so not significant at \( \alpha = 0.05 \).
+
+\begin{problembox}[3.6: Insecticide Effectiveness]
+An insecticide kills 1\% of insects. In a field with 2000 insects:
+\begin{enumerate}[label=(\alph*)]
+\item What distribution is appropriate for the number of surviving insects?
+\item Find the probability that fewer than 100 insects survive.
+\item Use Poisson approximation to find this probability.
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item Binomial(2000, 0.01) is appropriate
+\item \( P(X < 100) = \sum_{k=0}^{99} \binom{2000}{k} (0.01)^k (0.99)^{2000-k} \)
+\item Poisson approximation with \( \lambda = 20 \):
+\[ P(X < 100) \approx \sum_{k=0}^{99} \frac{e^{-20} 20^k}{k!} \]
+\end{enumerate}
+
+\begin{problembox}[3.7: Poisson Chocolate Chips]
+A cookie has a Poisson number of chocolate chips with parameter \( \lambda \). Find the smallest \( \lambda \) such that the probability of at least 2 chips is greater than 0.99.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+We want \( P(X \geq 2) > 0.99 \), which is equivalent to:
+\[ 1 - P(X=0) - P(X=1) > 0.99 \]
+\[ e^{-\lambda}(1 + \lambda) < 0.01 \]
+Numerical solution gives \( \lambda \geq 6.64 \).
+
+\begin{problembox}[3.8: Theater Capacity]
+A theater has 1000 seats. The probability of each seat being occupied is 0.5.
+\begin{enumerate}[label=(\alph*)]
+\item Find the minimum capacity \( N \) such that the probability of overflow is less than 0.01.
+\item Use normal approximation to find \( N \).
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item Using Binomial(1000, 0.5):
+\[ P(X > N) < 0.01 \]
+Find minimal \( N \) where \( \sum_{k=N+1}^{1000} \binom{1000}{k} (0.5)^{1000} < 0.01 \)
+
+\item Normal approximation:
+\[ N \approx 500 + 2.33 \times \sqrt{250} \approx 537 \]
+\end{enumerate}
+
+\begin{problembox}[3.9: Twin Births]
+In a school of 60 students, the probability of being a twin is 1/90.
+\begin{enumerate}[label=(\alph*)]
+\item Find the probability of having at least 5 twins in the school.
+\item If there are 310 schools in NY state, find the probability that at least one school has 5 or more twins.
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item \( X \sim \text{Binomial}(60, 1/90) \)
+\[ P(X \geq 5) = 1 - \sum_{k=0}^4 \binom{60}{k} (1/90)^k (89/90)^{60-k} \approx 0.0036 \]
+This is rare but not "impossible"
+
+\item Considering all schools in NY state (310 schools):
+Probability at least one school has \( \geq 5 \) twins is:
+\[ 1 - (1 - 0.0036)^{310} \approx 0.68 \]
+So quite likely to occur somewhere
+\end{enumerate}
+
+\begin{problembox}[3.10: Cocaine Packets Case]
+A case contains 496 packets, \( N \) of which contain cocaine. A sample of 6 packets is drawn.
+\begin{enumerate}[label=(\alph*)]
+\item Find the probability of selecting 4 cocaine packets followed by 2 non-cocaine packets.
+\item Find the value of \( N \) that maximizes the defendant's probability of innocence.
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item The probability of selecting 4 cocaine then 2 non-cocaine is:
+\[
+\frac{\binom{N}{4}\binom{M}{2}}{\binom{N+M}{4}\binom{N+M-4}{2}}
+\]
+where \( M = 496 - N \).
+
+\item To maximize the defendant's innocence probability, we find:
+\[
+\max_{N,M} \frac{\binom{N}{4}\binom{M}{2}}{\binom{496}{4}\binom{492}{2}}
+\]
+The maximum occurs at \( N = 331 \), \( M = 165 \) with probability 0.022.
+\end{enumerate}
+
+\begin{problembox}[3.11: Hypergeometric Approximations]
+For the hypergeometric distribution:
+\begin{enumerate}[label=(\alph*)]
+\item Show that as \( N,M \to \infty \) with \( M/N \to p \), the hypergeometric converges to binomial.
+\item Show that when \( KM/N \to \lambda \), the hypergeometric converges to Poisson.
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item As \( N,M \to \infty \) with \( M/N \to p \):
+\[
+\frac{\binom{M}{x}\binom{N-M}{K-x}}{\binom{N}{K}} \to \binom{K}{x}p^x(1-p)^{K-x}
+\]
+using Stirling's approximation.
+
+\item When \( KM/N \to \lambda \):
+\[
+P(X=x) \to \frac{e^{-\lambda}\lambda^x}{x!}
+\]
+via Poisson approximation to binomial.
+\end{enumerate}
+
+\begin{problembox}[3.12: Binomial and Negative Binomial Relationship]
+For \( X \sim \text{Binomial}(n,p) \) and \( Y \sim \text{Negative Binomial}(r,p) \), show that:
+\[
+F_X(r-1) = 1 - F_Y(n-r)
+\]
+\end{problembox}
+
+\noindent\textbf{Solution.}
+For \( X \sim \text{Binomial}(n,p) \) and \( Y \sim \text{Negative Binomial}(r,p) \):
+\[
+F_X(r-1) = P(X \leq r-1) = 1 - P(Y \leq n-r) = 1 - F_Y(n-r)
+\]
+This follows from counting the number of failures before \( r \) successes.
+
+\begin{problembox}[3.13: Truncated Distributions]
+Find the probability mass function, mean, and variance for the truncated versions of:
+\begin{enumerate}[label=(\alph*)]
+\item Poisson distribution truncated at 0
+\item Negative binomial distribution truncated at 0
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item For \( X \sim \text{Poisson}(\lambda) \):
+\[
+P(X_T=x) = \frac{e^{-\lambda}\lambda^x}{x!(1-e^{-\lambda})}, \quad x=1,2,\ldots
+\]
+Mean: \( \frac{\lambda}{1-e^{-\lambda}} \), Variance: \( \frac{\lambda(1-(\lambda+1)e^{-\lambda})}{(1-e^{-\lambda})^2} \)
+
+\item For \( X \sim \text{Negative Binomial}(r,p) \):
+\[
+P(X_T=x) = \frac{\binom{x+r-1}{x}p^r(1-p)^x}{1-p^r}, \quad x=1,2,\ldots
+\]
+Mean and variance require more complex expressions.
+\end{enumerate}
+
+\begin{problembox}[3.14: Logarithmic Series Distribution]
+For the logarithmic series distribution with pmf \( P(X=x) = \frac{-(1-p)^x}{x\log p} \), \( x=1,2,\ldots \):
+\begin{enumerate}[label=(\alph*)]
+\item Verify that the pmf sums to 1.
+\item Find the mean and variance.
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item Verification:
+\[
+\sum_{x=1}^\infty \frac{-(1-p)^x}{x\log p} = \frac{-\log(1-(1-p))}{\log p} = 1
+\]
+
+\item Mean and Variance:
+\[
+EX = \frac{1-p}{-p\log p}, \quad \text{Var}X = \frac{(1-p)(1-p+p\log p)}{p^2\log^2 p}
+\]
+\end{enumerate}
+
+\begin{problembox}[3.15: Poisson Limit of Negative Binomial]
+Show that the negative binomial distribution converges to Poisson as \( r \to \infty \), \( p \to 1 \), and \( r(1-p) \to \lambda \).
+\end{problembox}
+
+\noindent\textbf{Solution.}
+The mgf of Negative Binomial is:
+\[
+M(t) = \left(\frac{p}{1-(1-p)e^t}\right)^r
+\]
+As \( r \to \infty \), \( p \to 1 \), \( r(1-p) \to \lambda \):
+\[
+M(t) \to \exp\left(\lambda(e^t-1)\right)
+\]
+which is the Poisson mgf.
+
+\begin{problembox}[3.16: Gamma Function Identities]
+Prove the following gamma function identities:
+\begin{enumerate}[label=(\alph*)]
+\item \( \Gamma(\alpha+1) = \alpha\Gamma(\alpha) \)
+\item \( \Gamma\left(\frac{1}{2}\right) = \sqrt{\pi} \)
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item Integration by parts:
+\[
+\Gamma(\alpha+1) = \int_0^\infty x^\alpha e^{-x}dx = \alpha\Gamma(\alpha)
+\]
+
+\item Using the Gaussian integral:
+\[
+\Gamma\left(\frac{1}{2}\right) = \sqrt{\pi}
+\]
+\end{enumerate}
+
+\begin{problembox}[3.17: Gamma Distribution Moments]
+For \( X \sim \text{Gamma}(\alpha,\beta) \), find \( EX^\nu \) for any \( \nu > 0 \).
+\end{problembox}
+
+\noindent\textbf{Solution.}
+For \( X \sim \text{Gamma}(\alpha,\beta) \):
+\[
+EX^\nu = \frac{1}{\Gamma(\alpha)\beta^\alpha} \int_0^\infty x^{\nu+\alpha-1}e^{-x/\beta}dx = \frac{\beta^\nu\Gamma(\nu+\alpha)}{\Gamma(\alpha)}
+\]
+
+\begin{problembox}[3.18: Gamma Approximation to Negative Binomial]
+For \( Y \sim \text{Negative Binomial}(r,p) \), show that as \( p \to 0 \), the distribution of \( pY \) converges to Gamma(r,1).
+\end{problembox}
+
+\noindent\textbf{Solution.}
+The mgf of \( pY \) is:
+\[
+M_{pY}(t) = \left(\frac{p}{1-(1-p)e^{pt}}\right)^r
+\]
+As \( p \to 0 \), using \( \log(1-x) \approx -x \):
+\[
+M_{pY}(t) \to (1-t)^{-r}
+\]
+which is Gamma(r,1) mgf.
+
+\begin{problembox}[3.19: Poisson-Gamma Relationship]
+For \( Y \sim \text{Poisson}(x) \) and \( X \sim \text{Gamma}(\alpha,\beta) \), show that:
+\[
+\int_x^\infty \frac{z^{\alpha-1}e^{-z}}{\Gamma(\alpha)}dz = \sum_{y=0}^{\alpha-1} \frac{x^y e^{-x}}{y!}
+\]
+\end{problembox}
+
+\noindent\textbf{Solution.}
+Integration by parts \( \alpha-1 \) times shows:
+\[
+\int_x^\infty \frac{z^{\alpha-1}e^{-z}}{\Gamma(\alpha)}dz = \sum_{y=0}^{\alpha-1} \frac{x^y e^{-x}}{y!}
+\]
+This expresses \( P(Y \geq \alpha) \) for \( Y \sim \text{Poisson}(x) \) in terms of Gamma cdf.
+
+\begin{problembox}[3.20: Folded Normal Distribution]
+For the folded normal distribution with pdf \( f(x) = \frac{2}{\sqrt{2\pi}}e^{-x^2/2} \), \( 0<x<\infty \):
+\begin{enumerate}[label=(\alph*)]
+\item Find the mean and variance.
+\item Show that \( Y = X^2/2 \) follows a Gamma distribution.
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item For the pdf $f(x) = \frac{2}{\sqrt{2\pi}}e^{-x^2/2}$, $0<x<\infty$:
+\[
+EX = \int_0^\infty x\frac{2}{\sqrt{2\pi}}e^{-x^2/2}dx = \sqrt{\frac{2}{\pi}}
+\]
+\[
+Var(X) = EX^2 - (EX)^2 = 1 - \frac{2}{\pi}
+\]
+
+\item The transformation $Y = X^2/2$ gives $Y \sim \text{Gamma}(\frac{1}{2},1)$.
+\end{enumerate}
+
+\section{Continuous Distributions}
+
+\begin{problembox}[3.21: Cauchy MGF]
+Show that the Cauchy distribution does not have a moment generating function.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+The mgf would be:
+\[
+M_X(t) = \frac{1}{\pi}\int_{-\infty}^\infty \frac{e^{tx}}{1+x^2}dx
+\]
+This integral diverges for all $t \neq 0$, as expected since the Cauchy distribution has no finite moments.
+
+\begin{problembox}[3.22: Variance Verifications]
+Verify the variance formulas for the following distributions:
+\begin{enumerate}[label=(\alph*)]
+\item Poisson distribution
+\item Negative binomial distribution
+\item Gamma distribution
+\item Beta distribution
+\item Double exponential distribution
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item For $X \sim \text{Poisson}(\lambda)$:
+\[
+EX(X-1) = \sum_{k=0}^\infty k(k-1)\frac{e^{-\lambda}\lambda^k}{k!} = \lambda^2
+\]
+Thus $Var(X) = EX^2 - (EX)^2 = \lambda$.
+
+\item For negative binomial $X$:
+\[
+Var(X) = \frac{r(1-p)}{p^2}
+\]
+via similar factorial moment calculation.
+
+\item For gamma $X \sim \text{Gamma}(\alpha,\beta)$:
+\[
+Var(X) = \alpha\beta^2
+\]
+using the moment generating function.
+
+\item For beta $X \sim \text{Beta}(\alpha,\beta)$:
+\[
+EX = \frac{\alpha}{\alpha+\beta}, \quad Var(X) = \frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}
+\]
+
+\item For double exponential $X$:
+\[
+EX = \mu, \quad Var(X) = 2\sigma^2
+\]
+\end{enumerate}
+
+\begin{problembox}[3.23: Pareto Distribution]
+For the Pareto distribution with pdf $f(x) = \frac{\beta\alpha^\beta}{x^{\beta+1}}$, $x \geq \alpha$:
+\begin{enumerate}[label=(\alph*)]
+\item Verify that the pdf integrates to 1.
+\item Find the mean and variance.
+\item Determine when the variance exists.
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item Verification:
+\[
+\int_\alpha^\infty \frac{\beta\alpha^\beta}{x^{\beta+1}}dx = \beta\alpha^\beta\left[-\frac{x^{-\beta}}{\beta}\right]_\alpha^\infty = 1
+\]
+
+\item Moments:
+\[
+EX = \frac{\beta\alpha}{\beta-1} \text{ for } \beta>1, \quad Var(X) = \frac{\beta\alpha^2}{(\beta-1)^2(\beta-2)} \text{ for } \beta>2
+\]
+
+\item When $\beta \leq 2$, the second moment diverges, hence variance doesn't exist.
+\end{enumerate}
+
+\begin{problembox}[3.24: Named Distributions]
+Find the pdf, mean, and variance for the following transformations:
+\begin{enumerate}[label=(\alph*)]
+\item Weibull distribution: $Y = X^{1/\gamma}$ where $X \sim \text{Exponential}(\beta)$
+\item Rayleigh distribution: $Y = \sqrt{X_1^2 + X_2^2}$ where $X_1, X_2 \sim N(0,1)$
+\item Inverted gamma: $Y = 1/X$ where $X \sim \text{Gamma}(a,b)$
+\item Maxwell distribution: $Y = \sqrt{X_1^2 + X_2^2 + X_3^2}$ where $X_i \sim N(0,1)$
+\item Gumbel distribution: $Y = -\log(-\log(X))$ where $X \sim \text{Uniform}(0,1)$
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item Weibull transformation:
+\[
+f_Y(y) = \gamma\beta y^{\gamma-1}e^{-\beta y^\gamma}, \quad y>0
+\]
+Mean and variance involve Gamma function evaluations.
+
+\item Rayleigh distribution:
+\[
+f_Y(y) = ye^{-y^2/2}, \quad y>0
+\]
+with $EY = \sqrt{\pi/2}$, $Var(Y) = 2 - \pi/2$.
+
+\item Inverted gamma:
+\[
+f_Y(y) = \frac{b^a}{\Gamma(a)}y^{-a-1}e^{-b/y}, \quad y>0
+\]
+
+\item Maxwell distribution:
+\[
+f_Y(y) = \sqrt{\frac{2}{\pi}}y^2e^{-y^2/2}, \quad y>0
+\]
+
+\item Gumbel distribution:
+\[
+f_Y(y) = \frac{1}{\gamma}e^{-(y-\alpha)/\gamma}e^{-e^{-(y-\alpha)/\gamma}}
+\]
+\end{enumerate}
+
+\begin{problembox}[3.25: Hazard Function]
+Show that the hazard function $h_T(t) = \frac{f_T(t)}{1-F_T(t)}$ can be written as $h_T(t) = -\frac{d}{dt}\log(1-F_T(t))$.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+The hazard function is:
+\[
+h_T(t) = \lim_{\delta\to 0}\frac{P(t\leq T<t+\delta|T\geq t)}{\delta} = \frac{f_T(t)}{1-F_T(t)} = -\frac{d}{dt}\log(1-F_T(t))
+\]
+This follows from the definition of conditional probability and the derivative of the survival function.
+
+\begin{problembox}[3.26: Hazard Function Examples]
+Find the hazard function for the following distributions:
+\begin{enumerate}[label=(\alph*)]
+\item Exponential distribution
+\item Weibull distribution
+\item Logistic distribution
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item Exponential:
+\[
+h_T(t) = \frac{\beta^{-1}e^{-t/\beta}}{e^{-t/\beta}} = \frac{1}{\beta}
+\]
+
+\item Weibull:
+\[
+h_T(t) = \frac{(\gamma/\beta)t^{\gamma-1}e^{-(t/\beta)^\gamma}}{e^{-(t/\beta)^\gamma}} = \frac{\gamma}{\beta}t^{\gamma-1}
+\]
+
+\item Logistic:
+\[
+h_T(t) = \frac{(1/\beta)e^{-(t-\mu)/\beta}}{(1+e^{-(t-\mu)/\beta})^2} \cdot \frac{1+e^{-(t-\mu)/\beta}}{e^{-(t-\mu)/\beta}} = \frac{1}{\beta}F_T(t)
+\]
+\end{enumerate}
+
+\begin{problembox}[3.27: Unimodality of Distributions]
+Determine which of the following distributions are unimodal and find their modes:
+\begin{enumerate}[label=(\alph*)]
+\item Uniform(a,b)
+\item Gamma($\alpha,\beta$)
+\item Normal($\mu,\sigma^2$)
+\item Beta($\alpha,\beta$)
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item \textbf{Uniform(a,b)}: All points are equally likely modes (not strictly unimodal)
+\item \textbf{Gamma($\alpha,\beta$)}: Unimodal with mode at $(\alpha-1)\beta$ when $\alpha \geq 1$
+\item \textbf{Normal($\mu,\sigma^2$)}: Unimodal with mode at $\mu$
+\item \textbf{Beta($\alpha,\beta$)}: Unimodal with mode at $\frac{\alpha-1}{\alpha+\beta-2}$ when $\alpha,\beta > 1$
+\end{enumerate}
+
+\begin{problembox}[3.28: Exponential Families]
+Show that the following families are exponential families and find their natural parameters:
+\begin{enumerate}[label=(\alph*)]
+\item Normal family with known $\sigma$ or $\mu$
+\item Gamma family with unknown parameters
+\item Poisson family
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item Normal family with known $\sigma$ or $\mu$:
+\[ f(x|\theta) = \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}} \]
+Can be written in exponential form with:
+\[ h(x) = 1, \quad c(\theta) = \frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{\mu^2}{2\sigma^2}}, \quad w(\theta) = \frac{\mu}{\sigma^2}, \quad t(x) = x \]
+
+\item Gamma family with unknown parameters:
+\[ f(x|\alpha,\beta) = \frac{\beta^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\beta x} \]
+Exponential form components:
+\[ h(x) = \frac{1}{x}, \quad c(\theta) = \frac{\beta^\alpha}{\Gamma(\alpha)}, \quad w_1(\theta) = \alpha-1, \quad w_2(\theta) = -\beta \]
+\[ t_1(x) = \log x, \quad t_2(x) = x \]
+
+\item Poisson family:
+\[ f(x|\lambda) = \frac{e^{-\lambda}\lambda^x}{x!} = \frac{1}{x!}e^{-\lambda}e^{x\log\lambda} \]
+\end{enumerate}
+
+\begin{problembox}[3.29: Natural Parameter Spaces]
+Find the natural parameter spaces for the following exponential families:
+\begin{enumerate}[label=(\alph*)]
+\item Normal with known $\sigma$
+\item Gamma family
+\item Beta family
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item Normal with known $\sigma$: $\eta = \mu/\sigma^2 \in (-\infty,\infty)$
+\item Gamma family: $\eta_1 = \alpha-1 > -1$, $\eta_2 = -\beta < 0$
+\item Beta family: $\eta_1 = \alpha-1 > -1$, $\eta_2 = \beta-1 > -1$
+\end{enumerate}
+
+\begin{problembox}[3.30: Variance Identities]
+Use the exponential family properties to verify variance formulas for:
+\begin{enumerate}[label=(\alph*)]
+\item Binomial distribution
+\item Beta distribution
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item Binomial variance:
+\[ \text{Var}(X) = np(1-p) \]
+using $\frac{\partial^2}{\partial\theta^2}\log c(\theta)$ where $\theta = \log\frac{p}{1-p}$
+
+\item Beta mean and variance:
+\[ EX = \frac{a}{a+b}, \quad \text{Var}(X) = \frac{ab}{(a+b)^2(a+b+1)} \]
+via differentiation of $\log B(a,b)$ where $B$ is the beta function
+\end{enumerate}
+
+\section{Advanced Topics}
+
+\begin{problembox}[3.31: Exponential Family Properties]
+For an exponential family $f(x|\theta) = h(x)c(\theta)e^{w(\theta)t(x)}$, prove:
+\begin{enumerate}[label=(\alph*)]
+\item $E\left[\frac{\partial}{\partial\theta}\log f(X|\theta)\right] = 0$
+\item $\text{Var}\left(\frac{\partial}{\partial\theta}\log f(X|\theta)\right) = -E\left[\frac{\partial^2}{\partial\theta^2}\log f(X|\theta)\right]$
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item First derivative:
+\[ \frac{d}{d\theta}\int f(x|\theta)dx = 0 \Rightarrow E\left[\frac{\partial}{\partial\theta}\log f(X|\theta)\right] = 0 \]
+
+\item Second derivative:
+\[ \frac{d^2}{d\theta^2}\int f(x|\theta)dx = 0 \Rightarrow \text{Var}\left(\frac{\partial}{\partial\theta}\log f(X|\theta)\right) = -E\left[\frac{\partial^2}{\partial\theta^2}\log f(X|\theta)\right] \]
+\end{enumerate}
+
+\begin{problembox}[3.32: Simplified Exponential Family]
+For the natural parameterization $f(x|\eta) = h(x)c^*(\eta)e^{\eta^T t(x)}$, find:
+\begin{enumerate}
+\item The mean of $t_j(X)$
+\item The variance of $t_j(X)$
+\item Apply to the Gamma distribution
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+For the natural parameterization $f(x|\eta) = h(x)c^*(\eta)e^{\eta^T t(x)}$:
+\begin{enumerate}
+\item Mean:
+\[ E[t_j(X)] = -\frac{\partial}{\partial\eta_j}\log c^*(\eta) \]
+
+\item Variance:
+\[ \text{Var}(t_j(X)) = -\frac{\partial^2}{\partial\eta_j^2}\log c^*(\eta) \]
+
+\item Gamma example:
+\[ EX = \alpha\beta, \quad \text{Var}(X) = \alpha\beta^2 \]
+via $\log c^*(\eta) = \alpha\log(-\eta_2) - \log\Gamma(\alpha)$ where $\eta_1 = \alpha-1$, $\eta_2 = -\beta$
+\end{enumerate}
+
+\begin{problembox}[3.33: Curved Exponential Families]
+Show that the following families are curved exponential families and describe their parameter constraints:
+\begin{enumerate}[label=(\alph*)]
+\item N($\theta,\theta$)
+\item N($\theta,a\theta^2$)
+\item Gamma($\alpha,1/\alpha$)
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item N($\theta,\theta$): $\eta_1 = 1/\theta$, $\eta_2 = -1/(2\theta)$ with $\eta_2 = -\eta_1^2/2$ (parabola)
+
+\item N($\theta,a\theta^2$): $\eta_1 = 1/(a\theta)$, $\eta_2 = -1/(2a\theta^2)$ with $\eta_2 = -\eta_1^2/2a$ (parabola)
+
+\item Gamma($\alpha,1/\alpha$): $\eta_1 = \alpha-1$, $\eta_2 = -\alpha$ (linear relationship)
+\end{enumerate}
+
+\begin{problembox}[3.34: Normal Approximations]
+For the following distributions, find their normal approximations and describe the parameter constraints:
+\begin{enumerate}[label=(\alph*)]
+\item Poisson approximation
+\item Binomial approximation
+\item Negative binomial approximation
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item Poisson: $\eta_1 = n/\lambda$, $\eta_2 = -n/(2\lambda)$ with $\eta_2 = -\eta_1/2$ (linear)
+
+\item Binomial: $\eta_1 = n/p$, $\eta_2 = -n/[2p(1-p)]$ (nonlinear)
+
+\item Negative binomial: $\eta_1 = np^2/[r(1-p)]$, $\eta_2 = -np^2/[2r(1-p)]$ (linear)
+\end{enumerate}
+
+\begin{problembox}[3.35: Alternative Parameterizations]
+Consider the following alternative parameterizations:
+\begin{enumerate}[label=(\alph*)]
+\item Poisson as N($e^\theta,e^\theta$)
+\item Gamma with $EX = \mu$
+\item Multiple gammas with equal means
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item Poisson as N($e^\theta,e^\theta$): $\theta$ space is entire real line
+
+\item Gamma with $EX = \mu$: $\alpha\beta = \mu$ defines hyperplane in $(\alpha,\beta)$ space
+
+\item Multiple gammas: $\alpha_i\beta_i = \mu$ defines n-dimensional surface
+\end{enumerate}
+
+\begin{problembox}[3.36: Location-Scale Family Visualization]
+For the pdf $f(x) = \frac{\sigma^2}{4}(x^6 - x^8)$ for $-1 < x < 1$, find the location-scale family and analyze:
+\begin{enumerate}[label=(\alph*)]
+\item Standard form ($\mu=0,\sigma=1$)
+\item Shifted form ($\mu=3,\sigma=1$)
+\item Scaled form ($\mu=3,\sigma=2$)
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+The pdf $f(x) = \frac{\sigma^2}{4}(x^6 - x^8)$ for $-1 < x < 1$ transforms to:
+\[
+\frac{1}{\sigma}f\left(\frac{x-\mu}{\sigma}\right) = \frac{\sigma}{4}\left[\left(\frac{x-\mu}{\sigma}\right)^6 - \left(\frac{x-\mu}{\sigma}\right)^8\right]
+\]
+\begin{enumerate}[label=(\alph*)]
+\item $\mu=0,\sigma=1$: Standard form with support $(-1,1)$
+\item $\mu=3,\sigma=1$: Shifted right but compressed (invalid as support becomes (2,4))
+\item $\mu=3,\sigma=2$: Properly scaled with support $(1,5)$
+\end{enumerate}
+\textbf{Note:} Case (b) demonstrates the importance of support constraints in location-scale families.
+
+\begin{problembox}[3.37: Symmetric Distribution Median]
+Show that for a symmetric distribution about $\mu$, the median equals the mean.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+For symmetric $f(x)$ about 0:
+\[
+F(\mu) = \int_{-\infty}^\mu \frac{1}{\sigma}f\left(\frac{x-\mu}{\sigma}\right)dx = \int_{-\infty}^0 f(z)dz = \frac{1}{2}
+\]
+by substitution $z = (x-\mu)/\sigma$. Thus $\mu$ is the median.
+
+\begin{problembox}[3.38: Location-Scale Quantiles]
+Show that quantiles transform linearly under location-scale changes.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+For $X$ with pdf $\frac{1}{\sigma}f\left(\frac{x-\mu}{\sigma}\right)$:
+\[
+P(X > x_\alpha) = \int_{\sigma z_\alpha + \mu}^\infty \frac{1}{\sigma}f\left(\frac{x-\mu}{\sigma}\right)dx = \int_{z_\alpha}^\infty f(z)dz = \alpha
+\]
+This shows quantiles transform linearly under location-scale changes.
+
+\begin{problembox}[3.39: Cauchy Distribution Properties]
+For the Cauchy distribution:
+\begin{enumerate}[label=(\alph*)]
+\item Verify that $\mu$ is the median
+\item Find the quartiles
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item Median verification:
+\[
+P(X \leq \mu) = \frac{1}{\pi}\int_{-\infty}^\mu \frac{1}{1+\left(\frac{x-\mu}{\sigma}\right)^2}dx = \frac{1}{\pi}\tan^{-1}\left(\frac{x-\mu}{\sigma}\right)\Big|_{-\infty}^\mu = \frac{1}{2}
+\]
+
+\item Quartile calculation:
+\[
+P(X \leq \mu + \sigma) = \frac{1}{\pi}\tan^{-1}(1) = \frac{1}{4}
+\]
+by symmetry. Similarly for $\mu - \sigma$.
+\end{enumerate}
+
+\begin{problembox}[3.40: Standardized Location-Scale Family]
+For any pdf $f(x)$ with mean $\mu$ and variance $\sigma^2$, show that $f^*(x) = \sigma f(\sigma x + \mu)$ has mean 0 and variance 1.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+For any pdf $f(x)$ with mean $\mu$ and variance $\sigma^2$, define:
+\[
+f^*(x) = \sigma f(\sigma x + \mu)
+\]
+Then:
+\[
+EX^* = \int x\sigma f(\sigma x + \mu)dx = \frac{1}{\sigma}\int (y-\mu)f(y)dy = 0
+\]
+\[
+Var(X^*) = \int x^2\sigma f(\sigma x + \mu)dx = \frac{1}{\sigma^2}\int (y-\mu)^2f(y)dy = 1
+\]
+
+\begin{problembox}[3.41: Stochastic Ordering]
+Show that the following families have stochastic ordering:
+\begin{enumerate}[label=(\alph*)]
+\item Normal family with respect to $\mu$
+\item Gamma family with respect to $\beta$
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item Normal family: For $\mu_1 > \mu_2$,
+\[
+F(x|\mu_1,\sigma^2) = \Phi\left(\frac{x-\mu_1}{\sigma}\right) \leq \Phi\left(\frac{x-\mu_2}{\sigma}\right) = F(x|\mu_2,\sigma^2)
+\]
+showing stochastic increase in $\mu$.
+
+\item Gamma family: For $\beta_1 > \beta_2$,
+\[
+F(x|\alpha,\beta_1) = \int_0^x \frac{t^{\alpha-1}e^{-t/\beta_1}}{\beta_1^\alpha\Gamma(\alpha)}dt \leq F(x|\alpha,\beta_2)
+\]
+since $\beta_1 > \beta_2$ implies greater dispersion.
+\end{enumerate}
+
+\begin{problembox}[3.42: Location-Scale Stochastic Ordering]
+Show that location and scale families have stochastic ordering:
+\begin{enumerate}[label=(\alph*)]
+\item Location family $F(x-\theta)$
+\item Scale family $\frac{1}{\sigma}f\left(\frac{x}{\sigma}\right)$ on $[0,\infty)$
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item Location family $F(x-\theta)$: For $\theta_1 > \theta_2$,
+\[
+F(x-\theta_1) \leq F(x-\theta_2) \quad \forall x
+\]
+
+\item Scale family $\frac{1}{\sigma}f\left(\frac{x}{\sigma}\right)$ on $[0,\infty)$: For $\sigma_1 > \sigma_2$,
+\[
+F(x/\sigma_1) \geq F(x/\sigma_2) \quad \forall x > 0
+\]
+\end{enumerate}
+
+\begin{problembox}[3.43: Stochastic Decrease Properties]
+Show the following stochastic decrease properties:
+\begin{enumerate}[label=(\alph*)]
+\item For $Y = 1/X$, if $F_X$ stochastically increases in $\theta$, then $F_Y$ decreases
+\item For symmetric distributions, $F_X(x|1/\theta) = 1 - F_X(-x|\theta)$
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item For $Y = 1/X$:
+\[
+F_Y(y|\theta) = P(1/X \leq y) = 1 - F_X(1/y|\theta)
+\]
+If $F_X$ stochastically increases in $\theta$, $F_Y$ decreases.
+
+\item For $\theta > 0$:
+\[
+F_X(x|1/\theta) = 1 - F_X(-x|\theta) \quad \text{(for symmetric distributions)}
+\]
+shows the inversion relationship.
+\end{enumerate}
+
+\begin{problembox}[3.44: Probability Bounds]
+Compare Markov's inequality bounds for $f(x) = e^{-x}$:
+\begin{enumerate}[label=(\alph*)]
+\item $P(|X| \geq b) \leq \frac{E|X|}{b}$
+\item $P(|X| \geq b) \leq \frac{EX^2}{b^2}$
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+Using Markov's inequality:
+\[
+P(|X| \geq b) \leq \frac{E|X|}{b} \quad \text{and} \quad P(|X| \geq b) \leq \frac{EX^2}{b^2}
+\]
+For $f(x) = e^{-x}$:
+\begin{itemize}
+\item When $b=3$: $E|X|/b = 1/3$ vs $EX^2/b^2 = 2/9 \approx 0.222$ (latter better)
+\item When $b=\sqrt{2}$: $E|X|/b \approx 0.707$ vs $EX^2/b^2 = 1$ (former better)
+\end{itemize}
+
+\begin{problembox}[3.45: Chernoff Bound]
+Prove the Chernoff bound:
+\begin{enumerate}[label=(\alph*)]
+\item For $t > 0$: $P(X \geq a) \leq e^{-ta}M_X(t)$
+\item For $t < 0$: $P(X \leq a) \leq e^{-ta}M_X(t)$
+\item General condition for $h(t,x)$
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item For $t > 0$:
+\[
+P(X \geq a) = P(e^{tX} \geq e^{ta}) \leq e^{-ta}M_X(t)
+\]
+
+\item For $t < 0$:
+\[
+P(X \leq a) = P(e^{tX} \geq e^{ta}) \leq e^{-ta}M_X(t)
+\]
+
+\item General condition: $h(t,x)$ must be non-negative and satisfy
+\[
+\mathbb{I}_{\{X \geq 0\}} \leq h(t,X) \quad \forall t \geq 0
+\]
+\end{enumerate}
+
+\begin{problembox}[3.46: Chebyshev Inequality Verification]
+Compare exact probabilities with Chebyshev bounds for:
+\begin{enumerate}
+\item Uniform(0,1) distribution
+\item Exponential($\lambda$) distribution
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+For $X \sim \text{Uniform}(0,1)$ and $X \sim \text{Exponential}(\lambda)$, we compare exact probabilities with Chebyshev bounds:
+
+\begin{enumerate}
+\item \textbf{Uniform(0,1)}:
+\[ P(|X-0.5| \geq k\sigma) = 
+\begin{cases} 
+0 & \text{if } k\sigma \geq 0.5 \\
+2(0.5 - k\sigma) & \text{otherwise}
+\end{cases}
+\]
+where $\sigma^2 = \frac{1}{12}$. Chebyshev gives $P \leq \frac{1}{k^2}$.
+
+\item \textbf{Exponential($\lambda$)}:
+\[ P(|X-\lambda^{-1}| \geq k\lambda^{-1}) = e^{-(k+1)} + (1 - e^{-\max(0,1-k)}) \]
+Chebyshev gives $P \leq \frac{1}{k^2}$ since $\sigma = \lambda^{-1}$.
+\end{enumerate}
+
+\textbf{Insight:} Chebyshev is conservative - actual probabilities decay exponentially for the exponential distribution.
+
+\begin{problembox}[3.47: Normal Distribution Tail Bound]
+For $Z \sim N(0,1)$, prove the tail bound:
+\[ P(|Z| \geq t) \geq \sqrt{\frac{2}{\pi}}\frac{t}{1+t^2}e^{-t^2/2} \]
+\end{problembox}
+
+\noindent\textbf{Solution.}
+For $Z \sim N(0,1)$, we prove:
+\[ P(|Z| \geq t) \geq \sqrt{\frac{2}{\pi}}\frac{t}{1+t^2}e^{-t^2/2} \]
+
+Using integration by parts on the tail probability:
+\[ \int_t^\infty e^{-z^2/2}dz \geq \frac{t}{1+t^2}e^{-t^2/2} \]
+and the fact that $P(|Z|\geq t) = 2P(Z\geq t) = \sqrt{\frac{2}{\pi}}\int_t^\infty e^{-z^2/2}dz$.
+
+\begin{problembox}[3.48: Recursion Relations]
+Find recursion relations for the following distributions:
+\begin{enumerate}
+\item Binomial(n,p)
+\item Negative Binomial(r,p)
+\item Hypergeometric(N,M,K)
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}
+\item \textbf{Binomial(n,p)}:
+\[ P(X=k+1) = \frac{n-k}{k+1}\frac{p}{1-p}P(X=k) \]
+
+\item \textbf{Negative Binomial(r,p)}:
+\[ P(Y=k+1) = \frac{r+k}{k+1}(1-p)P(Y=k) \]
+
+\item \textbf{Hypergeometric(N,M,K)}:
+\[ P(Z=k+1) = \frac{(M-k)(K-k)}{(k+1)(N-M-K+k+1)}P(Z=k) \]
+\end{enumerate}
+
+\begin{problembox}[3.49: Stein's Lemma Extensions]
+Prove Stein's lemma extensions for:
+\begin{enumerate}[label=(\alph*)]
+\item Gamma distribution
+\item Beta distribution
+\end{enumerate}
+\end{problembox}
+
+\noindent\textbf{Solution.}
+\begin{enumerate}[label=(\alph*)]
+\item For $X \sim \text{Gamma}(\alpha,\beta)$:
+\[ E[g(X)(X-\alpha\beta)] = \beta E[Xg'(X)] \]
+Proved via integration by parts on the gamma integral.
+
+\item For $X \sim \text{Beta}(\alpha,\beta)$:
+\[ E\left[g(X)\left(\beta - (\alpha-1)\frac{1-X}{X}\right)\right] = E[(1-X)g'(X)] \]
+Derived using the beta density properties and boundary conditions.
+\end{enumerate}
+
+\begin{problembox}[3.50: Negative Binomial Identity]
+Verify the negative binomial identity:
+\[ \sum_{k=0}^\infty \frac{\Gamma(r+k)}{k!\Gamma(r)}p^r(1-p)^k = 1 \]
+\end{problembox}
+
+\noindent\textbf{Solution.}
+The identity from Theorem 3.6.8(b):
+\[ \sum_{k=0}^\infty \frac{\Gamma(r+k)}{k!\Gamma(r)}p^r(1-p)^k = 1 \]
+is verified by recognizing the negative binomial series expansion:
+\[ p^r[1-(1-p)]^{-r} = \sum_{k=0}^\infty \frac{\Gamma(r+k)}{k!\Gamma(r)}p^r(1-p)^k \]
+which converges for $|1-p| < 1$.
+
+\begin{problembox}[3.8.1: Poisson Postulates]
+Show that the five postulates lead to the Poisson distribution.
+\end{problembox}
+
+\noindent\textbf{Solution.}
+The five postulates lead to the Poisson distribution:
+\begin{enumerate}
+\item \textbf{No initial arrivals}: $N_0 = 0$
+\item \textbf{Independent increments}: $N_t - N_s \perp N_s$
+\item \textbf{Stationary increments}: $N_{t+s} - N_t \sim N_s$
+\item \textbf{Single arrival rate}: $\lim_{t\to 0}\frac{P(N_t=1)}{t} = \lambda$
+\item \textbf{No simultaneous arrivals}: $\lim_{t\to 0}\frac{P(N_t>1)}{t} = 0$
+\end{enumerate}
+
+The solution involves showing the probability generating function satisfies:
+\[ \frac{d}{dt}G(s,t) = \lambda(s-1)G(s,t) \]
+yielding $G(s,t) = e^{\lambda t(s-1)}$, the Poisson pgf.
+

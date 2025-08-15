@@ -770,9 +770,10 @@ Next, we use the standard inclusion-exclusion principle for an additive function
 f(A \cup B) = f(A) + f(B) - f(A)f(B)
 \]
 Now we set the two expressions for \(f(A \cup B)\) equal to each other:
-\[
-f(A) + f(B) - f(A)f(B) = 2f(T) - f(A) - f(B) - f(T)^2 + f(T)f(A) + f(T)f(B) - f(A)f(B)
-\]
+\begin{align*}
+&f(A) + f(B) - f(A)f(B) \\
+=& 2f(T) - f(A) - f(B) - f(T)^2 + f(T)f(A) + f(T)f(B) - f(A)f(B)
+\end{align*}
 The \( -f(A)f(B) \) terms on each side cancel. We move all remaining terms to one side to form a quadratic equation in terms of \(f(T)\):
 \[
 f(T)^2 - 2f(T) - f(T)f(A) - f(T)f(B) + 2f(A) + 2f(B) = 0

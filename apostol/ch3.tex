@@ -5,41 +5,46 @@
 \subsection*{Definitions and Theorems for Section 3.1}
 
 \begin{definition}[Open Set]
-A set $S$ in a metric space $(M,d)$ is open if for every point $x \in S$, there exists $\varepsilon > 0$ such that the open ball $B(x;\varepsilon) = \{y \in M : d(x,y) < \varepsilon\}$ is contained in $S$.
+A set $S$ in a metric space $(M,d)$ is said to be open if for every point $x \in S$, there exists a positive number $\varepsilon$ such that the open ball $B(x;\varepsilon) = \{y \in M : d(x,y) < \varepsilon\}$ is entirely contained in $S$.
 \end{definition}
 
 \begin{definition}[Closed Set]
-A set $S$ in a metric space $(M,d)$ is closed if its complement $M \setminus S$ is open.
+A set $S$ in a metric space $(M,d)$ is said to be closed if its complement $M \setminus S$ is an open set.
 \end{definition}
 
 \begin{definition}[Interior Point]
-A point $x$ is an interior point of a set $S$ if there exists $\varepsilon > 0$ such that $B(x;\varepsilon) \subset S$.
+A point $x$ in a metric space $(M,d)$ is said to be an interior point of a set $S \subseteq M$ if there exists a positive number $\varepsilon$ such that the open ball $B(x;\varepsilon)$ is entirely contained in $S$.
 \end{definition}
 
 \begin{definition}[Accumulation Point]
-A point $x$ is an accumulation point (or limit point) of a set $S$ if every neighborhood of $x$ contains at least one point of $S$ different from $x$.
+A point $x$ in a metric space $(M,d)$ is said to be an accumulation point (or limit point) of a set $S \subseteq M$ if every open ball centered at $x$ contains at least one point of $S$ different from $x$ itself.
 \end{definition}
 
 \begin{definition}[Neighborhood]
-A neighborhood of a point $x$ is any open set containing $x$.
+A neighborhood of a point $x$ in a metric space $(M,d)$ is any open set that contains $x$.
 \end{definition}
 
-\begin{theorem}[Properties of Open and Closed Sets]
+\begin{theorem}[Basic Properties of Open and Closed Sets]
+In any metric space $(M,d)$, the following properties hold:
 \begin{enumerate}
-\item The empty set and the whole space are both open and closed
-\item Arbitrary unions of open sets are open
-\item Finite intersections of open sets are open
-\item Arbitrary intersections of closed sets are closed
-\item Finite unions of closed sets are closed
+\item The empty set $\emptyset$ and the whole space $M$ are both open and closed sets.
+\item The union of any collection of open sets is an open set.
+\item The intersection of any finite collection of open sets is an open set.
+\item The intersection of any collection of closed sets is a closed set.
+\item The union of any finite collection of closed sets is a closed set.
 \end{enumerate}
 \end{theorem}
 
-\begin{theorem}[Connectedness Characterization]
-A metric space $M$ is connected if and only if the only subsets of $M$ that are both open and closed are $\emptyset$ and $M$.
+\begin{theorem}[Characterization of Connectedness]
+A metric space $(M,d)$ is connected if and only if the only subsets of $M$ that are both open and closed are the empty set $\emptyset$ and the whole space $M$ itself.
 \end{theorem}
 
-\begin{theorem}[Density of Rationals and Irrationals]
-The rational numbers and irrational numbers are both dense in $\mathbb{R}$.
+\begin{definition}[Dense Set]
+A set $A$ in a metric space $(M,d)$ is said to be dense in $M$ if every point of $M$ is either in $A$ or is an accumulation point of $A$. Equivalently, $A$ is dense in $M$ if the closure of $A$ equals $M$, that is, $\overline{A} = M$.
+\end{definition}
+
+\begin{theorem}[Density of Rational and Irrational Numbers]
+Both the set of rational numbers and the set of irrational numbers are dense in the real line $\mathbb{R}$.
 \end{theorem}
 
 \begin{problembox}[3.1: Open and Closed Intervals ]
@@ -191,25 +196,26 @@ Therefore, $S = [a,b] \setminus \bigcup_{i=1}^{\infty} (a_i, b_i)$, which is the
 \subsection*{Definitions and Theorems for Section 3.2}
 
 \begin{definition}[Open Ball]
-The open ball centered at $a$ with radius $r > 0$ is the set $B(a;r) = \{x \in M : d(x,a) < r\}$.
+Given a metric space $(M,d)$, the open ball centered at a point $a \in M$ with radius $r > 0$ is the set $B(a;r) = \{x \in M : d(x,a) < r\}$.
 \end{definition}
 
-\begin{definition}[Interior]
-The interior of a set $S$, denoted $\text{int } S$, is the set of all interior points of $S$.
+\begin{definition}[Interior of a Set]
+Given a set $S$ in a metric space $(M,d)$, the interior of $S$, denoted by $\text{int } S$, is the set of all interior points of $S$.
 \end{definition}
 
-\begin{theorem}[Properties of Interior]
+\begin{theorem}[Properties of the Interior]
+Let $S$ and $T$ be subsets of a metric space $(M,d)$. Then the following properties hold:
 \begin{enumerate}
-\item $\text{int } S$ is open
-\item $\text{int } S$ is the largest open subset of $S$
-\item $\text{int }(\text{int } S) = \text{int } S$
-\item $\text{int }(S \cap T) = \text{int } S \cap \text{int } T$
-\item $\text{int } S \cup \text{int } T \subseteq \text{int }(S \cup T)$
+\item The interior $\text{int } S$ is an open set.
+\item The interior $\text{int } S$ is the largest open subset of $S$.
+\item The interior of the interior equals the interior: $\text{int }(\text{int } S) = \text{int } S$.
+\item The interior of an intersection equals the intersection of interiors: $\text{int }(S \cap T) = \text{int } S \cap \text{int } T$.
+\item The union of interiors is contained in the interior of the union: $\text{int } S \cup \text{int } T \subseteq \text{int }(S \cup T)$.
 \end{enumerate}
 \end{theorem}
 
 \begin{theorem}[Interior as Union of Open Subsets]
-If $S \subseteq \mathbb{R}^n$, then int $S$ is the union of all open subsets of $\mathbb{R}^n$ which are contained in $S$.
+If $S$ is a subset of $\mathbb{R}^n$, then the interior of $S$ is equal to the union of all open subsets of $\mathbb{R}^n$ that are contained in $S$.
 \end{theorem}
 
 \begin{problembox}[3.8: Open Balls and Intervals in Rn]
@@ -362,19 +368,19 @@ By the Cantor intersection theorem, $\bigcap_{n=1}^{\infty} Q_n$ is nonempty. Le
 \subsection*{Definitions and Theorems for Section 3.3}
 
 \begin{definition}[Open Cover]
-An open cover of a set $S$ is a collection of open sets whose union contains $S$.
+An open cover of a set $S$ in a metric space $(M,d)$ is a collection of open sets whose union contains $S$.
 \end{definition}
 
 \begin{definition}[Compact Set]
-A set $S$ is compact if every open cover of $S$ has a finite subcover.
+A set $S$ in a metric space $(M,d)$ is said to be compact if every open cover of $S$ has a finite subcover.
 \end{definition}
 
 \begin{definition}[Isolated Point]
-A point $x$ in a set $S$ is isolated if there exists a neighborhood of $x$ that contains no other points of $S$.
+A point $x$ in a set $S$ is said to be an isolated point of $S$ if there exists a neighborhood of $x$ that contains no other points of $S$.
 \end{definition}
 
 \begin{definition}[Separable Space]
-A metric space is separable if it contains a countable dense subset.
+A metric space $(M,d)$ is said to be separable if it contains a countable dense subset.
 \end{definition}
 
 \begin{theorem}[Lindelöf Property]
@@ -535,45 +541,41 @@ Therefore, $A$ is perfect, and we have the desired decomposition $F = A \cup B$.
 \subsection*{Definitions and Theorems for Section 3.4}
 
 \begin{definition}[Metric Space]
-A metric space is a set $M$ together with a function $d: M \times M \to [0,\infty)$ (called a metric) satisfying:
+A metric space consists of a set $M$ together with a function $d: M \times M \to [0,\infty)$ (called a metric or distance function) that satisfies the following three axioms for all points $x, y, z \in M$:
 \begin{enumerate}
-\item $d(x,y) = 0$ if and only if $x = y$
-\item $d(x,y) = d(y,x)$ for all $x,y \in M$
+\item $d(x,y) = 0$ if and only if $x = y$ (positive definiteness)
+\item $d(x,y) = d(y,x)$ for all $x,y \in M$ (symmetry)
 \item $d(x,z) \leq d(x,y) + d(y,z)$ for all $x,y,z \in M$ (triangle inequality)
 \end{enumerate}
 \end{definition}
 
 \begin{definition}[Closed Ball]
-The closed ball centered at $a$ with radius $r > 0$ is the set $\overline{B}(a;r) = \{x \in M : d(x,a) \leq r\}$.
-\end{definition}
-
-\begin{definition}[Dense Set]
-A set $A$ is dense in a set $S$ if $S \subseteq \overline{A}$.
+Given a metric space $(M,d)$, the closed ball centered at a point $a \in M$ with radius $r > 0$ is the set $\overline{B}(a;r) = \{x \in M : d(x,a) \leq r\}$.
 \end{definition}
 
 \begin{theorem}[Separability of Euclidean Spaces]
 Every Euclidean space $\mathbb{R}^n$ is separable.
 \end{theorem}
 
-\begin{theorem}[Bounded Metric]
-If $(M,d)$ is a metric space, then $d'(x,y) = \frac{d(x,y)}{1 + d(x,y)}$ is also a metric for $M$.
+\begin{theorem}[Bounded Metric Construction]
+If $(M,d)$ is a metric space, then the function $d'(x,y) = \frac{d(x,y)}{1 + d(x,y)}$ defines a metric on $M$ that is bounded above by 1.
 \end{theorem}
 
 \begin{theorem}[Product Metrics]
-Given metric spaces $(S_1,d_1)$ and $(S_2,d_2)$, the following are metrics for $S_1 \times S_2$:
+Given two metric spaces $(S_1,d_1)$ and $(S_2,d_2)$, the following functions define metrics on the Cartesian product $S_1 \times S_2$:
 \begin{enumerate}
-\item $\rho(x,y) = d_1(x_1,y_1) + d_2(x_2,y_2)$
-\item $\rho(x,y) = \max\{d_1(x_1,y_1), d_2(x_2,y_2)\}$
-\item $\rho(x,y) = \sqrt{d_1(x_1,y_1)^2 + d_2(x_2,y_2)^2}$
+\item $\rho(x,y) = d_1(x_1,y_1) + d_2(x_2,y_2)$ (sum metric)
+\item $\rho(x,y) = \max\{d_1(x_1,y_1), d_2(x_2,y_2)\}$ (maximum metric)
+\item $\rho(x,y) = \sqrt{d_1(x_1,y_1)^2 + d_2(x_2,y_2)^2}$ (Euclidean product metric)
 \end{enumerate}
 \end{theorem}
 
 \begin{theorem}[Finite Sets are Closed]
-Every finite subset of a metric space is closed.
+Every finite subset of a metric space is a closed set.
 \end{theorem}
 
 \begin{theorem}[Closed Balls are Closed]
-In any metric space, closed balls are closed sets.
+In any metric space, every closed ball is a closed set.
 \end{theorem}
 
 \begin{theorem}[Transitivity of Density]
@@ -581,11 +583,11 @@ If $A$ is dense in $S$ and $S$ is dense in $T$, then $A$ is dense in $T$.
 \end{theorem}
 
 \begin{theorem}[Density and Open Sets]
-If $A$ is dense in $S$ and $B$ is open in $S$, then $B \subseteq \overline{A \cap B}$.
+If $A$ is dense in $S$ and $B$ is an open subset of $S$, then $B$ is contained in the closure of $A \cap B$.
 \end{theorem}
 
 \begin{theorem}[Intersection of Dense and Open Sets]
-If both $A$ and $B$ are dense in $S$ and $B$ is open in $S$, then $A \cap B$ is dense in $S$.
+If both $A$ and $B$ are dense in $S$ and $B$ is an open subset of $S$, then the intersection $A \cap B$ is dense in $S$.
 \end{theorem}
 
 \begin{problembox}[3.26: Open and Closed Sets in Metric Spaces]
@@ -811,24 +813,25 @@ Other examples of product metrics include:
 \subsection*{Definitions and Theorems for Section 3.5}
 
 \begin{definition}[Compact Set]
-A set $S$ is compact if every open cover of $S$ has a finite subcover.
+A set $S$ in a metric space $(M,d)$ is said to be compact if every open cover of $S$ has a finite subcover.
 \end{definition}
 
 \begin{theorem}[Heine-Borel Theorem]
-A subset of $\mathbb{R}^n$ is compact if and only if it is closed and bounded.
+A subset of $\mathbb{R}^n$ is compact if and only if it is both closed and bounded.
 \end{theorem}
 
 \begin{theorem}[Properties of Compact Sets]
+Let $(M,d)$ be a metric space. Then the following properties hold:
 \begin{enumerate}
-\item Closed subsets of compact sets are compact
-\item Finite unions of compact sets are compact
-\item Arbitrary intersections of compact sets are compact
-\item Continuous images of compact sets are compact
+\item Every closed subset of a compact set is compact.
+\item The union of any finite collection of compact sets is compact.
+\item The intersection of any nonempty collection of compact sets is compact.
+\item The continuous image of a compact set is compact.
 \end{enumerate}
 \end{theorem}
 
 \begin{theorem}[Sequential Compactness]
-A metric space is compact if and only if every sequence has a convergent subsequence.
+A metric space is compact if and only if every sequence in the space has a convergent subsequence.
 \end{theorem}
 
 Prove each of the following statements concerning an arbitrary metric space $(M,d)$ and subsets $S$, $T$ of $M$.
@@ -856,10 +859,10 @@ If \( S \) is closed and \( T \) is compact, then \( S \cap T \) is compact.
 Since $S \cap T \subseteq T$ and $T$ is compact, by Exercise 3.38, $S \cap T$ is compact in $(T,d)$. Since compactness is independent of the ambient space, $S \cap T$ is compact in $(M,d)$.
 
 \begin{problembox}[3.40: Intersection of Compact Sets]
-The intersection of an arbitrary collection of compact subsets of \( M \) is compact.
+The intersection of a nonempty collection of compact subsets of \( M \) is compact.
 \end{problembox}
 
-\textbf{Proof:} Let $\{K_\alpha\}$ be a collection of compact subsets of $M$. Since each $K_\alpha$ is closed, the intersection $\bigcap K_\alpha$ is closed.
+\textbf{Proof:} Let $\{K_\alpha\}$ be a nonempty collection of compact subsets of $M$. Since each $K_\alpha$ is closed, the intersection $\bigcap K_\alpha$ is closed.
 
 Let $K_1$ be any member of the collection. Then $\bigcap K_\alpha \subseteq K_1$ and $K_1$ is compact. Since $\bigcap K_\alpha$ is closed and contained in a compact set, by Exercise 3.39, $\bigcap K_\alpha$ is compact.
 
@@ -897,34 +900,36 @@ The following problems involve arbitrary subsets \( A \) and \( B \) of a metric
 
 \subsection*{Definitions and Theorems for Section 3.6}
 
-\begin{definition}[Closure]
-The closure of a set $S$, denoted $\overline{S}$, is the union of $S$ and its derived set: $\overline{S} = S \cup S'$.
+\begin{definition}[Closure of a Set]
+The closure of a set $S$ in a metric space $(M,d)$, denoted by $\overline{S}$, is the union of $S$ and its derived set: $\overline{S} = S \cup S'$.
 \end{definition}
 
 \begin{definition}[Derived Set]
-The derived set of $S$, denoted $S'$, is the set of all accumulation points of $S$.
+The derived set of a set $S$ in a metric space $(M,d)$, denoted by $S'$, is the set of all accumulation points of $S$.
 \end{definition}
 
-\begin{definition}[Boundary]
-The boundary of a set $S$, denoted $\partial S$, is the intersection of the closure of $S$ and the closure of its complement: $\partial S = \overline{S} \cap \overline{M \setminus S}$.
+\begin{definition}[Boundary of a Set]
+The boundary of a set $S$ in a metric space $(M,d)$, denoted by $\partial S$, is the intersection of the closure of $S$ and the closure of its complement: $\partial S = \overline{S} \cap \overline{M \setminus S}$.
 \end{definition}
 
 \begin{theorem}[Properties of Closure]
+Let $S$ and $T$ be subsets of a metric space $(M,d)$. Then the following properties hold:
 \begin{enumerate}
-\item $\overline{S}$ is closed
-\item $\overline{S}$ is the smallest closed set containing $S$
-\item $\overline{S \cup T} = \overline{S} \cup \overline{T}$
-\item $\overline{S \cap T} \subseteq \overline{S} \cap \overline{T}$
-\item $S'$ is closed
-\item $\overline{S} = S \cup S'$
+\item The closure $\overline{S}$ is a closed set.
+\item The closure $\overline{S}$ is the smallest closed set containing $S$.
+\item The closure of a union equals the union of closures: $\overline{S \cup T} = \overline{S} \cup \overline{T}$.
+\item The closure of an intersection is contained in the intersection of closures: $\overline{S \cap T} \subseteq \overline{S} \cap \overline{T}$.
+\item The derived set $S'$ is a closed set.
+\item The closure equals the union of the set and its derived set: $\overline{S} = S \cup S'$.
 \end{enumerate}
 \end{theorem}
 
-\begin{theorem}[Interior and Closure Relations]
+\begin{theorem}[Relations Between Interior and Closure]
+Let $S$ be a subset of a metric space $(M,d)$. Then the following relations hold:
 \begin{enumerate}
-\item $\text{int } S = M \setminus \overline{M \setminus S}$
-\item $\text{int }(M \setminus S) = M \setminus \overline{S}$
-\item $\partial S = \partial(M \setminus S)$
+\item The interior of $S$ equals the complement of the closure of the complement: $\text{int } S = M \setminus \overline{M \setminus S}$.
+\item The interior of the complement equals the complement of the closure: $\text{int }(M \setminus S) = M \setminus \overline{S}$.
+\item The boundary of $S$ equals the boundary of its complement: $\partial S = \partial(M \setminus S)$.
 \end{enumerate}
 \end{theorem}
 

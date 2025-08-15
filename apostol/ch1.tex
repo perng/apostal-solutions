@@ -174,7 +174,12 @@ A key property of these roots is that they satisfy $a^2 = a+1$ and $b^2 = b+1$.
 For $n=1$:
 \[ \frac{a^1 - b^1}{a-b} = 1 = x_1. \]
 For $n=2$:
-\[ \frac{a^2 - b^2}{a-b} = \frac{(a-b)(a+b)}{a-b} = a+b = \left(\frac{1+\sqrt{5}}{2}\right) + \left(\frac{1-\sqrt{5}}{2}\right) = 1 = x_2. \]
+\begin{align*}
+\frac{a^2 - b^2}{a-b} &= \frac{(a-b)(a+b)}{a-b}\\
+&= a+b\\
+&= \left(\frac{1+\sqrt{5}}{2}\right) + \left(\frac{1-\sqrt{5}}{2}\right)\\
+&= 1 = x_2.
+\end{align*}
 The base cases hold.
 
 \textbf{Inductive step:}
@@ -460,9 +465,11 @@ The sign of this difference depends on the sign of $2b^2 - a^2$, which relates $
 
 \textbf{Case 1: $\frac{a}{b} < \sqrt{2}$}. This means $a < b\sqrt{2}$, so $a^2 < 2b^2$, and $2b^2 - a^2 > 0$.
 Thus, $\frac{a}{b} < \frac{a+2b}{a+b}$. We need to show that $\frac{a+2b}{a+b} > \sqrt{2}$.
-\[
-\frac{a + 2b}{a + b} > \sqrt{2} \iff a + 2b > \sqrt{2}(a + b) \iff b(2 - \sqrt{2}) > a(\sqrt{2} - 1) \iff \frac{2 - \sqrt{2}}{\sqrt{2} - 1} > \frac{a}{b}
-\]
+\begin{align*}
+\frac{a + 2b}{a + b} > \sqrt{2} &\iff a + 2b > \sqrt{2}(a + b)\\
+&\iff b(2 - \sqrt{2}) > a(\sqrt{2} - 1)\\
+&\iff \frac{2 - \sqrt{2}}{\sqrt{2} - 1} > \frac{a}{b}
+\end{align*}
 Since $\frac{2 - \sqrt{2}}{\sqrt{2} - 1} = \frac{\sqrt{2}(\sqrt{2} - 1)}{\sqrt{2} - 1} = \sqrt{2}$, this simplifies to $\sqrt{2} > \frac{a}{b}$, which is true by our case assumption. Thus, $\frac{a}{b} < \sqrt{2} < \frac{a + 2b}{a + b}$.
 
 \textbf{Case 2: $\frac{a}{b} > \sqrt{2}$}. This means $a^2 > 2b^2$, and $2b^2 - a^2 < 0$.
@@ -562,7 +569,9 @@ Let's look at the fractional parts of these numbers. The fractional part of a nu
 The fractional parts of $0, x, 2x, \ldots, Nx$ all lie in the interval $[0, 1)$.
 
 Divide the interval $[0, 1)$ into $N$ equal subintervals:
-$[0, 1/N), [1/N, 2/N), \ldots, [(N-1)/N, 1)$
+\begin{align*}
+[0, 1/N), [1/N, 2/N), \ldots, [(N-1)/N, 1)
+\end{align*}
 
 By the pigeonhole principle, since we have $N + 1$ numbers and only $N$ subintervals, at least two of these numbers must fall into the same subinterval.
 
@@ -601,7 +610,7 @@ Thus, for any integer $N>1$, we can find a rational number $h/k$ such that:
 \left|x - \frac{h}{k}\right| < \frac{1}{k^2}
 \]
 Now we must show that this process can generate infinitely many distinct fractions.
-Assume, for the sake of contradiction, that there are only a finite number of such rational approximations, say $\{h_1/k_1, h_2/k_2, \ldots, h_m/k_m\}$.
+Assume, for the sake of contradiction, that there are only a finite number of such rational approximations, say $$\{h_1/k_1, h_2/k_2, \ldots, h_m/k_m\}$$.
 Since $x$ is irrational, for any rational number $h_i/k_i$, the distance $|x - h_i/k_i|$ is non-zero. Let $\epsilon$ be the smallest of these non-zero distances:
 \[
 \epsilon = \min_{i=1,\dots,m} \left|x - \frac{h_i}{k_i}\right| > 0.
@@ -658,15 +667,22 @@ For any $m < n$, when we compute $m!x$, the term corresponding to $k=n$ is $m! \
 
 \textbf{4. Converse (Uniqueness):}
 Suppose a positive rational number $x$ has two different representations:
-\[ x = \sum_{k=1}^n \frac{a_k}{k!} = \sum_{k=1}^m \frac{b_k}{k!} \]
+\begin{align*}
+x &= \sum_{k=1}^n \frac{a_k}{k!}\\
+&= \sum_{k=1}^m \frac{b_k}{k!}
+\end{align*}
 with the conditions $0 \le a_k \le k-1$ for $k \ge 2$, $a_n > 0$, and similarly for $b_k$.
 From part (3), $n$ is the smallest integer such that $n!x$ is an integer, and $m$ is the smallest integer such that $m!x$ is an integer. This implies $n=m$.
 
 Let $j$ be the largest index for which the coefficients differ, so $a_j \neq b_j$. Assume, without loss of generality, that $a_j > b_j$.
 Since $a_k = b_k$ for $k > j$, we can subtract the sums:
-\[ \sum_{k=1}^j \frac{a_k}{k!} = \sum_{k=1}^j \frac{b_k}{k!} \]
+\begin{align*}
+\sum_{k=1}^j \frac{a_k}{k!} = \sum_{k=1}^j \frac{b_k}{k!}
+\end{align*}
 Rearranging the terms, we get:
-\[ \frac{a_j - b_j}{j!} = \sum_{k=1}^{j-1} \frac{b_k - a_k}{k!} \]
+\begin{align*}
+\frac{a_j - b_j}{j!} = \sum_{k=1}^{j-1} \frac{b_k - a_k}{k!}
+\end{align*}
 Multiply both sides by $(j-1)!$:
 \[ \frac{a_j - b_j}{j} = \sum_{k=1}^{j-1} (b_k - a_k) \frac{(j-1)!}{k!} \]
 The right-hand side is an integer, because for each $k \in \{1, \dots, j-1\}$, $k!$ divides $(j-1)!$.
@@ -959,6 +975,54 @@ Prove Lagrange's identity for real numbers:
 \left( \sum_{k=1}^n a_k b_k \right)^2 = \left( \sum_{k=1}^n a_k^2 \right)\left( \sum_{k=1}^n b_k^2 \right) - \sum_{1 \leq k < j \leq n} (a_k b_j - a_j b_k)^2.
 \]
 \end{problembox}
+
+\textbf{Solution:}
+We will prove Lagrange's identity by expanding both sides and showing they are equal.
+
+Let's start by expanding the left-hand side:
+\begin{align*}
+\left( \sum_{k=1}^n a_k b_k \right)^2 &= \left( \sum_{k=1}^n a_k b_k \right) \left( \sum_{j=1}^n a_j b_j \right) \\
+&= \sum_{k=1}^n \sum_{j=1}^n a_k b_k a_j b_j \\
+&= \sum_{k=1}^n a_k^2 b_k^2 + 2 \sum_{1 \leq k < j \leq n} a_k b_k a_j b_j
+\end{align*}
+
+Now let's expand the right-hand side:
+\begin{align*}
+&\left( \sum_{k=1}^n a_k^2 \right)\left( \sum_{k=1}^n b_k^2 \right) - \sum_{1 \leq k < j \leq n} (a_k b_j - a_j b_k)^2 \\
+&= \left( \sum_{k=1}^n a_k^2 \right)\left( \sum_{j=1}^n b_j^2 \right) - \sum_{1 \leq k < j \leq n} (a_k^2 b_j^2 - 2a_k b_j a_j b_k + a_j^2 b_k^2) \\
+&= \sum_{k=1}^n \sum_{j=1}^n a_k^2 b_j^2 - \sum_{1 \leq k < j \leq n} a_k^2 b_j^2 + 2 \sum_{1 \leq k < j \leq n} a_k b_j a_j b_k - \sum_{1 \leq k < j \leq n} a_j^2 b_k^2
+\end{align*}
+
+Let's simplify this step by step. First, note that:
+\begin{align*}
+\sum_{k=1}^n \sum_{j=1}^n a_k^2 b_j^2 &= \sum_{k=1}^n a_k^2 b_k^2 + \sum_{1 \leq k < j \leq n} a_k^2 b_j^2 + \sum_{1 \leq k < j \leq n} a_j^2 b_k^2 \\
+&= \sum_{k=1}^n a_k^2 b_k^2 + \sum_{1 \leq k < j \leq n} (a_k^2 b_j^2 + a_j^2 b_k^2)
+\end{align*}
+
+Substituting this back into our expression:
+\begin{align*}
+&\sum_{k=1}^n a_k^2 b_k^2 + \sum_{1 \leq k < j \leq n} (a_k^2 b_j^2 + a_j^2 b_k^2) - \sum_{1 \leq k < j \leq n} a_k^2 b_j^2 + 2 \sum_{1 \leq k < j \leq n} a_k b_j a_j b_k - \sum_{1 \leq k < j \leq n} a_j^2 b_k^2 \\
+&= \sum_{k=1}^n a_k^2 b_k^2 + 2 \sum_{1 \leq k < j \leq n} a_k b_j a_j b_k
+\end{align*}
+
+This is exactly the same as our expanded left-hand side! Therefore, Lagrange's identity is proven.
+
+\textbf{Alternative Proof using Determinants:}
+We can also prove this using the fact that the determinant of a 2×2 matrix is zero if and only if its rows are linearly dependent.
+
+Consider the matrix:
+\[
+\begin{pmatrix}
+a_k & b_k \\
+a_j & b_j
+\end{pmatrix}
+\]
+
+The determinant of this matrix is $a_k b_j - a_j b_k$. If we square this determinant and sum over all pairs $(k,j)$ with $k < j$, we get the right-hand side of Lagrange's identity.
+
+The left-hand side represents the square of the dot product of the vectors $\mathbf{a} = (a_1, a_2, \ldots, a_n)$ and $\mathbf{b} = (b_1, b_2, \ldots, b_n)$.
+
+The identity shows that the square of the dot product equals the product of the squared magnitudes minus the sum of squared determinants of all 2×2 submatrices formed by pairs of components.
 
 \begin{problembox}[1.24: A Holder-type Inequality]
 Prove that for arbitrary real numbers \( a_k, b_k, c_k \) we have
@@ -1718,10 +1782,11 @@ Now, let's expand the right-hand side (RHS). The first term is:
 \end{align*}
 The second term on the RHS is:
 \begin{align*}
-\sum_{1 \leq k < j \leq n} |a_k \overline{b_j} - a_j \overline{b_k}|^2 &= \sum_{1 \leq k < j \leq n} (a_k \overline{b_j} - a_j \overline{b_k}) \overline{(a_k \overline{b_j} - a_j \overline{b_k})} \\
-&= \sum_{1 \leq k < j \leq n} (a_k \overline{b_j} - a_j \overline{b_k}) (\overline{a_k} b_j - \overline{a_j} b_k) \\
-&= \sum_{1 \leq k < j \leq n} (a_k \overline{b_j} \overline{a_k} b_j - a_k \overline{b_j} \overline{a_j} b_k - a_j \overline{b_k} \overline{a_k} b_j + a_j \overline{b_k} \overline{a_j} b_k) \\
-&= \sum_{1 \leq k < j \leq n} (|a_k|^2 |b_j|^2 - a_k b_k \overline{a_j} \overline{b_j} - \overline{a_k} \overline{b_k} a_j b_j + |a_j|^2 |b_k|^2)
+&\sum_{1 \leq k < j \leq n} |a_k \overline{b_j} - a_j \overline{b_k}|^2 \\
+=& \sum_{1 \leq k < j \leq n} (a_k \overline{b_j} - a_j \overline{b_k}) \overline{(a_k \overline{b_j} - a_j \overline{b_k})} \\
+=& \sum_{1 \leq k < j \leq n} (a_k \overline{b_j} - a_j \overline{b_k}) (\overline{a_k} b_j - \overline{a_j} b_k) \\
+=& \sum_{1 \leq k < j \leq n} (a_k \overline{b_j} \overline{a_k} b_j - a_k \overline{b_j} \overline{a_j} b_k - a_j \overline{b_k} \overline{a_k} b_j + a_j \overline{b_k} \overline{a_j} b_k) \\
+=& \sum_{1 \leq k < j \leq n} (|a_k|^2 |b_j|^2 - a_k b_k \overline{a_j} \overline{b_j} - \overline{a_k} \overline{b_k} a_j b_j + |a_j|^2 |b_k|^2)
 \end{align*}
 Adding the two expanded terms of the RHS:
 \begin{align*}
@@ -1731,15 +1796,16 @@ Adding the two expanded terms of the RHS:
 \end{align*}
 The cross terms cancel perfectly. Comparing the final expressions for the LHS and RHS, we see they are identical. This proves Lagrange's identity.
 
-To deduce the Cauchy-Schwarz inequality, note that the term $\sum_{1 \leq k < j \leq n} |a_k \overline{b_j} - a_j \overline{b_k}|^2$ is a sum of squares of absolute values, so it must be non-negative. From the original identity, this implies:
+To deduce the Cauchy-Schwarz inequality, note that the term $$\sum_{1 \leq k < j \leq n} |a_k \overline{b_j} - a_j \overline{b_k}|^2$$ is a sum of squares of absolute values, so it must be non-negative. From the original identity, this implies:
 \[ \left| \sum_{k=1}^n a_k \overline{b_k} \right|^2 \leq \left( \sum_{k=1}^n |a_k|^2 \right) \left( \sum_{k=1}^n |b_k|^2 \right). \]
 
 \begin{problembox}[1.49: Polynomial Identity via DeMoivre's Theorem]
 \begin{enumerate}[label=\textbf{(\alph*)}]
 \item By equating imaginary parts in DeMoivre's formula, prove that
-\[
-\sin(n\theta) = \sin \theta \left( \binom{n}{1} \cot^{n-1} \theta - \binom{n}{3} \cot^{n-3} \theta + \binom{n}{5} \cot^{n-5} \theta - + \cdots \right).
-\]
+\begin{align*}
+&\sin(n\theta) \\
+=& \sin \theta \left( \binom{n}{1} \cot^{n-1} \theta - \binom{n}{3} \cot^{n-3} \theta + \binom{n}{5} \cot^{n-5} \theta - + \cdots \right).
+\end{align*}
 \item If \( 0 < \theta < \pi/2 \), prove that
 \[
 \sin((2m+1)\theta) = \sin^{2m+1} \theta \cdot P_m(\cot^2 \theta),
@@ -1776,9 +1842,11 @@ Imaginary part:
 \sin(n\theta) = \sin \theta \sum_{j=0}^{\lfloor n/2 \rfloor} (-1)^j \binom{n}{2j+1} \cot^{n-(2j+1)} \theta.
 \]
 \item For \( n = 2m+1 \):
-\[
-\sin((2m+1)\theta) = \sin^{2m+1} \theta \sum_{j=0}^m (-1)^j \binom{2m+1}{2j+1} \cot^{2(m-j)} \theta = \sin^{2m+1} \theta P_m(\cot^2 \theta).
-\]
+\begin{align*}
+& \sin((2m+1)\theta) 
+=& \sin^{2m+1} \theta \sum_{j=0}^m (-1)^j \binom{2m+1}{2j+1} \cot^{2(m-j)} \theta \\
+=& \sin^{2m+1} \theta P_m(\cot^2 \theta).
+\end{align*}
 Zeros at \( \sin((2m+1)\theta) = 0 \), i.e., \( \theta_k = \frac{\pi k}{2m+1} \), so \( x_k = \cot^2 \left( \frac{\pi k}{2m+1} \right) \).
 \item Sum of roots:
 \[
