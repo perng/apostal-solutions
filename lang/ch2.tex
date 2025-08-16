@@ -17,7 +17,7 @@ We let $A$ denote a commutative ring.
 Suppose that $1 \neq 0$ in $A$. Let $S$ be a multiplicative subset of $A$ not containing $0$. Let $\mathfrak{p}$ be a maximal element in the set of ideals of $A$ whose intersection with $S$ is empty. Show that $\mathfrak{p}$ is prime.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Let $\mathfrak{p}$ be a maximal element in the set of ideals of $A$ whose intersection with $S$ is empty. We need to show that $\mathfrak{p}$ is prime.
 
 Suppose for contradiction that $\mathfrak{p}$ is not prime. Then there exist elements $a, b \in A$ such that $ab \in \mathfrak{p}$ but $a \notin \mathfrak{p}$ and $b \notin \mathfrak{p}$.
@@ -37,11 +37,13 @@ Since $p_1, p_2, ab \in \mathfrak{p}$, we have $p_1p_2 + p_1r_2b + p_2r_1a + r_1
 
 Therefore, $\mathfrak{p}$ must be prime.
 
+
+\qed
 \begin{problembox}[2.2: Surjective Homomorphism Preserves Local Property]
 Let $f: A \rightarrow A'$ be a surjective homomorphism of rings, and assume that $A$ is local, $A' \neq 0$. Show that $A'$ is local.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Let $\mathfrak{m}$ be the unique maximal ideal of $A$. Since $f$ is surjective, $f(\mathfrak{m})$ is an ideal of $A'$.
 
 We claim that $f(\mathfrak{m})$ is the unique maximal ideal of $A'$.
@@ -52,11 +54,13 @@ Second, $f(\mathfrak{m})$ is unique: if $I$ is any maximal ideal of $A'$, then $
 
 Therefore, $A'$ has exactly one maximal ideal and is local.
 
+
+\qed
 \begin{problembox}[2.3: Unique Maximal Ideal in Localization]
 Let $\mathfrak{p}$ be a prime ideal of $A$. Show that $A_{\mathfrak{p}}$ has a unique maximal ideal, consisting of all elements $a/s$ with $a \in \mathfrak{p}$ and $s \notin \mathfrak{p}$.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Let $S = A \setminus \mathfrak{p}$. Since $\mathfrak{p}$ is prime, $S$ is a multiplicative subset of $A$.
 
 Let $\mathfrak{m} = \{a/s : a \in \mathfrak{p}, s \notin \mathfrak{p}\}$. We need to show that $\mathfrak{m}$ is the unique maximal ideal of $A_{\mathfrak{p}}$.
@@ -69,6 +73,8 @@ Finally, $\mathfrak{m}$ is unique: any proper ideal $I$ of $A_{\mathfrak{p}}$ mu
 
 Therefore, $A_{\mathfrak{p}}$ is a local ring with unique maximal ideal $\mathfrak{m}$.
 
+
+\qed
 \section{Principal and Factorial Rings}
 
 \noindent\textbf{Definitions and Theorems:}
@@ -84,7 +90,7 @@ Therefore, $A_{\mathfrak{p}}$ is a local ring with unique maximal ideal $\mathfr
 Let $A$ be a principal ring and $S$ a multiplicative subset with $0 \notin S$. Show that $S^{-1}A$ is principal.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Let $I$ be an ideal of $S^{-1}A$. We need to show that $I$ is principal.
 
 Let $J = \{a \in A : a/1 \in I\}$. Then $J$ is an ideal of $A$. Since $A$ is principal, $J = (d)$ for some $d \in A$.
@@ -97,11 +103,13 @@ Second, if $a/s \in I$, then $a/1 = (a/s)(s/1) \in I$, so $a \in J = (d)$. Thus 
 
 Therefore, $I = (d/1)$ and $S^{-1}A$ is principal.
 
+
+\qed
 \begin{problembox}[2.5: Localization Preserves Factorial Property]
 Let $A$ be a factorial ring and $S$ a multiplicative subset with $0 \notin S$. Show that $S^{-1}A$ is factorial, and that the prime elements of $S^{-1}A$ are of the form $up$ with primes $p$ of $A$ such that $(p) \cap S$ is empty, and units $u$ in $S^{-1}A$.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 First, we show that $S^{-1}A$ is factorial. Let $a/s \in S^{-1}A$ be a non-zero non-unit. Then $a \in A$ is non-zero and not a unit in $S^{-1}A$.
 
 Since $A$ is factorial, $a$ can be written as a product of irreducible elements in $A$: $a = p_1 \cdots p_n$. Then $a/s = (p_1/1) \cdots (p_n/1)(1/s)$.
@@ -114,11 +122,13 @@ For the second part, let $p$ be a prime element of $A$ such that $(p) \cap S = \
 
 Conversely, if $q$ is a prime element of $S^{-1}A$, then $q = a/s$ where $a \in A$ is irreducible and $a \notin S$. Since $q$ is prime, $a$ must be prime in $A$.
 
+
+\qed
 \begin{problembox}[2.6: Localization at Prime is Principal]
 Let $A$ be a factorial ring and $p$ a prime element. Show that the local ring $A_{(p)}$ is principal.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Let $S = A \setminus (p)$. Then $A_{(p)} = S^{-1}A$.
 
 By Problem 2.4, since $A$ is principal (factorial rings are principal), $A_{(p)}$ is principal.
@@ -127,11 +137,13 @@ Alternatively, we can show this directly. Let $I$ be an ideal of $A_{(p)}$. Let 
 
 Since $A$ is factorial, $J = (p^n)$ for some $n \geq 0$. Then $I = (p^n/1) = (p/1)^n$.
 
+
+\qed
 \begin{problembox}[2.7: GCD in Principal Rings]
 Let $A$ be a principal ring and $a_1, \ldots, a_n$ non-zero elements of $A$. Let $(a_1, \ldots, a_n) = (d)$. Show that $d$ is a greatest common divisor for the $a_i$ ($i = 1, \ldots, n$).
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Since $(a_1, \ldots, a_n) = (d)$, we have $d \in (a_1, \ldots, a_n)$, so $d = r_1a_1 + \cdots + r_na_n$ for some $r_i \in A$. This shows that $d$ is a linear combination of the $a_i$.
 
 Also, since $(a_1, \ldots, a_n) \subseteq (d)$, each $a_i \in (d)$, so $d$ divides each $a_i$.
@@ -140,6 +152,8 @@ Now let $e$ be any element that divides each $a_i$. Then $a_i = s_i e$ for some 
 
 Therefore, $d$ is a greatest common divisor of the $a_i$.
 
+
+\qed
 \section{Group of Units}
 
 \noindent\textbf{Definitions and Theorems:}
@@ -158,7 +172,7 @@ in which case it is of type $(2, 2^{r-2})$.
 [Hint: In the general case, show that $G$ is the product of a cyclic group generated by $1 + p$, and a cyclic group of order $p - 1$. In the exceptional case, show that $G$ is the product of the group $\{\pm 1\}$ with the cyclic group generated by the residue class of $5 \mod 2^r$.]
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 We will prove this by induction on $r$. The key insight is to use the structure of the multiplicative group modulo prime powers.
 
 For $r = 1$, $G = (\mathbb{Z}/p\mathbb{Z})^*$ is cyclic of order $p-1$ by the primitive root theorem.
@@ -179,6 +193,8 @@ The group $G$ is the product of $\{\pm 1\}$ (which has order 2) and the cyclic g
 
 The key fact is that 5 generates a cyclic subgroup of order $2^{r-2}$ in $G$ for $r \geq 3$, and this subgroup together with $\{\pm 1\}$ generates all of $G$.
 
+
+\qed
 \section{Quadratic Rings}
 
 \noindent\textbf{Definitions and Theorems:}
@@ -194,7 +210,7 @@ The key fact is that 5 generates a cyclic subgroup of order $2^{r-2}$ in $G$ for
 Let $i$ be the complex number $\sqrt{-1}$. Show that the ring $\mathbb{Z}[i]$ is principal, and hence factorial. What are the units?
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 To show that $\mathbb{Z}[i]$ is principal, we use the Euclidean algorithm with the norm function $N(a + bi) = a^2 + b^2$.
 
 Let $I$ be a non-zero ideal of $\mathbb{Z}[i]$. Let $\alpha$ be a non-zero element of $I$ with minimal norm. We claim that $I = (\alpha)$.
@@ -209,6 +225,8 @@ Since $\mathbb{Z}[i]$ is principal, it is also factorial (UFD).
 
 The units of $\mathbb{Z}[i]$ are the elements with norm 1. These are $\pm 1, \pm i$.
 
+
+\qed
 \begin{problembox}[2.10: Non-Factorial Quadratic Ring]
 Let $D$ be an integer $\geq 1$, and let $R$ be the set of all elements $a + b\sqrt{-D}$ with $a, b \in \mathbb{Z}$.
 \begin{enumerate}[label=(\alph*)]
@@ -219,7 +237,7 @@ Let $D$ be an integer $\geq 1$, and let $R$ be the set of all elements $a + b\sq
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item We need to show that $R$ is closed under addition and multiplication. Let $\alpha = a + b\sqrt{-D}$ and $\beta = c + d\sqrt{-D}$ be elements of $R$.
     
@@ -246,6 +264,8 @@ Let $D$ be an integer $\geq 1$, and let $R$ be the set of all elements $a + b\sq
     Similarly, $2 - \sqrt{-5}$ is irreducible.
 \end{enumerate}
 
+
+\qed
 \section{Trigonometric Polynomials}
 
 \noindent\textbf{Definitions and Theorems:}
@@ -264,7 +284,7 @@ where $a_0, a_m, b_m$ are real numbers. Define the trigonometric degree $\deg_{t
 Deduce from this that $R$ has no divisors of $0$, and also deduce that the functions $\sin x$ and $1 - \cos x$ are irreducible elements in that ring.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 First, we show that $R$ consists of all functions of the given form. This follows from the fact that any trigonometric polynomial can be written as a finite linear combination of $\cos(nx)$ and $\sin(nx)$ terms.
 
 Now we prove that $\deg_{tr}(fg) = \deg_{tr}(f) + \deg_{tr}(g)$.
@@ -287,6 +307,8 @@ For irreducibility, suppose $\sin x = fg$ where $f, g \in R$ are non-units. Then
 
 Similarly, $\deg_{tr}(1 - \cos x) = 1$, so if $1 - \cos x = fg$, then one of $f$ or $g$ must be a constant. But $1 - \cos x$ is not a constant multiple of any other trigonometric polynomial, so it is irreducible.
 
+
+\qed
 \section{Dedekind Rings}
 
 \noindent\textbf{Definitions and Theorems:}
@@ -312,7 +334,7 @@ where the sum is taken over all pairs $(x, y)$ of positive integers such that $x
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item We need to verify the ring axioms. Addition is clearly commutative and associative since it's pointwise addition.
     
@@ -355,11 +377,13 @@ where the sum is taken over all pairs $(x, y)$ of positive integers such that $x
     Therefore, $\mu * \varphi_1 = \delta$.
 \end{enumerate}
 
+
+\qed
 \begin{problembox}[2.13: Finitely Generated Ideals]
 Every ideal is finitely generated. [Hint: Given an ideal $\mathfrak{a}$, let $\mathfrak{b}$ be the fractional ideal such that $\mathfrak{a}\mathfrak{b} = \mathfrak{o}$. Write $1 = \sum a_i b_i$ with $a_i \in \mathfrak{a}$ and $b_i \in \mathfrak{b}$. Show that $\mathfrak{a} = (a_1, \ldots, a_n)$.]
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Let $\mathfrak{a}$ be an ideal of $o$. Since $o$ is a Dedekind ring, there exists a fractional ideal $\mathfrak{b}$ such that $\mathfrak{a}\mathfrak{b} = o$.
 
 Since $1 \in o = \mathfrak{a}\mathfrak{b}$, we can write $1 = \sum_{i=1}^n a_i b_i$ where $a_i \in \mathfrak{a}$ and $b_i \in \mathfrak{b}$.
@@ -374,33 +398,39 @@ This shows that $a = \sum_{i=1}^n (a b_i) a_i \in (a_1, \ldots, a_n)$.
 
 Therefore, $\mathfrak{a} = (a_1, \ldots, a_n)$ is finitely generated.
 
+
+\qed
 \begin{problembox}[2.14: Unique Factorization of Ideals]
 Every ideal has a factorization as a product of prime ideals, uniquely determined up to permutation.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 This is a fundamental property of Dedekind rings. We prove existence and uniqueness.
 
 For existence: Let $\mathfrak{a}$ be an ideal. If $\mathfrak{a} = o$, then it's the empty product. Otherwise, let $\mathfrak{p}_1$ be a minimal prime ideal containing $\mathfrak{a}$. Then $\mathfrak{a} \subseteq \mathfrak{p}_1$, so there exists an ideal $\mathfrak{a}_1$ such that $\mathfrak{a} = \mathfrak{p}_1 \mathfrak{a}_1$. Since $\mathfrak{p}_1$ is maximal (in Dedekind rings, non-zero prime ideals are maximal), $\mathfrak{a}_1$ properly contains $\mathfrak{a}$. Continue this process, which must terminate since $o$ is Noetherian.
 
 For uniqueness: Suppose $\mathfrak{p}_1 \cdots \mathfrak{p}_r = \mathfrak{q}_1 \cdots \mathfrak{q}_s$ where the $\mathfrak{p}_i$ and $\mathfrak{q}_j$ are prime ideals. Since $\mathfrak{p}_1$ contains the product $\mathfrak{q}_1 \cdots \mathfrak{q}_s$, it must contain one of the $\mathfrak{q}_j$ (by the prime ideal property). Since both are maximal, $\mathfrak{p}_1 = \mathfrak{q}_j$. Cancel and continue by induction.
 
+
+\qed
 \begin{problembox}[2.15: Principal Prime Ideal]
 Suppose $\mathfrak{o}$ has only one prime ideal $\mathfrak{p}$. Let $t \in \mathfrak{p}$ and $t \notin \mathfrak{p}^2$. Then $\mathfrak{p} = (t)$ is principal.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Since $o$ has only one prime ideal $\mathfrak{p}$, every non-zero element of $o$ has a unique factorization as a power of $\mathfrak{p}$.
 
 Since $t \in \mathfrak{p}$ and $t \notin \mathfrak{p}^2$, the ideal $(t)$ must be exactly $\mathfrak{p}$.
 
 To see this, suppose $(t) = \mathfrak{p}^n$ for some $n \geq 1$. Since $t \notin \mathfrak{p}^2$, we must have $n = 1$. Therefore, $(t) = \mathfrak{p}$.
 
+
+\qed
 \begin{problembox}[2.16: Localization of Dedekind Ring]
 Let $\mathfrak{o}$ be any Dedekind ring. Let $\mathfrak{p}$ be a prime ideal. Let $\mathfrak{o}_{\mathfrak{p}}$ be the local ring at $\mathfrak{p}$. Then $\mathfrak{o}_{\mathfrak{p}}$ is Dedekind and has only one prime ideal.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Let $S = o \setminus \mathfrak{p}$. Then $o_{\mathfrak{p}} = S^{-1}o$.
 
 Since $o$ is Noetherian, $o_{\mathfrak{p}}$ is Noetherian. Since $o$ is integrally closed, $o_{\mathfrak{p}}$ is integrally closed. Since $o$ has Krull dimension 1, $o_{\mathfrak{p}}$ has Krull dimension 1.
@@ -409,6 +439,8 @@ Therefore, $o_{\mathfrak{p}}$ is a Dedekind ring.
 
 The unique prime ideal of $o_{\mathfrak{p}}$ is $\mathfrak{p} o_{\mathfrak{p}} = \{a/s : a \in \mathfrak{p}, s \notin \mathfrak{p}\}$. This follows from the fact that localization preserves the prime ideal structure, and in a local ring, the unique maximal ideal is the only prime ideal.
 
+
+\qed
 \begin{problembox}[2.17: Divisibility in Dedekind Rings]
 As for the integers, we say that $\mathfrak{a} | \mathfrak{b}$ ($\mathfrak{a}$ divides $\mathfrak{b}$) if there exists an ideal $\mathfrak{c}$ such that $\mathfrak{b} = \mathfrak{a}\mathfrak{c}$. Prove:
 \begin{enumerate}[label=(\alph*)]
@@ -417,7 +449,7 @@ As for the integers, we say that $\mathfrak{a} | \mathfrak{b}$ ($\mathfrak{a}$ d
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item If $\mathfrak{a} | \mathfrak{b}$, then $\mathfrak{b} = \mathfrak{a}\mathfrak{c}$ for some ideal $\mathfrak{c}$. Since $\mathfrak{a}\mathfrak{c} \subseteq \mathfrak{a}$, we have $\mathfrak{b} \subseteq \mathfrak{a}$.
     
@@ -432,11 +464,13 @@ As for the integers, we say that $\mathfrak{a} | \mathfrak{b}$ ($\mathfrak{a}$ d
     Two ideals are relatively prime if their greatest common divisor is $o$. By the above, this means $\mathfrak{a} + \mathfrak{b} = o$.
 \end{enumerate}
 
+
+\qed
 \begin{problembox}[2.18: Prime Ideals are Maximal]
 Every prime ideal $\mathfrak{p}$ is maximal. (Remember, $\mathfrak{p} \neq 0$ by convention.) In particular, if $\mathfrak{p}_1, \ldots, \mathfrak{p}_n$ are distinct primes, then the Chinese remainder theorem applies to their powers $\mathfrak{p}_1^{r_1}, \ldots, \mathfrak{p}_n^{r_n}$. Use this to prove:
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Since $o$ is a Dedekind ring, it has Krull dimension 1. This means that every non-zero prime ideal is maximal.
 
 To see this, let $\mathfrak{p}$ be a non-zero prime ideal. If $\mathfrak{p}$ is not maximal, then there exists a maximal ideal $\mathfrak{m}$ such that $\mathfrak{p} \subset \mathfrak{m}$. But this would create a chain of prime ideals $(0) \subset \mathfrak{p} \subset \mathfrak{m}$, contradicting the fact that the Krull dimension is 1.
@@ -445,11 +479,13 @@ Since prime ideals are maximal, distinct prime ideals $\mathfrak{p}_1, \ldots, \
 
 This means that the natural map $o \rightarrow o/\mathfrak{p}_1^{r_1} \times \cdots \times o/\mathfrak{p}_n^{r_n}$ is surjective.
 
+
+\qed
 \begin{problembox}[2.19: Ideal Class Representatives]
 Let $\mathfrak{a}, \mathfrak{b}$ be ideals. Show that there exists an element $c \in K$ (the quotient field of $\mathfrak{o}$) such that $c\mathfrak{a}$ is an ideal relatively prime to $\mathfrak{b}$. In particular, every ideal class in $\text{Pic}(\mathfrak{o})$ contains representative ideals prime to a given ideal. For a continuation, see Exercise 7 of Chapter VII; Chapter III, Exercise 11-13.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Let $\mathfrak{a} = \mathfrak{p}_1^{e_1} \cdots \mathfrak{p}_r^{e_r}$ and $\mathfrak{b} = \mathfrak{q}_1^{f_1} \cdots \mathfrak{q}_s^{f_s}$ be the prime factorizations of $\mathfrak{a}$ and $\mathfrak{b}$.
 
 We need to find $c \in K$ such that $c\mathfrak{a}$ is relatively prime to $\mathfrak{b}$. This means that $c\mathfrak{a}$ should not share any prime factors with $\mathfrak{b}$.

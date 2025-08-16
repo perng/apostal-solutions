@@ -54,6 +54,8 @@ Let $P(n)$ be a statement about the positive integer $n$. If:
 Then $P(n)$ is true for all positive integers $n$.
 \end{theorem}
 
+
+
 \begin{problembox}[1.1: No Largest Prime]
 Prove that there is no largest prime. (A proof was known to Euclid.)
 \end{problembox}
@@ -71,7 +73,9 @@ Now, $N$ is either prime or composite:
 \item If $N$ is composite, then $N$ has a prime factor $q$. Since $N$ is not divisible by any prime $\leq p$, we must have $q > p$. This again contradicts our assumption that $p$ is the largest prime.
 \end{itemize}
 
-In both cases, we reach a contradiction. Therefore, our assumption that there exists a largest prime is false, and there must be infinitely many prime numbers.
+In both cases, we reach a contradiction. Therefore, our assumption that there exists a largest prime is false, and there must be infinitely many prime numbers.\qed
+
+
 
 \begin{problembox}[1.2: Algebraic Identity]
 If $n$ is a positive integer, prove the algebraic identity:
@@ -109,7 +113,9 @@ Alternatively, we can use the geometric series formula. Let $r = \frac{a}{b}$. T
 &= \frac{a^n - b^n}{a - b}
 \end{align*}
 
-Therefore, $(a - b)\sum_{k=0}^{n-1} a^k b^{n-1-k} = a^n - b^n$.
+Therefore, $(a - b)\sum_{k=0}^{n-1} a^k b^{n-1-k} = a^n - b^n$.\qed
+
+
 
 \begin{problembox}[1.3: Mersenne Primes]
 If $2^n - 1$ is prime, prove that $n$ is prime. A prime of the form $2^p - 1$, where $p$ is prime, is called a \textit{Mersenne prime}.
@@ -131,7 +137,9 @@ Using the identity from Problem 1.2 with $x = 2^a$ and $y = 1$:
 
 Since $a > 1$, we have $2^a - 1 > 1$. Also, since $b > 1$, the second factor is greater than 1. Therefore, $2^n - 1$ is the product of two integers greater than 1, making it composite.
 
-This proves that if $2^n - 1$ is prime, then $n$ must be prime.
+This proves that if $2^n - 1$ is prime, then $n$ must be prime.\qed
+
+
 
 \begin{problembox}[1.4: Fermat Primes]
 If $2^n + 1$ is prime, prove that $n$ is a power of $2$. A prime of the form $2^{2^n} + 1$ is called a \textit{Fermat prime}. Hint: Use Exercise 1.2.
@@ -160,7 +168,9 @@ Since $m$ is odd, $(-1)^m = -1$, so:
 
 Since $m > 1$, both factors are greater than $1$, making $2^n + 1$ composite.
 
-Therefore, if $2^n + 1$ is prime, then $n$ must be a power of $2$.
+Therefore, if $2^n + 1$ is prime, then $n$ must be a power of $2$.\qed
+
+
 
 \begin{problembox}[1.5: Fibonacci Numbers Formula]
 The Fibonacci numbers $1, 1, 2, 3, 5, 8, 13, \dots$ are defined by the recursion formula $x_{n+1} = x_n + x_{n-1}$, with $x_1 = x_2 = 1$. Prove that $x_n = \frac{a^n - b^n}{a - b}$, where $a$ and $b$ are the roots of the equation $x^2 - x - 1 = 0$.
@@ -196,7 +206,9 @@ Using the property that $a+1 = a^2$ and $b+1 = b^2$:
 x_{n+1} &= \frac{a^{n-1}(a^2) - b^{n-1}(b^2)}{a-b} \\
 &= \frac{a^{n+1} - b^{n+1}}{a-b}
 \end{align*}
-This is $P(n+1)$. By the principle of strong induction, the formula is true for all positive integers $n$.
+This is $P(n+1)$. By the principle of strong induction, the formula is true for all positive integers $n$.\qed
+
+
 
 \begin{problembox}[1.6: Well-Ordering Principle]
 Prove that every nonempty set of positive integers contains a smallest member. This is called the \textit{well-ordering principle}.
@@ -218,7 +230,7 @@ Therefore, $n$ cannot be in $S$. Thus, $P(n)$ is true.
 
 By the principle of strong induction, $P(n)$ is true for all positive integers $n$. This means that no positive integer is in $S$, which implies that $S$ is an empty set.
 This contradicts our initial assumption that $S$ is a nonempty set.
-Therefore, the original assumption must be false, and every nonempty set of positive integers must contain a smallest member.
+Therefore, the original assumption must be false, and every nonempty set of positive integers must contain a smallest member.\qed
 
 \section{Rational and Irrational Numbers}
 
@@ -259,6 +271,8 @@ If $n$ is a positive integer that is not a perfect square, then $\sqrt{n}$ is ir
 Between any two real numbers, there exist both rational and irrational numbers.
 \end{theorem}
 
+
+
 \begin{problembox}[1.7: Decimal Expansion to Rational]
 Find the rational number whose decimal expansion is $0.334444\ldots$.
 \end{problembox}
@@ -281,7 +295,9 @@ Now, subtract the first equation from the second. This will cancel the infinite 
 \end{align*}
 Finally, solve for $x$:
 $$x = \frac{301}{900}$$
-Therefore, the rational number is \textbf{$\frac{301}{900}$}.
+Therefore, the rational number is \textbf{$\frac{301}{900}$}.\qed
+
+
 
 \begin{problembox}[1.8: Decimal Expansion Ending in Zeroes]
 Prove that the decimal expansion of $x$ will end in zeroes (or in nines) if and only if $x$ is a rational number whose denominator is of the form $2^m 5^n$, where $m$ and $n$ are nonnegative integers.
@@ -307,7 +323,8 @@ Since $10 = 2 \cdot 5$, we have $10^k = 2^k \cdot 5^k$, which is of the required
 \textbf{Note about ending in nines:}
 If a decimal expansion ends in nines (e.g., $0.999\ldots$), this is equivalent to the next terminating decimal. For example, $0.999\ldots = 1.000\ldots$. This is because $0.999\ldots = \frac{9}{10} + \frac{9}{100} + \frac{9}{1000} + \cdots = \frac{9/10}{1 - 1/10} = 1$.
 
-Therefore, both terminating decimals and those ending in nines correspond to rational numbers with denominators of the form $2^m 5^n$.
+Therefore, both terminating decimals and those ending in nines correspond to rational numbers with denominators of the form $2^m 5^n$.\qed
+
 
 \begin{problembox}[1.9: Irrationality of $\sqrt{2} + \sqrt{3}$]
 Prove that $\sqrt{2} + \sqrt{3}$ is irrational.
@@ -342,7 +359,8 @@ b^2 &= 6k^2
 
 This means $b^2$ is divisible by 6, so $b$ must also be divisible by 6. But this contradicts our assumption that $a$ and $b$ have no common factors.
 
-Therefore, $\sqrt{6}$ is irrational, and consequently $\sqrt{2} + \sqrt{3}$ is irrational.
+Therefore, $\sqrt{6}$ is irrational, and consequently $\sqrt{2} + \sqrt{3}$ is irrational.\qed
+
 
 \begin{problembox}[1.10: Rational Functions of Irrational Numbers]
 If $a, b, c, d$ are rational and if $x$ is irrational, prove that $\frac{ax + b}{cx + d}$ is usually irrational. When do exceptions occur?
@@ -390,7 +408,8 @@ $ad = bc$, which means the numerator and denominator are proportional, making th
 \begin{itemize}
 \item If $a = 2, b = 1, c = 4, d = 2$, then $ad = 4 = bc = 4$, so $\frac{2x + 1}{4x + 2} = \frac{1}{2}$ for all $x$.
 \item If $a = 1, b = 0, c = 1, d = 0$, then $ad = 0 = bc = 0$, so $\frac{x}{x} = 1$ for all $x \neq 0$.
-\end{itemize}
+\end{itemize}\qed
+
 
 \begin{problembox}[1.11: Irrational Numbers Between 0 and x]
 Given any real $x > 0$, prove that there is an irrational number between $0$ and $x$.
@@ -414,7 +433,8 @@ Also, since $\sqrt{2} > 1$, we have $y < x$.
 Therefore, $y$ is an irrational number between $0$ and $x$.
 
 \textbf{Alternative construction:}
-For any positive real $x$, we can also use $y = \frac{x}{\pi}$. Since $\pi$ is irrational and greater than $1$, we have $0 < y < x$, and $y$ is irrational.
+For any positive real $x$, we can also use $y = \frac{x}{\pi}$. Since $\pi$ is irrational and greater than $1$, we have $0 < y < x$, and $y$ is irrational.\qed
+
 
 \begin{problembox}[1.12: Fraction Between Two Fractions]
 If $\frac{a}{b} < \frac{c}{d}$ with $b > 0, d > 0$, prove that $\frac{a + c}{b + d}$ lies between $\frac{a}{b}$ and $\frac{c}{d}$.
@@ -450,7 +470,8 @@ Again, since $\frac{a}{b} < \frac{c}{d}$, we have $ad < bc$, so this inequality 
 Therefore, $\frac{a + c}{b + d}$ lies between $\frac{a}{b}$ and $\frac{c}{d}$.
 
 \textbf{Geometric interpretation:}
-This result is known as the "mediant" of two fractions. If we think of fractions as points on a line, the mediant $\frac{a + c}{b + d}$ lies between the two original fractions $\frac{a}{b}$ and $\frac{c}{d}$.
+This result is known as the "mediant" of two fractions. If we think of fractions as points on a line, the mediant $\frac{a + c}{b + d}$ lies between the two original fractions $\frac{a}{b}$ and $\frac{c}{d}$.\qed
+
 
 \begin{problembox}[1.13: $\sqrt{2}$ Between Fractions]
 Let $a$ and $b$ be positive integers. Prove that $\sqrt{2}$ always lies between the two fractions $\frac{a}{b}$ and $\frac{a + 2b}{a + b}$. Which fraction is closer to $\sqrt{2}$?
@@ -486,8 +507,7 @@ To see which distance is smaller, we compare $\frac{1}{b}$ with $\frac{\sqrt{2}-
 This is equivalent to comparing $a+b$ with $b(\sqrt{2}-1) = b\sqrt{2} - b$, which is equivalent to comparing $a+2b$ with $b\sqrt{2}$, or $\frac{a}{b} + 2$ with $\sqrt{2}$.
 Since $a, b$ are positive integers, $\frac{a}{b} > 0$, so $\frac{a}{b} + 2 > 2 > \sqrt{2}$.
 This implies $\frac{1}{b} > \frac{\sqrt{2}-1}{a+b}$.
-Therefore, Distance 1 is always greater than Distance 2. The new fraction $\frac{a+2b}{a+b}$ is \textbf{always} closer to $\sqrt{2}$.
-
+Therefore, Distance 1 is always greater than Distance 2. The new fraction $\frac{a+2b}{a+b}$ is \textbf{always} closer to $\sqrt{2}$.\qed
 \section{Inequalities}
 
 \subsection*{Definitions and Theorems for Inequalities}
@@ -534,6 +554,8 @@ For real numbers $a_1, a_2, \ldots, a_n$ and $b_1, b_2, \ldots, b_n$:
 \]
 \end{theorem}
 
+
+
 \begin{problembox}[1.14: Irrationality of $\sqrt{n - 1} + \sqrt{n + 1}$]
 Prove that $\sqrt{n - 1} + \sqrt{n + 1}$ is irrational for every integer $n \geq 1$.
 \end{problembox}
@@ -553,7 +575,8 @@ Suppose $\sqrt{n^2 - 1}$ is rational, say $\frac{a}{b}$, $\gcd(a, b) = 1$. Then:
 \[
 n^2 - 1 = \frac{a^2}{b^2} \implies a^2 = (n^2 - 1)b^2.
 \]
-For $n = 1$, $\sqrt{0} + \sqrt{2} = \sqrt{2}$, irrational. For $n \geq 2$, $n^2 - 1 = (n - 1)(n + 1)$ is not a perfect square (since $(n - 1)^2 < n^2 - 1 < n^2$). If $a^2 = (n^2 - 1)b^2$, $n^2 - 1$ must be a perfect square, a contradiction for $n \geq 2$. Thus, $\sqrt{n^2 - 1}$ is irrational, so $\sqrt{n - 1} + \sqrt{n + 1}$ is irrational.
+For $n = 1$, $\sqrt{0} + \sqrt{2} = \sqrt{2}$, irrational. For $n \geq 2$, $n^2 - 1 = (n - 1)(n + 1)$ is not a perfect square (since $(n - 1)^2 < n^2 - 1 < n^2$). If $a^2 = (n^2 - 1)b^2$, $n^2 - 1$ must be a perfect square, a contradiction for $n \geq 2$. Thus, $\sqrt{n^2 - 1}$ is irrational, so $\sqrt{n - 1} + \sqrt{n + 1}$ is irrational.\qed
+
 
 \begin{problembox}[1.15: Approximation by Rational Numbers]
 Given a real $x$ and an integer $N > 1$, prove that there exist integers $h$ and $k$ with $0 < k \leq N$ such that $|kx - h| < 1/N$. Hint. Consider the $N+1$ numbers $tx-[tx]$ for $t=0,1,2,\dots,N$ and show that some pair differs by at most $1/N$.
@@ -591,7 +614,8 @@ Since $0 < i < j \leq N$, we have $0 < k \leq N$, and $h$ is an integer.
 Therefore, we have found integers $h$ and $k$ with $0 < k \leq N$ such that $|kx - h| < 1/N$.
 
 \textbf{Example:}
-If $x = \pi$ and $N = 5$, we might find that $3\pi \approx 9.4248$ and $5\pi \approx 15.7080$ have fractional parts in the same subinterval, giving us $|2\pi - 6| < 1/5$.
+If $x = \pi$ and $N = 5$, we might find that $3\pi \approx 9.4248$ and $5\pi \approx 15.7080$ have fractional parts in the same subinterval, giving us $|2\pi - 6| < 1/5$.\qed
+
 
 \begin{problembox}[1.16: Infinitely Many Rational Approximations]
 If $x$ is irrational, prove that there are infinitely many rational numbers $h/k$ with $k > 0$ such that $|x - h/k| < 1/k^2$.
@@ -626,7 +650,8 @@ So we have found a new rational approximation $h'/k'$ such that:
 \left|x - \frac{h'}{k'}\right| < \frac{1}{N} < \epsilon
 \]
 Since the approximation error of $h'/k'$ is smaller than $\epsilon$, $h'/k'$ cannot be one of the fractions in our finite list $\{h_1/k_1, \ldots, h_m/k_m\}$. This contradicts our assumption that we had a complete list of all such approximations.
-Therefore, there must be infinitely many such rational numbers.
+Therefore, there must be infinitely many such rational numbers.\qed
+
 
 \begin{problembox}[1.17: Factorial Representation of Rationals (Precise Form)]
 Let $x$ be a positive rational number of the form
@@ -694,10 +719,7 @@ This creates a contradiction: the left-hand side cannot be an integer, while the
 For the case $j=1$, the equation becomes $a_1 - b_1 = 0$, which contradicts $a_1 \neq b_1$.
 Thus, our assumption that there is a largest index $j$ where $a_j \neq b_j$ must be false. All coefficients must be identical. The representation is unique.
 
-\textit{5. Uniqueness:} Suppose $x$ has two different representations, $\sum \frac{a_k}{k!} = \sum \frac{b_k}{k!}$. Let $j$ be the largest index where $a_j \neq b_j$. Assume $a_j > b_j$. Then $\frac{a_j - b_j}{j!} = \sum_{k=1}^{j-1} \frac{b_k - a_k}{k!}$. The left side is $\ge 1/j!$. The right side is bounded above by $\sum_{k=1}^{j-1} \frac{k-1}{k!} < 1/j!$, a contradiction. Thus, all coefficients must be the same.
-
-
-
+\textit{5. Uniqueness:} Suppose $x$ has two different representations, $\sum \frac{a_k}{k!} = \sum \frac{b_k}{k!}$. Let $j$ be the largest index where $a_j \neq b_j$. Assume $a_j > b_j$. Then $\frac{a_j - b_j}{j!} = \sum_{k=1}^{j-1} \frac{b_k - a_k}{k!}$. The left side is $\ge 1/j!$. The right side is bounded above by $\sum_{k=1}^{j-1} \frac{k-1}{k!} < 1/j!$, a contradiction. Thus, all coefficients must be the same.\qed
 \section{Upper Bounds}
 
 \subsection*{Definitions and Theorems for Upper Bounds}
@@ -735,6 +757,8 @@ Let $S$ and $T$ be nonempty subsets of $\mathbb{R}$ such that $s \leq t$ for all
 \end{theorem}
 
 
+
+
 \begin{problembox}[1.18: Uniqueness of Supremum and Infimum]
 Show that the $\sup$ and $\inf$ of a set are uniquely determined whenever they exist.
 \end{problembox}
@@ -769,7 +793,8 @@ The same argument applies to infimum. If a set has two infima $i_1$ and $i_2$, t
 - $i_1$ is a lower bound, so $i_1 \leq i_2$ (since $i_1$ is the greatest lower bound)
 - $i_2$ is a lower bound, so $i_2 \leq i_1$ (since $i_2$ is the greatest lower bound)
 
-Therefore, $i_1 = i_2$.
+Therefore, $i_1 = i_2$.\qed
+
 
 \begin{problembox}[1.19: Finding Supremum and Infimum]
 Find the $\sup$ and $\inf$ of each of the following sets:
@@ -822,7 +847,8 @@ Starting from $-\infty$:
 
 Therefore, $S = (a, b) \cup (c, d)$.
 
-So $\sup = \textbf{$d$}$ and $\inf = \textbf{$a$}$.
+So $\sup = \textbf{$d$}$ and $\inf = \textbf{$a$}$.\qed
+
 
 \begin{problembox}[1.20: Comparison Property for Suprema]
 Let \( S \) and \( T \) be nonempty subsets of \( \mathbb{R} \) such that \( s \leq t \) for all \( s \in S \) and \( t \in T \). Suppose \( T \) has a supremum. Then \( S \) has a supremum and
@@ -854,7 +880,8 @@ Substituting the definitions of $\alpha$ and $\beta$, we get:
 \[
 \sup S \leq \sup T
 \]
-This completes the proof.
+This completes the proof.\qed
+
 
 \begin{problembox}[1.21: Product of Suprema]
 Let \( A \) and \( B \) be two sets of positive real numbers, each bounded above. Let \( a = \sup A \), \( b = \sup B \). Define
@@ -907,7 +934,8 @@ Therefore, for every \( \varepsilon > 0 \), there exists \( c \in C \) such that
 
 \[
 \boxed{\sup C = ab}
-\]
+\]\qed
+
 
 \begin{problembox}[1.22: Representation of Rationals in Base \( k \)]
 Given \( x \geq 0 \) and an integer \( k \geq 2 \), let \( a_0 \) denote the largest integer \( \leq x \), and, assuming that \( a_0, a_1, \dots, a_{n-1} \) have been defined, let \( a_n \) denote the largest integer such that
@@ -947,9 +975,7 @@ Since $r = \sup\{r_n\}$, we know $r_N \leq r$.
 Therefore, $x - r \leq x - r_N < \frac{1}{k^N}$.
 Substituting $\delta = x-r$, we get $\delta < \frac{1}{k^N}$.
 But we chose $N$ such that $\frac{1}{k^N} < \delta$. This gives $\delta < \frac{1}{k^N} < \delta$, a contradiction.
-Thus, our assumption must be false, and $x = r = \sup\{r_n\}$.
-
-
+Thus, our assumption must be false, and $x = r = \sup\{r_n\}$.\qed
 \section{Inequalities and Identities}
 
 \subsection*{Additional Theorems for Inequalities and Identities}
@@ -968,6 +994,8 @@ If $n$ objects are placed into $m$ containers where $n > m$, then at least one c
 \begin{theorem}[Dirichlet's Approximation Theorem]
 For any real number $x$ and positive integer $N$, there exist integers $h$ and $k$ with $0 < k \leq N$ such that $|kx - h| < 1/N$.
 \end{theorem}
+
+
 
 \begin{problembox}[1.23: Lagrange's Identity]
 Prove Lagrange's identity for real numbers:
@@ -1022,7 +1050,8 @@ The determinant of this matrix is $a_k b_j - a_j b_k$. If we square this determi
 
 The left-hand side represents the square of the dot product of the vectors $\mathbf{a} = (a_1, a_2, \ldots, a_n)$ and $\mathbf{b} = (b_1, b_2, \ldots, b_n)$.
 
-The identity shows that the square of the dot product equals the product of the squared magnitudes minus the sum of squared determinants of all 2×2 submatrices formed by pairs of components.
+The identity shows that the square of the dot product equals the product of the squared magnitudes minus the sum of squared determinants of all 2×2 submatrices formed by pairs of components.\qed
+
 
 \begin{problembox}[1.24: A Holder-type Inequality]
 Prove that for arbitrary real numbers \( a_k, b_k, c_k \) we have
@@ -1055,7 +1084,8 @@ Now, substitute this result back into our first inequality:
 Finally, squaring both sides gives the desired result:
 \[
 \left( \sum_{k=1}^n a_k b_k c_k \right)^4 \leq \left( \sum_{k=1}^n a_k^4 \right) \left( \sum_{k=1}^n c_k^4 \right) \left( \sum_{k=1}^n b_k^2 \right)^2.
-\]
+\]\qed
+
 
 \begin{problembox}[1.25: Minkowski's Inequality]
 Prove Minkowski's inequality:
@@ -1082,7 +1112,8 @@ Thus,
 Taking square roots:
 \[
 \left( \sum (a_k + b_k)^2 \right)^{1/2} \leq A + B.
-\]
+\]\qed
+
 
 \begin{problembox}[1.26: Chebyshev's Sum Inequality]
 If \( a_1 \geq a_2 \geq \cdots \geq a_n \) and \( b_1 \geq b_2 \geq \cdots \geq b_n \), prove that
@@ -1124,7 +1155,8 @@ Since we established that $S \geq 0$:
 Dividing by 2 and rearranging gives the desired inequality:
 \[
 n \sum_{k=1}^n a_k b_k \geq \left( \sum_{k=1}^n a_k \right) \left( \sum_{k=1}^n b_k \right).
-\]
+\]\qed
+
 
 \begin{problembox}[1.27: Express Complex Numbers in $a + bi$ Form]
 Express the following complex numbers in the form \( a + bi \):
@@ -1156,7 +1188,8 @@ i^5 + i^{16} = i + 1 = 1 + i
 \[
 \frac{1}{2}(1 + i)(1 + 1) = \frac{1}{2}(1 + i)(2) = \frac{1}{2}(2 + 2i) = 1 + i
 \]
-\end{itemize}
+\end{itemize}\qed
+
 
 \begin{problembox}[1.28: Solve Complex Equations]
 In each case, determine all real \( x \) and \( y \) which satisfy the given relation:
@@ -1208,7 +1241,8 @@ Each full cycle sums to 0. So total sum:
 \sum_{k=0}^{100} i^k = 25 \cdot 0 + 1 = 1
 \Rightarrow x = 1, y = 0.
 \]
-\end{itemize}
+\end{itemize}\qed
+
 
 \begin{problembox}[1.29: Basic Identities for Complex Conjugates]
 If \( z = x + iy \), where \( x \) and \( y \) are real, the complex conjugate of \( z \) is \( \overline{z} = x - iy \). Prove the following:
@@ -1252,7 +1286,8 @@ z + \overline{z} = (x + iy) + (x - iy) = 2x = 2 \Re(z).
 \frac{z - \overline{z}}{i} = \frac{(x + iy) - (x - iy)}{i} = \frac{2iy}{i} = 2y = 2 \Im(z).
 \]
 
-\end{enumerate}
+\end{enumerate}\qed
+
 
 \begin{problembox}[1.30: Geometric Descriptions of Complex Sets]
 Describe geometrically the set of complex numbers \( z \) which satisfies each of the following conditions:
@@ -1374,7 +1409,8 @@ This is the standard equation of a circle with center at \( (1, 0) \) and radius
 \end{tikzpicture} \\
 \hline
 \end{tabular}
-\end{center}
+\end{center}\qed
+
 
 \begin{problembox}[1.31: Equilateral Triangle on the Unit Circle]
 Given three complex numbers \( z_1, z_2, z_3 \) such that \( |z_1| = |z_2| = |z_3| = 1 \) and \( z_1 + z_2 + z_3 = 0 \), show that these numbers are vertices of an equilateral triangle inscribed in the unit circle with center at the origin.
@@ -1397,7 +1433,8 @@ Since \( e^{i\frac{2\pi}{3}} = -\frac{1}{2} + i\frac{\sqrt{3}}{2} \), \( e^{i\fr
 \[
 1 + e^{i\frac{2\pi}{3}} + e^{i\frac{4\pi}{3}} = 1 + \left(-\frac{1}{2} + i\frac{\sqrt{3}}{2}\right) + \left(-\frac{1}{2} - i\frac{\sqrt{3}}{2}\right) = 0.
 \]
-The angles \( \theta, \theta + \frac{2\pi}{3}, \theta + \frac{4\pi}{3} \) are spaced \( \frac{2\pi}{3} \) apart, forming an equilateral triangle. Any three points with \( |z_i| = 1 \) and sum zero are rotations of the cube roots of unity, ensuring an equilateral triangle.
+The angles \( \theta, \theta + \frac{2\pi}{3}, \theta + \frac{4\pi}{3} \) are spaced \( \frac{2\pi}{3} \) apart, forming an equilateral triangle. Any three points with \( |z_i| = 1 \) and sum zero are rotations of the cube roots of unity, ensuring an equilateral triangle.\qed
+
 
 \begin{problembox}[1.32: Inequality with Complex Numbers]
 If \( a \) and \( b \) are complex numbers, prove:
@@ -1431,7 +1468,8 @@ Thus, \( |a - b|^2 \leq (1 + |a|^2)(1 + |b|^2) \).
 |a + b| = |a + ka| = |a|(1 + k) = |a| + |b|.
 \]
 Thus, \( \frac{b}{a} = k \geq 0 \). Conversely, if \( |a + b| = |a| + |b| \), then \( a\overline{b} + \overline{a}b = 2|a||b| \), so \( \frac{b}{a} \) is real and nonnegative.
-\end{enumerate}
+\end{enumerate}\qed
+
 
 \begin{problembox}[1.33: Equality Condition for Complex Difference]
 If \( a \) and \( b \) are complex numbers, prove that
@@ -1458,7 +1496,8 @@ For the inequality:
 \[
 (r^2 - 1)(s^2 - 1) < 0 \implies (r^2 < 1 \text{ and } s^2 > 1) \text{ or } (r^2 > 1 \text{ and } s^2 < 1).
 \]
-Thus, equality holds if \( |a| = 1 \) or \( |b| = 1 \); the inequality holds when one modulus is less than 1 and the other is greater than 1.
+Thus, equality holds if \( |a| = 1 \) or \( |b| = 1 \); the inequality holds when one modulus is less than 1 and the other is greater than 1.\qed
+
 
 \begin{problembox}[1.34: Complex Circle in the Plane]
 If \( a \) and \( c \) are real constants, \( b \) is complex, show that the equation
@@ -1473,7 +1512,8 @@ Let \( z = x + iy \), \( \overline{z} = x - iy \), then \( z \overline{z} = x^2 
 \[
 a(x^2 + y^2) + 2 \Re(b z) + c = 0.
 \]
-This is the general form of a circle in \( \mathbb{R}^2 \).
+This is the general form of a circle in \( \mathbb{R}^2 \).\qed
+
 
 \begin{problembox}[1.35: Argument of a Complex Number via Arctangent]
 Recall the definition of the inverse tangent: given a real number \( t \), \( \tan^{-1}(t) \) is the unique real number \( \theta \) satisfying:
@@ -1496,7 +1536,8 @@ For \( z = x + iy \), \( \arg(z) \) is the angle \( \theta \in (-\pi, \pi] \) su
 \item If \( x < 0 \), \( y \geq 0 \), \( z \) is in Quadrant II. \( \tan^{-1}\left( \frac{y}{x} \right) \in (-\frac{\pi}{2}, 0] \), so add \( \pi \) to get \( \theta \in (\frac{\pi}{2}, \pi] \).
 \item If \( x < 0 \), \( y < 0 \), \( z \) is in Quadrant III. \( \tan^{-1}\left( \frac{y}{x} \right) \in (0, \frac{\pi}{2}] \), so subtract \( \pi \) to get \( \theta \in (-\pi, -\frac{\pi}{2}] \).
 \item If \( x = 0 \), \( z = iy \). If \( y > 0 \), \( \theta = \frac{\pi}{2} \); if \( y < 0 \), \( \theta = -\frac{\pi}{2} \).
-\end{enumerate}
+\end{enumerate}\qed
+
 
 \begin{problembox}[1.36: Pseudo-Ordering on Complex Numbers]
 Define the following pseudo-ordering on complex numbers: $z_1 < z_2$ if $|z_1| < |z_2|$, or if $|z_1|=|z_2|$ and $\arg(z_1) < \arg(z_2)$. Which of Axioms 6,7,8,9 are satisfied by this relation?
@@ -1530,6 +1571,8 @@ Define the following pseudo-ordering on complex numbers: $z_1 < z_2$ if $|z_1| <
 \end{itemize}
 \textbf{Conclusion:} Axioms 6 and 9 are satisfied; Axiom 7 and 8 is not applicable.
 
+
+
 \begin{problembox}[1.37: Order Axioms and Lexicographic Ordering on $\mathbb{R}^2$]
 Define a pseudo-ordering on ordered pairs \((x_1, y_1) < (x_2, y_2)\) if either
 \begin{enumerate}[label=(\roman*)]
@@ -1546,7 +1589,8 @@ Which of Axioms 6, 7, 8, 9 are satisfied by this relation?
 \item \textbf{Axiom 8: Multiplication.} Not applicable, as \( \mathbb{R}^2 \) lacks scalar multiplication.
 \item \textbf{Axiom 9: Transitivity.} If \( (x_1, y_1) < (x_2, y_2) \), \( (x_2, y_2) < (x_3, y_3) \), lexicographic order ensures \( (x_1, y_1) < (x_3, y_3) \). Satisfied.
 \end{itemize}
-\textbf{Conclusion:} Axioms 6, 7, and 9 are satisfied; Axiom 8 is not applicable.
+\textbf{Conclusion:} Axioms 6, 7, and 9 are satisfied; Axiom 8 is not applicable.\qed
+
 
 \begin{problembox}[1.38: Argument of a Quotient Using Theorem 1.48]
 State and prove a theorem analogous to Theorem 1.48, expressing \( \arg\left( \frac{z_1}{z_2} \right) \) in terms of \( \arg(z_1) \) and \( \arg(z_2) \).
@@ -1563,7 +1607,8 @@ where \( n(z_1, z_2^{-1}) \) adjusts the argument to \( (-\pi, \pi] \).
 Since \( \frac{z_1}{z_2} = z_1 z_2^{-1} \), and \( \arg(z_2^{-1}) = -\arg(z_2) \), apply Theorem 1.48:
 \[
 \arg(z_1 z_2^{-1}) = \arg(z_1) + \arg(z_2^{-1}) + 2\pi n(z_1, z_2^{-1}) = \arg(z_1) - \arg(z_2) + 2\pi n(z_1, z_2^{-1}).
-\]
+\]\qed
+
 
 \begin{problembox}[1.39: Logarithm of a Quotient Using Theorem 1.54]
 State and prove a theorem analogous to Theorem 1.54, expressing \( \log\left( \frac{z_1}{z_2} \right) \) in terms of \( \log(z_1) \) and \( \log(z_2) \).
@@ -1578,7 +1623,8 @@ State and prove a theorem analogous to Theorem 1.54, expressing \( \log\left( \f
 Since \( \frac{z_1}{z_2} = z_1 z_2^{-1} \), apply Theorem 1.54:
 \[
 \log(z_1 z_2^{-1}) = \log z_1 + \log(z_2^{-1}) + 2\pi i n(z_1, z_2^{-1}) = \log z_1 - \log z_2 + 2\pi i n(z_1, z_2^{-1}).
-\]
+\]\qed
+
 
 \begin{problembox}[1.40: Roots of Unity and Polynomial Identity]
 Prove that the \( n \)th roots of 1 are given by \( \alpha, \alpha^2, \ldots, \alpha^n \), where \( \alpha = e^{2\pi i/n} \), and that these roots \( \ne 1 \) satisfy the equation
@@ -1591,7 +1637,8 @@ Prove that the \( n \)th roots of 1 are given by \( \alpha, \alpha^2, \ldots, \a
 Let \( \alpha = e^{2\pi i/n} \). Then \( \alpha^n = 1 \), so it's a root of \( x^n - 1 = 0 \). Also,
 \[
 \frac{1 - \alpha^n}{1 - \alpha} = 0 \Rightarrow 1 + \alpha + \cdots + \alpha^{n-1} = 0 \quad \text{for } \alpha \ne 1.
-\]
+\]\qed
+
 
 \begin{problembox}[1.41: Inequalities and Boundedness of cos z]
 \begin{enumerate}[label=\alph*)]
@@ -1604,7 +1651,8 @@ Let \( \alpha = e^{2\pi i/n} \). Then \( \alpha^n = 1 \), so it's a root of \( x
 \begin{enumerate}[label=\alph*)]
 \item For \( z = re^{i\theta} \), \( z^i = e^{i(\ln r + i\theta)} = e^{-\theta} e^{i \ln r} \), so \( |z^i| = e^{-\theta} \). Since \( \theta \in (-\pi, \pi] \), \( |z^i| \leq e^{\pi} \), strict unless \( \theta = -\pi \).
 \item For \( z = iy \), \( \cos(iy) = \cosh y \), which is unbounded as \( |y| \to \infty \). Thus, no \( M > 0 \) exists.
-\end{enumerate}
+\end{enumerate}\qed
+
 
 \begin{problembox}[1.42: Complex Exponential via Real and Imaginary Parts]
 If \( w = u + iv \), where \( u \) and \( v \) are real, show that
@@ -1621,7 +1669,8 @@ w \log z = (u + iv)(\log |z| + i \arg z) = (u \log |z| - v \arg z) + i(v \log |z
 Thus:
 \[
 z^w = e^{u \log |z| - v \arg z} e^{i(v \log |z| + u \arg z)}.
-\]
+\]\qed
+
 
 \begin{problembox}[1.43: Logarithmic Identities for Complex Powers]
 \begin{enumerate}[label=\alph*)]
@@ -1640,7 +1689,8 @@ z^w = e^{u \log |z| - v \arg z} e^{i(v \log |z| + u \arg z)}.
 \[
 (z^w)^\alpha = e^{\alpha \log(z^w)} = e^{\alpha(w \log z + 2\pi i n)} = z^{w\alpha} e^{2\pi i n \alpha}.
 \]
-\end{enumerate}
+\end{enumerate}\qed
+
 
 \begin{problembox}[1.44: Conditions for De Moivre's Formula]
 \begin{enumerate}[label=\roman*)]
@@ -1665,7 +1715,8 @@ z^w = e^{u \log |z| - v \arg z} e^{i(v \log |z| + u \arg z)}.
 \]
 The restriction ensures the principal branch.
 \item For integer \( a \), \( (e^{i\theta})^a = e^{i a \theta} \), and multiples of \( 2\pi \) cancel, so the formula holds for all \( \theta \).
-\end{enumerate}
+\end{enumerate}\qed
+
 
 \begin{problembox}[1.45: Deriving Trigonometric Identities from De Moivre's Theorem]
 Use De Moivre's theorem (Exercise 1.44) to derive the trigonometric identities
@@ -1691,7 +1742,8 @@ Equate parts:
 \[
 \cos 3\theta = \cos^3 \theta - 3 \cos \theta \sin^2 \theta, \quad \sin 3\theta = 3 \cos^2 \theta \sin \theta - \sin^3 \theta.
 \]
-These hold for complex \( \theta \), as \( \cos z \) and \( \sin z \) are analytic.
+These hold for complex \( \theta \), as \( \cos z \) and \( \sin z \) are analytic.\qed
+
 
 \begin{problembox}[1.46: Tangent of Complex Numbers]
 Define \( \tan z = \frac{\sin z}{\cos z} \), and show that for \( z = x + iy \),
@@ -1719,7 +1771,8 @@ D = (\cos x \cosh y)^2 + (\sin x \sinh y)^2 = \frac{1}{2}(\cos 2x + \cosh 2y).
 Thus:
 \[
 \tan z = \frac{\sin 2x + i \sinh 2y}{\cos 2x + \cosh 2y}.
-\]
+\]\qed
+
 
 \begin{problembox}[1.47: Solving Cosine Equation]
 Let \( w \) be a complex number. If \( w \ne \pm 1 \), show that there exist two values \( z = x + iy \) with \( \cos z = w \) and \( -\pi < x \leq \pi \). Find such \( z \) when \( w = i \) and \( w = 2 \).
@@ -1749,7 +1802,8 @@ Solutions: \( z_1 = \frac{\pi}{2} - i \ln(1 + \sqrt{2}) \), \( z_2 = -\frac{\pi}
 \cos x \cosh y = 2, \quad \sin x \sinh y = 0.
 \]
 Thus, \( x = 0 \), \( \cosh y = 2 \implies y = \pm \ln(2 + \sqrt{3}) \).
-Solutions: \( z_1 = i \ln(2 + \sqrt{3}) \), \( z_2 = -i \ln(2 + \sqrt{3}) \).
+Solutions: \( z_1 = i \ln(2 + \sqrt{3}) \), \( z_2 = -i \ln(2 + \sqrt{3}) \).\qed
+
 
 \begin{problembox}[1.48: Lagrange's Identity and the Cauchy–Schwarz Inequality]
 Prove Lagrange's identity for complex numbers:
@@ -1797,7 +1851,8 @@ Adding the two expanded terms of the RHS:
 The cross terms cancel perfectly. Comparing the final expressions for the LHS and RHS, we see they are identical. This proves Lagrange's identity.
 
 To deduce the Cauchy-Schwarz inequality, note that the term $$\sum_{1 \leq k < j \leq n} |a_k \overline{b_j} - a_j \overline{b_k}|^2$$ is a sum of squares of absolute values, so it must be non-negative. From the original identity, this implies:
-\[ \left| \sum_{k=1}^n a_k \overline{b_k} \right|^2 \leq \left( \sum_{k=1}^n |a_k|^2 \right) \left( \sum_{k=1}^n |b_k|^2 \right). \]
+\[ \left| \sum_{k=1}^n a_k \overline{b_k} \right|^2 \leq \left( \sum_{k=1}^n |a_k|^2 \right) \left( \sum_{k=1}^n |b_k|^2 \right). \]\qed
+
 
 \begin{problembox}[1.49: Polynomial Identity via DeMoivre's Theorem]
 \begin{enumerate}[label=\textbf{(\alph*)}]
@@ -1856,7 +1911,8 @@ Sum of squares uses trigonometric identities, yielding:
 \[
 \sum_{k=1}^m \cot^4 \left( \frac{\pi k}{2m+1} \right) = \frac{m(2m-1)(4m^2 + 10m - 9)}{45}.
 \]
-\end{enumerate}
+\end{enumerate}\qed
+
 
 \begin{problembox}[1.50: Product Formula for \( \sin \)]
 Prove that

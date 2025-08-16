@@ -1,30 +1,62 @@
-\documentclass{book}
+\documentclass[openany]{book}
+\newcommand{\kdpGutter}{0.5in} % Adjust per final page count (e.g., 0.375in, 0.5in, 0.625in, ...)
+\usepackage[
+  paperwidth=6in,
+  paperheight=9in,
+  left=0.75in,
+  right=0.75in,
+  top=1in,
+  bottom=1in,
+  bindingoffset=0.25in % Adds to the inside margin
+]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+\microtypesetup{expansion=false}
 \usepackage{enumitem}
 \usepackage{xcolor}
 \usepackage{tcolorbox}
+\tcbuselibrary{breakable}
 \usepackage{tikz}
 \usepackage{wrapfig}
 
+% Avoid widows and orphans in print
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+\raggedbottom
+
 % Custom environment for problem statements
 \newtcolorbox{problembox}[1][]{
+    breakable,
     colback=blue!10,
     colframe=blue!50,
     arc=3pt,
     boxrule=1pt,
-    left=10pt,
-    right=10pt,
+    left=0pt,
+    right=0pt,
+    width=\textwidth,
     top=10pt,
     bottom=10pt,
+    before skip=3em,
     fonttitle=\bfseries,
     title={\mbox{#1}},
     before upper={\parindent0pt}
 }
 
+% Custom environments for definitions and theorems
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+
 \newcommand{\Log}{\log}
 \newcommand{\shortsearrow}{\mathrel{\vcenter{\hbox{$\scriptscriptstyle\searrow$}}}}
+\renewcommand{\qed}{\hfill$\blacksquare$}
 
 
 \begin{document}

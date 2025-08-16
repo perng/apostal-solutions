@@ -14,7 +14,7 @@ For each of the following experiments, describe the sample space.
 
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item The sample space consists of all possible sequences of heads (H) and tails (T) of length 4:
     \begin{align*}
@@ -33,6 +33,8 @@ For each of the following experiments, describe the sample space.
     \item The sample space is the interval $[0, 1]$, since a proportion must be between 0 and 1 inclusive.
 \end{enumerate}
 
+
+\qed
 \begin{problembox}[1.2: Set Identities]
 Verify the following identities.
 \begin{enumerate}[label=(\alph*)]
@@ -44,7 +46,7 @@ Verify the following identities.
 
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item We need to show $A \backslash B = A \backslash (A \cap B) = A \cap B^c$.
     
@@ -71,6 +73,8 @@ Verify the following identities.
     Conversely, if $x \in A \cup (B \cap A^c)$, then either $x \in A$ or $x \in B \cap A^c$. In both cases, $x \in A \cup B$.
 \end{enumerate}
 
+
+\qed
 \begin{problembox}[1.3: Theorem 1.1.4 Completion]
 Finish the proof of Theorem 1.1.4. For any events $A, B,$ and $C$ defined on a sample space $S$, show that
 \begin{enumerate}[label=(\alph*)]
@@ -79,7 +83,7 @@ Finish the proof of Theorem 1.1.4. For any events $A, B,$ and $C$ defined on a s
     \item $(A \cup B)^c = A^c \cap B^c$ and $(A \cap B)^c = A^c \cup B^c$. (DeMorgan's Laws)
 \end{enumerate}\end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item \textbf{Commutativity:}
     
@@ -100,6 +104,8 @@ Finish the proof of Theorem 1.1.4. For any events $A, B,$ and $C$ defined on a s
     Second law: Let $x \in (A \cap B)^c$. Then $x \notin A \cap B$, which means $x \notin A$ or $x \notin B$. Therefore, $x \in A^c$ or $x \in B^c$, so $x \in A^c \cup B^c$. The reverse inclusion follows similarly.
 \end{enumerate}
 
+
+\qed
 \begin{problembox}[1.4: Event Probabilities]
 For events $A$ and $B$, find formulas for the probabilities of the following events in terms of the quantities $P(A), P(B),$ and $P(A \cap B)$.
 \begin{enumerate}[label=(\alph*)]
@@ -110,7 +116,7 @@ For events $A$ and $B$, find formulas for the probabilities of the following eve
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item This is the union of $A$ and $B$: $P(A \cup B) = P(A) + P(B) - P(A \cap B)$.
     
@@ -122,6 +128,8 @@ For events $A$ and $B$, find formulas for the probabilities of the following eve
 \end{enumerate}
 
 
+
+\qed
 \section{Probability Calculations}
 
 \begin{problembox}[1.5: Twin Probabilities]
@@ -135,7 +143,7 @@ Approximately one-third of all human twins are identical (one-egg) and two-third
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item The event $A \cap B \cap C$ is the event that a U.S. birth results in identical twin females.
     
@@ -151,6 +159,8 @@ Approximately one-third of all human twins are identical (one-egg) and two-third
 \end{enumerate}
 
 
+
+\qed
 \begin{problembox}[1.6: Biased Coin Tossing]
 Two pennies, one with $P(\text{head})=u$ and one with $P(\text{head})=w$, are to be tossed together independently. Define
 \[ p_0 = P(0 \text{ heads occur}), \]
@@ -159,7 +169,7 @@ Two pennies, one with $P(\text{head})=u$ and one with $P(\text{head})=w$, are to
 Can $u$ and $w$ be chosen such that $p_0 = p_1 = p_2$? Prove your answer.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 We can express the probabilities in terms of $u$ and $w$:
 \begin{align*}
@@ -194,6 +204,8 @@ The discriminant is $1 - 4 \cdot \frac{1}{3} = 1 - \frac{4}{3} = -\frac{1}{3} < 
 Since the discriminant is negative, there are no real values of $u$ and $w$ that satisfy the equation. Therefore, it is impossible to choose $u$ and $w$ such that $p_0 = p_1 = p_2$.
 
 
+
+\qed
 \section{Dart Game Problems}
 
 \begin{problembox}[1.7: Dart Probability Function]
@@ -204,7 +216,7 @@ Refer to the dart game of Example 1.2.7. Suppose we do not assume that the proba
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item Let $A_i$ be the area of the region that gives $i$ points, and let $A_B$ be the total area of the dart board. Then the probability of hitting the dart board is $P(\text{board is hit}) = \frac{A_B}{A}$.
     
@@ -227,6 +239,8 @@ Refer to the dart game of Example 1.2.7. Suppose we do not assume that the proba
 \end{enumerate}
 
 
+
+\qed
 \begin{problembox}[1.8: Dart Game Analysis]
 Again refer to the game of darts explained in Example 1.2.7.
 \begin{enumerate}[label=(\alph*)]
@@ -236,7 +250,7 @@ Again refer to the game of darts explained in Example 1.2.7.
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item In the dart game, the board is divided into concentric circles. Let $r_i$ be the radius of the circle that gives at least $6-i$ points (so $r_1$ is the smallest radius for the bullseye, and $r_5$ is the radius of the whole board). The area of the region that gives exactly $i$ points (for $i=1, \ldots, 5$, where $i=1$ is the lowest score and $i=5$ is the highest) is the area of an annulus, $A_i = \pi(r_{6-i}^2 - r_{5-i}^2)$, where $r_0 = 0$.
     \vspace{1ex} %
@@ -262,6 +276,8 @@ Again refer to the game of darts explained in Example 1.2.7.
 \end{enumerate}
 
 
+
+\qed
 \section{DeMorgan's Laws}
 
 \begin{problembox}[1.9: General DeMorgan's Laws]
@@ -272,7 +288,7 @@ Prove the general version of DeMorgan's Laws. Let $\{A_\alpha : \alpha \in \Gamm
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item Let $x \in (\cup_{\alpha} A_\alpha)^c$. Then $x \notin \cup_{\alpha} A_\alpha$, which means $x \notin A_\alpha$ for any $\alpha \in \Gamma$. Therefore, $x \in A_\alpha^c$ for all $\alpha \in \Gamma$, so $x \in \cap_{\alpha} A_\alpha^c$.
     
@@ -284,11 +300,13 @@ Prove the general version of DeMorgan's Laws. Let $\{A_\alpha : \alpha \in \Gamm
 \end{enumerate}
 
 
+
+\qed
 \begin{problembox}[1.10: Finite DeMorgan's Laws]
 Formulate and prove a version of DeMorgan's Laws that applies to a finite collection of sets $A_1, \ldots, A_n$.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 For a finite collection of sets $A_1, A_2, \ldots, A_n$, DeMorgan's Laws state:
 \begin{enumerate}[label=(\alph*)]
@@ -309,6 +327,8 @@ For (b): $(A_1 \cap A_2 \cap \cdots \cap A_n \cap A_{n+1})^c = ((A_1 \cap A_2 \c
 By the principle of mathematical induction, the laws hold for all finite collections of sets.
 
 
+
+\qed
 \section{Sigma Algebras}
 
 \begin{problembox}[1.11: Sigma Algebra Verification]
@@ -320,7 +340,7 @@ Let $S$ be a sample space.
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item We need to verify the three properties of a sigma algebra:
     
@@ -353,6 +373,8 @@ Let $S$ be a sample space.
 \end{enumerate}
 
 
+
+\qed
 \section{Additivity Axioms}
 
 \begin{problembox}[1.12: Countable vs Finite Additivity]
@@ -367,7 +389,7 @@ It was noted in Section 1.2.1 that statisticians who follow the De Finetti schoo
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item Let $A_1, A_2, \ldots, A_n$ be pairwise disjoint events. We can extend this to a countably infinite sequence by setting $A_{n+1} = A_{n+2} = \cdots = \emptyset$. Then by countable additivity:
     \[ P(\cup_{i=1}^{\infty} A_i) = \sum_{i=1}^{\infty} P(A_i) \]
@@ -393,13 +415,15 @@ It was noted in Section 1.2.1 that statisticians who follow the De Finetti schoo
 \end{enumerate}
 
 
+
+\qed
 \section{Basic Probability Problems}
 
 \begin{problembox}[1.13: Disjoint Events]
 If $P(A) = \frac{1}{3}$ and $P(B^c) = \frac{1}{4}$, can $A$ and $B$ be disjoint? Explain.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 If $A$ and $B$ are disjoint, then $A \cap B = \emptyset$, so $P(A \cap B) = 0$.
 
@@ -410,11 +434,13 @@ By the inclusion-exclusion principle: $P(A \cup B) = P(A) + P(B) - P(A \cap B) =
 This is impossible since probabilities cannot exceed 1. Therefore, $A$ and $B$ cannot be disjoint.
 
 
+
+\qed
 \begin{problembox}[1.14: Subset Counting]
 Suppose that a sample space $S$ has $n$ elements. Prove that the number of subsets that can be formed from the elements of $S$ is $2^n$.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 Let $S = \{s_1, s_2, \ldots, s_n\}$. To form a subset, we must decide for each element whether to include it or not. For each element $s_i$, we have 2 choices: include it or exclude it.
 
@@ -424,6 +450,8 @@ Alternatively, we can use the binomial theorem. The number of subsets with exact
 \[ \sum_{k=0}^{n} \binom{n}{k} = (1 + 1)^n = 2^n \]
 
 
+
+\qed
 \begin{problembox}[1.15: Theorem 1.2.14 Completion]
 Theorem 1.2.14: If a job consists of $k$ separate tasks, the $i$-th of which can be done in $n_{i}$ ways, $i=1,\ldots,k$, then the entire job can be done in $n_{1} \times n_{2} \times \cdots \times n_{k}$ ways.
 
@@ -431,7 +459,7 @@ Finish the proof of Theorem 1.2.14. Use the result established for $k = 2$ as th
 
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 We will prove this theorem using mathematical induction on the number of tasks $k$.
 
@@ -458,6 +486,8 @@ By the principle of mathematical induction, the theorem holds for all positive i
 Therefore, if a job consists of $k$ separate tasks, the $i$-th of which can be done in $n_i$ ways, then the entire job can be done in $n_1 \times n_2 \times \cdots \times n_k$ ways.
 
 
+
+\qed
 \begin{problembox}[1.16: Initial Counting]
 How many different sets of initials can be formed if every person has one surname and
 \begin{enumerate}[label=(\alph*)]
@@ -468,7 +498,7 @@ How many different sets of initials can be formed if every person has one surnam
 (Answers: (a) $26^3$ (b) $26^3 + 26^2$ (c) $26^4 + 26^3 + 26^2$)
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item With exactly two given names, each person has 3 initials (first given name, second given name, surname). Each initial can be any of the 26 letters, so the number of possible sets of initials is $26^3$.
     
@@ -487,6 +517,8 @@ How many different sets of initials can be formed if every person has one surnam
 \end{enumerate}
 
 
+
+\qed
 \section{Combinatorial Problems}
 
 \begin{problembox}[1.17: Domino Counting]
@@ -494,7 +526,7 @@ In the game of dominoes, each piece is marked with two numbers. The pieces are s
 (Answer: $n(n+1)/2$)
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 We are counting the number of sets of size 2, $\{i, j\}$, that can be formed from the set of numbers $\{1, 2, \ldots, n\}$, where repetition is allowed. We can categorize the dominoes into two types:
 
@@ -510,12 +542,14 @@ Alternatively, this is a problem of choosing $k=2$ items from $n$ categories wit
 \[ \binom{n+2-1}{2} = \binom{n+1}{2} = \frac{(n+1)n}{2} \]
 
 
+
+\qed
 \begin{problembox}[1.18: Ball Distribution]
 If $n$ balls are placed at random into $n$ cells, find the probability that exactly one cell remains empty.
 (Answer: $\binom{n}{2}n!/n^{n}$)
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 The total number of ways to place $n$ distinguishable balls into $n$ distinguishable cells is $n^n$, as each of the $n$ balls can independently be placed in any of the $n$ cells. This is the size of our sample space.
 
@@ -534,6 +568,8 @@ By the multiplication principle, the total number of favorable outcomes is:
 The probability is the ratio of favorable outcomes to the total number of outcomes:
 \[ P(\text{exactly one cell is empty}) = \frac{\binom{n}{2} n!}{n^n} \]
 
+
+\qed
 \begin{problembox}[1.19: Partial Derivatives]
 If a multivariate function has continuous partial derivatives, the order in which the derivatives are calculated does not matter. Thus, for example, the function $f(x,y)$ of two variables has equal third partials
 \[ \frac{\partial^{3}}{\partial x^{2}\partial y}f(x,y)=\frac{\partial^{3}}{\partial y\partial x^{2}}f(x,y). \]
@@ -543,7 +579,7 @@ If a multivariate function has continuous partial derivatives, the order in whic
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item For a function of three variables, a fourth partial derivative is determined by how many times we differentiate with respect to each variable. We need to find the number of solutions to $a + b + c = 4$ where $a, b, c$ are non-negative integers representing the number of derivatives with respect to $x$, $y$, and $z$ respectively.
     
@@ -555,12 +591,14 @@ If a multivariate function has continuous partial derivatives, the order in whic
 \end{enumerate}
 
 
+
+\qed
 \begin{problembox}[1.20: Telephone Calls]
 My telephone rings 12 times each week, the calls being randomly distributed among the seven days. What is the probability that I get at least one call each day?
 (Answer: .2285)
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 This problem can be interpreted in two ways: with distinguishable calls (the standard interpretation) or indistinguishable calls. The provided answer in the text (0.2285) does not seem to correspond to either standard model. We will solve for the standard model of distinguishable calls.
 
@@ -581,12 +619,14 @@ The probability is the ratio of favorable outcomes to the total number of outcom
 This matches the answer given in the original problem.
 
 
+
+\qed
 \begin{problembox}[1.21: Shoe Selection]
 A closet contains $n$ pairs of shoes. If $2r$ shoes are chosen at random ($2r<n$), what is the probability that there will be no matching pair in the sample?
 (Answer: $\binom{n}{2r}2^{2r}/\binom{2n}{2r}$)
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 The total number of ways to choose $2r$ shoes from $2n$ shoes is $\binom{2n}{2r}$.
 
@@ -602,6 +642,8 @@ The probability is:
 \[ \frac{\binom{n}{2r} \cdot 2^{2r}}{\binom{2n}{2r}} \]
 
 
+
+\qed
 \begin{problembox}[1.22: Draft Lottery]
 \begin{enumerate}[label=(\alph*)]
     \item In a draft lottery containing the 366 days of the year (including February 29), what is the probability that the first 180 days drawn (without replacement) are evenly distributed among the 12 months?
@@ -610,7 +652,7 @@ The probability is:
 (Answers: (a) $.167\times 10^{-8}$ (b) $\binom{336}{30}/\binom{366}{30}$)
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item For the first 180 days to be evenly distributed among 12 months, each month must have exactly 15 days drawn.
     
@@ -634,12 +676,14 @@ The probability is:
 \end{enumerate}
 
 
+
+\qed
 \begin{problembox}[1.23: Coin Tossing Match]
 Two people each toss a fair coin $n$ times. Find the probability that they will score the same number of heads.
 (Answer: $(\frac{1}{4})^{n}\binom{2n}{n}$)
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 Let $X$ be the number of heads for the first person and $Y$ be the number of heads for the second person. Both $X$ and $Y$ follow a binomial distribution with parameters $n$ and $\frac{1}{2}$.
 
@@ -655,6 +699,8 @@ Therefore, the probability is:
 \[ \left(\frac{1}{4}\right)^n \binom{2n}{n} \]
 
 
+
+\qed
 \begin{problembox}[1.24: Alternating Coin Game]
 Two players, A and B, alternately and independently flip a coin and the first player to obtain a head wins. Assume player A flips first.
 \begin{enumerate}[label=(\alph*)]
@@ -665,7 +711,7 @@ Two players, A and B, alternately and independently flip a coin and the first pl
 (Answers: (a) $2/3$ (b) $\frac{p}{1-(1-p)^{2}}$)
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item For a fair coin, $p = \frac{1}{2}$.
     
@@ -695,11 +741,13 @@ Two players, A and B, alternately and independently flip a coin and the first pl
 \end{enumerate}
 
 
+
+\qed
 \begin{problembox}[1.25: Smith Children]
 The Smiths have two children. At least one of them is a boy. What is the probability that both children are boys? (See Gardner (1961) for a complete discussion of this problem.)
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 This is a classic conditional probability problem. The key is to understand how the information "at least one is a boy" was obtained.
 
@@ -720,11 +768,13 @@ Therefore, $P(A|B) = \frac{1/4}{3/4} = \frac{1}{3}$.
 However, if the information was obtained differently (e.g., by meeting one of the children who happens to be a boy), the answer could be different. This is known as the "Boy or Girl Paradox."
 
 
+
+\qed
 \begin{problembox}[1.26: Die Casting]
 A fair die is cast until a 6 appears. What is the probability that it must be cast more than five times?
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 This is a geometric distribution problem. We need the probability that the first 6 appears after the 5th roll.
 
@@ -736,6 +786,8 @@ Therefore, the probability that we need more than 5 rolls to get the first 6 is:
 \[ \left(\frac{5}{6}\right)^5 = \frac{3125}{7776} \approx 0.4019 \]
 
 
+
+\qed
 \section{Identities and Approximations}
 
 \begin{problembox}[1.27: Combinatorial Identities]
@@ -747,7 +799,7 @@ Verify the following identities for $n\geq 2$.
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item This is the binomial expansion of $(1 + (-1))^n = 0^n = 0$:
     \[ \sum_{k=0}^{n} \binom{n}{k} \cdot 1^{n-k} \cdot (-1)^k = (1 + (-1))^n = 0 \]
@@ -776,6 +828,8 @@ Verify the following identities for $n\geq 2$.
 \end{enumerate}
 
 
+
+\qed
 \begin{problembox}[1.28: Stirling's Formula]
 A way of approximating large factorials is through the use of Stirling's Formula:
 \[ n!\approx\sqrt{2\pi}n^{n+(1/2)}e^{-n}, \]
@@ -788,7 +842,7 @@ and hence
 Now compare $\log n!$ to the average of the two integrals. See Exercise 5.35 for another derivation.)
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 We want to show that $\lim_{n\to\infty}\frac{n!}{n^{n+(1/2)}e^{-n}}$ is a constant. This is equivalent to showing that the sequence $a_n = \log\left(\frac{n!}{n^{n+(1/2)}e^{-n}}\right) = \log(n!) - (n+\frac{1}{2})\log n + n$ converges to a finite limit.
 
 Let $d_n = a_n - a_{n-1}$ for $n \geq 2$.
@@ -816,6 +870,8 @@ If $\sum (a_k-a_{k-1})$ converges, this means the sequence of partial sums $S_n 
 Therefore, $\lim_{n\to\infty} a_n = L+a_1$, which is a finite constant.
 If $\lim_{n\to\infty} \log(\frac{n!}{\dots}) = C$, then $\lim_{n\to\infty} \frac{n!}{\dots} = e^C$, which is a constant.
 
+
+\qed
 \section{Sampling Problems}
 
 \begin{problembox}[1.29: Ordered and Unordered Samples]
@@ -828,7 +884,7 @@ If $\lim_{n\to\infty} \log(\frac{n!}{\dots}) = C$, then $\lim_{n\to\infty} \frac
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item For the unordered sample $\{4,4,12,12\}$, the number of distinct permutations (ordered samples) is given by the multinomial coefficient $\frac{4!}{2!2!} = \frac{24}{4} = 6$.
     \vspace{1ex} %
@@ -849,11 +905,13 @@ If $\lim_{n\to\infty} \log(\frac{n!}{\dots}) = C$, then $\lim_{n\to\infty} \frac
 \end{enumerate}
 
 
+
+\qed
 \begin{problembox}[1.30: Sample Averages Histogram]
 For the collection of six numbers, $\{1,2,7,8,14,20\}$, draw a histogram of the distribution of all possible sample averages calculated from samples drawn with replacement.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 To draw a histogram of sample averages, we need to:
 1. Generate all possible samples of size 4 with replacement from $\{1,2,7,8,14,20\}$
@@ -874,6 +932,8 @@ The distribution will be approximately normal due to the Central Limit Theorem, 
 For a complete solution, one would need to write a computer program to enumerate all samples and calculate their averages, then create the histogram.
 
 
+
+\qed
 \section{Optimization Problems}
 
 \begin{problembox}[1.31: Most Likely Average]
@@ -885,7 +945,7 @@ For the situation of Example 1.2.20, the average of the original set of numbers 
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item To get the average $\frac{x_1 + x_2 + \cdots + x_n}{n}$, we need to sample each $x_i$ exactly once. This means we need a permutation of the $n$ elements.
     
@@ -908,6 +968,8 @@ For the situation of Example 1.2.20, the average of the original set of numbers 
 \end{enumerate}
 
 
+
+\qed
 \begin{problembox}[1.32: Hiring Problem]
 An employer is about to hire one new employee from a group of $N$ candidates, whose future potential can be rated on a scale from 1 to $N$. The employer proceeds according to the following rules:
 \begin{enumerate}[label=(\roman*)]
@@ -917,7 +979,7 @@ An employer is about to hire one new employee from a group of $N$ candidates, wh
 Suppose a candidate is hired on the $i$th trial. What is the probability that the best candidate was hired?
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Let $N$ be the number of candidates. Let $B$ be the event that the best candidate is hired. Let $H_i$ be the event that a candidate is hired on the $i$-th trial. We want to find $P(B|H_i)$.
 By definition, $P(B|H_i) = \frac{P(B \cap H_i)}{P(H_i)}$.
 
@@ -952,13 +1014,15 @@ Therefore, $P(B|H_i) = \frac{P(B \cap H_i)}{P(H_i)} = \frac{\frac{1}{N} \frac{m-
 
 The probability that the hired person is the best overall, given they were hired on the $i$-th trial, is simply $\frac{i}{N}$.
 
+
+\qed
 \section{Conditional Probability}
 
 \begin{problembox}[1.33: Color-blindness]
 Suppose that 5\% of men and .25\% of women are color-blind. A person is chosen at random and that person is color-blind. What is the probability that the person is male? (Assume males and females to be in equal numbers.)
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 Let $M$ be the event "person is male" and $C$ be the event "person is color-blind."
 
@@ -980,6 +1044,8 @@ $P(M|C) = \frac{0.05 \cdot 0.5}{0.02625} = \frac{0.025}{0.02625} = \frac{20}{21}
 So there's about a 95.24% chance that a randomly selected color-blind person is male.
 
 
+
+\qed
 \begin{problembox}[1.34: Rodent Hair Color]
 Two litters of a particular rodent species have been born, one litter with two brown-haired and one gray-haired rodents (litter 1), and the other litter with three brown-haired and two gray-haired rodents (litter 2). We select a litter at random, and then select an offspring at random from the selected litter.
 \begin{enumerate}[label=(\alph*)]
@@ -988,7 +1054,7 @@ Two litters of a particular rodent species have been born, one litter with two b
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item Let $L_1$ be the event "litter 1 is selected" and $B$ be the event "brown-haired animal is selected."
     
@@ -1004,11 +1070,13 @@ Two litters of a particular rodent species have been born, one litter with two b
 \end{enumerate}
 
 
+
+\qed
 \begin{problembox}[1.35: Conditional Probability Axioms]
 Prove that if $P(\cdot)$ is a legitimate probability function and $B$ is a set with $P(B)>0$, then $P(\cdot|B)$ also satisfies Kolmogorov's Axioms.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 We need to verify that $P(\cdot|B)$ satisfies the three Kolmogorov axioms:
 
@@ -1025,11 +1093,13 @@ We need to verify that $P(\cdot|B)$ satisfies the three Kolmogorov axioms:
 Therefore, $P(\cdot|B)$ is a legitimate probability function.
 
 
+
+\qed
 \begin{problembox}[1.36: Target Shooting]
 If the probability of hitting a target is $\frac{1}{3}$, and ten shots are fired independently, what is the probability of the target being hit at least twice? What is the conditional probability that the target is hit at least twice, given that it is hit at least once?
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 Let $X$ be the number of hits. Then $X \sim \text{Binomial}(10, \frac{1}{3})$.
 
@@ -1047,6 +1117,8 @@ Therefore:
 \[ P(X \geq 2|X \geq 1) = \frac{52905/59049}{58025/59049} = \frac{52905}{58025} \approx 0.912 \]
 
 
+
+\qed
 \section{The Prisoner's Problem}
 
 \begin{problembox}[1.37: Warden's Problem Variations]
@@ -1072,7 +1144,7 @@ Here we will look at some variations of Example 1.3.4.
 A similar, but somewhat more complicated, problem, the "Monty Hall problem" is discussed by Selvin (1975). The problem in this guise gained a fair amount of notariaty when it appeared in a Sunday magazine (vos Savant 1990) along with a correct answer but with questionable explanation. The ensuing debate even was reported on the front page of the Sunday New York Times (Tierney 1991). A complete and somewhat amusing treatment is given by Morgan et al. (1991) (see also the response by vos Savant 1991). Chun (1999) pretty much exhausts the problem with a very thorough analysis.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item Let $\mathcal{W}$ be the event "warden tells A that B will die."
     
@@ -1101,6 +1173,8 @@ A similar, but somewhat more complicated, problem, the "Monty Hall problem" is d
 \end{enumerate}
 
 
+
+\qed
 \section{Probability Properties}
 
 \begin{problembox}[1.38: Probability Statements]
@@ -1114,7 +1188,7 @@ Prove each of the following statements. (Assume that any conditioning event has 
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item If $P(B) = 1$, then $P(A|B) = \frac{P(A \cap B)}{P(B)} = \frac{P(A \cap B)}{1} = P(A \cap B)$.
     
@@ -1143,6 +1217,8 @@ Prove each of the following statements. (Assume that any conditioning event has 
 \end{enumerate}
 
 
+
+\qed
 \begin{problembox}[1.39: Mutual Exclusivity and Independence]
 A pair of events $A$ and $B$ cannot be simultaneously mutually exclusive and independent. Prove that if $P(A)>0$ and $P(B)>0$, then
 \begin{enumerate}[label=(\alph*)]
@@ -1151,7 +1227,7 @@ A pair of events $A$ and $B$ cannot be simultaneously mutually exclusive and ind
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item If $A$ and $B$ are mutually exclusive, then $A \cap B = \emptyset$, so $P(A \cap B) = 0$.
     
@@ -1169,11 +1245,13 @@ A pair of events $A$ and $B$ cannot be simultaneously mutually exclusive and ind
 \end{enumerate}
 
 
+
+\qed
 \begin{problembox}[1.40: Theorem 1.3.9 Completion]
 Finish the proof of Theorem 1.3.9 by proving parts (b) and (c).
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 Theorem 1.3.9 likely states that if $A_1, A_2, \ldots$ are independent events, then:
 (a) $P(\cap_{i=1}^{n} A_i) = \prod_{i=1}^{n} P(A_i)$ for any finite $n$
@@ -1190,6 +1268,8 @@ $P(\cap_{i=1}^{\infty} A_i^c) = \prod_{i=1}^{\infty} P(A_i^c) = \prod_{i=1}^{\in
 Therefore, $P(\cup_{i=1}^{\infty} A_i) = 1 - \prod_{i=1}^{\infty} (1 - P(A_i))$.
 
 
+
+\qed
 \section{Telegraph Signals}
 
 \begin{problembox}[1.41: Telegraph Transmission]
@@ -1200,7 +1280,7 @@ As in Example 1.3.6, consider telegraph signals "dot" and "dash" sent in the pro
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Let $S_D$ be the event that a dot was sent, and $S_H$ be the event a dash was sent.
 Let $R_D$ be the event a dot was received, and $R_H$ be the event a dash was received.
 We are given the prior probabilities: $P(S_D) = 3/7$ and $P(S_H) = 4/7$.
@@ -1254,6 +1334,8 @@ The transmission error probabilities (likelihoods) are:
 \end{enumerate}
 
 
+
+\qed
 \section{Inclusion-Exclusion Principle}
 
 \begin{problembox}[1.42: Inclusion-Exclusion Proof]
@@ -1267,7 +1349,7 @@ The inclusion-exclusion identity of Miscellanea 1.8.1 gets its name from the fac
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item The events $E_1, E_2, \ldots, E_n$ are pairwise disjoint and their union is $\cup_{i=1}^{n} A_i$. Therefore, by the additivity of probability:
     \[ P(\cup_{i=1}^{n} A_i) = \sum_{i=1}^{n} P(E_i) \]
@@ -1294,6 +1376,8 @@ The inclusion-exclusion identity of Miscellanea 1.8.1 gets its name from the fac
 \end{enumerate}
 
 
+
+\qed
 \begin{problembox}[1.43: Inclusion-Exclusion Properties]
 For the inclusion-exclusion identity of Miscellanea 1.8.1:
 \begin{enumerate}[label=(\alph*)]
@@ -1303,7 +1387,7 @@ For the inclusion-exclusion identity of Miscellanea 1.8.1:
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item The inclusion-exclusion identity states $P(\cup_{i=1}^{n} A_i) = P_1 - P_2 + P_3 - \cdots \pm P_n$. The partial sums of this alternating series provide bounds on the true probability. Let $U = P(\cup A_i)$.
     \vspace{1ex} %
@@ -1330,13 +1414,15 @@ For the inclusion-exclusion identity of Miscellanea 1.8.1:
     For $n > 2$, $S_1$ can be a very poor bound. For $n=5$, $S_1=5P(A)$. For large $n$, the bounds can oscillate wildly and not provide much improvement until many terms are included. For example, for $n=5$, the sequence of bounds is $5P(A)$, $-5P(A)$, $5P(A)$, $-P(A)$, $P(A)$. The bounds do not monotonically tighten around the true value $P(A)$.
 \end{enumerate}
 
+
+\qed
 \section{Standardized Tests}
 
 \begin{problembox}[1.44: Multiple Choice Test]
 Standardized tests provide an interesting application of probability theory. Suppose first that a test consists of 20 multiple-choice questions, each with four possible answers. If the student guesses on each question, then the taking of the exam can be modeled as a sequence of 20 independent events. Find the probability that the student gets at least ten questions correct, given that he is guessing.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 Let $X$ be the number of correct answers. Then $X \sim \text{Binomial}(20, \frac{1}{4})$.
 
@@ -1350,13 +1436,15 @@ Using a calculator or statistical software, this probability is approximately 0.
 This shows that even with random guessing, getting at least 10 out of 20 questions correct is quite unlikely (less than 1.4% chance).
 
 
+
+\qed
 \section{Probability Functions}
 
 \begin{problembox}[1.45: Induced Probability Verification]
 Show that the induced probability function defined in (1.4.1) defines a legitimate probability function in that it satisfies the Kolmogorov Axioms.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 The induced probability function is typically defined as $P_X(B) = P(X^{-1}(B))$ for any Borel set $B$.
 
@@ -1375,11 +1463,13 @@ We need to verify the three Kolmogorov axioms:
 Therefore, $P_X$ satisfies the Kolmogorov axioms and is a legitimate probability function.
 
 
+
+\qed
 \begin{problembox}[1.46: Ball Distribution]
 Seven balls are distributed randomly into seven cells. Let $X_{i}=$ the number of cells containing exactly $i$ balls. What is the probability distribution of $X_{3}$? (That is, find $P(X_{3}=x)$ for every possible $x$.)
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 We are distributing $k=7$ distinguishable balls into $n=7$ distinguishable cells. The total number of arrangements is $n^k = 7^7 = 823,543$.
 Let $X_3$ be the number of cells containing exactly 3 balls. The possible values for $X_3$ are $x=0, 1, 2$. It is not possible to have $X_3=3$ as that would require $3 \times 3 = 9$ balls.
 
@@ -1422,6 +1512,8 @@ The probability distribution of $X_3$ is:
 \]
 
 
+
+\qed
 \begin{problembox}[1.47: CDF Verification]
 Prove that the following functions are cdfs.
 \begin{enumerate}[label=(\alph*)]
@@ -1433,7 +1525,7 @@ Prove that the following functions are cdfs.
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item $F(x) = \frac{1}{2} + \frac{1}{\pi}\tan^{-1}(x)$
     
@@ -1467,11 +1559,13 @@ Prove that the following functions are cdfs.
 \end{enumerate}
 
 
+
+\qed
 \begin{problembox}[1.48: Theorem 1.5.3 Necessity]
 Prove the necessity part of Theorem 1.5.3.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 Theorem 1.5.3 likely states that a function $F$ is a cdf if and only if it satisfies certain properties.
 
@@ -1494,6 +1588,8 @@ If $F$ is a cdf, then by definition $F(x) = P(X \leq x)$ for some random variabl
 4. **Limit at $\infty$**: $\lim_{x \to \infty} F(x) = \lim_{x \to \infty} P(X \leq x) = P(S) = 1$.
 
 
+
+\qed
 \begin{problembox}[1.49: Stochastic Ordering]
 A cdf $F_{X}$ is stochastically greater than a cdf $F_{Y}$ if $F_{X}(t)\leq F_{Y}(t)$ for all $t$ and $F_{X}(t)<F_{Y}(t)$ for some $t$. Prove that if $X\sim F_{X}$ and $Y\sim F_{Y}$, then
 \[ P(X>t)\geq P(Y>t)\quad\text{for every }t \]
@@ -1502,7 +1598,7 @@ and
 that is, $X$ tends to be bigger than $Y$.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 If $F_X(t) \leq F_Y(t)$ for all $t$, then:
 \[ P(X > t) = 1 - P(X \leq t) = 1 - F_X(t) \geq 1 - F_Y(t) = 1 - P(Y \leq t) = P(Y > t) \]
@@ -1516,11 +1612,13 @@ This means that for every threshold $t$, $X$ is at least as likely as $Y$ to exc
 This is the definition of stochastic ordering: $X$ is stochastically greater than $Y$.
 
 
+
+\qed
 \begin{problembox}[1.50: Geometric Series]
 Verify formula (1.5.4), the formula for the partial sum of the geometric series.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 The formula for the partial sum of a geometric series is:
 \[ \sum_{k=0}^{n} ar^k = a \frac{1 - r^{n+1}}{1 - r} \]
@@ -1541,11 +1639,13 @@ Therefore:
 This is the formula (1.5.4) for the partial sum of a geometric series.
 
 
+
+\qed
 \begin{problembox}[1.51: Defective Microwaves]
 An appliance store receives a shipment of 30 microwave ovens, five of which are (unknown to the manager) defective. The store manager selects four ovens at random, without replacement, and tests to see if they are defective. Let $X=\text{number of defective ovens found}$. Calculate the pmf and cdf of $X$ and plot the cdf.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 $X$ follows a hypergeometric distribution with parameters $N = 30$ (total ovens), $K = 5$ (defective ovens), and $n = 4$ (sample size).
 
@@ -1574,6 +1674,8 @@ The cdf is:
 The cdf plot would show a step function with jumps at $x = 0, 1, 2, 3, 4$.
 
 
+
+\qed
 \begin{problembox}[1.52: Truncated PDF]
 Let $X$ be a continuous random variable with pdf $f(x)$ and cdf $F(x)$. For a fixed number $x_{0}$, define the function
 \[ g(x)=\left\{\begin{array}{ll}
@@ -1583,7 +1685,7 @@ f(x)/[1-F(x_{0})] & x\geq x_{0}\\
 Prove that $g(x)$ is a pdf. (Assume that $F(x_{0})<1$.)
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 We need to verify that $g(x)$ satisfies the properties of a pdf:
 
@@ -1598,6 +1700,8 @@ We need to verify that $g(x)$ satisfies the properties of a pdf:
 Therefore, $g(x)$ is a legitimate pdf. This is the pdf of the conditional distribution of $X$ given $X \geq x_0$.
 
 
+
+\qed
 \section{River Flooding}
 
 \begin{problembox}[1.53: Flood Mark Distribution]
@@ -1610,7 +1714,7 @@ A certain river floods every year. Suppose that the low-water mark is set at 1 a
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item To verify $F_Y(y)$ is a cdf:
     
@@ -1635,6 +1739,8 @@ A certain river floods every year. Suppose that the low-water mark is set at 1 a
 \end{enumerate}
 
 
+
+\qed
 \section{PDF Normalization}
 
 \begin{problembox}[1.54: PDF Normalization]
@@ -1645,7 +1751,7 @@ For each of the following, determine the value of $c$ that makes $f(x)$ a pdf.
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item We need $\int_{0}^{\pi/2} c \sin x \, dx = 1$.
     
@@ -1661,12 +1767,14 @@ For each of the following, determine the value of $c$ that makes $f(x)$ a pdf.
 \end{enumerate}
 
 
+
+\qed
 \begin{problembox}[1.55: Device Lifetime Value]
 An electronic device has a lifetime denoted by $T$. The device has value $V = 5$ if it fails before time $t = 3$; otherwise, it has value $V = 2T$. Find the cdf of $V$, if $T$ has pdf
 \[ f_T(t) = \frac{1}{1.5} e^{-t/(1.5)}, \quad t > 0. \]
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 The lifetime $T$ follows an exponential distribution with pdf $f_T(t) = \frac{1}{1.5}e^{-t/1.5}$ for $t>0$. The cdf of $T$ is $F_T(t) = P(T \le t) = 1 - e^{-t/1.5}$.
 
 The value $V$ is a random variable defined as:

@@ -4,6 +4,8 @@
 \section{Fubini--Tonelli and Slicing}
 \noindent\textbf{Tools used in this section.} Fubini's Theorem and Tonelli's Theorem for nonnegative functions; slicing of sets as in Definition 15.4; the calculus identity \(\int_0^{\infty} e^{-ay} \sin(by) \, dy = \dfrac{b}{a^2 + b^2}\) for \(a>0\), \(b\in\mathbb{R}\).
  
+
+
 \begin{problembox}[15.1: Integral over Triangular Region]
 If \( f \in L(T) \), where \( T \) is the triangular region in \( \mathbb{R}^2 \) with vertices at \((0, 0)\), \((1, 0)\), and \((0, 1)\), prove that
 \[
@@ -11,12 +13,13 @@ If \( f \in L(T) \), where \( T \) is the triangular region in \( \mathbb{R}^2 \
 \]
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Write the indicator of the triangle \(T=\{(x,y): 0\le y \le x \le 1\}\) and apply Fubini to
 \[
 \int_{\mathbb{R}^2} f(x,y) \mathbf{1}_T(x,y)\, d(x,y).
 \]
-Slicing by vertical lines gives \(\int_0^1\!\big[\int_0^x f(x,y)\,dy\big]dx\). Slicing by horizontal lines gives \(\int_0^1\!\big[\int_y^1 f(x,y)\,dx\big]dy\). Hence the displayed equalities.
+Slicing by vertical lines gives \(\int_0^1\!\big[\int_0^x f(x,y)\,dy\big]dx\). Slicing by horizontal lines gives \(\int_0^1\!\big[\int_y^1 f(x,y)\,dx\big]dy\). Hence the displayed equalities.\qed
+
 
 \begin{problembox}[15.2: Double Integral Calculation]
 For fixed \( c, 0 < c < 1 \), define \( f \) on \( \mathbb{R}^2 \) as follows:
@@ -33,7 +36,7 @@ Prove that \( f \in L(\mathbb{R}^2) \) and calculate the double integral
 \]
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 The support is the triangle \(0\le y < x < 1\), so
 \[
 \int_{\mathbb{R}^2} f = \int_0^1\!\int_0^x \frac{(1-y)^c}{(x-y)^c}\,dy\,dx.
@@ -43,7 +46,8 @@ Let \(u=x-y\), \(v=y\). The Jacobian is 1 and the region is \(0<v<1\), \(0<u<1-v
 \int_0^1\!\int_0^{1-v} u^{-c}(1-v)^c\,du\,dv
 = \frac{1}{1-c}\int_0^1 (1-v)\,dv = \frac{1}{2(1-c)}.
 \]
-Thus \(f\in L(\mathbb{R}^2)\) for \(0<c<1\) and the value is \(1/[2(1-c)]\).
+Thus \(f\in L(\mathbb{R}^2)\) for \(0<c<1\) and the value is \(1/[2(1-c)]\).\qed
+
 
 \begin{problembox}[15.3: Measure of a Subset]
 Let \( S \) be a measurable subset of \( \mathbb{R}^2 \) with finite measure \( \mu(S) \). Using the notation of Definition 15.4, prove that
@@ -52,11 +56,12 @@ Let \( S \) be a measurable subset of \( \mathbb{R}^2 \) with finite measure \( 
 \]
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Apply Fubini to the indicator function \(\mathbf{1}_S\). By Definition 15.4, \(\mu(S^x)=\int \mathbf{1}_S(x,y)\,dy\) and \(\mu(S_y)=\int \mathbf{1}_S(x,y)\,dx\). Hence
 \[
 \mu(S)=\iint \mathbf{1}_S\,d(x,y)=\int_{-\infty}^{\infty}\!\mu(S^x)\,dx=\int_{-\infty}^{\infty}\!\mu(S_y)\,dy.
-\]
+\]\qed
+
 
 \begin{problembox}[15.4: Iterated Integrals vs Double Integral]
 Let \( f(x, y) = e^{-xy} \sin x \sin y \) if \( x \geq 0, y \geq 0 \), and let \( f(x, y) = 0 \) otherwise. Prove that both iterated integrals
@@ -66,7 +71,7 @@ Let \( f(x, y) = e^{-xy} \sin x \sin y \) if \( x \geq 0, y \geq 0 \), and let \
 exist and are equal, but that the double integral of \( f \) over \( \mathbb{R}^2 \) does not exist. Also, explain why this does not contradict the Tonelli-Hobson test (Theorem 15.8).
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \textbf{Solution:}
 Since \(f\) is supported in the first quadrant, we may write the iterated integrals as
 \[
@@ -144,11 +149,12 @@ Hence \(f \notin L^1(\mathbb{R}^2)\) and the double integral does not exist in t
 Tonelli's theorem applies to nonnegative functions and ensures that if \(\iint |f| < \infty\) then Fubini's theorem allows exchanging order of integration.  
 Here \(f\) changes sign and is not absolutely integrable, so Tonelli's theorem does not apply.  
 Hobson's test also requires certain boundedness conditions on one of the iterated integrals of \(|f|\), which fail here because \(\int |f(x,y)|\, dx = \infty\) for every small \(y > 0\).  
-Therefore there is no contradiction: both iterated integrals exist and are equal, yet the double integral does not exist because \(f \notin L^1(\mathbb{R}^2)\).
-
+Therefore there is no contradiction: both iterated integrals exist and are equal, yet the double integral does not exist because \(f \notin L^1(\mathbb{R}^2)\).\qed
 \section{Non-Integrable Examples and Iterated Integrals}
 
 \noindent\textbf{Tools used in this section.} Fubini's Theorem; criterion: if the two iterated integrals over a rectangle exist but are unequal, then the function is not Lebesgue-integrable on that rectangle; comparisons with improper integrals.
+
+
 
 \begin{problembox}[15.5: Non-Integrable Function]
 Let \( f(x, y) = (x^2 - y^2)/(x^2 + y^2)^2 \) for \( 0 \leq x \leq 1, 0 < y \leq 1 \), and let \( f(0, 0) = 0 \). Prove that both iterated integrals
@@ -158,7 +164,7 @@ Let \( f(x, y) = (x^2 - y^2)/(x^2 + y^2)^2 \) for \( 0 \leq x \leq 1, 0 < y \leq
 exist but are not equal. This shows that \( f \) is not Lebesgue-integrable on \([0, 1] \times [0, 1]\).
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 For fixed \(x>0\),
 \[
 \int_0^1 \frac{x^2-y^2}{(x^2+y^2)^2}\,dy = \frac{1}{1+x^2}.
@@ -167,7 +173,8 @@ Thus \(\int_0^1[\int_0^1 f(x,y)\,dy]dx=\int_0^1\!\frac{dx}{1+x^2}=\pi/4\). For f
 \[
 \int_0^1 \frac{x^2-y^2}{(x^2+y^2)^2}\,dx = -\frac{1}{1+y^2},
 \]
-so \(\int_0^1[\int_0^1 f(x,y)\,dx]dy=-\pi/4\). Since the iterated integrals exist but are unequal, \(f\notin L([0,1]^2)\).
+so \(\int_0^1[\int_0^1 f(x,y)\,dx]dy=-\pi/4\). Since the iterated integrals exist but are unequal, \(f\notin L([0,1]^2)\).\qed
+
 
 \begin{problembox}[15.6: Another Non-Integrable Function]
 Let \( I = [0, 1] \times [0, 1] \), let \( f(x, y) = (x - y)/(x + y)^3 \) if \( (x, y) \in I \), \( (x, y) \neq (0, 0) \), and let \( f(0, 0) = 0 \). Prove that \( f \notin L(I) \) by considering the iterated integrals
@@ -176,7 +183,7 @@ Let \( I = [0, 1] \times [0, 1] \), let \( f(x, y) = (x - y)/(x + y)^3 \) if \( 
 \]
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 For fixed \(x\in[0,1]\),
 \[
 \int_0^1 \frac{x-y}{(x+y)^3}\,dy = \frac{1}{(1+x)^{2}},
@@ -185,7 +192,8 @@ so the outer \(x\)-integral equals \(\int_0^1 (1+x)^{-2}dx=1/2\). For fixed \(y\
 \[
 \int_0^1 \frac{x-y}{(x+y)^3}\,dx = -\frac{1}{(1+y)^{2}},
 \]
-so the other iterated integral equals \(-1/2\). Hence \(f\notin L(I)\).
+so the other iterated integral equals \(-1/2\). Hence \(f\notin L(I)\).\qed
+
 
 \begin{problembox}[15.7: Non-Integrable Function on Infinite Interval]
 Let \( I = [0, 1] \times [1, +\infty) \) and let \( f(x, y) = e^{-xy} - 2e^{-2xy} \) if \( (x, y) \in I \). Prove that \( f \notin L(I) \) by considering the iterated integrals
@@ -194,7 +202,7 @@ Let \( I = [0, 1] \times [1, +\infty) \) and let \( f(x, y) = e^{-xy} - 2e^{-2xy
 \]
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 For \(x\in(0,1]\),
 \[
 \int_1^{\infty} \big(e^{-xy}-2e^{-2xy}\big)\,dy = \frac{e^{-x}-2e^{-2x}}{x},
@@ -203,11 +211,12 @@ whose integral in \(x\in(0,1]\) diverges at 0, so \(\int_0^1[\int_1^{\infty} f\,
 \[
 \int_0^1 \big(e^{-xy}-2e^{-2xy}\big)\,dx = \frac{e^{-2y}-e^{-y}}{y},
 \]
-and \(\int_1^{\infty} |e^{-2y}-e^{-y}|\,y^{-1} dy<\infty\). Thus one iterated integral converges while the other diverges, so \(f\notin L(I)\).
-
+and \(\int_1^{\infty} |e^{-2y}-e^{-y}|\,y^{-1} dy<\infty\). Thus one iterated integral converges while the other diverges, so \(f\notin L(I)\).\qed
 \section{Change of Variables}
 
 \noindent\textbf{Tools used in this section.} Change of Variables Theorem with Jacobian determinant; smooth one-to-one transformations between regions; polar, cylindrical, and spherical coordinate maps and their Jacobians.
+
+
 
 \begin{problembox}[15.8: Transformation of Integrals]
 The following formulas for transforming double and triple integrals occur in elementary calculus. Obtain them as consequences of Theorem 15.11 and give restrictions on \( T \) and \( T' \) for validity of these formulas.
@@ -218,16 +227,17 @@ The following formulas for transforming double and triple integrals occur in ele
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 These follow from the Change of Variables Theorem applied to the maps
 \( (r,\theta)\mapsto (r\cos\theta, r\sin\theta) \),
 \( (r,\theta,z)\mapsto (r\cos\theta, r\sin\theta, z) \), and
 \( (\rho,\theta,\varphi)\mapsto (\rho\cos\theta\sin\varphi,\rho\sin\theta\sin\varphi,\rho\cos\varphi) \).
-The determinants are respectively \(r\), \(r\), and \(\rho^2\sin\varphi\). Validity requires that \(T'\) be a measurable set on which the coordinate map is one-to-one (modulo negligible sets), with measurable inverse onto \(T\); typically take \(T'\) a rectangle in coordinates with appropriate ranges and \(T\) the corresponding polar/cylindrical/spherical image.
-
+The determinants are respectively \(r\), \(r\), and \(\rho^2\sin\varphi\). Validity requires that \(T'\) be a measurable set on which the coordinate map is one-to-one (modulo negligible sets), with measurable inverse onto \(T\); typically take \(T'\) a rectangle in coordinates with appropriate ranges and \(T\) the corresponding polar/cylindrical/spherical image.\qed
 \section{Gaussian Integrals}
 
 \noindent\textbf{Tools used in this section.} Polar coordinates in \(\mathbb{R}^2\); product structure of Gaussian measures; the Gamma function and scaling.
+
+
 
 \begin{problembox}[15.9: Gaussian Integrals]
 \begin{enumerate}[label=(\alph*)]
@@ -238,18 +248,19 @@ The determinants are respectively \(r\), \(r\), and \(\rho^2\sin\varphi\). Valid
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
 \item In polar coordinates,
 \(\int_{\mathbb{R}^2} e^{-(x^2+y^2)} d(x,y)=\int_0^{2\pi}\int_0^{\infty} e^{-r^2} r\,dr\,d\theta=2\pi\cdot\tfrac12=\pi\).
 \item By symmetry, \(\left(\int_{-\infty}^{\infty} e^{-x^2}dx\right)^2=\int_{\mathbb{R}^2} e^{-(x^2+y^2)}d(x,y)=\pi\). Hence the one-dimensional integral equals \(\sqrt{\pi}\).
 \item Using product structure, \(\int_{\mathbb{R}^n} e^{-\|x\|^2}dx=\big(\int_{-\infty}^{\infty} e^{-t^2}dt\big)^n=\pi^{n/2}\).
 \item Scaling gives \(\int_{-\infty}^{\infty} e^{-t x^2} dx = t^{-1/2}\int e^{-u^2}du = \sqrt{\pi/t}\). Differentiating in \(t\) or using symmetry yields \(\int x^2 e^{-t x^2} dx = \tfrac{\sqrt{\pi}}{2} t^{-3/2}\).
-\end{enumerate}
-
+\end{enumerate}\qed
 \section{Volumes of n-Balls}
 
 \noindent\textbf{Tools used in this section.} Polar/spherical coordinates; scaling under linear changes; Gamma-function identities and simple recursions.
+
+
 
 \begin{problembox}[15.10: Volume of \( n \)-Ball]
 Let \( V_n(a) \) denote the \( n \)-measure of the \( n \)-ball \( B(0; a) \) of radius \( a \). This exercise outlines a proof of the formula
@@ -269,7 +280,7 @@ V_n(1) = \frac{\pi^{n/2}}{\Gamma(\frac{1}{2}n + 1)}.
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
 \item Under \(x\mapsto ax\), \(n\)-volume scales by \(a^n\), so \(V_n(a)=a^n V_n(1)\).
 \item For \(n\ge 3\), write \(\|x\|^2=r^2+\rho^2\) with \(\rho\in\mathbb{R}^{n-2}\). Then
@@ -277,7 +288,8 @@ V_n(1) = \frac{\pi^{n/2}}{\Gamma(\frac{1}{2}n + 1)}.
 V_n(1)=V_{n-2}(1)\int_0^{2\pi}\!\int_0^1 (1-r^2)^{\frac{n}{2}-1} r\,dr\,d\theta = V_{n-2}(1)\cdot \frac{2\pi}{n}.
 \]
 \item Induct on \(n\) using (b). With \(V_0(1)=1\), \(V_1(1)=2\), the recursion yields \(V_n(1)=\dfrac{\pi^{n/2}}{\Gamma(\tfrac{n}{2}+1)}\).
-\end{enumerate}
+\end{enumerate}\qed
+
 
 \begin{problembox}[15.11: Integral over \( n \)-Ball]
 Refer to Exercise 15.10 and prove that
@@ -287,12 +299,13 @@ Refer to Exercise 15.10 and prove that
 for each \( k = 1, 2, \ldots, n \).
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 By symmetry, \(\int_{B(0;1)} x_k^2\,dx\) is the same for each \(k\) and \(\sum_{k=1}^n x_k^2=\|x\|^2\). Hence
 \[
 \sum_{k=1}^n \int_{B(0;1)} x_k^2\,dx = \int_{B(0;1)} \|x\|^2\,dx.
 \]
-Using spherical coordinates, \(\int_{B(0;1)} \|x\|^2 dx = \omega_{n}\int_0^1 r^{n+1}dr=\omega_n/(n+2)\), where \(\omega_n= n V_n(1)\) is the surface area of the unit sphere. Therefore each \(\int x_k^2 = V_n(1)/(n+2)\).
+Using spherical coordinates, \(\int_{B(0;1)} \|x\|^2 dx = \omega_{n}\int_0^1 r^{n+1}dr=\omega_n/(n+2)\), where \(\omega_n= n V_n(1)\) is the surface area of the unit sphere. Therefore each \(\int x_k^2 = V_n(1)/(n+2)\).\qed
+
 
 \begin{problembox}[15.12: Recursion Formula for \( n \)-Ball Volume]
 Refer to Exercise 15.10 and express the integral for \( V_n(1) \) as the iteration of an \( (n - 1) \)-fold integral and a one-dimensional integral, to obtain the recursion formula
@@ -305,16 +318,17 @@ Put \( x = \cos t \) in the integral, and use the formula of Exercise 15.10 to d
 \]
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Writing \(V_n(1)=2V_{n-1}(1)\int_0^1 (1-x^2)^{(n-1)/2}dx\) and substituting \(x=\cos t\) gives
 \[
 \int_0^{\pi/2} \cos^n t\,dt = \frac{\sqrt{\pi}}{2}\,\frac{\Gamma(\tfrac{n+1}{2})}{\Gamma(\tfrac{n}{2}+1)}.
 \]
-Combining with Exercise 15.10 yields the stated recursion.
-
+Combining with Exercise 15.10 yields the stated recursion.\qed
 \section{Volumes in Other Regions}
 
 \noindent\textbf{Tools used in this section.} Linear changes and scaling; induction by slicing; simplex volumes via Beta integrals and the substitution \(y_i=x_i^2\) on the first quadrant.
+
+
 
 \begin{problembox}[15.13: Volume of \( n \)-Dimensional Diamond]
 If \( a > 0 \), let \( S_n(a) = \{(x_1, \ldots, x_n): |x_1| + \cdots + |x_n| \leq a\} \), and let \( V_n(a) \) denote the \( n \)-measure of \( S_n(a) \). This exercise outlines a proof of the formula \( V_n(a) = 2^n a^n / n! \).
@@ -328,12 +342,13 @@ and deduce that \( V_n(1) = 2^n / n! \).
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
 \item Scaling gives \(V_n(a)=a^n V_n(1)\).
 \item Slice by \(x_1\) and use the \((n-1)\)-dimensional volume of the cross-section \(\{(x_2,\ldots,x_n): |x_2|+\cdots+|x_n|\le 1-|x_1|\}\). Induction yields
 \(V_n(1)=2\,V_{n-1}(1)\int_0^1 (1-x)^{n-1}dx=2\,V_{n-1}(1)/n\), hence \(V_n(1)=2^n/n!\).
-\end{enumerate}
+\end{enumerate}\qed
+
 
 \begin{problembox}[15.14: Volume of Special \( n \)-Dimensional Set]
 If \( a > 0 \) and \( n \geq 2 \), let \( S_n(a) \) denote the following set in \( \mathbb{R}^n \):
@@ -343,11 +358,12 @@ S_n(a) = \{(x_1, \ldots, x_n): |x_i| + |x_n| \leq a \quad \text{for each } i = 1
 Let \( V_n(a) \) denote the \( n \)-measure of \( S_n(a) \). Use a method suggested by Exercise 15.13 to prove that \( V_n(a) = 2^n a^n / n \).
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Fix \(x_n\in[-a,a]\). The cross-section in the first \(n-1\) coordinates is an \((n-1)\)-dimensional diamond of radius \(a-|x_n|\) with volume \(V_{n-1}(a-|x_n|)=2^{n-1}(a-|x_n|)^{n-1}/(n-1)!\). Integrating in \(x_n\) gives
 \[
 V_n(a)=\int_{-a}^{a} \frac{2^{n-1}}{(n-1)!} (a-|t|)^{n-1} dt = \frac{2^n a^n}{n}.
-\]
+\]\qed
+
 
 \begin{problembox}[15.15: Integral over First Quadrant of \( n \)-Ball]
 Let \( Q_n(a) \) denote the ``first quadrant'' of the \( n \)-ball \( B(0:a) \) given by
@@ -360,7 +376,7 @@ Let \( f(x) = x_1 \cdots x_n \) and prove that
 \]
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Let \(y_i=x_i^2\) for \(i=1,\ldots,n\). On the first quadrant, \(x_i\ge 0\), the region \(Q_n(a)\) maps to the simplex \(\{y\ge 0: y_1+\cdots+y_n\le a^2\}\). The Jacobian gives \(dx=\frac{1}{2^n}(y_1\cdots y_n)^{-1/2}dy\) and \(x_1\cdots x_n=\sqrt{y_1\cdots y_n}\). Therefore the integrand times \(dx\) is \(\frac{1}{2^n} dy\), and
 \[
 \int_{Q_n(a)} x_1\cdots x_n\,dx = \frac{1}{2^n}\,\mathrm{Vol}\,\{y\ge 0: y_1+\cdots+y_n\le a^2\} = \frac{a^{2n}}{2^n n!}.

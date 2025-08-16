@@ -1,5 +1,5 @@
 Insert solutions to the problems if the solution hasn't been inserted.
-Solution starts with \noindent\textbf{Solution.}
+Solution starts with \noindent\textbf{Solution:}
 use \begin{enumerate}[label=(\alph*)] for items. Make sure they match the problem statement.  The solutions should be outside \problembox. Make sure the syntax is strictly in good LaTeX format.
 
 Use your judgement when a problem doesn't seem to have an answer or a proof. It's likely the problem is wrong. If you found such problem, add "\textbf{the problem is likely worng} %%%" in the output and explain why you suspect it's wrong.

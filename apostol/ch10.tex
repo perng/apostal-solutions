@@ -11,12 +11,14 @@
     \item Length/measure estimates for finite/countable unions of intervals; comparison of integrals using pointwise inequalities.
 \end{enumerate}
 
+
+
 \begin{problembox}[10.1: Properties of max and min functions]
 Prove that $\max(f, g) + \min(f, g) = f + g$, and that 
 \[ \max(f + h, g + h) = \max(f, g) + h, \quad \min(f + h, g + h) = \min(f, g) + h. \]
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 For any real numbers $a$ and $b$, we have $\max(a, b) + \min(a, b) = a + b$. This is because if $a \geq b$, then $\max(a, b) = a$ and $\min(a, b) = b$, so $\max(a, b) + \min(a, b) = a + b$. Similarly, if $a < b$, then $\max(a, b) = b$ and $\min(a, b) = a$, so again $\max(a, b) + \min(a, b) = a + b$.
 
 Applying this to functions $f$ and $g$ at each point $x$, we get $\max(f(x), g(x)) + \min(f(x), g(x)) = f(x) + g(x)$ for all $x$, which proves the first identity.
@@ -25,7 +27,8 @@ For the second part, let's prove $\max(f + h, g + h) = \max(f, g) + h$. At any p
 \begin{align*}
 \max(f(x) + h(x), g(x) + h(x)) &= \max(f(x), g(x)) + h(x)
 \end{align*}
-This is because adding the same number $h(x)$ to both $f(x)$ and $g(x)$ doesn't change which one is larger. The same reasoning applies to the minimum function.
+This is because adding the same number $h(x)$ to both $f(x)$ and $g(x)$ doesn't change which one is larger. The same reasoning applies to the minimum function.\qed
+
 
 \begin{problembox}[10.2: Sequences of max and min functions]
 Let $\{f_n\}$ and $\{g_n\}$ be increasing sequences of functions on an interval $I$. Let $u_n = \max(f_n, g_n)$ and $v_n = \min(f_n, g_n)$.
@@ -35,7 +38,7 @@ Let $\{f_n\}$ and $\{g_n\}$ be increasing sequences of functions on an interval 
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item Since $\{f_n\}$ and $\{g_n\}$ are increasing sequences, for each $n$ and for all $x \in I$, we have $f_n(x) \leq f_{n+1}(x)$ and $g_n(x) \leq g_{n+1}(x)$. 
 
@@ -60,13 +63,14 @@ Let $\{f_n\}$ and $\{g_n\}$ be increasing sequences of functions on an interval 
     &= \min(f(x), g(x))
     \end{align*}
     Therefore, $u_n \to \max(f, g)$ and $v_n \to \min(f, g)$ almost everywhere on $I$.
-\end{enumerate}
+\end{enumerate}\qed
+
 
 \begin{problembox}[10.3: Divergence of integral sequence]
 Let $\{s_n\}$ be an increasing sequence of step functions which converges pointwise on an interval $I$ to a limit function $f$. If $I$ is unbounded and if $f(x) \geq 1$ almost everywhere on $I$, prove that the sequence $\{\int_I s_n\}$ diverges.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Since $\{s_n\}$ is an increasing sequence of step functions that converges pointwise to $f$, and $f(x) \geq 1$ almost everywhere on $I$, we have that for almost every $x \in I$, the sequence $\{s_n(x)\}$ is increasing and converges to $f(x) \geq 1$.
 
 This means that for almost every $x \in I$, there exists an integer $N(x)$ such that for all $n \geq N(x)$, we have $s_n(x) \geq 1/2$.
@@ -76,7 +80,8 @@ Since $I$ is unbounded, for any positive integer $M$, there exists a bounded sub
 Since $s_n$ is a step function, it is bounded on $J$, and by the definition of the integral of step functions, we have:
 \[\int_J s_n \geq \frac{1}{2} \cdot \text{length}(J) \geq \frac{M}{2}\]
 
-Since $J \subset I$, we have $\int_I s_n \geq \int_J s_n \geq M/2$. Since $M$ can be chosen arbitrarily large, the sequence $\{\int_I s_n\}$ must diverge to $+\infty$.
+Since $J \subset I$, we have $\int_I s_n \geq \int_J s_n \geq M/2$. Since $M$ can be chosen arbitrarily large, the sequence $\{\int_I s_n\}$ must diverge to $+\infty$.\qed
+
 
 \begin{problembox}[10.4: Example of upper function]
 This exercise gives an example of an upper function $f$ on the interval $I = [0, 1]$ such that $-f \notin U(I)$. Let $\{r_1, r_2, \ldots\}$ denote the set of rational numbers in $[0, 1]$ and let $I_n = [r_n - 4^{-n}, r_n + 4^{-n}] \cap I$. Let $f(x) = 1$ if $x \in I_n$ for some $n$, and let $f(x) = 0$ otherwise.
@@ -88,7 +93,7 @@ This exercise gives an example of an upper function $f$ on the interval $I = [0,
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item Each $f_n$ is a step function since it takes only two values (0 and 1) and the set where it equals 1 is a finite union of intervals. The sequence $\{s_n\}$ is increasing because $s_n = \max(f_1, \ldots, f_n) \leq \max(f_1, \ldots, f_n, f_{n+1}) = s_{n+1}$.
 
@@ -106,8 +111,7 @@ This exercise gives an example of an upper function $f$ on the interval $I = [0,
     Since $f(x) = 1$ on a dense set (the rationals), we have $-f(x) = -1$ on a dense set. By the continuity of step functions, for sufficiently large $n$, we must have $t_n(x) \leq -1/2$ almost everywhere on $I$.
 
     But this contradicts part (b) because if $t_n \to -f$ and $\int_I f \leq 2/3$, then we would expect $\int_I (-f) \geq -2/3$, but the step functions $t_n$ have integrals $\leq -1/2$, which would imply $\int_I (-f) \leq -1/2 < -2/3$, a contradiction.
-\end{enumerate}
-
+\end{enumerate}\qed
 \section{Convergence theorems}
 
 \noindent\textbf{Definitions and theorems needed.}
@@ -119,12 +123,14 @@ This exercise gives an example of an upper function $f$ on the interval $I = [0,
     \item Fubini–Tonelli theorems (when absolute integrability or nonnegativity holds) for interchanging order of sum/integral.
 \end{enumerate}
 
+
+
 \begin{problembox}[10.5: Non-interchangeable limit and integral]
 If $f_n(x) = e^{-nx} - 2e^{-2nx}$, show that 
 \[\sum_{n=1}^{\infty} \int_{0}^{\infty} f_n(x) \, dx \neq \int_{0}^{\infty} \sum_{n=1}^{\infty} f_n(x) \, dx.\]
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Let's compute both sides of the equation.
 
 First, let's find $\int_{0}^{\infty} f_n(x) \, dx$:
@@ -150,7 +156,8 @@ For $x > 0$, this series converges. Now let's compute $\int_{0}^{\infty} \sum_{n
 \int_{0}^{\infty} \sum_{n=1}^{\infty} f_n(x) \, dx &= \int_{0}^{\infty} \left(\frac{e^{-x}}{1 - e^{-x}} - \frac{2e^{-2x}}{1 - e^{-2x}}\right) \, dx
 \end{align*}
 
-This integral is not zero (it can be computed using substitution and partial fractions), which shows that the two expressions are not equal.
+This integral is not zero (it can be computed using substitution and partial fractions), which shows that the two expressions are not equal.\qed
+
 
 \begin{problembox}[10.6: Integral evaluations]
 Justify the following equations:
@@ -160,7 +167,7 @@ Justify the following equations:
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item First, we have $\log \frac{1}{1-x} = -\log(1-x)$. For $|x| < 1$, we have the Taylor series expansion:
     \[-\log(1-x) = \sum_{n=1}^{\infty} \frac{x^n}{n}\]
@@ -185,7 +192,8 @@ Justify the following equations:
     
     Therefore:
     \[\int_{0}^{1} \frac{x^{p-1}}{1-x} \log \left( \frac{1}{x} \right) \, dx = \sum_{n=0}^{\infty} \frac{1}{(n+p)^2}\]
-\end{enumerate}
+\end{enumerate}\qed
+
 
 \begin{problembox}[10.7: Tannery's convergence theorem]
 Prove Tannery's convergence theorem for Riemann integrals: Given a sequence of functions $\{f_n\}$ and an increasing sequence $\{p_n\}$ of real numbers such that $p_n \to +\infty$ as $n \to \infty$. Assume that
@@ -203,7 +211,7 @@ Then both $f$ and $|f|$ are improper Riemann-integrable on $[a,+\infty)$, the se
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Let's prove Tannery's theorem step by step.
 
 First, since $f_n \to f$ uniformly on $[a,b]$ for every $b \geq a$, and each $f_n$ is Riemann-integrable on $[a,b]$, it follows that $f$ is Riemann-integrable on $[a,b]$ for every $b \geq a$.
@@ -233,7 +241,8 @@ Therefore:
 
     Therefore, by Tannery's theorem:
     \[\lim_{n \to \infty} \int_{0}^{n} \left( 1 - \frac{x}{n} \right)^n x^p \, dx = \int_{0}^{\infty} e^{-x}x^p \, dx\]
-\end{enumerate}
+\end{enumerate}\qed
+
 
 \begin{problembox}[10.8: Fatou's lemma]
 Prove Fatou's lemma: Given a sequence $\{f_n\}$ of nonnegative functions in $L(I)$ such that (a) $\{f_n\}$ converges almost everywhere on $I$ to a limit function $f$, and (b) $\int_I f_n \leq A$ for some $A > 0$ and all $n \geq 1$. Then the limit function $f \in L(I)$ and $\int_I f \leq A$.
@@ -243,7 +252,7 @@ Prove Fatou's lemma: Given a sequence $\{f_n\}$ of nonnegative functions in $L(I
 \textbf{Hint.} Let $g_n(x) = \inf \{f_n(x), f_{n+1}(x), \ldots\}$. Then $g_n \to f$ a.e. on $I$ and $\int_I g_n \leq \int_I f_n \leq A$ so $\lim_{n \to \infty} \int_I g_n$ exists and is $\leq A$. Now apply Theorem 10.24.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Following the hint, let $g_n(x) = \inf \{f_n(x), f_{n+1}(x), \ldots\}$. Since each $f_k$ is nonnegative, we have $g_n(x) \geq 0$ for all $x \in I$.
 
 Since $\{f_n\}$ converges almost everywhere to $f$, for almost every $x \in I$, the sequence $\{f_n(x)\}$ converges to $f(x)$. This means that for almost every $x \in I$, we have:
@@ -258,8 +267,7 @@ The sequence $\{g_n\}$ is increasing because $g_n(x) = \inf \{f_n(x), f_{n+1}(x)
 Since $\{g_n\}$ is an increasing sequence of nonnegative measurable functions that converges almost everywhere to $f$, and $\int_I g_n \leq A$ for all $n$, by the Monotone Convergence Theorem (Theorem 10.24), we have:
 \[f \in L(I) \quad \text{and} \quad \int_I f = \lim_{n \to \infty} \int_I g_n \leq A\]
 
-This proves Fatou's lemma.
-
+This proves Fatou's lemma.\qed
 \section{Improper Riemann Integrals}
 
 \noindent\textbf{Definitions and theorems needed.}
@@ -270,6 +278,8 @@ This proves Fatou's lemma.
     \item Beta and Gamma functions and the relation to certain parameter integrals; change of variables and scaling.
     \item Periodic functions with mean zero and integration by parts in Stieltjes form $\int u\,dg$.
 \end{enumerate}
+
+
 
 \begin{problembox}[10.9: Existence of improper integrals]
 \begin{enumerate}[label=(\alph*)]
@@ -285,7 +295,7 @@ This proves Fatou's lemma.
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item For $p > 1$, let's use integration by parts. Let $u = x^{-p}$ and $dv = \sin x \, dx$. Then $du = -px^{-p-1} \, dx$ and $v = -\cos x$. We have:
     \[\int_1^b x^{-p} \sin x \, dx = \left[-x^{-p} \cos x\right]_1^b + p \int_1^b x^{-p-1} \cos x \, dx\]
@@ -311,7 +321,8 @@ This proves Fatou's lemma.
     \[\int_{1}^{m\pi} x^{-p} |\sin x| \, dx \geq \int_{\pi}^{m\pi} g(x) \, dx \geq \frac{\sqrt{2}}{4} \sum_{k=2}^{m} \frac{1}{k}\]
     
     Since the harmonic series $\sum_{k=2}^{\infty} \frac{1}{k}$ diverges, the integral $\int_1^\infty |x^{-p} \sin x| \, dx$ diverges, so the Lebesgue integral does not exist.
-\end{enumerate}
+\end{enumerate}\qed
+
 
 \begin{problembox}[10.10: Trigonometric integrals]
 \begin{enumerate}[label=(\alph*)]
@@ -326,7 +337,7 @@ This proves Fatou's lemma.
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item Using the identity $\sin 2x = 2 \sin x \cos x$, we have:
     \[\int_{0}^{\infty} \frac{\sin x \cos x}{x} \, dx = \frac{1}{2} \int_{0}^{\infty} \frac{\sin 2x}{x} \, dx = \frac{1}{2} \int_{0}^{\infty} \frac{\sin t}{t} \, dt = \frac{\pi}{4}\]
@@ -353,13 +364,14 @@ This proves Fatou's lemma.
     
     The boundary term vanishes, and using the identity $\sin^3 x \cos x = \frac{1}{4}(\sin 4x - 2\sin 2x)$, we get:
     \[\int_{0}^{\infty} \frac{\sin^4 x}{x^4} \, dx = \frac{1}{3} \int_{0}^{\infty} \frac{\sin 4x - 2\sin 2x}{x^3} \, dx = \frac{\pi}{3}\]
-\end{enumerate}
+\end{enumerate}\qed
+
 
 \begin{problembox}[10.11: Existence of logarithmic integrals]
 If $a > 1$, prove that the integral $\int_{a}^{+\infty} x^p (\log x)^q \, dx$ exists, both as an improper Riemann integral and as a Lebesgue integral for all $q$ if $p < -1$, or for $q < -1$ if $p = -1$.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Let's analyze the convergence of $\int_{a}^{+\infty} x^p (\log x)^q \, dx$.
 
 For $p < -1$, we can use the comparison test. Since $\log x > 1$ for $x > e$, we have $(\log x)^q > 1$ for $q \geq 0$ and $(\log x)^q < 1$ for $q < 0$. In either case, there exists a constant $C$ such that $|(\log x)^q| \leq C$ for all $x \geq a$.
@@ -371,7 +383,8 @@ For $p = -1$, we have $\int_{a}^{+\infty} \frac{(\log x)^q}{x} \, dx$. Making th
 
 This integral converges if and only if $q < -1$.
 
-For $p > -1$, the integral diverges because $x^p$ grows faster than any power of $\log x$ as $x \to \infty$.
+For $p > -1$, the integral diverges because $x^p$ grows faster than any power of $\log x$ as $x \to \infty$.\qed
+
 
 \begin{problembox}[10.12: Existence of integrals]
 Prove that each of the following integrals exists, both as an improper Riemann integral and as a Lebesgue integral.
@@ -381,7 +394,7 @@ Prove that each of the following integrals exists, both as an improper Riemann i
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item For $\int_{1}^{\infty} \sin^2 \frac{1}{x} \, dx$, we can use the identity $\sin^2 \frac{1}{x} = \frac{1}{2}(1 - \cos \frac{2}{x})$. Therefore:
     \[\int_{1}^{\infty} \sin^2 \frac{1}{x} \, dx = \frac{1}{2} \int_{1}^{\infty} \left(1 - \cos \frac{2}{x}\right) \, dx\]
@@ -397,7 +410,8 @@ Prove that each of the following integrals exists, both as an improper Riemann i
     For the second part, since $e^{-x^q}$ dominates any power of $x$ as $x \to \infty$, the integral converges. More precisely, for any $\epsilon > 0$, there exists $M > 0$ such that $x^pe^{-x^q} \leq e^{-(1-\epsilon)x^q}$ for $x \geq M$, and $\int_{M}^{\infty} e^{-(1-\epsilon)x^q} \, dx$ converges.
     
     Therefore, both the improper Riemann integral and the Lebesgue integral exist.
-\end{enumerate}
+\end{enumerate}\qed
+
 
 \begin{problembox}[10.13: Determine existence of integrals]
 Determine whether or not each of the following integrals exists, either as an improper Riemann integral or as a Lebesgue integral.
@@ -411,7 +425,7 @@ Determine whether or not each of the following integrals exists, either as an im
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item For $\int_{0}^{\infty} e^{-(t^2 + t^{-2})} \, dt$, we can split it into $\int_{0}^{1} e^{-(t^2 + t^{-2})} \, dt$ and $\int_{1}^{\infty} e^{-(t^2 + t^{-2})} \, dt$.
     
@@ -445,7 +459,8 @@ Determine whether or not each of the following integrals exists, either as an im
     \item For $\int_{0}^{\infty} e^{-x} \log (\cos^2 x) \, dx$, we have $\log (\cos^2 x) = 2 \log |\cos x|$. Since $|\cos x| \leq 1$, we have $\log |\cos x| \leq 0$. Therefore, $e^{-x} \log (\cos^2 x) \leq 0$ for all $x \geq 0$.
     
     However, $\log (\cos^2 x) = -\infty$ when $\cos x = 0$, which happens at $x = \frac{\pi}{2} + n\pi$ for $n = 0, 1, 2, \ldots$. This means the integrand is not defined at these points, and the integral does not exist.
-\end{enumerate}
+\end{enumerate}\qed
+
 
 \begin{problembox}[10.14: Parameter-dependent integrals]
 Determine those values of $p$ and $q$ for which the following Lebesgue integrals exist.
@@ -459,7 +474,7 @@ Determine those values of $p$ and $q$ for which the following Lebesgue integrals
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item For $\int_{0}^{1} x^p (1 - x^2)^q \, dx$, we need to check convergence at $x = 0$ and $x = 1$.
     
@@ -506,7 +521,8 @@ Determine those values of $p$ and $q$ for which the following Lebesgue integrals
     However, since we're integrating from $\pi$ to $\infty$, and $(\log x)^p$ grows slowly compared to the singularities of $(\sin x)^{-1/3}$, the integral diverges for all $p$.
     
     Therefore, the integral does not exist for any value of $p$.
-\end{enumerate}
+\end{enumerate}\qed
+
 
 \begin{problembox}[10.15: Integral evaluations]
 Prove that the following improper Riemann integrals have the values indicated ($m$ and $n$ denote positive integers).
@@ -517,7 +533,7 @@ Prove that the following improper Riemann integrals have the values indicated ($
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item For $\int_{0}^{\infty} \frac{\sin^{2n+1} x}{x} \, dx$, we can use the identity:
     \[\sin^{2n+1} x = \frac{1}{2^{2n}} \sum_{k=0}^{n} (-1)^k \binom{2n+1}{k} \sin((2n+1-2k)x)\]
@@ -535,13 +551,14 @@ Prove that the following improper Riemann integrals have the values indicated ($
     \[\int_{0}^{\infty} x^n (1 + x)^{n-m-1} \, dx = \int_{0}^{1} \left(\frac{u}{1-u}\right)^n (1-u)^{m-n} \frac{du}{(1-u)^2} = \int_{0}^{1} u^n (1-u)^{m-1} \, du\]
     
     This is the beta function $B(n+1, m) = \frac{\Gamma(n+1)\Gamma(m)}{\Gamma(n+m+1)} = \frac{n!(m-1)!}{(m+n)!}$.
-\end{enumerate}
+\end{enumerate}\qed
+
 
 \begin{problembox}[10.16: Periodic function integral]
 Given that $f$ is Riemann-integrable on $[0, 1]$, that $f$ is periodic with period 1, and that $\int_{0}^{1} f(x) \, dx = 0$. Prove that the improper Riemann integral $\int_{1}^{\infty} x^{-s} f(x) \, dx$ exists if $s > 0$. \textbf{Hint.} Let $g(x) = \int_{1}^{x} f(t) \, dt$ and write $\int_{1}^{x} x^{-s} f(x) \, dx = \int_{1}^{x} x^{-s} dg(x)$.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Following the hint, let $g(x) = \int_{1}^{x} f(t) \, dt$. Since $f$ is periodic with period 1 and $\int_{0}^{1} f(x) \, dx = 0$, we have that $g$ is also periodic with period 1. This is because:
 \[g(x+1) = \int_{1}^{x+1} f(t) \, dt = \int_{1}^{x} f(t) \, dt + \int_{x}^{x+1} f(t) \, dt = g(x) + \int_{0}^{1} f(t) \, dt = g(x)\]
 
@@ -556,7 +573,8 @@ Since $g(1) = 0$ and $|g(x)| \leq M$, we have:
 Also, since $|g(t)| \leq M$ and $s > 0$, we have:
 \[\int_{1}^{\infty} t^{-s-1} |g(t)| \, dt \leq M \int_{1}^{\infty} t^{-s-1} \, dt = \frac{M}{s}\]
 
-Therefore, the integral $\int_{1}^{\infty} t^{-s-1} g(t) \, dt$ converges absolutely, and hence the improper Riemann integral $\int_{1}^{\infty} x^{-s} f(x) \, dx$ exists for $s > 0$.
+Therefore, the integral $\int_{1}^{\infty} t^{-s-1} g(t) \, dt$ converges absolutely, and hence the improper Riemann integral $\int_{1}^{\infty} x^{-s} f(x) \, dx$ exists for $s > 0$.\qed
+
 
 \begin{problembox}[10.17: Limit of integral transformations]
 Assume that $f \in R$ on $[a, b]$ for every $b > a > 0$. Define $g$ by the equation $xg(x) = \int_{1}^{x} f(t) \, dt$ if $x > 0$, assume that the limit $\lim_{x \to +\infty} g(x)$ exists, and denote this limit by $B$. If $a$ and $b$ are fixed positive numbers, prove that
@@ -575,7 +593,7 @@ Assume that $f \in R$ on $[a, b]$ for every $b > a > 0$. Define $g$ by the equat
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item Since $xg(x) = \int_{1}^{x} f(t) \, dt$, we have $g(x) = \frac{1}{x} \int_{1}^{x} f(t) \, dt$. Differentiating both sides with respect to $x$, we get:
     \[g'(x) = -\frac{1}{x^2} \int_{1}^{x} f(t) \, dt + \frac{1}{x} f(x) = -\frac{g(x)}{x} + \frac{f(x)}{x}\]
@@ -629,8 +647,7 @@ Assume that $f \in R$ on $[a, b]$ for every $b > a > 0$. Define $g$ by the equat
     
     For $f(x) = e^{-x}$, we have $B = 0$ (since $e^{-x} \to 0$ as $x \to \infty$) and $A = 1$ (since $\int_{0}^{1} e^{-t} \, dt = 1 - e^{-1} \to 1$ as $x \to 0^+$). Therefore:
     \[\int_{0}^{\infty} \frac{e^{-ax} - e^{-bx}}{x} \, dx = -\log \frac{a}{b} = \log \frac{b}{a}\]
-\end{enumerate}
-
+\end{enumerate}\qed
 \section{Lebesgue integrals}
 
 \noindent\textbf{Definitions and theorems needed.}
@@ -640,6 +657,8 @@ Assume that $f \in R$ on $[a, b]$ for every $b > a > 0$. Define $g$ by the equat
     \item Monotone and Dominated Convergence Theorems; Fatou's Lemma for limit inferior.
     \item Use of local estimates on neighborhoods (e.g., around $n\pi$) and countable subadditivity to bound contributions.
 \end{enumerate}
+
+
 
 \begin{problembox}[10.18: Existence of Lebesgue integrals]
 Prove that each of the following exists as a Lebesgue integral.
@@ -651,7 +670,7 @@ Prove that each of the following exists as a Lebesgue integral.
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item For $\int_{0}^{1} \frac{x \log x}{(1 + x)^2} \, dx$, we need to check the behavior at $x = 0$ and $x = 1$.
     
@@ -681,19 +700,21 @@ Prove that each of the following exists as a Lebesgue integral.
     At $x = 1$, we have $\log (1 - x) \to -\infty$ and $(1 - x)^{1/2} \to 0$. The integrand behaves like $\frac{\log (1 - x)}{(1 - x)^{1/2}} \sim \frac{-\infty}{0}$, which is indeterminate. However, since $\log (1 - x) \sim -(1 - x)$ as $x \to 1^-$, the integrand behaves like $-(1 - x)^{1/2}$, which is integrable.
     
     Therefore, the Lebesgue integral exists.
-\end{enumerate}
+\end{enumerate}\qed
+
 
 \begin{problembox}[10.19: Existence of singular integral]
 Assume that $f$ is continuous on $[0, 1]$, $f(0) = 0$, $f'(0)$ exists. Prove that the Lebesgue integral $\int_{0}^{1} f(x)x^{-3/2} \, dx$ exists.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Since $f$ is continuous on $[0, 1]$, $f(0) = 0$, and $f'(0)$ exists, we have that $f(x) = f'(0)x + o(x)$ as $x \to 0^+$.
 
 Therefore, the integrand $f(x)x^{-3/2}$ behaves like:
 \[f(x)x^{-3/2} = (f'(0)x + o(x))x^{-3/2} = f'(0)x^{-1/2} + o(x^{-1/2})\]
 
-Since $\int_{0}^{1} x^{-1/2} \, dx$ converges (it equals 2), and the $o(x^{-1/2})$ term is dominated by $x^{-1/2}$ near $x = 0$, the Lebesgue integral $\int_{0}^{1} f(x)x^{-3/2} \, dx$ exists.
+Since $\int_{0}^{1} x^{-1/2} \, dx$ converges (it equals 2), and the $o(x^{-1/2})$ term is dominated by $x^{-1/2}$ near $x = 0$, the Lebesgue integral $\int_{0}^{1} f(x)x^{-3/2} \, dx$ exists.\qed
+
 
 \begin{problembox}[10.20: Existence/non-existence of integrals]
 Prove that the integrals in (a) and (c) exist as Lebesgue integrals but that those in (b) and (d) do not.
@@ -706,7 +727,7 @@ Prove that the integrals in (a) and (c) exist as Lebesgue integrals but that tho
 \textbf{Hint.} Obtain upper and lower bounds for the integrals over suitably chosen neighborhoods of the points $n\pi$ ($n = 1, 2, 3, \ldots$).
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item For $\int_{0}^{\infty} x^2 e^{-x^8 \sin^2 x} \, dx$, we have $e^{-x^8 \sin^2 x} \leq 1$ for all $x \geq 0$. Therefore, $x^2 e^{-x^8 \sin^2 x} \leq x^2$ for all $x \geq 0$.
     
@@ -739,8 +760,7 @@ Prove that the integrals in (a) and (c) exist as Lebesgue integrals but that tho
     \[\int_{n\pi - \frac{1}{n}}^{n\pi + \frac{1}{n}} \frac{dx}{1 + x^2 \sin^2 x} \geq \int_{n\pi - \frac{1}{n}}^{n\pi + \frac{1}{n}} \frac{dx}{1 + (n\pi + \frac{1}{n})^2 \cdot \frac{1}{n^2}} \geq \frac{2/n}{1 + \frac{(n\pi + 1)^2}{n^2}} \geq \frac{2/n}{1 + \pi^2} = \frac{2}{n(1 + \pi^2)}\]
     
     Since $\sum_{n=1}^{\infty} \frac{1}{n}$ diverges, the Lebesgue integral does not exist.
-\end{enumerate}
-
+\end{enumerate}\qed
 \section{Functions defined by integrals}
 
 \noindent\textbf{Definitions and theorems needed.}
@@ -752,6 +772,8 @@ Prove that the integrals in (a) and (c) exist as Lebesgue integrals but that tho
     \item Integration by parts with functions of bounded variation (Riemann–Stieltjes viewpoint) for transform limits.
 \end{enumerate}
 
+
+
 \begin{problembox}[10.21: Domain of integral functions]
 Determine the set $S$ of those real values of $y$ for which each of the following integrals exists as a Lebesgue integral.
 \begin{enumerate}[label=(\alph*)]
@@ -762,7 +784,7 @@ Determine the set $S$ of those real values of $y$ for which each of the followin
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item For $\int_{0}^{\infty} \frac{\cos xy}{1 + x^2} \, dx$, we have $|\cos xy| \leq 1$ for all $x, y \in \mathbb{R}$. Therefore, $|\frac{\cos xy}{1 + x^2}| \leq \frac{1}{1 + x^2}$ for all $x \geq 0$.
     
@@ -791,13 +813,14 @@ Determine the set $S$ of those real values of $y$ for which each of the followin
     Since $\int_{0}^{\infty} e^{-x^2} \, dx = \frac{\sqrt{\pi}}{2}$ converges, the Lebesgue integral exists for all $y \in \mathbb{R}$. In fact, $\int_{0}^{\infty} e^{-x^2} \cos 2xy \, dx = \frac{\sqrt{\pi}}{2} e^{-y^2}$ for all $y \in \mathbb{R}$.
     
     Therefore, $S = \mathbb{R}$.
-\end{enumerate}
+\end{enumerate}\qed
+
 
 \begin{problembox}[10.22: Differential equation for integral]
 Let $F(y) = \int_{0}^{\infty} e^{-x^2} \cos 2xy \, dx$ if $y \in \mathbb{R}$. Show that $F$ satisfies the differential equation $F'(y) + 2y F(y) = 0$ and deduce that $F(y) = \frac{1}{2} \sqrt{\pi} e^{-y^2}$. (Use the result $\int_{0}^{\infty} e^{-x^2} \, dx = \frac{1}{2} \sqrt{\pi}$, derived in Exercise 7.19.)
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 We can differentiate under the integral sign to find $F'(y)$:
 \[F'(y) = \int_{0}^{\infty} e^{-x^2} \frac{d}{dy} \cos 2xy \, dx = -2 \int_{0}^{\infty} e^{-x^2} x \sin 2xy \, dx\]
 
@@ -813,7 +836,8 @@ Therefore:
 This shows that $F$ satisfies the differential equation $F'(y) + 2y F(y) = 0$.
 
 The general solution to this differential equation is $F(y) = C e^{-y^2}$ for some constant $C$. To find $C$, we use the fact that $F(0) = \int_{0}^{\infty} e^{-x^2} \, dx = \frac{1}{2} \sqrt{\pi}$. Therefore, $C = \frac{1}{2} \sqrt{\pi}$, and we have:
-\[F(y) = \frac{1}{2} \sqrt{\pi} e^{-y^2}\]
+\[F(y) = \frac{1}{2} \sqrt{\pi} e^{-y^2}\]\qed
+
 
 \begin{problembox}[10.23: Integral with trigonometric kernel]
 Let $F(y) = \int_{0}^{\infty} \frac{\sin xy}{x(x^2 + 1)} \, dx$ if $y > 0$. Show that $F$ satisfies the differential equation $F''(y) - F(y) + \pi / 2 = 0$ and deduce that $F(y) = \frac{1}{2} \pi (1 - e^{-y})$. Use this result to deduce the following equations, valid for $y > 0$ and $a > 0$:
@@ -825,7 +849,7 @@ Let $F(y) = \int_{0}^{\infty} \frac{\sin xy}{x(x^2 + 1)} \, dx$ if $y > 0$. Show
 \textbf{Note.} You may use $\int_{0}^{\infty} \frac{\sin x}{x} \, dx = \frac{\pi}{2}.$
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 First, let's find $F'(y)$ and $F''(y)$ by differentiating under the integral sign:
 \[F'(y) = \int_{0}^{\infty} \frac{\cos xy}{x^2 + 1} \, dx\]
 \[F''(y) = -\int_{0}^{\infty} \frac{x \sin xy}{x^2 + 1} \, dx\]
@@ -854,7 +878,8 @@ For the second integral, we can use integration by parts:
 \[\int_{0}^{\infty} \frac{\cos xy}{x^2 + a^2} \, dx = \frac{1}{a} \int_{0}^{\infty} \frac{\cos xy}{1 + (x/a)^2} \, dx = \frac{1}{a} \cdot \frac{\pi}{2} e^{-ay} = \frac{\pi e^{-ay}}{2a}\]
 
 For the third integral, we can use the fact that:
-\[\int_{0}^{\infty} \frac{x \sin xy}{x^2 + a^2} \, dx = \frac{d}{dy} \int_{0}^{\infty} \frac{\cos xy}{x^2 + a^2} \, dx = \frac{d}{dy} \left(\frac{\pi e^{-ay}}{2a}\right) = \frac{\pi}{2} e^{-ay}\]
+\[\int_{0}^{\infty} \frac{x \sin xy}{x^2 + a^2} \, dx = \frac{d}{dy} \int_{0}^{\infty} \frac{\cos xy}{x^2 + a^2} \, dx = \frac{d}{dy} \left(\frac{\pi e^{-ay}}{2a}\right) = \frac{\pi}{2} e^{-ay}\]\qed
+
 
 \begin{problembox}[10.24: Non-interchangeable iterated integrals]
 Show that $\int_{1}^{\infty} \left[ \int_{1}^{\infty} f(x, y) \, dx \right] dy \neq \int_{1}^{\infty} \left[ \int_{1}^{\infty} f(x, y) \, dy \right] dx$ if
@@ -864,7 +889,7 @@ Show that $\int_{1}^{\infty} \left[ \int_{1}^{\infty} f(x, y) \, dx \right] dy \
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item For $f(x, y) = \frac{x - y}{(x + y)^3}$, let's compute both iterated integrals.
     
@@ -906,7 +931,8 @@ Show that $\int_{1}^{\infty} \left[ \int_{1}^{\infty} f(x, y) \, dx \right] dy \
     \[\int_{1}^{\infty} f(x, y) \, dy = \int_{1}^{\infty} \frac{x^2 - y^2}{(x^2 + y^2)^2} \, dy = \int_{1}^{\infty} \frac{x^2 + y^2 - 2x^2}{(x^2 + y^2)^2} \, dy = \int_{1}^{\infty} \frac{1}{x^2 + y^2} \, dy - 2x^2 \int_{1}^{\infty} \frac{1}{(x^2 + y^2)^2} \, dy\]
     
     The integrals are different because the order of integration affects the convergence properties and the final values.
-\end{enumerate}
+\end{enumerate}\qed
+
 
 \begin{problembox}[10.25: Non-interchangeable integration order]
 Show that the order of integration cannot be interchanged in the following integrals:
@@ -916,7 +942,7 @@ Show that the order of integration cannot be interchanged in the following integ
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item For $\int_{0}^{1} \left[ \int_{0}^{1} \frac{x - y}{(x + y)^{3}} \, dx \right] dy$, let's compute both orders.
     
@@ -955,14 +981,15 @@ Show that the order of integration cannot be interchanged in the following integ
     \[\int_{1}^{\infty} \left[ \int_{0}^{1} (e^{-xy} - 2e^{-2xy}) \, dx \right] dy = \int_{1}^{\infty} \frac{e^{-2y} - e^{-y}}{y} \, dy\]
     
     This integral also converges. The order of integration can be interchanged in this case as well.
-\end{enumerate}
+\end{enumerate}\qed
+
 
 \begin{problembox}[10.26: Integral evaluation via iterated integral]
 Let $f(x, y) = \int_{0}^{\infty} dt / [(1 + x^{2}t^{2})(1 + y^{2}t^{2})]$ if $(x, y) \neq (0, 0)$. Show (by methods of elementary calculus) that $f(x, y) = \frac{1}{2}\pi(x + y)^{-1}$. Evaluate the iterated integral $\int_{0}^{1} \left[ \int_{0}^{1} f(x, y) \, dx \right] dy$ to derive the formula:
 \[\int_{0}^{\infty} \frac{(\arctan x)^{2}}{x^{2}} \, dx = \pi \log 2.\]
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 First, let's evaluate $f(x, y) = \int_{0}^{\infty} \frac{dt}{(1 + x^{2}t^{2})(1 + y^{2}t^{2})}$.
 
 Using partial fractions, we can write:
@@ -998,7 +1025,8 @@ By Fubini's theorem, this equals:
 \[= \int_{0}^{\infty} \left[ \frac{\arctan(t)}{t} \right]^{2} \, dt = \int_{0}^{\infty} \frac{(\arctan t)^{2}}{t^{2}} \, dt\]
 
 Therefore:
-\[\int_{0}^{\infty} \frac{(\arctan x)^{2}}{x^{2}} \, dx = \pi \log 2\]
+\[\int_{0}^{\infty} \frac{(\arctan x)^{2}}{x^{2}} \, dx = \pi \log 2\]\qed
+
 
 \begin{problembox}[10.27: Trigonometric integral evaluation]
 Let $f(y) = \int_{0}^{\infty} \frac{\sin x \cos xy}{x} \, dx$ if $y \geq 0$. Show (by methods of elementary calculus) that $f(y) = \pi/2$ if $0 \leq y < 1$ and that $f(y) = 0$ if $y > 1$. Evaluate the integral $\int_{0}^{1} f(y) \, dy$ to derive the formula
@@ -1008,7 +1036,7 @@ Let $f(y) = \int_{0}^{\infty} \frac{\sin x \cos xy}{x} \, dx$ if $y \geq 0$. Sho
 \end{cases}\]
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Using the trigonometric identity $\sin x \cos xy = \frac{1}{2}[\sin(x(1+y)) + \sin(x(1-y))]$, we have:
 \[f(y) = \frac{1}{2} \int_{0}^{\infty} \frac{\sin(x(1+y))}{x} \, dx + \frac{1}{2} \int_{0}^{\infty} \frac{\sin(x(1-y))}{x} \, dx\]
 
@@ -1028,7 +1056,8 @@ Therefore, $\int_{0}^{\infty} \frac{\sin^2 x}{x^2} \, dx = \frac{\pi}{2}$.
 For the general case, we can use the substitution $t = ax$ to get:
 \[\int_{0}^{\infty} \frac{\sin ax \sin x}{x^2} \, dx = a \int_{0}^{\infty} \frac{\sin t \sin(t/a)}{t^2} \, dt\]
 
-If $0 \leq a \leq 1$, this equals $\frac{\pi a}{2}$. If $a \geq 1$, this equals $\frac{\pi}{2}$.
+If $0 \leq a \leq 1$, this equals $\frac{\pi a}{2}$. If $a \geq 1$, this equals $\frac{\pi}{2}$.\qed
+
 
 \begin{problembox}[10.28: Series of integrals]
 \begin{enumerate}[label=(\alph*)]
@@ -1042,7 +1071,7 @@ If $0 \leq a \leq 1$, this equals $\frac{\pi a}{2}$. If $a \geq 1$, this equals 
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item For each $n$, we have $|\sin 2n\pi x| \leq 1$, so:
     \[\left|\int_{a}^{\infty} \frac{\sin 2n\pi x}{x^{s}} \, dx\right| \leq \int_{a}^{\infty} \frac{1}{x^{s}} \, dx = \frac{a^{1-s}}{s-1} \quad \text{if } s > 1\]
@@ -1064,7 +1093,8 @@ If $0 \leq a \leq 1$, this equals $\frac{\pi a}{2}$. If $a \geq 1$, this equals 
     
     \item The function $f(x) = \sum_{n=1}^{\infty} \frac{\sin(2n\pi x)}{n}$ is the Fourier series for a sawtooth wave. We can interchange the sum and integral:
     \[\int_{0}^{\infty} \frac{f(x)}{x^{s}} \, dx = \sum_{n=1}^{\infty} \frac{1}{n} \int_{0}^{\infty} \frac{\sin(2n\pi x)}{x^{s}} \, dx = \sum_{n=1}^{\infty} \frac{1}{n} (2n\pi)^{s-1} \int_{0}^{\infty} \frac{\sin t}{t^{s}} \, dt = (2\pi)^{s-1} \zeta(2-s) \int_{0}^{\infty} \frac{\sin t}{t^{s}} \, dt\]
-\end{enumerate}
+\end{enumerate}\qed
+
 
 \begin{problembox}[10.29: Derivatives of Gamma function]
 \begin{enumerate}[label=(\alph*)]
@@ -1076,7 +1106,7 @@ If $0 \leq a \leq 1$, this equals $\frac{\pi a}{2}$. If $a \geq 1$, this equals 
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item We can differentiate under the integral sign:
     \[\Gamma^{(n)}(x) = \frac{d^{n}}{dx^{n}} \int_{0}^{\infty} e^{-t} t^{x-1} \, dt = \int_{0}^{\infty} e^{-t} \frac{d^{n}}{dx^{n}} t^{x-1} \, dt = \int_{0}^{\infty} e^{-t} t^{x-1} (\log t)^{n} \, dt\]
@@ -1091,13 +1121,14 @@ If $0 \leq a \leq 1$, this equals $\frac{\pi a}{2}$. If $a \geq 1$, this equals 
     \[\Gamma^{(n)}(1) = \int_{0}^{1} e^{-t} (\log t)^{n} \, dt + (-1)^{n} \int_{0}^{1} e^{-1/t} (\log t)^{n} \cdot \frac{dt}{t^{2}} = \int_{0}^{1} (e^{-t} + (-1)^{n} e^{-1/t} t^{-2}) (\log t)^{n} \, dt\]
     
     \item Since $e^{-t} + (-1)^{n} e^{-1/t} t^{-2} > 0$ for all $t > 0$ and $n \geq 0$, and $(\log t)^{n}$ has the same sign as $(-1)^{n}$ for $0 < t < 1$, we have that $\Gamma^{(n)}(1)$ has the same sign as $(-1)^{n}$.
-\end{enumerate}
+\end{enumerate}\qed
+
 
 \begin{problembox}[10.30: Properties of Gamma function]
 Use the result $\int_{0}^{\infty} e^{-x^{2}} \, dx = \frac{1}{2} \sqrt{\pi}$ to prove that $\Gamma(\frac{1}{2}) = \sqrt{\pi}$. Prove that $\Gamma(n + 1) = n!$ and that $\Gamma(n + \frac{1}{2}) = (2n)! \sqrt{\pi}/4^{n}n!$ if $n = 0, 1, 2, \ldots$.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 First, let's prove that $\Gamma(\frac{1}{2}) = \sqrt{\pi}$:
 \[\Gamma\left(\frac{1}{2}\right) = \int_{0}^{\infty} e^{-t} t^{-1/2} \, dt = 2 \int_{0}^{\infty} e^{-u^{2}} \, du = 2 \cdot \frac{1}{2} \sqrt{\pi} = \sqrt{\pi}\]
 where we made the substitution $t = u^{2}$.
@@ -1108,7 +1139,8 @@ Next, let's prove that $\Gamma(n + 1) = n!$ by induction:
 \[\Gamma(n + 1) = \int_{0}^{\infty} e^{-t} t^{n} \, dt = \left[-e^{-t} t^{n}\right]_{0}^{\infty} + n \int_{0}^{\infty} e^{-t} t^{n-1} \, dt = n \Gamma(n) = n \cdot (n-1)! = n!\]
 
 Finally, let's prove that $\Gamma(n + \frac{1}{2}) = (2n)! \sqrt{\pi}/4^{n}n!$:
-\[\Gamma\left(n + \frac{1}{2}\right) = \left(n - \frac{1}{2}\right) \Gamma\left(n - \frac{1}{2}\right) = \left(n - \frac{1}{2}\right) \left(n - \frac{3}{2}\right) \cdots \frac{1}{2} \Gamma\left(\frac{1}{2}\right) = \frac{(2n-1)(2n-3) \cdots 1}{2^{n}} \sqrt{\pi} = \frac{(2n)!}{2^{n} n!} \sqrt{\pi} = \frac{(2n)! \sqrt{\pi}}{4^{n} n!}\]
+\[\Gamma\left(n + \frac{1}{2}\right) = \left(n - \frac{1}{2}\right) \Gamma\left(n - \frac{1}{2}\right) = \left(n - \frac{1}{2}\right) \left(n - \frac{3}{2}\right) \cdots \frac{1}{2} \Gamma\left(\frac{1}{2}\right) = \frac{(2n-1)(2n-3) \cdots 1}{2^{n}} \sqrt{\pi} = \frac{(2n)!}{2^{n} n!} \sqrt{\pi} = \frac{(2n)! \sqrt{\pi}}{4^{n} n!}\]\qed
+
 
 \begin{problembox}[10.31: Series representation of Gamma function]
 \begin{enumerate}[label=(\alph*)]
@@ -1119,7 +1151,7 @@ Finally, let's prove that $\Gamma(n + \frac{1}{2}) = (2n)! \sqrt{\pi}/4^{n}n!$:
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item Following the hint, we write:
     \[\Gamma(x) = \int_0^1 e^{-t} t^{x-1} \, dt + \int_1^\infty e^{-t} t^{x-1} \, dt\]
@@ -1136,7 +1168,8 @@ Finally, let's prove that $\Gamma(n + \frac{1}{2}) = (2n)! \sqrt{\pi}/4^{n}n!$:
     \item The power series $\sum_{n=0}^{\infty} c_n z^n$ converges for every complex $z$ because $|c_n| \leq \frac{1}{n!} \int_1^\infty e^{-t} |\log t|^n \, dt$ and this integral grows at most exponentially with $n$.
     
     The series $\sum_{n=0}^{\infty} [(-1)^n / n!]/(n + z)$ converges for every complex $z \neq 0, -1, -2, \ldots$ because the terms are bounded by $\frac{1}{n! |n + z|}$ and $\sum_{n=0}^{\infty} \frac{1}{n!}$ converges.
-\end{enumerate}
+\end{enumerate}\qed
+
 
 \begin{problembox}[10.32: Limit of Laplace transform]
 Assume that $f$ is of bounded variation on $[0, b]$ for every $b > 0$, and that $\lim_{x \to +\infty} f(x)$ exists. Denote this limit by $f(\infty)$ and prove that
@@ -1144,25 +1177,25 @@ Assume that $f$ is of bounded variation on $[0, b]$ for every $b > 0$, and that 
 \textbf{Hint.} Use integration by parts.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Using integration by parts with $u = f(x)$ and $dv = e^{-xy} \, dx$, we get:
 \[\int_0^\infty e^{-xy}f(x) \, dx = \left[-\frac{e^{-xy}}{y} f(x)\right]_0^\infty + \frac{1}{y} \int_0^\infty e^{-xy} \, df(x)\]
 
 Since $f$ is of bounded variation, the integral $\int_0^\infty e^{-xy} \, df(x)$ converges. Therefore:
-\[\lim_{y \to 0+} y \int_0^\infty e^{-xy}f(x) \, dx = \lim_{y \to 0+} \left[-e^{-xy} f(x)\right]_0^\infty + \lim_{y \to 0+} \int_0^\infty e^{-xy} \, df(x) = f(\infty) - f(0) + \int_0^\infty \, df(x) = f(\infty)\]
+\[\lim_{y \to 0+} y \int_0^\infty e^{-xy}f(x) \, dx = \lim_{y \to 0+} \left[-e^{-xy} f(x)\right]_0^\infty + \lim_{y \to 0+} \int_0^\infty e^{-xy} \, df(x) = f(\infty) - f(0) + \int_0^\infty \, df(x) = f(\infty)\]\qed
+
 
 \begin{problembox}[10.33: Limit of Mellin transform]
 Assume that $f$ is of bounded variation on $[0, 1]$. Prove that
 \[\lim_{y \to 0+} y \int_0^1 x^{y-1}f(x) \, dx = f(0+).\]
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Using integration by parts with $u = f(x)$ and $dv = x^{y-1} \, dx$, we get:
 \[\int_0^1 x^{y-1}f(x) \, dx = \left[\frac{x^y}{y} f(x)\right]_0^1 - \frac{1}{y} \int_0^1 x^y \, df(x) = \frac{f(1)}{y} - \frac{1}{y} \int_0^1 x^y \, df(x)\]
 
 Since $f$ is of bounded variation, the integral $\int_0^1 x^y \, df(x)$ converges. Therefore:
-\[\lim_{y \to 0+} y \int_0^1 x^{y-1}f(x) \, dx = \lim_{y \to 0+} f(1) - \lim_{y \to 0+} \int_0^1 x^y \, df(x) = f(1) - \int_0^1 \, df(x) = f(0+)\]
-
+\[\lim_{y \to 0+} y \int_0^1 x^{y-1}f(x) \, dx = \lim_{y \to 0+} f(1) - \lim_{y \to 0+} \int_0^1 x^y \, df(x) = f(1) - \int_0^1 \, df(x) = f(0+)\]\qed
 \section{Measurable functions}
 
 \noindent\textbf{Definitions and theorems needed.}
@@ -1172,17 +1205,20 @@ Since $f$ is of bounded variation, the integral $\int_0^1 x^y \, df(x)$ converge
     \item Properties of Lebesgue measure: translation invariance, countable additivity; Vitali construction idea for nonmeasurable sets.
 \end{enumerate}
 
+
+
 \begin{problembox}[10.34: Measurability of derivative]
 If $f$ is Lebesgue-integrable on an open interval $I$ and if $f'(x)$ exists almost everywhere on $I$, prove that $f'$ is measurable on $I$.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Since $f$ is Lebesgue-integrable on $I$, it is measurable. The derivative $f'(x)$ can be written as the limit of measurable functions:
 \[f'(x) = \lim_{h \to 0} \frac{f(x + h) - f(x)}{h}\]
 
 For each $h \neq 0$, the function $\frac{f(x + h) - f(x)}{h}$ is measurable because it's a linear combination of measurable functions (translations of $f$).
 
-Since the limit of measurable functions is measurable (when the limit exists), and $f'(x)$ exists almost everywhere on $I$, we have that $f'$ is measurable on $I$.
+Since the limit of measurable functions is measurable (when the limit exists), and $f'(x)$ exists almost everywhere on $I$, we have that $f'$ is measurable on $I$.\qed
+
 
 \begin{problembox}[10.35: Measurable functions]
 \begin{enumerate}[label=(\alph*)]
@@ -1192,7 +1228,7 @@ Since the limit of measurable functions is measurable (when the limit exists), a
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item Let $x \in f^{-1}((a, +\infty))$. Then $f(x) > a$. Since $s_n(x) \to f(x)$, there exists $N$ such that for all $n \geq N$, we have $s_n(x) > a + \frac{1}{n}$. Therefore, $x \in \bigcap_{k=n}^\infty s_k^{-1}((a + \frac{1}{n}, +\infty))$ for some $n$, so $x \in \bigcup_{n=1}^\infty \bigcap_{k=n}^\infty s_k^{-1}((a + \frac{1}{n}, +\infty))$.
     
@@ -1203,7 +1239,8 @@ Since the limit of measurable functions is measurable (when the limit exists), a
     We have $f^{-1}((a, b)) = f^{-1}((a, +\infty)) \cap f^{-1}((-\infty, b)) = f^{-1}((a, +\infty)) \cap f^{-1}((b, +\infty))^c$.
     
     Since $f$ is measurable, $f^{-1}((a, +\infty))$ and $f^{-1}((b, +\infty))$ are measurable, so their intersection and complement are also measurable.
-\end{enumerate}
+\end{enumerate}\qed
+
 
 \begin{problembox}[10.36: Nonmeasurable set example]
 This exercise describes an example of a nonmeasurable set in $\mathbb{R}$. If $x$ and $y$ are real numbers in the interval $[0, 1]$, we say that $x$ and $y$ are equivalent, written $x \sim y$, whenever $x - y$ is rational. The relation $\sim$ is an equivalence relation, and the interval $[0, 1]$ can be expressed as a disjoint union of subsets (called equivalence classes) in each of which no two distinct points are equivalent. Choose a point from each equivalence class and let $E$ be the set of points so chosen. We assume that $E$ is measurable and obtain a contradiction. Let $A = \{r_1, r_2, \ldots \}$ denote the set of rational numbers in $[-1, 1]$ and let $E_n = \{r_n + x : x \in E\}$.
@@ -1214,7 +1251,7 @@ This exercise describes an example of a nonmeasurable set in $\mathbb{R}$. If $x
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item Each $E_n$ is measurable because it's a translation of $E$ by a rational number, and translations preserve measurability. Since translations also preserve measure, we have $\mu(E_n) = \mu(E)$.
     
@@ -1234,19 +1271,19 @@ This exercise describes an example of a nonmeasurable set in $\mathbb{R}$. If $x
     If $\mu(E) > 0$, then $\sum_{n=1}^{\infty} \mu(E) = \infty > 3$, a contradiction.
     
     Therefore, $E$ cannot be measurable.
-\end{enumerate}
+\end{enumerate}\qed
+
 
 \begin{problembox}[10.37: Nonmeasurable function]
 Refer to Exercise 10.36 and prove that the characteristic function $\chi_E$ is not measurable. Let $f = \chi_E - \chi_{I-E}$ where $I = [0, 1]$. Prove that $|f| \in L(I)$ but that $f \notin M(I)$. (Compare with Corollary 1 of Theorem 10.35.)
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 The characteristic function $\chi_E$ is not measurable because $E$ is not measurable. If $\chi_E$ were measurable, then $E = \chi_E^{-1}(\{1\})$ would be measurable, which contradicts Exercise 10.36.
 
 For the function $f = \chi_E - \chi_{I-E}$, we have $|f| = 1$ everywhere on $I$, so $|f| \in L(I)$ because $\int_I |f| = 1$.
 
-However, $f$ is not measurable because if it were, then $\chi_E = \frac{f + |f|}{2}$ would also be measurable, which contradicts the first part.
-
+However, $f$ is not measurable because if it were, then $\chi_E = \frac{f + |f|}{2}$ would also be measurable, which contradicts the first part.\qed
 \section{Square-integrable functions}
 
 \noindent\textbf{Definitions and theorems needed.}
@@ -1257,35 +1294,39 @@ However, $f$ is not measurable because if it were, then $\chi_E = \frac{f + |f|}
     \item Continuity of the map $f\mapsto \int f\,g$ on $L^2$ (bounded linear functional) and product estimates via Cauchy–Schwarz to pass to limits in $\int f_ng_n$.
 \end{enumerate}
 
+
+
 \begin{problembox}[10.38: Norm convergence]
 If $\lim_{n \to \infty} \| f_n - f \| = 0$, prove that $\lim_{n \to \infty} \| f_n \| = \| f \|$.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 By the triangle inequality, we have:
 \[|\| f_n \| - \| f \|| \leq \| f_n - f \|\]
 
 Since $\lim_{n \to \infty} \| f_n - f \| = 0$, we have:
 \[\lim_{n \to \infty} |\| f_n \| - \| f \|| = 0\]
 
-Therefore, $\lim_{n \to \infty} \| f_n \| = \| f \|$.
+Therefore, $\lim_{n \to \infty} \| f_n \| = \| f \|$.\qed
+
 
 \begin{problembox}[10.39: Almost everywhere convergence]
 If $\lim_{n \to \infty} \| f_n - f \| = 0$ and if $\lim_{n \to \infty} f_n(x) = g(x)$ almost everywhere on $I$, prove that $f(x) = g(x)$ almost everywhere on $I$.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Since $\lim_{n \to \infty} \| f_n - f \| = 0$, we have that $\{f_n\}$ converges to $f$ in $L^2$ norm. By the Riesz-Fischer theorem, there exists a subsequence $\{f_{n_k}\}$ that converges to $f$ almost everywhere.
 
 Since $\lim_{n \to \infty} f_n(x) = g(x)$ almost everywhere, the subsequence $\{f_{n_k}\}$ also converges to $g(x)$ almost everywhere.
 
-Therefore, $f(x) = g(x)$ almost everywhere on $I$.
+Therefore, $f(x) = g(x)$ almost everywhere on $I$.\qed
+
 
 \begin{problembox}[10.40: Uniform convergence]
 If $f_n \to f$ uniformly on a compact interval $I$, and if each $f_n$ is continuous on $I$, prove that $\lim_{n \to \infty} \| f_n - f \| = 0$.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Since $f_n \to f$ uniformly on $I$, for any $\epsilon > 0$, there exists $N$ such that for all $n \geq N$ and all $x \in I$, we have $|f_n(x) - f(x)| < \epsilon$.
 
 Therefore:
@@ -1293,26 +1334,28 @@ Therefore:
 
 Since $I$ is compact, it has finite length, so $\| f_n - f \| \leq \epsilon \sqrt{\text{length}(I)}$ for all $n \geq N$.
 
-Therefore, $\lim_{n \to \infty} \| f_n - f \| = 0$.
+Therefore, $\lim_{n \to \infty} \| f_n - f \| = 0$.\qed
+
 
 \begin{problembox}[10.41: Weak convergence]
 If $\lim_{n \to \infty} \| f_n - f \| = 0$, prove that $\lim_{n \to \infty} \int_0^x f_n \cdot g = \int_0^x f \cdot g$ for every $g$ in $L^2(I)$.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 By the Cauchy-Schwarz inequality, we have:
 \[\left|\int_0^x f_n \cdot g - \int_0^x f \cdot g\right| = \left|\int_0^x (f_n - f) \cdot g\right| \leq \int_0^x |(f_n - f) \cdot g| \leq \| f_n - f \| \cdot \| g \|\]
 
 Since $\lim_{n \to \infty} \| f_n - f \| = 0$, we have:
 \[\lim_{n \to \infty} \left|\int_0^x f_n \cdot g - \int_0^x f \cdot g\right| = 0\]
 
-Therefore, $\lim_{n \to \infty} \int_0^x f_n \cdot g = \int_0^x f \cdot g$.
+Therefore, $\lim_{n \to \infty} \int_0^x f_n \cdot g = \int_0^x f \cdot g$.\qed
+
 
 \begin{problembox}[10.42: Product convergence]
 If $\lim_{n \to \infty} \| f_n - f \| = 0$ and $\lim_{n \to \infty} \| g_n - g \| = 0$, prove that $\lim_{n \to \infty} \int_0^x f_n \cdot g_n = \int_0^x f \cdot g$.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 We can write:
 \[\int_0^x f_n \cdot g_n - \int_0^x f \cdot g = \int_0^x (f_n - f) \cdot g_n + \int_0^x f \cdot (g_n - g)\]
 

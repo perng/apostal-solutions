@@ -9,11 +9,13 @@
     \item \textbf{Polar/Spherical coordinates}: In $\mathbb R^2$, $x=r\cos\theta,\ y=r\sin\theta$; in $\mathbb R^3$, $x=r\cos\theta\sin\varphi,\ y=r\sin\theta\sin\varphi,\ z=r\cos\varphi$.
     \item \textbf{Matrix determinant lemma}: $\det(I+uv^{\!T})=1+v^{\!T}u$ for compatible vectors $u,v$.
 \end{enumerate}
+
+
 \begin{problembox}[13.1: Complex Function Jacobian]
 Let \( f \) be the complex-valued function defined for each complex \( z \neq 0 \) by the equation \( f(z) = 1/\bar{z} \). Show that \( J_f(z) = -|z|^{-4} \). Show that \( f \) is one-to-one and compute \( f^{-1} \) explicitly.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Write $z=x+iy$, so $\bar z=x-iy$ and $f(z)=1/\bar z=\dfrac{x+iy}{x^2+y^2}$. Therefore
 \[u(x,y)=\frac{x}{x^2+y^2},\quad v(x,y)=\frac{y}{x^2+y^2}.
 \]
@@ -23,7 +25,8 @@ Compute
 Thus
 \[J_f=u_xv_y-u_yv_x=-\frac{(x^2+y^2)^2}{(x^2+y^2)^4}=-|z|^{-4}.
 \]
-Moreover, $w=f(z)=1/\bar z$ implies $\bar w=1/z$, so $z=1/\bar w$. Hence $f$ is one-to-one with inverse $f^{-1}(w)=1/\bar w$.
+Moreover, $w=f(z)=1/\bar z$ implies $\bar w=1/z$, so $z=1/\bar w$. Hence $f$ is one-to-one with inverse $f^{-1}(w)=1/\bar w$.\qed
+
 
 \begin{problembox}[13.2: Vector-Valued Function Jacobian]
 Let \( f = (f_1, f_2, f_3) \) be the vector-valued function defined (for every point \( (x_1, x_2, x_3) \) in \( R^3 \) for which \( x_1 + x_2 + x_3 \neq -1 \)) as follows:
@@ -31,7 +34,7 @@ Let \( f = (f_1, f_2, f_3) \) be the vector-valued function defined (for every p
 Show that \( J_f(x_1, x_2, x_3) = (1 + x_1 + x_2 + x_3)^{-4} \). Show that \( f \) is one-to-one and compute \( f^{-1} \) explicitly.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Let $S=x_1+x_2+x_3$ and $m=(1+S)^{-1}$. Then $f_i=x_im$ and
 \[\frac{\partial f_i}{\partial x_j}=m\,\delta_{ij}-m^2 x_i=(mI-m^2xe^{\!T})_{ij},\]
 where $x=(x_1,x_2,x_3)^{\!T}$ and $e=(1,1,1)^{\!T}$. Hence
@@ -39,17 +42,19 @@ where $x=(x_1,x_2,x_3)^{\!T}$ and $e=(1,1,1)^{\!T}$. Hence
 \]
 Solving $y_i=\dfrac{x_i}{1+S}$ gives $x_i=Ty_i$ with $T=1+S$. Summing yields $S=T\sum y_i$, so $T(1-\sum y_i)=1$ and $T=\dfrac{1}{1-\sum y_i}$. Therefore
 \[f^{-1}(y)=\left(\frac{y_1}{1-\sum y_i},\frac{y_2}{1-\sum y_i},\frac{y_3}{1-\sum y_i}\right),\]
-valid when $\sum y_i\neq 1$. Thus $f$ is one-to-one on its domain.
+valid when $\sum y_i\neq 1$. Thus $f$ is one-to-one on its domain.\qed
+
 
 \begin{problembox}[13.3: Composition of Functions Jacobian]
 Let \( f = (f_1, \ldots, f_n) \) be a vector-valued function defined in \( R^n \), suppose \( f \in C' \) on \( R^n \), and let \( J_f(x) \) denote the Jacobian determinant. Let \( g_1, \ldots, g_n \) be \( n \) real-valued functions defined on \( R^1 \) and having continuous derivatives \( g'_1, \ldots, g'_n \). Let \( h_k(x) = f_k[g_1(x_1), \ldots, g_n(x_n)], k = 1, 2, \ldots, n \), and put \( h = (h_1, \ldots, h_n) \). Show that
 \[J_h(x) = J_f[g_1(x_1), \ldots, g_n(x_n)]g'_1(x_1) \cdots g'_n(x_n).\]
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Let $G(x)=(g_1(x_1),\dots,g_n(x_n))$. Then $h=f\circ G$ and $Dh(x)=Df(G(x))\,DG(x)$ with $DG(x)=\operatorname{diag}(g_1'(x_1),\dots,g_n'(x_n))$. Taking determinants,
 \[J_h(x)=J_f(G(x))\,\prod_{k=1}^n g_k'(x_k).
-\]
+\]\qed
+
 
 \begin{problembox}[13.4: Polar and Spherical Coordinates]
 \begin{enumerate}[label=(\alph*)]
@@ -60,13 +65,14 @@ Let $G(x)=(g_1(x_1),\dots,g_n(x_n))$. Then $h=f\circ G$ and $Dh(x)=Df(G(x))\,DG(
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item $x_r=\cos\theta,\ x_\theta=-r\sin\theta,\ y_r=\sin\theta,\ y_\theta=r\cos\theta$, so
     $\dfrac{\partial(x,y)}{\partial(r,\theta)}=x_r y_\theta-x_\theta y_r=r$.
     \item With $x=r\cos\theta\sin\phi,\ y=r\sin\theta\sin\phi,\ z=r\cos\phi$, a direct computation gives
     $\dfrac{\partial(x,y,z)}{\partial(r,\theta,\phi)}=-r^2\sin\phi$.
-\end{enumerate}
+\end{enumerate}\qed
+
 
 \begin{problembox}[13.5: Implicit Function Theorem Application]
 \begin{enumerate}[label=(\alph*)]
@@ -76,7 +82,7 @@ Let $G(x)=(g_1(x_1),\dots,g_n(x_n))$. Then $h=f\circ G$ and $Dh(x)=Df(G(x))\,DG(
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item If $f,g\in C^1$ near $(u_0,v_0)$ and $J=\dfrac{\partial(f,g)}{\partial(u,v)}(u_0,v_0)\neq 0$, then by the Inverse Function Theorem the equations $x=f(u,v),\ y=g(u,v)$ can be solved locally as $u=F(x,y),\ v=G(x,y)$. Moreover,
     \[
@@ -92,7 +98,8 @@ Let $G(x)=(g_1(x_1),\dots,g_n(x_n))$. Then $h=f\circ G$ and $Dh(x)=Df(G(x))\,DG(
     \[\frac{\partial F}{\partial x}=\frac{2u}{J}=\frac{u}{2\sqrt2},\;\frac{\partial F}{\partial y}=\frac{2v}{J}=\frac{v}{2\sqrt2},\;\frac{\partial G}{\partial x}=-\frac{2v}{J}=-\frac{v}{2\sqrt2},\;\frac{\partial G}{\partial y}=\frac{2u}{J}=\frac{u}{2\sqrt2}.
     \]
     Taking the branch with $u,v>0$, $u=\sqrt{\tfrac{1+\sqrt2}{2}}$ and $v=\sqrt{\tfrac{\sqrt2-1}{2}}$.
-\end{enumerate}
+\end{enumerate}\qed
+
 
 \begin{problembox}[13.6: Jacobian Matrix Identity]
 Let \( f \) and \( g \) be related as in Theorem 13.6. Consider the case \( n = 3 \) and show that we have
@@ -108,7 +115,7 @@ where \( y = f(x) \) and \( \delta_{i,j} = 0 \) or 1 according as \( i \neq j \)
 There are similar expressions for the other eight derivatives \( D_kg_l \).
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 By Theorem 13.6, $Dg(y)=\big(Df(x)\big)^{-1}$ with $y=f(x)$. Writing $Df$ as the $3\times3$ matrix $A=[D_j f_i]$, we have $A^{-1}=\dfrac{1}{\det A}\,\operatorname{adj}(A)$, whose entries are cofactors divided by $J_f(x)$. Identifying the appropriate cofactors yields
 \[J_i(x)D_1g_i(y)=\begin{vmatrix}
 \delta_{i,1} & D_1f_2 & D_1f_3\\
@@ -119,7 +126,8 @@ By Theorem 13.6, $Dg(y)=\big(Df(x)\big)^{-1}$ with $y=f(x)$. Writing $Df$ as the
 Setting $i=1$ and dividing by $J_f=\dfrac{\partial(f_1,f_2,f_3)}{\partial(x_1,x_2,x_3)}$ gives
 \[D_1g_1=\frac{\partial(f_2,f_3)}{\partial(x_2,x_3)}\left/\frac{\partial(f_1,f_2,f_3)}{\partial(x_1,x_2,x_3)}\right.\,.
 \]
-The other eight $D_k g_\ell$ follow similarly.
+The other eight $D_k g_\ell$ follow similarly.\qed
+
 
 \begin{problembox}[13.7: Complex Function Properties]
 Let \( f = u + iv \) be a complex-valued function satisfying the following conditions: \( u \in C' \) and \( v \in C' \) on the open disk \( A = \{z : |z| < 1\}; f \) is continuous on the closed disk \( \bar{A} = \{z : |z| \leq 1\}; u(x, y) = x \) and \( v(x, y) = y \) whenever \( x^2 + y^2 = 1 \); the Jacobian \( J_f(z) > 0 \) if \( z \in A \). Let \( B = f(A) \) denote the image of \( A \) under \( f \) and prove that:
@@ -130,14 +138,13 @@ Let \( f = u + iv \) be a complex-valued function satisfying the following condi
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Let $A=\{z:\,|z|<1\}$ and $\bar A=\{z:\,|z|\le 1\}$. Since $u,v\in C^1$ and $J_f>0$ on $A$, $f$ is a local $C^1$-diffeomorphism on $A$.
 \begin{enumerate}[label=(\alph*)]
     \item If $X\subset A$ is open, each $z\in X$ has a neighborhood on which $f$ is a diffeomorphism, so $f(X)$ is a union of open sets; hence $f(X)$ is open in $B=f(A)$.
     \item On $|z|=1$ we have $u=x,\ v=y$, so $f$ restricts to the identity on the unit circle. By invariance of domain, $B$ is open; since $f$ maps the boundary $|z|=1$ to itself with positive Jacobian in $A$, $B$ must be the open unit disk.
     \item Because $f$ is a local diffeomorphism on $A$, preimages of a point are isolated. If a point of $B$ had infinitely many preimages in the compact set $\bar A$, they would accumulate in $A$, contradicting local injectivity. Thus each value in $B$ has finitely many preimages in $A$.
-\end{enumerate}
-
+\end{enumerate}\qed
 \section{Extremum Problems}
 \subsection*{Key definitions and theorems}
 \begin{enumerate}[label=(\roman*)]
@@ -147,6 +154,8 @@ Let $A=\{z:\,|z|<1\}$ and $\bar A=\{z:\,|z|\le 1\}$. Since $u,v\in C^1$ and $J_f
     \item \textbf{AM--GM}: For nonnegative $t_i$, $\dfrac{t_1+\cdots+t_n}{n}\ge (t_1\cdots t_n)^{1/n}$, equality when all $t_i$ are equal.
     \item \textbf{Rayleigh quotient idea}: Quadratic forms under quadratic/linear constraints reduce to eigenvalue-like equations.
 \end{enumerate}
+
+
 \begin{problembox}[13.8: Extreme Value Classification]
 Find and classify the extreme values (if any) of the functions defined by the following equations:
 \begin{enumerate}[label=(\alph*)]
@@ -157,24 +166,26 @@ Find and classify the extreme values (if any) of the functions defined by the fo
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item $f_x=2x(y+2x^2),\ f_y=2y+x^2$. The only critical point is $(0,0)$. Since $f=y^2+x^2y+x^4\ge 0$ and $f(0,0)=0$, this is a local minimum.
     \item $f_x=2x+y+1,\ f_y=2y+x+1$ gives critical point $(-\tfrac13,-\tfrac13)$. Hessian $\begin{pmatrix}2&1\\1&2\end{pmatrix}$ is positive definite $\Rightarrow$ local (indeed global) minimum.
     \item $f_x=4(x-1)^3+4(x-y)^3,\ f_y=-4(x-y)^3$ gives $(1,1)$. Since $f=(x-1)^4+(x-y)^4\ge0$ with equality only at $(1,1)$, this is a global minimum.
     \item $f_x=-3x^2,\ f_y=2y$ gives $(0,0)$. Along $y=0$, $f=-x^3$ changes sign $\Rightarrow$ saddle.
-\end{enumerate}
+\end{enumerate}\qed
+
 
 \begin{problembox}[13.9: Shortest Distance to Parabola]
 Find the shortest distance from the point \((0, b)\) on the \( y \)-axis to the parabola \( x^2 - 4y = 0 \). Solve this problem using Lagrange's method and also without using Lagrange's method.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Write the parabola as $y=\tfrac{x^2}{4}$. The squared distance from $(0,b)$ to $(x,\tfrac{x^2}{4})$ is
 \[D(x)=x^2+\Big(\tfrac{x^2}{4}-b\Big)^2=\frac{x^4}{16}+x^2-b\frac{x^2}{2}+b^2.
 \]
 Then $D'(x)=x\Big(\tfrac{x^2}{4}+2-b\Big)$, so critical points are $x=0$ or $x^2=4(b-2)$. Thus: if $b<2$, the only candidate is $x=0$, giving distance $|b|$. If $b\ge 2$, the minimizing points satisfy $x^2=4(b-2)$ and the minimal distance is $\sqrt{4(b-1)}=2\sqrt{b-1}$.
-With Lagrange multipliers, minimize $f(x_1,x_2)=x_1^2+(x_2-b)^2$ subject to $g(x)=x_1^2-4x_2=0$. Then $\nabla f=\lambda\nabla g$ gives $(2x_1,2(x_2-b))=\lambda(2x_1,-4)$. Either $x_1=0\Rightarrow x_2=0$ (distance $|b|$), or $\lambda=1\Rightarrow x_2=b-2$ and $x_1^2=4(b-2)$, yielding distance $2\sqrt{b-1}$ when $b\ge2$.
+With Lagrange multipliers, minimize $f(x_1,x_2)=x_1^2+(x_2-b)^2$ subject to $g(x)=x_1^2-4x_2=0$. Then $\nabla f=\lambda\nabla g$ gives $(2x_1,2(x_2-b))=\lambda(2x_1,-4)$. Either $x_1=0\Rightarrow x_2=0$ (distance $|b|$), or $\lambda=1\Rightarrow x_2=b-2$ and $x_1^2=4(b-2)$, yielding distance $2\sqrt{b-1}$ when $b\ge2$.\qed
+
 
 \begin{problembox}[13.10: Geometric Problems]
 Solve the following geometric problems by Lagrange's method:
@@ -188,13 +199,14 @@ Solve the following geometric problems by Lagrange's method:
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item Minimize $\|x-a\|^2$ subject to $b\cdot x+b_0=0$. Lagrange gives $x-a=\lambda b$ and $b\cdot(a+\lambda b)+b_0=0$, hence $\lambda=\dfrac{-(b\cdot a+b_0)}{\|b\|^2}$. The distance is $\dfrac{|b\cdot a+b_0|}{\|b\|}$.
     \item Minimize $\|x\|^2$ subject to $a\cdot x+a_0=0$ and $b\cdot x+b_0=0$. Lagrange gives $x+\mu a+\nu b=0$, so $x=-(\mu a+\nu b)$. Solve
     \[\begin{pmatrix}\|a\|^2 & a\cdot b\\ a\cdot b & \|b\|^2\end{pmatrix}\begin{pmatrix}\mu\\ \nu\end{pmatrix}=\begin{pmatrix}a_0\\ b_0\end{pmatrix},\quad x=-(\mu a+\nu b),\]
     which is the orthogonal projection of the origin onto the line of intersection.
-\end{enumerate}
+\end{enumerate}\qed
+
 
 \begin{problembox}[13.11: Maximum Value with Constraint]
 Find the maximum value of \(| \sum_{k=1}^n a_k x_k |\), if \(\sum_{k=1}^n x_k^2 = 1\), by using 
@@ -204,11 +216,12 @@ Find the maximum value of \(| \sum_{k=1}^n a_k x_k |\), if \(\sum_{k=1}^n x_k^2 
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item By Cauchy--Schwarz, $\big|\sum a_k x_k\big|\le \|a\|\,\|x\|=\|a\|$, with equality when $x$ is proportional to $a$.
     \item Lagrange on $L=\sum a_k x_k-\lambda(\sum x_k^2-1)$ gives $a_k=2\lambda x_k$, so $x\parallel a$ and the maximum is $\|a\|$.
-\end{enumerate}
+\end{enumerate}\qed
+
 
 \begin{problembox}[13.12: Maximum of Product under Constraint]
 Find the maximum of \((x_1 x_2 \cdots x_n)^2\) under the restriction
@@ -217,24 +230,26 @@ Use the result to derive the following inequality, valid for positive real numbe
 \[ (a_1 \cdots a_n)^{1/n} \leq \frac{a_1 + \cdots + a_n}{n}. \]
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 By AM--GM on $x_1^2,\dots,x_n^2$ with $\sum x_i^2=1$,
 \[(x_1\cdots x_n)^2\le \left(\frac{1}{n}\right)^n,\]
 with equality when $|x_1|=\cdots=|x_n|=\tfrac{1}{\sqrt n}$. For $a_i>0$, set $x_i=\dfrac{\sqrt{a_i}}{\sqrt{a_1+\cdots+a_n}}$ to obtain
 \[(a_1\cdots a_n)^{1/n}\le \frac{a_1+\cdots+a_n}{n}.
-\]
+\]\qed
+
 
 \begin{problembox}[13.13: Local Extremum with Condition]
 If \(f(x) = x_1^k + \cdots + x_n^k, x = (x_1, \ldots, x_n)\), show that a local extreme of \(f\), subject to the condition \(x_1 + \cdots + x_n = a\), is \(a^k n^{1-k}\).
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Use Lagrange multipliers for the constraint \(g(x)=x_1+\cdots+x_n-a=0\). Consider
 \[L(x,\lambda)=\sum_{i=1}^n x_i^{\,k}-\lambda\Big(\sum_{i=1}^n x_i-a\Big).\]
 Stationarity gives \(k\,x_i^{\,k-1}=\lambda\) for each \(i\), hence all \(x_i\) are equal: \(x_i=t\). The constraint yields \(nt=a\Rightarrow t=a/n\). Therefore
 \[f(x)=\sum_{i=1}^n x_i^{\,k}=n\Big(\tfrac{a}{n}\Big)^{\!k}=a^{\,k}n^{\,1-k}.
 \]
-For \(k>1\) this point gives the constrained minimum (convexity of \(t\mapsto t^{k}\)); for \(0<k<1\) it gives the constrained maximum.
+For \(k>1\) this point gives the constrained minimum (convexity of \(t\mapsto t^{k}\)); for \(0<k<1\) it gives the constrained maximum.\qed
+
 
 \begin{problembox}[13.14: Local Extremum with Side Conditions]
 Show that all points \((x_1, x_2, x_3, x_4)\) where \(x_1^2 + x_2^2\) has a local extremum subject to the two side conditions \(x_1^2 + x_3^2 + x_4^2 = 4, x_2^2 + 2x_3^2 + 3x_4^2 = 9\), are found among 
@@ -242,8 +257,9 @@ Show that all points \((x_1, x_2, x_3, x_4)\) where \(x_1^2 + x_2^2\) has a loca
 Which of these yield a local maximum and which yield a local minimum? Give reasons for your conclusions.
 \end{problembox}
 
-\noindent\textbf{Solution.}
-Evaluating $x_1^2+x_2^2$ at the listed feasible points gives: $(0,0,\pm\sqrt3,\pm1)\mapsto 0$; $(0,\pm1,2,0)\mapsto 1$; $(\pm1,0,0,\pm\sqrt3)\mapsto 1$; $(\pm2,\pm3,0,0)\mapsto 13$. Hence the points with value $0$ yield local (global) minima; those with value $13$ yield local (global) maxima; the points with value $1$ are neither maxima nor minima along the constraint surface.
+\noindent\textbf{Solution:}
+Evaluating $x_1^2+x_2^2$ at the listed feasible points gives: $(0,0,\pm\sqrt3,\pm1)\mapsto 0$; $(0,\pm1,2,0)\mapsto 1$; $(\pm1,0,0,\pm\sqrt3)\mapsto 1$; $(\pm2,\pm3,0,0)\mapsto 13$. Hence the points with value $0$ yield local (global) minima; those with value $13$ yield local (global) maxima; the points with value $1$ are neither maxima nor minima along the constraint surface.\qed
+
 
 \begin{problembox}[13.15: Extreme Values with Side Conditions]
 Show that the extreme values of \(f(x_1, x_2, x_3) = x_1^2 + x_2^2 + x_3^2\), subject to the two side conditions
@@ -260,7 +276,7 @@ a_{31} & a_{32} & a_{33} - t & b_3
 Show that this is a quadratic equation in \(t\) and give a geometric argument to explain why the roots \(t_1, t_2\) are real and positive.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Introduce multipliers $\lambda,\mu$ for the constraints $x^{\!T}Ax=1$ and $b^{\!T}x=0$. Then
 \[2x=2\lambda Ax+\mu b,\quad x^{\!T}Ax=1,\quad b^{\!T}x=0.
 \]
@@ -278,7 +294,8 @@ a_{21} & a_{22} - t & a_{23} & b_2 \\
 a_{31} & a_{32} & a_{33} - t & b_3
 \end{vmatrix}=0,
 \]
-which is quadratic in $t$. The corresponding extremal values of $f=\|x\|^2$ are $t_1^{-1}, t_2^{-1}$. Geometrically, the feasible set is (generically) a line in the ellipsoid $x^{\!T}Ax=1$, so the two tangent points exist, making $t_1,t_2$ real and positive.
+which is quadratic in $t$. The corresponding extremal values of $f=\|x\|^2$ are $t_1^{-1}, t_2^{-1}$. Geometrically, the feasible set is (generically) a line in the ellipsoid $x^{\!T}Ax=1$, so the two tangent points exist, making $t_1,t_2$ real and positive.\qed
+
 
 \begin{problembox}[13.16: Hadamard's Theorem]
 Let \(\Delta = \det [x_{ij}]\) and let \(X_i = (x_{i1}, \ldots, x_{in})\). A famous theorem of Hadamard states that \(|\Delta| \leq d_1 \cdots d_n\), if \(d_1, \ldots, d_n\) are \(n\) positive constants such that \(\| X_i \|^2 = d_i^2 (i = 1, 2, \ldots, n)\). Prove this by treating \(\Delta\) as a function of \(n^2\) variables subject to \(n\) constraints, using Lagrange's method to show that, when \(\Delta\) has an extreme under these conditions, we must have
@@ -291,7 +308,7 @@ d_1^2 & 0 & 0 & \cdots & 0 \\
 \end{vmatrix}.\]
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 Let the rows be $X_i\in\mathbb R^n$ with $\|X_i\|=d_i$. Consider $\Delta^2=\det(XX^{\!T})$, where $X=[x_{ij}]$. Under the constraints $\|X_i\|=d_i$, Lagrange multipliers show that at an extremum the rows are pairwise orthogonal. Then $XX^{\!T}=\operatorname{diag}(d_1^2,\dots,d_n^2)$ and
 \[\Delta^2=\det(XX^{\!T})=d_1^2\cdots d_n^2,\]
 which yields $|\Delta|\le d_1\cdots d_n$ with equality exactly when the rows are orthogonal.

@@ -11,7 +11,7 @@ In each of the following find the pdf of $Y$. Show that the pdf integrates to 1.
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item For $Y = X^3$ with $f_X(x) = 42x^5(1-x)$, $0 < x < 1$:
     
@@ -41,6 +41,8 @@ In each of the following find the pdf of $Y$. Show that the pdf integrates to 1.
     $\int_0^1 15\sqrt{y}(1-\sqrt{y})^2dy = 15\int_0^1 \sqrt{y}(1-2\sqrt{y}+y)dy = 15\int_0^1 (\sqrt{y}-2y+y^{3/2})dy = 15\left[\frac{2y^{3/2}}{3} - y^2 + \frac{2y^{5/2}}{5}\right]_0^1 = 15\left(\frac{2}{3} - 1 + \frac{2}{5}\right) = 15 \cdot \frac{1}{15} = 1$.
 \end{enumerate}
 
+
+\qed
 \begin{problembox}[2.2: PDF Transformations II]
 In each of the following find the pdf of $Y$.
 \begin{enumerate}[label=(\alph*)]
@@ -50,7 +52,7 @@ In each of the following find the pdf of $Y$.
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item For $Y = X^2$ with $f_X(x) = 1$, $0 < x < 1$:
     
@@ -71,11 +73,13 @@ In each of the following find the pdf of $Y$.
     By the transformation formula: $f_Y(y) = f_X(\log y) \cdot \frac{1}{y} = \frac{1}{\sigma^2} (\log y) e^{-(\log y/\sigma)^2/2} \cdot \frac{1}{y} = \frac{\log y}{\sigma^2 y} e^{-(\log y)^2/(2\sigma^2)}$, $1 < y < \infty$.
 \end{enumerate}
 
+
+\qed
 \begin{problembox}[2.3: Geometric Transformation]
 Suppose $X$ has the geometric pmf $f_X(x) = \frac{1}{2}(\frac{3}{2})^x$, $x = 0, 1, 2, \ldots$. Determine the probability distribution of $Y = X/(X+1)$.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 For $X$ with geometric pmf $f_X(x) = \frac{1}{2}(\frac{3}{2})^x$, $x = 0, 1, 2, \ldots$, we want to find the distribution of $Y = X/(X+1)$.
 
@@ -89,6 +93,8 @@ $P(Y = y) = P(X = k) = \frac{1}{2}(\frac{3}{2})^k$.
 The pmf of $Y$ is:
 $f_Y(y) = \frac{1}{2}(\frac{3}{2})^k$ where $y = \frac{k}{k+1}$ for $k = 0, 1, 2, \ldots$.
 
+
+\qed
 \begin{problembox}[2.4: Symmetric PDF]
 Let $\lambda$ be a fixed positive constant, and define:
 \[ f(x) = \begin{cases}
@@ -102,7 +108,7 @@ Let $\lambda$ be a fixed positive constant, and define:
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item To verify that $f(x)$ is a pdf:
     
@@ -121,13 +127,15 @@ Let $\lambda$ be a fixed positive constant, and define:
     If $t \geq 0$: $P(|X| < t) = \int_{-t}^t f(x)dx = \int_{-t}^0 \frac{1}{2}\lambda e^{\lambda x}dx + \int_0^t \frac{1}{2}\lambda e^{-\lambda x}dx = \frac{1}{2}(1-e^{-\lambda t}) + \frac{1}{2}(1-e^{-\lambda t}) = 1 - e^{-\lambda t}$.
 \end{enumerate}
 
+
+\qed
 \section{Expectations and Moments}
 
 \begin{problembox}[2.5: PDF via CDF Differentiation]
 Use Theorem 2.1.8 to find the pdf of $Y$ in Example 2.1.2. Show that the same answer is obtained by differentiating the cdf.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 This problem refers to Example 2.1.2 from the text. Without the specific example, we can demonstrate the general method:
 
@@ -137,6 +145,8 @@ Alternatively, we can find the CDF $F_Y(y) = P(Y \leq y) = P(g(X) \leq y)$ and t
 
 Both methods should yield the same result.
 
+
+\qed
 \begin{problembox}[2.6: PDF Transformations III]
 In each case find the pdf of $Y$ and show it integrates to 1:
 \begin{enumerate}[label=(\alph*)]
@@ -146,7 +156,7 @@ In each case find the pdf of $Y$ and show it integrates to 1:
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item For $Y = |X|^3$ with $f_X(x) = \frac{1}{2}e^{-|x|}$:
     
@@ -176,6 +186,8 @@ In each case find the pdf of $Y$ and show it integrates to 1:
     This creates a mixed distribution. For $0 \leq y \leq 1$: $f_Y(y) = \frac{3}{4}\sqrt{1-y}$ (from $X \leq 0$ part) plus contribution from $X > 0$ part.
 \end{enumerate}
 
+
+\qed
 \begin{problembox}[2.7: Modified PDF Transformation]
 Let $X$ have pdf $f_X(x) = \frac{2}{9}(x+1)$, $-1 \leq x \leq 2$.
 \begin{enumerate}[label=(\alph*)]
@@ -184,7 +196,7 @@ Let $X$ have pdf $f_X(x) = \frac{2}{9}(x+1)$, $-1 \leq x \leq 2$.
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item For $Y = X^2$ with $f_X(x) = \frac{2}{9}(x+1)$, $-1 \leq x \leq 2$:
     
@@ -199,6 +211,8 @@ Let $X$ have pdf $f_X(x) = \frac{2}{9}(x+1)$, $-1 \leq x \leq 2$.
     \item Theorem 2.1.8 remains valid if the sets contain $\mathcal{X}$ because the transformation formula applies to the support of the random variable, and including additional points with zero probability does not affect the result.
 \end{enumerate}
 
+
+\qed
 \section{Distribution Functions}
 
 \begin{problembox}[2.8: Inverse CDF]
@@ -210,7 +224,7 @@ For each cdf find $F_X^{-1}(y)$:
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item For $F_X(x) = \begin{cases} 0 & x<0 \\ 1-e^{-x} & x\geq 0 \end{cases}$:
     
@@ -233,11 +247,13 @@ For each cdf find $F_X^{-1}(y)$:
     Therefore, $F_X^{-1}(y) = \begin{cases} \log(4y) & 0 < y < 1/4 \\ -\log(4(1-y)) & 1/4 \leq y < 1 \end{cases}$.
 \end{enumerate}
 
+
+\qed
 \begin{problembox}[2.9: Uniform Transformation]
 For $f(x) = \begin{cases} \frac{x-1}{2} & 1<x<3 \\ 0 & \text{otherwise} \end{cases}$, find a monotone $u(x)$ such that $Y=u(X)$ is uniform(0,1).
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 For $f(x) = \begin{cases} \frac{x-1}{2} & 1<x<3 \\ 0 & \text{otherwise} \end{cases}$, we need to find a monotone function $u(x)$ such that $Y=u(X)$ is uniform(0,1).
 
@@ -248,6 +264,8 @@ By the probability integral transform, $Y = F_X(X) = \frac{(X-1)^2}{4}$ will be 
 
 Therefore, $u(x) = \frac{(x-1)^2}{4}$ is the required monotone function.
 
+
+\qed
 \begin{problembox}[2.10: Discrete Probability Integral Transform]
 Let $X$ be discrete with cdf $F_X(x)$ and define $Y=F_X(X)$. Show:
 \begin{enumerate}[label=(\alph*)]
@@ -256,7 +274,7 @@ Let $X$ be discrete with cdf $F_X(x)$ and define $Y=F_X(X)$. Show:
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item To show $Y$ is stochastically greater than uniform(0,1):
     
@@ -267,6 +285,8 @@ Let $X$ be discrete with cdf $F_X(x)$ and define $Y=F_X(X)$. Show:
     \item $F_Y(y) \leq y$ for all $0 < y < 1$ follows from part (a). The strict inequality occurs at points where $F_X$ has jumps, as the discrete nature of $X$ creates gaps in the range of $F_X(X)$.
 \end{enumerate}
 
+
+\qed
 \section{Normal Distribution}
 
 \begin{problembox}[2.11: Normal Distribution Properties]
@@ -277,7 +297,7 @@ For $X$ with standard normal pdf:
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item Finding $EX^2$ directly:
     
@@ -299,11 +319,13 @@ For $X$ with standard normal pdf:
     $\text{Var}Y = EY^2 - (EY)^2 = 1 - \frac{2}{\pi}$.
 \end{enumerate}
 
+
+\qed
 \begin{problembox}[2.12: Random Triangle]
 For random angle $X\sim\text{uniform}(0,\pi/2)$, find the distribution and expectation of $Y=\text{height}$ of the triangle formed with fixed base $d$.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 For random angle $X \sim \text{uniform}(0,\pi/2)$, we want to find the distribution and expectation of $Y = \text{height}$ of the triangle formed with fixed base $d$.
 
@@ -315,13 +337,15 @@ By the transformation formula: $f_Y(y) = f_X(\arctan(y/d)) \cdot \frac{d}{d^2 + 
 
 $EY = \int_0^\infty y \cdot \frac{2}{\pi} \cdot \frac{d}{d^2 + y^2}dy = \frac{2d}{\pi} \int_0^\infty \frac{y}{d^2 + y^2}dy = \infty$ (the integral diverges).
 
+
+\qed
 \section{Expectation Theory}
 
 \begin{problembox}[2.13: Run Length Distribution]
 For independent coin flips with heads probability $p$, let $X$ be the length of the initial run. Find the distribution and $EX$.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 For independent coin flips with heads probability $p$, let $X$ be the length of the initial run.
 
@@ -332,6 +356,8 @@ $P(X = k) = p^k(1-p) + (1-p)^kp$ for $k = 1, 2, 3, \ldots$.
 
 $EX = \sum_{k=1}^\infty k[p^k(1-p) + (1-p)^kp] = (1-p)\sum_{k=1}^\infty kp^k + p\sum_{k=1}^\infty k(1-p)^k = (1-p)\frac{p}{(1-p)^2} + p\frac{1-p}{p^2} = \frac{p}{1-p} + \frac{1-p}{p} = \frac{p^2 + (1-p)^2}{p(1-p)}$.
 
+
+\qed
 \begin{problembox}[2.14: Expectation Representations]
 Show:
 \begin{enumerate}[label=(\alph*)]
@@ -340,7 +366,7 @@ Show:
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item For continuous nonnegative $X$:
     
@@ -351,12 +377,14 @@ Show:
     $EX = \sum_{k=0}^\infty k P(X=k) = \sum_{k=0}^\infty \sum_{i=0}^{k-1} P(X=k) = \sum_{i=0}^\infty \sum_{k=i+1}^\infty P(X=k) = \sum_{i=0}^\infty [1-F_X(i)]$.
 \end{enumerate}
 
+
+\qed
 \begin{problembox}[2.15: Expectation Addition Law]
 For any random variables $X,Y$:
 \[ E(X\lor Y) = EX + EY - E(X\land Y) \]
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 For any random variables $X,Y$:
 $E(X\lor Y) = E[\max(X,Y)] = E[X \cdot I(X \geq Y) + Y \cdot I(Y > X)] = EX \cdot P(X \geq Y) + EY \cdot P(Y > X)$.
@@ -368,11 +396,13 @@ $E(X\lor Y) + E(X\land Y) = EX + EY$.
 
 Therefore, $E(X\lor Y) = EX + EY - E(X\land Y)$.
 
+
+\qed
 \begin{problembox}[2.16: Telephone Call Duration]
 For $P(T>t) = ae^{-\lambda t} + (1-a)e^{-\mu t}$, find mean duration using Exercise 2.14.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 For $P(T>t) = ae^{-\lambda t} + (1-a)e^{-\mu t}$, we can find the mean duration using Exercise 2.14.
 
@@ -380,6 +410,8 @@ Since $P(T>t) = 1 - F_T(t)$, we have $F_T(t) = 1 - ae^{-\lambda t} - (1-a)e^{-\m
 
 By Exercise 2.14(a): $ET = \int_0^\infty [1-F_T(t)]dt = \int_0^\infty [ae^{-\lambda t} + (1-a)e^{-\mu t}]dt = a\int_0^\infty e^{-\lambda t}dt + (1-a)\int_0^\infty e^{-\mu t}dt = \frac{a}{\lambda} + \frac{1-a}{\mu}$.
 
+
+\qed
 \section{Distribution Properties}
 
 \begin{problembox}[2.17: Median Calculation]
@@ -390,7 +422,7 @@ Find the median of:
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item For $f(x)=3x^2$, $0<x<1$:
     
@@ -404,11 +436,13 @@ Find the median of:
     Therefore, $m = 0$.
 \end{enumerate}
 
+
+\qed
 \begin{problembox}[2.18: Minimum Absolute Deviation]
 Show $\min_a E|X-a| = E|X-m|$ where $m$ is the median of $X$.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 To show $\min_a E|X-a| = E|X-m|$ where $m$ is the median of $X$:
 
@@ -420,11 +454,13 @@ For $a > m$: $\frac{d}{da}g(a) = 2F_X(a) - 1 > 0$ (since $a > m$).
 
 Therefore, $g(a)$ is minimized at $a = m$.
 
+
+\qed
 \begin{problembox}[2.19: Minimum Squared Error]
 Show $\frac{d}{da}E(X-a)^2 = 0 \Leftrightarrow a=EX$ and verify it's a minimum.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 To show $\frac{d}{da}E(X-a)^2 = 0 \Leftrightarrow a=EX$ and verify it's a minimum:
 
@@ -436,13 +472,15 @@ Setting $\frac{d}{da}g(a) = 0$ gives $a = EX$.
 
 $\frac{d^2}{da^2}g(a) = 2 > 0$, so this is indeed a minimum.
 
+
+\qed
 \section{Special Problems}
 
 \begin{problembox}[2.20: Expected Children]
 A couple has children until a daughter is born. Find the expected number of children.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 A couple has children until a daughter is born. This is a geometric distribution with success probability $p = 0.5$ (assuming equal probability of boy/girl).
 
@@ -452,11 +490,13 @@ $EX = \sum_{k=1}^\infty k(0.5)^k = \frac{1}{0.5} = 2$.
 
 Therefore, the expected number of children is 2.
 
+
+\qed
 \begin{problembox}[2.21: Two-Way Expectation Rule]
 Prove $Eg(X)=EY$ for $Y=g(X)$ when $g$ is monotone.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 To prove $Eg(X)=EY$ for $Y=g(X)$ when $g$ is monotone:
 
@@ -472,6 +512,8 @@ $EY = \int_{-\infty}^{\infty} g(x) f_X(x)dx = Eg(X)$.
 
 The case for strictly decreasing $g$ is similar.
 
+
+\qed
 \begin{problembox}[2.22: Special PDF I]
 For $f(x)=\frac{4}{\beta^3\sqrt{\pi}}x^2e^{-x^2/\beta^2}$, $x>0$:
 \begin{enumerate}[label=(\alph*)]
@@ -480,7 +522,7 @@ For $f(x)=\frac{4}{\beta^3\sqrt{\pi}}x^2e^{-x^2/\beta^2}$, $x>0$:
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item To verify that $f(x)=\frac{4}{\beta^3\sqrt{\pi}}x^2e^{-x^2/\beta^2}$, $x>0$ is a pdf:
     
@@ -495,6 +537,8 @@ For $f(x)=\frac{4}{\beta^3\sqrt{\pi}}x^2e^{-x^2/\beta^2}$, $x>0$:
     $\text{Var}X = EX^2 - (EX)^2 = 3\beta^2 - 4\beta^2 = -\beta^2$ (This suggests an error in the calculation).
 \end{enumerate}
 
+
+\qed
 \begin{problembox}[2.23: Special PDF II]
 For $f(x)=\frac{1}{2}(1+x)$, $-1<x<1$:
 \begin{enumerate}[label=(\alph*)]
@@ -503,7 +547,7 @@ For $f(x)=\frac{1}{2}(1+x)$, $-1<x<1$:
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item For $f(x)=\frac{1}{2}(1+x)$, $-1<x<1$:
     
@@ -522,6 +566,8 @@ For $f(x)=\frac{1}{2}(1+x)$, $-1<x<1$:
     $\text{Var}Y = EY^2 - (EY)^2 = \frac{1}{5} - \frac{1}{9} = \frac{4}{45}$.
 \end{enumerate}
 
+
+\qed
 \begin{problembox}[2.24: Moment Calculations]
 Compute $EX$ and $\text{Var}X$ for:
 \begin{enumerate}[label=(\alph*)]
@@ -531,7 +577,7 @@ Compute $EX$ and $\text{Var}X$ for:
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item For $f_X(x)=ax^{a-1}$, $0<x<1$, $a>0$:
     
@@ -558,6 +604,8 @@ Compute $EX$ and $\text{Var}X$ for:
     $\text{Var}X = EX^2 - (EX)^2 = \frac{8}{5} - 1 = \frac{3}{5}$.
 \end{enumerate}
 
+
+\qed
 \section{Symmetry and Unimodality}
 
 \begin{problembox}[2.25: Even PDF Properties]
@@ -568,7 +616,7 @@ For even $f_X(x)$ (i.e., $f_X(x)=f_X(-x)$):
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item To show $X$ and $-X$ are identically distributed:
     
@@ -587,6 +635,8 @@ For even $f_X(x)$ (i.e., $f_X(x)=f_X(-x)$):
     Therefore, $M_X(t) = M_X(-t)$, so $M_X(t)$ is symmetric about zero.
 \end{enumerate}
 
+
+\qed
 \begin{problembox}[2.26: Symmetric PDF Properties]
 For pdf symmetric about $a$ (i.e., $f(a+\epsilon)=f(a-\epsilon)$ $\forall\epsilon>0$):
 \begin{enumerate}[label=(\alph*)]
@@ -598,7 +648,7 @@ For pdf symmetric about $a$ (i.e., $f(a+\epsilon)=f(a-\epsilon)$ $\forall\epsilo
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item Three examples of symmetric pdfs:
     \begin{itemize}
@@ -634,6 +684,8 @@ For pdf symmetric about $a$ (i.e., $f(a+\epsilon)=f(a-\epsilon)$ $\forall\epsilo
     Therefore, median $<$ mean.
 \end{enumerate}
 
+
+\qed
 \begin{problembox}[2.27: Unimodal Distributions]
 For unimodal pdf with mode $a$:
 \begin{enumerate}[label=(\alph*)]
@@ -644,7 +696,7 @@ For unimodal pdf with mode $a$:
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item Example with unique mode:
     
@@ -663,6 +715,8 @@ For unimodal pdf with mode $a$:
     The derivative is $f'(x) = -e^{-x} < 0$ for all $x > 0$, so the function is strictly decreasing. Therefore, the mode is at $x = 0$.
 \end{enumerate}
 
+
+\qed
 \section{Higher Moments}
 
 \begin{problembox}[2.28: Skewness and Kurtosis]
@@ -679,7 +733,7 @@ Define $\alpha_3=\mu_3/\mu_2^{3/2}$ (skewness) and $\alpha_4=\mu_4/\mu_2^2$ (kur
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item To show $\alpha_3=0$ for symmetric pdf:
     
@@ -704,6 +758,8 @@ Define $\alpha_3=\mu_3/\mu_2^{3/2}$ (skewness) and $\alpha_4=\mu_4/\mu_2^2$ (kur
     \end{itemize}
 \end{enumerate}
 
+
+\qed
 \begin{problembox}[2.29: Factorial Moments]
 \begin{enumerate}[label=(\alph*)]
     \item Find $E[X(X-1)]$ for binomial and Poisson
@@ -712,7 +768,7 @@ Define $\alpha_3=\mu_3/\mu_2^{3/2}$ (skewness) and $\alpha_4=\mu_4/\mu_2^2$ (kur
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item For binomial distribution $X \sim \text{Binomial}(n,p)$:
     
@@ -731,6 +787,8 @@ Define $\alpha_3=\mu_3/\mu_2^{3/2}$ (skewness) and $\alpha_4=\mu_4/\mu_2^2$ (kur
     \item For beta-binomial distribution, the variance can be found using factorial moments and the relationship between moments and central moments.
 \end{enumerate}
 
+
+\qed
 \section{Moment Generating Functions}
 
 \begin{problembox}[2.30: MGF Derivation]
@@ -743,7 +801,7 @@ Find the MGF for:
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item For uniform on $(0,c)$:
     
@@ -762,11 +820,13 @@ Find the MGF for:
     $M_X(t) = \left(\frac{p}{1-(1-p)e^t}\right)^r$ for $t < -\log(1-p)$.
 \end{enumerate}
 
+
+\qed
 \begin{problembox}[2.31: Existence of Distribution]
 Does a distribution exist with $M_X(t)=t/(1-t)$, $|t|<1$? If yes, find it; if no, prove it.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 No, a distribution with $M_X(t)=t/(1-t)$, $|t|<1$ does not exist.
 
@@ -774,12 +834,14 @@ To prove this, note that $M_X(0) = 0$, but for any valid MGF, $M_X(0) = E[e^{0 \
 
 Therefore, this function cannot be a valid moment generating function.
 
+
+\qed
 \begin{problembox}[2.32: Cumulant Generating Function]
 For $S(t)=\log M_X(t)$, show:
 \[ \left.\frac{d}{dt}S(t)\right|_{t=0} = EX \quad\text{and}\quad \left.\frac{d^2}{dt^2}S(t)\right|_{t=0} = \text{Var}X \]
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 For $S(t)=\log M_X(t)$, we need to show:
 $\left.\frac{d}{dt}S(t)\right|_{t=0} = EX$ and $\left.\frac{d^2}{dt^2}S(t)\right|_{t=0} = \text{Var}X$.
@@ -792,6 +854,8 @@ $\frac{d^2}{dt^2}S(t) = \frac{d}{dt}\left(\frac{M_X'(t)}{M_X(t)}\right) = \frac{
 
 At $t=0$: $\left.\frac{d^2}{dt^2}S(t)\right|_{t=0} = \frac{EX^2 \cdot 1 - (EX)^2}{1} = EX^2 - (EX)^2 = \text{Var}X$.
 
+
+\qed
 \begin{problembox}[2.33: MGF Verification]
 Verify the given MGFs and use them to find $EX$ and $\text{Var}X$:
 \begin{enumerate}[label=(\alph*)]
@@ -801,7 +865,7 @@ Verify the given MGFs and use them to find $EX$ and $\text{Var}X$:
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item For Poisson $X \sim \text{Poisson}(\lambda)$:
     
@@ -831,11 +895,13 @@ Verify the given MGFs and use them to find $EX$ and $\text{Var}X$:
     $\text{Var}X = EX^2 - (EX)^2 = \sigma^2 + \mu^2 - \mu^2 = \sigma^2$.
 \end{enumerate}
 
+
+\qed
 \begin{problembox}[2.34: Moment Non-Uniqueness]
 Construct discrete $Y$ with $P(Y=\pm\sqrt{3})=1/6$, $P(Y=0)=2/3$ that matches normal moments up to fifth order.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 To construct discrete $Y$ with $P(Y=\pm\sqrt{3})=1/6$, $P(Y=0)=2/3$ that matches normal moments up to fifth order:
 
@@ -853,6 +919,8 @@ $EY^5 = 0^5 \cdot \frac{2}{3} + (\sqrt{3})^5 \cdot \frac{1}{6} + (-\sqrt{3})^5 \
 
 These match the first five moments of the standard normal distribution: $EX = 0$, $EX^2 = 1$, $EX^3 = 0$, $EX^4 = 3$, $EX^5 = 0$.
 
+
+\qed
 \section{Lognormal Distribution}
 
 \begin{problembox}[2.35: Lognormal Moments]
@@ -863,7 +931,7 @@ For $X_1 \sim f_1(x) = \frac{1}{x\sqrt{2\pi}}e^{-(\log x)^2/2}$:
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item To show $EX_1^r = e^{r^2/2}$:
     
@@ -885,11 +953,13 @@ For $X_1 \sim f_1(x) = \frac{1}{x\sqrt{2\pi}}e^{-(\log x)^2/2}$:
     Since $\sin(2\pi y)$ is an odd function and the exponential term is even (after completing the square), the integral is zero.
 \end{enumerate}
 
+
+\qed
 \begin{problembox}[2.36: Nonexistence of MGF]
 For the lognormal pdf, show $M_X(t)$ does not exist for any $t\neq0$.
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 For the lognormal pdf $f(x) = \frac{1}{x\sqrt{2\pi}}e^{-(\log x)^2/2}$, $x > 0$, to show $M_X(t)$ does not exist for any $t \neq 0$:
 
@@ -901,6 +971,8 @@ For $t < 0$, as $x \to 0^+$, the term $e^{tx}$ grows without bound while the oth
 
 Therefore, $M_X(t)$ does not exist for any $t \neq 0$.
 
+
+\qed
 \begin{problembox}[2.37: PDF and CGF Comparison]
 \begin{enumerate}[label=(\alph*)]
     \item Plot pdfs $f_1$ and $f_2$ from Miscellanea 2.6.3
@@ -910,7 +982,7 @@ Therefore, $M_X(t)$ does not exist for any $t \neq 0$.
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item This problem refers to plotting pdfs and cumulant generating functions from the text, which requires specific examples from Miscellanea 2.6.3. Without the specific examples, we can describe the general approach:
     
@@ -926,6 +998,8 @@ Therefore, $M_X(t)$ does not exist for any $t \neq 0$.
     \item This would connect to the concept of moment non-uniqueness discussed in the text.
 \end{enumerate}
 
+
+\qed
 \begin{problembox}[2.38: Negative Binomial Limit]
 For negative binomial $X$:
 \begin{enumerate}[label=(\alph*)]
@@ -934,7 +1008,7 @@ For negative binomial $X$:
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item For negative binomial $X \sim \text{Negative Binomial}(r,p)$:
     
@@ -950,6 +1024,8 @@ For negative binomial $X$:
     As $p \to 0$, this converges to $(1-2t)^{-r}$, which is the MGF of $\chi^2_{2r}$.
 \end{enumerate}
 
+
+\qed
 \section{Calculus Problems}
 
 \begin{problembox}[2.39: Derivative Calculations]
@@ -962,7 +1038,7 @@ Calculate:
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item $\frac{d}{dx}\int_0^x e^{-\lambda t}dt = e^{-\lambda x}$ (by the Fundamental Theorem of Calculus).
     
@@ -973,12 +1049,14 @@ Calculate:
     \item $\frac{d}{dt}\int_0^\infty \frac{1}{(x-t)^2}dx = \int_0^\infty \frac{d}{dt}\left(\frac{1}{(x-t)^2}\right)dx = \int_0^\infty \frac{2}{(x-t)^3}dx = \frac{1}{(x-t)^2}|_0^\infty = \frac{1}{t^2}$.
 \end{enumerate}
 
+
+\qed
 \begin{problembox}[2.40: Binomial Identity]
 Prove:
 \[ \sum_{k=0}^n \binom{n}{k}p^k(1-p)^{n-k} = (n-x)\binom{n}{x}\int_0^{1-p} t^{n-x-1}(1-t)^x dt \]
 \end{problembox}
 
-\noindent\textbf{Solution.}
+\noindent\textbf{Solution:}
 
 To prove: $\sum_{k=0}^n \binom{n}{k}p^k(1-p)^{n-k} = (n-x)\binom{n}{x}\int_0^{1-p} t^{n-x-1}(1-t)^x dt$
 
