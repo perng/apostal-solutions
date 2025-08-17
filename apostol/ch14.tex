@@ -16,7 +16,7 @@ If \( f_1 \in R \) on \([a_1, b_1], \ldots, f_n \in R \) on \([a_n, b_n]\), prov
 where \( S = [a_1, b_1] \times \cdots \times [a_n, b_n] \).
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 For $n=2$, write $g(x,y)=f_1(x)f_2(y)$. Since $f_1\in R[a_1,b_1]$ and $f_2\in R[a_2,b_2]$, for any $\varepsilon>0$ there are partitions $\mathcal P_1,\mathcal P_2$ such that $U(f_i,\mathcal P_i)-L(f_i,\mathcal P_i)<\varepsilon$ $(i=1,2)$. For the product partition $\mathcal P=\mathcal P_1\times\mathcal P_2$ on $S$, the oscillation of $g$ on each rectangle factors, and one obtains
 \[ U(g,\mathcal P)-L(g,\mathcal P) \le (U(f_1,\mathcal P_1)-L(f_1,\mathcal P_1))\,\int f_2 + (U(f_2,\mathcal P_2)-L(f_2,\mathcal P_2))\,\int f_1 + O(\varepsilon^2), \]
 which can be made arbitrarily small. Hence $g\in R$ and
@@ -28,7 +28,7 @@ The case $n>2$ follows by induction by grouping variables two at a time and appl
 Let \( f \) be defined and bounded on a compact rectangle \( Q = [a, b] \times [c, d] \) in \( \mathbb{R}^2 \). Assume that for each fixed \( y \) in \([c, d]\), \( f(x, y) \) is an increasing function of \( x \), and that for each fixed \( x \) in \([a, b]\), \( f(x, y) \) is an increasing function of \( y \). Prove that \( f \in R \) on \( Q \).
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 Partition $[a,b]$ and $[c,d]$ into subintervals of mesh smaller than $\delta>0$. On each rectangle $R=I\times J$, monotonicity in each variable gives
 \[ \operatorname{osc}(f;R) \le \max_{x\in I}\!f(x,\sup J)-\min_{x\in I}\!f(x,\inf J) \le f(\sup I,\sup J)-f(\inf I,\inf J). \]
 Summing over the grid yields
@@ -45,7 +45,7 @@ Evaluate each of the following double integrals.
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item The integrand factors, so
     \[ \iint_Q \sin^2 x\,\sin^2 y\,dx\,dy = \left(\int_0^{\pi} \sin^2 x\,dx\right)^2 = \left(\tfrac{\pi}{2}\right)^2 = \tfrac{\pi^2}{4}. \]
@@ -65,7 +65,7 @@ Let \( Q = [0, 1] \times [0, 1] \) and calculate \( \int_{Q} f(x, y) \, dx \, dy
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item Over $\{x+y\le 1\}$,
     \[ \int_0^1 \!\int_0^{1-x} (1-x-y)\,dy\,dx = \int_0^1 \tfrac{(1-x)^2}{2}\,dx = \tfrac{1}{6}. \]
@@ -99,7 +99,7 @@ Define \( f \) on the square \( Q = [0, 1] \times [0, 1] \) as follows:
 
 
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
 \item For fixed $x$ and $t\in[0,1]$, the function $y\mapsto f(x,y)$ is Riemann integrable on $[0,t]$ and
 \[\int_0^t f(x,y)\,dy = \begin{cases} t, & x\in\mathbb Q, \\[4pt] t^2, & x\notin\mathbb Q.\end{cases}\]
@@ -132,7 +132,7 @@ where \( m \) and \( n \) are relatively prime integers, \( n > 0 \). Prove that
 but that \( \int_{0}^{1} f(x, y) \, dy \) does not exist for rational \( x \).
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 For fixed $y$, $f(\cdot,y)$ is zero except possibly on the countable set $\{m/n\}$ when $y$ is rational. Given $\varepsilon>0$, choose a partition of $[0,1]$ so that the total length of intervals covering those rationals is $<\varepsilon$; the contribution to upper sums is then $<\varepsilon\cdot\sup f\le \varepsilon$, hence $\int_0^1 f(x,y)\,dx=0$. Therefore $\int_0^1\!\Big[\int_0^1 f(x,y)\,dx\Big]dy=0$.
 Similarly, on any rectangle in $Q$ the set where $f\ne 0$ is a countable subset with total contribution to upper sums made arbitrarily small, so $\int_Q f=0$. However, for rational $x=m/n$, the function $y\mapsto f(m/n,y)$ equals $\tfrac{1}{n}$ on rationals and $0$ on irrationals, which is not Riemann integrable, so $\int_0^1 f(x,y)\,dy$ does not exist for rational $x$.\qed
 
@@ -154,7 +154,7 @@ let \( S = \bigcup_{k=1}^{\infty} S(p_k) \), and let \( Q = [0, 1] \times [0, 1]
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item For any rectangle in $Q$ and any large prime $p$, the grid $\{(n/p,m/p):1\le n,m\le p-1\}$ lies $1/p$-dense, hence $S$ is dense. A vertical line $x=x_0$ meets $S$ only when $x_0=n/p$ with $p$ prime; for a reduced rational $x_0=a/b$, this forces $b$ prime and yields at most $p-1$ points, otherwise none. Similarly for horizontal lines; hence each axis-parallel line meets $S$ in a finite set.
     \item For fixed $x$, the vertical section $\{y:(x,y)\in S\}$ is finite, so it has Jordan content zero and $\int_0^1 f(x,y)\,dy=1$. Thus $\int_0^1\![\int_0^1 f(x,y)dy]dx=1$. The same holds with $x$ and $y$ interchanged. However, every rectangle contains points of $S$ and of $Q\setminus S$, so the oscillation of $f$ on every subrectangle is $1$; lower sums are $0$ and upper sums are $1$, hence $\int_Q f$ does not exist.
@@ -174,7 +174,7 @@ let \( S = \bigcup_{k=1}^{\infty} S(p_k) \), and let \( Q = [0, 1] \times [0, 1]
 Let \( S \) be a bounded set in \( \mathbb{R}^n \) having at most a finite number of accumulation points. Prove that \( c(S) = 0 \).
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 Let $\{a_1,\dots,a_m\}$ be the accumulation points (possibly empty). Cover each $a_j$ by a cube of content $<\varepsilon/(2m)$. The remaining points of $S$ are isolated; choose disjoint cubes around each, with total content $<\varepsilon/2$ (possible since only finitely many lie outside any given compact exhaustion). Thus $S$ is covered by cubes of total content $<\varepsilon$. As $\varepsilon>0$ is arbitrary, $c(S)=0$.\qed
 
 
@@ -182,7 +182,7 @@ Let $\{a_1,\dots,a_m\}$ be the accumulation points (possibly empty). Cover each 
 Let \( f \) be a continuous real-valued function defined on \([a, b]\). Let \( S \) denote the graph of \( f \), that is, \( S = \{(x, y) : y = f(x), a \leq x \leq b\} \). Prove that \( S \) has two-dimensional Jordan content zero.
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 By uniform continuity of $f$ on $[a,b]$, for $\varepsilon>0$ choose $\delta$ so that $|x-x'|<\delta$ implies $|f(x)-f(x')|<\varepsilon/(b-a)$. Partition $[a,b]$ into subintervals of length $<\delta$ and cover the graph over each subinterval by a rectangle of width $\Delta x$ and height $<\varepsilon/(b-a)$. The total area is $<\varepsilon$. Hence the graph has content zero.\qed
 
 
@@ -190,7 +190,7 @@ By uniform continuity of $f$ on $[a,b]$, for $\varepsilon>0$ choose $\delta$ so 
 Let \( \Gamma \) be a rectifiable curve in \( \mathbb{R}^n \). Prove that \( \Gamma \) has \( n \)-dimensional Jordan content zero.
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 Approximate $\Gamma$ by a polygonal path of length within $\varepsilon$ of its total length $L$. Cover each segment by a tube of thickness $\eta>0$; the $n$-dimensional content of the tube is bounded by $C_n\,L\,\eta$, which can be made arbitrarily small by choosing $\eta$. Therefore $c(\Gamma)=0$.\qed
 
 
@@ -202,7 +202,7 @@ If \( S \) is a Jordan-measurable region in \( \mathbb{R}^n \) and if \( f \) is
 Interpret this problem geometrically when \( n = 1 \) and \( n = 2 \).
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 Vertical sections at $x\in S$ are intervals of length $f(x)$; outside $S$ they are empty. By continuity of $f$ and Jordan-measurability of $S$, the ordinate set is Jordan-measurable and its content equals the integral of section lengths:
 \[ c_{n+1}(\text{ord}(f,S)) = \int_S f(x)\,dx. \]
 Geometrically: for $n=1$, the area under the curve $y=f(x)$ over $S\subset\mathbb R$; for $n=2$, the volume under the surface $z=f(x,y)$ over a planar region $S$.\qed
@@ -221,7 +221,7 @@ Geometrically: for $n=1$, the area under the curve $y=f(x)$ over $S\subset\mathb
 Assume that \( f \in R \) on \( S \) and suppose \( \int_S f(x) \, dx = 0 \). (\( S \) is a subset of \( \mathbb{R}^n \)). Let \( A = \{ x : x \in S, f(x) < 0 \} \) and assume that \( c(A) = 0 \). Prove that there exists a set \( B \) of measure zero such that \( f(x) = 0 \) for each \( x \) in \( S - B \).
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 Let $E_\varepsilon=\{x\in S:f(x)>\varepsilon\}$. If $c(E_\varepsilon)>0$ for some $\varepsilon>0$, then $\int_S f\,dx\ge \varepsilon\,c(E_\varepsilon)>0$, a contradiction. Hence $c(E_\varepsilon)=0$ for all $\varepsilon>0$. Let $B=A\cup\bigcup_{m=1}^\infty E_{1/m}$. Then $c(B)=0$ and for $x\in S\setminus B$ we have $f(x)\ge 0$ and $f(x)\le 1/m$ for all $m$, hence $f(x)=0$.\qed
 
 
@@ -230,7 +230,7 @@ Assume that \( f \in R \) on \( S \), where \( S \) is a region in \( \mathbb{R}
 \[\int_S f(x) \, dx = f(x_0)c(S).\]
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 Let $m=\min_{\overline S} f$ and $M=\max_{\overline S} f$ (attained by continuity). Then $m\,c(S)\le \int_S f\,dx\le M\,c(S)$. Choose $x_-,x_+\in S$ with $f(x_-)\le \frac{1}{c(S)}\int_S f\,dx\le f(x_+)$ (possible since $f(S)$ is an interval on each path-connected component and $S$ has nonempty interior). By continuity, along a path in $S$ joining $x_-$ to $x_+$, the intermediate value $\frac{1}{c(S)}\int_S f$ is assumed at some interior point $x_0$.\qed
 
 
@@ -240,7 +240,7 @@ Let \( f \) be continuous on a rectangle \( Q = [a, b] \times [c, d] \). For eac
 Prove that \( D_{1,2} F(x_1, x_2) = D_{2,1} F(x_1, x_2) = f(x_1, x_2) \).
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 By the one-variable Fundamental Theorem of Calculus and continuity of $f$,
 \[ D_2 F(x_1,x_2) = \int_a^{x_1} f(x,x_2)\,dx, \qquad D_1 D_2 F(x_1,x_2) = f(x_1,x_2). \]
 Symmetrically, $D_1 F(x_1,x_2)=\int_c^{x_2} f(x_1,y)\,dy$ and then $D_2 D_1 F(x_1,x_2)=f(x_1,x_2)$.\qed
@@ -253,7 +253,7 @@ Assume that \( f \) has a continuous second-order partial derivative \( D_{1,2} 
 \[\int_T D_{1,2} f(x, y) \, d(x, y) = f(0, 0) - f(a, 0) + aD_1 f(x_0, y_0).\]
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 Integrate $D_{1,2}f$ first in $y$ over $[0,\,b\,(1-\tfrac{x}{a})]$:
 \[ \int_0^{b(1-x/a)} D_{1,2}f(x,y)\,dy = D_1 f\big(x, b(1-\tfrac{x}{a})\big) - D_1 f(x,0). \]
 Integrating in $x\in[0,a]$ gives

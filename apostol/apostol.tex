@@ -47,7 +47,7 @@
     before skip=3em,
     fonttitle=\bfseries,
     title={\mbox{#1}},
-    before upper={\parindent0pt}
+    before upper={\addcontentsline{toc}{subsection}{#1}\parindent0pt}
 }
 
 % Custom environments for definitions and theorems

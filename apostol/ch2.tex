@@ -56,7 +56,9 @@ Prove Theorem 2.2: $(a, b) = (c, d)$ if and only if $a=c$ and $b=d$.
 Hint: $(a, b) = (c, d)$ means $\{\{a\}, \{a, b\}\} = \{\{c\}, \{c, d\}\}$. Now appeal to the definition of set equality.
 \end{problembox}
 
-\textbf{Proof:}  
+\noindent\textbf{Strategy:} Use the Kuratowski definition of ordered pairs and set equality. Consider cases based on whether $a=b$ or $a\neq b$, then match elements of the sets to establish the required equalities.
+
+\noindent\bigskip\noindent\textbf{Solution:}  
 We must prove that $(a, b) = (c, d)$ if and only if $a=c$ and $b=d$.
 The Kuratowski definition of an ordered pair is $(x, y) = \{\{x\}, \{x, y\}\}$.
 If $a=c$ and $b=d$, then $(a,b) = \{\{a\}, \{a,b\}\} = \{\{c\}, \{c,d\}\} = (c,d)$. This direction is straightforward.
@@ -96,7 +98,9 @@ Determine which of the following relations $S$ on $\mathbb{R}^2$ are reflexive, 
 \end{enumerate}
 \end{problembox}
 
-\textbf{Solution:}  
+\noindent\textbf{Strategy:} Check each property systematically by testing specific values or finding counterexamples. For reflexivity, test $(x,x)$ pairs. For symmetry, check if $(x,y) \in S$ implies $(y,x) \in S$. For transitivity, verify if $(x,y), (y,z) \in S$ implies $(x,z) \in S$.
+
+\bigskip\noindent\textbf{Solution:}  
 \begin{enumerate}[label=(\alph*)]
 \item \textbf{Reflexive:} Yes - for all $x \in \mathbb{R}$, we have $x \leq x$ \\
 \textbf{Symmetric:} No - if $x \leq y$ and $x \neq y$, then $y \not\leq x$ \\
@@ -147,7 +151,9 @@ The following functions \( F \) and \( G \) are defined for all real \( x \) by 
 \end{itemize}
 \end{problembox}
 
-\textbf{Solution:}
+\noindent\textbf{Strategy:} For Part 1, substitute $F(x)$ into $G$ and simplify. For piecewise functions, determine which piece of $G$ applies based on the range of $F$. For Part 2, solve for $F(x)$ by recognizing patterns (like perfect cubes) or using algebraic manipulation.
+
+\bigskip\noindent\textbf{Solution:}
 
 \textbf{(a)}
 The domain of both \(F\) and \(G\) is \(\mathbb{R}\), so the domain of \(G \circ F\) is \(\mathbb{R}\).
@@ -237,7 +243,9 @@ H \circ (G \circ F) = (H \circ G) \circ F
 \]
 \end{problembox}
 
-\textbf{Solution:}  
+\noindent\textbf{Strategy:} For domain restrictions, ensure the range of each function is contained in the domain of the next function in the composition chain. For associativity, use the definition of function composition and show both sides evaluate to the same result.
+
+\bigskip\noindent\textbf{Solution:}  
 To define \( G \circ F \), the range of \( F \) must be contained in the domain of \( G \).  
 To define \( H \circ G \), the range of \( G \) must be contained in the domain of \( H \).  
 Under these conditions,  
@@ -358,7 +366,9 @@ Prove the following set-theoretic identities:
 \end{itemize}
 \end{problembox}
 
-\textbf{Proof:}  
+\noindent\textbf{Strategy:} Use element-chasing method: assume an element belongs to one side and show it belongs to the other side, then reverse the argument. For each identity, use the definitions of union, intersection, and set difference.
+
+\noindent\bigskip\noindent\textbf{Solution:}  
 Each identity can be proven by element-chasing: assuming \( x \in \) one side and showing \( x \in \) the other side.  
 For example, for (b), if \( x \in A \cap (B \cup C) \), then \( x \in A \) and \( x \in B \cup C \Rightarrow x \in (A \cap B) \cup (A \cap C) \). Similar for the reverse.\qed
 
@@ -372,7 +382,9 @@ f(A \cup B) = f(A) \cup f(B), \quad f(A \cap B) \subseteq f(A) \cap f(B)
 Generalize to arbitrary unions and intersections.
 \end{problembox}
 
-\textbf{Proof:}  
+\noindent\textbf{Strategy:} Use the definition of image of a set under a function. For unions, show that any element in the image of the union comes from either $A$ or $B$. For intersections, note that the inclusion may be strict due to non-injectivity.
+
+\noindent\bigskip\noindent\textbf{Solution:}  
 For any \( x \in A \cup B \), \( f(x) \in f(A) \cup f(B) \).  
 For intersections, \( x \in A \cap B \Rightarrow f(x) \in f(A) \cap f(B) \), but the converse need not hold.  
 Generalization:  
@@ -395,7 +407,9 @@ Prove:
 Generalize to arbitrary unions and intersections.
 \end{problembox}
 
-\textbf{Proof:}  
+\noindent\textbf{Strategy:} Use the definition of inverse image and logical equivalence. For (a), show that $f(x) \in Y_1 \cup Y_2$ if and only if $f(x) \in Y_1$ or $f(x) \in Y_2$. For (b), use the fact that $f(x) \notin Y$ if and only if $x \notin f^{-1}(Y)$.
+
+\noindent\bigskip\noindent\textbf{Solution:}  
 (a) If \( x \in f^{-1}(Y_1 \cup Y_2) \), then \( f(x) \in Y_1 \cup Y_2 \Rightarrow x \in f^{-1}(Y_1) \cup f^{-1}(Y_2) \), and vice versa.  
 (b) \( f(x) \notin Y \iff x \notin f^{-1}(Y) \Rightarrow x \in S - f^{-1}(Y) \)\qed
 
@@ -405,7 +419,9 @@ Generalize to arbitrary unions and intersections.
 Prove that \( f[f^{-1}(Y)] = Y \) for every \( Y \subseteq T \) if and only if \( f \) is surjective.
 \end{problembox}
 
-\textbf{Proof:}  
+\noindent\textbf{Strategy:} For the forward direction, assume surjectivity and show that every element in $Y$ has a preimage in $f^{-1}(Y)$. For the reverse direction, assume the equality holds and show that if $f$ were not surjective, there would exist a $y \in T$ not in the image of any preimage.
+
+\noindent\bigskip\noindent\textbf{Solution:}  
 If \( f \) is surjective, every \( y \in Y \) has a preimage in \( S \), so is included in \( f[f^{-1}(Y)] \).  
 If \( f \) is not surjective, then some \( y \notin f(S) \), and so not in the image of any preimage — thus excluded from \( f[f^{-1}(Y)] \).\qed
 
@@ -422,7 +438,9 @@ Let \( f: S \to T \) be a function. Show the following are equivalent:
 \end{itemize}
 \end{problembox}
 
-\textbf{Proof:}  
+\noindent\textbf{Strategy:} Show that each condition implies injectivity and that injectivity implies each condition. Use the definition of injectivity and properties of images and preimages. For (c), note that $f^{-1}[f(A)] = A$ for all $A$ implies that only one element maps to each value in the range.
+
+\noindent\bigskip\noindent\textbf{Solution:}  
 Each condition implies the others under the assumption that \( f(x_1) = f(x_2) \Rightarrow x_1 = x_2 \).  
 E.g., (c) implies \( f^{-1}[f(\{x\})] = \{x\} \Rightarrow \) only one \( x \) maps to any \( f(x) \).\qed
 
@@ -432,7 +450,9 @@ E.g., (c) implies \( f^{-1}[f(\{x\})] = \{x\} \Rightarrow \) only one \( x \) ma
 Prove that if \( A \subseteq B \) and \( B \subseteq C \), then \( A \subseteq C \).
 \end{problembox}
 
-\textbf{Proof:}  
+\noindent\textbf{Strategy:} Use the definition of subset: $A \subseteq B$ means every element of $A$ is also an element of $B$. Chain the implications: if $x \in A$, then by the first inclusion $x \in B$, and by the second inclusion $x \in C$.
+
+\noindent\bigskip\noindent\textbf{Solution:}  
 If \( x \in A \), then since \( A \subseteq B \), we have \( x \in B \), and since \( B \subseteq C \), we get \( x \in C \).  
 Thus, every element of \( A \) is in \( C \), so \( A \subseteq C \).\qed
 
@@ -544,7 +564,9 @@ If a set can be written as a countable union of countable sets, then it is count
 If \( \{1, 2, \ldots, n\} \sim \{1, 2, \ldots, m\} \), prove that \( m = n \).
 \end{problembox}
 
-\textbf{Proof:}  
+\noindent\textbf{Strategy:} Use the definition of equinumerous sets and the fact that a bijection between finite sets implies they have the same number of elements. Since both sets are finite and bijective, their cardinalities must be equal.
+
+\noindent\bigskip\noindent\textbf{Solution:}  
 A bijection between two finite sets implies they have the same number of elements.  
 So if such a bijection exists, then $\#\{1, \ldots, n\} = n = m = \#\{1, \ldots, m\}$, hence $n = m$.\qed
 
@@ -554,7 +576,9 @@ So if such a bijection exists, then $\#\{1, \ldots, n\} = n = m = \#\{1, \ldots,
 If \( S \) is an infinite set, prove that \( S \) contains a countably infinite subset.
 \end{problembox}
 
-\textbf{Proof:}  
+\noindent\textbf{Strategy:} Use the axiom of choice or construct an injection from $\mathbb{N}$ into $S$. Pick elements one by one: select $a_1 \in S$, then $a_2 \in S \setminus \{a_1\}$, and continue. Since $S$ is infinite, this process never terminates, creating a countably infinite subset.
+
+\noindent\bigskip\noindent\textbf{Solution:}  
 We can construct an injection from \( \mathbb{N} \) into \( S \):  
 Select \( a_1 \in S \), then pick \( a_2 \in S \setminus \{a_1\} \), then \( a_3 \in S \setminus \{a_1, a_2\} \), and so on.  
 Since \( S \) is infinite, this process never terminates. Thus, $\{a_1, a_2, \ldots\} \subseteq S$ is countably infinite.\qed
@@ -565,7 +589,9 @@ Since \( S \) is infinite, this process never terminates. Thus, $\{a_1, a_2, \ld
 Prove that every infinite set \( S \) contains a proper subset similar (i.e., bijective) to \( S \) itself.
 \end{problembox}
 
-\textbf{Proof:}  
+\noindent\textbf{Strategy:} Use the result from Exercise 2.12 to find a countably infinite subset $A = \{a_1, a_2, \ldots\}$ of $S$. Define a bijection from $S$ to $S \setminus \{a_1\}$ by mapping elements of $A$ to the next element in the sequence and leaving other elements fixed.
+
+\noindent\bigskip\noindent\textbf{Solution:}  
 Let $S$ be an infinite set. By the result of Exercise 2.12, $S$ contains a countably infinite subset. Let this subset be $A = \{a_1, a_2, a_3, \dots \}$.
 Let $S' = S \setminus A$ be the set of elements in $S$ but not in $A$. Then $S = A \cup S'$, and this union is disjoint.
 
@@ -599,10 +625,12 @@ Since $f$ is a bijection from $S$ to its proper subset $T$, the set $S$ is simil
 
 
 \begin{problembox}[2.14: Removing Countable from Uncountable]
-If \( A \) is a countable set and \( B \) an uncountable set, prove that \( B - A \sim B \).
+If \( A \) is countable and \( B \) an uncountable set, prove that \( B - A \sim B \).
 \end{problembox}
 
-\textbf{Proof:}  
+\noindent\textbf{Strategy:} Use the fact that $B - A$ is uncountable (since removing a countable set from an uncountable set leaves an uncountable set). Construct a bijection from $B$ to $B - A$ by mapping countably many points in $B$ to other points in $B$, leaving the rest fixed.
+
+\noindent\bigskip\noindent\textbf{Solution:}  
 Since \( A \) is countable and \( B \) is uncountable, \( B - A \) is uncountable.  
 Also, \( A \cup (B - A) = B \). Define a bijection \( f \) from \( B \) to \( B - A \cup \{a_0\} \subset B \) by remapping countably many points.  
 Thus, \( B \sim B - A \).\qed
@@ -614,7 +642,9 @@ A real number is called \emph{algebraic} if it is a root of a polynomial with in
 Prove that the set of all polynomials with integer coefficients is countable, and deduce that the set of algebraic numbers is also countable.
 \end{problembox}
 
-\textbf{Proof:}  
+\noindent\textbf{Strategy:} Represent each polynomial by its finite sequence of integer coefficients. Show that the set of finite sequences of integers is countable (as a countable union of countable sets). Then use the fact that each polynomial has finitely many roots to show that algebraic numbers form a countable union of finite sets.
+
+\noindent\bigskip\noindent\textbf{Solution:}  
 Each polynomial can be represented by a finite tuple of integers (its coefficients). The set of finite sequences of integers is countable (a countable union of countable sets).  
 Each polynomial has finitely many roots, so the set of all algebraic numbers is a countable union of finite sets → countable.\qed
 
@@ -625,7 +655,9 @@ Let \( S \) be a finite set with \( n \) elements, and let \( T \) be the collec
 Show that \( T \) is finite, and determine how many elements it contains.
 \end{problembox}
 
-\textbf{Solution:}  
+\noindent\textbf{Strategy:} Use the fact that each element of $S$ can either be included or excluded from a subset. This gives $2^n$ possible combinations, corresponding to the $2^n$ subsets of $S$.
+
+\bigskip\noindent\textbf{Solution:}  
 Each element of \( S \) may either be in or not in a subset.  
 So the number of subsets is \( 2^n \). Hence \( \#T = \textbf{$2^n$} \), and \( T \) is finite.\qed
 
@@ -636,7 +668,9 @@ Let \( R \) be the set of real numbers and \( S \) the set of all real-valued fu
 Show that \( S \) and \( R \) are not equinumerous.
 \end{problembox}
 
-\textbf{Solution:}  
+\noindent\textbf{Strategy:} Use Cantor's diagonal argument. Assume there is a bijection $f: R \to S$ and construct a function $h: R \to R$ defined by $h(x) = f(x)(x) + 1$. Show that $h$ is in $S$ but cannot be in the range of $f$, leading to a contradiction.
+
+\bigskip\noindent\textbf{Solution:}  
 Assume toward contradiction that there is a bijection \( f: R \to S \).  
 Define a function \( h(x) = f(x)(x) + 1 \). Then \( h \in S \), but there is no \( x \in R \) such that \( f(x) = h \), since \( f(x)(x) \ne h(x) \).  
 Contradiction → no such bijection. Thus, \( S \) has strictly greater cardinality than \( R \).\qed
@@ -647,7 +681,9 @@ Contradiction → no such bijection. Thus, \( S \) has strictly greater cardinal
 Let \( S \) be the set of all infinite sequences of 0s and 1s. Show that \( S \) is uncountable.
 \end{problembox}
 
-\textbf{Solution:}  
+\noindent\textbf{Strategy:} Use Cantor's diagonal argument. Assume $S$ is countable and list all sequences. Construct a new sequence that differs from the $n$-th sequence at the $n$-th position. This new sequence is not in the list, contradicting the assumption of countability.
+
+\bigskip\noindent\textbf{Solution:}  
 Use Cantor's diagonal argument: assume \( S \) is countable and list all sequences.  
 Construct a new sequence differing from the \( n \)-th sequence at the \( n \)-th place.  
 This sequence is not in the list — contradiction. So \( S \) is uncountable.\qed
@@ -662,7 +698,9 @@ Show that the following sets are countable:
 \end{itemize}
 \end{problembox}
 
-\textbf{Solution:}  
+\noindent\textbf{Strategy:} For (a), each circle is determined by three rational numbers (radius and two coordinates), so the set injects into $\mathbb{Q}^3$ which is countable. For (b), each interval contains a rational number, and since intervals are disjoint, this creates an injection into $\mathbb{Q}$.
+
+\bigskip\noindent\textbf{Solution:}  
 (a) Each circle is determined by a rational radius and two rational coordinates → set is countable.  
 (b) Each disjoint interval must contain a distinct rational number → inject into \( \mathbb{Q} \), which is countable.\qed
 
@@ -676,7 +714,9 @@ Let \( f \) be a real-valued function on \( [0,1] \). Suppose there exists \( M 
 Let \( S = \{x \in [0,1] \mid f(x) \ne 0\} \). Prove that \( S \) is countable.
 \end{problembox}
 
-\textbf{Solution:}  
+\noindent\textbf{Strategy:} Partition $S$ into sets $S_k = \{x : |f(x)| > 1/k\}$ for each positive integer $k$. Show that each $S_k$ is finite by using the bounded sum condition. Then $S$ is a countable union of finite sets, hence countable.
+
+\bigskip\noindent\textbf{Solution:}  
 Let $S = \{x \in [0,1] \mid f(x) \ne 0\}$. We want to prove that $S$ is countable.
 An element $x$ is in $S$ if and only if $|f(x)| > 0$.
 This is equivalent to saying that for each $x \in S$, there exists a positive integer $k$ such that $|f(x)| > 1/k$.
@@ -707,7 +747,9 @@ Let \( \{x_1, x_2, \ldots\} \) be the rationals. Every interval contains a ratio
 Assign to the interval the smallest such \( n \). This gives a function from intervals to \( \mathbb{N} \), so the set of intervals is countable.
 \end{problembox}
 
-\textbf{Solution:}  
+\noindent\textbf{Strategy:} Identify that the function is not injective. Many different intervals may contain the same rational with minimal index, so this does not establish a one-to-one correspondence between intervals and natural numbers.
+
+\bigskip\noindent\textbf{Solution:}  
 The function \( F \) is not injective — many intervals may have the same smallest-index rational.  
 So this does not establish a one-to-one correspondence between intervals and \( \mathbb{N} \).  
 Hence, the proof is invalid.\qed
@@ -752,7 +794,7 @@ f(A \cup B) = f(A) + f(B) - f(A \cap B)
 \]
 \end{problembox}
 
-\textbf{Solution:}  
+\bigskip\noindent\textbf{Solution:}  
 Let $f: S \to \mathbb{R}$ be an additive function, meaning $f(X \cup Y) = f(X) + f(Y)$ whenever $X \cap Y = \emptyset$.
 
 \textbf{Part 1:} Prove $f(A \cup B) = f(A) + f(B - A)$.
@@ -793,7 +835,7 @@ f(A \cap B) = f(A)f(B), \quad f(A) + f(B) \ne f(T),
 where \(A' = T - A, B' = T - B\). Prove that these relations determine \(f(T)\), and compute the value of \(f(T)\).
 \end{problembox}
 
-\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 
 We are given that the function \(f\) is additive, meaning \(f(X \cup Y) = f(X) + f(Y)\) for any disjoint sets \(X\) and \(Y\). For any subset \(X \subseteq T\), its complement \(X' = T - X\) is disjoint from \(X\) and their union is \(T\). The additive property therefore implies \(f(T) = f(X) + f(X')\), which gives us:
 \begin{itemize}

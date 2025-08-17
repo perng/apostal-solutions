@@ -13,7 +13,7 @@ If \( f \in L(T) \), where \( T \) is the triangular region in \( \mathbb{R}^2 \
 \]
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 Write the indicator of the triangle \(T=\{(x,y): 0\le y \le x \le 1\}\) and apply Fubini to
 \[
 \int_{\mathbb{R}^2} f(x,y) \mathbf{1}_T(x,y)\, d(x,y).
@@ -36,7 +36,7 @@ Prove that \( f \in L(\mathbb{R}^2) \) and calculate the double integral
 \]
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 The support is the triangle \(0\le y < x < 1\), so
 \[
 \int_{\mathbb{R}^2} f = \int_0^1\!\int_0^x \frac{(1-y)^c}{(x-y)^c}\,dy\,dx.
@@ -56,7 +56,7 @@ Let \( S \) be a measurable subset of \( \mathbb{R}^2 \) with finite measure \( 
 \]
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 Apply Fubini to the indicator function \(\mathbf{1}_S\). By Definition 15.4, \(\mu(S^x)=\int \mathbf{1}_S(x,y)\,dy\) and \(\mu(S_y)=\int \mathbf{1}_S(x,y)\,dx\). Hence
 \[
 \mu(S)=\iint \mathbf{1}_S\,d(x,y)=\int_{-\infty}^{\infty}\!\mu(S^x)\,dx=\int_{-\infty}^{\infty}\!\mu(S_y)\,dy.
@@ -71,8 +71,8 @@ Let \( f(x, y) = e^{-xy} \sin x \sin y \) if \( x \geq 0, y \geq 0 \), and let \
 exist and are equal, but that the double integral of \( f \) over \( \mathbb{R}^2 \) does not exist. Also, explain why this does not contradict the Tonelli-Hobson test (Theorem 15.8).
 \end{problembox}
 
-\noindent\textbf{Solution:}
-\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 Since \(f\) is supported in the first quadrant, we may write the iterated integrals as
 \[
 \int_0^\infty \left[ \int_0^\infty e^{-xy} \sin x \sin y \, dx \right] \, dy,
@@ -164,7 +164,7 @@ Let \( f(x, y) = (x^2 - y^2)/(x^2 + y^2)^2 \) for \( 0 \leq x \leq 1, 0 < y \leq
 exist but are not equal. This shows that \( f \) is not Lebesgue-integrable on \([0, 1] \times [0, 1]\).
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 For fixed \(x>0\),
 \[
 \int_0^1 \frac{x^2-y^2}{(x^2+y^2)^2}\,dy = \frac{1}{1+x^2}.
@@ -183,7 +183,7 @@ Let \( I = [0, 1] \times [0, 1] \), let \( f(x, y) = (x - y)/(x + y)^3 \) if \( 
 \]
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 For fixed \(x\in[0,1]\),
 \[
 \int_0^1 \frac{x-y}{(x+y)^3}\,dy = \frac{1}{(1+x)^{2}},
@@ -202,7 +202,7 @@ Let \( I = [0, 1] \times [1, +\infty) \) and let \( f(x, y) = e^{-xy} - 2e^{-2xy
 \]
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 For \(x\in(0,1]\),
 \[
 \int_1^{\infty} \big(e^{-xy}-2e^{-2xy}\big)\,dy = \frac{e^{-x}-2e^{-2x}}{x},
@@ -227,7 +227,7 @@ The following formulas for transforming double and triple integrals occur in ele
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 These follow from the Change of Variables Theorem applied to the maps
 \( (r,\theta)\mapsto (r\cos\theta, r\sin\theta) \),
 \( (r,\theta,z)\mapsto (r\cos\theta, r\sin\theta, z) \), and
@@ -248,7 +248,7 @@ The determinants are respectively \(r\), \(r\), and \(\rho^2\sin\varphi\). Valid
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
 \item In polar coordinates,
 \(\int_{\mathbb{R}^2} e^{-(x^2+y^2)} d(x,y)=\int_0^{2\pi}\int_0^{\infty} e^{-r^2} r\,dr\,d\theta=2\pi\cdot\tfrac12=\pi\).
@@ -280,7 +280,7 @@ V_n(1) = \frac{\pi^{n/2}}{\Gamma(\frac{1}{2}n + 1)}.
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
 \item Under \(x\mapsto ax\), \(n\)-volume scales by \(a^n\), so \(V_n(a)=a^n V_n(1)\).
 \item For \(n\ge 3\), write \(\|x\|^2=r^2+\rho^2\) with \(\rho\in\mathbb{R}^{n-2}\). Then
@@ -299,7 +299,7 @@ Refer to Exercise 15.10 and prove that
 for each \( k = 1, 2, \ldots, n \).
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 By symmetry, \(\int_{B(0;1)} x_k^2\,dx\) is the same for each \(k\) and \(\sum_{k=1}^n x_k^2=\|x\|^2\). Hence
 \[
 \sum_{k=1}^n \int_{B(0;1)} x_k^2\,dx = \int_{B(0;1)} \|x\|^2\,dx.
@@ -318,7 +318,7 @@ Put \( x = \cos t \) in the integral, and use the formula of Exercise 15.10 to d
 \]
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 Writing \(V_n(1)=2V_{n-1}(1)\int_0^1 (1-x^2)^{(n-1)/2}dx\) and substituting \(x=\cos t\) gives
 \[
 \int_0^{\pi/2} \cos^n t\,dt = \frac{\sqrt{\pi}}{2}\,\frac{\Gamma(\tfrac{n+1}{2})}{\Gamma(\tfrac{n}{2}+1)}.
@@ -342,7 +342,7 @@ and deduce that \( V_n(1) = 2^n / n! \).
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
 \item Scaling gives \(V_n(a)=a^n V_n(1)\).
 \item Slice by \(x_1\) and use the \((n-1)\)-dimensional volume of the cross-section \(\{(x_2,\ldots,x_n): |x_2|+\cdots+|x_n|\le 1-|x_1|\}\). Induction yields
@@ -358,7 +358,7 @@ S_n(a) = \{(x_1, \ldots, x_n): |x_i| + |x_n| \leq a \quad \text{for each } i = 1
 Let \( V_n(a) \) denote the \( n \)-measure of \( S_n(a) \). Use a method suggested by Exercise 15.13 to prove that \( V_n(a) = 2^n a^n / n \).
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 Fix \(x_n\in[-a,a]\). The cross-section in the first \(n-1\) coordinates is an \((n-1)\)-dimensional diamond of radius \(a-|x_n|\) with volume \(V_{n-1}(a-|x_n|)=2^{n-1}(a-|x_n|)^{n-1}/(n-1)!\). Integrating in \(x_n\) gives
 \[
 V_n(a)=\int_{-a}^{a} \frac{2^{n-1}}{(n-1)!} (a-|t|)^{n-1} dt = \frac{2^n a^n}{n}.
@@ -376,7 +376,7 @@ Let \( f(x) = x_1 \cdots x_n \) and prove that
 \]
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 Let \(y_i=x_i^2\) for \(i=1,\ldots,n\). On the first quadrant, \(x_i\ge 0\), the region \(Q_n(a)\) maps to the simplex \(\{y\ge 0: y_1+\cdots+y_n\le a^2\}\). The Jacobian gives \(dx=\frac{1}{2^n}(y_1\cdots y_n)^{-1/2}dy\) and \(x_1\cdots x_n=\sqrt{y_1\cdots y_n}\). Therefore the integrand times \(dx\) is \(\frac{1}{2^n} dy\), and
 \[
 \int_{Q_n(a)} x_1\cdots x_n\,dx = \frac{1}{2^n}\,\mathrm{Vol}\,\{y\ge 0: y_1+\cdots+y_n\le a^2\} = \frac{a^{2n}}{2^n n!}.

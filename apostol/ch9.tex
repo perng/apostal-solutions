@@ -8,7 +8,7 @@
 Assume that \( f_n \to f \) uniformly on \( S \) and that each \( f_n \) is bounded on \( S \). Prove that \(\{f_n\}\) is uniformly bounded on \( S \).
 \end{problembox}
 
-\noindent\textbf{Solution:} Since \( f_n \to f \) uniformly on \( S \), there exists \( N \) such that for all \( n \geq N \) and all \( x \in S \), we have \( |f_n(x) - f(x)| < 1 \). This means \( |f_n(x)| < |f(x)| + 1 \) for all \( n \geq N \) and \( x \in S \).
+\bigskip\noindent\textbf{Solution:} Since \( f_n \to f \) uniformly on \( S \), there exists \( N \) such that for all \( n \geq N \) and all \( x \in S \), we have \( |f_n(x) - f(x)| < 1 \). This means \( |f_n(x)| < |f(x)| + 1 \) for all \( n \geq N \) and \( x \in S \).
 
 Since \( f \) is the uniform limit of continuous functions, \( f \) is bounded on \( S \). Let \( M_1 = \sup_{x \in S} |f(x)| \). Then for \( n \geq N \), we have \( |f_n(x)| < M_1 + 1 \) for all \( x \in S \).
 
@@ -32,7 +32,7 @@ a) Prove that both \(\{f_n\}\) and \(\{g_n\}\) converge uniformly on every bound
 b) Prove that \(\{h_n\}\) does not converge uniformly on any bounded interval.
 \end{problembox}
 
-\noindent\textbf{Solution:} 
+\bigskip\noindent\textbf{Solution:} 
 \begin{enumerate}[label=(\alph*)]
 \item For \(\{f_n\}\): The limit function is \( f(x) = x \). For any bounded interval \([-M, M]\), we have
 \[|f_n(x) - f(x)| = \left|x \left(1 + \frac{1}{n}\right) - x\right| = \frac{|x|}{n} \leq \frac{M}{n}.\]
@@ -54,7 +54,7 @@ a) Prove that \( f_n + g_n \to f + g \) uniformly on \( S \).
 b) Let \( h_n(x) = f_n(x) g_n(x) \), \( h(x) = f(x) g(x) \), if \( x \in S \). Exercise 9.2 shows that the assertion \( h_n \to h \) uniformly on \( S \) is, in general, incorrect. Prove that it is correct if each \( f_n \) and each \( g_n \) is bounded on \( S \).
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
 \item For any \( \varepsilon > 0 \), there exist \( N_1, N_2 \) such that for \( n \geq N_1 \), \( |f_n(x) - f(x)| < \varepsilon/2 \) for all \( x \in S \), and for \( n \geq N_2 \), \( |g_n(x) - g(x)| < \varepsilon/2 \) for all \( x \in S \). Taking \( N = \max\{N_1, N_2\} \), we have for \( n \geq N \):
 \[|(f_n(x) + g_n(x)) - (f(x) + g(x))| \leq |f_n(x) - f(x)| + |g_n(x) - g(x)| < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon\]
@@ -70,7 +70,7 @@ for all \( x \in S \), proving uniform convergence.
 Assume that \( f_n \to f \) uniformly on \( S \) and suppose there is a constant \( M > 0 \) such that \( |f_n(x)| \leq M \) for all \( x \) in \( S \) and all \( n \). Let \( g \) be continuous on the closure of the disk \( B(0; M) \) and define \( h_n(x) = g[f_n(x)] \), \( h(x) = g[f(x)] \), if \( x \in S \). Prove that \( h_n \to h \) uniformly on \( S \).
 \end{problembox}
 
-\noindent\textbf{Solution:} Since \( g \) is continuous on the compact set \( \overline{B(0; M)} \), it is uniformly continuous there. For any \( \varepsilon > 0 \), there exists \( \delta > 0 \) such that \( |g(y_1) - g(y_2)| < \varepsilon \) whenever \( |y_1 - y_2| < \delta \) and \( y_1, y_2 \in \overline{B(0; M)} \).
+\bigskip\noindent\textbf{Solution:} Since \( g \) is continuous on the compact set \( \overline{B(0; M)} \), it is uniformly continuous there. For any \( \varepsilon > 0 \), there exists \( \delta > 0 \) such that \( |g(y_1) - g(y_2)| < \varepsilon \) whenever \( |y_1 - y_2| < \delta \) and \( y_1, y_2 \in \overline{B(0; M)} \).
 
 Since \( f_n \to f \) uniformly on \( S \), there exists \( N \) such that for \( n \geq N \) and all \( x \in S \), we have \( |f_n(x) - f(x)| < \delta \). Since \( |f_n(x)| \leq M \) and \( |f(x)| \leq M \) (by the uniform limit), both \( f_n(x) \) and \( f(x) \) are in \( \overline{B(0; M)} \).
 
@@ -85,7 +85,7 @@ a) Let \( f_n(x) = 1/(nx + 1) \) if \( 0 < x < 1, n = 1, 2, \ldots \). Prove tha
 b) Let \( g_n(x) = x/(nx + 1) \) if \( 0 < x < 1, n = 1, 2, \ldots \). Prove that \( g_n \to 0 \) uniformly on (0, 1).
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
 \item For each fixed \( x \in (0, 1) \), we have \( f_n(x) = 1/(nx + 1) \to 0 \) as \( n \to \infty \), so the sequence converges pointwise to \( f(x) = 0 \).
 
@@ -101,7 +101,7 @@ For uniform convergence, note that \( g_n(x) = x/(nx + 1) \leq x/(nx) = 1/n \) f
 Let \( f_n(x) = x^n \). The sequence \( \{f_n\} \) converges pointwise but not uniformly on [0, 1]. Let \( g \) be continuous on [0, 1] with \( g(1) = 0 \). Prove that the sequence \( \{g(x)x^n\} \) converges uniformly on [0, 1].
 \end{problembox}
 
-\noindent\textbf{Solution:} Since \( g \) is continuous on the compact set [0, 1], it is uniformly continuous and bounded. Let \( M = \sup_{x \in [0,1]} |g(x)| \).
+\bigskip\noindent\textbf{Solution:} Since \( g \) is continuous on the compact set [0, 1], it is uniformly continuous and bounded. Let \( M = \sup_{x \in [0,1]} |g(x)| \).
 
 For any \( \varepsilon > 0 \), since \( g(1) = 0 \), there exists \( \delta > 0 \) such that \( |g(x)| < \varepsilon \) whenever \( 1 - \delta \leq x \leq 1 \).
 
@@ -118,7 +118,7 @@ This proves that \( \{g(x)x^n\} \) converges uniformly to 0 on [0, 1].\qed
 Assume that \( f_n \to f \) uniformly on \( S \), and that each \( f_n \) is continuous on \( S \). If \( x \in S \), let \( \{x_n\} \) be a sequence of points in \( S \) such that \( x_n \to x \). Prove that \( f_n(x_n) \to f(x) \).
 \end{problembox}
 
-\noindent\textbf{Solution:} We need to show that for any \( \varepsilon > 0 \), there exists \( N \) such that for \( n \geq N \), \( |f_n(x_n) - f(x)| < \varepsilon \).
+\bigskip\noindent\textbf{Solution:} We need to show that for any \( \varepsilon > 0 \), there exists \( N \) such that for \( n \geq N \), \( |f_n(x_n) - f(x)| < \varepsilon \).
 
 Since \( f_n \to f \) uniformly on \( S \), there exists \( N_1 \) such that for \( n \geq N_1 \) and all \( y \in S \), we have \( |f_n(y) - f(y)| < \varepsilon/3 \).
 
@@ -143,7 +143,7 @@ Hint. To prove the sufficiency of (i) and (ii), show that for each \( x_0 \) in 
 By compactness, a finite set of integers, say \( A = \{k_1, \ldots, k_r\} \), has the property that, for each \( x \) in \( S \), some \( k \) in \( A \) satisfies \( |f_k(x) - f(x)| < \delta \). Uniform convergence is an easy consequence of this fact.
 \end{problembox}
 
-\noindent\textbf{Solution:} First, suppose \( f_n \to f \) uniformly on \( S \). Then \( f \) is continuous (as the uniform limit of continuous functions), so (i) holds. For (ii), given \( \varepsilon > 0 \), there exists \( N \) such that for \( n \geq N \) and all \( x \in S \), \( |f_n(x) - f(x)| < \varepsilon/2 \). Taking \( m = N \) and \( \delta = \varepsilon/2 \), we see that (ii) holds.
+\bigskip\noindent\textbf{Solution:} First, suppose \( f_n \to f \) uniformly on \( S \). Then \( f \) is continuous (as the uniform limit of continuous functions), so (i) holds. For (ii), given \( \varepsilon > 0 \), there exists \( N \) such that for \( n \geq N \) and all \( x \in S \), \( |f_n(x) - f(x)| < \varepsilon/2 \). Taking \( m = N \) and \( \delta = \varepsilon/2 \), we see that (ii) holds.
 
 Conversely, suppose (i) and (ii) hold. Given \( \varepsilon > 0 \), let \( m \) and \( \delta \) be as in (ii). For each \( x_0 \in S \), since \( f \) is continuous, there exists a neighborhood \( B(x_0) \) such that \( |f(x) - f(x_0)| < \delta/2 \) for all \( x \in B(x_0) \). Since \( f_n \to f \) pointwise, there exists \( k \) (depending on \( x_0 \)) such that \( |f_k(x_0) - f(x_0)| < \varepsilon/2 \). By continuity of \( f_k \), there exists a neighborhood \( B'(x_0) \subseteq B(x_0) \) such that \( |f_k(x) - f_k(x_0)| < \delta/2 \) for all \( x \in B'(x_0) \). Then for \( x \in B'(x_0) \):
 \[|f_k(x) - f(x)| \leq |f_k(x) - f_k(x_0)| + |f_k(x_0) - f(x_0)| + |f(x_0) - f(x)| < \frac{\delta}{2} + \frac{\delta}{2} + \frac{\delta}{2} = \frac{3\delta}{2} < 2\delta.\]
@@ -159,7 +159,7 @@ a) Use Exercise 9.8 to prove the following theorem of Dini: If \( \{f_n\} \) is 
 b) Use the sequence in Exercise 9.5(a) to show that compactness of \( S \) is essential in Dini's theorem.
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
 \item By Exercise 9.8, we need to verify conditions (i) and (ii). Condition (i) holds by assumption since \( f \) is continuous.
 
@@ -175,7 +175,7 @@ By compactness and continuity, we can find \( \delta > 0 \) and \( m \) such tha
 Let \( f_n(x) = n^c x(1 - x^2)^n \) for \( x \) real and \( n \geq 1 \). Prove that \( \{f_n\} \) converges pointwise on [0, 1] for every real \( c \). Determine those \( c \) for which the convergence is uniform on [0, 1] and those for which term-by-term integration on [0, 1] leads to a correct result.
 \end{problembox}
 
-\noindent\textbf{Solution:} For each fixed \( x \in [0, 1] \), we have \( (1 - x^2)^n \to 0 \) as \( n \to \infty \) (since \( 0 \leq 1 - x^2 < 1 \) for \( x \in (0, 1] \), and \( 1 - x^2 = 0 \) only at \( x = 1 \)). Therefore, \( f_n(x) \to 0 \) pointwise for all \( c \).
+\bigskip\noindent\textbf{Solution:} For each fixed \( x \in [0, 1] \), we have \( (1 - x^2)^n \to 0 \) as \( n \to \infty \) (since \( 0 \leq 1 - x^2 < 1 \) for \( x \in (0, 1] \), and \( 1 - x^2 = 0 \) only at \( x = 1 \)). Therefore, \( f_n(x) \to 0 \) pointwise for all \( c \).
 
 For uniform convergence, we need to find \( \sup_{x \in [0,1]} |f_n(x)| \). The maximum of \( f_n(x) \) occurs at \( x = 1/\sqrt{2n + 1} \), where \( f_n(x) = n^c \cdot \frac{1}{\sqrt{2n + 1}} \cdot \left(1 - \frac{1}{2n + 1}\right)^n \).
 
@@ -195,7 +195,7 @@ Therefore:
 Prove that \( \sum x^n (1 - x) \) converges pointwise but not uniformly on [0, 1], whereas \( \sum (-1)^n x^n (1 - x) \) converges uniformly on [0, 1]. This illustrates that uniform convergence of \( \sum f_n(x) \) along with pointwise convergence of \( \sum |f_n(x)| \) does not necessarily imply uniform convergence of \( \sum |f_n(x)| \).
 \end{problembox}
 
-\noindent\textbf{Solution:} For the first series \( \sum x^n (1 - x) \): For \( x \in [0, 1) \), this is a geometric series with sum \( (1 - x)/(1 - x) = 1 \). For \( x = 1 \), each term is 0, so the sum is 0. Therefore, the series converges pointwise to \( f(x) = 1 \) for \( x \in [0, 1) \) and \( f(1) = 0 \).
+\bigskip\noindent\textbf{Solution:} For the first series \( \sum x^n (1 - x) \): For \( x \in [0, 1) \), this is a geometric series with sum \( (1 - x)/(1 - x) = 1 \). For \( x = 1 \), each term is 0, so the sum is 0. Therefore, the series converges pointwise to \( f(x) = 1 \) for \( x \in [0, 1) \) and \( f(1) = 0 \).
 
 The convergence is not uniform because the limit function is discontinuous at \( x = 1 \), but each partial sum is a polynomial and hence continuous.
 
@@ -208,7 +208,7 @@ For uniform convergence, note that \( |x^n (1 - x)| \leq (1 - x) \) for \( x \in
 Assume that \( g_{n+1}(x) \leq g_n(x) \) for each \( x \) in \( T \) and each \( n = 1, 2, \ldots \), and suppose that \( g_n \to 0 \) uniformly on \( T \). Prove that \( \sum (-1)^{n+1} g_n(x) \) converges uniformly on \( T \).
 \end{problembox}
 
-\noindent\textbf{Solution:} Since \( g_n \to 0 \) uniformly on \( T \), for any \( \varepsilon > 0 \) there exists \( N \) such that for \( n \geq N \) and all \( x \in T \), we have \( |g_n(x)| < \varepsilon \).
+\bigskip\noindent\textbf{Solution:} Since \( g_n \to 0 \) uniformly on \( T \), for any \( \varepsilon > 0 \) there exists \( N \) such that for \( n \geq N \) and all \( x \in T \), we have \( |g_n(x)| < \varepsilon \).
 
 For the alternating series \( \sum (-1)^{n+1} g_n(x) \), since \( g_{n+1}(x) \leq g_n(x) \) and \( g_n(x) \to 0 \) for each \( x \in T \), the series converges pointwise by the alternating series test.
 
@@ -223,7 +223,7 @@ This proves that \( S_n \to S \) uniformly on \( T \).\qed
 Prove Abel's test for uniform convergence: Let \( \{g_n\} \) be a sequence of real-valued functions such that \( g_{n+1}(x) \leq g_n(x) \) for each \( x \) in \( T \) and for every \( n = 1, 2, \ldots \). If \( \{g_n\} \) is uniformly bounded on \( T \) and if \(\sum f_n(x)\) converges uniformly on \( T \), then \(\sum f_n(x)g_n(x)\) also converges uniformly on \( T \).
 \end{problembox}
 
-\noindent\textbf{Solution:} Let \( M \) be a uniform bound for \( \{g_n\} \) on \( T \), so \( |g_n(x)| \leq M \) for all \( n \) and all \( x \in T \).
+\bigskip\noindent\textbf{Solution:} Let \( M \) be a uniform bound for \( \{g_n\} \) on \( T \), so \( |g_n(x)| \leq M \) for all \( n \) and all \( x \in T \).
 
 Let \( S_n(x) = \sum_{k=1}^n f_k(x) \) and \( S(x) = \sum_{k=1}^{\infty} f_k(x) \). Since \( \sum f_n(x) \) converges uniformly, \( S_n \to S \) uniformly on \( T \).
 
@@ -251,7 +251,7 @@ b) In what subintervals of \( R \) does \( f_n \to f \) uniformly?
 c) In what subintervals of \( R \) does \( f'_n \to g \) uniformly?
 \end{problembox}
 
-\noindent\textbf{Solution:} The limit function is \( f(x) = 0 \) for all \( x \), since \( f_n(x) = x/(1 + nx^2) \to 0 \) as \( n \to \infty \) for each fixed \( x \).
+\bigskip\noindent\textbf{Solution:} The limit function is \( f(x) = 0 \) for all \( x \), since \( f_n(x) = x/(1 + nx^2) \to 0 \) as \( n \to \infty \) for each fixed \( x \).
 
 The derivative is \( f'_n(x) = (1 + nx^2 - 2nx^2)/(1 + nx^2)^2 = (1 - nx^2)/(1 + nx^2)^2 \). The limit function is \( g(x) = 0 \) for all \( x \).
 
@@ -272,7 +272,7 @@ However, on any interval \([-a, a]\) with \( a > 0 \), for large enough \( n \) 
 Let \( f_n(x) = (1/n)e^{-n^2x^2} \) if \( x \in R, n = 1, 2, \ldots \). Prove that \( f_n \to 0 \) uniformly on \( R \), that \( f'_n \to 0 \) pointwise on \( R \), but that the convergence of \(\{f'_n\}\) is not uniform on any interval containing the origin.
 \end{problembox}
 
-\noindent\textbf{Solution:} For uniform convergence of \( f_n \to 0 \): The maximum of \( f_n(x) \) occurs at \( x = 0 \), where \( f_n(0) = 1/n \). Therefore, \( \sup_{x \in R} |f_n(x)| = 1/n \to 0 \) as \( n \to \infty \), proving uniform convergence.
+\bigskip\noindent\textbf{Solution:} For uniform convergence of \( f_n \to 0 \): The maximum of \( f_n(x) \) occurs at \( x = 0 \), where \( f_n(0) = 1/n \). Therefore, \( \sup_{x \in R} |f_n(x)| = 1/n \to 0 \) as \( n \to \infty \), proving uniform convergence.
 
 For pointwise convergence of \( f'_n \to 0 \): We have \( f'_n(x) = -2nxe^{-n^2x^2} \). For each fixed \( x \), we have \( f'_n(x) \to 0 \) as \( n \to \infty \), so the convergence is pointwise.
 
@@ -284,7 +284,7 @@ Let \(\{f_n\}\) be a sequence of real-valued continuous functions defined on \([
 \[\lim_{n \to \infty} \int_0^{1 - 1/n} f_n(x) \, dx = \int_0^1 f(x) \, dx.\]
 \end{problembox}
 
-\noindent\textbf{Solution:} This statement is true. Here's the proof:
+\bigskip\noindent\textbf{Solution:} This statement is true. Here's the proof:
 
 Since \( f_n \to f \) uniformly, for any \( \varepsilon > 0 \) there exists \( N \) such that for \( n \geq N \) and all \( x \in [0, 1] \), we have \( |f_n(x) - f(x)| < \varepsilon \).
 
@@ -302,7 +302,7 @@ Mathematicians from Slobkovia decided that the Riemann integral was too complica
 whenever this limit exists. Let \(\{f_n\}\) be a sequence of functions such that \( S(f_n) \) exists for each \( n \) and such that \( f_n \to f \) uniformly on \( Q \). Prove that \(\{S(f_n)\}\) converges, that \( S(f) \) exists, and that \( S(f_n) \to S(f) \) as \( n \to \infty \).
 \end{problembox}
 
-\noindent\textbf{Solution:} Since \( f_n \to f \) uniformly on \( Q \), for any \( \varepsilon > 0 \) there exists \( N \) such that for \( n \geq N \) and all \( x \in Q \), we have \( |f_n(x) - f(x)| < \varepsilon \).
+\bigskip\noindent\textbf{Solution:} Since \( f_n \to f \) uniformly on \( Q \), for any \( \varepsilon > 0 \) there exists \( N \) such that for \( n \geq N \) and all \( x \in Q \), we have \( |f_n(x) - f(x)| < \varepsilon \).
 
 For \( n \geq N \) and any \( m \in \mathbb{N} \):
 \[\left|\frac{1}{m} \sum_{k=1}^m f_n \left( \frac{k}{m} \right) - \frac{1}{m} \sum_{k=1}^m f \left( \frac{k}{m} \right)\right| \leq \frac{1}{m} \sum_{k=1}^m \left|f_n \left( \frac{k}{m} \right) - f \left( \frac{k}{m} \right)\right| < \varepsilon.\]
@@ -321,7 +321,7 @@ This proves that \( S(f) \) exists and \( S(f_n) \to S(f) \).\qed
 Let \( f_n(x) = 1/(1 + n^2x^2) \) if \( 0 \leq x \leq 1, n = 1, 2, \ldots \). Prove that \(\{f_n\}\) converges pointwise but not uniformly on \([0, 1]\). Is term-by-term integration permissible?
 \end{problembox}
 
-\noindent\textbf{Solution:} For each fixed \( x \in [0, 1] \), we have \( f_n(x) = 1/(1 + n^2x^2) \to 0 \) as \( n \to \infty \) (since \( n^2x^2 \to \infty \) for \( x > 0 \), and \( f_n(0) = 1 \to 1 \)). Therefore, the sequence converges pointwise to \( f(x) = 0 \) for \( x \in (0, 1] \) and \( f(0) = 1 \).
+\bigskip\noindent\textbf{Solution:} For each fixed \( x \in [0, 1] \), we have \( f_n(x) = 1/(1 + n^2x^2) \to 0 \) as \( n \to \infty \) (since \( n^2x^2 \to \infty \) for \( x > 0 \), and \( f_n(0) = 1 \to 1 \)). Therefore, the sequence converges pointwise to \( f(x) = 0 \) for \( x \in (0, 1] \) and \( f(0) = 1 \).
 
 The convergence is not uniform because the limit function is discontinuous at \( x = 0 \), but each \( f_n \) is continuous.
 
@@ -336,7 +336,7 @@ Since \( \lim_{n \to \infty} \int_0^1 f_n(x) \, dx = \int_0^1 f(x) \, dx \), ter
 Prove that \(\sum_{n=1}^{\infty} x/n^\alpha (1 + nx^2)\) converges uniformly on every finite interval in \( R \) if \( \alpha > \frac{1}{2} \). Is the convergence uniform on \( R \)?
 \end{problembox}
 
-\noindent\textbf{Solution:} For any finite interval \([-M, M]\), we have \( |x| \leq M \) and \( 1 + nx^2 \geq 1 \). Therefore:
+\bigskip\noindent\textbf{Solution:} For any finite interval \([-M, M]\), we have \( |x| \leq M \) and \( 1 + nx^2 \geq 1 \). Therefore:
 \[\left|\frac{x}{n^\alpha (1 + nx^2)}\right| \leq \frac{M}{n^\alpha}.\]
 
 For \( \alpha > 1 \), the series \( \sum_{n=1}^{\infty} M/n^\alpha \) converges by the p-series test, so the original series converges uniformly on \([-M, M]\) by the Weierstrass M-test.
@@ -352,7 +352,7 @@ Therefore, for \( \alpha > 1/2 \), the series converges uniformly on \( R \).\qe
 Prove that the series \(\sum_{n=1}^{\infty} ((-1)^n/\sqrt{n}) \sin (1 + (x/n))\) converges uniformly on every compact subset of \( R \).
 \end{problembox}
 
-\noindent\textbf{Solution:} We can write this series as \( \sum_{n=1}^{\infty} a_n \sin(b_n + c_n x) \), where \( a_n = (-1)^n/\sqrt{n} \), \( b_n = 1 \), and \( c_n = 1/n \).
+\bigskip\noindent\textbf{Solution:} We can write this series as \( \sum_{n=1}^{\infty} a_n \sin(b_n + c_n x) \), where \( a_n = (-1)^n/\sqrt{n} \), \( b_n = 1 \), and \( c_n = 1/n \).
 
 For any compact subset \( K \) of \( R \), there exists \( M > 0 \) such that \( |x| \leq M \) for all \( x \in K \).
 
@@ -372,7 +372,7 @@ Since \( \sum_{n=1}^{\infty} 1/n^{3/2} \) converges, the tail of the series can 
 Prove that the series \(\sum_{n=0}^{\infty} (x^{2n+1}/(2n + 1) - x^{n+1}/(2n + 2))\) converges pointwise but not uniformly on \([0, 1]\).
 \end{problembox}
 
-\noindent\textbf{Solution:} We can write this series as \( \sum_{n=0}^{\infty} \frac{x^{2n+1}}{2n + 1} - \sum_{n=0}^{\infty} \frac{x^{n+1}}{2n + 2} \).
+\bigskip\noindent\textbf{Solution:} We can write this series as \( \sum_{n=0}^{\infty} \frac{x^{2n+1}}{2n + 1} - \sum_{n=0}^{\infty} \frac{x^{n+1}}{2n + 2} \).
 
 For \( x \in [0, 1) \), both series converge by the ratio test. For \( x = 1 \), the first series becomes \( \sum_{n=0}^{\infty} \frac{1}{2n + 1} \), which diverges, and the second series becomes \( \sum_{n=0}^{\infty} \frac{1}{2n + 2} \), which also diverges.
 
@@ -385,7 +385,7 @@ For a more precise argument: Let \( S_n(x) \) be the \( n \)-th partial sum. If 
 Prove that \(\sum_{n=1}^{\infty} a_n \sin nx \) and \(\sum_{n=1}^{\infty} a_n \cos nx \) are uniformly convergent on \( R \) if \(\sum_{n=1}^{\infty} |a_n| \) converges.
 \end{problembox}
 
-\noindent\textbf{Solution:} Since \( |\sin nx| \leq 1 \) and \( |\cos nx| \leq 1 \) for all \( x \in R \) and all \( n \), we have:
+\bigskip\noindent\textbf{Solution:} Since \( |\sin nx| \leq 1 \) and \( |\cos nx| \leq 1 \) for all \( x \in R \) and all \( n \), we have:
 \[|a_n \sin nx| \leq |a_n| \quad \text{and} \quad |a_n \cos nx| \leq |a_n|\]
 for all \( x \in R \) and all \( n \).
 
@@ -396,7 +396,7 @@ Since \( \sum_{n=1}^{\infty} |a_n| \) converges, by the Weierstrass M-test, both
 Let \(\{a_n\}\) be a decreasing sequence of positive terms. Prove that the series \(\sum a_n \sin nx \) converges uniformly on \( R \) if, and only if, \( na_n \to 0 \) as \( n \to \infty \).
 \end{problembox}
 
-\noindent\textbf{Solution:} First, suppose \( na_n \to 0 \) as \( n \to \infty \). Since \( \{a_n\} \) is decreasing and positive, the series converges pointwise by the alternating series test.
+\bigskip\noindent\textbf{Solution:} First, suppose \( na_n \to 0 \) as \( n \to \infty \). Since \( \{a_n\} \) is decreasing and positive, the series converges pointwise by the alternating series test.
 
 For uniform convergence, we use the fact that for any \( x \), the partial sums \( S_n(x) = \sum_{k=1}^n a_k \sin kx \) satisfy:
 \[|S_n(x)| \leq \sum_{k=1}^n a_k |\sin kx| \leq \sum_{k=1}^n a_k.\]
@@ -418,7 +418,7 @@ This shows that \( a_n \) must be very small for large \( n \), which implies \(
 Given a convergent series \(\sum_{n=1}^{\infty} a_n \). Prove that the Dirichlet series \(\sum_{n=1}^{\infty} a_n n^{-s}\) converges uniformly on the half-infinite interval \( 0 \leq s < +\infty \). Use this to prove that \(\lim_{s \to 0} \sum_{n=1}^{\infty} a_n n^{-s} = \sum_{n=1}^{\infty} a_n\).
 \end{problembox}
 
-\noindent\textbf{Solution:} For \( s \geq 0 \), we have \( n^{-s} \leq 1 \) for all \( n \). Therefore:
+\bigskip\noindent\textbf{Solution:} For \( s \geq 0 \), we have \( n^{-s} \leq 1 \) for all \( n \). Therefore:
 \[|a_n n^{-s}| \leq |a_n|\]
 for all \( n \) and all \( s \geq 0 \).
 
@@ -436,7 +436,7 @@ Therefore:
 Let \( f_n(x) = n^{3/2}xe^{-n^2x^2} \). Prove that \( \{f_n\} \) converges pointwise to 0 on [-1, 1] but that l.i.m.\(_{n\to\infty}\) \( f_n \neq 0 \) on [-1, 1].
 \end{problembox}
 
-\noindent\textbf{Solution:} For each fixed \( x \in [-1, 1] \), we have \( f_n(x) = n^{3/2}xe^{-n^2x^2} \to 0 \) as \( n \to \infty \) (since \( e^{-n^2x^2} \to 0 \) exponentially for \( x \neq 0 \), and \( f_n(0) = 0 \)). Therefore, \( \{f_n\} \) converges pointwise to 0.
+\bigskip\noindent\textbf{Solution:} For each fixed \( x \in [-1, 1] \), we have \( f_n(x) = n^{3/2}xe^{-n^2x^2} \to 0 \) as \( n \to \infty \) (since \( e^{-n^2x^2} \to 0 \) exponentially for \( x \neq 0 \), and \( f_n(0) = 0 \)). Therefore, \( \{f_n\} \) converges pointwise to 0.
 
 For mean convergence, we need to check if \( \int_{-1}^1 |f_n(x) - 0|^2 \, dx \to 0 \) as \( n \to \infty \).
 
@@ -456,7 +456,7 @@ Therefore, l.i.m.\(_{n\to\infty}\) \( f_n \neq 0 \) on [-1, 1].\qed
 Assume that \( \{f_n\} \) converges pointwise to \( f \) on [a, b] and that l.i.m.\(_{n\to\infty}\) \( f_n = g \) on [a, b]. Prove that \( f = g \) if both \( f \) and \( g \) are continuous on [a, b].
 \end{problembox}
 
-\noindent\textbf{Solution:} Since l.i.m.\(_{n\to\infty}\) \( f_n = g \) on [a, b], there exists a subsequence \( \{f_{n_k}\} \) that converges pointwise almost everywhere to \( g \).
+\bigskip\noindent\textbf{Solution:} Since l.i.m.\(_{n\to\infty}\) \( f_n = g \) on [a, b], there exists a subsequence \( \{f_{n_k}\} \) that converges pointwise almost everywhere to \( g \).
 
 Since \( \{f_n\} \) converges pointwise to \( f \) on [a, b], the subsequence \( \{f_{n_k}\} \) also converges pointwise to \( f \) on [a, b].
 
@@ -471,7 +471,7 @@ a) Prove that l.i.m.\(_{n\to\infty}\) \( f_n = 0 \) on [0, \(\pi\)] but that \( 
 b) Prove that \( \{f_n\} \) converges pointwise but not uniformly on [0, \(\pi/2\)].
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
 \item For mean convergence, we need to check if \( \int_0^\pi |f_n(x) - 0|^2 \, dx \to 0 \) as \( n \to \infty \).
 
@@ -497,7 +497,7 @@ The convergence is not uniform because for any \( n \), we can find \( x \) clos
 Let \( f_n(x) = 0 \) if \( 0 \leq x \leq 1/n \) or if \( 2/n \leq x \leq 1 \), and let \( f_n(x) = n \) if \( 1/n < x < 2/n \). Prove that \( \{f_n\} \) converges pointwise to 0 on [0, 1] but that l.i.m.\(_{n\to\infty}\) \( f_n \neq 0 \) on [0, 1].
 \end{problembox}
 
-\noindent\textbf{Solution:} For each fixed \( x \in [0, 1] \), for large enough \( n \), we have \( x \notin (1/n, 2/n) \), so \( f_n(x) = 0 \). Therefore, \( \{f_n\} \) converges pointwise to 0 on [0, 1].
+\bigskip\noindent\textbf{Solution:} For each fixed \( x \in [0, 1] \), for large enough \( n \), we have \( x \notin (1/n, 2/n) \), so \( f_n(x) = 0 \). Therefore, \( \{f_n\} \) converges pointwise to 0 on [0, 1].
 
 For mean convergence, we need to check if \( \int_0^1 |f_n(x) - 0|^2 \, dx \to 0 \) as \( n \to \infty \).
 
@@ -514,7 +514,7 @@ If \( r \) is the radius of convergence of \( \sum a_n(z - z_0)^n \), where each
 \[ \liminf_{n\to\infty} \left| \frac{a_n}{a_{n+1}} \right| \leq r \leq \limsup_{n\to\infty} \left| \frac{a_n}{a_{n+1}} \right|.\]
 \end{problembox}
 
-\noindent\textbf{Solution:} By the ratio test, the series converges if \( \limsup_{n\to\infty} |a_{n+1}(z - z_0)^{n+1} / (a_n(z - z_0)^n)| < 1 \), which is equivalent to \( |z - z_0| < \liminf_{n\to\infty} |a_n/a_{n+1}| \).
+\bigskip\noindent\textbf{Solution:} By the ratio test, the series converges if \( \limsup_{n\to\infty} |a_{n+1}(z - z_0)^{n+1} / (a_n(z - z_0)^n)| < 1 \), which is equivalent to \( |z - z_0| < \liminf_{n\to\infty} |a_n/a_{n+1}| \).
 
 Similarly, the series diverges if \( \liminf_{n\to\infty} |a_{n+1}(z - z_0)^{n+1} / (a_n(z - z_0)^n)| > 1 \), which is equivalent to \( |z - z_0| > \limsup_{n\to\infty} |a_n/a_{n+1}| \).
 
@@ -530,7 +530,7 @@ a) \( \sum_{n=0}^{\infty} a_n^k z^n \),    b) \( \sum_{n=0}^{\infty} a_nz^{kn} \
 In (a) and (b), \( k \) is a fixed positive integer.
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
 \item For \( \sum_{n=0}^{\infty} a_n^k z^n \), we use the root test. The radius of convergence is \( 1/\limsup_{n\to\infty} |a_n^k|^{1/n} = 1/(\limsup_{n\to\infty} |a_n|^{1/n})^k = 2^k \).
 
@@ -547,7 +547,7 @@ Show that for any \( x \) for which the series converges, its sum is
 \[ \frac{a_0 + (a_1 + Aa_0)x}{1 + Ax + Bx^2}. \]
 \end{problembox}
 
-\noindent\textbf{Solution:} Let \( S(x) = \sum_{n=0}^{\infty} a_nx^n \). Then:
+\bigskip\noindent\textbf{Solution:} Let \( S(x) = \sum_{n=0}^{\infty} a_nx^n \). Then:
 \[S(x) = a_0 + a_1x + \sum_{n=2}^{\infty} a_nx^n = a_0 + a_1x + \sum_{n=2}^{\infty} (-Aa_{n-1} - Ba_{n-2})x^n\]
 \[= a_0 + a_1x - A\sum_{n=2}^{\infty} a_{n-1}x^n - B\sum_{n=2}^{\infty} a_{n-2}x^n\]
 \[= a_0 + a_1x - Ax\sum_{n=1}^{\infty} a_nx^n - Bx^2\sum_{n=0}^{\infty} a_nx^n\]
@@ -569,7 +569,7 @@ a) Show that \( f^{(n)}(0) \) exists for all \( n \geq 1 \).
 b) Show that the Taylor's series about 0 generated by \( f \) converges everywhere on \( R \) but that it represents \( f \) only at the origin.
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
 \item We can show by induction that for \( x \neq 0 \), \( f^{(n)}(x) = P_n(1/x)e^{-1/x^2} \) where \( P_n \) is a polynomial. The key is that \( e^{-1/x^2} \) and all its derivatives tend to 0 faster than any power of \( x \) as \( x \to 0 \).
 
@@ -594,7 +594,7 @@ a) If \( x = -1 \), the series converges for \( \alpha \geq 0 \) and diverges fo
 b) If \( x = 1 \), the series diverges for \( \alpha \leq -1 \), converges conditionally for \( \alpha \) in the interval \(-1 < \alpha < 0 \), and converges absolutely for \( \alpha \geq 0 \).
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
 \item For \( x = -1 \), the series becomes \( \sum_{n=0}^\infty \binom{\alpha}{n} (-1)^n \).
 
@@ -616,7 +616,7 @@ For \( \alpha \leq -1 \), the binomial coefficients grow in magnitude, so the se
 Show that \( \sum a_n x^n \) converges uniformly on [0, 1] if \( \sum a_n \) converges. Use this fact to give another proof of Abel's limit theorem.
 \end{problembox}
 
-\noindent\textbf{Solution:} Since \( \sum a_n \) converges, for any \( \varepsilon > 0 \) there exists \( N \) such that for \( n \geq N \) and all \( m \geq n \), we have \( |\sum_{k=n}^m a_k| < \varepsilon \).
+\bigskip\noindent\textbf{Solution:} Since \( \sum a_n \) converges, for any \( \varepsilon > 0 \) there exists \( N \) such that for \( n \geq N \) and all \( m \geq n \), we have \( |\sum_{k=n}^m a_k| < \varepsilon \).
 
 For \( x \in [0, 1] \), we have \( x^n \leq 1 \) for all \( n \). Therefore:
 \[\left|\sum_{k=n}^m a_k x^k\right| \leq \sum_{k=n}^m |a_k| x^k \leq \sum_{k=n}^m |a_k|.\]
@@ -637,7 +637,7 @@ For Abel's limit theorem: Since \( \sum a_n x^n \) converges uniformly on [0, 1]
 If each \( a_n \geq 0 \) and if \( \sum a_n \) diverges, show that \( \sum a_n x^n \to + \infty \) as \( x \to 1- \). (Assume \( \sum a_n x^n \) converges for \( |x| < 1 \))
 \end{problembox}
 
-\noindent\textbf{Solution:} Since \( \sum a_n \) diverges and \( a_n \geq 0 \), for any \( M > 0 \) there exists \( N \) such that \( \sum_{n=0}^N a_n > M \).
+\bigskip\noindent\textbf{Solution:} Since \( \sum a_n \) diverges and \( a_n \geq 0 \), for any \( M > 0 \) there exists \( N \) such that \( \sum_{n=0}^N a_n > M \).
 
 For \( x \in [0, 1) \), we have:
 \[\sum_{n=0}^{\infty} a_n x^n \geq \sum_{n=0}^N a_n x^n \geq \sum_{n=0}^N a_n x^N.\]
@@ -653,7 +653,7 @@ Since \( M \) was arbitrary, this shows that \( \sum a_n x^n \to +\infty \) as \
 If each \( a_n \geq 0 \) and if \( \lim_{x \to 1-} \sum a_n x^n \) exists and equals \( A \), prove that \( \sum a_n \) converges and has sum \( A \). (Compare with Theorem 9.33.)
 \end{problembox}
 
-\noindent\textbf{Solution:} Since \( a_n \geq 0 \) for all \( n \), the sequence of partial sums \( S_n = \sum_{k=0}^n a_k \) is non-decreasing.
+\bigskip\noindent\textbf{Solution:} Since \( a_n \geq 0 \) for all \( n \), the sequence of partial sums \( S_n = \sum_{k=0}^n a_k \) is non-decreasing.
 
 If \( \sum a_n \) diverges, then \( S_n \to +\infty \) as \( n \to \infty \). By the previous exercise (9.36), this would imply that \( \sum a_n x^n \to +\infty \) as \( x \to 1^- \), contradicting the assumption that the limit exists and equals \( A \).
 
@@ -687,7 +687,7 @@ f) \( P_n(1 - t) = (-1)^n P_n(t) \quad g) B_{2n+1} = 0 \quad \text{if } n = 1, 2
 h) \( 1^n + 2^n + \cdots + (k - 1)^n = \frac{P_{n+1}(k) - P_{n+1}(0)}{n + 1} \quad (n = 2, 3, \ldots ) \).
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
 \item The function \( f_t(x) = xe^{xt}/(e^x - 1) \) has a removable singularity at \( x = 0 \) since \( \lim_{x \to 0} f_t(x) = 1 \). The denominator \( e^x - 1 \) has a simple zero at \( x = 0 \), and the numerator \( xe^{xt} \) also has a simple zero at \( x = 0 \). Therefore, \( f_t \) is analytic in a neighborhood of 0 and can be represented by a power series.
 

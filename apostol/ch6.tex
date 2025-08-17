@@ -11,7 +11,9 @@ a) $f(x) = x^2 \sin (1/x)$ if $x \neq 0$, $f(0) = 0$.
 b) $f(x) = \sqrt{x} \sin (1/x)$ if $x \neq 0$, $f(0) = 0$.
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\noindent\textbf{Strategy:} For (a), show that the derivative is integrable, making the function absolutely continuous and hence of bounded variation. For (b), construct a partition using specific points where the function oscillates to show the total variation is infinite.
+
+\bigskip\noindent\textbf{Solution:}
 \,(a) On $(0,1]$, $f'(x)=2x\sin(1/x)-\cos(1/x)$ and
 \[\int_0^1 |\cos(1/x)|\,dx=\int_1^{\infty}\frac{|\cos u|}{u^2}\,du<\infty,\qquad \int_0^1 2x|\sin(1/x)|\,dx<\infty.
 \]
@@ -33,7 +35,9 @@ b) Give an example of a function $f$ satisfying a uniform Lipschitz condition of
 c) Give an example of a function $f$ which is of bounded variation on $[a, b]$ but which satisfies no uniform Lipschitz condition on $[a, b]$.
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\noindent\textbf{Strategy:} For (a), use subdivision to show that when $\alpha > 1$, the function must be constant, and when $\alpha = 1$, it's Lipschitz and hence absolutely continuous. For (b), use a Weierstrass-type function with appropriate scaling. For (c), use a step function which has bounded variation but is discontinuous.
+
+\bigskip\noindent\textbf{Solution:}
 \,(a) If $\alpha>1$, subdivide $[x,y]$ into $n$ equal parts: then
 \[|f(y)-f(x)|\le n\,M\Big(\tfrac{y-x}{n}\Big)^{\!\alpha}=M(y-x)^{\alpha}\,n^{1-\alpha}\to 0\ (n\to\infty),\]
 so $f(y)=f(x)$ for all $x<y$ and $f$ is constant. If $\alpha=1$, the estimate $|f(x)-f(y)|\le M|x-y|$ shows $f$ is Lipschitz; hence $f$ is absolutely continuous and has $V_f(a,b)\le M(b-a)$.
@@ -49,7 +53,9 @@ One checks (by splitting frequencies at the dyadic scale $2^k\approx |x-y|^{-1}$
 Show that a polynomial $f$ is of bounded variation on every compact interval $[a, b]$. Describe a method for finding the total variation of $f$ on $[a, b]$ if the zeros of the derivative $f'$ are known.
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\noindent\textbf{Strategy:} Use the fact that polynomials are continuously differentiable, hence absolutely continuous, which implies bounded variation. For the total variation, use the integral formula and the fact that the derivative is continuous, so the total variation equals the integral of the absolute value of the derivative.
+
+\bigskip\noindent\textbf{Solution:}
 Polynomials are $C^1$, hence absolutely continuous on $[a,b]$, so $f\in BV[a,b]$ and
 \[V_f(a,b)=\int_a^b |f'(x)|\,dx.\]
 If $a=t_0<t_1<\cdots<t_m<t_{m+1}=b$ are the ordered zeros of $f'$ in $(a,b)$, then $f$ is monotone on each $[t_j,t_{j+1}]$ and
@@ -66,6 +72,8 @@ b) If $f \in S$ and $g \in S$, then $f + g \in S$.
 Theorem 6.9 shows that the set $V$ of all functions of bounded variation on $[a, b]$ is a linear space. If $S$ is any linear space which contains all monotonic functions on $[a, b]$, prove that $V \subseteq S$. This can be described by saying that the functions of bounded variation form the smallest linear space containing all monotonic functions.
 \end{problembox}
 
+\noindent\textbf{Strategy:} Use Jordan's theorem which states that every function of bounded variation can be written as the difference of two increasing functions. Since $S$ contains all monotonic functions and is closed under linear combinations, it must contain all functions of bounded variation.
+
 \noindent\textbf{Proof.}
 By Jordan’s theorem (Theorem 6.13), every $f\in V$ can be written $f=g-h$ with $g,h$ increasing on $[a,b]$. Since $S$ contains all monotone functions and is a linear space, $g,h\in S$ and therefore $f=g-h\in S$. Hence $V\subseteq S$.
 
@@ -74,6 +82,8 @@ By Jordan’s theorem (Theorem 6.13), every $f\in V$ can be written $f=g-h$ with
 \begin{problembox}[6.5: Monotonic Function Properties]
 Let $f$ be a real-valued function defined on $[0, 1]$ such that $f(0) > 0$, $f(x) \neq x$ for all $x$, and $f(x) \leq f(y)$ whenever $x \leq y$. Let $A = \{x: f(x) > x\}$. Prove that $\sup A \in A$ and that $f(1) > 1$.
 \end{problembox}
+
+\noindent\textbf{Strategy:} Use proof by contradiction. Assume there exists a set $B = \{x: f(x) < x\}$ and show this leads to a point where $f(x) = x$, contradicting the hypothesis. Use the monotonicity of $f$ and the properties of suprema and infima to establish the result.
 
 \noindent\textbf{Proof.}
 Let $A=\{x\in[0,1]: f(x)>x\}$. Since $f(0)>0$, we have $0\in A$, so $A\neq\emptyset$. If also $B=\{x: f(x)<x\}$ were nonempty, let $s=\sup A$ and $t=\inf B$; then $s\le t$. From $x_n\uparrow s$ in $A$ we get $f(x_n)>x_n$ and, by monotonicity, $\limsup f(x_n)\le f(s)$, whence $f(s)\ge s$. From $y_n\downarrow t$ in $B$ we get similarly $f(t)\le t$. Since $s\le t$, this forces some $u$ with $f(u)=u$, contradicting $f(x)\ne x$. Thus $B=\emptyset$ and $f(x)>x$ for all $x\in[0,1]$. Hence $\sup A=1\in A$ and $f(1)>1$.
@@ -88,7 +98,9 @@ a) State and prove theorems for the infinite interval $(-\infty, +\infty)$ analo
 b) Show that Theorem 6.5 is true for $(-\infty, +\infty)$ if "monotonic" is replaced by "bounded and monotonic." State and prove a similar modification of Theorem 6.13.
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\noindent\textbf{Strategy:} For (a), extend the finite interval results by taking suprema over all finite intervals. For (b), use the fact that on infinite intervals, monotonic functions must be bounded to have finite total variation, and modify Jordan's theorem accordingly.
+
+\bigskip\noindent\textbf{Solution:}
 \,(a) With $V_f(-\infty,\infty)=\sup\{V_f(a,b): a<b\}$, all finite-interval results extend: linearity and subadditivity of variation, stability under addition and scalar multiplication, and the characterization $f\in BV(-\infty,\infty)$ iff $V_f(-\infty,\infty)<\infty$. Proofs reduce to restricting to finite $[a,b]$ and taking sups.
 
 \,(b) For $(-\infty,\infty)$, a monotone function has
@@ -114,7 +126,9 @@ e) $2p(x) = V(x) + f(x) - f(a)$, $2n(x) = V(x) - f(x) + f(a)$.
 f) Every point of continuity of $f$ is also a point of continuity of $p$ and of $n$.
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\noindent\textbf{Strategy:} Use the definition of total variation as a supremum over partitions and separate positive and negative increments. For (d), use the fact that any partition's sum of increments equals the total change in function value. For (e), combine the results from (a) and (d). For (f), use the continuity of the total variation function.
+
+\bigskip\noindent\textbf{Solution:}
 Fix $x\in[a,b]$. For a partition $P$ of $[a,x]$ write $\Delta f_k=f(x_k)-f(x_{k-1})$. Refining $P$ if necessary we may separate positive and negative increments. Taking sups then yields
 \[V(x)=\sup_P\sum_k |\Delta f_k|=\sup_P\Big(\sum_{k\in A(P)}\!\Delta f_k+\sum_{k\in B(P)}\!|\Delta f_k|\Big)=p(x)+n(x),\]
 which gives (a) and (b). Monotonicity of $p,n$ in $x$ gives (c). For (d), observe that for any partition of $[a,x]$,
@@ -132,7 +146,9 @@ a) Prove that $f$ and $g$ have the same graph but are not equivalent according t
 b) Prove that the length of $g$ is twice that of $f$.
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\noindent\textbf{Strategy:} For (a), show that the graphs are identical as sets but the functions traverse the circle different numbers of times, making them inequivalent. For (b), use the fact that repeating a path doubles its length.
+
+\bigskip\noindent\textbf{Solution:}
 As sets, $\{e^{2\pi it}:t\in[0,1]\}=\{e^{2\pi it}:t\in[0,2]\}$, so the graphs coincide (the unit circle). If $f$ and $g$ were equivalent, there would be a strictly increasing bijection $\phi:[0,2]\to[0,1]$ with $g=f\circ\phi$, impossible since $g$ traverses the circle twice while $f$ traverses it once. For lengths, repeating a rectifiable path twice doubles its length, so $\Lambda(g)=2\Lambda(f)$.\qed
 
 
@@ -143,7 +159,9 @@ a) Prove that $s^{-1}$ exists and is continuous on $[0, L]$.
 b) Define $g(t) = f[s^{-1}(t)]$ if $t \in [0, L]$ and show that $g$ is equivalent to $f$. Since $f(t) = g[s(t)]$, the function $g$ is said to provide a representation of the graph of $f$ with arc length as parameter.
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\noindent\textbf{Strategy:} For (a), use the fact that the arc-length function is strictly increasing and continuous, making it a homeomorphism. For (b), show that the composition with the inverse arc-length function provides an equivalent parametrization.
+
+\bigskip\noindent\textbf{Solution:}
 \,(a) The arc-length function $s$ is increasing and continuous on $[a,b]$, and strictly increasing under the hypothesis that $f$ is not constant on any subinterval. Hence $s$ is a homeomorphism from $[a,b]$ onto $[0,L]$ and $s^{-1}$ is continuous.
 
 \,(b) With $g(t)=f\big(s^{-1}(t)\big)$, the map $t\mapsto s^{-1}(t)$ is increasing and onto, so $g$ is a reparametrization of $f$; thus $g$ is equivalent to $f$ and $f(t)=g\big(s(t)\big)$.\qed
@@ -168,7 +186,9 @@ e) Show that $S_0$ has the $x$-axis as a line of symmetry. (The region $S_0$ is 
 f) Show that the length of $\Gamma_0$ does not exceed the length of $\Gamma$.
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\noindent\textbf{Strategy:} For (a), use the fact that functions of bounded variation have rectifiable graphs. For (b)-(c), understand that $h$ traces the boundary of the region between the two graphs. For (d)-(e), show that $H$ creates a symmetric region by averaging the upper and lower boundaries. For (f), use the triangle inequality for the length integrals.
+
+\bigskip\noindent\textbf{Solution:}
 \,(a) Since $f,g\in BV[a,b]$, the graphs $t\mapsto t+if(t)$ and $t\mapsto t+ig(t)$ are rectifiable; concatenating them as in the definition of $h$ yields a rectifiable closed curve $\Gamma$.
 
 \,(b) The curve $\Gamma$ runs along the upper graph $y=g(x)$ from $x=a$ to $x=b$ and returns along the lower graph $y=f(x)$ from $x=b$ to $x=a$, closing the boundary of the vertical strip between the two graphs.
@@ -202,7 +222,9 @@ for every $n$ disjoint open subintervals $(a_k, b_k)$ of $[a, b]$, $n = 1, 2, \l
 Prove that every absolutely continuous function on $[a, b]$ is continuous and of bounded variation on $[a, b]$. Note. There exist functions which are continuous and of bounded variation but not absolutely continuous.
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\noindent\textbf{Strategy:} Use the definition of absolute continuity to show uniform continuity, which implies continuity. For bounded variation, use the same $\delta$ from the definition to bound the total variation by choosing a partition with mesh less than $\delta$.
+
+\bigskip\noindent\textbf{Solution:}
 Absolute continuity implies uniform continuity; hence $f$ is continuous. Given $\varepsilon>0$, choose $\delta$ from the definition. For any partition $P$ with mesh $<\delta$,
 \[\sum_k |f(x_k)-f(x_{k-1})|\le\varepsilon,\]
 so $V_f(a,b)<\infty$. Thus every absolutely continuous function is continuous and of bounded variation.\qed
@@ -212,7 +234,9 @@ so $V_f(a,b)<\infty$. Thus every absolutely continuous function is continuous an
 Prove that $f$ is absolutely continuous if it satisfies a uniform Lipschitz condition of order 1 on $[a, b]$. (See Exercise 6.2.)
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\noindent\textbf{Strategy:} Use the Lipschitz condition to bound the sum of function differences in terms of the sum of interval lengths, then choose $\delta$ appropriately to satisfy the absolute continuity definition.
+
+\bigskip\noindent\textbf{Solution:}
 If $|f(x)-f(y)|\le M|x-y|$ on $[a,b]$, then for any disjoint intervals $(a_k,b_k)$ with $\sum(b_k-a_k)<\delta$, we have
 \[\sum_{k=1}^n |f(b_k)-f(a_k)|\le M\sum_{k=1}^n(b_k-a_k)<M\delta.
 \]
@@ -223,7 +247,9 @@ Choosing $\delta=\varepsilon/M$ proves absolute continuity.\qed
 If $f$ and $g$ are absolutely continuous on $[a, b]$, prove that each of the following is also: $|f|$, $cf$ ($c$ constant), $f + g$, $f \cdot g$; also $f/g$ if $g$ is bounded away from zero.
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\noindent\textbf{Strategy:} Use the triangle inequality for $|f|$, linearity for $cf$ and $f+g$, the product rule and boundedness for $f \cdot g$, and the fact that $1/g$ is Lipschitz when $g$ is bounded away from zero for $f/g$.
+
+\bigskip\noindent\textbf{Solution:}
 If $f,g$ are absolutely continuous on $[a,b]$, then they are bounded. The functions $cf$ and $f+g$ are absolutely continuous by linearity of the defining inequality. Also
 \[\big||f(b_k)|-|f(a_k)|\big|\le |f(b_k)-f(a_k)|,\]
 so $|f|$ is absolutely continuous. For the product,

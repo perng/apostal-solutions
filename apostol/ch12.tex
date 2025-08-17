@@ -10,7 +10,7 @@
 Let \( S \) be an open subset of \( \mathbb{R}^n \), and let \( f: S \to \mathbb{R} \) be a real-valued function with finite partial derivatives \( D_1f, \ldots, D_nf \) on \( S \). If \( f \) has a local maximum or a local minimum at a point \( c \) in \( S \), prove that \( D_kf(c) = 0 \) for each \( k \).
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 Fix $k$ and set $\phi(t)=f(c+te_k)$ for small $t$. If $c$ is a local extremum, then $t=0$ is a local extremum of the one-variable function $\phi$, hence $\phi'(0)=0$. But $\phi'(0)=D_k f(c)$ by definition, so $D_k f(c)=0$ for each $k$.\qed
 
 
@@ -24,7 +24,7 @@ Calculate all first-order partial derivatives and the directional derivative \( 
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
 \item $D_i f(x)=a_i$, so $\nabla f=a$. Hence $f'(x;u)=a\cdot u$.
 \item Write $r^2=\|x\|^2$. Then $D_i f(x)=4r^2 x_i$ and $\nabla f(x)=4r^2 x$. Thus $f'(x;u)=\nabla f\cdot u=4\|x\|^2(x\cdot u)$.
@@ -40,7 +40,7 @@ and
 \[(f \cdot g)'(c; u) = f(c) \cdot g'(c; u) + g(c) \cdot f'(c; u).\]
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 For $f+g$, divide the increment $[f(c+tu)+g(c+tu)]-[f(c)+g(c)]$ by $t$ and pass to the limit. For $f\cdot g$, expand
 \[\frac{f(c+tu)\cdot g(c+tu)-f(c)\cdot g(c)}{t}=f(c)\cdot\frac{g(c+tu)-g(c)}{t}+g(c)\cdot\frac{f(c+tu)-f(c)}{t}+o(1),\]
 and take $t\to0$.\qed
@@ -50,7 +50,7 @@ and take $t\to0$.\qed
 If \( S \subseteq \mathbb{R}^n \), let \( f: S \to \mathbb{R}^m \) be a function with values in \( \mathbb{R}^m \), and write \( f = (f_1, \ldots, f_m) \). Prove that \( f \) is differentiable at an interior point \( c \) of \( S \) if, and only if, each \( f_i \) is differentiable at \( c \).
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 If $f$ is differentiable, then $f(c+h)=f(c)+Df(c)h+o(\|h\|)$; projecting to the $i$th coordinate gives the differentiability of $f_i$ with derivative the $i$th row of $Df(c)$. Conversely, if each $f_i$ is differentiable, stack their linear maps to form the Jacobian $Df(c)$ and note $\|f(c+h)-f(c)-Df(c)h\|\le\sum_i |f_i(c+h)-f_i(c)-Df_i(c)h|=o(\|h\|)$.\qed
 
 
@@ -61,7 +61,7 @@ define \( f(x) = f_1(x_1) + \cdots + f_n(x_n) \). Prove that \( f \) is differen
 \[f'(x)(u) = \sum_{i=1}^{n} f_i'(x_i)u_i, \quad \text{where } u = (u_1, \ldots, u_n).\]
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 Each term depends on one coordinate, so $Df(x)$ is diagonal with entries $f_i'(x_i)$. Hence $f'(x)(u)=\sum_i f_i'(x_i)u_i$ and the remainder is $o(\|u\|)$ by the 1D differentiability of each $f_i$.\qed
 
 
@@ -72,7 +72,7 @@ Call this limit \( a_k(x) \). Prove that \( f \) is differentiable at \( x \) an
 \[f'(x)(u) = \sum_{k=1}^{n} a_k(x) u_k \quad \text{if } u = (u_1, \ldots, u_n).\]
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 Vary $y$ from $x$ by changing one coordinate at a time: $x=x^{(0)}\to x^{(1)}\to\cdots\to x^{(n)}=y$, where only the $k$th coordinate changes in step $k$. Then
 \[f(y)-f(x)=\sum_{k=1}^n\big(f_k(x^{(k)})-f_k(x^{(k-1)})\big)=\sum_{k=1}^n a_k(x)(y_k-x_k)+o(\|y-x\|),\]
 by the defining limits for $a_k(x)$. Hence $f$ is differentiable with $Df(x)u=\sum_k a_k(x)u_k$.\qed
@@ -83,7 +83,7 @@ Let \( f \) and \( g \) be functions from \( \mathbb{R}^n \) to \( \mathbb{R}^m 
 \[h'(c)(u) = g(c) \cdot \{f'(c)(u)\} \quad \text{if } u \in \mathbb{R}^n.\]
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 Write $f(c+h)=f(c)+f'(c)h+r(h)$ with $\|r(h)\|=o(\|h\|)$ and use continuity of $g$:
 \[h(c+h)-h(c)=g(c+h)\cdot f'(c)h+g(c+h)\cdot r(h)=g(c)\cdot f'(c)h+o(\|h\|).\]
 Thus $h$ is differentiable with derivative $u\mapsto g(c)\cdot f'(c)u$.\qed
@@ -95,7 +95,7 @@ Let \( f : \mathbb{R}^2 \to \mathbb{R}^3 \) be defined by the equation
 Determine the Jacobian matrix \( Df(x, y) \).
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 \[Df(x,y)=\begin{pmatrix}
 \cos x\cos y & -\sin x\sin y\\
 \cos x\sin y & \sin x\cos y\\
@@ -107,7 +107,7 @@ Determine the Jacobian matrix \( Df(x, y) \).
 Prove that there is no real-valued function \( f \) such that \( f'(c; u) > 0 \) for a fixed point \( c \) in \( \mathbb{R}^n \) and every nonzero vector \( u \) in \( \mathbb{R}^n \). Give an example such that \( f'(c; u) > 0 \) for a fixed direction \( u \) and every \( c \) in \( \mathbb{R}^n \).
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 For any $u\ne0$, the 1D definition along lines gives $f'(c;-u)=-f'(c;u)$, so $f'(c;u)>0$ cannot hold for both $u$ and $-u$. For the example with a fixed $u$, take $f(x)=u\cdot x$. Then $f'(c;u)=\|u\|^2>0$ for every $c$.\qed
 
 
@@ -119,7 +119,7 @@ where \( a = (\cos \alpha, \sin \alpha) \), and \( u'(c; a) \) and \( v'(c; a) \
 Deduce that \( u'(c; a) = v'(c; b) \) and \( v'(c; a) = -u'(c; b) \). The Cauchy-Riemann equations (Theorem 5.22) are a special case.
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 Along $z=c+re^{i\alpha}$, the complex difference quotient tends to $f'(c)$, while its real and imaginary parts are $u'(c;a)$ and $v'(c;a)$, giving the first identity. Rotating the approach by $\pi/2$ yields the second. Equating the two expressions for $f'(c)$ gives $u'(c;a)=v'(c;b)$ and $v'(c;a)=-u'(c;b)$, which specialize to the Cauchy–Riemann equations in Cartesian directions.\qed
 \section{Gradients and the Chain Rule}
 
@@ -131,7 +131,7 @@ Along $z=c+re^{i\alpha}$, the complex difference quotient tends to $f'(c)$, whil
 Let \( f \) be real-valued and differentiable at a point \( c \) in \( \mathbb{R}^n \), and assume that \( \| \nabla f(c) \| \neq 0 \). Prove that there is one and only one unit vector \( u \) in \( \mathbb{R}^n \) such that \( |f'(c; u)| = \| \nabla f(c) \| \), and that this is the unit vector for which \( |f'(c; u)| \) has its maximum value.
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 $f'(c;u)=\nabla f(c)\cdot u$. By Cauchy–Schwarz, $|\nabla f\cdot u|\le\|\nabla f\|\,\|u\|=\|\nabla f\|$, with equality iff $u=\pm\dfrac{\nabla f}{\|\nabla f\|}$. The unique unit vector maximizing $f'(c;u)$ is $u=\dfrac{\nabla f}{\|\nabla f\|}$.\qed
 
 
@@ -143,7 +143,7 @@ Compute the gradient vector \( \nabla f(x, y) \) at those points \( (x, y) \) in
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
 \item For $(x,y)\ne(0,0)$ with $r^2=x^2+y^2$,
 \[\nabla f(x,y)=\big(2xy^2\log r^2+\tfrac{2x^3y^2}{r^2},\;2x^2y\log r^2+\tfrac{2x^2y^3}{r^2}\big).\]
@@ -161,7 +161,7 @@ Find formulas for all partials of \( F \) of first and second order in terms of 
 \[(D_1F)(D_{1,2}F) = (D_2F)(D_{1,1}F).\]
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 Let $h(x,y)=x+g(y)$. Then $D_1F=f'(h)$, $D_2F=f'(h)g'(y)$. For second order: $D_{1,1}F=f''(h)$, $D_{1,2}F=f''(h)g'(y)$, $D_{2,2}F=f''(h)[g'(y)]^2+f'(h)g''(y)$. Then $(D_1F)(D_{1,2}F)=f'(h)f''(h)g'(y)=(D_2F)(D_{1,1}F)$.\qed
 
 
@@ -179,7 +179,7 @@ where \( x = r \cos \theta, y = r \sin \theta \).
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 Apply the chain rule with $x=r\cos\theta$, $y=r\sin\theta$. Part (a) follows by differentiating $F(r,\theta)=f(x,y)$ with respect to $r$ twice. Similarly,
 \[D_2F=-r\sin\theta\,D_1f+r\cos\theta\,D_2f,\quad D_{1,2}F=-\sin\theta\,D_{1,1}f+\cos\theta\,D_{1,2}f+\cos\theta\,D_{2,1}f+\sin\theta\,D_{2,2}f,\]
 and
@@ -193,7 +193,7 @@ If \( f \) and \( g \) have gradient vectors \( \nabla f(x) \) and \( \nabla g(x
 State and prove a similar result for the quotient \( f/g \).
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 From the product rule, $\nabla(fg)=f\,\nabla g+g\,\nabla f$. If $g(x)\ne0$, then $\nabla\!\left(\frac{f}{g}\right)=\dfrac{g\,\nabla f-f\,\nabla g}{g^2}$.\qed
 
 
@@ -204,7 +204,7 @@ If \( h \) denotes the composite function \( h = f \circ g \), show that
 \[\| \nabla h(x, y, z) \|^2 = 4g(x, y, z)[f'[g(x, y, z)]]^2.\]
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 $\nabla h=f'(g)\,\nabla g=f'(g)\,(2x,2y,2z)$, so $\|\nabla h\|^2=4(x^2+y^2+z^2)[f'(g)]^2=4g\,[f'(g)]^2$.\qed
 
 
@@ -217,7 +217,7 @@ Let \( h \) be the composite function \( h = f \circ g \) and show that
 \[\| \nabla h \|^2 = 4(D_1f)^2g_1 + 4(D_1f)(D_2f)g_2 + 3(D_2f)^2.\]
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 By the chain rule, $\nabla h=(D_1 f)\,\nabla g_1+(D_2 f)\,\nabla g_2$, where $\nabla g_1=(2x,2y,2z)$ and $\nabla g_2=(1,1,1)$. Hence
 \[\|\nabla h\|^2=(D_1 f)^2\|\nabla g_1\|^2+2(D_1 f)(D_2 f)\,\nabla g_1\!\cdot\!\nabla g_2+(D_2 f)^2\|\nabla g_2\|^2=4(D_1 f)^2 g_1+4(D_1 f)(D_2 f) g_2+3(D_2 f)^2.\]\qed
 
@@ -230,7 +230,7 @@ NOTE. This is known as Euler's theorem for homogeneous functions. Hint. For fixe
 Also prove the converse. That is, show that if \( x \cdot \nabla f(x) = p f(x) \) for all \( x \) in an open set \( S \), then \( f \) must be homogeneous of degree \( p \) over \( S \).
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 If $f(\lambda x)=\lambda^p f(x)$, then with $g(\lambda)=f(\lambda x)$ we have $g'(1)=x\cdot\nabla f(x)=p f(x)$. Conversely, if $x\cdot\nabla f(x)=p f(x)$ on a star-shaped domain, fix $x$ and solve the ODE $\tfrac{d}{d\lambda}f(\lambda x)=x\cdot\nabla f(\lambda x)=p f(\lambda x)$ to get $f(\lambda x)=\lambda^p f(x)$.\qed
 \section{Mean-Value Theorems}
 
@@ -246,7 +246,7 @@ cannot hold when \( x = 0, y = 2\pi \), since the left member is zero and the ri
 Determine \( z \) in terms of \( a \) when \( x = 0 \) and \( y = 2\pi \).
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 Here $f(y)-f(x)=0$, so $a\cdot f'(z)(2\pi)=0$. Since $f'(z)=(-\sin z,\cos z)$, we require $a_x(-\sin z)+a_y\cos z=0$, i.e., $\tan z=\dfrac{a_y}{a_x}$. Thus $z=\arg(a)\pmod{\pi}$.\qed
 
 
@@ -258,7 +258,7 @@ prove that
 where \( z_1 \in L(x_1, y_1) \) and \( z_2 \in L(x_2, y_2) \).
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 Apply the 1D MVT to $g$ on $[0,1]$ to get $g'(\theta)=g(1)-g(0)=f(y)-f(x)$. Differentiate $g$ and collect terms to obtain
 \[f(y)-f(x)=(y_1-x_1)D_1 f(z_1,y_2)+(y_2-x_2)D_2 f(x_1,z_2)\]
 for some $z_1\in L(x_1,y_1)$, $z_2\in L(x_2,y_2)$.\qed
@@ -268,7 +268,7 @@ for some $z_1\in L(x_1,y_1)$, $z_2\in L(x_2,y_2)$.\qed
 State and prove a generalization of the result in Exercise 12.20 for a real-valued function differentiable on an \( n \)-ball \( B(x) \).
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 For $f$ differentiable on a convex $B(x)$ and $y\in B(x)$, there exist $\xi_k\in L(x_k,y_k)$ such that
 \[f(y)-f(x)=\sum_{k=1}^n (y_k-x_k)\,D_k f(x_1,\dots,\xi_k,\dots,y_n).\]
 Proof: define $g(t)=\sum_{k=1}^n f(x_1,\dots,tx_k+(1-t)y_k,\dots,y_n)$ and apply the 1D MVT as in 12.20.\qed
@@ -279,7 +279,7 @@ Let \( f \) be real-valued and assume that the directional derivative \( f'(c + 
 \[f(c + u) - f(c) = f'(c + \theta u; u).\]
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 Apply the 1D MVT to $h(t)=f(c+tu)$ on $[0,1]$: $f(c+u)-f(c)=h'(\theta)=f'(c+\theta u;u)$ for some $\theta\in(0,1)$.\qed
 
 
@@ -290,7 +290,7 @@ Apply the 1D MVT to $h(t)=f(c+tu)$ on $[0,1]$: $f(c+u)-f(c)=h'(\theta)=f'(c+\the
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
 \item If $f'(x;u)=0$ for all $u$, then $\nabla f(x)=0$ wherever $f$ is differentiable; integrating $\nabla f$ along any path in $B(c)$ gives $f\equiv\text{constant}$.
 \item $f$ is constant along every line parallel to $u$; that is, $t\mapsto f(x+tu)$ is constant for each $x$.
@@ -310,7 +310,7 @@ For each of the following functions, verify that the mixed partial derivatives \
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 All listed functions are $C^2$ on their stated domains; by Clairaut's theorem, $D_{1,2}f=D_{2,1}f$ there. Direct computation also confirms the equality.\qed
 
 
@@ -318,7 +318,7 @@ All listed functions are $C^2$ on their stated domains; by Clairaut's theorem, $
 Let \( f \) be a function of two variables. Use induction and Theorem 12.13 to prove that if the \( 2^k \) partial derivatives of \( f \) of order \( k \) are continuous in a neighborhood of a point \( (x, y) \), then all mixed partials of the form \( D_{r_1, \ldots, r_k} f \) and \( D_{p_1, \ldots, p_k} f \) will be equal at \( (x, y) \) if the \( k \)-tuple \( (r_1, \ldots, r_k) \) contains the same number of ones as the \( k \)-tuple \( (p_1, \ldots, p_k) \).
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 For $k=2$ this is Clairaut's theorem. Assume the statement for order $k$. For order $k+1$, commute adjacent derivatives two at a time using the $k=2$ case (continuity ensures commutation), to reorder any arrangement into any other with the same number of 1's and 2's. Thus all mixed partials of the same type coincide.\qed
 
 
@@ -328,7 +328,7 @@ If \( f \) is a function of two variables having continuous partials of order \(
 where in the \( r \)th term we have \( p_1 = \cdots = p_r = 1 \) and \( p_{r+1} = \cdots = p_k = 2 \). Use this result to give an alternative expression for Taylor's formula (Theorem 12.14) in the case when \( n = 2 \). The symbol \( \binom{k}{r} \) is the binomial coefficient \( k! / [r! (k - r)!] \).
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 By multilinearity and symmetry of mixed partials,
 \[f^{(k)}(x;t)=\sum_{r=0}^k \binom{k}{r} t_1^r t_2^{k-r} D_{\underbrace{1,\dots,1}_{r},\underbrace{2,\dots,2}_{k-r}} f(x).\]
 Hence, for $h=(h_1,h_2)$,
@@ -344,7 +344,7 @@ Use Taylor's formula to express the following in powers of \( (x - 1) \) and \( 
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 Let $\alpha=x-1$, $\beta=y-2$.
 \begin{enumerate}[label=(\alph*)]
 \item $(1+\alpha)^3+(2+\beta)^3+(1+\alpha)(2+\beta)^2=13+7\alpha+16\beta+3\alpha^2+4\alpha\beta+7\beta^2+\alpha^3+\beta^3+\alpha\beta^2$.

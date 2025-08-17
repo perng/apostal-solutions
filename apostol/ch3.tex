@@ -53,7 +53,9 @@ Both the set of rational numbers and the set of irrational numbers are dense in 
 Prove that an open interval in $\mathbb{R}^1$ is an open set and that a closed interval is a closed set.
 \end{problembox}
 
-\textbf{Proof:} Let $(a,b)$ be an open interval in $\mathbb{R}^1$. To show it's open, we need to prove that every point $x \in (a,b)$ is an interior point. For any $x \in (a,b)$, let $\varepsilon = \min\{x-a, b-x\}$. Then the open ball $B(x,\varepsilon) = (x-\varepsilon, x+\varepsilon)$ is contained entirely within $(a,b)$. This shows that every point in $(a,b)$ is an interior point, so $(a,b)$ is open.
+\noindent\textbf{Strategy:} Use the definition of open sets (every point is an interior point) and closed sets (complement is open). For open intervals, show that every point has a neighborhood contained in the interval. For closed intervals, show that the complement is open by finding neighborhoods for points outside the interval.
+
+\bigskip\noindent\textbf{Solution:} Let $(a,b)$ be an open interval in $\mathbb{R}^1$. To show it's open, we need to prove that every point $x \in (a,b)$ is an interior point. For any $x \in (a,b)$, let $\varepsilon = \min\{x-a, b-x\}$. Then the open ball $B(x,\varepsilon) = (x-\varepsilon, x+\varepsilon)$ is contained entirely within $(a,b)$. This shows that every point in $(a,b)$ is an interior point, so $(a,b)$ is open.
 
 For a closed interval $[a,b]$, we need to show its complement $\mathbb{R} \setminus [a,b] = (-\infty,a) \cup (b,\infty)$ is open. Any point $x$ in this complement is either less than $a$ or greater than $b$. If $x < a$, let $\varepsilon = a-x$, then $B(x,\varepsilon) = (x-\varepsilon, x+\varepsilon) \subset (-\infty,a)$. If $x > b$, let $\varepsilon = x-b$, then $B(x,\varepsilon) \subset (b,\infty)$. This shows the complement is open, so $[a,b]$ is closed.\qed
 
@@ -73,7 +75,9 @@ Determine all the accumulation points of the following sets in $\mathbb{R}^1$ an
 \end{enumerate}
 \end{problembox}
 
-\textbf{Solution:} 
+\noindent\textbf{Strategy:} For each set, identify accumulation points by finding points that can be approached by sequences in the set. For openness/closedness, check if every point is interior (open) and if the complement is open (closed). Use density properties of rationals and convergence of sequences.
+
+\bigskip\noindent\textbf{Solution:} 
 (a) The set of integers has no accumulation points since each integer has a neighborhood containing no other integers. The set is closed (its complement is open) but not open.
 
 (b) The interval $(a,b)$ has accumulation points $[a,b]$. For any $x \in [a,b]$, a sequence $\{x_n\} \subset (a,b)$ with $x_n \to x$ exists (e.g., $x_n = x + (b-a)/(n+1)$ if $x < b$, or $x_n = a + (b-a)/(n+1)$ if $x = a$). The set is open (every point is interior) but not closed (its closure is $[a,b]$).
@@ -102,7 +106,9 @@ The same as Exercise 3.2 for the following sets in $\mathbb{R}^2$:
 \end{enumerate}
 \end{problembox}
 
-\textbf{Solution:}
+\noindent\textbf{Strategy:} Apply the same approach as in Exercise 3.2 but in two dimensions. For complex numbers, use the modulus $|z|$ to determine boundaries. For sequences, consider convergence in each coordinate separately. Use geometric intuition for open/closed sets in the plane.
+
+\bigskip\noindent\textbf{Solution:}
 (a) The set $\{z \in \mathbb{C} : |z| > 1\}$ has accumulation points $\{z \in \mathbb{C} : |z| \geq 1\}$. The set is open but not closed.
 
 (b) The set $\{z \in \mathbb{C} : |z| \geq 1\}$ has accumulation points $\{z \in \mathbb{C} : |z| \geq 1\}$. The set is closed but not open.
@@ -120,7 +126,9 @@ The same as Exercise 3.2 for the following sets in $\mathbb{R}^2$:
 Prove that every nonempty open set $S$ in $\mathbb{R}^1$ contains both rational and irrational numbers.
 \end{problembox}
 
-\textbf{Proof:} Let $S$ be a nonempty open set in $\mathbb{R}^1$. Since $S$ is open, for any point $x \in S$, there exists $\varepsilon > 0$ such that the open interval $(x-\varepsilon, x+\varepsilon) \subset S$.
+\noindent\textbf{Strategy:} Use the density of rational and irrational numbers in $\mathbb{R}$. Since $S$ is open, any point in $S$ has a neighborhood contained in $S$. By density, both rational and irrational numbers exist in any open interval.
+
+\bigskip\noindent\textbf{Solution:} Let $S$ be a nonempty open set in $\mathbb{R}^1$. Since $S$ is open, for any point $x \in S$, there exists $\varepsilon > 0$ such that the open interval $(x-\varepsilon, x+\varepsilon) \subset S$.
 
 Since the rational numbers are dense in $\mathbb{R}$, there exists a rational number $q$ in $(x-\varepsilon, x+\varepsilon)$, and thus $q \in S$.
 
@@ -133,7 +141,9 @@ Therefore, every nonempty open set contains both rational and irrational numbers
 Prove that the only sets in $\mathbb{R}^1$ which are both open and closed are the empty set and $\mathbb{R}^1$ itself. Is a similar statement true for $\mathbb{R}^2$?
 \end{problembox}
 
-\textbf{Proof:}
+\noindent\textbf{Strategy:} Use proof by contradiction. Assume there exists a non-empty proper subset that is both open and closed. Use the connectedness of $\mathbb{R}^1$ and $\mathbb{R}^2$ - if a space is connected, it cannot be split into two non-empty disjoint open sets. The key is to show that such a split would violate connectedness.
+
+\bigskip\noindent\textbf{Solution:}
 
 \subsubsection*{Proof for $\mathbb{R}^1$}
 
@@ -180,7 +190,9 @@ This property is called "connectedness" - a space is connected if it cannot be s
 Prove that every closed set in $\mathbb{R}^1$ is the intersection of a countable collection of open sets.
 \end{problembox}
 
-\textbf{Proof:} Let $F$ be a closed set in $\mathbb{R}^1$. For each $n \in \mathbb{N}$, define $G_n = \{x \in \mathbb{R} : d(x,F) < 1/n\}$, where $d(x,F) = \inf\{|x-y| : y \in F\}$. Each $G_n$ is open since it's the union of open intervals.
+\noindent\textbf{Strategy:} Use the distance function $d(x,F) = \inf\{|x-y| : y \in F\}$ to construct open sets $G_n = \{x : d(x,F) < 1/n\}$. Show that the intersection of these open sets equals the closed set $F$ by using the fact that $d(x,F) = 0$ if and only if $x \in F$ (when $F$ is closed).
+
+\bigskip\noindent\textbf{Solution:} Let $F$ be a closed set in $\mathbb{R}^1$. For each $n \in \mathbb{N}$, define $G_n = \{x \in \mathbb{R} : d(x,F) < 1/n\}$, where $d(x,F) = \inf\{|x-y| : y \in F\}$. Each $G_n$ is open since it's the union of open intervals.
 
 We claim that $F = \bigcap_{n=1}^{\infty} G_n$. Clearly $F \subset \bigcap_{n=1}^{\infty} G_n$ since every point in $F$ has distance 0 to $F$.
 
@@ -191,7 +203,9 @@ For the reverse inclusion, let $x \in \bigcap_{n=1}^{\infty} G_n$. Then $d(x,F) 
 Prove that a nonempty, bounded closed set $S$ in $\mathbb{R}^1$ is either a closed interval, or that $S$ can be obtained from a closed interval by removing a countable disjoint collection of open intervals whose endpoints belong to $S$.
 \end{problembox}
 
-\textbf{Proof:} Let $S$ be a nonempty, bounded closed set in $\mathbb{R}^1$. Let $a = \inf S$ and $b = \sup S$. Since $S$ is closed, $a, b \in S$.
+\noindent\textbf{Strategy:} Use the fact that a bounded closed set has a minimum and maximum. If $S$ is not a closed interval, its complement in the minimal closed interval containing $S$ is open and can be written as a countable union of disjoint open intervals. Since $S$ is closed, the endpoints of these intervals must belong to $S$.
+
+\bigskip\noindent\textbf{Solution:} Let $S$ be a nonempty, bounded closed set in $\mathbb{R}^1$. Let $a = \inf S$ and $b = \sup S$. Since $S$ is closed, $a, b \in S$.
 
 If $S = [a,b]$, we're done. Otherwise, the complement $[a,b] \setminus S$ is open and can be written as a countable union of disjoint open intervals $(a_i, b_i)$. Since $S$ is closed, the endpoints $a_i, b_i$ must belong to $S$.
 
@@ -229,7 +243,9 @@ If $S$ is a subset of $\mathbb{R}^n$, then the interior of $S$ is equal to the u
 Prove that open n-balls and n-dimensional open intervals are open sets in $\mathbb{R}^n$.
 \end{problembox}
 
-\textbf{Proof:} Let $B(a;r) = \{x \in \mathbb{R}^n : \|x-a\| < r\}$ be an open ball centered at $a$ with radius $r$. For any $x \in B(a;r)$, let $\varepsilon = r - \|x-a\| > 0$. Then $B(x;\varepsilon) \subset B(a;r)$ by the triangle inequality, showing $B(a;r)$ is open.
+\noindent\textbf{Strategy:} For open balls, use the triangle inequality to show that any point in the ball has a neighborhood contained in the ball. For open intervals, use the fact that they are products of open intervals in each coordinate and show that any point has a neighborhood contained in the product.
+
+\bigskip\noindent\textbf{Solution:} Let $B(a;r) = \{x \in \mathbb{R}^n : \|x-a\| < r\}$ be an open ball centered at $a$ with radius $r$. For any $x \in B(a;r)$, let $\varepsilon = r - \|x-a\| > 0$. Then $B(x;\varepsilon) \subset B(a;r)$ by the triangle inequality, showing $B(a;r)$ is open.
 
 For an open interval $I = (a_1,b_1) \times \cdots \times (a_n,b_n)$, let $x = (x_1,\ldots,x_n) \in I$. For each $i$, let $\varepsilon_i = \min\{x_i - a_i, b_i - x_i\}$. Then the ball $B(x;\min\{\varepsilon_1,\ldots,\varepsilon_n\}) \subset I$, showing $I$ is open.\qed
 
@@ -238,7 +254,9 @@ For an open interval $I = (a_1,b_1) \times \cdots \times (a_n,b_n)$, let $x = (x
 Prove that the interior of a set in $\mathbb{R}^n$ is open in $\mathbb{R}^n$.
 \end{problembox}
 
-\textbf{Proof:} Let $S \subset \mathbb{R}^n$ and let $x \in \text{int } S$. By definition, there exists $\varepsilon > 0$ such that $B(x;\varepsilon) \subset S$.
+\noindent\textbf{Strategy:} Use the definition of interior point: a point is interior if it has a neighborhood contained in the set. Show that if a point is interior, then every point in a small enough neighborhood around it is also interior, making the interior set itself open.
+
+\bigskip\noindent\textbf{Solution:} Let $S \subset \mathbb{R}^n$ and let $x \in \text{int } S$. By definition, there exists $\varepsilon > 0$ such that $B(x;\varepsilon) \subset S$.
 
 For any $y \in B(x;\varepsilon)$, let $\delta = \varepsilon - \|y-x\| > 0$. Then $B(y;\delta) \subset B(x;\varepsilon) \subset S$, which shows that $y \in \text{int } S$.
 
@@ -249,7 +267,9 @@ Therefore, $B(x;\varepsilon) \subset \text{int } S$, proving that $\text{int } S
 If $S \subseteq \mathbb{R}^n$, prove that int $S$ is the union of all open subsets of $\mathbb{R}^n$ which are contained in $S$. This is described by saying that int $S$ is the largest open subset of $S$.
 \end{problembox}
 
-\textbf{Proof:} Let $\mathcal{U}$ be the collection of all open subsets of $\mathbb{R}^n$ contained in $S$. We need to show that $\text{int } S = \bigcup_{U \in \mathcal{U}} U$.
+\noindent\textbf{Strategy:} Show two inclusions: (1) any open subset contained in $S$ is contained in int $S$ (since all its points are interior), and (2) int $S$ is contained in the union of all open subsets of $S$ (since int $S$ itself is an open subset of $S$).
+
+\bigskip\noindent\textbf{Solution:} Let $\mathcal{U}$ be the collection of all open subsets of $\mathbb{R}^n$ contained in $S$. We need to show that $\text{int } S = \bigcup_{U \in \mathcal{U}} U$.
 
 First, if $x \in \text{int } S$, then there exists $\varepsilon > 0$ such that $B(x;\varepsilon) \subset S$. Since $B(x;\varepsilon)$ is open and contained in $S$, we have $x \in B(x;\varepsilon) \in \mathcal{U}$, so $x \in \bigcup_{U \in \mathcal{U}} U$.
 
@@ -264,7 +284,9 @@ int$(S)$ $\cap$ int$(T)$ = int$(S \cap T)$,
 and int$(S)$ $\cup$ int$(T)$ $\subseteq$ int$(S \cup T)$.
 \end{problembox}    
 
-\textbf{Proof:} For the first equality, let $x \in \text{int}(S) \cap \text{int}(T)$. Then there exist $\varepsilon_1, \varepsilon_2 > 0$ such that $B(x;\varepsilon_1) \subset S$ and $B(x;\varepsilon_2) \subset T$. Let $\varepsilon = \min\{\varepsilon_1, \varepsilon_2\}$. Then $B(x;\varepsilon) \subset S \cap T$, so $x \in \text{int}(S \cap T)$.
+\noindent\textbf{Strategy:} For the first equality, show both inclusions using the fact that if a point is interior to both sets, it has a neighborhood in their intersection. For the second inclusion, use the fact that if a point is interior to either set, it has a neighborhood in their union.
+
+\bigskip\noindent\textbf{Solution:} For the first equality, let $x \in \text{int}(S) \cap \text{int}(T)$. Then there exist $\varepsilon_1, \varepsilon_2 > 0$ such that $B(x;\varepsilon_1) \subset S$ and $B(x;\varepsilon_2) \subset T$. Let $\varepsilon = \min\{\varepsilon_1, \varepsilon_2\}$. Then $B(x;\varepsilon) \subset S \cap T$, so $x \in \text{int}(S \cap T)$.
 
 Conversely, if $x \in \text{int}(S \cap T)$, there exists $\varepsilon > 0$ such that $B(x;\varepsilon) \subset S \cap T$. This implies $B(x;\varepsilon) \subset S$ and $B(x;\varepsilon) \subset T$, so $x \in \text{int}(S) \cap \text{int}(T)$.
 
@@ -282,7 +304,10 @@ Let $S'$ denote the derived set and $\overline{S}$ the closure of a set $S$ in $
 \item $\overline{S}$ is the intersection of all closed subsets of $\mathbb{R}^n$ containing $S$. That is, $\overline{S}$ is the smallest closed set containing $S$.
 \end{enumerate}
 \end{problembox}
-\textbf{Proof:}\\
+
+\noindent\textbf{Strategy:} Use the definitions of derived set (accumulation points) and closure (adherent points). For (a), show that accumulation points of accumulation points are accumulation points. For (b), use the subset relationship. For (c), show both inclusions using the definition. For (d), use the fact that adherent points are either in the set or accumulation points. For (e), use (a) and (d). For (f), show that closure is both contained in and contains the intersection.
+
+\bigskip\noindent\textbf{Solution:}\\
 (a) To prove $S'$ is closed, we must show that its derived set $(S')'$ is a subset of $S'$. Let $\mathbf{x} \in (S')'$. This means every neighborhood of $\mathbf{x}$ contains a point of $S'$ other than $\mathbf{x}$. Let $B(\mathbf{x}, \varepsilon)$ be an arbitrary open ball centered at $\mathbf{x}$. By definition of $(S')'$, there is a point $\mathbf{y} \in B(\mathbf{x}, \varepsilon) \cap S'$. Since $B(\mathbf{x}, \varepsilon)$ is an open set, it is a neighborhood for $\mathbf{y}$. Because $\mathbf{y} \in S'$, $\mathbf{y}$ is an accumulation point of $S$, so this neighborhood must contain infinitely many points from $S$. Thus, the ball $B(\mathbf{x}, \varepsilon)$ contains infinitely many points from $S$. As $B(\mathbf{x}, \varepsilon)$ was an arbitrary neighborhood of $\mathbf{x}$, this shows that $\mathbf{x}$ is an accumulation point of $S$, so $\mathbf{x} \in S'$. Therefore, $(S')' \subseteq S'$, which proves that $S'$ is a closed set.
 
 (b) Let $\mathbf{x} \in S'$. Then every neighborhood of $\mathbf{x}$ contains a point $\mathbf{y} \in S$ with $\mathbf{y} \neq \mathbf{x}$. Since $S \subseteq T$, this point $\mathbf{y}$ is also in $T$. Thus, every neighborhood of $\mathbf{x}$ contains a point $\mathbf{y} \in T$ with $\mathbf{y} \neq \mathbf{x}$. This means $\mathbf{x} \in T'$. So $S' \subseteq T'$.
@@ -308,7 +333,9 @@ Let $S$ and $T$ be subsets of $\mathbb{R}^k$. Prove that $\overline{S \cup T} = 
 \textit{NOTE.} The statements in Exercises 3.9 through 3.13 are true in any metric space.
 \end{problembox}
 
-\textbf{Proof.}
+\noindent\textbf{Strategy:} For the union, use the monotonicity of closure and show both inclusions. For the intersection, use the fact that if a point is adherent to the intersection, it's adherent to both sets. The openness of $S$ is not needed for the intersection inclusion.
+
+\noindent\textbf{Proof.}
 We use only the definition of closure via adherent points.
 
 For the union, first note $S\subseteq S\cup T$ and $T\subseteq S\cup T$, so by monotonicity of closure,
@@ -331,7 +358,9 @@ A set \( S \) in \( \mathbb{R}^n \) is called convex if, for every pair of point
 \end{enumerate}
 \end{problembox}
 
-\textbf{Proof:} Geometrically, a set is convex if the line segment joining any two points in the set lies entirely within the set.
+\noindent\textbf{Strategy:} Use the triangle inequality for (a), coordinate-wise inequalities for (b), and the fact that convex combinations preserve neighborhoods for (c) and (d). For (c), show that if two points are interior, their convex combination has a neighborhood in the set. For (d), use sequences and the fact that convex combinations are continuous.
+
+\bigskip\noindent\textbf{Solution:} Geometrically, a set is convex if the line segment joining any two points in the set lies entirely within the set.
 
 (a) Let $B(a;r)$ be an $n$-ball and $x, y \in B(a;r)$. For $0 < \theta < 1$, let $z = \theta x + (1-\theta)y$. Then $\|z-a\| = \|\theta(x-a) + (1-\theta)(y-a)\| \leq \theta\|x-a\| + (1-\theta)\|y-a\| < \theta r + (1-\theta)r = r$, so $z \in B(a;r)$.
 
@@ -350,9 +379,11 @@ Let $\mathcal{F}$ be a collection of sets in $\mathbb{R}^k$, and let $S = \bigcu
 \end{enumerate}
 \end{problembox}
 
-\textbf{Solution:}\\
+\noindent\textbf{Strategy:} For (a), use the fact that if a point is in the intersection, it's in every set, so accumulation points of the intersection must be accumulation points of each set. For (b), consider whether the collection is finite or infinite - for infinite collections, construct a counterexample using singletons.
+
+\bigskip\noindent\textbf{Solution:}\\
 (a) This statement is \textbf{true}.\\
-\textbf{Proof:} Let $\mathbf{x}$ be an accumulation point of $T$. This means that for any $\varepsilon > 0$, the ball $B(\mathbf{x}; \varepsilon)$ contains a point $\mathbf{y} \in T$ such that $\mathbf{y} \neq \mathbf{x}$. By definition, $T = \bigcap_{A \in \mathcal{F}} A$. So, if $\mathbf{y} \in T$, then $\mathbf{y} \in A$ for every set $A$ in the collection $\mathcal{F}$. Therefore, for any $\varepsilon > 0$, the ball $B(\mathbf{x}; \varepsilon)$ contains a point $\mathbf{y} \in A$ (for every $A \in \mathcal{F}$) with $\mathbf{y} \neq \mathbf{x}$. This is precisely the definition of $\mathbf{x}$ being an accumulation point of $A$. Thus, $\mathbf{x}$ is an accumulation point of each set $A \in \mathcal{F}$.
+\bigskip\noindent\textbf{Solution:} Let $\mathbf{x}$ be an accumulation point of $T$. This means that for any $\varepsilon > 0$, the ball $B(\mathbf{x}; \varepsilon)$ contains a point $\mathbf{y} \in T$ such that $\mathbf{y} \neq \mathbf{x}$. By definition, $T = \bigcap_{A \in \mathcal{F}} A$. So, if $\mathbf{y} \in T$, then $\mathbf{y} \in A$ for every set $A$ in the collection $\mathcal{F}$. Therefore, for any $\varepsilon > 0$, the ball $B(\mathbf{x}; \varepsilon)$ contains a point $\mathbf{y} \in A$ (for every $A \in \mathcal{F}$) with $\mathbf{y} \neq \mathbf{x}$. This is precisely the definition of $\mathbf{x}$ being an accumulation point of $A$. Thus, $\mathbf{x}$ is an accumulation point of each set $A \in \mathcal{F}$.
 
 (b) This statement is \textbf{false} for an infinite collection $\mathcal{F}$.\\
 \textbf{Counterexample:} Let the collection of sets in $\mathbb{R}^1$ be $\mathcal{F} = \{A_n : n \in \mathbb{N}\}$ where each set $A_n$ is a singleton: $A_n = \{1/n\}$.
@@ -370,7 +401,9 @@ Prove that the set \( S \) of rational numbers in the interval \( (0, 1) \) cann
 \textit{Hint.} Write \( S = \{x_1, x_2, \ldots\} \), assume \( S = \bigcap_{k=1}^{\infty} S_k \), where each \( S_k \) is open, and construct a sequence \( (Q_n) \) of closed intervals such that \( Q_{n+1} \subseteq Q_n \subseteq S_n \) and such that \( x_n \notin Q_n \). Then use the Cantor intersection theorem to obtain a contradiction.
 \end{problembox}
 
-\textbf{Proof:} The strategy is to use a proof by contradiction. We'll assume that the rationals can be written as a countable intersection of open sets, then construct a nested sequence of closed intervals that excludes each rational number one by one. This will lead to a point that must be in the intersection (by the Cantor intersection theorem) but cannot be any of the rational numbers we've excluded, creating a contradiction.
+\noindent\textbf{Strategy:} Use proof by contradiction. Assume the rationals can be written as a countable intersection of open sets. Enumerate the rationals and construct nested closed intervals that exclude each rational one by one. Use the Cantor intersection theorem to find a point in the intersection that cannot be rational, creating a contradiction.
+
+\bigskip\noindent\textbf{Solution:} The strategy is to use a proof by contradiction. We'll assume that the rationals can be written as a countable intersection of open sets, then construct a nested sequence of closed intervals that excludes each rational number one by one. This will lead to a point that must be in the intersection (by the Cantor intersection theorem) but cannot be any of the rational numbers we've excluded, creating a contradiction.
 
 Suppose for contradiction that $S = \bigcap_{k=1}^{\infty} S_k$ where each $S_k$ is open. Let $S = \{x_1, x_2, \ldots\}$ be an enumeration of the rationals in $(0,1)$.
 
@@ -415,7 +448,9 @@ If every point in a set $S$ has a neighborhood whose intersection with $S$ is co
 If \( S \subseteq \mathbb{R}^n \), prove that the collection of isolated points of \( S \) is countable.
 \end{problembox}
 
-\textbf{Proof:}\\
+\noindent\textbf{Strategy:} Use the fact that isolated points have disjoint neighborhoods. For each isolated point, take a smaller ball (half the radius) and show these balls are pairwise disjoint. Then use the separability of $\mathbb{R}^n$ (it has a countable dense subset) to inject the isolated points into this countable set.
+
+\bigskip\noindent\textbf{Solution:}\\
 Let $I$ be the set of isolated points of $S$. By definition, for each point $\mathbf{x} \in I$, there exists a radius $\varepsilon_{\mathbf{x}} > 0$ such that the open ball $B(\mathbf{x}; \varepsilon_{\mathbf{x}})$ contains no other point of $S$; that is, $B(\mathbf{x}; \varepsilon_{\mathbf{x}}) \cap S = \{\mathbf{x}\}$.
 
 Consider the collection of smaller open balls $\mathcal{C} = \{ B(\mathbf{x}; \varepsilon_{\mathbf{x}}/2) : \mathbf{x} \in I \}$. We claim these balls are pairwise disjoint.
@@ -436,7 +471,9 @@ Thus, the set of isolated points $I$ is countable.\qed
 Prove that the set of open disks in the \(xy\)-plane with center at \( (x, x) \) and radius \( x > 0 \), where \( x \) is rational, is a countable covering of the set \( \{(x, y) : x > 0, y > 0\} \).
 \end{problembox}
 
-\textbf{Proof:}\\
+\noindent\textbf{Strategy:} Show that the collection is countable (since rationals are countable) and that it covers the first quadrant. For any point $(x,y)$ in the first quadrant, find a rational $q$ such that the disk centered at $(q,q)$ with radius $q$ contains $(x,y)$. Use the distance formula and density of rationals.
+
+\bigskip\noindent\textbf{Solution:}\\
 Let $\mathcal{F}$ be the collection of open disks $B((q,q); q)$ where $q \in \mathbb{Q}$ and $q > 0$. Since $\mathbb{Q}$ is countable, the collection $\mathcal{F}$ is countable. We need to show that $\mathcal{F}$ covers the first quadrant $S = \{(x, y) : x > 0, y > 0\}$.
 
 Let $(x, y)$ be an arbitrary point in $S$. We need to find a rational number $q > 0$ such that the disk $B((q,q); q)$ contains $(x, y)$. The condition for this is:
@@ -460,7 +497,9 @@ Thus, for any point $(x,y)$ in the first quadrant, we can find a disk in $\mathc
 The collection \( \mathcal{F} \) of open intervals of the form \( (1/n, 2/n) \), where \( n = 2, 3, \ldots \), is an open covering of the open interval \( (0, 1) \). Prove (without using Theorem 3.31) that no finite subcollection of \( \mathcal{F} \) covers \( (0, 1) \).
 \end{problembox}
 
-\textbf{Proof:} Let $\mathcal{G} = \{(1/n_1, 2/n_1), \ldots, (1/n_k, 2/n_k)\}$ be a finite subcollection of $\mathcal{F}$. Let $N = \max\{n_1, \ldots, n_k\}$.
+\noindent\textbf{Strategy:} Take any finite subcollection and find the maximum denominator $N$. Show that the interval $(0, 1/N)$ is not covered by any interval in the finite subcollection, since the leftmost interval is $(1/N, 2/N)$.
+
+\bigskip\noindent\textbf{Solution:} Let $\mathcal{G} = \{(1/n_1, 2/n_1), \ldots, (1/n_k, 2/n_k)\}$ be a finite subcollection of $\mathcal{F}$. Let $N = \max\{n_1, \ldots, n_k\}$.
 
 Then the leftmost interval in $\mathcal{G}$ is $(1/N, 2/N)$. For any $x \in (0, 1/N)$, we have $x < 1/N < 2/N$, so $x$ is not covered by any interval in $\mathcal{G}$.
 
@@ -471,7 +510,9 @@ Therefore, $\mathcal{G}$ does not cover $(0,1)$, proving that no finite subcolle
 Give an example of a set \( S \) which is closed but not bounded and exhibit a countable open covering \( \mathcal{F} \) such that no finite subset of \( \mathcal{F} \) covers \( S \).
 \end{problembox}
 
-\textbf{Solution:} Let $S = \mathbb{Z}$ (the set of integers). This set is closed but not bounded.
+\noindent\textbf{Strategy:} Use the integers $\mathbb{Z}$ as the set (closed but not bounded). Create a covering where each integer has its own interval, making it impossible for any finite subcollection to cover the infinite set.
+
+\bigskip\noindent\textbf{Solution:} Let $S = \mathbb{Z}$ (the set of integers). This set is closed but not bounded.
 
 Let $\mathcal{F} = \{(n-1/2, n+1/2) : n \in \mathbb{Z}\}$. This is a countable open covering of $\mathbb{Z}$ since each integer $n$ is contained in the interval $(n-1/2, n+1/2)$.
 
@@ -484,7 +525,9 @@ Therefore, $\mathcal{F}$ is a countable open covering of $S$ with no finite subc
 Given a set \( S \) in \( \mathbb{R}^n \) with the property that for every \( x \) in \( S \) there is an \( n \)-ball \( B(x) \) such that \( B(x) \cap S \) is countable. Prove that \( S \) is countable.
 \end{problembox}
 
-\textbf{Proof:}\\
+\noindent\textbf{Strategy:} Use the Lindelöf property of $\mathbb{R}^n$ (every open cover has a countable subcover). The collection of balls $\{B(x) : x \in S\}$ covers $S$, so there's a countable subcover. Each ball in the subcover intersects $S$ in a countable set, so $S$ is a countable union of countable sets.
+
+\bigskip\noindent\textbf{Solution:}\\
 For each point $\mathbf{x} \in S$, we are given that there exists an open ball $B_\mathbf{x}$ centered at $\mathbf{x}$ such that the set $B_\mathbf{x} \cap S$ is countable.
 
 The collection of all such balls, $\mathcal{C} = \{B_\mathbf{x} : \mathbf{x} \in S\}$, forms an open covering of the set $S$ (since each $\mathbf{x} \in S$ is in its own ball $B_\mathbf{x}$).
@@ -503,7 +546,9 @@ Therefore, $S$ is a countable union of countable sets. A fundamental result of s
 Prove that a collection of disjoint open sets in \( \mathbb{R}^n \) is necessarily countable. Give an example of a collection of disjoint closed sets which is not countable.
 \end{problembox}
 
-\textbf{Solution:} Let $\mathcal{F}$ be a collection of disjoint open sets in $\mathbb{R}^n$. Since $\mathbb{R}^n$ is separable, there exists a countable dense subset $D$.
+\noindent\textbf{Strategy:} Use the separability of $\mathbb{R}^n$ - each open set contains a point from the countable dense subset, and since the sets are disjoint, each dense point can belong to at most one set. For the counterexample, use singletons of real numbers.
+
+\bigskip\noindent\textbf{Solution:} Let $\mathcal{F}$ be a collection of disjoint open sets in $\mathbb{R}^n$. Since $\mathbb{R}^n$ is separable, there exists a countable dense subset $D$.
 
 For each open set $U \in \mathcal{F}$, there exists a point $d \in D$ such that $d \in U$. Since the sets in $\mathcal{F}$ are disjoint, each point $d \in D$ can belong to at most one set in $\mathcal{F}$.
 
@@ -516,7 +561,9 @@ For an example of uncountably many disjoint closed sets, let $\mathcal{G} = \{\{
 Assume that \( S \subseteq \mathbb{R}^n \). A point \( x \) in \( \mathbb{R}^n \) is said to be a condensation point of \( S \) if every \( n \)-ball \( B(x) \) has the property that \( B(x) \cap S \) is not countable. Prove that if \( S \) is not countable, then there exists a point \( x \) in \( S \) such that \( x \) is a condensation point of \( S \).
 \end{problembox}
 
-\textbf{Proof:} Suppose for contradiction that no point in $S$ is a condensation point of $S$. Then for every $x \in S$, there exists an $n$-ball $B_x$ centered at $x$ such that $B_x \cap S$ is countable.
+\noindent\textbf{Strategy:} Use proof by contradiction. If no point is a condensation point, then every point has a neighborhood where the intersection with $S$ is countable. Apply Exercise 3.21 to conclude that $S$ is countable, contradicting the hypothesis.
+
+\bigskip\noindent\textbf{Solution:} Suppose for contradiction that no point in $S$ is a condensation point of $S$. Then for every $x \in S$, there exists an $n$-ball $B_x$ centered at $x$ such that $B_x \cap S$ is countable.
 
 By Exercise 3.21, this implies that $S$ is countable, which contradicts the hypothesis that $S$ is not countable.
 
@@ -528,13 +575,15 @@ Assume that \( S \subseteq \mathbb{R}^n \) and that \( S \) is not countable. Le
 \begin{enumerate}[label=\alph*)]
 \item \( S - T \) is countable,
 \item \( S \cap T \) is not countable,
-\item \( T \) is a closed set,
+\item \( T \) is closed,
 \item \( T \) contains no isolated points.
 \end{enumerate}
 Note that Exercise 3.23 is a special case of (b).
 \end{problembox}
 
-\textbf{Proof:} 
+\noindent\textbf{Strategy:} For (a), use Exercise 3.21. For (b), use the fact that $S$ is uncountable and $S-T$ is countable. For (c), show that if a point is in the closure of $T$, it's a condensation point. For (d), use the fact that $S-T$ is countable and any neighborhood of a condensation point contains uncountably many points of $S$.
+
+\bigskip\noindent\textbf{Solution:} 
 (a) For each $x \in S - T$, there exists an $n$-ball $B_x$ centered at $x$ such that $B_x \cap S$ is countable. By Exercise 3.21, $S - T$ is countable.
 
 (b) Since $S$ is not countable and $S - T$ is countable, $S \cap T$ must be uncountable.
@@ -550,7 +599,9 @@ A set in \( \mathbb{R}^n \) is called perfect if \( S = S' \), that is, if \( S 
 \textit{Hint.} Use Exercise 3.24.
 \end{problembox}
 
-\textbf{Proof:} Let $F$ be an uncountable closed set in $\mathbb{R}^n$. Let $T$ be the set of condensation points of $F$. By Exercise 3.24, $T$ is closed and $F - T$ is countable.
+\noindent\textbf{Strategy:} Use Exercise 3.24 to take $A$ as the set of condensation points $T$ and $B$ as $F-T$. Show that $T$ is perfect (closed with no isolated points) and $F-T$ is countable.
+
+\bigskip\noindent\textbf{Solution:} Let $F$ be an uncountable closed set in $\mathbb{R}^n$. Let $T$ be the set of condensation points of $F$. By Exercise 3.24, $T$ is closed and $F - T$ is countable.
 
 Let $A = T$ and $B = F - T$. Then $F = A \cup B$ where $B$ is countable.
 
@@ -617,7 +668,9 @@ If both $A$ and $B$ are dense in $S$ and $B$ is an open subset of $S$, then the 
 In any metric space \((M, d)\), prove that the empty set \( \emptyset \) and the whole space \( M \) are both open and closed.
 \end{problembox}
 
-\textbf{Proof:} The empty set $\emptyset$ is open because the condition "for every point in $\emptyset$, there exists a neighborhood contained in $\emptyset$" is vacuously true (there are no points to check).
+\noindent\textbf{Strategy:} Use the definitions of open and closed sets directly. For the empty set, use vacuous truth for openness and complementarity for closedness. For the whole space, use the definition of open balls and complementarity.
+
+\noindent\bigskip\noindent\textbf{Solution:} The empty set $\emptyset$ is open because the condition "for every point in $\emptyset$, there exists a neighborhood contained in $\emptyset$" is vacuously true (there are no points to check).
 
 The empty set $\emptyset$ is closed because its complement $M$ is open.
 
@@ -639,7 +692,9 @@ In each of the following metric spaces prove that the ball \( B(a; r) \) has the
 \end{enumerate}
 \end{problembox}
 
-\textbf{Solution:} 
+\noindent\textbf{Strategy:} Use the definition of metric balls $B(a;r) = \{x : d(a,x) < r\}$ and substitute the given metrics. For $d_1$, the maximum constraint creates axis-aligned shapes. For $d_2$, the sum constraint creates diamond/octahedral shapes.
+
+\bigskip\noindent\textbf{Solution:} 
 (a) In $(\mathbb{R}^2, d_1)$, the ball $B(a;r) = \{(x,y) : \max\{|x-a_1|, |y-a_2|\} < r\}$. This means $|x-a_1| < r$ and $|y-a_2| < r$, which defines a square with center $(a_1,a_2)$ and sides of length $2r$ parallel to the coordinate axes.
 
 (b) In $(\mathbb{R}^2, d_2)$, the ball $B(a;r) = \{(x,y) : |x-a_1| + |y-a_2| < r\}$. This defines a diamond-shaped region (square rotated 45 degrees) with diagonals parallel to the axes.
@@ -654,7 +709,9 @@ Let \( d_1 \) and \( d_2 \) be the metrics of Exercise 3.27 and let \( \|x - y\|
 \[d_1(x, y) \leq \|x - y\| \leq d_2(x, y) \quad \text{and} \quad d_2(x, y) \leq \sqrt{n} \|x - y\| \leq n\,d_1(x, y).\]
 \end{problembox}
 
-\textbf{Proof:} Let $x, y \in \mathbb{R}^n$. Let $a_i = |x_i - y_i|$ for $1 \leq i \leq n$. Then:
+\noindent\textbf{Strategy:} Use the definitions of the metrics and basic inequalities. For the first part, use the fact that the maximum is less than or equal to the square root of the sum of squares, and the square root is less than or equal to the sum. For the second part, use the Cauchy-Schwarz inequality.
+
+\bigskip\noindent\textbf{Solution:} Let $x, y \in \mathbb{R}^n$. Let $a_i = |x_i - y_i|$ for $1 \leq i \leq n$. Then:
 
 (1) \( d_1(x, y) = \max_i a_i \leq \sqrt{\sum a_i^2} = \|x - y\| \) (since each $a_i^2 \leq \sum a_i^2$)
 
@@ -684,7 +741,9 @@ If \( (M, d) \) is a metric space, define
 Prove that \( d' \) is also a metric for \( M \). Note that \( 0 \leq d'(x, y) < 1 \) for all \( x, y \) in \( M \).
 \end{problembox}
 
-\textbf{Proof:} We need to verify the three properties of a metric:
+\noindent\textbf{Strategy:} Verify the three metric properties: non-negativity, symmetry, and triangle inequality. For the triangle inequality, use the fact that the function $f(t) = t/(1+t)$ is increasing and the inequality $\frac{a+b}{1+a+b} \leq \frac{a}{1+a} + \frac{b}{1+b}$ for non-negative $a,b$.
+
+\bigskip\noindent\textbf{Solution:} We need to verify the three properties of a metric:
 
 (1) $d'(x,y) \geq 0$ since $d(x,y) \geq 0$ and $1 + d(x,y) > 0$.
 
@@ -701,7 +760,9 @@ The last inequality follows from the fact that $\frac{a+b}{1+a+b} \leq \frac{a}{
 Prove that every finite subset of a metric space is closed.
 \end{problembox}
 
-\textbf{Proof:} Let $S = \{x_1, x_2, \ldots, x_n\}$ be a finite subset of a metric space $(M,d)$. We need to show that the complement $M \setminus S$ is open.
+\noindent\textbf{Strategy:} Show that the complement is open. For any point not in the finite set, find a minimum distance to the set and use that to construct a neighborhood that doesn't intersect the set.
+
+\bigskip\noindent\textbf{Solution:} Let $S = \{x_1, x_2, \ldots, x_n\}$ be a finite subset of a metric space $(M,d)$. We need to show that the complement $M \setminus S$ is open.
 
 Let $x \in M \setminus S$. Let $\varepsilon = \min\{d(x,x_i) : i = 1,2,\ldots,n\}$. Since $x \notin S$, we have $\varepsilon > 0$.
 
@@ -718,7 +779,9 @@ In a metric space \((M, d)\) the closed ball of radius \( r > 0 \) about a point
 \end{enumerate}
 \end{problembox}
 
-\textbf{Solution:} 
+\noindent\textbf{Strategy:} For (a), show the complement is open by using the triangle inequality to find a neighborhood around any point outside the closed ball. For (b), use a discrete metric space where the open ball is a singleton but the closed ball is the entire space.
+
+\bigskip\noindent\textbf{Solution:} 
 (a) Let $x \in M \setminus \overline{B}(a;r)$. Then $d(x,a) > r$. Let $\varepsilon = d(x,a) - r > 0$. For any $y \in B(x;\varepsilon)$, we have $d(y,a) \geq d(x,a) - d(x,y) > d(x,a) - \varepsilon = r$. Therefore, $B(x;\varepsilon) \subset M \setminus \overline{B}(a;r)$, showing that $M \setminus \overline{B}(a;r)$ is open. Hence, $\overline{B}(a;r)$ is closed.
 
 (b) Consider the discrete metric space $(M,d)$ where $d(x,y) = 1$ if $x \neq y$ and $d(x,y) = 0$ if $x = y$. Let $a \in M$ and $r = 1$. Then $B(a;1) = \{a\}$ and $\overline{B}(a;1) = M$. The closure of $B(a;1)$ is $\{a\}$, which is not equal to $\overline{B}(a;1) = M$.\qed
@@ -728,7 +791,9 @@ In a metric space \((M, d)\) the closed ball of radius \( r > 0 \) about a point
 In a metric space \( M \), if subsets satisfy \( A \subseteq S \subseteq \overline{A} \), where \(\overline{A}\) is the closure of \( A \), then \( A \) is said to be dense in \( S \). For example, the set \( \mathbb{Q} \) of rational numbers is dense in \( \mathbb{R} \). If \( A \) is dense in \( S \) and if \( S \) is dense in \( T \), prove that \( A \) is dense in \( T \).
 \end{problembox}
 
-\textbf{Proof:} We need to show that $A \subseteq T \subseteq \overline{A}$.
+\noindent\textbf{Strategy:} Use the definition of density and the fact that closure is idempotent ($\overline{\overline{A}} = \overline{A}$). Show that $A \subseteq T \subseteq \overline{A}$ by using the density relationships and the transitivity of subset inclusion.
+
+\bigskip\noindent\textbf{Solution:} We need to show that $A \subseteq T \subseteq \overline{A}$.
 
 Since $A \subseteq S \subseteq T$, we have $A \subseteq T$.
 
@@ -743,7 +808,9 @@ Therefore, $A \subseteq T \subseteq \overline{A}$, showing that $A$ is dense in 
 A metric space \( M \) is said to be separable if there is a countable subset \( A \) which is dense in \( M \). For example, \( \mathbb{R} \) is separable because the set \( \mathbb{Q} \) of rational numbers is a countable dense subset. Prove that every Euclidean space \( \mathbb{R}^k \) is separable.
 \end{problembox}
 
-\textbf{Proof:} Let $A$ be the set of all points in $\mathbb{R}^k$ with rational coordinates. That is, $A = \{(q_1, q_2, \ldots, q_k) : q_i \in \mathbb{Q} \text{ for } i = 1,2,\ldots,k\}$.
+\noindent\textbf{Strategy:} Use the Cartesian product of rational numbers $\mathbb{Q}^k$ as the countable dense subset. Show it's countable (product of countable sets) and dense (use the density of rationals in each coordinate and the triangle inequality).
+
+\bigskip\noindent\textbf{Solution:} Let $A$ be the set of all points in $\mathbb{R}^k$ with rational coordinates. That is, $A = \{(q_1, q_2, \ldots, q_k) : q_i \in \mathbb{Q} \text{ for } i = 1,2,\ldots,k\}$.
 
 Since $\mathbb{Q}$ is countable, the Cartesian product $A = \mathbb{Q}^k$ is countable.
 
@@ -758,7 +825,9 @@ Therefore, $A$ is a countable dense subset of $\mathbb{R}^k$, so $\mathbb{R}^k$ 
 Prove that the Lindelöf covering theorem (Theorem 3.28) is valid in any separable metric space.
 \end{problembox}
 
-\textbf{Proof:} Let $M$ be a separable metric space with countable dense subset $D = \{d_1, d_2, \ldots\}$. Let $\mathcal{F}$ be an open covering of $M$.
+\noindent\textbf{Strategy:} Use the countable dense subset to construct a countable subcover. For each point in the dense subset, choose a set from the open cover that contains it, and show that this countable collection covers the entire space.
+
+\bigskip\noindent\textbf{Solution:} Let $M$ be a separable metric space with countable dense subset $D = \{d_1, d_2, \ldots\}$. Let $\mathcal{F}$ be an open covering of $M$.
 
 For each $d_i \in D$ and each positive rational $r$, if there exists a set $F \in \mathcal{F}$ such that $B(d_i;r) \subset F$, let $F_{i,r}$ be one such set.
 
@@ -777,7 +846,9 @@ If \( A \) is dense in \( S \) and if \( B \) is open in \( S \), prove that \( 
 \textit{Hint.} Exercise 3.13.
 \end{problembox}
 
-\textbf{Proof:}\\
+\noindent\textbf{Strategy:} Use the definition of density and the fact that $B$ is open. For any point $x \in B$, show that any neighborhood of $x$ contains a point from $A \cap B$ by using the density of $A$ and the openness of $B$.
+
+\bigskip\noindent\textbf{Solution:}\\
 The statement "$A$ is dense in $S$" means $S \subseteq \overline{A}$. We are given that $A \subseteq S$.
 The statement "$B$ is open in $S$" means that $B = V \cap S$ for some set $V$ that is open in the larger metric space $M$.
 
@@ -807,7 +878,9 @@ As this holds for any $x \in B$, we conclude that $B \subseteq \overline{A \cap 
 If each of \( A \) and \( B \) is dense in \( S \) and if \( B \) is open in \( S \), prove that \( A \cap B \) is dense in \( S \).
 \end{problembox}
 
-\textbf{Proof:} We need to show that $S \subseteq \overline{A \cap B}$.
+\noindent\textbf{Strategy:} Use the fact that $B$ is open to find a neighborhood around any point in $S$ that is contained in $B$. Then use the density of $A$ to find a point in that neighborhood that belongs to both $A$ and $B$.
+
+\bigskip\noindent\textbf{Solution:} We need to show that $S \subseteq \overline{A \cap B}$.
 
 Let $x \in S$. Since $B$ is open in $S$, there exists $\varepsilon > 0$ such that $B(x;\varepsilon) \cap S \subset B$.
 
@@ -824,7 +897,9 @@ Therefore, $S \subseteq \overline{A \cap B}$, showing that $A \cap B$ is dense i
 Given two metric spaces \((S_1, d_1)\) and \((S_2, d_2)\), a metric \( \rho \) for the Cartesian product \( S_1 \times S_2 \) can be constructed from \( d_1 \) and \( d_2 \) in many ways. For example, if \( x = (x_1, x_2) \) and \( y = (y_1, y_2) \) are in \( S_1 \times S_2 \), let \( \rho(x, y) = d_1(x_1, y_1) + d_2(x_2, y_2) \). Prove that \( \rho \) is a metric for \( S_1 \times S_2 \) and construct further examples.
 \end{problembox}
 
-\textbf{Solution:} We need to verify the three properties of a metric for $\rho(x,y) = d_1(x_1,y_1) + d_2(x_2,y_2)$:
+\noindent\textbf{Strategy:} Verify the three metric properties for the sum metric. For the triangle inequality, use the triangle inequalities of the individual metrics. For additional examples, consider maximum, Euclidean, and $p$-norms.
+
+\bigskip\noindent\textbf{Solution:} We need to verify the three properties of a metric for $\rho(x,y) = d_1(x_1,y_1) + d_2(x_2,y_2)$:
 
 (1) $\rho(x,y) \geq 0$ since $d_1(x_1,y_1) \geq 0$ and $d_2(x_2,y_2) \geq 0$.
 
@@ -872,7 +947,9 @@ Prove each of the following statements concerning an arbitrary metric space $(M,
 Assume \( S \subseteq T \subseteq M \). Then \( S \) is compact in \((M, d)\) if, and only if, \( S \) is compact in the metric subspace \((T, d)\).
 \end{problembox}
 
-\textbf{Proof:} Suppose $S$ is compact in $(M,d)$. Let $\mathcal{F}$ be an open covering of $S$ in the subspace $(T,d)$. Then each $F \in \mathcal{F}$ is of the form $F = U \cap T$ where $U$ is open in $(M,d)$.
+\noindent\textbf{Strategy:} Show both directions. For the forward direction, convert open covers in the subspace to open covers in the full space. For the reverse direction, convert open covers in the full space to open covers in the subspace using intersections with $T$.
+
+\bigskip\noindent\textbf{Solution:} Suppose $S$ is compact in $(M,d)$. Let $\mathcal{F}$ be an open covering of $S$ in the subspace $(T,d)$. Then each $F \in \mathcal{F}$ is of the form $F = U \cap T$ where $U$ is open in $(M,d)$.
 
 The collection $\{U : U \text{ is open in } (M,d) \text{ and } U \cap T \in \mathcal{F}\}$ is an open covering of $S$ in $(M,d)$. Since $S$ is compact in $(M,d)$, there exists a finite subcollection $\{U_1, \ldots, U_n\}$ that covers $S$.
 
@@ -887,7 +964,9 @@ Then $\{G_1, \ldots, G_n\}$ is a finite subcollection of $\mathcal{G}$ that cove
 If \( S \) is closed and \( T \) is compact, then \( S \cap T \) is compact.
 \end{problembox}
 
-\textbf{Proof:} Since $T$ is compact, it is closed. Therefore, $S \cap T$ is the intersection of two closed sets, so it is closed.
+\noindent\textbf{Strategy:} Use the fact that compact sets are closed, so $S \cap T$ is the intersection of two closed sets (hence closed). Then use Exercise 3.38 to show that $S \cap T$ is compact in the subspace $T$, which implies it's compact in the full space.
+
+\bigskip\noindent\textbf{Solution:} Since $T$ is compact, it is closed. Therefore, $S \cap T$ is the intersection of two closed sets, so it is closed.
 
 Since $S \cap T \subseteq T$ and $T$ is compact, by Exercise 3.38, $S \cap T$ is compact in $(T,d)$. Since compactness is independent of the ambient space, $S \cap T$ is compact in $(M,d)$.\qed
 
@@ -896,7 +975,9 @@ Since $S \cap T \subseteq T$ and $T$ is compact, by Exercise 3.38, $S \cap T$ is
 The intersection of a nonempty collection of compact subsets of \( M \) is compact.
 \end{problembox}
 
-\textbf{Proof:} Let $\{K_\alpha\}$ be a nonempty collection of compact subsets of $M$. Since each $K_\alpha$ is closed, the intersection $\bigcap K_\alpha$ is closed.
+\noindent\textbf{Strategy:} Use the fact that compact sets are closed, so the intersection is closed. Then use Exercise 3.39 by taking any member of the collection as the compact set and the intersection as the closed set.
+
+\bigskip\noindent\textbf{Solution:} Let $\{K_\alpha\}$ be a nonempty collection of compact subsets of $M$. Since each $K_\alpha$ is closed, the intersection $\bigcap K_\alpha$ is closed.
 
 Let $K_1$ be any member of the collection. Then $\bigcap K_\alpha \subseteq K_1$ and $K_1$ is compact. Since $\bigcap K_\alpha$ is closed and contained in a compact set, by Exercise 3.39, $\bigcap K_\alpha$ is compact.\qed
 
@@ -905,7 +986,9 @@ Let $K_1$ be any member of the collection. Then $\bigcap K_\alpha \subseteq K_1$
 The union of a finite number of compact subsets of \( M \) is compact.
 \end{problembox}
 
-\textbf{Proof:} Let $K_1, K_2, \ldots, K_n$ be compact subsets of $M$. Since each $K_i$ is closed, their union $\bigcup_{i=1}^n K_i$ is closed.
+\noindent\textbf{Strategy:} Show that the union is closed (union of closed sets) and that any open cover of the union can be reduced to finite subcovers for each compact set, then combine them.
+
+\bigskip\noindent\textbf{Solution:} Let $K_1, K_2, \ldots, K_n$ be compact subsets of $M$. Since each $K_i$ is closed, their union $\bigcup_{i=1}^n K_i$ is closed.
 
 Let $\mathcal{F}$ be an open covering of $\bigcup_{i=1}^n K_i$. Then $\mathcal{F}$ is also an open covering of each $K_i$. Since each $K_i$ is compact, there exists a finite subcollection $\mathcal{F}_i$ of $\mathcal{F}$ that covers $K_i$.
 
@@ -918,7 +1001,9 @@ Since $\bigcup_{i=1}^n K_i$ is closed and every open covering has a finite subco
 Consider the metric space \( \mathbb{Q} \) of rational numbers with the Euclidean metric of \( \mathbb{R} \). Let \( S \) consist of all rational numbers in the open interval \((a, b)\), where \( a \) and \( b \) are irrational. Then \( S \) is a closed and bounded subset of \( \mathbb{Q} \) which is not compact.
 \end{problembox}
 
-\textbf{Solution:} Let $S = \mathbb{Q} \cap (a,b)$ where $a, b$ are irrational numbers.
+\noindent\textbf{Strategy:} Show that $S$ is bounded (contained in a bounded interval) and closed in $\mathbb{Q}$ (complement is open in $\mathbb{Q}$). For non-compactness, construct a sequence in $S$ that converges to an irrational number outside $S$, showing it has no convergent subsequence in $S$.
+
+\bigskip\noindent\textbf{Solution:} Let $S = \mathbb{Q} \cap (a,b)$ where $a, b$ are irrational numbers.
 
 $S$ is bounded since it is contained in the bounded interval $(a,b)$.
 
@@ -978,7 +1063,9 @@ If $A$ and $B$ are subsets of a metric space $M$, prove that:
 Prove that \(\text{int } A = M - \overline{M - A}\).
 \end{problembox}
 
-\textbf{Proof:} Let $x \in \text{int } A$. Then there exists $\varepsilon > 0$ such that $B(x;\varepsilon) \subset A$. This means $B(x;\varepsilon) \cap (M - A) = \emptyset$, so $x \notin \overline{M - A}$. Therefore, $x \in M - \overline{M - A}$.
+\noindent\textbf{Strategy:} Show both inclusions. For the forward direction, if a point is interior to $A$, it has a neighborhood in $A$, so it's not in the closure of the complement. For the reverse direction, if a point is not in the closure of the complement, it has a neighborhood that doesn't intersect the complement, so it's interior to $A$.
+
+\bigskip\noindent\textbf{Solution:} Let $x \in \text{int } A$. Then there exists $\varepsilon > 0$ such that $B(x;\varepsilon) \subset A$. This means $B(x;\varepsilon) \cap (M - A) = \emptyset$, so $x \notin \overline{M - A}$. Therefore, $x \in M - \overline{M - A}$.
 
 Conversely, let $x \in M - \overline{M - A}$. Then $x \notin \overline{M - A}$, so there exists $\varepsilon > 0$ such that $B(x;\varepsilon) \cap (M - A) = \emptyset$. This means $B(x;\varepsilon) \subset A$, so $x \in \text{int } A$.\qed
 
@@ -987,7 +1074,9 @@ Conversely, let $x \in M - \overline{M - A}$. Then $x \notin \overline{M - A}$, 
 Prove that \(\text{int }(M - A) = M - \overline{A}\).
 \end{problembox}
 
-\textbf{Proof:} Let $x \in \text{int }(M - A)$. Then there exists $\varepsilon > 0$ such that $B(x;\varepsilon) \subset M - A$. This means $B(x;\varepsilon) \cap A = \emptyset$, so $x \notin \overline{A}$. Therefore, $x \in M - \overline{A}$.
+\noindent\textbf{Strategy:} Use the same approach as Exercise 3.43 but with the roles of $A$ and $M-A$ reversed. Show that a point is interior to the complement if and only if it's not in the closure of $A$.
+
+\bigskip\noindent\textbf{Solution:} Let $x \in \text{int }(M - A)$. Then there exists $\varepsilon > 0$ such that $B(x;\varepsilon) \subset M - A$. This means $B(x;\varepsilon) \cap A = \emptyset$, so $x \notin \overline{A}$. Therefore, $x \in M - \overline{A}$.
 
 Conversely, let $x \in M - \overline{A}$. Then $x \notin \overline{A}$, so there exists $\varepsilon > 0$ such that $B(x;\varepsilon) \cap A = \emptyset$. This means $B(x;\varepsilon) \subset M - A$, so $x \in \text{int }(M - A)$.\qed
 
@@ -996,7 +1085,9 @@ Conversely, let $x \in M - \overline{A}$. Then $x \notin \overline{A}$, so there
 Prove that \(\text{int }(\text{int } A) = \text{int } A\).
 \end{problembox}
 
-\textbf{Proof:} Since $\text{int } A \subseteq A$, we have $\text{int }(\text{int } A) \subseteq \text{int } A$.
+\noindent\textbf{Strategy:} Show both inclusions. The forward inclusion is clear since the interior of a subset is contained in the subset. For the reverse inclusion, use the fact that if a point is interior to $A$, it has a neighborhood in $A$, and since that neighborhood is open, it's contained in the interior of $A$.
+
+\bigskip\noindent\textbf{Solution:} Since $\text{int } A \subseteq A$, we have $\text{int }(\text{int } A) \subseteq \text{int } A$.
 
 For the reverse inclusion, let $x \in \text{int } A$. Then there exists $\varepsilon > 0$ such that $B(x;\varepsilon) \subset A$. Since $B(x;\varepsilon)$ is open and contained in $A$, we have $B(x;\varepsilon) \subset \text{int } A$. Therefore, $x \in \text{int }(\text{int } A)$.\qed
 
@@ -1009,7 +1100,9 @@ For the reverse inclusion, let $x \in \text{int } A$. Then there exists $\vareps
 \end{enumerate}
 \end{problembox}
 
-\textbf{Solution:} 
+\noindent\textbf{Strategy:} For (a), show both inclusions using the fact that if a point is interior to the intersection, it has a neighborhood in each set. For (b), show the inclusion using the same logic. For (c), use nested intervals that shrink to a single point.
+
+\bigskip\noindent\textbf{Solution:} 
 (a) Let $x \in \text{int }(\bigcap_{i=1}^n A_i)$. Then there exists $\varepsilon > 0$ such that $B(x;\varepsilon) \subset \bigcap_{i=1}^n A_i$. This means $B(x;\varepsilon) \subset A_i$ for each $i$, so $x \in \text{int } A_i$ for each $i$. Therefore, $x \in \bigcap_{i=1}^n (\text{int } A_i)$.
 
 Conversely, let $x \in \bigcap_{i=1}^n (\text{int } A_i)$. Then for each $i$, there exists $\varepsilon_i > 0$ such that $B(x;\varepsilon_i) \subset A_i$. Let $\varepsilon = \min\{\varepsilon_1, \ldots, \varepsilon_n\}$. Then $B(x;\varepsilon) \subset \bigcap_{i=1}^n A_i$, so $x \in \text{int }(\bigcap_{i=1}^n A_i)$.
@@ -1026,7 +1119,9 @@ Conversely, let $x \in \bigcap_{i=1}^n (\text{int } A_i)$. Then for each $i$, th
 \end{enumerate}
 \end{problembox}
 
-\textbf{Solution:} 
+\noindent\textbf{Strategy:} For (a), show that if a point is interior to any set in the collection, it's interior to the union. For (b), use closed intervals that share a boundary point, where the union has interior points not in the union of interiors.
+
+\bigskip\noindent\textbf{Solution:} 
 (a) Let $x \in \bigcup_{A \in F} (\text{int } A)$. Then $x \in \text{int } A$ for some $A \in F$. There exists $\varepsilon > 0$ such that $B(x;\varepsilon) \subset A \subset \bigcup_{A \in F} A$. Therefore, $x \in \text{int }(\bigcup_{A \in F} A)$.
 
 (b) Let $F = \{A, B\}$ where $A = [0,1]$ and $B = [1,2]$. Then $\text{int } A = (0,1)$ and $\text{int } B = (1,2)$, so $\bigcup_{A \in F} (\text{int } A) = (0,1) \cup (1,2)$. However, $\bigcup_{A \in F} A = [0,2]$, so $\text{int }(\bigcup_{A \in F} A) = (0,2)$, which properly contains $(0,1) \cup (1,2)$.\qed
@@ -1039,7 +1134,9 @@ Conversely, let $x \in \bigcap_{i=1}^n (\text{int } A_i)$. Then for each $i$, th
 \end{enumerate}
 \end{problembox}
 
-\textbf{Solution:} 
+\noindent\textbf{Strategy:} For (a), use the fact that the boundary of an open set is the closure minus the interior, and for a closed set it's the set minus the interior. In both cases, the boundary contains no open balls. For (b), use the rationals in $\mathbb{R}$ where the boundary is all of $\mathbb{R}$.
+
+\bigskip\noindent\textbf{Solution:} 
 (a) If $A$ is open, then $\partial A = \overline{A} \setminus \text{int } A = \overline{A} \setminus A$. If $A$ is closed, then $\partial A = A \setminus \text{int } A$.
 
 In both cases, $\partial A$ contains no open balls, so $\text{int } (\partial A) = \emptyset$.
@@ -1051,7 +1148,9 @@ In both cases, $\partial A$ contains no open balls, so $\text{int } (\partial A)
 If \(\text{int } A = \text{int } B = \emptyset\) and if \(A\) is closed in \(M\), then \(\text{int } (A \cup B) = \emptyset\).
 \end{problembox}
 
-\textbf{Proof:} Since $A$ is closed, $\text{int } A = \emptyset$ implies that $A$ has no isolated points. Therefore, every point in $A$ is a limit point of $A$.
+\noindent\textbf{Strategy:} Use the fact that if a closed set has empty interior, every point is a limit point. Show that any point in the union cannot have a neighborhood entirely contained in the union by using the properties of limit points and the fact that $B$ has empty interior.
+
+\bigskip\noindent\textbf{Solution:} Since $A$ is closed, $\text{int } A = \emptyset$ implies that $A$ has no isolated points. Therefore, every point in $A$ is a limit point of $A$.
 
 Let $x \in A \cup B$. If $x \in A$, then every neighborhood of $x$ contains points of $A$ different from $x$. Since $A \subset A \cup B$, every neighborhood of $x$ contains points of $A \cup B$ different from $x$, so $x$ is not an interior point of $A \cup B$.
 
@@ -1064,7 +1163,9 @@ Therefore, $\text{int } (A \cup B) = \emptyset$.\qed
 Give an example in which \(\text{int } A = \text{int } B = \emptyset\) but \(\text{int } (A \cup B) = M\).
 \end{problembox}
 
-\textbf{Solution:} Let $A = \mathbb{Q}$ and $B = \mathbb{R} \setminus \mathbb{Q}$ in the metric space $\mathbb{R}$. Then $\text{int } A = \emptyset$ and $\text{int } B = \emptyset$, but $A \cup B = \mathbb{R}$, so $\text{int } (A \cup B) = \mathbb{R} = M$.
+\noindent\textbf{Strategy:} Use the rational and irrational numbers in $\mathbb{R}$. Both have empty interior (since they're dense and co-dense), but their union is all of $\mathbb{R}$ which has non-empty interior.
+
+\bigskip\noindent\textbf{Solution:} Let $A = \mathbb{Q}$ and $B = \mathbb{R} \setminus \mathbb{Q}$ in the metric space $\mathbb{R}$. Then $\text{int } A = \emptyset$ and $\text{int } B = \emptyset$, but $A \cup B = \mathbb{R}$, so $\text{int } (A \cup B) = \mathbb{R} = M$.
 
 
 
@@ -1075,7 +1176,9 @@ Prove that:
 \]
 \end{problembox}
 
-\textbf{Proof:} For the first equality, $x \in \partial A$ if and only if every neighborhood of $x$ contains both points of $A$ and points of $M - A$. This means $x \in \overline{A}$ and $x \in \overline{M - A}$, so $x \in \overline{A} \cap \overline{M - A}$.
+\noindent\textbf{Strategy:} For the first equality, use the definition of boundary as points that are adherent to both the set and its complement. For the second equality, use the first equality and the fact that the complement of the complement is the original set.
+
+\bigskip\noindent\textbf{Solution:} For the first equality, $x \in \partial A$ if and only if every neighborhood of $x$ contains both points of $A$ and points of $M - A$. This means $x \in \overline{A}$ and $x \in \overline{M - A}$, so $x \in \overline{A} \cap \overline{M - A}$.
 
 For the second equality, $\partial A = \overline{A} \cap \overline{M - A} = \overline{M - A} \cap \overline{A} = \partial(M - A)$.\qed
 
@@ -1084,7 +1187,9 @@ For the second equality, $\partial A = \overline{A} \cap \overline{M - A} = \ove
 If \(\overline{A} \cap \overline{B} = \emptyset\), then \(\partial(A \cup B) = \partial A \cup \partial B\).
 \end{problembox}
 
-\textbf{Proof:} Since $\overline{A} \cap \overline{B} = \emptyset$, we have $\overline{A \cup B} = \overline{A} \cup \overline{B}$.
+\noindent\textbf{Strategy:} Use the fact that when closures are disjoint, the closure of the union is the union of closures. Show both inclusions by using the definition of boundary and the disjointness condition to separate the contributions from $A$ and $B$.
+
+\bigskip\noindent\textbf{Solution:} Since $\overline{A} \cap \overline{B} = \emptyset$, we have $\overline{A \cup B} = \overline{A} \cup \overline{B}$.
 
 Let $x \in \partial(A \cup B)$. Then $x \in \overline{A \cup B} = \overline{A} \cup \overline{B}$ and $x \in \overline{M - (A \cup B)} = \overline{(M - A) \cap (M - B)} \subseteq \overline{M - A} \cap \overline{M - B}$.
 

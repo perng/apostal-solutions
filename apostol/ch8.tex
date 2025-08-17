@@ -26,7 +26,7 @@ exist in \(\overline{\mathbb{R}}\).
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
 \item The tail sets shrink with \(n\), so \(u_{n+1}\le u_n\). Since \(\{a_n\}\) is bounded above, \(u_n\le M\) for some \(M\). Thus \(\{u_n\}\) is decreasing and has a limit \(U\in\overline{\mathbb{R}}\) (in fact finite here). By definition, \(\limsup_{n\to\infty} a_n=\inf_n \sup_{k\ge n} a_k=\lim_{n\to\infty} u_n=U\).
 \item Similarly, \(v_{n+1}\ge v_n\). If \(\{a_n\}\) is bounded below, then \(\{v_n\}\) is bounded above and converges to \(V\). Moreover, \(\liminf_{n\to\infty} a_n=\sup_n \inf_{k\ge n} a_k=\lim_{n\to\infty} v_n=V\).
@@ -43,7 +43,7 @@ Given two real-valued sequences \(\{a_n\}\) and \(\{b_n\}\) bounded below. Prove
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
 \item Let \(u_n=\sup_{k\ge n} a_k\), \(v_n=\sup_{k\ge n} b_k\). Then for all \(k\ge n\), \(a_k+b_k\le u_n+v_n\), hence \(\sup_{k\ge n}(a_k+b_k)\le u_n+v_n\). Taking limits gives \(\limsup(a_n+b_n)\le \lim u_n+\lim v_n=\limsup a_n+\limsup b_n\).
 \item For \(a_n,b_n\ge 0\), write \(\sup_{k\ge n}(a_k b_k)\le \big(\sup_{k\ge n} a_k\big)\big(\sup_{k\ge n} b_k\big)=u_n v_n\). Passing to limits yields \(\limsup(a_n b_n)\le (\lim u_n)(\lim v_n)=(\limsup a_n)(\limsup b_n)\). The convention \(\infty\cdot c=\infty\) for \(c>0\) covers the infinite case.
@@ -72,7 +72,7 @@ Assume that \(a_n \leq b_n\) for each \(n = 1, 2, \ldots\). Then we have:
 
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 \emph{Theorem 8.3.} Let \(u_n=\sup_{k\ge n} a_k\) and \(v_n=\inf_{k\ge n} a_k\). Then \(v_n\le u_n\) for all \(n\), hence taking limits gives \(\liminf a_n=\lim v_n\le \lim u_n=\limsup a_n\), proving (a). If \(a_n\to L\), then for every \(\varepsilon>0\) eventually \(L-\varepsilon\le a_n\le L+\varepsilon\), which implies \(v_n\to L\) and \(u_n\to L\), hence \(\liminf a_n=\limsup a_n=L\). Conversely, if \(\liminf a_n=\limsup a_n=L\in\mathbb{R}\), then for every \(\varepsilon>0\) there exists \(N\) such that for all \(n\ge N\), \(L-\varepsilon\le v_n\le a_n\le u_n\le L+\varepsilon\); hence \(a_n\to L\). This proves (b). For (c), if \(a_n\to +\infty\), then for every \(M\) there exists \(N\) such that \(a_n\ge M\) for all \(n\ge N\), whence \(v_n\ge M\) and \(u_n\ge M\) for all \(n\ge N\), so both limits are \(+\infty\). Conversely, if \(\liminf a_n=\limsup a_n=+\infty\), then for every \(M\) there exists \(N\) with \(v_n\ge M\) for \(n\ge N\), which forces \(a_n\ge M\) eventually, so \(a_n\to +\infty\). The case (d) for \(-\infty\) is analogous.
 
 \emph{Theorem 8.4.} Since \(a_n\le b_n\) for each \(n\), we have for every \(n\) and all \(k\ge n\) that \(a_k\le b_k\). Taking suprema over \(k\ge n\) yields \(\sup_{k\ge n} a_k\le \sup_{k\ge n} b_k\), hence \(\limsup a_n\le \limsup b_n\). Similarly, taking infima gives \(\inf_{k\ge n} a_k\le \inf_{k\ge n} b_k\), hence \(\liminf a_n\le \liminf b_n\).\qed
@@ -83,7 +83,7 @@ If each \(a_n > 0\), prove that
 \[\liminf_{n \to \infty} \frac{a_{n+1}}{a_n} \leq \liminf_{n \to \infty} \sqrt[n]{a_n} \leq \limsup_{n \to \infty} \sqrt[n]{a_n} \leq \limsup_{n \to \infty} \frac{a_{n+1}}{a_n}.\]
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 Let \(r_n=\frac{a_{n+1}}{a_n}\). For any integers \(m<n\), \(a_n=a_m\,\prod_{k=m}^{n-1} r_k\), hence
 \[\sqrt[n]{a_n}=\sqrt[n]{a_m}\, \prod_{k=m}^{n-1} r_k^{1/n}.\]
 Fix \(m\) and let \(n\to\infty\): since \(\sqrt[n]{a_m}\to 1\) and each factor \(r_k^{1/n}\to 1\), the accumulation points of \(\sqrt[n]{a_n}\) lie between \(\liminf r_k\) and \(\limsup r_k\). A standard \(\varepsilon\)-argument yields the chain of inequalities in the statement.\qed
@@ -94,7 +94,7 @@ Let \(a_n = n^n / n!\). Show that \(\lim_{n \to \infty} a_{n+1} / a_n = e\) and 
 \[\lim_{n \to \infty} \frac{(n!)^{1/n}}{n} = \frac{1}{e}.\]
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 Compute
 \[\frac{a_{n+1}}{a_n}=\frac{(n+1)^{n+1}/(n+1)!}{n^n/n!}=\frac{(n+1)^n}{n^n}=\Big(1+\frac{1}{n}\Big)^n\xrightarrow[n\to\infty]{} e.\]
 By Exercise 8.4 applied to \(b_n=n!/n^n\), we have \(\lim \sqrt[n]{b_n}=\lim \frac{b_{n+1}}{b_n}=e^{-1}\). Thus \(\lim (n!)^{1/n}/n=1/e\).\qed
@@ -105,7 +105,7 @@ Let \(\{a_n\}\) be a real-valued sequence and let \(\sigma_n = (a_1 + \cdots + a
 \[\liminf_{n \to \infty} a_n \leq \liminf_{n \to \infty} \sigma_n \leq \limsup_{n \to \infty} \sigma_n \leq \limsup_{n \to \infty} a_n.\]
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 Let \(L=\liminf a_n\) and \(U=\limsup a_n\). For any \(\varepsilon>0\), eventually \(a_n\ge L-\varepsilon\) and \(a_n\le U+\varepsilon\). Averaging yields \(\sigma_n\ge L-\varepsilon\) and \(\sigma_n\le U+\varepsilon\) for all large \(n\). Taking \(\liminf\) and \(\limsup\) and letting \(\varepsilon\downarrow 0\) gives the inequalities.\qed
 
 
@@ -121,7 +121,7 @@ Find \(\limsup_{n \to \infty} a_n\) and \(\liminf_{n \to \infty} a_n\) in each c
 \end{enumerate}
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
 \item \(\cos n\) is dense in \([-1,1]\) modulo \(2\pi\), so \(\limsup=1\), \(\liminf=-1\).
 \item \(\cos(n\pi)=(-1)^n\) and \(1+1/n\to 1\). Hence \(a_n\to (-1)^n\). Thus \(\limsup=1\), \(\liminf=-1\).
@@ -146,7 +146,7 @@ Find \(\limsup_{n \to \infty} a_n\) and \(\liminf_{n \to \infty} a_n\) in each c
 Let \(a_n = 2\sqrt{n}-\sum_{k=1}^n \frac{1}{\sqrt{k}}\). Prove that the sequence \(\{a_n\}\) converges to a limit \(p\) in the interval \(1 < p < 2\).
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 Write \(S_n=\sum_{k=1}^n k^{-1/2}\). Then
 \[a_{n+1}-a_n = 2(\sqrt{n+1}-\sqrt{n})-\frac{1}{\sqrt{n+1}} = \frac{\sqrt{n+1}-\sqrt{n}}{\sqrt{n+1}(\sqrt{n+1}+\sqrt{n})} > 0,\]
 so \(\{a_n\}\) is increasing.
@@ -170,7 +170,7 @@ In each of Exercise 8.9 through 8.14, show that the real-valued sequence $\{a_n\
 Given \(|a_n| \leq 2, |a_{n+2} - a_{n+1}| \leq \frac{1}{8} |a_{n+1} - a_n|\). Show that the real-valued sequence \(\{a_n\}\) is convergent.
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 Let \(d_n=|a_{n+1}-a_n|\). Then \(d_{n+1}\le \tfrac{1}{8}d_n\), so \(d_n\le (1/8)^{n-1} d_1\). For \(m>n\),
 \[|a_m-a_n|\le \sum_{k=n}^{m-1} d_k \le d_1\sum_{k=n}^{\infty} (1/8)^{k-1}=\frac{d_1}{7}\,(1/8)^{n-1}\to 0.\]
 Hence \(\{a_n\}\) is Cauchy and convergent.\qed
@@ -180,7 +180,7 @@ Hence \(\{a_n\}\) is Cauchy and convergent.\qed
 Given \(a_1 \geq 0, a_2 \geq 0, a_{n+2} = (a_n a_{n+1})^{1/2}\),\(L = (a_1 a_2^2)^{1/3}\).
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 If \(a_1=0\) or \(a_2=0\), then \(a_3=\sqrt{a_1 a_2}=0\) and the recurrence forces \(a_n=0\) for all \(n\ge 3\). Hence \(\lim a_n=0=(a_1 a_2^2)^{1/3}\).
 
 Assume now \(a_1>0\) and \(a_2>0\). Set \(x_n=\log a_n\). Taking logs of the recurrence gives
@@ -197,7 +197,7 @@ Since \(({-}\tfrac{1}{2})^{n}\to 0\), we have \(x_n\to A\) and hence
 Given \(a_1 = 2, a_2 = 8, a_{2n+1} = \frac{1}{2}(a_{2n} + a_{2n-1}), a_{2n+2} = \frac{a_{2n} a_{2n-1}}{a_{2n+1}}\), show that \(\{a_n\}\) has the limit \(L = 4\).
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 Define the pairs \((x_n,y_n)=(a_{2n-1},a_{2n})\). Then
 \[a_{2n+1}=\tfrac{x_n+y_n}{2},\quad a_{2n+2}=\frac{x_n y_n}{(x_n+y_n)/2}=\frac{2x_n y_n}{x_n+y_n}.\]
 Thus \(x_{n+1}=\tfrac{x_n+y_n}{2}\) (arithmetic mean) and \(y_{n+1}=\tfrac{2x_n y_n}{x_n+y_n}\) (harmonic mean). The arithmetic–harmonic mean inequality gives
@@ -209,7 +209,7 @@ so \(x_n\) decreases and \(y_n\) increases, both bounded between \(\min\{x_1,y_1
 Given \(a_1 = -\frac{3}{2}, 3a_{n+1} = 2 + a_n^3\), show that \(\{a_n\}\) has the limit \(L = 1\). Modify \(a_1\) to make \(L = -2\).
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 Fixed points satisfy \(3L=2+L^3\), i.e. \((L-1)^2(L+2)=0\) with roots \(L=1,-2\). For \(f(x)=(2+x^3)/3\), we have \(f'(x)=x^2\). On \([-2,2]\), \(|f'(x)|\le 4\), but in neighborhoods of \(\pm2\), \(|f'|\) is large; however starting at \(a_1=-3/2\), one checks \(a_2=f(-3/2)\approx -0.875\), and thereafter \(a_n\in(-2,2)\). Moreover, for \(|x|\le 2\), \(|f'(x)|\le 4\), and \(f\) is increasing, with \(f((-2,2))\subset (-2,2)\). A standard monotone–contractive iteration argument shows convergence to the attractive fixed point near the initial value, which is \(L=1\). Choosing \(a_1<-2\) (e.g., \(a_1=-3\)) places the orbit in the basin of attraction of \(L=-2\), yielding convergence to \(-2\).\qed
 
 
@@ -217,7 +217,7 @@ Fixed points satisfy \(3L=2+L^3\), i.e. \((L-1)^2(L+2)=0\) with roots \(L=1,-2\)
 Given \(a_1 = 3, a_{n+1} = \frac{3(1 + a_n)}{3 + a_n}\), show that \(\{a_n\}\) has the limit \(L = \sqrt{3}\).
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 The map \(f(x)=\tfrac{3(1+x)}{3+x}\) is increasing on \((0,\infty)\) with fixed points solving \(x=\tfrac{3(1+x)}{3+x}\), i.e. \(x^2=3\). Starting at \(a_1=3\), one computes \(a_2=2\) and the sequence is decreasing and bounded below by \(\sqrt{3}\), hence convergent. Passing to the limit in \(a_{n+1}=f(a_n)\) gives \(L=\sqrt{3}\).\qed
 
 
@@ -225,7 +225,7 @@ The map \(f(x)=\tfrac{3(1+x)}{3+x}\) is increasing on \((0,\infty)\) with fixed 
 Given \(a_n = \frac{b_{n+1}}{b_n}\), where \(b_1 = b_2 = 1, b_{n+2} = b_n + b_{n+1}\), show that \(\{a_n\}\) has the limit \(L = \frac{1 + \sqrt{5}}{2}\).
 \end{problembox}
 
-\noindent\textbf{Solution:}
+\bigskip\noindent\textbf{Solution:}
 The ratios satisfy \(a_{n+1}=\tfrac{b_{n+2}}{b_{n+1}}=1+\tfrac{b_n}{b_{n+1}}=1+\tfrac{1}{a_n}\). Any limit \(L\) must solve \(L=1+1/L\), i.e. \(L^2-L-1=0\). Since \(a_n>0\), the limit is \(\tfrac{1+\sqrt{5}}{2}\).\qed
 \section{Series Convergence Tests}
 
