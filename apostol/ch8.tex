@@ -922,3 +922,59 @@ Following the same approach as Exercise 8.46, but with fourth powers:
 \item Take the limit as \(m \to \infty\) to obtain \(\zeta(4) = \pi^4/90\).
 \end{enumerate}
 \qed
+
+\section{Solving and Proving Techniques}
+
+\subsection*{Working with Limit Superior and Limit Inferior}
+\begin{itemize}
+\item Use the monotone convergence theorem: every monotone bounded sequence converges
+\item Apply the subsequence principle: there exist subsequences attaining $\limsup$ and $\liminf$
+\item Use basic algebra: $\limsup(a_n+b_n) \le \limsup a_n + \limsup b_n$
+\item For positive sequences: $\limsup(a_n b_n) \le (\limsup a_n)(\limsup b_n)$
+\item Show convergence by proving $\liminf a_n = \limsup a_n = L$
+\end{itemize}
+
+\subsection*{Proving Sequence Convergence}
+\begin{itemize}
+\item Use the relationship between tail suprema and infima: $v_n \le a_n \le u_n$
+\item Construct subsequences using the definition of supremum/infimum
+\item Apply the subsequence principle to find convergent subsequences
+\item Use the fact that if $\liminf a_n = \limsup a_n = L$, then $a_n \to L$
+\end{itemize}
+
+\subsection*{Analyzing Recurrence Relations}
+\begin{itemize}
+\item Take logarithms to convert geometric mean recurrences into linear recurrences
+\item Solve characteristic equations to find general solutions
+\item Use arithmetic-harmonic mean inequalities to show convergence
+\item Find fixed points by solving equations like $3L = 2 + L^3$
+\item Apply contractive mapping principles to show convergence to attractive fixed points
+\end{itemize}
+
+\subsection*{Series Convergence Tests}
+\begin{itemize}
+\item Apply ratio test: $\lim_{n\to\infty} \frac{a_{n+1}}{a_n} < 1$ implies convergence
+\item Use root test: $\lim_{n\to\infty} \sqrt[n]{a_n} < 1$ implies convergence
+\item Apply comparison test with known series like p-series or geometric series
+\item Use limit comparison test: if $\lim_{n\to\infty} \frac{a_n}{b_n} = L > 0$, both series behave the same
+\item Apply integral test for positive decreasing functions
+\item Use alternating series test for series with alternating signs
+\end{itemize}
+
+\subsection*{Working with Infinite Products}
+\begin{itemize}
+\item Use the fact that $\prod(1+a_n)$ converges if and only if $\sum \log(1+a_n)$ converges
+\item Expand $\log(1+a_n)$ as $a_n - \frac{a_n^2}{2} + O(a_n^3)$ for small $a_n$
+\item Apply the fundamental theorem of arithmetic for multiplicative functions
+\item Use geometric series formulas for completely multiplicative functions
+\item Show that product terms approach 1 for convergence
+\end{itemize}
+
+\subsection*{Evaluating Special Values}
+\begin{itemize}
+\item Use trigonometric inequalities like $\sin x < x < \tan x$ to bound functions
+\item Substitute specific values that create nice patterns for summation
+\item Apply known formulas for sums of trigonometric functions
+\item Use the squeeze theorem by taking limits of bounds
+\item Apply the fundamental theorem of arithmetic for multiplicative functions
+\end{itemize}

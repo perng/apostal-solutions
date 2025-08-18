@@ -664,23 +664,6 @@ which is continuous on $(0,1)$ and surjects onto $(0,1]$.
 
 (g) Impossible: $(0,1)^2$ is bounded, hence its continuous image is bounded; $\mathbb{R}^2$ is unbounded.\qed
 
-
-
-\begin{problembox}[4.28: Continuous Image Examples]
-In each case, give an example of a real-valued function $f$, continuous on $S$ and such that $f(S) = T$, or else explain why there can be no such $f$:
-\begin{enumerate}[label=(\alph*)]
-\item $S = (0, 1)$, $T = (0, 1]$.
-\item $S = (0, 1)$, $T = (0, 1) \cup (1, 2)$.
-\item $S = \mathbb{R}^1$, $T =$ the set of rational numbers.
-\item $S = [0, 1] \cup [2, 3]$, $T = (0, 1)$.
-\item $S = [0, 1] \times [0, 1]$, $T = \mathbb{R}^2$.
-\item $S = [0, 1] \times [0, 1]$, $T = (0, 1) \times (0, 1)$.
-\item $S = (0, 1) \times (0, 1)$, $T = \mathbb{R}^2$.
-\end{enumerate}
-\end{problembox}
-
-\bigskip\noindent\textbf{Solution:} See the previous solution for Exercise 4.28.\qed
-
 \section{Continuity in metric spaces}
 
 \subsection*{Essential Definitions and Theorems}
@@ -1401,3 +1384,129 @@ so $(c_n)$ is strictly decreasing and converges to some $c\ge 0$.
 c=\lim c_{k(n)}=\lim d(p_{k(n)},p_{k(n)+1})=d(q,f(q)),
 \]
 and similarly $c=\lim c_{k(n)+1}=d(f(q),f(f(q)))$. Applying the shrinking property to $q$ and $f(q)$ yields $d(f(q),f(f(q)))<d(q,f(q))$ unless $q=f(q)$. Therefore $c=0$ and $q$ is a fixed point. Then $c_n\to 0$ and $(p_n)$ is Cauchy; in a compact (or complete with suitable conditions) space it converges to $q$.\qed
+
+\section{Solving and Proving Techniques}
+
+This chapter covers a wide range of analyzing limits, continuity, and convergence in various mathematical contexts. Here's a systematic the key proving strategies used throughout:
+
+\subsection*{Proving Limits Exist}
+
+\begin{itemize}
+\item \textbf{Sequential Characterization:} To prove $\lim_{x \to a} f(x) = L$, show that for every sequence $(x_n) \to a$, we have $f(x_n) \to L$.
+
+\item \textbf{$\varepsilon$-$\delta$ Definition:} For every $\varepsilon > 0$, find a $\delta > 0$ such that $|x - a| < \delta$ implies $|f(x) - L| < \varepsilon$.
+
+\item \textbf{Squeeze Theorem:} If $g(x) \leq f(x) \leq h(x)$ near $a$ and $\lim_{x \to a} g(x) = \lim_{x \to a} h(x) = L$, then $\lim_{x \to a} f(x) = L$.
+
+\item \textbf{Algebraic Manipulation:} Use techniques like rationalization, factoring, or Taylor expansions to simplify expressions before taking limits.
+\end{itemize}
+
+\subsection*{Proving Convergence of Sequences}
+
+\begin{itemize}
+\item \textbf{Monotone Convergence:} Show the sequence is bounded and monotone (increasing or decreasing).
+
+\item \textbf{Cauchy Criterion:} Prove the sequence is Cauchy by showing $|x_n - x_m| < \varepsilon$ for all $n, m \geq N$.
+
+\item \textbf{Comparison with Known Sequences:} Compare with geometric sequences, use ratio tests, or compare with sequences with known limits.
+
+\item \textbf{Recursive Analysis:} For recursive sequences, find the fixed point by solving $x = f(x)$, then show convergence to this fixed point.
+\end{itemize}
+
+\subsection*{Proving Continuity}
+
+\begin{itemize}
+\item \textbf{Sequential Continuity:} Show that if $x_n \to x$, then $f(x_n) \to f(x)$.
+
+\item \textbf{$\varepsilon$-$\delta$ Definition:} For every $\varepsilon > 0$, find $\delta > 0$ such that $|x - y| < \delta$ implies $|f(x) - f(y)| < \varepsilon$.
+
+\item \textbf{Composition of Continuous Functions:} Use the fact that compositions, sums, products, and quotients of continuous functions are continuous.
+
+\item \textbf{Preimage Characterization:} Show that preimages of open sets are open (or preimages of closed sets are closed).
+\end{itemize}
+
+\subsection*{Proving Uniform Continuity}
+
+\begin{itemize}
+\item \textbf{Direct Verification:} Find a $\delta$ that works for all points simultaneously.
+
+\item \textbf{Lipschitz Condition:} Show $|f(x) - f(y)| \leq M|x - y|$ for some constant $M$.
+
+\item \textbf{Compact Domain:} On compact sets, continuity implies uniform continuity.
+
+\item \textbf{Extension to Closure:} Extend uniformly continuous functions to the closure of their domain.
+\end{itemize}
+
+\subsection*{Proving Connectedness}
+
+\begin{itemize}
+\item \textbf{Path-Connectedness:} Show that any two points can be joined by a continuous path.
+
+\item \textbf{Contradiction Method:} Assume disconnectedness and derive a contradiction.
+
+\item \textbf{Intermediate Value Property:} Use the fact that continuous functions preserve connectedness.
+
+\item \textbf{Closure Properties:} Show that the closure of a connected set is connected.
+\end{itemize}
+
+\subsection*{Proving Compactness}
+
+\begin{itemize}
+\item \textbf{Sequential Compactness:} Show that every sequence has a convergent subsequence.
+
+\item \textbf{Heine-Borel (in $\mathbb{R}^n$):} Show the set is closed and bounded.
+
+\item \textbf{Finite Subcover:} Show that every open cover has a finite subcover.
+
+\item \textbf{Continuous Image:} Show the set is the continuous image of a compact set.
+\end{itemize}
+
+\subsection*{Proving Fixed Points}
+
+\begin{itemize}
+\item \textbf{Contraction Mapping:} Show the function is a contraction and apply the contraction mapping theorem.
+
+\item \textbf{Iteration Method:} Start with any point and show the sequence of iterates converges.
+
+\item \textbf{Compactness + Distance Shrinking:} On compact spaces, show $d(f(x), f(y)) < d(x,y)$ for $x \neq y$.
+
+\item \textbf{Banach Fixed Point:} Use the complete metric space version of the contraction mapping theorem.
+\end{itemize}
+
+\subsection*{Proving Discontinuity}
+
+\begin{itemize}
+\item \textbf{Sequential Method:} Find two sequences converging to the same point but with different function value limits.
+
+\item \textbf{Oscillation:} Show the oscillation at a point is positive.
+
+\item \textbf{One-Sided Limits:} Show that left and right limits exist but are different (jump discontinuity).
+
+\item \textbf{Path Dependence:} For functions of several variables, show the limit depends on the path taken.
+\end{itemize}
+
+\subsection*{Proving Completeness}
+
+\begin{itemize}
+\item \textbf{Cauchy Sequences:} Show that every Cauchy sequence converges to a point in the space.
+
+\item \textbf{Nested Closed Sets:} Use Cantor's intersection theorem with nested closed sets of decreasing diameter.
+
+\item \textbf{Isometric Embedding:} Embed the space into a complete space and show the embedding is onto.
+
+\item \textbf{Contraction Mapping:} Use the fact that complete spaces are preserved under contractions.
+\end{itemize}
+
+\subsection*{Common Patterns and Strategies}
+
+\begin{itemize}
+\item \textbf{Proof by Contradiction:} Assume the opposite and derive a contradiction.
+
+\item \textbf{Induction:} Use mathematical induction for recursive sequences or properties that hold for all natural numbers.
+
+\item \textbf{Approximation:} Approximate complicated objects with simpler ones (e.g., rationals approximating reals).
+
+\item \textbf{Partitioning:} Break complex problems into simpler cases or use the trichotomy property.
+
+\item \textbf{Uniformity:} When local properties hold everywhere, they often become uniform properties.
+\end{itemize}

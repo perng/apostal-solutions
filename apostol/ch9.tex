@@ -335,8 +335,9 @@ Since \( f_n \to f \) uniformly, for any \( \varepsilon > 0 \) there exists \( N
 
 For \( n \geq N \):
 \begin{align*}
-\left|\int_0^{1 - 1/n} f_n(x) \, dx - \int_0^1 f(x) \, dx\right| &\leq \int_0^{1 - 1/n} |f_n(x) - f(x)| \, dx + \int_{1 - 1/n}^1 |f(x)| \, dx \\
-&< \varepsilon(1 - 1/n) + \int_{1 - 1/n}^1 |f(x)| \, dx.
+&\left|\int_0^{1 - 1/n} f_n(x) \, dx - \int_0^1 f(x) \, dx\right| \\
+\leq & \int_0^{1 - 1/n} |f_n(x) - f(x)| \, dx + \int_{1 - 1/n}^1 |f(x)| \, dx \\
+< & \varepsilon(1 - 1/n) + \int_{1 - 1/n}^1 |f(x)| \, dx.
 \end{align*}
 
 Since \( f \) is continuous on \([0, 1]\), it is bounded, say by \( M \). Then \( \int_{1 - 1/n}^1 |f(x)| \, dx \leq M/n \to 0 \) as \( n \to \infty \).
@@ -838,3 +839,56 @@ The left side telescopes to \( P_n(k) - P_n(0) \), and the right side is \( n \)
 Setting \( n = m+1 \), we get:
 \[1^m + 2^m + \cdots + (k-1)^m = \frac{P_{m+1}(k) - P_{m+1}(0)}{m+1}.\]
 \end{enumerate}
+
+\section{Solving and Proving Techniques}
+
+\subsection*{Proving Uniform Convergence}
+\begin{itemize}
+\item Use the definition: for every $\varepsilon > 0$, there exists $N$ such that $|f_n(x) - f(x)| < \varepsilon$ for all $n \geq N$ and all $x \in S$
+\item Show that the maximum difference between $f_n$ and $f$ approaches zero
+\item Use the triangle inequality: $|(f_n + g_n) - (f + g)| \leq |f_n - f| + |g_n - g|$
+\item Apply the fact that uniform limits of continuous functions are continuous
+\item Use the fact that uniform limits of bounded functions are bounded
+\end{itemize}
+
+\subsection*{Working with Bounded Functions}
+\begin{itemize}
+\item Use the fact that if $f_n \to f$ uniformly and each $f_n$ is bounded, then $\{f_n\}$ is uniformly bounded
+\item Apply the triangle inequality to control products: $|f_n g_n - fg| \leq |f_n| |g_n - g| + |g| |f_n - f|$
+\item Use boundedness to control the size of error terms in convergence proofs
+\item Apply the fact that continuous functions on compact sets are uniformly continuous
+\end{itemize}
+
+\subsection*{Analyzing Pointwise vs Uniform Convergence}
+\begin{itemize}
+\item Show that pointwise convergence does not imply uniform convergence by finding points where the convergence is slow
+\item Use the fact that uniform convergence preserves continuity, boundedness, and integrability
+\item Apply the Weierstrass M-test for series: if $|f_n(x)| \leq M_n$ and $\sum M_n$ converges, then $\sum f_n$ converges uniformly
+\item Use the fact that uniform convergence allows interchange of limits and integrals
+\end{itemize}
+
+\subsection*{Working with Power Series}
+\begin{itemize}
+\item Use the radius of convergence: $R = 1/\limsup_{n \to \infty} \sqrt[n]{|a_n|}$
+\item Apply Abel's limit theorem: if $\sum a_n$ converges, then $\lim_{x \to 1^-} \sum a_n x^n = \sum a_n$
+\item Use the fact that power series converge uniformly on compact subsets of their interval of convergence
+\item Apply the Cauchy product formula for multiplying power series
+\item Use the fact that power series can be differentiated and integrated term by term
+\end{itemize}
+
+\subsection*{Proving Tauberian Theorems}
+\begin{itemize}
+\item Use proof by contradiction: assume the series diverges and show this leads to a contradiction
+\item Apply the fact that if $a_n \geq 0$ and $\sum a_n$ diverges, then $\sum a_n x^n \to +\infty$ as $x \to 1^-$
+\item Use Abel's limit theorem to connect the limit of the power series to the sum of the series
+\item Apply the fact that positive series either converge or diverge to $+\infty$
+\end{itemize}
+
+\subsection*{Working with Generating Functions}
+\begin{itemize}
+\item Use the fact that generating functions can be manipulated algebraically
+\item Apply functional equations to derive properties of the coefficients
+\item Use the Cauchy product formula to multiply generating functions
+\item Apply differentiation and integration to derive recurrence relations
+\item Use the fact that generating functions can be used to solve combinatorial problems
+\end{itemize}

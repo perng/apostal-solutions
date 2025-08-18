@@ -2044,3 +2044,135 @@ Thus:
 \[
 n = 2^{n-1} \prod_{k=1}^{n-1} \sin\left( \frac{\pi k}{n} \right) \implies \prod_{k=1}^{n-1} \sin\left( \frac{\pi k}{n} \right) = \frac{n}{2^{n-1}}.
 \]
+
+\section{Solving and Proving Techniques}
+
+\subsection*{Proving by Contradiction}
+\begin{enumerate}
+\item Assume the opposite of what you want to prove
+\item Show this leads to a logical contradiction
+\item Conclude the original statement must be true
+\end{enumerate}
+Used in Problems 1.1, 1.9, 1.14, 1.16, 1.17, 1.18, 1.20, 1.22
+
+\subsection*{Mathematical Induction}
+\begin{enumerate}
+\item Verify the base case (usually $n = 1$)
+\item Assume the statement holds for $n = k$ (inductive hypothesis)
+\item Prove it holds for $n = k + 1$ using the hypothesis
+\item Conclude it holds for all positive integers
+\end{enumerate}
+Used in Problem 1.5 with strong induction
+
+\subsection*{Proving Irrationality}
+\begin{enumerate}
+\item Assume the number is rational (express as $\frac{p}{q}$)
+\item Square both sides to eliminate square roots
+\item Show this leads to a contradiction (usually that a prime divides both numerator and denominator)
+\end{enumerate}
+Used in Problems 1.9, 1.14
+
+\subsection*{Finding Supremum and Infimum}
+\begin{enumerate}
+\item For finite sets: find maximum and minimum values
+\item For intervals: use the endpoints
+\item For infinite sets: analyze limiting behavior
+\item For sets defined by inequalities: solve the inequalities to find bounds
+\end{enumerate}
+Used in Problems 1.19, 1.20, 1.21
+
+\subsection*{Proving Inequalities}
+\begin{itemize}
+\item Use known inequalities (Triangle, Cauchy-Schwarz, etc.)
+\item Complete the square or use algebraic manipulation
+\item Consider cases based on signs of variables
+\item Use the fact that squares are non-negative
+\item Used in Problems 1.24, 1.25, 1.26, 1.32, 1.33, 1.48
+\end{itemize}
+
+\subsection*{Working with Complex Numbers}
+\begin{itemize}
+\item Use $i^2 = -1$ and powers of $i$ cycle every 4
+\item For division, multiply numerator and denominator by complex conjugate
+\item Use $|z|^2 = z \cdot \overline{z}$ and $\arg(z) = \tan^{-1}(\frac{y}{x})$ (with quadrant adjustments)
+\item Use De Moivre's theorem: $(\cos \theta + i \sin \theta)^n = \cos(n\theta) + i \sin(n\theta)$
+\item Used in Problems 1.27, 1.28, 1.29, 1.30, 1.31, 1.32, 1.33, 1.34, 1.35, 1.36, 1.37, 1.38, 1.39, 1.40, 1.41, 1.42, 1.43, 1.44, 1.45, 1.46, 1.47, 1.48, 1.49, 1.50
+\end{itemize}
+
+\subsection*{Proving Uniqueness}
+\begin{enumerate}
+\item Assume two different objects satisfy the same conditions
+\item Show they must actually be equal
+\item Often use contradiction or direct comparison
+\end{enumerate}
+Used in Problems 1.17, 1.18
+
+\subsection*{Using the Pigeonhole Principle}
+\begin{enumerate}
+\item Divide a set into fewer subsets than elements
+\item Show at least one subset must contain multiple elements
+\item Use this to find numbers that are close together
+\end{enumerate}
+Used in Problem 1.15
+
+\subsection*{Proving Existence}
+\begin{enumerate}
+\item Construct an explicit example
+\item Use intermediate value theorem or similar existence results
+\item Show that assuming non-existence leads to contradiction
+\end{enumerate}
+Used in Problems 1.11, 1.15, 1.16
+
+\subsection*{Working with Series and Sums}
+\begin{itemize}
+\item Use telescoping series where terms cancel
+\item Apply geometric series formulas
+\item Use binomial theorem for expansions
+\item Factor polynomials and use partial fractions
+\item Used in Problems 1.2, 1.17, 1.40, 1.49, 1.50
+\end{itemize}
+
+\subsection*{Proving Geometric Properties}
+\begin{itemize}
+\item Use coordinate geometry and distance formulas
+\item Apply properties of circles, lines, and triangles
+\item Use complex numbers to represent geometric objects
+\item Show that conditions imply specific geometric configurations
+\item Used in Problems 1.13, 1.30, 1.31, 1.34
+\end{itemize}
+
+\subsection*{Using Trigonometric Identities}
+\begin{itemize}
+\item Apply double angle, sum, and difference formulas
+\item Use De Moivre's theorem to derive new identities
+\item Express complex functions in terms of real and imaginary parts
+\item Use periodicity and symmetry properties
+\item Used in Problems 1.44, 1.45, 1.46, 1.47, 1.49, 1.50
+\end{itemize}
+
+\subsection*{Proving Ordering Properties}
+\begin{enumerate}
+\item Check trichotomy (exactly one of $a < b$, $a = b$, $a > b$ holds)
+\item Verify transitivity ($a < b$ and $b < c$ implies $a < c$)
+\item Test invariance under operations (addition, multiplication)
+\item Provide counterexamples when axioms fail
+\end{enumerate}
+Used in Problems 1.36, 1.37
+
+\subsection*{Working with Logarithms and Exponentials}
+\begin{itemize}
+\item Use $\log(ab) = \log a + \log b$ and $\log(a^b) = b \log a$
+\item Remember that complex logarithms have multiple branches
+\item Use $e^{i\theta} = \cos \theta + i \sin \theta$ for complex exponentials
+\item Apply properties of complex powers carefully
+\item Used in Problems 1.38, 1.39, 1.41, 1.42, 1.43
+\end{itemize}
+
+\subsection*{Proving Polynomial Identities}
+\begin{itemize}
+\item Expand both sides and show they are equal
+\item Use roots of unity and factorization
+\item Apply Vieta's formulas to relate coefficients to roots
+\item Use polynomial division and remainder theorem
+\item Used in Problems 1.23, 1.40, 1.49, 1.50
+\end{itemize}

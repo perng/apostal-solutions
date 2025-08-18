@@ -809,3 +809,59 @@ This is called the inversion formula for Laplace transforms. The limit on the ri
 Let $g(t)=e^{-at}f(t)$ for $t>0$, $g(t)=0$ for $t<0$. Its Fourier transform is $\widehat g(v)=F(a+iv)$. Apply the Fourier inversion formula (Theorem 11.19) at a point where $f$ satisfies a local condition to get
 \[\frac{f(t+)+f(t-)}{2}=\frac{1}{2\pi}\lim_{T\to\infty}\int_{-T}^T e^{(a+iv)t}F(a+iv)\,dv.\]
 
+\section{Solving and Proving Techniques}
+
+\subsection*{Working with Orthogonal Systems}
+\begin{itemize}
+\item Use the definition of orthonormality: $\langle \varphi_m, \varphi_n \rangle = \delta_{mn}$
+\item Apply trigonometric identities to compute inner products of trigonometric functions
+\item Use the fact that orthonormal systems are linearly independent
+\item Apply the Gram-Schmidt process to construct orthogonal systems from linearly independent ones
+\item Use the fact that orthogonal systems can be used for approximation
+\end{itemize}
+
+\subsection*{Proving Linear Independence}
+\begin{itemize}
+\item Use the orthonormality property to take inner products with basis functions
+\item Show that if $\sum c_k \varphi_k = 0$, then all coefficients $c_k = 0$
+\item Apply the fact that orthonormal systems are automatically linearly independent
+\item Use the fact that linear independence is preserved under orthogonalization
+\item Apply the fact that infinite orthonormal systems have linearly independent finite subsets
+\end{itemize}
+
+\subsection*{Working with Fourier Series}
+\begin{itemize}
+\item Use the fact that Fourier coefficients are given by inner products: $c_n = \langle f, \varphi_n \rangle$
+\item Apply Parseval's identity: $\|f\|^2 = \sum |c_n|^2$
+\item Use the fact that Fourier series converge in $L^2$ for square-integrable functions
+\item Apply the fact that continuous periodic functions can be approximated by trigonometric polynomials
+\item Use the fact that Fourier series preserve periodicity
+\end{itemize}
+
+\subsection*{Proving Convergence of Fourier Series}
+\begin{itemize}
+\item Use the fact that Fourier series converge in $L^2$ for square-integrable functions
+\item Apply the fact that uniform convergence implies pointwise convergence
+\item Use the fact that continuous functions can be approximated by step functions
+\item Apply the fact that Fourier coefficients depend continuously on the function in $L^2$
+\item Use the fact that Riemann integrable functions can be approximated by continuous functions
+\end{itemize}
+
+\subsection*{Working with Fourier Transforms}
+\begin{itemize}
+\item Use the definition: $\widehat{f}(\xi) = \int_{-\infty}^{\infty} f(x) e^{-i\xi x} \, dx$
+\item Apply the inversion formula: $f(x) = \frac{1}{2\pi} \int_{-\infty}^{\infty} \widehat{f}(\xi) e^{i\xi x} \, d\xi$
+\item Use the fact that Fourier transforms convert convolution to multiplication
+\item Apply the fact that Fourier transforms preserve $L^2$ norms (Plancherel's theorem)
+\item Use the fact that smooth functions have rapidly decaying Fourier transforms
+\end{itemize}
+
+\subsection*{Working with Laplace Transforms}
+\begin{itemize}
+\item Use the definition: $F(z) = \int_0^{\infty} e^{-zt} f(t) \, dt$
+\item Apply the convolution theorem: $\mathcal{L}(f * g) = \mathcal{L}(f) \cdot \mathcal{L}(g)$
+\item Use the fact that Laplace transforms are linear
+\item Apply the inversion formula using residue calculus
+\item Use the fact that Laplace transforms can be used to solve differential equations
+\end{itemize}
+

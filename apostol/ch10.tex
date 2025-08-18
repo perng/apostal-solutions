@@ -188,7 +188,7 @@ Since this series converges uniformly on $[0, 1-\epsilon]$ for any $\epsilon > 0
 \[\int_{0}^{1} \log \frac{1}{1-x} \, dx = \int_{0}^{1} \sum_{n=1}^{\infty} \frac{x^n}{n} \, dx = \sum_{n=1}^{\infty} \frac{1}{n} \int_{0}^{1} x^n \, dx\]
 
 Now, $\int_{0}^{1} x^n \, dx = \frac{1}{n+1}$, so:
-\[\sum_{n=1}^{\infty} \frac{1}{n} \int_{0}^{1} x^n \, dx = \sum_{n=1}^{\infty} \frac{1}{n(n+1)} = \sum_{n=1}^{\infty} \left(\frac{1}{n} - \frac{1}{n+1}\right) = 1\]
+\[\sum_{n=1}^{\infty} \frac{1}{n} \int_{0}^{1} x^n \, dx = \sum_{n=1}^{\infty} \frac{1}{n} \cdot \frac{1}{n+1} = \sum_{n=1}^{\infty} \left(\frac{1}{n} - \frac{1}{n+1}\right) = 1\]
 
 \item We can write $\log(1/x) = -\log x$. For $0 < x < 1$, we have:
 \[\frac{x^{p-1}}{1-x} = x^{p-1} \sum_{n=0}^{\infty} x^n = \sum_{n=0}^{\infty} x^{n+p-1}\]
@@ -1718,3 +1718,59 @@ Therefore:
 
 Since both $\| f_n - f \|$ and $\| g_n - g \|$ approach 0 as $n \to \infty$, we have:
 \[\lim_{n \to \infty} \int_0^x f_n \cdot g_n = \int_0^x f \cdot g\]
+
+\section{Solving and Proving Techniques}
+
+\subsection*{Working with Upper Functions}
+\begin{itemize}
+\item Use the fact that upper functions are limits of increasing sequences of step functions
+\item Apply the algebra of max and min: $\max(f,g) + \min(f,g) = f + g$
+\item Use the fact that max and min preserve monotonicity of sequences
+\item Apply the continuity of max and min functions to interchange with limits
+\item Use the fact that upper functions are closed under addition and scalar multiplication
+\end{itemize}
+
+\subsection*{Proving Measurability}
+\begin{itemize}
+\item Use the fact that measurable functions are closed under algebraic operations
+\item Apply the fact that continuous functions are measurable
+\item Use the fact that limits of measurable functions are measurable
+\item Apply the fact that characteristic functions of measurable sets are measurable
+\item Use the fact that measurable functions can be approximated by simple functions
+\end{itemize}
+
+\subsection*{Working with Lebesgue Integrals}
+\begin{itemize}
+\item Use the fact that the Lebesgue integral is linear: $\int(cf + g) = c\int f + \int g$
+\item Apply the monotone convergence theorem: if $f_n \uparrow f$ a.e., then $\int f_n \uparrow \int f$
+\item Use the dominated convergence theorem: if $|f_n| \leq g$ and $g$ is integrable, then $\int f_n \to \int f$
+\item Apply Fatou's lemma: $\int \liminf f_n \leq \liminf \int f_n$
+\item Use the fact that the Lebesgue integral extends the Riemann integral
+\end{itemize}
+
+\subsection*{Proving Convergence in $L^2$}
+\begin{itemize}
+\item Use the triangle inequality: $|\| f_n \| - \| f \|| \leq \| f_n - f \|$
+\item Apply the Riesz-Fischer theorem: norm convergence implies a.e. convergence of a subsequence
+\item Use the fact that uniform convergence on compact sets implies $L^2$ convergence
+\item Apply the Cauchy-Schwarz inequality: $|\int f \cdot g| \leq \| f \| \cdot \| g \|$
+\item Use the fact that convergent sequences in $L^2$ are bounded
+\end{itemize}
+
+\subsection*{Working with Square-Integrable Functions}
+\begin{itemize}
+\item Use the fact that $L^2$ is a complete normed space
+\item Apply the Cauchy-Schwarz inequality for inner products
+\item Use the fact that $L^2$ convergence preserves inner products
+\item Apply the fact that continuous functions are dense in $L^2$
+\item Use the fact that $L^2$ functions can be approximated by step functions
+\end{itemize}
+
+\subsection*{Proving Almost Everywhere Properties}
+\begin{itemize}
+\item Use the fact that a.e. convergence is preserved under algebraic operations
+\item Apply the fact that if a sequence converges a.e. and in norm, the limits agree a.e.
+\item Use the fact that measurable functions are a.e. limits of simple functions
+\item Apply the fact that a.e. convergence is weaker than uniform convergence
+\item Use the fact that a.e. convergence is preserved under composition with continuous functions
+\end{itemize}

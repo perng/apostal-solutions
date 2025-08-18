@@ -381,7 +381,7 @@ Let \( f \) be a function of two variables. Use induction and Theorem 12.13 to p
 \noindent\textbf{Strategy:} Use mathematical induction on the order \( k \). The base case \( k = 2 \) is Clairaut's theorem. For the inductive step, use the fact that any permutation can be achieved by swapping adjacent elements, and each swap is allowed by the \( k = 2 \) case.
 
 \bigskip\noindent\textbf{Solution:}
-For $k=2$ this is Clairaut's theorem. Assume the statement for order $k$. For order $k+1$, commute adjacent derivatives two at a time using the $k=2$ case (continuity ensures commutation), to reorder any arrangement into any other with the same number of 1's and 2's. Thus all mixed partials of the same type coincide.\qed
+For $k=2$ this is Clairaut's theorem. Assume the statement for order $k$. For order $k+1$, use the fact that any permutation can be achieved by swapping adjacent derivatives two at a time using the $k=2$ case (continuity ensures commutation), to reorder any arrangement into any other with the same number of 1's and 2's. Thus all mixed partials of the same type coincide.\qed
 
 
 \begin{problembox}[12.26: Taylor's Formula for Two Variables]
@@ -419,3 +419,59 @@ Let $\alpha=x-1$, $\beta=y-2$.
 \item $(1+\alpha)^3+(2+\beta)^3+(1+\alpha)(2+\beta)^2=13+7\alpha+16\beta+3\alpha^2+4\alpha\beta+7\beta^2+\alpha^3+\beta^3+\alpha\beta^2$.
 \item $(1+\alpha)^2+(1+\alpha)(2+\beta)+(2+\beta)^2=7+4\alpha+5\beta+\alpha^2+\alpha\beta+\beta^2$.
 \end{enumerate}
+
+\section{Solving and Proving Techniques}
+
+\subsection*{Proving Differentiability}
+\begin{itemize}
+\item Use the definition: $f$ is differentiable at $c$ if there exists a linear map $Df(c)$ such that $f(c+h) = f(c) + Df(c)h + o(\|h\|)$
+\item Show that all partial derivatives exist and are continuous
+\item Use the fact that continuously differentiable functions are differentiable
+\item Apply the fact that differentiable functions are continuous
+\item Use the fact that vector-valued functions are differentiable if and only if each component is differentiable
+\end{itemize}
+
+\subsection*{Working with Partial Derivatives}
+\begin{itemize}
+\item Use the definition: $D_k f(x) = \lim_{h \to 0} \frac{f(x + he_k) - f(x)}{h}$
+\item Apply the fact that partial derivatives are computed by treating other variables as constants
+\item Use the fact that partial derivatives commute under continuity (Clairaut's theorem)
+\item Apply the fact that directional derivatives can be computed from partial derivatives: $f'(x;u) = \nabla f(x) \cdot u$
+\item Use the fact that partial derivatives are linear operators
+\end{itemize}
+
+\subsection*{Proving Local Extrema}
+\begin{itemize}
+\item Use the fact that if $f$ has a local extremum at $c$, then all partial derivatives $D_k f(c) = 0$
+\item Apply the second derivative test using the Hessian matrix
+\item Use the fact that critical points are where the gradient vanishes
+\item Apply the fact that local extrema occur at critical points or boundary points
+\item Use the fact that continuous functions on compact sets attain their extrema
+\end{itemize}
+
+\subsection*{Working with Directional Derivatives}
+\begin{itemize}
+\item Use the definition: $f'(x;u) = \lim_{t \to 0} \frac{f(x + tu) - f(x)}{t}$
+\item Apply the fact that directional derivatives are linear in the direction: $f'(x;cu) = cf'(x;u)$
+\item Use the fact that if $f$ is differentiable, then $f'(x;u) = \nabla f(x) \cdot u$
+\item Apply the fact that zero directional derivatives in all directions imply the function is constant
+\item Use the fact that directional derivatives can be used to find the direction of steepest ascent
+\end{itemize}
+
+\subsection*{Applying the Mean Value Theorem}
+\begin{itemize}
+\item Use the one-variable MVT by restricting to lines: $f(c+u) - f(c) = f'(c+\theta u;u)$ for some $\theta \in (0,1)$
+\item Apply the fact that the MVT can be used to bound function differences
+\item Use the fact that the MVT can be generalized to multiple variables using convexity
+\item Apply the fact that the MVT can be used to prove constancy results
+\item Use the fact that the MVT can be used to establish Lipschitz conditions
+\end{itemize}
+
+\subsection*{Working with Taylor's Formula}
+\begin{itemize}
+\item Use the fact that Taylor's formula provides polynomial approximations of functions
+\item Apply the fact that Taylor polynomials can be computed using partial derivatives
+\item Use the fact that the remainder term can be bounded using higher-order derivatives
+\item Apply the fact that Taylor series can be used to approximate functions near a point
+\item Use the fact that Taylor's formula can be used to prove differentiability results
+\end{itemize}

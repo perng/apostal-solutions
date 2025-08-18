@@ -1197,3 +1197,140 @@ If $x \in \overline{A}$, then $x \in \overline{A} \cap \overline{M - A} = \parti
 
 Conversely, let $x \in \partial A \cup \partial B$. Without loss of generality, assume $x \in \partial A$. Then $x \in \overline{A} \subseteq \overline{A \cup B}$ and $x \in \overline{M - A} \subseteq \overline{M - (A \cup B)}$. Therefore, $x \in \partial(A \cup B)$.
 
+
+\section{Solving and Proving Techniques}
+
+\subsection*{Proving Sets are Open}
+\begin{itemize}
+\item Use the definition: show every point has a neighborhood contained in the set
+\item Use the fact that unions of open sets are open
+\item Use the fact that finite intersections of open sets are open
+\item Use the fact that open balls are open sets
+\item Use the fact that products of open intervals are open
+\item Use the fact that the interior of any set is open
+\end{itemize}
+
+\subsection*{Proving Sets are Closed}
+\begin{itemize}
+\item Show the complement is open
+\item Use the fact that intersections of closed sets are closed
+\item Use the fact that finite unions of closed sets are closed
+\item Use the fact that the closure of any set is closed
+\item Use the fact that finite sets are closed
+\item Use the fact that closed balls are closed sets
+\end{itemize}
+
+\subsection*{Finding Accumulation Points}
+\begin{itemize}
+\item Look for points that can be approached by sequences in the set
+\item Use density properties (rationals, irrationals are dense in $\mathbb{R}$)
+\item Consider convergence of sequences to boundary points
+\item Use the fact that accumulation points of accumulation points are accumulation points
+\item Use the fact that accumulation points of unions are unions of accumulation points
+\item Consider geometric intuition for sets in $\mathbb{R}^2$ and $\mathbb{R}^3$
+\end{itemize}
+
+\subsection*{Working with Interior and Closure}
+\begin{itemize}
+\item Use the definition: interior points have neighborhoods in the set
+\item Use the fact that interior is the largest open subset
+\item Use the fact that closure is the smallest closed superset
+\item Use the relationship: $\text{int } A = M - \overline{M - A}$
+\item Use the relationship: $\overline{A} = A \cup A'$ where $A'$ is the derived set
+\item Use the fact that interior of interior equals interior
+\item Use the fact that closure of closure equals closure
+\end{itemize}
+
+\subsection*{Proving Countability}
+\begin{itemize}
+\item Use the fact that countable unions of countable sets are countable
+\item Use the fact that Cartesian products of countable sets are countable
+\item Use the fact that subsets of countable sets are countable
+\item Use the fact that images of countable sets under injective functions are countable
+\item Use the Lindelöf property in separable spaces
+\item Use the fact that isolated points form a countable set
+\item Use the fact that disjoint open sets in separable spaces are countable
+\end{itemize}
+
+\subsection*{Working with Compactness}
+\begin{itemize}
+\item Use the Heine-Borel theorem: closed and bounded in $\mathbb{R}^n$
+\item Use the fact that closed subsets of compact sets are compact
+\item Use the fact that finite unions of compact sets are compact
+\item Use the fact that intersections of compact sets are compact
+\item Use the fact that continuous images of compact sets are compact
+\item Use the fact that compactness is independent of the ambient space
+\item Use the fact that compact sets are closed and bounded
+\end{itemize}
+
+\subsection*{Using Density Properties}
+\begin{itemize}
+\item Use the fact that rationals and irrationals are dense in $\mathbb{R}$
+\item Use the fact that $\mathbb{Q}^n$ is dense in $\mathbb{R}^n$
+\item Use the fact that dense sets intersect every open set
+\item Use the fact that if $A$ is dense in $S$ and $S$ is dense in $T$, then $A$ is dense in $T$
+\item Use the fact that dense sets in open sets are dense in the whole space
+\item Use the fact that intersections of dense and open sets are dense
+\end{itemize}
+
+\subsection*{Working with Metric Spaces}
+\begin{itemize}
+\item Use the triangle inequality to bound distances
+\item Use the fact that metric balls are open sets
+\item Use the fact that closed balls are closed sets
+\item Use the fact that finite sets are closed
+\item Use the fact that separable spaces have the Lindelöf property
+\item Use the fact that bounded metrics can be constructed from unbounded ones
+\item Use the fact that product metrics satisfy the metric axioms
+\end{itemize}
+
+\subsection*{Proving Connectedness}
+\begin{itemize}
+\item Use proof by contradiction: assume the space can be split into two non-empty disjoint open sets
+\item Use the fact that $\mathbb{R}^1$ and $\mathbb{R}^n$ are connected
+\item Use the fact that connected spaces cannot have non-trivial clopen subsets
+\item Use the fact that continuous images of connected sets are connected
+\item Use the fact that unions of connected sets with non-empty intersection are connected
+\end{itemize}
+
+\subsection*{Using Proof by Contradiction}
+\begin{itemize}
+\item Assume the opposite of what you want to prove
+\item Use the properties of open and closed sets to derive a contradiction
+\item Use the fact that limits must be unique
+\item Use the fact that countable sets cannot be uncountable
+\item Use the fact that compact sets must have finite subcovers
+\item Use the fact that connected spaces cannot be split into disjoint open sets
+\item Use the Cantor intersection theorem to find contradictions
+\end{itemize}
+
+\subsection*{Working with Sequences}
+\begin{itemize}
+\item Use the fact that convergent sequences have unique limits
+\item Use the fact that subsequences of convergent sequences converge to the same limit
+\item Use the fact that bounded sequences have convergent subsequences
+\item Use the fact that Cauchy sequences converge in complete spaces
+\item Use the fact that accumulation points can be approached by sequences
+\item Use the fact that closed sets contain limits of convergent sequences
+\end{itemize}
+
+\subsection*{Proving Uniqueness}
+\begin{itemize}
+\item Use the fact that closures are unique
+\item Use the fact that interiors are unique
+\item Use the fact that accumulation points are well-defined
+\item Use the fact that limits of sequences are unique
+\item Use the fact that compact sets have unique properties
+\item Use the fact that dense subsets are unique up to closure
+\end{itemize}
+
+\subsection*{Working with Boundaries}
+\begin{itemize}
+\item Use the definition: $\partial A = \overline{A} \cap \overline{M - A}$
+\item Use the fact that boundaries of complements are the same
+\item Use the fact that boundaries of unions can be related to boundaries of components
+\item Use the fact that boundaries of open or closed sets have empty interior
+\item Use the fact that boundaries are closed sets
+\item Use the fact that boundaries separate sets from their complements
+\end{itemize}
+

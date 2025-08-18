@@ -349,3 +349,59 @@ d_1^2 & 0 & 0 & \cdots & 0 \\
 Let the rows be $X_i\in\mathbb R^n$ with $\|X_i\|=d_i$. Consider $\Delta^2=\det(XX^{\!T})$, where $X=[x_{ij}]$. Under the constraints $\|X_i\|=d_i$, Lagrange multipliers show that at an extremum the rows are pairwise orthogonal. Then $XX^{\!T}=\operatorname{diag}(d_1^2,\dots,d_n^2)$ and
 \[\Delta^2=\det(XX^{\!T})=d_1^2\cdots d_n^2,\]
 which yields $|\Delta|\le d_1\cdots d_n$ with equality exactly when the rows are orthogonal.
+
+\section{Solving and Proving Techniques}
+
+\subsection*{Working with Jacobians}
+\begin{itemize}
+\item Use the definition: $J_f(x) = \det[Df(x)]$ where $Df(x)$ is the derivative matrix
+\item Apply the chain rule: $J_{f \circ g}(x) = J_f(g(x)) \cdot J_g(x)$
+\item Use the matrix determinant lemma: $\det(I + uv^T) = 1 + v^T u$
+\item Apply the fact that Jacobians are multiplicative under composition
+\item Use the fact that the Jacobian of the inverse function is the reciprocal of the original Jacobian
+\end{itemize}
+
+\subsection*{Proving Invertibility}
+\begin{itemize}
+\item Use the Inverse Function Theorem: if $f \in C^1$ and $J_f(x_0) \neq 0$, then $f$ is locally invertible near $x_0$
+\item Show that the function is one-to-one by solving for the inverse explicitly
+\item Use the fact that if $f$ is invertible, then $Df^{-1}(f(x_0)) = [Df(x_0)]^{-1}$
+\item Apply the fact that continuous bijections on compact sets have continuous inverses
+\item Use the fact that monotone functions are invertible
+\end{itemize}
+
+\subsection*{Working with Coordinate Transformations}
+\begin{itemize}
+\item Use the fact that polar coordinates have Jacobian $r$: $\frac{\partial(x,y)}{\partial(r,\theta)} = r$
+\item Apply the fact that spherical coordinates have Jacobian $-r^2 \sin \phi$
+\item Use the fact that coordinate transformations preserve volumes up to the Jacobian factor
+\item Apply the fact that the Jacobian of a composition is the product of Jacobians
+\item Use the fact that the Jacobian of the identity transformation is 1
+\end{itemize}
+
+\subsection*{Applying the Implicit Function Theorem}
+\begin{itemize}
+\item Use the fact that if $f \in C^1$ and the Jacobian matrix is invertible, then the system can be solved locally
+\item Apply the fact that partial derivatives of implicit functions can be computed using the chain rule
+\item Use the fact that the implicit function theorem provides local existence and uniqueness
+\item Apply the fact that the derivatives of implicit functions can be found by differentiating the defining equations
+\item Use the fact that the implicit function theorem can be used to solve systems of equations
+\end{itemize}
+
+\subsection*{Working with Lagrange Multipliers}
+\begin{itemize}
+\item Use the fact that at a constrained extremum, the gradient of the objective function is a linear combination of the gradients of the constraints
+\item Apply the fact that Lagrange multipliers can be used to find critical points of functions subject to constraints
+\item Use the fact that the number of Lagrange multipliers equals the number of constraints
+\item Apply the fact that Lagrange multipliers can be used to prove inequalities like AM-GM
+\item Use the fact that Lagrange multipliers can be used to find extreme values on constraint surfaces
+\end{itemize}
+
+\subsection*{Proving Inequalities}
+\begin{itemize}
+\item Use the AM-GM inequality: $(a_1 \cdots a_n)^{1/n} \leq \frac{a_1 + \cdots + a_n}{n}$
+\item Apply Lagrange multipliers to find extreme values under constraints
+\item Use the fact that continuous functions on compact sets attain their extrema
+\item Apply the fact that convex functions have unique global minima
+\item Use the fact that the arithmetic mean is always greater than or equal to the geometric mean
+\end{itemize}

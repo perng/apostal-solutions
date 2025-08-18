@@ -1,6 +1,60 @@
 \chapter{Derivatives}
 
+\section{Real-valued functions}
 
+\subsection*{Definitions and Theorems}
+
+\begin{definition}[Derivative]
+The derivative of a function $f$ at a point $c$ is defined as
+\[ f'(c) = \lim_{x \to c} \frac{f(x) - f(c)}{x - c} = \lim_{h \to 0} \frac{f(c + h) - f(c)}{h} \]
+if this limit exists.
+\end{definition}
+
+\begin{definition}[Differentiable Function]
+A function $f$ is differentiable at a point $c$ if $f'(c)$ exists. A function is differentiable on an interval if it is differentiable at every point in that interval.
+\end{definition}
+
+\begin{definition}[Lipschitz Condition]
+A function $f$ satisfies a Lipschitz condition of order $\alpha$ at $c$ if there exists a positive number $M$ and a neighborhood $B(c)$ of $c$ such that
+\[ |f(x) - f(c)| \leq M|x - c|^\alpha \]
+whenever $x \in B(c)$.
+\end{definition}
+
+\begin{theorem}[Differentiability Implies Continuity]
+If a function $f$ is differentiable at a point $c$, then $f$ is continuous at $c$.
+\end{theorem}
+
+\begin{theorem}[Basic Differentiation Rules]
+For differentiable functions $f$ and $g$:
+\begin{enumerate}
+\item $(f + g)'(x) = f'(x) + g'(x)$ (sum rule)
+\item $(fg)'(x) = f'(x)g(x) + f(x)g'(x)$ (product rule)
+\item $\left(\frac{f}{g}\right)'(x) = \frac{f'(x)g(x) - f(x)g'(x)}{g(x)^2}$ (quotient rule)
+\item $(f \circ g)'(x) = f'(g(x))g'(x)$ (chain rule)
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Leibniz's Formula]
+For functions $f$ and $g$ with $n$th derivatives, the $n$th derivative of their product is
+\[ (fg)^{(n)}(x) = \sum_{k=0}^{n} \binom{n}{k} f^{(k)}(x)g^{(n-k)}(x) \]
+\end{theorem}
+
+\begin{theorem}[Schwarzian Derivative]
+The Schwarzian derivative of a function $f$ is defined as
+\[ Sf(x) = \frac{f'''(x)}{f'(x)} - \frac{3}{2}\left(\frac{f''(x)}{f'(x)}\right)^2 \]
+\end{theorem}
+
+\begin{theorem}[Wronskian]
+For functions $f_1, \ldots, f_n$ with $(n-1)$th derivatives, the Wronskian is the determinant
+\[ W(f_1, \ldots, f_n)(x) = \begin{vmatrix}
+f_1(x) & f_2(x) & \cdots & f_n(x) \\
+f_1'(x) & f_2'(x) & \cdots & f_n'(x) \\
+\vdots & \vdots & \ddots & \vdots \\
+f_1^{(n-1)}(x) & f_2^{(n-1)}(x) & \cdots & f_n^{(n-1)}(x)
+\end{vmatrix} \]
+\end{theorem}
+
+In the following exercises assume, where necessary, a knowledge of the formulas for differentiating the elementary trigonometric, exponential, and logarithmic functions.
 
 \begin{problembox}[5.1: Lipschitz Condition and Continuity]
 A function \( f \) is said to satisfy a Lipschitz condition of order \( \alpha \) at \( c \) if there exists a positive number \( M \) (which may depend on \( c \)) and a 1-ball \( B(c) \) such that 
@@ -163,6 +217,45 @@ c) The vanishing of the Wronskian throughout \( (a, b) \) is necessary, but not 
 \bigskip\noindent\textbf{Solution:}
 (a) Differentiate the determinant by the rule in 5.8: only the last row changes to $\big(f_1^{(n)}(x),\dots,f_n^{(n)}(x)\big)$. (b) If $\sum c_m f_m\equiv 0$ with some $c_m$ not all $0$, then each row of the Wronskian is a linear combination of the others with the same coefficients, so the determinant vanishes identically. (c) For two functions, $W=f_1 f_2'-f_1'f_2\equiv 0$ on $(a,b)$ and, say, $f_2\ne 0$ on $(a,b)$. Then $(f_1/f_2)'=\dfrac{f_1'f_2-f_1 f_2'}{f_2^2}=0$, so $f_1/f_2$ is constant and the pair is linearly dependent.\qed
 
+\section{The Mean-Value Theorem}
+
+\subsection*{Definitions and Theorems}
+
+\begin{theorem}[Rolle's Theorem]
+If $f$ is continuous on $[a,b]$, differentiable on $(a,b)$, and $f(a) = f(b)$, then there exists $c \in (a,b)$ such that $f'(c) = 0$.
+\end{theorem}
+
+\begin{theorem}[Mean Value Theorem]
+If $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$, then there exists $c \in (a,b)$ such that
+\[ f'(c) = \frac{f(b) - f(a)}{b - a} \]
+\end{theorem}
+
+\begin{theorem}[Cauchy's Mean Value Theorem]
+If $f$ and $g$ are continuous on $[a,b]$ and differentiable on $(a,b)$, and $g'(x) \neq 0$ for all $x \in (a,b)$, then there exists $c \in (a,b)$ such that
+\[ \frac{f'(c)}{g'(c)} = \frac{f(b) - f(a)}{g(b) - g(a)} \]
+\end{theorem}
+
+\begin{theorem}[Generalized Mean Value Theorem]
+If $f$ has a finite $n$th derivative in $[a,b]$ and $f^{(k)}(a) = 0$ for $k = 0, 1, \ldots, n-1$, then there exists $c \in (a,b)$ such that
+\[ f^{(n)}(c) = \frac{n!}{(b-a)^n} f(b) \]
+\end{theorem}
+
+\begin{theorem}[Taylor's Theorem with Lagrange Remainder]
+If $f$ has a finite $(n+1)$th derivative in $[a,b]$, then for any $x \in [a,b]$,
+\[ f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(a)}{k!} (x-a)^k + \frac{f^{(n+1)}(c)}{(n+1)!} (x-a)^{n+1} \]
+where $c$ is some point between $a$ and $x$.
+\end{theorem}
+
+\begin{theorem}[Taylor's Theorem with Cauchy Remainder]
+If $f$ has a finite $(n+1)$th derivative in $[a,b]$, then for any $x \in [a,b]$,
+\[ f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(a)}{k!} (x-a)^k + \frac{(x-a)(x-c)^n}{n!} f^{(n+1)}(c) \]
+where $c$ is some point between $a$ and $x$.
+\end{theorem}
+
+\begin{theorem}[L'Hôpital's Rule]
+If $f$ and $g$ are differentiable on $(a,b)$ except possibly at $c \in (a,b)$, $\lim_{x \to c} f(x) = \lim_{x \to c} g(x) = 0$ or $\pm\infty$, and $\lim_{x \to c} \frac{f'(x)}{g'(x)}$ exists, then
+\[ \lim_{x \to c} \frac{f(x)}{g(x)} = \lim_{x \to c} \frac{f'(x)}{g'(x)} \]
+\end{theorem}
 
 \begin{problembox}[5.10: Infinite Limit and Derivative]
 Given a function \( f \) defined and having a finite derivative in \( (a, b) \) and such that \( \lim_{x \to b^-} f(x) = +\infty \). Prove that \( \lim_{x \to b^-} f'(x) \) either fails to exist or is infinite.
@@ -210,7 +303,7 @@ obtainable from Theorem 5.20 when \( n = 1 \)?
 \noindent\textbf{Strategy:} Compute the specific values and show that the ratio form of Cauchy's theorem fails when \( g'(x_1) = 0 \). The correct interpretation is that the cross-product form \( (f(b) - f(a))g'(x_1) = (g(b) - g(a))f'(x_1) \) holds.
 
 \bigskip\noindent\textbf{Solution:}
-Compute $f(1)-f(0)=0$ and $g(1)-g(0)\ne 0$, hence the quotient is $0$. On $(0,1]$, $f'(x)=2x(6x^2-3x-1)$ and $g'(x)=2(6x^2-3x-1)$ vanish at the same point $x_0=\dfrac{3+\sqrt{33}}{12}\in(0,1]$, so $f'(x)/g'(x)$ is never $0$ for $x\in(0,1]$. This does not contradict Cauchy’s theorem: the correct conclusion is $(f(1)-f(0))g'(x_1)=(g(1)-g(0))f'(x_1)$ for some $x_1\in(0,1)$, which holds at $x_1=x_0$ (both sides are $0$). The “ratio” form fails there because $g'(x_1)=0$.\qed
+Compute $f(1)-f(0)=0$ and $g(1)-g(0)\ne 0$, hence the quotient is $0$. On $(0,1]$, $f'(x)=2x(6x^2-3x-1)$ and $g'(x)=2(6x^2-3x-1)$ vanish at the same point $x_0=\dfrac{3+\sqrt{33}}{12}\in(0,1]$, so $f'(x)/g'(x)$ is never $0$ for $x\in(0,1]$. This does not contradict Cauchy's theorem: the correct conclusion is $(f(1)-f(0))g'(x_1)=(g(1)-g(0))f'(x_1)$ for some $x_1\in(0,1)$, which holds at $x_1=x_0$ (both sides are $0$). The "ratio" form fails there because $g'(x_1)=0$.\qed
 
 
 \begin{problembox}[5.13: Special Cases of Mean-Value Theorem]
@@ -225,7 +318,7 @@ Can you find a general class of such pairs of functions \( f \) and \( g \) for 
 \noindent\textbf{Strategy:} Apply Cauchy's Mean Value Theorem to each pair and use trigonometric identities or exponential properties to show that the intermediate point must be the midpoint. Look for functions that satisfy certain differential equations.
 
 \bigskip\noindent\textbf{Solution:}
-For (a), with $f=\sin,\ g=\cos$, Cauchy’s theorem gives $(\sin b-\sin a)\,(-\sin x_1)=(\cos b-\cos a)\,\cos x_1$. Using sum-to-product identities this reduces to $\sin\big(\tfrac{a+b}{2}-x_1\big)=0$, hence $x_1=\tfrac{a+b}{2}$. For (b), $f=e^x,\ g=e^{-x}$ yields $e^b-e^a=(e^{-a}-e^{-b})e^{2x_1}$, whence $x_1=\tfrac{a+b}{2}$. A general class: pairs $f,g$ solving a linear ODE $y''+\lambda y=0$ (e.g., $\sin,\cos$) or $y''-\lambda y=0$ (e.g., $e^x,e^{-x}$) have this midpoint property.\qed
+For (a), with $f=\sin,\ g=\cos$, Cauchy's theorem gives $(\sin b-\sin a)\,(-\sin x_1)=(\cos b-\cos a)\,\cos x_1$. Using sum-to-product identities this reduces to $\sin\big(\tfrac{a+b}{2}-x_1\big)=0$, hence $x_1=\tfrac{a+b}{2}$. For (b), $f=e^x,\ g=e^{-x}$ yields $e^b-e^a=(e^{-a}-e^{-b})e^{2x_1}$, whence $x_1=\tfrac{a+b}{2}$. A general class: pairs $f,g$ solving a linear ODE $y''+\lambda y=0$ (e.g., $\sin,\cos$) or $y''-\lambda y=0$ (e.g., $e^x,e^{-x}$) have this midpoint property.\qed
 
 
 \begin{problembox}[5.14: Limit of a Sequence]
@@ -249,7 +342,7 @@ Assume that \( f \) has a finite derivative at each point of the open interval \
 \bigskip\noindent\textbf{Solution:}
 We have
 \[\frac{f(x)-f(c)}{x-c}-f'(x)=\frac{f(x)-f(c)-(x-c)f'(x)}{x-c}.\]
-By Cauchy’s mean value theorem applied to $F(t)=f(t)-f(c)-(t-c)f'(x)$ and $G(t)=t-c$, there is $\xi$ between $x$ and $c$ such that the quotient equals $\dfrac{f'(\xi)-f'(x)}{1}$. Letting $x\to c$ gives $\dfrac{f(x)-f(c)}{x-c}\to L$, hence $f'(c)=L$.\qed
+By Cauchy's mean value theorem applied to $F(t)=f(t)-f(c)-(t-c)f'(x)$ and $G(t)=t-c$, there is $\xi$ between $x$ and $c$ such that the quotient equals $\dfrac{f'(\xi)-f'(x)}{1}$. Letting $x\to c$ gives $\dfrac{f(x)-f(c)}{x-c}\to L$, hence $f'(c)=L$.\qed
 
 
 \begin{problembox}[5.16: Extension of Derivative]
@@ -271,7 +364,7 @@ Let \( f \) be continuous on \( [0, 1] \), \( f(0) = 0 \), \( f'(x) \) finite fo
 \noindent\textbf{Strategy:} Use Cauchy's Mean Value Theorem to compare \( g(v) - g(u) \) for \( 0 < u < v \leq 1 \), and use the fact that \( f' \) is increasing to show that this difference is nonnegative.
 
 \bigskip\noindent\textbf{Solution:}
-For $0<u<v\le 1$, apply Cauchy’s mean value theorem to $f$ and $x\mapsto x$ on $[u,v]$ to get
+For $0<u<v\le 1$, apply Cauchy's mean value theorem to $f$ and $x\mapsto x$ on $[u,v]$ to get
 \[\frac{f(v)-f(u)}{v-u}=f'(\xi)\quad(\xi\in(u,v)).\]
 Then
 \begin{align*}
@@ -288,7 +381,7 @@ Assume \( f \) has a finite derivative in \( (a, b) \) and is continuous on \( [
 \noindent\textbf{Strategy:} Choose \( g(x) = e^{-\lambda x} \) so that \( g(x)f(x) \) has the same zeros as \( f \), then apply Rolle's theorem to find a point where the derivative of this product vanishes.
 
 \bigskip\noindent\textbf{Solution:}
-Fix $\lambda\in\mathbb{R}$ and set $g(x)=e^{-\lambda x}$. Then $(gf)(a)=(gf)(b)=0$. By Rolle’s theorem there is $c\in(a,b)$ with $(gf)'(c)=0$, i.e., $-\lambda e^{-\lambda c}f(c)+e^{-\lambda c}f'(c)=0$, so $f'(c)=\lambda f(c)$.\qed
+Fix $\lambda\in\mathbb{R}$ and set $g(x)=e^{-\lambda x}$. Then $(gf)(a)=(gf)(b)=0$. By Rolle's theorem there is $c\in(a,b)$ with $(gf)'(c)=0$, i.e., $-\lambda e^{-\lambda c}f(c)+e^{-\lambda c}f'(c)=0$, so $f'(c)=\lambda f(c)$.\qed
 
 
 \begin{problembox}[5.19: Second Derivative and Secant Line]
@@ -298,7 +391,7 @@ Assume \( f \) is continuous on \( [a, b] \) and has a finite second derivative 
 \noindent\textbf{Strategy:} Define \( \phi(x) = f(x) - \ell(x) \) where \( \ell \) is the secant line. Then \( \phi \) has three zeros, so by Rolle's theorem applied twice, there must be a point where \( \phi''(c) = 0 \), which implies \( f''(c) = 0 \).
 
 \bigskip\noindent\textbf{Solution:}
-Let $\ell$ be the secant line through $(a,f(a))$ and $(b,f(b))$, and $\phi=f-\ell$. Then $\phi(a)=\phi(b)=\phi(p)=0$. By Rolle’s theorem, there exist $u\in(a,p)$ and $v\in(p,b)$ with $\phi'(u)=\phi'(v)=0$. Applying Rolle again to $\phi'$ on $[u,v]$ yields $c\in(u,v)$ with $\phi''(c)=0$, hence $f''(c)=0$.\qed
+Let $\ell$ be the secant line through $(a,f(a))$ and $(b,f(b))$, and $\phi=f-\ell$. Then $\phi(a)=\phi(b)=\phi(p)=0$. By Rolle's theorem, there exist $u\in(a,p)$ and $v\in(p,b)$ with $\phi'(u)=\phi'(v)=0$. Applying Rolle again to $\phi'$ on $[u,v]$ yields $c\in(u,v)$ with $\phi''(c)=0$, hence $f''(c)=0$.\qed
 
 
 \begin{problembox}[5.20: Third Derivative Condition]
@@ -413,7 +506,7 @@ NOTE. \( f^{(n)} \) and \( g^{(n)} \) are not assumed to be continuous at \( c \
 \noindent\textbf{Strategy:} Use Taylor's theorem with remainder to express \( f(x) \) and \( g(x) \) in terms of their nth derivatives at intermediate points, then take the limit as \( x \to c \).
 
 \bigskip\noindent\textbf{Solution:}
-Apply Cauchy’s mean value theorem repeatedly or use Taylor’s theorem with remainder about $c$. Since $f^{(k)}(c)=g^{(k)}(c)=0$ for $k<n$, we have
+Apply Cauchy's mean value theorem repeatedly or use Taylor's theorem with remainder about $c$. Since $f^{(k)}(c)=g^{(k)}(c)=0$ for $k<n$, we have
 \[f(x)=\frac{f^{(n)}(\xi_x)}{n!}(x-c)^n,\quad g(x)=\frac{g^{(n)}(\eta_x)}{n!}(x-c)^n\]
 for some $\xi_x,\eta_x\to c$. Hence
 \[\lim_{x\to c}\frac{f(x)}{g(x)}=\lim_{x\to c}\frac{f^{(n)}(\xi_x)}{g^{(n)}(\eta_x)}=\frac{f^{(n)}(c)}{g^{(n)}(c)},\]
@@ -430,11 +523,37 @@ where \( x_1 \) is interior to the interval joining \( x \) and \( c \). Let \( 
 \noindent\textbf{Strategy:} Start with Cauchy's form of the remainder in Taylor's theorem, then use the relation \( x - x_1 = \theta(x - c) \) to rewrite the remainder in terms of \( \theta \).
 
 \bigskip\noindent\textbf{Solution:}
-By Cauchy’s form of the remainder, for some $x_1$ between $x$ and $c$,
+By Cauchy's form of the remainder, for some $x_1$ between $x$ and $c$,
 \[f(x)-\sum_{k=0}^{n-1}\frac{f^{(k)}(c)}{k!}(x-c)^k=\frac{f^{(n)}(x_1)}{(n-1)!}(x-c)^{n-1}(x-x_1).\]
-Writing $x-x_1=\theta(x-c)$ with $\theta\in(0,1)$ gives the displayed form and yields Cauchy’s remainder
+Writing $x-x_1=\theta(x-c)$ with $\theta\in(0,1)$ gives the displayed form and yields Cauchy's remainder
 \[\frac{(1-\theta)^{n-1}(x-c)^n}{(n-1)!}\,f^{(n)}\big(\theta x+(1-\theta)c\big).\]\qed
 
+\section{Vector-valued functions}
+
+\subsection*{Definitions and Theorems}
+
+\begin{definition}[Vector-Valued Function]
+A vector-valued function is a function $f: \mathbb{R} \to \mathbb{R}^n$ that maps real numbers to vectors in $n$-dimensional space.
+\end{definition}
+
+\begin{definition}[Vector-Valued Derivative]
+A vector-valued function $f$ is differentiable at $c$ if there exists a vector $f'(c)$ such that
+\[ \lim_{h \to 0} \frac{\|f(c + h) - f(c) - f'(c)h\|}{|h|} = 0 \]
+\end{definition}
+
+\begin{theorem}[Component-wise Differentiation]
+A vector-valued function $f = (f_1, f_2, \ldots, f_n)$ is differentiable at $c$ if and only if each component function $f_i$ is differentiable at $c$, and
+\[ f'(c) = (f_1'(c), f_2'(c), \ldots, f_n'(c)) \]
+\end{theorem}
+
+\begin{theorem}[Dot Product Rule]
+If $f$ and $g$ are differentiable vector-valued functions, then
+\[ \frac{d}{dt}(f(t) \cdot g(t)) = f'(t) \cdot g(t) + f(t) \cdot g'(t) \]
+\end{theorem}
+
+\begin{theorem}[Constant Norm Implies Orthogonality]
+If a vector-valued function $f$ has constant norm $\|f(t)\| = C$ for all $t$, then $f(t) \cdot f'(t) = 0$ for all $t$.
+\end{theorem}
 
 \begin{problembox}[5.30: Vector-Valued Differentiability]
 If a vector-valued function \( f \) is differentiable at \( c \), prove that
@@ -467,6 +586,41 @@ A vector-valued function \( f \) is never zero and has a derivative \( f' \) whi
 \bigskip\noindent\textbf{Solution:}
 Let $u$ solve $u'(t)=\lambda(t)u(t)$ with $u(t_0)=1$; then $u(t)=\exp\big(\int_{t_0}^t\!\lambda\big)>0$. Define $c=f/u$. Then $c'(t)=\dfrac{f'(t)u(t)-f(t)u'(t)}{u(t)^2}=0$, so $c$ is constant and $f(t)=u(t)\,c$.\qed
 
+
+\section{Partial Derivatives}
+
+\subsection*{Definitions and Theorems}
+
+\begin{definition}[Partial Derivative]
+The partial derivative of a function $f(x_1, x_2, \ldots, x_n)$ with respect to $x_i$ at a point $(a_1, a_2, \ldots, a_n)$ is defined as
+\[ \frac{\partial f}{\partial x_i}(a_1, \ldots, a_n) = \lim_{h \to 0} \frac{f(a_1, \ldots, a_i + h, \ldots, a_n) - f(a_1, \ldots, a_n)}{h} \]
+if this limit exists.
+\end{definition}
+
+\begin{definition}[Directional Derivative]
+The directional derivative of $f$ at a point $a$ in the direction of a unit vector $u$ is defined as
+\[ D_u f(a) = \lim_{h \to 0} \frac{f(a + hu) - f(a)}{h} \]
+if this limit exists.
+\end{definition}
+
+\begin{definition}[Gradient]
+The gradient of a function $f$ at a point $a$ is the vector of partial derivatives:
+\[ \nabla f(a) = \left(\frac{\partial f}{\partial x_1}(a), \frac{\partial f}{\partial x_2}(a), \ldots, \frac{\partial f}{\partial x_n}(a)\right) \]
+\end{definition}
+
+\begin{theorem}[Mixed Partial Derivatives]
+If the mixed partial derivatives $\frac{\partial^2 f}{\partial x \partial y}$ and $\frac{\partial^2 f}{\partial y \partial x}$ are continuous in a neighborhood of a point, then they are equal at that point.
+\end{theorem}
+
+\begin{theorem}[Directional Derivative and Gradient]
+If $f$ is differentiable at $a$, then the directional derivative in the direction of unit vector $u$ is
+\[ D_u f(a) = \nabla f(a) \cdot u \]
+\end{theorem}
+
+\begin{theorem}[Chain Rule for Partial Derivatives]
+If $f(x,y)$ is differentiable and $x = x(t)$, $y = y(t)$ are differentiable functions, then
+\[ \frac{d}{dt}f(x(t), y(t)) = \frac{\partial f}{\partial x}\frac{dx}{dt} + \frac{\partial f}{\partial y}\frac{dy}{dt} \]
+\end{theorem}
 
 \begin{problembox}[5.33: Partial Derivatives and Continuity]
 Consider the function \( f \) defined on \( \mathbb{R}^2 \) by the following formulas:
@@ -515,6 +669,47 @@ With $g(\bar z)=\overline{f(z)}$, for $h\to 0$,
 \[\frac{g(\bar c+h)-g(\bar c)}{h}=\overline{\frac{f(c+\bar h)-f(c)}{\bar h}}\to \overline{f'(c)}.\]
 Thus $g$ is differentiable at $\bar c$ and $g'(\bar c)=\overline{f'(c)}$.\qed
 
+\section{Complex-valued functions}
+
+\subsection*{Definitions and Theorems}
+
+\begin{definition}[Complex Derivative]
+A function $f: \mathbb{C} \to \mathbb{C}$ is differentiable at a point $z_0$ if the limit
+\[ f'(z_0) = \lim_{z \to z_0} \frac{f(z) - f(z_0)}{z - z_0} \]
+exists.
+\end{definition}
+
+\begin{definition}[Holomorphic Function]
+A function $f$ is holomorphic (analytic) on an open set $U \subseteq \mathbb{C}$ if it is differentiable at every point in $U$.
+\end{definition}
+
+\begin{definition}[Cauchy-Riemann Equations]
+For a complex function $f(z) = u(x,y) + iv(x,y)$, the Cauchy-Riemann equations are
+\[ \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y} \quad \text{and} \quad \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x} \]
+\end{definition}
+
+\begin{theorem}[Cauchy-Riemann Criterion]
+A complex function $f = u + iv$ is differentiable at a point if and only if the partial derivatives of $u$ and $v$ exist, are continuous, and satisfy the Cauchy-Riemann equations at that point.
+\end{theorem}
+
+\begin{theorem}[Complex Chain Rule]
+If $f$ and $g$ are differentiable complex functions, then
+\[ (f \circ g)'(z) = f'(g(z))g'(z) \]
+\end{theorem}
+
+\begin{theorem}[Complex Product Rule]
+If $f$ and $g$ are differentiable complex functions, then
+\[ (fg)'(z) = f'(z)g(z) + f(z)g'(z) \]
+\end{theorem}
+
+\begin{theorem}[Complex Quotient Rule]
+If $f$ and $g$ are differentiable complex functions and $g(z) \neq 0$, then
+\[ \left(\frac{f}{g}\right)'(z) = \frac{f'(z)g(z) - f(z)g'(z)}{g(z)^2} \]
+\end{theorem}
+
+\begin{theorem}[Identity Principle]
+If two holomorphic functions $f$ and $g$ agree on a set with a limit point in their common domain, then $f = g$ throughout their common domain.
+\end{theorem}
 
 \begin{problembox}[5.36: Cauchy-Riemann Equations]
 i) In each of the following examples write \( f = u + iv \) and find explicit formulas for \( u(x, y) \) and \( v(x, y) \):
@@ -546,4 +741,116 @@ Write \( f = u + iv \) and assume that \( f \) has a derivative at each point of
 Let $f=u+iv$ be complex differentiable on $D$ and suppose $au^2+bv^2\equiv C$ with $(a,b)\ne (0,0)$. Differentiate: $auu_x+bvv_x=0$ and $auu_y+bvv_y=0$. Using the Cauchy–Riemann equations $u_x=v_y$, $u_y=-v_x$, we obtain the linear system
 \[\begin{pmatrix}au&bv\\ -bv&au\end{pmatrix}\begin{pmatrix}u_x\\ v_x\end{pmatrix}=\begin{pmatrix}0\\ 0\end{pmatrix}.\]
 On $D$, the determinant is $a^2u^2+b^2v^2\ge 0$. If it is nonzero at a point, then $u_x=v_x=0$ there; by analyticity, $u_x\equiv v_x\equiv 0$ on the component, hence $u_y=v_y\equiv 0$ and $f$ is constant. If it vanishes at a point, then $u=v=0$ there; by the identity principle for holomorphic functions, $f\equiv 0$ in a neighborhood. In all cases $f$ is constant on $D$.
+
+\section{Solving and Proving Techniques}
+
+\subsection*{Proving Limits Exist}
+\begin{itemize}
+\item Use the definition of limit with $\varepsilon$-$\delta$ arguments
+\item Apply the squeeze theorem when bounding functions
+\item Use continuity of known functions (polynomials, exponentials, etc.)
+\item Apply L'Hôpital's rule for indeterminate forms
+\item Use Taylor series expansions for complex functions
+\item Apply the Cauchy criterion for sequences
+\end{itemize}
+
+\subsection*{Proving Differentiability}
+\begin{itemize}
+\item Use the definition of derivative and show the limit exists
+\item Apply known differentiation rules (sum, product, quotient, chain)
+\item Use the fact that differentiability implies continuity
+\item Apply the Mean Value Theorem to relate difference quotients
+\item Use component-wise differentiation for vector-valued functions
+\item Apply the Cauchy-Riemann equations for complex functions
+\end{itemize}
+
+\subsection*{Using the Mean Value Theorem}
+\begin{itemize}
+\item Express difference quotients in terms of derivatives at intermediate points
+\item Prove existence of points where derivatives take specific values
+\item Establish bounds on function values using derivative bounds
+\item Prove monotonicity by analyzing derivative signs
+\item Show convergence of sequences using derivative bounds
+\item Prove fixed point theorems using contraction properties
+\end{itemize}
+
+\subsection*{Proving Existence of Points}
+\begin{itemize}
+\item Apply Rolle's Theorem when function values are equal at endpoints
+\item Use the Intermediate Value Theorem for continuous functions
+\item Apply the Mean Value Theorem to find intermediate points
+\item Use the Extreme Value Theorem on closed, bounded intervals
+\item Apply the Bolzano-Weierstrass theorem for sequences
+\item Use the contraction mapping theorem for fixed points
+\end{itemize}
+
+\subsection*{Working with Derivatives}
+\begin{itemize}
+\item Use logarithmic differentiation for products and quotients
+\item Apply Leibniz's formula for higher derivatives of products
+\item Use mathematical induction for derivative formulas
+\item Apply the chain rule for composite functions
+\item Use the product rule for dot products of vector functions
+\item Apply the quotient rule and simplify using algebra
+\end{itemize}
+
+\subsection*{Proving Inequalities}
+\begin{itemize}
+\item Use the Mean Value Theorem to bound differences
+\item Apply the triangle inequality for vector functions
+\item Use the fact that derivatives bound function growth
+\item Apply the Cauchy-Schwarz inequality when appropriate
+\item Use the fact that increasing functions preserve inequalities
+\item Apply the squeeze theorem for limit comparisons
+\end{itemize}
+
+\subsection*{Working with Complex Functions}
+\begin{itemize}
+\item Separate real and imaginary parts using standard expansions
+\item Apply the Cauchy-Riemann equations to check differentiability
+\item Use the fact that complex conjugation is continuous and linear
+\item Apply the identity principle for holomorphic functions
+\item Use the fact that constant norm implies orthogonality with derivative
+\item Apply standard complex differentiation rules
+\end{itemize}
+
+\subsection*{Proving Uniqueness}
+\begin{itemize}
+\item Use the fact that differentiable functions are continuous
+\item Apply the identity principle for holomorphic functions
+\item Use the fact that constant functions have zero derivatives
+\item Apply the contraction mapping theorem for fixed points
+\item Use the fact that linear independence implies non-zero Wronskian
+\item Apply the fact that analytic functions are determined by their values on sets with limit points
+\end{itemize}
+
+\subsection*{Using Proof by Contradiction}
+\begin{itemize}
+\item Assume the opposite of what you want to prove
+\item Use the Mean Value Theorem to derive contradictions
+\item Apply the fact that limits must be unique
+\item Use the fact that continuous functions preserve connectedness
+\item Apply the fact that differentiable functions are continuous
+\item Use the fact that bounded sequences have convergent subsequences
+\end{itemize}
+
+\subsection*{Working with Sequences and Series}
+\begin{itemize}
+\item Use the Cauchy criterion to prove convergence
+\item Apply the Mean Value Theorem to bound sequence differences
+\item Use the fact that bounded monotone sequences converge
+\item Apply the squeeze theorem for sequence limits
+\item Use the fact that convergent sequences are bounded
+\item Apply the fact that subsequences of convergent sequences converge to the same limit
+\end{itemize}
+
+\subsection*{Proving Continuity}
+\begin{itemize}
+\item Use the definition of continuity with $\varepsilon$-$\delta$ arguments
+\item Apply the fact that differentiable functions are continuous
+\item Use the fact that sums, products, and compositions of continuous functions are continuous
+\item Apply the fact that uniform limits of continuous functions are continuous
+\item Use the fact that inverse functions of strictly monotone continuous functions are continuous
+\item Apply the fact that vector-valued functions are continuous if and only if each component is continuous
+\end{itemize}
 

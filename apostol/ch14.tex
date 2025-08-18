@@ -298,3 +298,59 @@ Integrating in $x\in[0,a]$ gives
  &= f(0,0)-f(a,0) + \int_0^a D_1 f\big(x, b(1-\tfrac{x}{a})\big)\,dx. 
 \end{align*}
 By the one-dimensional Mean Value Theorem, there exists $\xi\in(0,a)$ such that the last integral equals $a\,D_1 f\big(\xi, b(1-\tfrac{\xi}{a})\big)$. This point lies on the segment joining $(a,0)$ and $(0,b)$, completing the proof.\qed
+
+\section{Solving and Proving Techniques}
+
+\subsection*{Working with Multiple Integrals}
+\begin{itemize}
+\item Use the product formula for separable integrands: $\int_S f_1(x_1) \cdots f_n(x_n) \, d(x_1, \ldots, x_n) = \prod_{i=1}^n \int_{a_i}^{b_i} f_i(x_i) \, dx_i$
+\item Apply Fubini's theorem to change the order of integration
+\item Use the fact that functions monotone in each variable separately are Riemann integrable
+\item Apply the fact that continuous functions are Riemann integrable on compact rectangles
+\item Use the fact that iterated integrals agree with multiple integrals for continuous functions
+\end{itemize}
+
+\subsection*{Proving Riemann Integrability}
+\begin{itemize}
+\item Use the integrability criterion via vanishing total oscillation
+\item Show that the function is continuous almost everywhere
+\item Apply the fact that bounded functions with content-zero discontinuities are integrable
+\item Use the fact that monotone functions in each variable are integrable
+\item Apply the fact that continuous functions on compact sets are integrable
+\end{itemize}
+
+\subsection*{Evaluating Multiple Integrals}
+\begin{itemize}
+\item Use the product formula when the integrand factors as a product of functions of single variables
+\item Apply change of variables using the Jacobian determinant
+\item Use symmetry to simplify calculations
+\item Apply geometric decompositions to break complex regions into simpler ones
+\item Use polar, cylindrical, or spherical coordinates when appropriate
+\end{itemize}
+
+\subsection*{Working with Jordan Content}
+\begin{itemize}
+\item Use the fact that graphs of continuous functions have content zero
+\item Apply the fact that rectifiable curves have content zero
+\item Use the fact that content-zero sets don't affect integrals
+\item Apply Cavalieri's principle: content equals integral of section lengths
+\item Use the fact that content is additive for disjoint sets
+\end{itemize}
+
+\subsection*{Applying the Mean Value Theorem}
+\begin{itemize}
+\item Use the fact that continuous functions attain their average value at some point
+\item Apply the fact that the average value lies between the minimum and maximum
+\item Use the fact that the Mean Value Theorem can be applied along paths in connected regions
+\item Apply the fact that the Mean Value Theorem can be used to bound integrals
+\item Use the fact that the Mean Value Theorem can be used to find points where functions attain specific values
+\end{itemize}
+
+\subsection*{Working with Mixed Partial Derivatives}
+\begin{itemize}
+\item Use the fact that mixed partials are equal under continuity (Clairaut's theorem)
+\item Apply the Fundamental Theorem of Calculus to differentiate integrals
+\item Use the fact that the order of differentiation can be interchanged under continuity
+\item Apply the fact that mixed partials can be computed by iterated integration
+\item Use the fact that mixed partials can be used to solve differential equations
+\end{itemize}

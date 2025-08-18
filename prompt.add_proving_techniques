@@ -1,0 +1,2 @@
+In the end of the chapter, add a section that summarize the solving/proving techniques used in the chapter. For example, to prove a limit exists, we do such and such. It should be organized with \subsection*{}. The subsection name should be simple, like "Proving Limits Exist", no need to add "Techniques for", etc.  Use itemize to list the techniques. Use enumerate for steps of a process.
+Do not add extra comments unless the comments would help readers on solving problems.

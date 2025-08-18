@@ -1,4 +1,3 @@
-
 \chapter{Cauchy's Theorem and the Residue Calculus}
 \section{Complex Integration; Cauchy's Integral Formulas}
 
@@ -51,6 +50,7 @@ Therefore
 and hence
 \[I=\int_0^{\infty}\frac{x^{2m}}{1+x^{2n}}\,dx=\frac{\pi}{2n}\,\csc\!\Big(\frac{(2m+1)\pi}{2n}\Big)=\frac{\pi}{2n}\,\Big/\,\sin\!\Big(\frac{(2m+1)\pi}{2n}\Big).\]
 \end{enumerate}
+
 
 \bigskip\noindent\textbf{Solution:}
 Let $y:[a,b]\to\mathbb C$ be piecewise $C^1$ with $A=y(a)$ and $B=y(b)$. On each subinterval of differentiability, by the chain rule, $\frac{d}{dt}\,g(y(t))=g'(y(t))\,y'(t)=f(y(t))\,y'(t)$. Hence
@@ -315,7 +315,7 @@ Hint. Let \( m = \inf \{ |f(z)| - |g(z)| : z \in \Gamma \} \). Then \( m > 0 \) 
 for each \( t \) in \( [0, 1] \) and each \( z \) on \( \Gamma \). Now let
 \[ \phi(t) = \frac{1}{2\pi i} \int_{y} \frac{f'(z) + t g'(z)}{f(z) + t g(z)} dz, \quad \text{if } 0 \leq t \leq 1. \]
 Then \( \phi \) is continuous, and hence constant, on \( [0, 1] \). Thus, \( \phi(0) = \phi(1) \).
-\item Use (a) to prove that \( f \) and \( f + g \) have the same number of zeros inside \(\Gamma\) (Rouché's theorem).
+\item Use (a) to prove that \( f \) and \( f + g \) have the same number of zeros inside\(\Gamma\) (Rouché's theorem).
 \end{enumerate}
 \end{problembox}
 
@@ -348,7 +348,7 @@ Let \( f \) be analytic on the closure of the disk \( B(0; 1) \) and suppose \( 
 Zeros of $h(z)=f(z)-z$ in $B(0;1)$. On $|z|=1$, $|f(z)|<1=|z|$, so by Rouché, $h$ and $-z$ have the same number of zeros counted with multiplicity, namely one. Thus exactly one fixed point.\qed
 
 
-\begin{problembox}[16.17: Nonzero Partial Sums]
+\begin{problembox}[16.17: Exponential Series Zeros]
 Let \( p_n(z) \) denote the \( n \)th partial sum of the Taylor expansion \( e^z = \sum_{k=0}^{\infty} \frac{z^k}{k!} \). Using Rouché's theorem (or otherwise), prove that for every \( r > 0 \) there exists an \( N \) (depending on \( r \)) such that \( n \geq N \) implies \( p_n(z) \neq 0 \) for every \( z \in B(0; r) \).
 \end{problembox}
 
@@ -358,7 +358,7 @@ Let \( p_n(z) \) denote the \( n \)th partial sum of the Taylor expansion \( e^z
 Fix $r>0$. For $n$ large, on $|z|=r$, $\big|\sum_{k\ge n+1} \frac{z^k}{k!}\big|<\big|\sum_{k=0}^{n} \frac{z^k}{k!}\big|$ (ratio test and tail bound). By Rouché, $p_n$ has no zeros inside $|z|=r$. Choose $N$ accordingly.\qed
 
 
-\begin{problembox}[16.18: Zeros of Exponential Polynomial]
+\begin{problembox}[16.18: Exponential vs Power Battle]
 If \( a > e \), find the number of zeros of the function \( f(z) = e^z - a z^n \) which lie inside the circle \( |z| = 1 \).
 \end{problembox}
 
@@ -368,7 +368,7 @@ If \( a > e \), find the number of zeros of the function \( f(z) = e^z - a z^n \
 On $|z|=1$, compare $e^z$ with $a z^n$; since $|e^z|\le e< a$, by Rouché, $f(z)=e^z-az^n$ has the same number of zeros as $-az^n$, i.e., $n$ zeros inside $|z|=1$.\qed
 
 
-\begin{problembox}[16.19: Function with Specific Singularities]
+\begin{problembox}[16.19: The Perfect Function Puzzle]
 Give an example of a function which has all the following properties, or else explain why there is no such function: \( f \) is analytic everywhere in \( \mathbb{C} \) except for a pole of order 2 at 0 and simple poles at \( i \) and \( -i \); \( f(z) = f(-z) \) for all \( z \); \( f(1) = 1 \); the function \( g(z) = f(1/z) \) has a zero of order 2 at \( z = 0 \); and \( \text{Res}_{z=i} f(z) = 2i \).
 \end{problembox}
 
@@ -380,7 +380,7 @@ Consider $f(z)=\frac{A}{z^2}+\frac{B}{z-i}+\frac{B}{z+i}$ with evenness forcing 
 \]\qed
 
 
-\begin{problembox}[16.20: Laurent Expansions]
+\begin{problembox}[16.20: Laurent Series Adventures]
 Show that each of the following Laurent expansions is valid in the region indicated:
 \begin{enumerate}[label=(\alph*)]
 \item \[ \frac{1}{(z - 1)(2 - z)} = \sum_{n=0}^{\infty} \frac{z^n}{2^{n+1}} + \sum_{n=1}^{\infty} \frac{1}{z^n}, \quad \text{if } 1 < |z| < 2. \]
@@ -397,7 +397,7 @@ Show that each of the following Laurent expansions is valid in the region indica
 \end{enumerate}\qed
 
 
-\begin{problembox}[16.21: Bessel Function Coefficients]
+\begin{problembox}[16.21: Bessel Functions Unveiled]
 For each fixed \( t \in \mathbb{C} \), define \( J_n(t) \) to be the coefficient of \( z^n \) in the Laurent expansion
 \[ e^{(z - 1/z)t/2} = \sum_{n=-\infty}^{\infty} J_n(t) z^n. \]
 Show that for \( n \geq 0 \) we have
@@ -416,7 +416,7 @@ On $|z|=1$, set $z=e^{i\theta}$; then
 Take real parts and use Fourier coefficient extraction to get $J_n(t)=\frac{1}{2\pi}\int_0^{2\pi}\cos(t\sin\theta-n\theta)\,d\theta$ and $J_{-n}=(-1)^nJ_n$. Expanding $e^{i t\sin\theta}$ in power series and matching $e^{in\theta}$ yields the power series formula.\qed
 
 
-\begin{problembox}[16.22: Riemann's Theorem]
+\begin{problembox}[16.22: Riemann's Removable Singularity Magic]
 Prove Riemann's theorem: If \( z_0 \) is an isolated singularity of \( f \) and if \( f \) is bounded on some deleted neighborhood \( B'(z_0) \), then \( z_0 \) is a removable singularity. Hint. Estimate the integrals for the coefficients \( a_n \) in the Laurent expansion of \( f \) and show that \( a_n = 0 \) for each \( n < 0 \).
 \end{problembox}
 
@@ -426,7 +426,7 @@ Prove Riemann's theorem: If \( z_0 \) is an isolated singularity of \( f \) and 
 Write the Laurent series at $z_0$, $f(z)=\sum_{k=-\infty}^{\infty} a_k(z-z_0)^k$ on an annulus. Cauchy estimates on small circles imply $|a_{-m}|\le C r^{m-1}\max_{|z-z_0|=r}|f(z)|$, which tends to $0$ as $r\to0$ due to boundedness; hence all $a_{k}=0$ for $k<0$ and the singularity is removable.\qed
 
 
-\begin{problembox}[16.23: Casorati-Weierstrass Theorem]
+\begin{problembox}[16.23: Casorati-Weierstrass: The Wild Behavior]
 Prove the Casorati-Weierstrass theorem: Assume that \( z_0 \) is an essential singularity of \( f \) and let \( c \) be an arbitrary complex number. Then, for every \( \epsilon > 0 \) and every disk \( B(z_0) \), there exists a point \( z \) in \( B(z_0) \) such that \( |f(z) - c| < \epsilon \). Hint. Assume that the theorem is false and arrive at a contradiction by applying Exercise 16.22 to \( g \), where \( g(z) = 1/[f(z) - c] \).
 \end{problembox}
 
@@ -436,7 +436,7 @@ Prove the Casorati-Weierstrass theorem: Assume that \( z_0 \) is an essential si
 Assume there exist $\epsilon>0$ and a neighborhood with $|f(z)-c|\ge\epsilon$. Then $g(z)=\frac{1}{f(z)-c}$ is bounded near $z_0$ and analytic on the punctured disk; by 16.22 $g$ has a removable singularity at $z_0$, so $f$ would be bounded near $z_0$, contradicting essentiality.\qed
 
 
-\begin{problembox}[16.24: Singularities at Infinity]
+\begin{problembox}[16.24: Infinity: The Final Frontier]
 The point at infinity. A function \( f \) is said to be analytic at \( \infty \) if the function \( g \) defined by the equation \( g(z) = f(1/z) \) is analytic at the origin. Similarly, we say that \( f \) has a zero, a pole, a removable singularity, or an essential singularity at \( \infty \) if \( g \) has a zero, a pole, etc., at 0. Liouville's theorem states that a function which is analytic everywhere in \( \mathbb{C}^* \) must be a constant. Prove that
 \begin{enumerate}[label=(\alph*)]
 \item \( f \) is a polynomial if, and only if, the only singularity of \( f \) in \( \mathbb{C}^* \) is a pole at \( \infty \), in which case the order of the pole is equal to the degree of the polynomial.
@@ -453,7 +453,7 @@ The point at infinity. A function \( f \) is said to be analytic at \( \infty \)
 \end{enumerate}\qed
 
 
-\begin{problembox}[16.25: Residue Shortcuts]
+\begin{problembox}[16.25: Residue Calculation Tricks]
 Derive the following "short cuts" for computing residues:
 \begin{enumerate}[label=(\alph*)]
 \item If \( a \) is a first order pole for \( f \), then
@@ -474,7 +474,7 @@ where \( g(z) = (z - a)^2 f(z) \).
 Write the Laurent expansion of $f$ at $a$. For a simple pole, $(z-a)f(z)\to\operatorname{Res}_a f$. For a double pole, $g(z)=(z-a)^2 f(z)$ is analytic and $\operatorname{Res}_a f=g'(a)$. For (c) and (d), write $\frac{f}{g}=\frac{f}{(z-a)^m h}$ with $h(a)\ne0$ and use Taylor expansions; the stated formulas follow by differentiating and evaluating at $a$.\qed
 
 
-\begin{problembox}[16.26: Compute Residues]
+\begin{problembox}[16.26: Residue Detective Work]
 Compute the residues at the poles of \( f \) if
 \begin{enumerate}[label=(\alph*)]
 \item \( f(z) = \frac{ze^z}{z^2 - 1} \).
@@ -497,7 +497,7 @@ Compute the residues at the poles of \( f \) if
 \end{enumerate}\qed
 
 
-\begin{problembox}[16.27: Residue Integrals]
+\begin{problembox}[16.27: Circle Integration Challenge]
 If \( y(a; r) \) denotes the positively oriented circle with center at \( a \) and radius \( r \), show that
 \begin{enumerate}[label=(\alph*)]
 \item \[ \int_{y(0;4)} \frac{3z - 1}{(z + 1)(z - 3)} dz = 6\pi i. \]
@@ -519,7 +519,7 @@ Each integral equals $2\pi i$ times the sum of residues of poles inside the indi
 \end{enumerate}\qed
 
 
-\begin{problembox}[16.28: Residue Integral]
+\begin{problembox}[16.28: Trigonometric Integral Magic]
 Evaluate the integral by means of residues:
 \[ \int_0^{2\pi} \frac{dt}{(a + b \cos t)^2} = \frac{2\pi a}{(a^2 - b^2)^{3/2}}, \quad \text{if } 0 < b < a. \]
 \end{problembox}
@@ -530,7 +530,7 @@ Evaluate the integral by means of residues:
 With $z=e^{it}$, use $\cos t=\tfrac12(z+z^{-1})$ to convert to a contour integral on $|z|=1$ and evaluate via residues at the two simple poles inside. The computation gives $\int_0^{2\pi}\frac{dt}{(a+b\cos t)^2}=\frac{2\pi a}{(a^2-b^2)^{3/2}}$ for $0<b<a$.\qed
 
 
-\begin{problembox}[16.29: Residue Integral]
+\begin{problembox}[16.29: Cosine Double Angle Adventure]
 Evaluate the integral by means of residues:
 \[ \int_0^{2\pi} \frac{\cos 2t}{1 - 2a \cos t + a^2} dt = \frac{2\pi a^2}{1 - a^2}, \quad \text{if } a^2 < 1. \]
 \end{problembox}
@@ -541,7 +541,7 @@ Evaluate the integral by means of residues:
 Proceed as in 16.28; after converting to $|z|=1$, the two poles are at $z=a\pm\sqrt{a^2-1}$; residue algebra yields $\frac{2\pi a^2}{1-a^2}$ for $a^2<1$.\qed
 
 
-\begin{problembox}[16.30: Residue Integral]
+\begin{problembox}[16.30: Triple Cosine Challenge]
 Evaluate the integral by means of residues:
 \[ \int_0^{2\pi} \frac{1 + \cos 3t}{1 - 2a \cos t + a^2} dt = \frac{\pi (a^3 + a)}{1 - a^2}, \quad \text{if } 0 < a < 1. \]
 \end{problembox}
@@ -552,7 +552,7 @@ Evaluate the integral by means of residues:
 Split the numerator and use 16.29 with linear combinations of $\cos kt$; residue evaluation yields the stated value $\frac{\pi(a^3+a)}{1-a^2}$ for $0<a<1$.\qed
 
 
-\begin{problembox}[16.31: Residue Integral]
+\begin{problembox}[16.31: Sine Squared Surprise]
 Evaluate the integral by means of residues:
 \[ \int_0^{2\pi} \frac{\sin^2 t}{a + b \cos t} dt = \frac{2\pi (a - \sqrt{a^2 - b^2})}{b^2}, \quad \text{if } 0 < b < a. \]
 \end{problembox}
@@ -563,7 +563,7 @@ Evaluate the integral by means of residues:
 Write $\sin^2 t=\tfrac{1}{2}(1-\cos 2t)$ and reduce to integrals of the form in 16.28–16.30; algebra gives $\frac{2\pi(a-\sqrt{a^2-b^2})}{b^2}$ for $0<b<a$.\qed
 
 
-\begin{problembox}[16.32: Residue Integral]
+\begin{problembox}[16.32: Real Line Integration Quest]
 Evaluate the integral by means of residues:
 \[ \int_{-\infty}^{\infty} \frac{1}{x^2 + x + 1} dx = \frac{2\pi \sqrt{3}}{3}. \]
 \end{problembox}
@@ -574,7 +574,7 @@ Evaluate the integral by means of residues:
 Complete the square $x^2+x+1=(x+\tfrac12)^2+\tfrac34$ and integrate over the real line via residues at the upper-half-plane pole; the value is $\frac{2\pi}{\sqrt{3}}=\frac{2\pi\sqrt{3}}{3}$.\qed
 
 
-\begin{problembox}[16.33: Residue Integral]
+\begin{problembox}[16.33: Power of Six Exploration]
 Evaluate the integral by means of residues:
 \[ \int_{-\infty}^{\infty} \frac{x^6}{(1 + x^4)^2} dx = \frac{3\pi}{16}. \]
 \end{problembox}
@@ -585,7 +585,7 @@ Evaluate the integral by means of residues:
 Close in the upper half-plane; the double poles at $e^{i\pi/4}$ and $e^{3i\pi/4}$ contribute. Computing residues of order two yields $\frac{3\pi}{16}$.\qed
 
 
-\begin{problembox}[16.34: Residue Integral]
+\begin{problembox}[16.34: Mixed Powers Mystery]
 Evaluate the integral by means of residues:
 \[ \int_0^{\infty} \frac{x^2}{(x^2 + 4)^2 (x^2 + 9)} dx = \frac{\pi}{200}. \]
 \end{problembox}
@@ -596,7 +596,7 @@ Evaluate the integral by means of residues:
 Even integrand; extend to the real line and use residues at the imaginary-axis poles $\pm2i$, $\pm3i$ in the upper half-plane. Partial fraction decomposition leads to the stated value $\frac{\pi}{200}$.\qed
 
 
-\begin{problembox}[16.35: Residue Integrals]
+\begin{problembox}[16.35: Sector Contour Adventures]
 Evaluate the integrals by means of residues:
 \begin{enumerate}[label=(\alph*)]
 \item \[ \int_0^{\infty} \frac{x}{1 + x^5} dx = \frac{\pi}{5} / \sin \frac{2\pi}{5}. \]
@@ -607,6 +607,7 @@ where \( m, n \) are integers, \( 0 < m < n \).
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use a sector contour with angle \( 2\pi/n \) to exploit the symmetry of the roots of unity, then apply the residue theorem and use the geometric sum formula for roots of unity.
+
 
 \begin{problembox}[16.36: Residue Formula for Rational Functions]
 Prove that formula (38) holds if \( f \) is the quotient of two polynomials, say \( f = P/Q \), where the degree of \( Q \) exceeds that of \( P \) by 2 or more.
@@ -907,3 +908,114 @@ Prove Morera's theorem: If \( f \) is continuous on an open region \( S \) in \(
 
 \bigskip\noindent\textbf{Solution:}
 Assuming $\int_y f=0$ for every polygonal circuit in $S$, define for any $z_0\in S$ and $z\in S$ a function $F(z)=\int_{\gamma} f$, where $\gamma$ is any polygonal path from $z_0$ to $z$. Path-independence follows from the hypothesis, so $F$ is well-defined and continuous. On small triangles, $\int f=0$ implies $F$ is complex differentiable with $F'=f$. Hence $f$ is analytic.
+
+
+\section{Solving and Proving Techniques}
+
+\subsection*{Working with Complex Path Integrals}
+\begin{itemize}
+\item Use the fundamental theorem: if $g' = f$ on a neighborhood of the path, then $\int_\gamma f = g(B) - g(A)$
+\item Apply the fact that integrals over closed paths (circuits) are zero when the integrand has an antiderivative
+\item Use the fact that path integrals are linear and additive over path concatenation
+\item Apply the fact that path integrals are invariant under reparametrization
+\item Use the fact that path integrals can be computed by parametrizing the path
+\end{itemize}
+
+\subsection*{Applying Cauchy's Integral Formulas}
+\begin{itemize}
+\item Use Cauchy's integral formula: $f(a) = \frac{1}{2\pi i} \int_{|z-a|=r} \frac{f(z)}{z-a} \, dz$
+\item Apply the higher derivative formula: $f^{(n)}(a) = \frac{n!}{2\pi i} \int_{|z-a|=r} \frac{f(z)}{(z-a)^{n+1}} \, dz$
+\item Use the fact that these formulas hold for any simple closed contour containing $a$
+\item Apply the fact that the formulas can be used to compute derivatives of analytic functions
+\item Use the fact that the formulas can be used to prove properties of analytic functions
+\end{itemize}
+
+\subsection*{Working with Residues}
+\begin{itemize}
+\item Use the residue theorem: $\int_\gamma f = 2\pi i \sum \text{Res}(f; a_k)$ where the sum is over poles inside $\gamma$
+\item Apply the fact that residues can be computed using Laurent series expansions
+\item Use the fact that simple poles have residue $\lim_{z \to a} (z-a)f(z)$
+\item Apply the fact that poles of order $n$ have residue $\frac{1}{(n-1)!} \lim_{z \to a} \frac{d^{n-1}}{dz^{n-1}}[(z-a)^n f(z)]$
+\item Use the fact that residues can be used to evaluate real integrals
+\end{itemize}
+
+\subsection*{Evaluating Real Integrals}
+\begin{itemize}
+\item Use contour integration by closing the real line with semicircles or other contours
+\item Apply the fact that even functions can be extended to the real line
+\item Use the fact that trigonometric integrals can be converted to contour integrals using $z = e^{it}$
+\item Apply the fact that rational functions can be integrated using residues at poles
+\item Use the fact that sector contours can be used for functions with specific symmetries
+\end{itemize}
+
+\subsection*{Working with Trigonometric Integrals}
+\begin{itemize}
+\item Use the substitution $z = e^{it}$ to convert to contour integrals on the unit circle
+\item Apply the fact that $\cos t = \frac{1}{2}(z + z^{-1})$ and $\sin t = \frac{1}{2i}(z - z^{-1})$
+\item Use the fact that $\cos nt = \frac{1}{2}(z^n + z^{-n})$ and $\sin nt = \frac{1}{2i}(z^n - z^{-n})$
+\item Apply the fact that trigonometric identities can be used to simplify integrands
+\item Use the fact that residues can be computed for the resulting rational functions
+\end{itemize}
+
+\subsection*{Applying Liouville's Theorem}
+\begin{itemize}
+\item Use Liouville's theorem: bounded entire functions are constant
+\item Apply the fact that polynomial growth can be used to bound derivatives
+\item Use Cauchy estimates: $|f^{(n)}(a)| \leq \frac{n! M}{R^n}$ where $|f(z)| \leq M$ on $|z-a| = R$
+\item Apply the fact that these estimates can be used to prove functions are polynomials
+\item Use the fact that these estimates can be used to prove functions are constant
+\end{itemize}
+
+\subsection*{Using Rouché's Theorem}
+\begin{itemize}
+\item Apply Rouché's theorem: if $|g(z)| < |f(z)|$ on a contour, then $f$ and $f+g$ have the same number of zeros inside
+\item Use the fact that this can be used to count zeros of polynomials
+\item Apply the fact that this can be used to prove existence of fixed points
+\item Use the fact that this can be used to show functions have no zeros in certain regions
+\item Apply the fact that this can be used to compare zeros of different functions
+\end{itemize}
+
+\subsection*{Working with Laurent Series}
+\begin{itemize}
+\item Use Laurent series to represent functions on annuli around singularities
+\item Apply the fact that coefficients can be computed using contour integrals
+\item Use the fact that the principal part determines the type of singularity
+\item Apply the fact that Laurent series can be used to compute residues
+\item Use the fact that Laurent series can be used to classify singularities
+\end{itemize}
+
+\subsection*{Classifying Singularities}
+\begin{itemize}
+\item Use Riemann's theorem: bounded functions have removable singularities
+\item Apply the fact that poles have finite principal parts in Laurent series
+\item Use the fact that essential singularities have infinite principal parts
+\item Apply Casorati-Weierstrass: essential singularities approach every value
+\item Use the fact that singularities at infinity can be analyzed via $f(1/z)$
+\end{itemize}
+
+\subsection*{Working with Taylor Series}
+\begin{itemize}
+\item Use Taylor series to represent analytic functions on disks
+\item Apply the fact that radius of convergence is distance to nearest singularity
+\item Use the fact that Taylor series can be differentiated term by term
+\item Apply the fact that Taylor series can be used to compute derivatives
+\item Use the fact that Taylor series can be used to prove analyticity
+\end{itemize}
+
+\subsection*{Applying Maximum Modulus Principle}
+\begin{itemize}
+\item Use the maximum modulus principle: maximum occurs on boundary
+\item Apply the fact that local maxima force functions to be constant
+\item Use the fact that this can be used to prove inequalities
+\item Apply the fact that this can be used to prove uniqueness results
+\item Use the fact that this can be used to prove Schwarz's lemma
+\end{itemize}
+
+\subsection*{Working with Harmonic Functions}
+\begin{itemize}
+\item Use Poisson's integral formula for harmonic functions on disks
+\item Apply the fact that harmonic functions satisfy the mean value property
+\item Use the fact that harmonic functions satisfy the maximum principle
+\item Apply the fact that real parts of analytic functions are harmonic
+\item Use the fact that harmonic functions can be represented by integrals
+\end{itemize}

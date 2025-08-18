@@ -782,3 +782,54 @@ so $T(S)\subset S$.
 \]
 so $T$ is a contraction. The fixed point gives the unique solution on $(a-c,a+c)$.
 \medskip
+
+\section{Solving and Proving Techniques}
+
+\subsection*{Working with Riemann-Stieltjes Integrals}
+\begin{itemize}
+\item Use the fact that for constant functions, upper and lower Darboux sums equal the telescoping sum of $\alpha$ increments
+\item Apply integration by parts: $\int_a^b f\,d\alpha = f(b)\alpha(b)-f(a)\alpha(a)-\int_a^b \alpha\,df$
+\item Use the relationship between different integral definitions by showing uniform convergence of Riemann sums
+\item Express sums as Stieltjes integrals with respect to step functions, then use integration by parts
+\end{itemize}
+
+\subsection*{Proving Integral Existence}
+\begin{itemize}
+\item Use proof by contradiction: assume the integral doesn't exist and construct a specific function that leads to a contradiction
+\item Apply the integrability criterion via vanishing total oscillation
+\item Use the fact that continuous functions are Riemann integrable
+\item Show that upper and lower integrals agree by making their difference arbitrarily small
+\end{itemize}
+
+\subsection*{Euler's Summation Formula}
+\begin{itemize}
+\item Express sums as Stieltjes integrals with respect to the step function $[x]$
+\item Apply integration by parts to convert to integrals involving derivatives
+\item Use the identity $[x] = x - \frac{1}{2} - \varphi_1(x)$ for higher order terms
+\item Apply the formula to specific functions like $\log x$ to derive approximations
+\end{itemize}
+
+\subsection*{Series Convergence Tests}
+\begin{itemize}
+\item Apply ratio test: $\lim_{n\to\infty} \frac{a_{n+1}}{a_n} < 1$ implies convergence
+\item Use root test: $\lim_{n\to\infty} \sqrt[n]{a_n} < 1$ implies convergence
+\item Apply comparison test with known series like p-series or geometric series
+\item Use limit comparison test: if $\lim_{n\to\infty} \frac{a_n}{b_n} = L > 0$, both series behave the same
+\item Apply integral test for positive decreasing functions
+\end{itemize}
+
+\subsection*{Fixed Point Theorems}
+\begin{itemize}
+\item Use contraction mapping theorem to prove existence and uniqueness of solutions
+\item Show that a function is a contraction by bounding its Lipschitz constant
+\item Apply the theorem to integral equations by defining appropriate operators
+\item Use the theorem for differential equations by converting to integral form
+\end{itemize}
+
+\subsection*{Differential Equations}
+\begin{itemize}
+\item Convert differential equations to integral equations by integration
+\item Use Lipschitz conditions to ensure uniqueness of solutions
+\item Apply fixed point theorems to prove existence of solutions
+\item Use the fact that solutions of integral equations satisfy the original differential equation
+\end{itemize}

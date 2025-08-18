@@ -886,3 +886,84 @@ Therefore, the relations uniquely determine the value of \(f(T)\). That value is
 \[
 \boxed{f(T) = 2}
 \]\qed
+
+\section{Solving and Proving Techniques}
+
+\subsection*{Proving Set Equality}
+\begin{itemize}
+\item Use element-chasing: assume $x \in$ one side and show $x \in$ the other side, then reverse
+\item Use set-theoretic identities and properties of union, intersection, and set difference
+\item Break down complex sets into simpler components using distributive laws
+\item Consider cases when dealing with piecewise definitions or different scenarios
+\end{itemize}
+
+\subsection*{Proving Function Properties}
+\begin{itemize}
+\item For injectivity: assume $f(x_1) = f(x_2)$ and show $x_1 = x_2$
+\item For surjectivity: given any $y$ in codomain, find an $x$ in domain such that $f(x) = y$
+\item For bijectivity: prove both injectivity and surjectivity
+\item Use the definition of function composition: $(g \circ f)(x) = g(f(x))$
+\item For piecewise functions, determine which piece applies based on the input value
+\end{itemize}
+
+\subsection*{Proving Relation Properties}
+\begin{itemize}
+\item For reflexivity: check if $(x,x) \in R$ for all $x$ in the set
+\item For symmetry: check if $(x,y) \in R$ implies $(y,x) \in R$
+\item For transitivity: check if $(x,y), (y,z) \in R$ implies $(x,z) \in R$
+\item Use specific counterexamples to disprove properties
+\item Consider edge cases and special values when testing properties
+\end{itemize}
+
+\subsection*{Proving Countability}
+\begin{itemize}
+\item Show a bijection exists with $\mathbb{N}$ or a known countable set
+\item Use the fact that countable unions of countable sets are countable
+\item Show the set injects into a known countable set
+\item For finite sets, count the elements directly
+\item Use the fact that removing a countable set from an uncountable set leaves an uncountable set
+\end{itemize}
+
+\subsection*{Proving Uncountability}
+\begin{itemize}
+\item Use Cantor's diagonal argument to show no bijection exists with $\mathbb{N}$
+\item Show the set has strictly greater cardinality than a known uncountable set
+\item Use the fact that power sets have strictly greater cardinality than the original set
+\item Construct a contradiction by assuming countability and finding an element not in any enumeration
+\end{itemize}
+
+\subsection*{Working with Additive Functions}
+\begin{itemize}
+\item Use the definition: $f(A \cup B) = f(A) + f(B)$ when $A \cap B = \emptyset$
+\item Decompose sets into disjoint unions to apply additivity
+\item Use inclusion-exclusion principle for overlapping sets
+\item Express complements in terms of the universal set: $f(A') = f(T) - f(A)$
+\item Set up equations using known relationships and solve for unknown values
+\end{itemize}
+
+\subsection*{Proving Equivalence of Conditions}
+\begin{enumerate}
+\item Show each condition implies the next one in the chain
+\item Show the last condition implies the first one (completing the cycle)
+\item Use the fact that if $A \Rightarrow B$ and $B \Rightarrow A$, then $A \iff B$
+\item Use contrapositive when direct implication is difficult
+\item Break complex conditions into simpler logical components
+\end{enumerate}
+
+\subsection*{Constructing Bijections}
+\begin{enumerate}
+\item Identify the domain and codomain clearly
+\item Define the function rule explicitly
+\item Prove injectivity by showing $f(x_1) = f(x_2) \Rightarrow x_1 = x_2$
+\item Prove surjectivity by showing every element in codomain has a preimage
+\item Use piecewise definitions when different rules apply to different parts of the domain
+\end{enumerate}
+
+\subsection*{Working with Images and Preimages}
+\begin{itemize}
+\item Use definitions: $f(A) = \{f(x) : x \in A\}$ and $f^{-1}(Y) = \{x : f(x) \in Y\}$
+\item Remember that $f(A \cap B) \subseteq f(A) \cap f(B)$ with equality only for injective functions
+\item Use the fact that $f(A \cup B) = f(A) \cup f(B)$ always holds
+\item For inverse images, use $f^{-1}(Y_1 \cup Y_2) = f^{-1}(Y_1) \cup f^{-1}(Y_2)$
+\item Remember that $f[f^{-1}(Y)] = Y$ if and only if $f$ is surjective
+\end{itemize}

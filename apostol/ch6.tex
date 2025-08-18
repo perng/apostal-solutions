@@ -269,3 +269,45 @@ If $f,g$ are absolutely continuous on $[a,b]$, then they are bounded. The functi
 so $|f|$ is absolutely continuous. For the product,
 \[|(fg)(b_k)-(fg)(a_k)|\le |f(b_k)|\,|g(b_k)-g(a_k)|+|g(a_k)|\,|f(b_k)-f(a_k)|,\]
 and summing over $k$ shows $fg$ is absolutely continuous. If $|g|\ge m>0$ on $[a,b]$, then $u\mapsto 1/u$ is Lipschitz on $[m,\infty)$, hence $1/g$ is absolutely continuous; therefore $f/g=f\cdot(1/g)$ is absolutely continuous.
+
+\section{Solving and Proving Techniques}
+
+\subsection*{Proving Bounded Variation}
+\begin{itemize}
+\item Show the derivative is integrable to establish absolute continuity, which implies bounded variation
+\item Construct specific partitions using points where the function oscillates to show total variation is infinite
+\item Use Jordan's theorem: every function of bounded variation can be written as the difference of two increasing functions
+\item For polynomials, use the fact that they are continuously differentiable, hence absolutely continuous
+\end{itemize}
+
+\subsection*{Working with Lipschitz Conditions}
+\begin{itemize}
+\item Use subdivision arguments to show that $\alpha > 1$ implies the function is constant
+\item For $\alpha = 1$, show the function is Lipschitz and hence absolutely continuous
+\item Construct Weierstrass-type functions with appropriate scaling for examples
+\item Use step functions which have bounded variation but are discontinuous
+\end{itemize}
+
+\subsection*{Proving Absolute Continuity}
+\begin{itemize}
+\item Use the definition to show uniform continuity, which implies continuity
+\item For bounded variation, use the same $\delta$ from the definition to bound total variation
+\item Apply Lipschitz conditions to bound function differences in terms of interval lengths
+\item Use triangle inequality and linearity properties for operations on absolutely continuous functions
+\end{itemize}
+
+\subsection*{Analyzing Curves and Paths}
+\begin{itemize}
+\item Show that graphs coincide as sets but functions traverse different numbers of times
+\item Use the fact that repeating a path doubles its length
+\item Apply the arc-length function's strictly increasing and continuous properties
+\item Use the fact that functions of bounded variation have rectifiable graphs
+\end{itemize}
+
+\subsection*{Geometric Constructions}
+\begin{itemize}
+\item Trace boundaries of regions between two graphs
+\item Create symmetric regions by averaging upper and lower boundaries
+\item Use triangle inequality for length integrals
+\item Apply symmetrization techniques to preserve geometric properties
+\end{itemize}
