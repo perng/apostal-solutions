@@ -25,6 +25,7 @@
 \tcbuselibrary{breakable}
 \usepackage{tikz}
 \usepackage{wrapfig}
+\usepackage{fancyhdr}
 
 % Avoid widows and orphans in print
 \clubpenalty=10000
@@ -57,6 +58,15 @@
 \newcommand{\Log}{\log}
 \newcommand{\shortsearrow}{\mathrel{\vcenter{\hbox{$\scriptscriptstyle\searrow$}}}}
 \renewcommand{\qed}{\hfill$\blacksquare$}
+
+% Configure headers to remove "CHAPTER" word
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\leftmark}
+\fancyhead[LO]{\rightmark}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{#1}}
 
 \begin{document}
 

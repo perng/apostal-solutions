@@ -1076,8 +1076,9 @@ Let's simplify this step by step. First, note that:
 
 Substituting this back into our expression:
 \begin{align*}
-&\sum_{k=1}^n a_k^2 b_k^2 + \sum_{1 \leq k < j \leq n} (a_k^2 b_j^2 + a_j^2 b_k^2) - \sum_{1 \leq k < j \leq n} a_k^2 b_j^2 + 2 \sum_{1 \leq k < j \leq n} a_k b_j a_j b_k - \sum_{1 \leq k < j \leq n} a_j^2 b_k^2 \\
-&= \sum_{k=1}^n a_k^2 b_k^2 + 2 \sum_{1 \leq k < j \leq n} a_k b_j a_j b_k
+&\sum_{k=1}^n a_k^2 b_k^2 + \sum_{1 \leq k < j \leq n} (a_k^2 b_j^2 + a_j^2 b_k^2) - \sum_{1 \leq k < j \leq n} a_k^2 b_j^2 + 2 \sum_{1 \leq k < j \leq n} a_k b_j a_j b_k  \\
+&- \sum_{1 \leq k < j \leq n} a_j^2 b_k^2 \\
+=& \sum_{k=1}^n a_k^2 b_k^2 + 2 \sum_{1 \leq k < j \leq n} a_k b_j a_j b_k
 \end{align*}
 
 This is exactly the same as our expanded left-hand side! Therefore, Lagrange's identity is proven.
@@ -1210,6 +1211,7 @@ Dividing by 2 and rearranging gives the desired inequality:
 n \sum_{k=1}^n a_k b_k \geq \left( \sum_{k=1}^n a_k \right) \left( \sum_{k=1}^n b_k \right).
 \]\qed
 
+\section{Complex Numbers}
 
 \begin{problembox}[1.27: Express Complex Numbers in $a + bi$ Form]
 Express the following complex numbers in the form \( a + bi \):
@@ -1230,9 +1232,10 @@ Express the following complex numbers in the form \( a + bi \):
 \item[(a)] \( (1 + i)^3 = (1 + i)^2 (1 + i) = (2i)(1 + i) = 2i + 2i^2 = 2i - 2 = -2 + 2i \)
 
 \item[(b)] Rationalize the denominator:
-\[
-\frac{2 + 3i}{3 - 4i} \cdot \frac{3 + 4i}{3 + 4i} = \frac{(2 + 3i)(3 + 4i)}{9 + 16} = \frac{6 + 8i + 9i + 12i^2}{25} = \frac{-6 + 17i}{25} = -\frac{6}{25} + \frac{17}{25}i
-\]
+\begin{align*}
+\frac{2 + 3i}{3 - 4i} \cdot \frac{3 + 4i}{3 + 4i} =& \frac{(2 + 3i)(3 + 4i)}{9 + 16} = \frac{6 + 8i + 9i + 12i^2}{25} \\
+=& \frac{-6 + 17i}{25} = -\frac{6}{25} + \frac{17}{25}i
+\end{align*}
 
 \item[(c)] \( i^5 = i \), since \( i^4 = 1 \), and \( i^{16} = (i^4)^4 = 1 \), so:
 \[
@@ -1325,11 +1328,10 @@ Let \( z = x + iy \) and \( w = u + iv \) be two complex numbers.
 \]
 
 \item \textbf{Conjugate of a product:}
-\[
-\overline{z_1 z_2} = \overline{(x_1 + iy_1)(x_2 + iy_2)} = \overline{(x_1 x_2 - y_1 y_2 + i(x_1 y_2 + x_2 y_1))} \\
-= x_1 x_2 - y_1 y_2 - i(x_1 y_2 + x_2 y_1) = \overline{z_1} \cdot \overline{z_2}.
-\]
-
+\begin{align*}
+\overline{z_1 z_2} =& \overline{(x_1 + iy_1)(x_2 + iy_2)} = \overline{(x_1 x_2 - y_1 y_2 + i(x_1 y_2 + x_2 y_1))} \\
+=& x_1 x_2 - y_1 y_2 - i(x_1 y_2 + x_2 y_1) = \overline{z_1} \cdot \overline{z_2}.
+\end{align*}
 \item \textbf{Modulus squared:}
 \[
 z \cdot \overline{z} = (x + iy)(x - iy) = x^2 + y^2 = |z|^2.
@@ -1682,9 +1684,11 @@ where \( n(z_1, z_2^{-1}) \) adjusts the argument to \( (-\pi, \pi] \).
 
 \bigskip\noindent\textbf{Solution:}
 Since \( \frac{z_1}{z_2} = z_1 z_2^{-1} \), and \( \arg(z_2^{-1}) = -\arg(z_2) \), apply Theorem 1.48:
-\[
-\arg(z_1 z_2^{-1}) = \arg(z_1) + \arg(z_2^{-1}) + 2\pi n(z_1, z_2^{-1}) = \arg(z_1) - \arg(z_2) + 2\pi n(z_1, z_2^{-1}).
-\]\qed
+
+\begin{align*}
+\arg(z_1 z_2^{-1}) =& \arg(z_1) + \arg(z_2^{-1}) + 2\pi n(z_1, z_2^{-1}) \\
+=& \arg(z_1) - \arg(z_2) + 2\pi n(z_1, z_2^{-1}).
+\end{align*}\qed
 
 
 \begin{problembox}[1.39: Logarithm of a Quotient Using Theorem 1.54]
@@ -1700,9 +1704,10 @@ State and prove a theorem analogous to Theorem 1.54, expressing \( \log\left( \f
 \]
 \bigskip\noindent\textbf{Solution:}
 Since \( \frac{z_1}{z_2} = z_1 z_2^{-1} \), apply Theorem 1.54:
-\[
-\log(z_1 z_2^{-1}) = \log z_1 + \log(z_2^{-1}) + 2\pi i n(z_1, z_2^{-1}) = \log z_1 - \log z_2 + 2\pi i n(z_1, z_2^{-1}).
-\]\qed
+\begin{align*}
+\log(z_1 z_2^{-1}) =& \log z_1 + \log(z_2^{-1}) + 2\pi i n(z_1, z_2^{-1}) \\
+=& \log z_1 - \log z_2 + 2\pi i n(z_1, z_2^{-1}).
+\end{align*}\qed
 
 
 \begin{problembox}[1.40: Roots of Unity and Polynomial Identity]

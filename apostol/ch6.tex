@@ -118,22 +118,32 @@ The numbers
 and
 \[n_f(a, b) = \sup \left\{ \sum_{k \in B(P)} |\Delta f_k| : P \in \mathcal{P}[a, b] \right\}\]
 are called, respectively, the positive and negative variations of $f$ on $[a, b]$. For each $x$ in $(a, b]$, let $V(x) = V_f(a, x)$, $p(x) = p_f(a, x)$, $n(x) = n_f(a, x)$, and let $V(a) = p(a) = n(a) = 0$. Show that we have:
-a) $V(x) = p(x) + n(x)$.
-b) $0 \leq p(x) \leq V(x)$ and $0 \leq n(x) \leq V(x)$.
-c) $p$ and $n$ are increasing on $[a, b]$.
-d) $f(x) = f(a) + p(x) - n(x)$. Part (d) gives an alternative proof of Theorem 6.13.
-e) $2p(x) = V(x) + f(x) - f(a)$, $2n(x) = V(x) - f(x) + f(a)$.
-f) Every point of continuity of $f$ is also a point of continuity of $p$ and of $n$.
+\begin{enumerate}[label=\alph*)]
+\item $V(x) = p(x) + n(x)$.
+\item $0 \leq p(x) \leq V(x)$ and $0 \leq n(x) \leq V(x)$.
+\item $p$ and $n$ are increasing on $[a, b]$.
+\item $f(x) = f(a) + p(x) - n(x)$. Part (d) gives an alternative proof of Theorem 6.13.
+\item $2p(x) = V(x) + f(x) - f(a)$, $2n(x) = V(x) - f(x) + f(a)$.
+\item Every point of continuity of $f$ is also a point of continuity of $p$ and of $n$.
+\end{enumerate}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the definition of total variation as a supremum over partitions and separate positive and negative increments. For (d), use the fact that any partition's sum of increments equals the total change in function value. For (e), combine the results from (a) and (d). For (f), use the continuity of the total variation function.
 
 \bigskip\noindent\textbf{Solution:}
-Fix $x\in[a,b]$. For a partition $P$ of $[a,x]$ write $\Delta f_k=f(x_k)-f(x_{k-1})$. Refining $P$ if necessary we may separate positive and negative increments. Taking sups then yields
-\[V(x)=\sup_P\sum_k |\Delta f_k|=\sup_P\Big(\sum_{k\in A(P)}\!\Delta f_k+\sum_{k\in B(P)}\!|\Delta f_k|\Big)=p(x)+n(x),\]
-which gives (a) and (b). Monotonicity of $p,n$ in $x$ gives (c). For (d), observe that for any partition of $[a,x]$,
-\[f(x)-f(a)=\sum_k \Delta f_k=\sum_{k\in A(P)}\!\Delta f_k-\sum_{k\in B(P)}\!|\Delta f_k|\le p(x)-n(x),\]
-and taking sups in the positive and negative parts separately gives equality: $f(x)=f(a)+p(x)-n(x)$. Then (e) follows by adding/subtracting (a) and (d). For (f), if $f$ is continuous at $x_0$, then $V$ is continuous at $x_0$ and (e) implies the continuity of $p$ and $n$ there.\qed
+Let's understand what we're trying to prove. We have a function $f$ of bounded variation, and we want to break it down into its "upward" and "downward" movements.
+
+For any point $x$ in $[a,b]$, we can look at how $f$ changes from $a$ to $x$. The total variation $V(x)$ measures how much $f$ "wiggles" up and down on the interval $[a,x]$. We want to separate this into positive variation $p(x)$ (how much it goes up) and negative variation $n(x)$ (how much it goes down).
+
+(a) and (b): When we look at any partition of $[a,x]$, we can separate the changes into positive ones (where $f$ increases) and negative ones (where $f$ decreases). The total variation is just the sum of all these changes in absolute value, which equals the sum of positive changes plus the sum of negative changes. This gives us $V(x) = p(x) + n(x)$. Since both $p(x)$ and $n(x)$ are sums of positive numbers, they must be between $0$ and $V(x)$.
+
+(c): As we move $x$ further to the right, we're considering longer intervals, so both the positive and negative variations can only increase. This means $p$ and $n$ are increasing functions.
+
+(d): This is the key insight! For any partition of $[a,x]$, the total change in $f$ from $a$ to $x$ is just the sum of all the small changes: $f(x) - f(a) = \sum \Delta f_k$. But this sum equals the sum of positive changes minus the sum of negative changes. When we take the supremum over all partitions, we get $f(x) = f(a) + p(x) - n(x)$. This shows that any function of bounded variation can be written as the difference of two increasing functions.
+
+(e): We can solve for $p(x)$ and $n(x)$ using the equations from (a) and (d). Adding them gives $2p(x) = V(x) + f(x) - f(a)$, and subtracting gives $2n(x) = V(x) - f(x) + f(a)$.
+
+(f): If $f$ is continuous at a point, then the total variation $V$ is also continuous there. Since $p$ and $n$ are expressed in terms of $V$ and $f$ (from part (e)), they must also be continuous at that point.\qed
 \section{Curves}
 
 
@@ -143,6 +153,7 @@ Let $f$ and $g$ be complex-valued functions defined as follows:
 \[f(t) = e^{2\pi it} \quad \text{if } t \in [0, 1], \quad g(t) = e^{2\pi it} \quad \text{if } t \in [0, 2].\]
 
 a) Prove that $f$ and $g$ have the same graph but are not equivalent according to the definition in Section 6.12.
+
 b) Prove that the length of $g$ is twice that of $f$.
 \end{problembox}
 
@@ -201,10 +212,13 @@ f) Show that the length of $\Gamma_0$ does not exceed the length of $\Gamma$.
 \,(e) Immediate from the definition of $S_0$ since $y\mapsto -y$ preserves the set.
 
 \,(f) Parameterizing by $x\in[a,b]$, the lengths are
-\[L(\Gamma)=\int_a^b\!\sqrt{1+f'(x)^2}\,dx+\int_a^b\!\sqrt{1+g'(x)^2}\,dx,\quad L(\Gamma_0)=2\int_a^b\!\sqrt{1+\Big(\tfrac{g'(x)-f'(x)}{2}\Big)^{\!2}}\,dx,
-\]
+\begin{align*}
+L(\Gamma)=&\int_a^b\!\sqrt{1+f'(x)^2}\,dx+\int_a^b\!\sqrt{1+g'(x)^2}\,dx,\\
+L(\Gamma_0)=&2\int_a^b\!\sqrt{1+\Big(\tfrac{g'(x)-f'(x)}{2}\Big)^{\!2}}\,dx,
+\end{align*}
 with $f',g'$ understood a.e. Using the inequality
 \[\sqrt{1+u^2}+\sqrt{1+v^2}\;\ge\;2\sqrt{1+\Big(\tfrac{u-v}{2}\Big)^{\!2}}\qquad(u,v\in\mathbb{R}),\]
+
 and integrating yields $L(\Gamma)\ge L(\Gamma_0)$.\qed
 \section{Absolute continuous functions}
 A real-valued function $f$ defined on an interval $[a,b]$ is said to be absolutely continuous on $[a,b]$ if for every $\varepsilon > 0$ there is a $\delta > 0$ such that

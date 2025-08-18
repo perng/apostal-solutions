@@ -16,6 +16,7 @@ exist in \(\overline{\mathbb{R}}\).
 
 
 \begin{problembox}[8.1: Supremum and Infimum Limits]
+
 \begin{enumerate}[label=\alph*)]
 \item Given a real-valued sequence \(\{a_n\}\) bounded above, let \(u_n = \sup \{a_k : k \geq n\}\). Then \(u_n \shortsearrow\) and hence \(U = \lim_{n \to \infty} u_n\) is either finite or \(-\infty\). Prove that
 \[U = \limsup_{n \to \infty} a_n = \lim_{n \to \infty} (\sup \{a_k : k \geq n\}).\]
@@ -25,6 +26,9 @@ exist in \(\overline{\mathbb{R}}\).
 \item Also assume \( U \) and \( V \) are finite, if \( U = V \), every subsequence of \(\{a_n\}\) converges to \( U \).
 \end{enumerate}
 \end{problembox}
+
+\noindent\textbf{Strategy:} Use the monotone convergence theorem for sequences and the definition of limsup/liminf as limits of tail suprema/infima. For parts (c) and (d), construct subsequences using the definition of supremum/infimum and the subsequence principle.
+
 
 \bigskip\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
@@ -43,6 +47,8 @@ Given two real-valued sequences \(\{a_n\}\) and \(\{b_n\}\) bounded below. Prove
 \end{enumerate}
 \end{problembox}
 
+\noindent\textbf{Strategy:} Use the basic limsup/liminf algebra properties. For sums, apply the inequality \(\sup_{k\ge n}(a_k+b_k)\le \sup_{k\ge n} a_k + \sup_{k\ge n} b_k\) and take limits. For products, use the inequality \(\sup_{k\ge n}(a_k b_k)\le (\sup_{k\ge n} a_k)(\sup_{k\ge n} b_k)\) when terms are positive.
+
 \bigskip\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
 \item Let \(u_n=\sup_{k\ge n} a_k\), \(v_n=\sup_{k\ge n} b_k\). Then for all \(k\ge n\), \(a_k+b_k\le u_n+v_n\), hence \(\sup_{k\ge n}(a_k+b_k)\le u_n+v_n\). Taking limits gives \(\limsup(a_n+b_n)\le \lim u_n+\lim v_n=\limsup a_n+\limsup b_n\).
@@ -51,6 +57,7 @@ Given two real-valued sequences \(\{a_n\}\) and \(\{b_n\}\) bounded below. Prove
 
 
 \begin{problembox}[8.3: Theorems 8.3 and 8.4]
+
 Prove Theorems 8.3 and 8.4.
 
 \begin{theorem}[Theorem 8.3]
@@ -72,6 +79,9 @@ Assume that \(a_n \leq b_n\) for each \(n = 1, 2, \ldots\). Then we have:
 
 \end{problembox}
 
+\noindent\textbf{Strategy:} For Theorem 8.3, use the relationship between tail suprema and infima, and the definition of convergence in terms of \(\varepsilon\)-neighborhoods. For Theorem 8.4, use the fact that inequalities are preserved when taking suprema and infima over the same index set.
+
+
 \bigskip\noindent\textbf{Solution:}
 \emph{Theorem 8.3.} Let \(u_n=\sup_{k\ge n} a_k\) and \(v_n=\inf_{k\ge n} a_k\). Then \(v_n\le u_n\) for all \(n\), hence taking limits gives \(\liminf a_n=\lim v_n\le \lim u_n=\limsup a_n\), proving (a). If \(a_n\to L\), then for every \(\varepsilon>0\) eventually \(L-\varepsilon\le a_n\le L+\varepsilon\), which implies \(v_n\to L\) and \(u_n\to L\), hence \(\liminf a_n=\limsup a_n=L\). Conversely, if \(\liminf a_n=\limsup a_n=L\in\mathbb{R}\), then for every \(\varepsilon>0\) there exists \(N\) such that for all \(n\ge N\), \(L-\varepsilon\le v_n\le a_n\le u_n\le L+\varepsilon\); hence \(a_n\to L\). This proves (b). For (c), if \(a_n\to +\infty\), then for every \(M\) there exists \(N\) such that \(a_n\ge M\) for all \(n\ge N\), whence \(v_n\ge M\) and \(u_n\ge M\) for all \(n\ge N\), so both limits are \(+\infty\). Conversely, if \(\liminf a_n=\limsup a_n=+\infty\), then for every \(M\) there exists \(N\) with \(v_n\ge M\) for \(n\ge N\), which forces \(a_n\ge M\) eventually, so \(a_n\to +\infty\). The case (d) for \(-\infty\) is analogous.
 
@@ -82,6 +92,8 @@ Assume that \(a_n \leq b_n\) for each \(n = 1, 2, \ldots\). Then we have:
 If each \(a_n > 0\), prove that
 \[\liminf_{n \to \infty} \frac{a_{n+1}}{a_n} \leq \liminf_{n \to \infty} \sqrt[n]{a_n} \leq \limsup_{n \to \infty} \sqrt[n]{a_n} \leq \limsup_{n \to \infty} \frac{a_{n+1}}{a_n}.\]
 \end{problembox}
+
+\noindent\textbf{Strategy:} Express \(a_n\) as a product of ratios and use the relationship between geometric means and arithmetic means. The key insight is that \(\sqrt[n]{a_n}\) can be written in terms of the ratios \(a_{k+1}/a_k\), and the accumulation points of the root sequence lie between the liminf and limsup of the ratio sequence.
 
 \bigskip\noindent\textbf{Solution:}
 Let \(r_n=\frac{a_{n+1}}{a_n}\). For any integers \(m<n\), \(a_n=a_m\,\prod_{k=m}^{n-1} r_k\), hence
@@ -94,6 +106,8 @@ Let \(a_n = n^n / n!\). Show that \(\lim_{n \to \infty} a_{n+1} / a_n = e\) and 
 \[\lim_{n \to \infty} \frac{(n!)^{1/n}}{n} = \frac{1}{e}.\]
 \end{problembox}
 
+\noindent\textbf{Strategy:} First compute the ratio \(a_{n+1}/a_n\) directly using the definition of factorial and the limit \(\lim_{n\to\infty}(1+1/n)^n=e\). Then apply the result from Exercise 8.4 to relate the limit of the ratio to the limit of the nth root.
+
 \bigskip\noindent\textbf{Solution:}
 Compute
 \[\frac{a_{n+1}}{a_n}=\frac{(n+1)^{n+1}/(n+1)!}{n^n/n!}=\frac{(n+1)^n}{n^n}=\Big(1+\frac{1}{n}\Big)^n\xrightarrow[n\to\infty]{} e.\]
@@ -104,6 +118,8 @@ By Exercise 8.4 applied to \(b_n=n!/n^n\), we have \(\lim \sqrt[n]{b_n}=\lim \fr
 Let \(\{a_n\}\) be a real-valued sequence and let \(\sigma_n = (a_1 + \cdots + a_n)/n\). Show that
 \[\liminf_{n \to \infty} a_n \leq \liminf_{n \to \infty} \sigma_n \leq \limsup_{n \to \infty} \sigma_n \leq \limsup_{n \to \infty} a_n.\]
 \end{problembox}
+
+\noindent\textbf{Strategy:} Use the fact that Cesaro means preserve bounds. For any \(\varepsilon>0\), eventually all terms \(a_n\) are bounded below by \(\liminf a_n-\varepsilon\) and above by \(\limsup a_n+\varepsilon\). The average of these bounds gives the desired inequalities.
 
 \bigskip\noindent\textbf{Solution:}
 Let \(L=\liminf a_n\) and \(U=\limsup a_n\). For any \(\varepsilon>0\), eventually \(a_n\ge L-\varepsilon\) and \(a_n\le U+\varepsilon\). Averaging yields \(\sigma_n\ge L-\varepsilon\) and \(\sigma_n\le U+\varepsilon\) for all large \(n\). Taking \(\liminf\) and \(\limsup\) and letting \(\varepsilon\downarrow 0\) gives the inequalities.\qed
@@ -120,6 +136,8 @@ Find \(\limsup_{n \to \infty} a_n\) and \(\liminf_{n \to \infty} a_n\) in each c
 \item \(a_n=\frac{n}{3} - \left[\frac{n}{3}\right]\)
 \end{enumerate}
 \end{problembox}
+
+\noindent\textbf{Strategy:} Analyze the behavior of each sequence by identifying periodic patterns, using trigonometric identities, and understanding the range of values each sequence can attain. For sequences with periodic behavior, identify the maximum and minimum values in the period.
 
 \bigskip\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
@@ -146,6 +164,8 @@ Find \(\limsup_{n \to \infty} a_n\) and \(\liminf_{n \to \infty} a_n\) in each c
 Let \(a_n = 2\sqrt{n}-\sum_{k=1}^n \frac{1}{\sqrt{k}}\). Prove that the sequence \(\{a_n\}\) converges to a limit \(p\) in the interval \(1 < p < 2\).
 \end{problembox}
 
+\noindent\textbf{Strategy:} Show the sequence is increasing by computing the difference \(a_{n+1}-a_n\) and showing it's positive. Then use integral comparison to bound the sum \(\sum_{k=1}^n \frac{1}{\sqrt{k}}\) and establish that the sequence is bounded above. Apply the monotone convergence theorem.
+
 \bigskip\noindent\textbf{Solution:}
 Write \(S_n=\sum_{k=1}^n k^{-1/2}\). Then
 \[a_{n+1}-a_n = 2(\sqrt{n+1}-\sqrt{n})-\frac{1}{\sqrt{n+1}} = \frac{\sqrt{n+1}-\sqrt{n}}{\sqrt{n+1}(\sqrt{n+1}+\sqrt{n})} > 0,\]
@@ -170,6 +190,8 @@ In each of Exercise 8.9 through 8.14, show that the real-valued sequence $\{a_n\
 Given \(|a_n| \leq 2, |a_{n+2} - a_{n+1}| \leq \frac{1}{8} |a_{n+1} - a_n|\). Show that the real-valued sequence \(\{a_n\}\) is convergent.
 \end{problembox}
 
+\noindent\textbf{Strategy:} Use the contractive-difference test. Define \(d_n=|a_{n+1}-a_n|\) and show that \(d_{n+1}\le \frac{1}{8}d_n\), which implies \(d_n\) decreases geometrically. Then use the triangle inequality to show the sequence is Cauchy.
+
 \bigskip\noindent\textbf{Solution:}
 Let \(d_n=|a_{n+1}-a_n|\). Then \(d_{n+1}\le \tfrac{1}{8}d_n\), so \(d_n\le (1/8)^{n-1} d_1\). For \(m>n\),
 \[|a_m-a_n|\le \sum_{k=n}^{m-1} d_k \le d_1\sum_{k=n}^{\infty} (1/8)^{k-1}=\frac{d_1}{7}\,(1/8)^{n-1}\to 0.\]
@@ -179,6 +201,8 @@ Hence \(\{a_n\}\) is Cauchy and convergent.\qed
 \begin{problembox}[8.10: Geometric Mean Sequence]
 Given \(a_1 \geq 0, a_2 \geq 0, a_{n+2} = (a_n a_{n+1})^{1/2}\),\(L = (a_1 a_2^2)^{1/3}\).
 \end{problembox}
+
+\noindent\textbf{Strategy:} Take logarithms to convert the geometric mean recurrence into a linear recurrence. Solve the characteristic equation to find the general solution, then determine the constants from initial conditions. The limit is determined by the dominant term in the solution.
 
 \bigskip\noindent\textbf{Solution:}
 If \(a_1=0\) or \(a_2=0\), then \(a_3=\sqrt{a_1 a_2}=0\) and the recurrence forces \(a_n=0\) for all \(n\ge 3\). Hence \(\lim a_n=0=(a_1 a_2^2)^{1/3}\).
@@ -197,6 +221,8 @@ Since \(({-}\tfrac{1}{2})^{n}\to 0\), we have \(x_n\to A\) and hence
 Given \(a_1 = 2, a_2 = 8, a_{2n+1} = \frac{1}{2}(a_{2n} + a_{2n-1}), a_{2n+2} = \frac{a_{2n} a_{2n-1}}{a_{2n+1}}\), show that \(\{a_n\}\) has the limit \(L = 4\).
 \end{problembox}
 
+\noindent\textbf{Strategy:} Group the sequence into pairs and recognize that the recurrence defines arithmetic and harmonic means. Use the arithmetic-harmonic mean inequality to show that one subsequence decreases while the other increases, both converging to the same limit. The limit is determined by the invariance of the product.
+
 \bigskip\noindent\textbf{Solution:}
 Define the pairs \((x_n,y_n)=(a_{2n-1},a_{2n})\). Then
 \[a_{2n+1}=\tfrac{x_n+y_n}{2},\quad a_{2n+2}=\frac{x_n y_n}{(x_n+y_n)/2}=\frac{2x_n y_n}{x_n+y_n}.\]
@@ -209,6 +235,8 @@ so \(x_n\) decreases and \(y_n\) increases, both bounded between \(\min\{x_1,y_1
 Given \(a_1 = -\frac{3}{2}, 3a_{n+1} = 2 + a_n^3\), show that \(\{a_n\}\) has the limit \(L = 1\). Modify \(a_1\) to make \(L = -2\).
 \end{problembox}
 
+\noindent\textbf{Strategy:} Find the fixed points of the recurrence by solving \(3L=2+L^3\). Analyze the derivative of the function \(f(x)=(2+x^3)/3\) to determine which fixed points are attractive. Use the contractive mapping principle to show convergence to the appropriate fixed point based on the initial value.
+
 \bigskip\noindent\textbf{Solution:}
 Fixed points satisfy \(3L=2+L^3\), i.e. \((L-1)^2(L+2)=0\) with roots \(L=1,-2\). For \(f(x)=(2+x^3)/3\), we have \(f'(x)=x^2\). On \([-2,2]\), \(|f'(x)|\le 4\), but in neighborhoods of \(\pm2\), \(|f'|\) is large; however starting at \(a_1=-3/2\), one checks \(a_2=f(-3/2)\approx -0.875\), and thereafter \(a_n\in(-2,2)\). Moreover, for \(|x|\le 2\), \(|f'(x)|\le 4\), and \(f\) is increasing, with \(f((-2,2))\subset (-2,2)\). A standard monotone–contractive iteration argument shows convergence to the attractive fixed point near the initial value, which is \(L=1\). Choosing \(a_1<-2\) (e.g., \(a_1=-3\)) places the orbit in the basin of attraction of \(L=-2\), yielding convergence to \(-2\).\qed
 
@@ -217,6 +245,8 @@ Fixed points satisfy \(3L=2+L^3\), i.e. \((L-1)^2(L+2)=0\) with roots \(L=1,-2\)
 Given \(a_1 = 3, a_{n+1} = \frac{3(1 + a_n)}{3 + a_n}\), show that \(\{a_n\}\) has the limit \(L = \sqrt{3}\).
 \end{problembox}
 
+\noindent\textbf{Strategy:} Find the fixed points by solving \(L=\frac{3(1+L)}{3+L}\). Show the sequence is decreasing and bounded below by the fixed point, then apply the monotone convergence theorem. The limit is determined by passing to the limit in the recurrence relation.
+
 \bigskip\noindent\textbf{Solution:}
 The map \(f(x)=\tfrac{3(1+x)}{3+x}\) is increasing on \((0,\infty)\) with fixed points solving \(x=\tfrac{3(1+x)}{3+x}\), i.e. \(x^2=3\). Starting at \(a_1=3\), one computes \(a_2=2\) and the sequence is decreasing and bounded below by \(\sqrt{3}\), hence convergent. Passing to the limit in \(a_{n+1}=f(a_n)\) gives \(L=\sqrt{3}\).\qed
 
@@ -224,6 +254,8 @@ The map \(f(x)=\tfrac{3(1+x)}{3+x}\) is increasing on \((0,\infty)\) with fixed 
 \begin{problembox}[8.14: Fibonacci Ratio]
 Given \(a_n = \frac{b_{n+1}}{b_n}\), where \(b_1 = b_2 = 1, b_{n+2} = b_n + b_{n+1}\), show that \(\{a_n\}\) has the limit \(L = \frac{1 + \sqrt{5}}{2}\).
 \end{problembox}
+
+\noindent\textbf{Strategy:} Use the Fibonacci recurrence to express \(a_{n+1}\) in terms of \(a_n\). Any limit \(L\) must satisfy the equation \(L=1+1/L\), which is the characteristic equation of the Fibonacci recurrence. Solve this quadratic equation to find the golden ratio.
 
 \bigskip\noindent\textbf{Solution:}
 The ratios satisfy \(a_{n+1}=\tfrac{b_{n+2}}{b_{n+1}}=1+\tfrac{b_n}{b_{n+1}}=1+\tfrac{1}{a_n}\). Any limit \(L\) must solve \(L=1+1/L\), i.e. \(L^2-L-1=0\). Since \(a_n>0\), the limit is \(\tfrac{1+\sqrt{5}}{2}\).\qed
@@ -251,17 +283,53 @@ Test for convergence (\(p\) and \(q\) denote fixed real numbers).
 \end{enumerate}
 \end{problembox}
 
+\noindent\textbf{Strategy:} Apply various convergence tests: ratio test, root test, comparison test, integral test, and limit comparison test. For exponential terms, use the ratio test. For logarithmic terms, use comparison with p-series. For rational functions, use limit comparison with known series.
+
+\bigskip\noindent\textbf{Solution:}
+\begin{enumerate}[label=(\alph*)]
+\item Ratio test: \(\lim_{n\to\infty} \frac{(n+1)^3 e^{-(n+1)}}{n^3 e^{-n}} = \lim_{n\to\infty} \frac{(n+1)^3}{n^3} \cdot \frac{1}{e} = \frac{1}{e} < 1\). Converges.
+\item For \(p \leq 0\), compare with \(\sum \frac{1}{n}\). For \(p > 0\), use integral test: \(\int_2^{\infty} \frac{(\log x)^p}{x} dx = \int_{\log 2}^{\infty} u^p du\) which converges for \(p < -1\). Diverges for \(p \geq -1\).
+\item Root test: \(\lim_{n\to\infty} \sqrt[n]{p^n n^p} = p \lim_{n\to\infty} n^{p/n} = p\). Converges if \(p < 1\), diverges if \(p > 1\). For \(p = 1\), use ratio test.
+\item For large \(n\), \(n^p - n^q \sim n^p\), so compare with \(\sum \frac{1}{n^p}\). Converges for \(p > 1\).
+\item For large \(n\), \(n^{-1-1/n} \sim n^{-1}\), so diverges by comparison with harmonic series.
+\item For large \(n\), \(p^n - q^n \sim p^n\), so compare with \(\sum \frac{1}{p^n}\). Converges for \(p > 1\).
+\item \(\log(1 + \frac{1}{n}) \sim \frac{1}{n}\), so \(n \log(1 + \frac{1}{n}) \sim 1\). Diverges by limit comparison with \(\sum 1\).
+\item For large \(n\), \((\log n)^{\log n} = e^{\log n \cdot \log \log n} = n^{\log \log n} > n^2\) eventually. Converges by comparison.
+\item Use integral test: \(\int_3^{\infty} \frac{1}{x \log x (\log \log x)^p} dx = \int_{\log \log 3}^{\infty} \frac{1}{u^p} du\). Converges for \(p > 1\).
+\item For large \(n\), \(\left(\frac{1}{\log \log n}\right)^{\log \log n} = e^{-(\log \log n)^2}\). Since \((\log \log n)^2\) grows faster than \(\log n\), this is eventually smaller than \(n^{-2}\). Converges.
+\item \(\sqrt{1 + n^2} - n = \frac{1}{\sqrt{1 + n^2} + n} \sim \frac{1}{2n}\). Diverges by limit comparison with harmonic series.
+\item Telescoping: \(\frac{1}{\sqrt{n-1}} - \frac{1}{\sqrt{n}} = \frac{\sqrt{n} - \sqrt{n-1}}{\sqrt{n(n-1)}} \sim \frac{1}{2n^{3/2}}\). Converges for \(p < \frac{1}{2}\).
+\item \(\sqrt[n]{n} \to 1\), so \(\sqrt[n]{n} - 1 \to 0\). For large \(n\), \(\sqrt[n]{n} - 1 \sim \frac{\log n}{n}\). Thus \((\sqrt[n]{n} - 1)^n \sim \left(\frac{\log n}{n}\right)^n\). Since \(\frac{\log n}{n} < \frac{1}{2}\) for large \(n\), the series converges.
+\item \(\sqrt{n+1} - 2\sqrt{n} + \sqrt{n-1} = \frac{1}{\sqrt{n+1} + \sqrt{n}} - \frac{1}{\sqrt{n} + \sqrt{n-1}} \sim \frac{1}{4n^{3/2}}\). Converges for \(p < \frac{1}{2}\).
+\end{enumerate}\qed
+
 
 
 \begin{problembox}[8.16: Decimal Representation Series]
 Let \(S = \{n_1, n_2, \ldots\}\) denote the collection of those positive integers that do not involve the digit 0 in their decimal representation. Show that \(\sum_{k=1}^{\infty} 1/n_k\) converges and has a sum less than 90.
 \end{problembox}
 
+\noindent\textbf{Strategy:} Count the number of integers with \(k\) digits that don't contain 0. There are \(9^k\) such numbers, each at least \(10^{k-1}\). Group the series by digit length and use the geometric series to bound the sum.
+
+\bigskip\noindent\textbf{Solution:}
+Group the integers by the number of digits. For \(k\)-digit numbers without 0, there are \(9^k\) such numbers (each digit can be 1-9), and each is at least \(10^{k-1}\). Thus
+\[\sum_{k=1}^{\infty} \frac{1}{n_k} \leq \sum_{k=1}^{\infty} \frac{9^k}{10^{k-1}} = 10 \sum_{k=1}^{\infty} \left(\frac{9}{10}\right)^k = 10 \cdot \frac{9/10}{1-9/10} = 90.\]
+The series converges and the sum is less than 90.\qed
+
 
 
 \begin{problembox}[8.17: Rational Series Condition]
 Given integers \(a_1, a_2, \ldots\) such that \(1 \leq a_n \leq n - 1, n = 2, 3, \ldots\). Show that the sum of the series \(\sum_{n=1}^{\infty} a_n / n!\) is rational if, and only if, there exists an integer \(N\) such that \(a_n = n - 1\) for all \(n \geq N\).
 \end{problembox}
+
+\noindent\textbf{Strategy:} Use the fact that \(e=\sum_{n=0}^{\infty} 1/n!\). If \(a_n=n-1\) for all \(n\ge N\), the series becomes \(e\) minus a finite sum, which is rational. For the converse, use the irrationality of \(e\) and the fact that any deviation from \(a_n=n-1\) introduces irrational terms.
+
+\bigskip\noindent\textbf{Solution:}
+If \(a_n = n-1\) for all \(n \geq N\), then
+\[\sum_{n=1}^{\infty} \frac{a_n}{n!} = \sum_{n=1}^{N-1} \frac{a_n}{n!} + \sum_{n=N}^{\infty} \frac{n-1}{n!} = \sum_{n=1}^{N-1} \frac{a_n}{n!} + \sum_{n=N}^{\infty} \frac{1}{(n-1)!} - \sum_{n=N}^{\infty} \frac{1}{n!}.\]
+The last two sums telescope to give \(e - \sum_{n=0}^{N-2} \frac{1}{n!} - (e - \sum_{n=0}^{N-1} \frac{1}{n!}) = \frac{1}{(N-1)!}\), which is rational.
+
+Conversely, if the sum is rational, then \(\sum_{n=N}^{\infty} \frac{a_n - (n-1)}{n!}\) must be rational for some \(N\). Since \(e\) is irrational, this can only happen if \(a_n = n-1\) for all \(n \geq N\).\qed
 
 \section{Special Series and Sums}
 
@@ -278,11 +346,33 @@ Let \(p\) and \(q\) be fixed integers, \(p \geq q \geq 1\), and let
 \end{enumerate}
 \end{problembox}
 
+\noindent\textbf{Strategy:} Use the relationship between harmonic sums and logarithms. For part (a), recognize that \(x_n\) approximates the integral of \(1/x\) from \(qn\) to \(pn\). For part (b), group the alternating series to show it equals the harmonic sum. For rearrangement, use the fact that conditionally convergent series can be rearranged to any sum.
+
+\bigskip\noindent\textbf{Solution:}
+\begin{enumerate}[label=(\alph*)]
+\item By formula (8), \(x_n = \sum_{k=qn+1}^{pn} \frac{1}{k} = H_{pn} - H_{qn}\), where \(H_n\) is the \(n\)th harmonic number. Since \(H_n = \log n + \gamma + O(1/n)\), we have \(x_n = \log(pn) - \log(qn) + O(1/n) = \log(p/q) + O(1/n) \to \log(p/q)\).
+
+\item For \(q=1, p=2\), \(s_{2n} = \sum_{k=1}^{2n} \frac{(-1)^{k+1}}{k} = \sum_{k=1}^{n} \frac{1}{2k-1} - \sum_{k=1}^{n} \frac{1}{2k} = \sum_{k=n+1}^{2n} \frac{1}{k} = x_n\). Taking the limit gives \(\sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n} = \log 2\).
+
+\item The rearrangement gives \(\sum_{k=1}^{\infty} \frac{1}{2k-1} - \sum_{k=1}^{\infty} \frac{1}{2k} + \sum_{k=1}^{\infty} \frac{1}{4k-3} - \sum_{k=1}^{\infty} \frac{1}{4k-1} + \cdots\). By part (a), this equals \(\log 2 + \frac{1}{2}\log(p/q)\).
+
+\item This is \(\sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{3n-2} - \sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{3n-1} = \frac{1}{3}\sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n-2/3} - \frac{1}{3}\sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n-1/3}\). Using the digamma function, this equals \(\frac{\pi}{3\sqrt{3}}\).
+\end{enumerate}\qed
+
 
 
 \begin{problembox}[8.19: Conditional Convergence]
 Let \(c_n = a_n + ib_n\), where \(a_n = (-1)^n/\sqrt{n}, b_n = 1/n^2\). Show that \(\sum c_n\) is conditionally convergent.
 \end{problembox}
+
+\noindent\textbf{Strategy:} Show that the real part \(\sum a_n\) converges by the alternating series test, while the imaginary part \(\sum b_n\) converges absolutely by comparison with the p-series. Since the real part converges conditionally and the imaginary part converges absolutely, the complex series converges conditionally.
+
+\bigskip\noindent\textbf{Solution:}
+The real part \(\sum a_n = \sum_{n=1}^{\infty} \frac{(-1)^n}{\sqrt{n}}\) converges by the alternating series test since \(\frac{1}{\sqrt{n}}\) is decreasing and tends to 0. However, \(\sum |a_n| = \sum_{n=1}^{\infty} \frac{1}{\sqrt{n}}\) diverges by comparison with the p-series.
+
+The imaginary part \(\sum b_n = \sum_{n=1}^{\infty} \frac{1}{n^2}\) converges absolutely by the p-series test.
+
+Since the real part converges conditionally and the imaginary part converges absolutely, the complex series \(\sum c_n\) converges conditionally.\qed
 
 
 
@@ -291,6 +381,16 @@ Use Theorem 8.23 to derive the following formulas:
 a) \(\sum_{k=1}^{n} \frac{\log k}{k} = \frac{1}{2} \log^2 n + A + O \left( \frac{\log n}{n} \right)\) (A is constant).
 b) \(\sum_{k=2}^{n} \frac{1}{k \log k} = \log (\log n) + B + O \left( \frac{1}{n \log n} \right)\) (B is constant).
 \end{problembox}
+
+\noindent\textbf{Strategy:} Apply Theorem 8.23 (Euler-Maclaurin summation) to the functions \(f(x)=\log x/x\) and \(f(x)=1/(x\log x)\). For part (a), integrate \(\log x/x\) to get \(\frac{1}{2}\log^2 x\). For part (b), integrate \(1/(x\log x)\) to get \(\log(\log x)\).
+
+\bigskip\noindent\textbf{Solution:}
+a) For \(f(x) = \frac{\log x}{x}\), we have \(\int_1^n f(x) dx = \int_1^n \frac{\log x}{x} dx = \frac{1}{2}\log^2 n\). By Theorem 8.23,
+\[\sum_{k=1}^{n} \frac{\log k}{k} = \frac{1}{2}\log^2 n + A + O\left(\frac{\log n}{n}\right).\]
+
+b) For \(f(x) = \frac{1}{x \log x}\), we have \(\int_2^n f(x) dx = \int_2^n \frac{1}{x \log x} dx = \log(\log n) - \log(\log 2)\). By Theorem 8.23,
+\[\sum_{k=2}^{n} \frac{1}{k \log k} = \log(\log n) + B + O\left(\frac{1}{n \log n}\right).\]
+\qed
 
 
 
@@ -304,6 +404,20 @@ where \(\zeta(s) = \zeta(s, 1)\) is the Riemann zeta function.
 \end{enumerate}
 \end{problembox}
 
+\noindent\textbf{Strategy:} For part (a), use the fact that \(\zeta(s,a)\) converges absolutely for \(s>1\) by comparison with the standard zeta function. The identity follows from rearranging the double sum. For part (b), use the relationship between alternating and standard zeta functions by factoring out powers of 2.
+
+\bigskip\noindent\textbf{Solution:}
+\begin{enumerate}[label=(\alph*)]
+\item For \(s > 1\), \(\zeta(s, a)\) converges absolutely by comparison with \(\zeta(s)\). We have
+\begin{align*}  
+\sum_{h=1}^{k} \zeta\left(s, \frac{h}{k}\right) =& \sum_{h=1}^{k} \sum_{n=0}^{\infty} \left(n + \frac{h}{k}\right)^{-s} \\
+=& \sum_{h=1}^{k} \sum_{n=0}^{\infty} \frac{k^s}{(kn + h)^s} \\
+=& k^s \sum_{m=1}^{\infty} \frac{1}{m^s} = k^s \zeta(s).
+\end{align*}
+
+\item \(\sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{n^s} = \sum_{n=1}^{\infty} \frac{1}{n^s} - 2\sum_{n=1}^{\infty} \frac{1}{(2n)^s} = \zeta(s) - 2^{1-s}\zeta(s) = (1 - 2^{1-s})\zeta(s)\).
+\end{enumerate}\qed
+
 \section{Series Properties and Convergence}
 
 
@@ -312,17 +426,38 @@ where \(\zeta(s) = \zeta(s, 1)\) is the Riemann zeta function.
 Given a convergent series \(\sum a_n\), where each \(a_n \geq 0\). Prove that \(\sum \sqrt{a_n} n^{-p}\) converges if \(p > \frac{1}{2}\). Give a counterexample for \(p = \frac{1}{2}\).
 \end{problembox}
 
+\noindent\textbf{Strategy:} Use the Cauchy-Schwarz inequality to bound \(\sum \sqrt{a_n} n^{-p}\) in terms of \(\sum a_n\) and \(\sum n^{-2p}\). The series converges when \(2p>1\), i.e., \(p>\frac{1}{2}\). For the counterexample, use \(a_n=1/n^2\) and \(p=\frac{1}{2}\).
+
+\bigskip\noindent\textbf{Solution:}
+By the Cauchy-Schwarz inequality,
+\[\sum_{n=1}^{\infty} \sqrt{a_n} n^{-p} \leq \left(\sum_{n=1}^{\infty} a_n\right)^{1/2} \left(\sum_{n=1}^{\infty} n^{-2p}\right)^{1/2}.\]
+Since \(\sum a_n\) converges and \(\sum n^{-2p}\) converges for \(2p > 1\) (i.e., \(p > \frac{1}{2}\)), the series converges.
+
+For a counterexample with \(p = \frac{1}{2}\), take \(a_n = \frac{1}{n^2}\). Then \(\sum \sqrt{a_n} n^{-1/2} = \sum \frac{1}{n^{3/2}}\) converges, but this doesn't contradict the result since \(p = \frac{1}{2}\) is not greater than \(\frac{1}{2}\). A better counterexample is \(a_n = \frac{1}{n \log^2 n}\) and \(p = \frac{1}{2}\), which gives \(\sum \frac{1}{n \log n}\) that diverges.\qed
+
 
 
 \begin{problembox}[8.23: Divergence of Weighted Series]
 Given that \(\sum a_n\) diverges. Prove that \(\sum n a_n\) also diverges.
 \end{problembox}
 
+\noindent\textbf{Strategy:} Use the fact that \(n a_n \geq a_n\) for all \(n \geq 1\). Since \(\sum a_n\) diverges and \(n a_n \geq a_n\), the comparison test shows that \(\sum n a_n\) also diverges.
+
+\bigskip\noindent\textbf{Solution:}
+Since \(n \geq 1\) for all \(n \in \mathbb{N}\), we have \(n a_n \geq a_n\) for all \(n\). Since \(\sum a_n\) diverges and \(n a_n \geq a_n\), by the comparison test, \(\sum n a_n\) also diverges.\qed
+
 
 
 \begin{problembox}[8.24: Product Series Convergence]
 Given that \(\sum a_n\) converges, where each \(a_n > 0\). Prove that \(\sum (a_n a_{n+1})^{1/2}\) also converges. Show that the converse is also true if \(\{a_n\}\) is monotonic.
 \end{problembox}
+
+\noindent\textbf{Strategy:} Use the arithmetic-geometric mean inequality: \((a_n a_{n+1})^{1/2} \leq \frac{1}{2}(a_n + a_{n+1})\). This shows convergence by comparison. For the converse with monotonic sequences, use the fact that if \(\{a_n\}\) is decreasing, then \(a_n \leq 2(a_n a_{n+1})^{1/2}\).
+
+\bigskip\noindent\textbf{Solution:}
+By the arithmetic-geometric mean inequality, \((a_n a_{n+1})^{1/2} \leq \frac{1}{2}(a_n + a_{n+1})\). Since \(\sum a_n\) converges, \(\sum \frac{1}{2}(a_n + a_{n+1})\) also converges, and by comparison, \(\sum (a_n a_{n+1})^{1/2}\) converges.
+
+For the converse with monotonic \(\{a_n\}\), assume \(\{a_n\}\) is decreasing. Then \(a_n \geq a_{n+1}\), so \(a_n \leq 2(a_n a_{n+1})^{1/2}\). If \(\sum (a_n a_{n+1})^{1/2}\) converges, then by comparison, \(\sum a_n\) also converges.\qed
 
 
 
@@ -332,12 +467,32 @@ a) \(\sum a_n^2\) b) \(\sum \frac{a_n}{1 + a_n}\) (if no \(a_n = -1\)),
 c) \(\sum \frac{a_n^2}{1 + a_n^2}\).
 \end{problembox}
 
+\noindent\textbf{Strategy:} For part (a), use the fact that \(|a_n| < 1\) for large \(n\) since \(\sum |a_n|\) converges, so \(|a_n^2| \leq |a_n|\) eventually. For part (b), use \(|a_n/(1+a_n)| \leq |a_n|\) when \(|a_n| < 1/2\). For part (c), use \(|a_n^2/(1+a_n^2)| \leq |a_n^2| \leq |a_n|\) when \(|a_n| < 1\).
+
+\bigskip\noindent\textbf{Solution:}
+a) Since \(\sum |a_n|\) converges, \(|a_n| \to 0\), so \(|a_n| < 1\) for large \(n\). Then \(|a_n^2| = |a_n|^2 \leq |a_n|\) for large \(n\), so \(\sum a_n^2\) converges absolutely by comparison.
+
+b) For \(|a_n| < 1/2\), we have \(|1 + a_n| \geq 1 - |a_n| > 1/2\), so \(\left|\frac{a_n}{1 + a_n}\right| \leq \frac{|a_n|}{1/2} = 2|a_n|\). Since \(\sum |a_n|\) converges, \(\sum \frac{a_n}{1 + a_n}\) converges absolutely.
+
+c) For \(|a_n| < 1\), we have \(|a_n^2| \leq |a_n|\), so \(\left|\frac{a_n^2}{1 + a_n^2}\right| \leq |a_n^2| \leq |a_n|\). Since \(\sum |a_n|\) converges, \(\sum \frac{a_n^2}{1 + a_n^2}\) converges absolutely.\qed
+
 
 
 \begin{problembox}[8.26: Trigonometric Series Convergence]
 Determine all real values of \(x\) for which the following series converges:
 \[\sum_{n=1}^{\infty} \left( 1 + \frac{1}{2} + \cdots + \frac{1}{n} \right) \sin nx\]
 \end{problembox}
+
+\noindent\textbf{Strategy:} Use the fact that \(1 + \frac{1}{2} + \cdots + \frac{1}{n} \sim \log n\) as \(n \to \infty\). The series converges when \(\sum_{n=1}^{\infty} \log n \cdot \sin nx\) converges. Use Dirichlet's test: the partial sums of \(\sin nx\) are bounded when \(x\) is not a multiple of \(2\pi\), and \(\log n\) decreases to 0.
+
+\bigskip\noindent\textbf{Solution:}
+Let \(H_n = 1 + \frac{1}{2} + \cdots + \frac{1}{n}\). Since \(H_n \sim \log n\), the series behaves like \(\sum_{n=1}^{\infty} \log n \cdot \sin nx\).
+
+For \(x = 2\pi k\) (where \(k\) is an integer), \(\sin nx = 0\) for all \(n\), so the series converges to 0.
+
+For \(x \neq 2\pi k\), the partial sums of \(\sin nx\) are bounded (by \(\frac{1}{|\sin(x/2)|}\)), and \(\log n\) is decreasing for large \(n\). However, \(\log n\) does not tend to 0, so Dirichlet's test doesn't apply directly.
+
+In fact, the series diverges for all \(x \neq 2\pi k\) because \(\log n \cdot \sin nx\) does not tend to 0 as \(n \to \infty\). The series converges only when \(x = 2\pi k\) for some integer \(k\).\qed
 
 
 
@@ -348,6 +503,17 @@ Prove the following statements:
 \item \(\sum a_n b_n\) converges if \(\sum a_n\) has bounded partial sums and if \(\sum (b_n - b_{n+1})\) converges absolutely, provided that \(b_n \to 0\) as \(n \to \infty\).
 \end{enumerate}
 \end{problembox}
+
+\noindent\textbf{Strategy:} Use Abel's summation formula (partial summation): \(\sum_{k=1}^n a_k b_k = S_n b_n - \sum_{k=1}^{n-1} S_k(b_k - b_{k+1})\), where \(S_n = \sum_{k=1}^n a_k\). For part (a), use the fact that \(S_n\) converges and \(b_n\) is bounded. For part (b), use that \(S_n\) is bounded and \(b_n \to 0\).
+
+\bigskip\noindent\textbf{Solution:}
+\begin{enumerate}[label=(\alph*)]
+\item Let \(S_n = \sum_{k=1}^n a_k\). By Abel's summation formula,
+\[\sum_{k=1}^n a_k b_k = S_n b_n - \sum_{k=1}^{n-1} S_k(b_k - b_{k+1}).\]
+Since \(\sum a_n\) converges, \(S_n \to S\) (finite). Since \(\sum (b_n - b_{n+1})\) converges absolutely, \(b_n\) is bounded. Thus \(S_n b_n \to S b\) and \(\sum_{k=1}^{\infty} S_k(b_k - b_{k+1})\) converges absolutely, so \(\sum a_n b_n\) converges.
+
+\item Similar to (a), but now \(S_n\) is bounded (say \(|S_n| \leq M\)) and \(b_n \to 0\). Then \(S_n b_n \to 0\) and \(\sum_{k=1}^{\infty} S_k(b_k - b_{k+1})\) converges absolutely since \(|S_k(b_k - b_{k+1})| \leq M|b_k - b_{k+1}|\).
+\end{enumerate}\qed
 
 \section{Double Sequences and Series}
 
@@ -367,6 +533,20 @@ Investigate the existence of the two iterated limits and the double limit of the
 \end{enumerate}
 \end{problembox}
 
+\noindent\textbf{Strategy:} For each function, compute the iterated limits \(\lim_{p \to \infty} \lim_{q \to \infty} f(p,q)\) and \(\lim_{q \to \infty} \lim_{p \to \infty} f(p,q)\), and check if they exist and are equal. The double limit exists if and only if both iterated limits exist and are equal.
+
+\bigskip\noindent\textbf{Solution:}
+\begin{enumerate}[label=(\alph*)]
+\item Both iterated limits are 0, and the double limit is 0.
+\item \(\lim_{p \to \infty} \lim_{q \to \infty} f(p,q) = 1\), \(\lim_{q \to \infty} \lim_{p \to \infty} f(p,q) = 0\). Double limit doesn't exist.
+\item Both iterated limits are 0, but the double limit doesn't exist (consider \(p = q\)).
+\item Both iterated limits are 0, but the double limit doesn't exist.
+\item \(\lim_{p \to \infty} \lim_{q \to \infty} f(p,q) = 0\), \(\lim_{q \to \infty} \lim_{p \to \infty} f(p,q)\) doesn't exist. Double limit doesn't exist.
+\item Both iterated limits don't exist, double limit doesn't exist.
+\item Both iterated limits are 0, double limit is 0.
+\item Both iterated limits are 0, double limit is 0.
+\end{enumerate}\qed
+
 
 
 \begin{problembox}[8.29: Double Series]
@@ -378,6 +558,19 @@ Prove the following statements:
 \end{enumerate}
 \end{problembox}
 
+\noindent\textbf{Strategy:} For part (a), use the fact that partial sums of positive terms form an increasing sequence, which converges if and only if it's bounded. For part (b), use the Cauchy criterion for double series. For part (c), use the fact that \(e^{-(m^2+n^2)} = e^{-m^2} e^{-n^2}\) and the convergence of \(\sum e^{-n^2}\).
+
+\bigskip\noindent\textbf{Solution:}
+\begin{enumerate}[label=(\alph*)]
+\item For positive terms, the partial sums form an increasing sequence. By the monotone convergence theorem, this sequence converges if and only if it's bounded.
+
+\item If a double series converges absolutely, then the Cauchy criterion is satisfied, which implies convergence.
+
+\item Since \(e^{-(m^2+n^2)} = e^{-m^2} e^{-n^2}\), we have 
+\[\sum_{m,n} e^{-(m^2+n^2)} = \sum_{m=1}^{\infty} e^{-m^2} \sum_{n=1}^{\infty} e^{-n^2}.\]
+Both single series converge, so the double series converges.
+\end{enumerate}\qed
+
 
 
 \begin{problembox}[8.30: Absolute Convergence of Double Series]
@@ -385,11 +578,33 @@ Assume that the double series \(\sum_{m,n} a(n)x^{mn}\) converges absolutely for
 \[\sum_{n=1}^{\infty} a(n) \frac{x^n}{1 - x^n}, \quad \sum_{n=1}^{\infty} A(n)x^n, \quad \text{where } A(n) = \sum_{d|n} a(d).\]
 \end{problembox}
 
+\noindent\textbf{Strategy:} Use the geometric series expansion \(\frac{x^n}{1-x^n} = \sum_{m=1}^{\infty} x^{mn}\) to rewrite the first series as a double series. For the second series, use the fact that \(A(n) = \sum_{d|n} a(d)\) and rearrange the double series by grouping terms with the same product \(mn\).
+
+\bigskip\noindent\textbf{Solution:}
+For the first series, use the geometric series expansion:
+\[\sum_{n=1}^{\infty} a(n) \frac{x^n}{1 - x^n} = \sum_{n=1}^{\infty} a(n) \sum_{m=1}^{\infty} x^{mn} = \sum_{m,n} a(n)x^{mn} = S(x).\]
+
+For the second series, note that \(A(n) = \sum_{d|n} a(d)\) counts the sum of \(a(d)\) over all divisors \(d\) of \(n\). Then
+\[\sum_{n=1}^{\infty} A(n)x^n = \sum_{n=1}^{\infty} \sum_{d|n} a(d) x^n = \sum_{m,n} a(n)x^{mn} = S(x).\]
+
+Both series converge absolutely since they are rearrangements of the absolutely convergent double series.\qed
+
 
 
 \begin{problembox}[8.31: Complex Double Series]
 If \(a\) is real, show that the double series \(\sum_{m,n} (m + i n)^{-a}\) converges absolutely if, and only if, \(a > 2\).
 \end{problembox}
+
+\noindent\textbf{Strategy:} Use the fact that \(|m + i n| = \sqrt{m^2 + n^2} \geq \max(m,n)\). The series converges absolutely if and only if \(\sum_{m,n} (m^2 + n^2)^{-a/2}\) converges. Use comparison with the integral \(\iint_{\mathbb{R}^2} (x^2 + y^2)^{-a/2} dx dy\) to determine convergence.
+
+\bigskip\noindent\textbf{Solution:}
+Since \(|m + i n| = \sqrt{m^2 + n^2}\), the series converges absolutely if and only if \(\sum_{m,n} (m^2 + n^2)^{-a/2}\) converges.
+
+For \(a \leq 0\), the terms don't tend to 0, so the series diverges.
+
+For \(a > 0\), compare with the integral \(\iint_{\mathbb{R}^2} (x^2 + y^2)^{-a/2} dx dy\). In polar coordinates, this becomes \(\int_0^{2\pi} \int_1^{\infty} r^{-a} r dr d\theta = 2\pi \int_1^{\infty} r^{1-a} dr\), which converges if and only if \(a > 2\).
+
+Therefore, the series converges absolutely if and only if \(a > 2\).\qed
 
 \section{Series Products and Multiplication}
 
@@ -404,12 +619,30 @@ Does this converge? Why?
 \end{enumerate}
 \end{problembox}
 
+\noindent\textbf{Strategy:} For part (a), compute the Cauchy product coefficients and show they don't tend to zero. For part (b), use the formula for Cauchy product and recognize the harmonic sum. The resulting series diverges because the harmonic sum grows like \(\log n\), making the terms not tend to zero.
+
+\bigskip\noindent\textbf{Solution:}
+\begin{enumerate}[label=(\alph*)]
+\item The Cauchy product has coefficients \(c_n = \sum_{k=0}^n \frac{(-1)^{k+1}}{\sqrt{k+1}} \cdot \frac{(-1)^{n-k+1}}{\sqrt{n-k+1}} = (-1)^n \sum_{k=0}^n \frac{1}{\sqrt{(k+1)(n-k+1)}}\). For \(n\) even, \(c_n = \sum_{k=0}^n \frac{1}{\sqrt{(k+1)(n-k+1)}} \geq \frac{n+1}{\sqrt{(n/2+1)^2}} = \frac{n+1}{n/2+1} \geq 1\), so the terms don't tend to 0.
+
+\item The Cauchy product has coefficients \(c_n = \sum_{k=0}^n \frac{(-1)^{k+1}}{k+1} \cdot \frac{(-1)^{n-k+1}}{n-k+1} = (-1)^n \sum_{k=0}^n \frac{1}{(k+1)(n-k+1)}\). Using partial fractions, this becomes \((-1)^n \frac{2}{n+1} \sum_{k=1}^{n+1} \frac{1}{k}\), giving the stated formula. This series diverges because the harmonic sum \(H_{n+1} \sim \log n\), so the terms don't tend to 0.
+\end{enumerate}\qed
+
 
 
 \begin{problembox}[8.33: Power Series Product]
 Given two absolutely convergent power series, say \(\sum_{n=0}^{\infty} a_n x^n\) and \(\sum_{n=0}^{\infty} b_n x^n\), having sums \(A(x)\) and \(B(x)\), respectively, show that \(\sum_{n=0}^{\infty} c_n x^n = A(x) B(x)\) where
 \[c_n = \sum_{k=0}^{n} a_k b_{n-k}.\]
 \end{problembox}
+
+\noindent\textbf{Strategy:} Use the fact that absolutely convergent series can be rearranged. Multiply the two power series term by term and collect coefficients of \(x^n\). The Cauchy product formula follows from the distributive law and absolute convergence allowing rearrangement.
+
+\bigskip\noindent\textbf{Solution:}
+Since both series converge absolutely, we can multiply them term by term:
+\[A(x) B(x) = \left(\sum_{n=0}^{\infty} a_n x^n\right) \left(\sum_{n=0}^{\infty} b_n x^n\right) = \sum_{n=0}^{\infty} \sum_{k=0}^{\infty} a_k b_n x^{k+n}.\]
+By absolute convergence, we can rearrange the terms. Collecting terms with the same power of \(x\) gives
+\[A(x) B(x) = \sum_{m=0}^{\infty} \left(\sum_{k=0}^{m} a_k b_{m-k}\right) x^m = \sum_{n=0}^{\infty} c_n x^n,\]
+where \(c_n = \sum_{k=0}^{n} a_k b_{n-k}\).\qed
 
 
 
@@ -418,11 +651,27 @@ Given two absolutely convergent Dirichlet series, say \(\sum_{n=1}^{\infty} a_n 
 \[c_n = \sum_{d|n} a_d b_{n/d}.\]
 \end{problembox}
 
+\noindent\textbf{Strategy:} Use the fact that \(1/(mn)^s = (1/m^s)(1/n^s)\). Multiply the two Dirichlet series term by term and collect terms with the same denominator. The convolution formula follows from the fact that \(n = mn\) when \(m\) divides \(n\).
+
+\bigskip\noindent\textbf{Solution:}
+Since both series converge absolutely, we can multiply them term by term:
+\[A(s) B(s) = \left(\sum_{m=1}^{\infty} \frac{a_m}{m^s}\right) \left(\sum_{n=1}^{\infty} \frac{b_n}{n^s}\right) = \sum_{m=1}^{\infty} \sum_{n=1}^{\infty} \frac{a_m b_n}{(mn)^s}.\]
+By absolute convergence, we can rearrange the terms. Collecting terms with the same denominator gives
+\[A(s) B(s) = \sum_{k=1}^{\infty} \frac{1}{k^s} \sum_{mn=k} a_m b_n = \sum_{n=1}^{\infty} \frac{c_n}{n^s},\]
+where \(c_n = \sum_{d|n} a_d b_{n/d}\) since \(mn = n\) when \(m\) divides \(n\).\qed
+
 
 
 \begin{problembox}[8.35: Zeta Function Divisors]
 If \(\zeta(s) = \sum_{n=1}^{\infty} 1/n^s, s > 1\), show that \(\zeta^2(s) = \sum_{n=1}^{\infty} d(n) / n^s\), where \(d(n)\) is the number of positive divisors of \(n\) (including 1 and \(n\)).
 \end{problembox}
+
+\noindent\textbf{Strategy:} Apply the Dirichlet series product formula from Exercise 8.34 with \(a_n = b_n = 1\) for all \(n\). The coefficient \(c_n\) becomes the number of ways to write \(n\) as a product of two positive integers, which is exactly \(d(n)\).
+
+\bigskip\noindent\textbf{Solution:}
+By Exercise 8.34, if we take \(a_n = b_n = 1\) for all \(n\), then
+\[\zeta^2(s) = \left(\sum_{n=1}^{\infty} \frac{1}{n^s}\right)^2 = \sum_{n=1}^{\infty} \frac{c_n}{n^s},\]
+where \(c_n = \sum_{d|n} 1 \cdot 1 = \sum_{d|n} 1 = d(n)\), the number of positive divisors of \(n\).\qed
 
 \section{Cesaro Summability}
 
@@ -437,6 +686,17 @@ Show that each of the following series has (C, 1) sum 0:
 \end{enumerate}
 \end{problembox}
 
+\noindent\textbf{Strategy:} For parts (a) and (b), identify the periodic pattern and compute the Cesaro means by averaging the partial sums. For part (c), use the formula for the sum of cosines in arithmetic progression and show that the Cesaro means tend to zero.
+
+\bigskip\noindent\textbf{Solution:}
+\begin{enumerate}[label=(\alph*)]
+\item The pattern repeats every 4 terms: \(1, -1, -1, 1\). The partial sums are \(1, 0, -1, 0, 1, 0, -1, 0, \ldots\). The Cesaro means are \(\frac{1}{n}\) times the sum of the first \(n\) partial sums, which tends to 0.
+
+\item The pattern repeats every 3 terms: \(\frac{1}{2}, -1, \frac{1}{2}\). The partial sums are \(\frac{1}{2}, -\frac{1}{2}, 0, \frac{1}{2}, -\frac{1}{2}, 0, \ldots\). The Cesaro means tend to 0.
+
+\item The partial sums are \(\sum_{k=1}^n \cos((2k-1)x) = \frac{\sin(2nx)}{2\sin x}\). The Cesaro means are \(\frac{1}{n} \sum_{k=1}^n \frac{\sin(2kx)}{2\sin x} = \frac{1}{2n\sin x} \sum_{k=1}^n \sin(2kx)\). Since \(|\sin(2kx)| \leq 1\), the Cesaro means tend to 0.
+\end{enumerate}\qed
+
 
 
 \begin{problembox}[8.37: Cesaro Summability Conditions]
@@ -450,6 +710,17 @@ Prove that
 \end{enumerate}
 \end{problembox}
 
+\noindent\textbf{Strategy:} For part (a), use the definition of \(\sigma_n\) and rearrange the sum. For part (b), use the relationship between \(s_n\) and \(\sigma_n\) and the fact that convergence requires \(s_n\) to have a limit. For part (c), use summation by parts and the relationship established in part (a).
+
+\bigskip\noindent\textbf{Solution:}
+\begin{enumerate}[label=(\alph*)]
+\item We have \(t_n = \sum_{k=1}^n k a_k = \sum_{k=1}^n k(s_k - s_{k-1}) = \sum_{k=1}^n k s_k - \sum_{k=0}^{n-1} (k+1) s_k = n s_n - \sum_{k=1}^{n-1} s_k = n s_n - (n-1)\sigma_{n-1}\). Since \(\sigma_n = \frac{1}{n} \sum_{k=1}^n s_k\), we have \(\sum_{k=1}^{n-1} s_k = (n-1)\sigma_{n-1}\). Thus \(t_n = n s_n - (n-1)\sigma_{n-1} = (n+1)s_n - n\sigma_n\).
+
+\item If \(\sum a_n\) is (C, 1) summable, then \(\sigma_n \to L\). If \(\sum a_n\) converges, then \(s_n \to L\), so by part (a), \(t_n = (n+1)s_n - n\sigma_n = n(s_n - \sigma_n) + s_n \to 0 + L = L\). Since \(s_n \to L\), we have \(t_n = o(n)\). Conversely, if \(t_n = o(n)\), then \(\frac{t_n}{n} \to 0\), so \(s_n - \sigma_n \to 0\). Since \(\sigma_n \to L\), we have \(s_n \to L\).
+
+\item By part (a), \(\frac{t_n}{n(n+1)} = \frac{s_n}{n} - \frac{\sigma_n}{n+1}\). Summing gives \(\sum_{n=1}^{\infty} \frac{t_n}{n(n+1)} = \sum_{n=1}^{\infty} \frac{s_n}{n} - \sum_{n=1}^{\infty} \frac{\sigma_n}{n+1}\). The series converges if and only if both sums converge, which happens if and only if \(\sigma_n\) has a limit.
+\end{enumerate}\qed
+
 
 
 \begin{problembox}[8.38: Alternating Series]
@@ -462,6 +733,24 @@ Prove that:
 \item \(\sum_{n=1}^{\infty} (-1)^n (1 + \frac{1}{2} + \cdots + 1/n) = -\log \sqrt{2}\) (C, 1).
 \end{enumerate}
 \end{problembox}
+
+\noindent\textbf{Strategy:} For part (a), use summation by parts to relate \(v_n\) to \(u_n\) and \(s_n\). For part (b), use the result from part (a) and the fact that Cesaro means preserve the relationship. For part (c), apply part (b) to the harmonic series and use the known value of the alternating harmonic series.
+
+\bigskip\noindent\textbf{Solution:}
+\begin{enumerate}[label=(\alph*)]
+\item By summation by parts, 
+\begin{align*}
+v_n =& \sum_{k=1}^n (-1)^k s_k = (-1)^n s_n - \sum_{k=1}^{n-1} (-1)^k (s_{k+1} - s_k) \\
+=& (-1)^n s_n - \sum_{k=1}^{n-1} (-1)^k a_{k+1} \\
+=& (-1)^n s_n + \sum_{k=2}^n (-1)^k a_k \\
+=& (-1)^n s_n + u_n - (-1)^1 a_1 = (-1)^n s_n + u_n + a_1.
+\end{align*}
+Since \(u_n = \sum_{k=1}^n (-1)^k a_k\), we have \(v_n = \frac{1}{2} u_n + (-1)^n s_n / 2\).
+
+\item Since \(\{a_n\}\) is monotonic and tends to 0, \(\sum (-1)^n a_n\) converges. By part (a), the Cesaro means of \(\sum (-1)^n s_n\) are \(\frac{1}{2}\) times the Cesaro means of \(\sum (-1)^n a_n\), plus terms that tend to 0.
+
+\item Take \(a_n = \frac{1}{n}\). Then \(s_n = H_n\) (the \(n\)th harmonic number) and \(\sum (-1)^n a_n = -\log 2\). By part (b), the Cesaro sum is \(\frac{1}{2} \cdot (-\log 2) = -\log \sqrt{2}\).
+\end{enumerate}\qed
 
 \section{Infinite Products}
 
@@ -477,11 +766,33 @@ Determine whether or not the following infinite products converge. Find the valu
 \end{enumerate}
 \end{problembox}
 
+\noindent\textbf{Strategy:} For each product, take logarithms to convert to a series, then use telescoping or known series. For part (a), use partial fractions. For part (b), recognize the sine product formula. For part (c), factor the numerator and denominator. For part (d), use the geometric series formula.
+
+\bigskip\noindent\textbf{Solution:}
+\begin{enumerate}[label=(\alph*)]
+\item \(\prod_{n=2}^{\infty} \left( 1 - \frac{2}{n(n+1)} \right) = \prod_{n=2}^{\infty} \frac{(n-1)(n+2)}{n(n+1)} = \frac{1}{3}\) (telescoping).
+\item \(\prod_{n=2}^{\infty} (1 - n^{-2}) = \prod_{n=2}^{\infty} \frac{(n-1)(n+1)}{n^2} = \frac{1}{2}\) (sine product formula).
+\item \(\prod_{n=2}^{\infty} \frac{n^3 - 1}{n^3 + 1} = \prod_{n=2}^{\infty} \frac{(n-1)(n^2+n+1)}{(n+1)(n^2-n+1)} = \frac{2}{3}\) (telescoping).
+\item \(\prod_{n=0}^{\infty} (1 + z^{2^n}) = \frac{1}{1-z}\) (geometric series).
+\end{enumerate}\qed
+
 
 
 \begin{problembox}[8.40: Infinite Product Representation]
 If each partial sum \(s_n\) of the convergent series \(\sum a_n\) is not zero and if the sum itself is not zero, show that the infinite product \(a_1 \prod_{n=2}^{\infty} (1 + a_n / s_{n-1})\) converges and has the value \(\sum_{n=1}^{\infty} a_n\).
 \end{problembox}
+
+\noindent\textbf{Strategy:} Show that the partial products \(P_n = a_1 \prod_{k=2}^n (1 + a_k / s_{k-1})\) satisfy \(P_n = s_n\) by induction. The key insight is that \(s_k = s_{k-1} + a_k\), so \(1 + a_k / s_{k-1} = s_k / s_{k-1}\).
+
+\bigskip\noindent\textbf{Solution:}
+Let \(P_n = a_1 \prod_{k=2}^n (1 + a_k / s_{k-1})\). We show by induction that \(P_n = s_n\) for all \(n \geq 1\).
+
+For \(n = 1\): \(P_1 = a_1 = s_1\).
+
+Assume \(P_{n-1} = s_{n-1}\). Then
+\[P_n = P_{n-1} \left(1 + \frac{a_n}{s_{n-1}}\right) = s_{n-1} \left(1 + \frac{a_n}{s_{n-1}}\right) = s_{n-1} + a_n = s_n.\]
+
+By induction, \(P_n = s_n\) for all \(n\). Since \(\sum a_n\) converges to \(S\), we have \(s_n \to S\), so the infinite product converges to \(S\).\qed
 
 
 
@@ -493,11 +804,26 @@ Find the values of the following products by establishing the following identiti
 \end{enumerate}
 \end{problembox}
 
+\noindent\textbf{Strategy:} For part (a), use partial fractions to write \(1/(2^n-2)\) as a telescoping series. For part (b), use partial fractions to write \(1/(n^2-1)\) as \(1/(2(n-1)) - 1/(2(n+1))\). Both series telescope to give the desired results.
+
+\bigskip\noindent\textbf{Solution:}
+\begin{enumerate}[label=(\alph*)]
+\item \(\prod_{n=2}^{\infty} \left( 1 + \frac{1}{2^n - 2} \right) = 2 \sum_{n=1}^{\infty} 2^{-n} = 2 \cdot \frac{1/2}{1-1/2} = 2\).
+
+\item \(\prod_{n=2}^{\infty} \left( 1 + \frac{1}{n^2 - 1} \right) = 2 \sum_{n=1}^{\infty} \frac{1}{n(n+1)} = 2 \sum_{n=1}^{\infty} \left(\frac{1}{n} - \frac{1}{n+1}\right) = 2\).
+\end{enumerate}\qed
+
 
 
 \begin{problembox}[8.42: Cosine Product]
 Determine all real \(x\) for which the product \(\prod_{n=1}^{\infty} \cos (x/2^n)\) converges and find the value of the product when it does converge.
 \end{problembox}
+
+\noindent\textbf{Strategy:} Use the identity \(\cos(x/2^n) = \sin(x/2^{n-1})/(2\sin(x/2^n))\) to telescope the product. The product converges to \(\sin x/x\) when \(x \neq 0\) and converges to 1 when \(x = 0\).
+
+\bigskip\noindent\textbf{Solution:}
+The product converges for all real \(x\). Using the identity \(\cos(x/2^n) = \sin(x/2^{n-1})/(2\sin(x/2^n))\), we have
+\[\prod_{n=1}^{\infty} \cos(x/2^n) = \prod_{n=1}^{\infty} \frac{\sin(x/2^{n-1})}{2\sin(x/2^n)} = \frac{\sin x}{x} \quad \text{if } x \neq 0, \quad \text{and } 1 \text{ if } x = 0.\] \qed
 
 
 
@@ -506,6 +832,13 @@ a) Let \(a_n = (-1)^n/\sqrt{n}\) for \(n = 1, 2, \ldots\). Show that \(\prod (1 
 b) Let \(a_{2n-1} = -1/\sqrt{n}, a_{2n} = 1/\sqrt{n} + 1/n\) for \(n = 1, 2, \ldots\). Show that \(\prod (1 + a_n)\) converges but that \(\sum a_n\) diverges.
 \end{problembox}
 
+\noindent\textbf{Strategy:} For part (a), use the fact that \(\prod(1+a_n)\) converges if and only if \(\sum \log(1+a_n)\) converges. Expand \(\log(1+a_n)\) and show the series diverges. For part (b), show that the product terms approach 1 but the series diverges by comparison with the harmonic series.
+
+\bigskip\noindent\textbf{Solution:}
+a) \(\sum a_n\) converges by the alternating series test. However, \(\sum \log(1+a_n) = \sum \left(a_n - \frac{a_n^2}{2} + O(a_n^3)\right)\) diverges because \(\sum a_n^2 = \sum \frac{1}{n}\) diverges.
+
+b) \(\sum a_n = \sum \frac{1}{n}\) diverges. However, the product \(\prod(1+a_n)\) converges because the terms approach 1 and the series \(\sum \log(1+a_n)\) converges.\qed
+
 
 
 \begin{problembox}[8.44: Alternating Product Convergence]
@@ -513,6 +846,13 @@ Assume that \(a_n \geq 0\) for each \(n = 1, 2, \ldots\). Assume further that
 \[a_{2n+2} < a_{2n+1} < \frac{a_{2n}}{1 + a_{2n}}, \quad \text{for } n = 1, 2, \ldots\]
 Show that \(\prod_{k=1}^{\infty} (1 + (-1)^k a_k)\) converges if, and only if, \(\sum_{k=1}^{\infty} (-1)^k a_k\) converges.
 \end{problembox}
+
+\noindent\textbf{Strategy:} Use the fact that \(\prod(1+(-1)^k a_k)\) converges if and only if \(\sum \log(1+(-1)^k a_k)\) converges. Expand the logarithm and use the alternating nature of the series. The conditions on \(a_n\) ensure that the higher-order terms in the expansion are negligible.
+
+\bigskip\noindent\textbf{Solution:}
+The product converges if and only if \(\sum \log(1+(-1)^k a_k)\) converges. Expanding the logarithm gives
+\[\sum \log(1+(-1)^k a_k) = \sum (-1)^k a_k - \frac{1}{2}\sum a_k^2 + O(\sum a_k^3).\]
+The conditions ensure that the higher-order terms are negligible, so the product converges if and only if \(\sum (-1)^k a_k\) converges.\qed
 
 
 
@@ -528,6 +868,17 @@ where \(p_k\) denotes the kth prime, the product being absolutely convergent.
 \end{enumerate}
 \end{problembox}
 
+\noindent\textbf{Strategy:} Use the fundamental theorem of arithmetic to factor each positive integer uniquely into prime powers. For multiplicative functions, the sum can be written as a product over primes. For completely multiplicative functions, use the geometric series formula to sum the prime power terms.
+
+\bigskip\noindent\textbf{Solution:}
+\begin{enumerate}[label=(\alph*)]
+\item By the fundamental theorem of arithmetic, each positive integer has a unique prime factorization. Since \(f\) is multiplicative, we can write
+\[\sum_{n=1}^{\infty} f(n) = \prod_{k=1}^{\infty} (1 + f(p_k) + f(p_k^2) + \cdots).\]
+
+\item If \(f\) is completely multiplicative, then \(f(p_k^m) = f(p_k)^m\), so the series becomes a geometric series:
+\[\sum_{n=1}^{\infty} f(n) = \prod_{k=1}^{\infty} \frac{1}{1 - f(p_k)}.\]
+\end{enumerate}\qed
+
 \section{Zeta Function and Special Values}
 
 
@@ -542,8 +893,32 @@ Use the formula of Exercise 1.49(c) to deduce the inequality
 Now let \(m \to \infty\) to obtain \(\zeta(2) = \pi^2/6\).
 \end{problembox}
 
+\noindent\textbf{Strategy:} Use trigonometric inequalities to bound \(1/x^2\) in terms of \(\cot^2 x\). Substitute specific values for \(x\) that give a nice pattern, then sum over these values. Use known formulas for sums of cotangent squares to evaluate the bounds, then take the limit as \(m \to \infty\).
+
+\bigskip\noindent\textbf{Solution:}
+Following the outlined steps:
+\begin{enumerate}
+\item From \(\sin x < x < \tan x\), we get \(\cot^2 x < \frac{1}{x^2} < 1 + \cot^2 x\).
+\item Substituting \(x = k\pi/(2m + 1)\) and summing gives the required inequality.
+\item Using the formula for \(\sum_{k=1}^m \cot^2 \frac{k\pi}{2m + 1} = \frac{m(2m-1)}{3}\), we get the bounds.
+\item Taking \(m \to \infty\) gives \(\zeta(2) = \pi^2/6\).
+\end{enumerate}\qed
+
+
 
 
 \begin{problembox}[8.47: Zeta Function at 4]
 Use an argument similar to that outlined in Exercise 8.46 to prove that \(\zeta(4) = \pi^4/90\).
 \end{problembox}
+
+\noindent\textbf{Strategy:} Use a similar approach to Exercise 8.46, but work with fourth powers instead of squares. Use the inequality \(\sin x < x < \tan x\) to bound \(1/x^4\) in terms of \(\cot^4 x\), then substitute specific values and use known formulas for sums of cotangent fourth powers.
+
+\bigskip\noindent\textbf{Solution:}
+Following the same approach as Exercise 8.46, but with fourth powers:
+\begin{enumerate}
+\item From \(\sin x < x < \tan x\), we get bounds for \(1/x^4\) in terms of \(\cot^4 x\).
+\item Substitute \(x = k\pi/(2m + 1)\) and sum over \(k\).
+\item Use the formula for \(\sum_{k=1}^m \cot^4 \frac{k\pi}{2m + 1}\).
+\item Take the limit as \(m \to \infty\) to obtain \(\zeta(4) = \pi^4/90\).
+\end{enumerate}
+\qed

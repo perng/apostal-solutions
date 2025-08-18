@@ -58,7 +58,7 @@ Hint: $(a, b) = (c, d)$ means $\{\{a\}, \{a, b\}\} = \{\{c\}, \{c, d\}\}$. Now a
 
 \noindent\textbf{Strategy:} Use the Kuratowski definition of ordered pairs and set equality. Consider cases based on whether $a=b$ or $a\neq b$, then match elements of the sets to establish the required equalities.
 
-\noindent\bigskip\noindent\textbf{Solution:}  
+\bigskip\noindent\textbf{Solution:}  
 We must prove that $(a, b) = (c, d)$ if and only if $a=c$ and $b=d$.
 The Kuratowski definition of an ordered pair is $(x, y) = \{\{x\}, \{x, y\}\}$.
 If $a=c$ and $b=d$, then $(a,b) = \{\{a\}, \{a,b\}\} = \{\{c\}, \{c,d\}\} = (c,d)$. This direction is straightforward.
@@ -368,7 +368,7 @@ Prove the following set-theoretic identities:
 
 \noindent\textbf{Strategy:} Use element-chasing method: assume an element belongs to one side and show it belongs to the other side, then reverse the argument. For each identity, use the definitions of union, intersection, and set difference.
 
-\noindent\bigskip\noindent\textbf{Solution:}  
+\bigskip\noindent\textbf{Solution:}  
 Each identity can be proven by element-chasing: assuming \( x \in \) one side and showing \( x \in \) the other side.  
 For example, for (b), if \( x \in A \cap (B \cup C) \), then \( x \in A \) and \( x \in B \cup C \Rightarrow x \in (A \cap B) \cup (A \cap C) \). Similar for the reverse.\qed
 
@@ -591,7 +591,7 @@ Prove that every infinite set \( S \) contains a proper subset similar (i.e., bi
 
 \noindent\textbf{Strategy:} Use the result from Exercise 2.12 to find a countably infinite subset $A = \{a_1, a_2, \ldots\}$ of $S$. Define a bijection from $S$ to $S \setminus \{a_1\}$ by mapping elements of $A$ to the next element in the sequence and leaving other elements fixed.
 
-\noindent\bigskip\noindent\textbf{Solution:}  
+\bigskip\noindent\textbf{Solution:}  
 Let $S$ be an infinite set. By the result of Exercise 2.12, $S$ contains a countably infinite subset. Let this subset be $A = \{a_1, a_2, a_3, \dots \}$.
 Let $S' = S \setminus A$ be the set of elements in $S$ but not in $A$. Then $S = A \cup S'$, and this union is disjoint.
 
@@ -644,7 +644,7 @@ Prove that the set of all polynomials with integer coefficients is countable, an
 
 \noindent\textbf{Strategy:} Represent each polynomial by its finite sequence of integer coefficients. Show that the set of finite sequences of integers is countable (as a countable union of countable sets). Then use the fact that each polynomial has finitely many roots to show that algebraic numbers form a countable union of finite sets.
 
-\noindent\bigskip\noindent\textbf{Solution:}  
+\bigskip\noindent\textbf{Solution:}  
 Each polynomial can be represented by a finite tuple of integers (its coefficients). The set of finite sequences of integers is countable (a countable union of countable sets).  
 Each polynomial has finitely many roots, so the set of all algebraic numbers is a countable union of finite sets → countable.\qed
 
@@ -794,6 +794,8 @@ f(A \cup B) = f(A) + f(B) - f(A \cap B)
 \]
 \end{problembox}
 
+\noindent\textbf{Strategy:} For the first identity, write $A \cup B$ as a disjoint union $A \cup (B-A)$ and apply the additivity property. For the second identity, decompose $A$ and $B$ into disjoint pieces using set differences and intersections, then use additivity and solve for the desired expression.
+
 \bigskip\noindent\textbf{Solution:}  
 Let $f: S \to \mathbb{R}$ be an additive function, meaning $f(X \cup Y) = f(X) + f(Y)$ whenever $X \cap Y = \emptyset$.
 
@@ -835,6 +837,8 @@ f(A \cap B) = f(A)f(B), \quad f(A) + f(B) \ne f(T),
 where \(A' = T - A, B' = T - B\). Prove that these relations determine \(f(T)\), and compute the value of \(f(T)\).
 \end{problembox}
 
+\noindent\textbf{Strategy:} Use the additivity property to express $f(A')$ and $f(B')$ in terms of $f(T)$, $f(A)$, and $f(B)$. Substitute these expressions into the first given equation. Then use the standard inclusion-exclusion formula for $f(A \cup B)$ and the second given relation to set up a quadratic equation in $f(T)$. Solve this equation and use the third condition to determine the unique solution.
+
 \bigskip\noindent\textbf{Solution:}
 
 We are given that the function \(f\) is additive, meaning \(f(X \cup Y) = f(X) + f(Y)\) for any disjoint sets \(X\) and \(Y\). For any subset \(X \subseteq T\), its complement \(X' = T - X\) is disjoint from \(X\) and their union is \(T\). The additive property therefore implies \(f(T) = f(X) + f(X')\), which gives us:
@@ -844,9 +848,12 @@ We are given that the function \(f\) is additive, meaning \(f(X \cup Y) = f(X) +
 \end{itemize}
 We substitute these into the first given relation:
 \begin{align*}
-f(A \cup B) &= \big(f(T) - f(A)\big) + \big(f(T) - f(B)\big) - \big(f(T) - f(A)\big)\big(f(T) - f(B)\big) \\
-&= 2f(T) - f(A) - f(B) - \left[ f(T)^2 - f(T)f(A) - f(T)f(B) + f(A)f(B) \right] \\
-&= 2f(T) - f(A) - f(B) - f(T)^2 + f(T)f(A) + f(T)f(B) - f(A)f(B)
+f(A \cup B) =& \big(f(T) - f(A)\big) + \big(f(T) - f(B)\big) \\
+&- \big(f(T) - f(A)\big)\big(f(T) - f(B)\big) \\
+=& 2f(T) - f(A) - f(B)  \\
+&- \left[ f(T)^2 - f(T)f(A) - f(T)f(B) + f(A)f(B) \right] \\
+=& 2f(T) - f(A) - f(B) - f(T)^2 \\
+&+ f(T)f(A) + f(T)f(B) - f(A)f(B)
 \end{align*}
 Next, we use the standard inclusion-exclusion principle for an additive function, which states \(f(A \cup B) = f(A) + f(B) - f(A \cap B)\). From the second given relation, we know \(f(A \cap B) = f(A)f(B)\). Substituting this gives:
 \[

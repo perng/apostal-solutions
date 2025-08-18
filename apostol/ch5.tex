@@ -191,11 +191,12 @@ Keep \( x \neq 0 \) fixed, and find \( \lim_{h \to 0} \theta \) in each case.
 \bigskip\noindent\textbf{Solution:}
 By the mean value theorem, for each $h\ne 0$ there is $\theta\in(0,1)$ with $\dfrac{f(x+h)-f(x)}{h}=f'(x+\theta h)$. Compute $\theta$ casewise:
 \[\begin{aligned}
-&f(x)=x^2:&&\frac{(x+h)^2-x^2}{h}=2x+h=2(x+\theta h)\Rightarrow\theta=\tfrac12.\\
-&f(x)=x^3:&&\frac{(x+h)^3-x^3}{h}=3x^2+3xh+h^2=3(x+\theta h)^2,\\
-&&&\text{so }\theta=\frac{-x+\sqrt{x^2+xh+\tfrac13 h^2}}{h}\in(0,1).\\
-&f(x)=e^x:&&\frac{e^{x+h}-e^x}{h}=e^{x+\theta h}\Rightarrow \theta=\frac1h\log\frac{e^h-1}{h}.\\
-&f(x)=\log x\,(x>0):&&\frac{\log(x+h)-\log x}{h}=\frac{1}{x+\theta h}\Rightarrow \theta=\frac{1}{h}\Big(\frac{h}{\log(1+h/x)}-x\Big).
+f(x)=x^2:&\frac{(x+h)^2-x^2}{h}=2x+h=2(x+\theta h)\Rightarrow\theta=\tfrac12.\\
+f(x)=x^3:&\frac{(x+h)^3-x^3}{h}=3x^2+3xh+h^2=3(x+\theta h)^2,\\
+& \text{so }\theta=\frac{-x+\sqrt{x^2+xh+\tfrac13 h^2}}{h}\in(0,1).\\
+f(x)=e^x:&\frac{e^{x+h}-e^x}{h}=e^{x+\theta h}\Rightarrow \theta=\frac1h\log\frac{e^h-1}{h}.\\
+f(x)=\log x\,(x>0):&\frac{\log(x+h)-\log x}{h}=\frac{1}{x+\theta h} \\
+& \Rightarrow \theta=\frac{1}{h}\Big(\frac{h}{\log(1+h/x)}-x\Big).
 \end{aligned}\]
 Fix $x\ne 0$. In each case, expanding for small $h$ shows $\lim_{h\to 0}\theta=\tfrac12$.\qed
 
@@ -273,7 +274,10 @@ Let \( f \) be continuous on \( [0, 1] \), \( f(0) = 0 \), \( f'(x) \) finite fo
 For $0<u<v\le 1$, apply Cauchy’s mean value theorem to $f$ and $x\mapsto x$ on $[u,v]$ to get
 \[\frac{f(v)-f(u)}{v-u}=f'(\xi)\quad(\xi\in(u,v)).\]
 Then
-\[\frac{f(v)}{v}-\frac{f(u)}{u}=\frac{uf(v)-vf(u)}{uv}=\frac{u[v f'(\xi)-(f(v)-f(u))]}{uv}=\frac{u(v-\xi)}{uv}\,[f'(\xi)-f'(\eta)]\ge 0,\]
+\begin{align*}
+\frac{f(v)}{v}-\frac{f(u)}{u}=&\frac{uf(v)-vf(u)}{uv}=\frac{u[v f'(\xi)-(f(v)-f(u))]}{uv} \\
+=& \frac{u(v-\xi)}{uv}\,[f'(\xi)-f'(\eta)]\ge 0,
+\end{align*}
 using the mean value theorem on $f$ again and the monotonicity of $f'$. Hence $g(x)=f(x)/x$ is increasing.\qed
 
 
@@ -494,8 +498,10 @@ For $(x,y)\ne(0,0)$, one computes
 At the origin,
 \[f_x(0,0)=\lim_{h\to 0}\frac{f(h,0)-0}{h}=0,\quad f_y(0,0)=\lim_{h\to 0}\frac{f(0,h)-0}{h}=-1.\]
 Second-order at $(0,0)$ (where they exist):
-\[f_{xx}(0,0)=\lim_{h\to 0}\frac{f_x(h,0)-f_x(0,0)}{h}=0,\quad f_{yy}(0,0)=\lim_{h\to 0}\frac{f_y(0,h)-f_y(0,0)}{h}=0,\]
-\[f_{xy}(0,0)=\lim_{h\to 0}\frac{f_x(0,h)-f_x(0,0)}{h}=0,\quad f_{yx}(0,0)=\lim_{h\to 0}\frac{f_y(h,0)-f_y(0,0)}{h}\text{ does not exist}.\]\qed
+\[f_{xx}(0,0)=\lim_{h\to 0}\frac{f_x(h,0)-f_x(0,0)}{h}=0,\] 
+\[f_{yy}(0,0)=\lim_{h\to 0}\frac{f_y(0,h)-f_y(0,0)}{h}=0,\]
+\[f_{xy}(0,0)=\lim_{h\to 0}\frac{f_x(0,h)-f_x(0,0)}{h}=0,\]
+\[f_{yx}(0,0)=\lim_{h\to 0}\frac{f_y(h,0)-f_y(0,0)}{h}\text{ does not exist}.\]\qed
 
 
 \begin{problembox}[5.35: Complex Conjugate Differentiability]

@@ -13,6 +13,8 @@ If \( f \in L(T) \), where \( T \) is the triangular region in \( \mathbb{R}^2 \
 \]
 \end{problembox}
 
+\noindent\textbf{Strategy:} Apply Fubini's Theorem to the indicator function of the triangular region. Express the double integral as an iterated integral using two different slicing methods: first by vertical lines (fixing x and integrating over y), then by horizontal lines (fixing y and integrating over x).
+
 \bigskip\noindent\textbf{Solution:}
 Write the indicator of the triangle \(T=\{(x,y): 0\le y \le x \le 1\}\) and apply Fubini to
 \[
@@ -36,6 +38,8 @@ Prove that \( f \in L(\mathbb{R}^2) \) and calculate the double integral
 \]
 \end{problembox}
 
+\noindent\textbf{Strategy:} First identify the support of the function as a triangular region. Then use a change of variables \(u = x-y\), \(v = y\) to simplify the integrand and transform the region to a more manageable shape. The Jacobian is 1, making the transformation straightforward.
+
 \bigskip\noindent\textbf{Solution:}
 The support is the triangle \(0\le y < x < 1\), so
 \[
@@ -56,6 +60,8 @@ Let \( S \) be a measurable subset of \( \mathbb{R}^2 \) with finite measure \( 
 \]
 \end{problembox}
 
+\noindent\textbf{Strategy:} Apply Fubini's Theorem to the indicator function \(\mathbf{1}_S\). Use the definition of the sliced sets \(S^x\) and \(S_y\) from Definition 15.4, which represent the cross-sections of \(S\) at fixed \(x\) and \(y\) values respectively.
+
 \bigskip\noindent\textbf{Solution:}
 Apply Fubini to the indicator function \(\mathbf{1}_S\). By Definition 15.4, \(\mu(S^x)=\int \mathbf{1}_S(x,y)\,dy\) and \(\mu(S_y)=\int \mathbf{1}_S(x,y)\,dx\). Hence
 \[
@@ -71,7 +77,8 @@ Let \( f(x, y) = e^{-xy} \sin x \sin y \) if \( x \geq 0, y \geq 0 \), and let \
 exist and are equal, but that the double integral of \( f \) over \( \mathbb{R}^2 \) does not exist. Also, explain why this does not contradict the Tonelli-Hobson test (Theorem 15.8).
 \end{problembox}
 
-\bigskip\noindent\textbf{Solution:}
+\noindent\textbf{Strategy:} For the iterated integrals, use the Laplace transform formula for \(\int_0^\infty e^{-at} \sin t \, dt\). Show that both iterated integrals converge absolutely. For the double integral, demonstrate that \(|f|\) is not integrable by showing divergence near the axes. Explain why Tonelli's theorem doesn't apply since \(f\) changes sign and is not absolutely integrable.
+
 \bigskip\noindent\textbf{Solution:}
 Since \(f\) is supported in the first quadrant, we may write the iterated integrals as
 \[
@@ -164,6 +171,8 @@ Let \( f(x, y) = (x^2 - y^2)/(x^2 + y^2)^2 \) for \( 0 \leq x \leq 1, 0 < y \leq
 exist but are not equal. This shows that \( f \) is not Lebesgue-integrable on \([0, 1] \times [0, 1]\).
 \end{problembox}
 
+\noindent\textbf{Strategy:} Compute both iterated integrals directly using partial fraction decomposition or substitution. Show they yield different values (\(\pi/4\) and \(-\pi/4\)), which by the criterion that unequal iterated integrals imply non-integrability, proves \(f \notin L([0,1]^2)\).
+
 \bigskip\noindent\textbf{Solution:}
 For fixed \(x>0\),
 \[
@@ -183,6 +192,8 @@ Let \( I = [0, 1] \times [0, 1] \), let \( f(x, y) = (x - y)/(x + y)^3 \) if \( 
 \]
 \end{problembox}
 
+\noindent\textbf{Strategy:} Similar to the previous problem, compute both iterated integrals directly. Use the symmetry of the function to show they give opposite values (\(1/2\) and \(-1/2\)), establishing non-integrability by the same criterion.
+
 \bigskip\noindent\textbf{Solution:}
 For fixed \(x\in[0,1]\),
 \[
@@ -201,6 +212,8 @@ Let \( I = [0, 1] \times [1, +\infty) \) and let \( f(x, y) = e^{-xy} - 2e^{-2xy
 \int_0^1 \left[ \int_0^\infty f(x, y) \, dy \right] \, dx \quad \text{and} \quad \int_1^\infty \left[ \int_0^1 f(x, y) \, dx \right] \, dy.
 \]
 \end{problembox}
+
+\noindent\textbf{Strategy:} Show that one iterated integral diverges while the other converges. The first integral diverges due to a singularity at \(x=0\), while the second converges absolutely. This demonstrates non-integrability since both iterated integrals must converge for Lebesgue integrability.
 
 \bigskip\noindent\textbf{Solution:}
 For \(x\in(0,1]\),
@@ -223,9 +236,15 @@ The following formulas for transforming double and triple integrals occur in ele
 \begin{enumerate}[label=(\alph*)]
 \item \[ \iint_T f(x, y) \, dx \, dy = \iint_{T'} f(r \cos \theta, r \sin \theta)r \, dr \, d\theta.\]
 \item \[ \iiint_T f(x, y, z) \, dx \, dy \, dz = \iiint_{T'} f(r \cos \theta, r \sin \theta, z)r \, dr \, d\theta \, dz.\]
-\item \[ \iiint_T f(x, y, z) \, dx \, dy \, dz = \iiint_{T'} f(\rho \cos \theta \sin \varphi, \rho \sin \theta \sin \varphi, \rho \cos \varphi) \rho^2 \sin \varphi \, d\rho \, d\theta \, d\varphi.\]
+\item 
+\begin{align*}
+&\iiint_T f(x, y, z) \, dx \, dy \, dz \\
+=& \iiint_{T'} f(\rho \cos \theta \sin \varphi, \rho \sin \theta \sin \varphi, \rho \cos \varphi) \rho^2 \sin \varphi \, d\rho \, d\theta \, d\varphi.
+\end{align*}
 \end{enumerate}
 \end{problembox}
+
+\noindent\textbf{Strategy:} Apply the Change of Variables Theorem (Theorem 15.11) to the coordinate transformations for polar, cylindrical, and spherical coordinates. Calculate the Jacobian determinants for each transformation and specify the conditions on \(T\) and \(T'\) for the theorem to apply.
 
 \bigskip\noindent\textbf{Solution:}
 These follow from the Change of Variables Theorem applied to the maps
@@ -247,6 +266,8 @@ The determinants are respectively \(r\), \(r\), and \(\rho^2\sin\varphi\). Valid
 \item Use part (b) to calculate \(\int_{-\infty}^{\infty} e^{-tx^2} \, dx\) and \(\int_{-\infty}^{\infty} x^2 e^{-tx^2} \, dx, t > 0\).
 \end{enumerate}
 \end{problembox}
+
+\noindent\textbf{Strategy:} Start with polar coordinates for the 2D integral, then use the product structure of Gaussian measures to extend to higher dimensions. For the parameterized integrals, use scaling and differentiation techniques to derive the results from the basic Gaussian integral.
 
 \bigskip\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
@@ -280,6 +301,8 @@ V_n(1) = \frac{\pi^{n/2}}{\Gamma(\frac{1}{2}n + 1)}.
 \end{enumerate}
 \end{problembox}
 
+\noindent\textbf{Strategy:} Use scaling properties for part (a). For part (b), decompose the \(n\)-ball into a product of a 2D disk and an \((n-2)\)-ball, then use polar coordinates for the 2D part. For part (c), use mathematical induction with the recursion formula and known values for low dimensions.
+
 \bigskip\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
 \item Under \(x\mapsto ax\), \(n\)-volume scales by \(a^n\), so \(V_n(a)=a^n V_n(1)\).
@@ -299,6 +322,8 @@ Refer to Exercise 15.10 and prove that
 for each \( k = 1, 2, \ldots, n \).
 \end{problembox}
 
+\noindent\textbf{Strategy:} Use the symmetry of the ball to show all \(\int x_k^2\) are equal. Then use the identity \(\sum_{k=1}^n x_k^2 = \|x\|^2\) and spherical coordinates to compute \(\int \|x\|^2\) in terms of the surface area of the unit sphere.
+
 \bigskip\noindent\textbf{Solution:}
 By symmetry, \(\int_{B(0;1)} x_k^2\,dx\) is the same for each \(k\) and \(\sum_{k=1}^n x_k^2=\|x\|^2\). Hence
 \[
@@ -317,6 +342,8 @@ Put \( x = \cos t \) in the integral, and use the formula of Exercise 15.10 to d
 \int_0^{\pi/2} \cos^n t \, dt = \frac{\sqrt{\pi}}{2} \frac{\Gamma(\frac{1}{2}n + \frac{1}{2})}{\Gamma(\frac{1}{2}n + 1)}.
 \]
 \end{problembox}
+
+\noindent\textbf{Strategy:} Decompose the \(n\)-ball into a product of a 1D interval and an \((n-1)\)-ball, then use the substitution \(x = \cos t\) to transform the integral. Combine this with the result from Exercise 15.10 to derive the cosine integral formula.
 
 \bigskip\noindent\textbf{Solution:}
 Writing \(V_n(1)=2V_{n-1}(1)\int_0^1 (1-x^2)^{(n-1)/2}dx\) and substituting \(x=\cos t\) gives
@@ -342,6 +369,8 @@ and deduce that \( V_n(1) = 2^n / n! \).
 \end{enumerate}
 \end{problembox}
 
+\noindent\textbf{Strategy:} Use scaling for part (a). For part (b), slice the diamond by fixing one coordinate and use the fact that the cross-section is a scaled \((n-1)\)-dimensional diamond. Use mathematical induction to establish the factorial formula.
+
 \bigskip\noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
 \item Scaling gives \(V_n(a)=a^n V_n(1)\).
@@ -358,6 +387,8 @@ S_n(a) = \{(x_1, \ldots, x_n): |x_i| + |x_n| \leq a \quad \text{for each } i = 1
 Let \( V_n(a) \) denote the \( n \)-measure of \( S_n(a) \). Use a method suggested by Exercise 15.13 to prove that \( V_n(a) = 2^n a^n / n \).
 \end{problembox}
 
+\noindent\textbf{Strategy:} Fix the last coordinate \(x_n\) and observe that the cross-section in the first \(n-1\) coordinates forms an \((n-1)\)-dimensional diamond. Use the result from Exercise 15.13 for the volume of this cross-section, then integrate over \(x_n\).
+
 \bigskip\noindent\textbf{Solution:}
 Fix \(x_n\in[-a,a]\). The cross-section in the first \(n-1\) coordinates is an \((n-1)\)-dimensional diamond of radius \(a-|x_n|\) with volume \(V_{n-1}(a-|x_n|)=2^{n-1}(a-|x_n|)^{n-1}/(n-1)!\). Integrating in \(x_n\) gives
 \[
@@ -367,14 +398,14 @@ V_n(a)=\int_{-a}^{a} \frac{2^{n-1}}{(n-1)!} (a-|t|)^{n-1} dt = \frac{2^n a^n}{n}
 
 \begin{problembox}[15.15: Integral over First Quadrant of \( n \)-Ball]
 Let \( Q_n(a) \) denote the ``first quadrant'' of the \( n \)-ball \( B(0:a) \) given by
-\[
-Q_n(a) = \{(x_1, \ldots, x_n): \|x\| \leq a \quad \text{and } 0 \leq x_i \leq a \quad \text{for each } i = 1, 2, \ldots, n\}.
-\]
+$Q_n(a) = \{(x_1, \ldots, x_n): \|x\| \leq a$ and $ 0 \leq x_i \leq a $ for each $ i = 1, 2, \ldots, n.$
 Let \( f(x) = x_1 \cdots x_n \) and prove that
 \[
 \int_{Q_n(a)} f(x) \, dx = \frac{a^{2n}}{2^n n!}.
 \]
 \end{problembox}
+
+\noindent\textbf{Strategy:} Use the change of variables \(y_i = x_i^2\) to transform the region into a simplex. The Jacobian simplifies the integrand, and the volume of the simplex can be computed using the formula for the volume of an \(n\)-dimensional simplex.
 
 \bigskip\noindent\textbf{Solution:}
 Let \(y_i=x_i^2\) for \(i=1,\ldots,n\). On the first quadrant, \(x_i\ge 0\), the region \(Q_n(a)\) maps to the simplex \(\{y\ge 0: y_1+\cdots+y_n\le a^2\}\). The Jacobian gives \(dx=\frac{1}{2^n}(y_1\cdots y_n)^{-1/2}dy\) and \(x_1\cdots x_n=\sqrt{y_1\cdots y_n}\). Therefore the integrand times \(dx\) is \(\frac{1}{2^n} dy\), and

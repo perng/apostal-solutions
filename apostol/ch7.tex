@@ -129,8 +129,10 @@ b) \[ \sum_{k=1}^n \frac{1}{k} = \log n - \int_1^n \frac{x - [x]}{x^2} dx + 1. \
 Apply the result of 7.5 with $a_n\equiv 1$, so $A(x)=[x]$.
 
 \textit{(a)} With $f(x)=x^{-s}$ ($s\ne 1$), we have $f'(x)=-s x^{-s-1}$. Hence
-\[\sum_{k=1}^n k^{-s} = -\int_1^n [x]\,f'(x)\,dx + [n] f(n) = s\int_1^n \frac{[x]}{x^{s+1}}\,dx + n\cdot n^{-s}= s\int_1^n \frac{[x]}{x^{s+1}}\,dx + n^{1-s}.
-\]
+\begin{align*}
+\sum_{k=1}^n k^{-s} =& -\int_1^n [x]\,f'(x)\,dx + [n] f(n) = s\int_1^n \frac{[x]}{x^{s+1}}\,dx + n\cdot n^{-s} \\
+=& s\int_1^n \frac{[x]}{x^{s+1}}\,dx + n^{1-s}.
+\end{align*}
 
 \textit{(b)} With $f(x)=1/x$, $f'(x)=-1/x^2$. Then
 \[\sum_{k=1}^n \frac{1}{k} = -\int_1^n [x]\,f'(x)\,dx + [n]f(n) = \int_1^n \frac{[x]}{x^2}\,dx + 1.
@@ -164,7 +166,7 @@ But $A(2n)=0$, so the boundary term vanishes and the identity follows:
 
 \qed
 \begin{problembox}[7.8: Euler's Summation Formula with Higher Order Terms]
-Let $\varphi_1(x) = x - [x] - \frac{1}{2}$ if $x \neq \text{integer}, \text{and let } \varphi_1(x) = 0 \text{ if } x = \text{integer}. \text{Also, let } \varphi_2(x) = \int_0^x \varphi_1(t) dt. \text{If } f'' \text{ is continuous on } [1, n] \text{ prove that Euler's summation formula implies that}$
+Let $\varphi_1(x) = x - [x] - \frac{1}{2}$ if $x \neq \text{integer}$, and let  $\varphi_1(x) = 0$  if  $x = \text{integer}$. Also, let  $\varphi_2(x) = \int_0^x \varphi_1(t) dt$. If  $f''$  is continuous on  $[1, n]$  prove that Euler's summation formula implies that
 
 \[ \sum_{k=1}^n f(k) = \int_1^n f(x) dx - \int_1^n \varphi_2(x) f''(x) dx + \frac{f(1) + f(n)}{2}. \]
 \end{problembox}
@@ -327,7 +329,10 @@ Passing to integrals yields $\big|\int f\,da-\int f\,da_n\big|\le (\sup|f|)\,V_n
 \qed
 \begin{problembox}[7.16: Cauchy-Schwarz Inequality for Integrals]
 If $f \in R(a), f^2 \in R(a), g \in R(a)$, and $g^2 \in R(a)$ on $[a, b]$, prove that
-\[\frac{1}{2} \int_a^b \left( \int_a^b \begin{vmatrix} f(x) & g(x) \\ f(y) & g(y) \end{vmatrix}^2 da(x) \right) da(x) = \left( \int_a^b f(x)^2 da(x) \right) \left( \int_a^b g(x)^2 da(x) \right) - \left( \int_a^b f(x)g(x) da(x) \right)^2.\]
+\begin{align*}
+&\frac{1}{2} \int_a^b \left( \int_a^b \begin{vmatrix} f(x) & g(x) \\ f(y) & g(y) \end{vmatrix}^2 da(x) \right) da(x) \\
+=& \left( \int_a^b f(x)^2 da(x) \right) \left( \int_a^b g(x)^2 da(x) \right) - \left( \int_a^b f(x)g(x) da(x) \right)^2.
+\end{align*}
 When $a \neq 0$ on $[a, b]$, deduce the Cauchy-Schwarz inequality
 \[\left( \int_a^b f(x)g(x) da(x) \right)^2 \leq \left( \int_a^b f(x)^2 da(x) \right) \left( \int_a^b g(x)^2 da(x) \right).\]
 (Compare with Exercise 1.23.)
@@ -347,7 +352,10 @@ Symmetry and Fubini-type arguments for Riemann–Stieltjes sums give the stated 
 \qed
 \begin{problembox}[7.17: Integral Identity for Products]
 Assume that $f \in R(a), g \in R(a)$, and $f \cdot g \in R(a)$ on $[a, b]$. Show that
-\[\frac{1}{2} \int_a^b \left( \int_a^b (f(y) - f(x))(g(y) - g(x)) da(x) \right) da(x) = (a(b) - a(a)) \int_a^b f(x)g(x) da(x) - \left( \int_a^b f(x) da(x) \right) \left( \int_a^b g(x) da(x) \right).\]
+\begin{align*}
+&\frac{1}{2} \int_a^b \left( \int_a^b (f(y) - f(x))(g(y) - g(x)) da(x) \right) da(x) \\
+=& (a(b) - a(a)) \int_a^b f(x)g(x) da(x) - \left( \int_a^b f(x) da(x) \right) \left( \int_a^b g(x) da(x) \right).
+\end{align*}
 If $a \neq 0$ on $[a, b]$, deduce the inequality
 \[\left( \int_a^b f(x) da(x) \right) \left( \int_a^b g(x) da(x) \right) \leq (a(b) - a(a)) \int_a^b f(x)g(x) da(x)\]
 when both $f$ and $g$ are increasing (or both are decreasing) on $[a, b]$. Show that the reverse inequality holds if $f$ increases and $g$ decreases on $[a, b]$.
@@ -542,7 +550,10 @@ where $A(x) = 2^{-1-\lfloor \log x / \log 2 \rfloor}$ and where $[y]$ is the gre
 (a) $f$ is bounded with only jump discontinuities at the dyadic points $2^{-n}$; the set of discontinuities is countable, hence measure zero. Therefore $f\in R$ and $\int_0^1 f$ exists. Also $f$ is a step function, so its integral exists by definition.
 
 (b) For $x\in(0,1]$, write $x\in(2^{-m-1},2^{-m}]$, so $A(x)=2^{-m-1}$. Then
-\[F(x)=\int_0^x f(t)\,dt=\sum_{n\ge m+1} \int_{2^{-n-1}}^{2^{-n}} 2^{-n}dt + \int_{2^{-m-1}}^{x} 2^{-m}dt=\sum_{n\ge m+1}2^{-n}\cdot 2^{-n-1}+2^{-m}(x-2^{-m-1}),\]
+\begin{align*}
+F(x)=&\int_0^x f(t)\,dt=\sum_{n\ge m+1} \int_{2^{-n-1}}^{2^{-n}} 2^{-n}dt + \int_{2^{-m-1}}^{x} 2^{-m}dt \\
+=&\sum_{n\ge m+1}2^{-n}\cdot 2^{-n-1}+2^{-m}(x-2^{-m-1}),
+\end{align*}
 which simplifies to $F(x)=xA(x)-\tfrac13 A(x)^2$ as stated.
 
 
@@ -703,8 +714,11 @@ If $k \in A$, use the inequality $f(t_k) \leq M$; if $k \in B$, choose $t_k$ so 
 
 \bigskip\noindent\textbf{Solution:}
 Choose a partition $P$ such that every Riemann sum exceeds $I/2$. Split the sum as indicated. For $k\in A$, $f(t_k)\le M$, so $\sum_{k\in A} f(t_k)\Delta x_k\le M\sum_{k\in A}\Delta x_k$. For $k\in B$, choose $t_k$ with $f(t_k)<h$. Then
-\[\frac{I}{2}<\sum_{k\in A} f(t_k)\Delta x_k+\sum_{k\in B} f(t_k)\Delta x_k\le M\sum_{k\in A}\Delta x_k + h\sum_{k\in B}\Delta x_k\le M\sum_{k\in A}\Delta x_k + h(b-a).
-\]
+\begin{align*}
+\frac{I}{2}<&\sum_{k\in A} f(t_k)\Delta x_k+\sum_{k\in B} f(t_k)\Delta x_k\\
+\le & M\sum_{k\in A}\Delta x_k + h\sum_{k\in B}\Delta x_k\\
+\le & M\sum_{k\in A}\Delta x_k + h(b-a).
+\end{align*}
 Rearranging gives $\sum_{k\in A}\Delta x_k>h$, proving the claim.
 
 
