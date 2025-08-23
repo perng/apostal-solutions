@@ -1,0 +1,2 @@
+for problems that can be benefitted from adding plots, add tikz plots between Strategy and Solution/Proof. That is, after Strategy and before the Solution. 
+Don't use \legend, use \legendentry if needed. Don't put explanations in the plot, instead, put them in caption. The plot width should be less then 10cm.

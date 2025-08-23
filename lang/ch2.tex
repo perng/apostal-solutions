@@ -17,6 +17,8 @@ We let $A$ denote a commutative ring.
 Suppose that $1 \neq 0$ in $A$. Let $S$ be a multiplicative subset of $A$ not containing $0$. Let $\mathfrak{p}$ be a maximal element in the set of ideals of $A$ whose intersection with $S$ is empty. Show that $\mathfrak{p}$ is prime.
 \end{problembox}
 
+\noindent\textbf{Strategy:} Use proof by contradiction. Assume $\mathfrak{p}$ is not prime, so there exist $a, b \in A$ with $ab \in \mathfrak{p}$ but $a, b \notin \mathfrak{p}$. Use the maximality of $\mathfrak{p}$ to show that $\mathfrak{p} + (a)$ and $\mathfrak{p} + (b)$ must intersect $S$, then multiply the resulting equations to reach a contradiction.
+
 \noindent\textbf{Solution:}
 Let $\mathfrak{p}$ be a maximal element in the set of ideals of $A$ whose intersection with $S$ is empty. We need to show that $\mathfrak{p}$ is prime.
 
@@ -43,6 +45,8 @@ Therefore, $\mathfrak{p}$ must be prime.
 Let $f: A \rightarrow A'$ be a surjective homomorphism of rings, and assume that $A$ is local, $A' \neq 0$. Show that $A'$ is local.
 \end{problembox}
 
+\noindent\textbf{Strategy:} Show that $f(\mathfrak{m})$ is the unique maximal ideal of $A'$, where $\mathfrak{m}$ is the unique maximal ideal of $A$. Use the surjectivity of $f$ and the correspondence between ideals to establish both maximality and uniqueness.
+
 \noindent\textbf{Solution:}
 Let $\mathfrak{m}$ be the unique maximal ideal of $A$. Since $f$ is surjective, $f(\mathfrak{m})$ is an ideal of $A'$.
 
@@ -59,6 +63,8 @@ Therefore, $A'$ has exactly one maximal ideal and is local.
 \begin{problembox}[2.3: Unique Maximal Ideal in Localization]
 Let $\mathfrak{p}$ be a prime ideal of $A$. Show that $A_{\mathfrak{p}}$ has a unique maximal ideal, consisting of all elements $a/s$ with $a \in \mathfrak{p}$ and $s \notin \mathfrak{p}$.
 \end{problembox}
+
+\noindent\textbf{Strategy:} Define $\mathfrak{m} = \{a/s : a \in \mathfrak{p}, s \notin \mathfrak{p}\}$ and show it is the unique maximal ideal by proving it's an ideal, maximal (every element not in it is a unit), and unique (any proper ideal is contained in it).
 
 \noindent\textbf{Solution:}
 Let $S = A \setminus \mathfrak{p}$. Since $\mathfrak{p}$ is prime, $S$ is a multiplicative subset of $A$.
@@ -90,6 +96,8 @@ Therefore, $A_{\mathfrak{p}}$ is a local ring with unique maximal ideal $\mathfr
 Let $A$ be a principal ring and $S$ a multiplicative subset with $0 \notin S$. Show that $S^{-1}A$ is principal.
 \end{problembox}
 
+\noindent\textbf{Strategy:} For any ideal $I$ of $S^{-1}A$, consider the ideal $J = \{a \in A : a/1 \in I\}$ of $A$. Since $A$ is principal, $J = (d)$ for some $d \in A$. Show that $I = (d/1)$.
+
 \noindent\textbf{Solution:}
 Let $I$ be an ideal of $S^{-1}A$. We need to show that $I$ is principal.
 
@@ -108,6 +116,8 @@ Therefore, $I = (d/1)$ and $S^{-1}A$ is principal.
 \begin{problembox}[2.5: Localization Preserves Factorial Property]
 Let $A$ be a factorial ring and $S$ a multiplicative subset with $0 \notin S$. Show that $S^{-1}A$ is factorial, and that the prime elements of $S^{-1}A$ are of the form $up$ with primes $p$ of $A$ such that $(p) \cap S$ is empty, and units $u$ in $S^{-1}A$.
 \end{problembox}
+
+\noindent\textbf{Strategy:} Use the factorization of elements in $A$ to show that $S^{-1}A$ is factorial. For the prime elements, show that elements in $S$ become units in $S^{-1}A$, while irreducible elements not in $S$ remain irreducible, and use the unique factorization property of $A$.
 
 \noindent\textbf{Solution:}
 First, we show that $S^{-1}A$ is factorial. Let $a/s \in S^{-1}A$ be a non-zero non-unit. Then $a \in A$ is non-zero and not a unit in $S^{-1}A$.
@@ -128,6 +138,8 @@ Conversely, if $q$ is a prime element of $S^{-1}A$, then $q = a/s$ where $a \in 
 Let $A$ be a factorial ring and $p$ a prime element. Show that the local ring $A_{(p)}$ is principal.
 \end{problembox}
 
+\noindent\textbf{Strategy:} Use Problem 2.4 since factorial rings are principal, or show directly that any ideal $I$ of $A_{(p)}$ corresponds to an ideal $J$ of $A$ contained in $(p)$, which must be $(p^n)$ for some $n \geq 0$.
+
 \noindent\textbf{Solution:}
 Let $S = A \setminus (p)$. Then $A_{(p)} = S^{-1}A$.
 
@@ -142,6 +154,8 @@ Since $A$ is factorial, $J = (p^n)$ for some $n \geq 0$. Then $I = (p^n/1) = (p/
 \begin{problembox}[2.7: GCD in Principal Rings]
 Let $A$ be a principal ring and $a_1, \ldots, a_n$ non-zero elements of $A$. Let $(a_1, \ldots, a_n) = (d)$. Show that $d$ is a greatest common divisor for the $a_i$ ($i = 1, \ldots, n$).
 \end{problembox}
+
+\noindent\textbf{Strategy:} Show that $d$ divides each $a_i$ (since $(a_1, \ldots, a_n) \subseteq (d)$), and that any common divisor $e$ of the $a_i$ divides $d$ (using the fact that $d$ is a linear combination of the $a_i$).
 
 \noindent\textbf{Solution:}
 Since $(a_1, \ldots, a_n) = (d)$, we have $d \in (a_1, \ldots, a_n)$, so $d = r_1a_1 + \cdots + r_na_n$ for some $r_i \in A$. This shows that $d$ is a linear combination of the $a_i$.
@@ -171,6 +185,8 @@ in which case it is of type $(2, 2^{r-2})$.
 
 [Hint: In the general case, show that $G$ is the product of a cyclic group generated by $1 + p$, and a cyclic group of order $p - 1$. In the exceptional case, show that $G$ is the product of the group $\{\pm 1\}$ with the cyclic group generated by the residue class of $5 \mod 2^r$.]
 \end{problembox}
+
+\noindent\textbf{Strategy:} Use induction on $r$ and the structure of the multiplicative group modulo prime powers. For odd primes, use the exact sequence involving $U_1$ and $(\mathbb{Z}/p\mathbb{Z})^*$. For $p = 2$, handle the exceptional case by showing that $G$ is the product of $\{\pm 1\}$ and a cyclic group generated by 5.
 
 \noindent\textbf{Solution:}
 We will prove this by induction on $r$. The key insight is to use the structure of the multiplicative group modulo prime powers.
@@ -210,6 +226,8 @@ The key fact is that 5 generates a cyclic subgroup of order $2^{r-2}$ in $G$ for
 Let $i$ be the complex number $\sqrt{-1}$. Show that the ring $\mathbb{Z}[i]$ is principal, and hence factorial. What are the units?
 \end{problembox}
 
+\noindent\textbf{Strategy:} Use the Euclidean algorithm with the norm function $N(a + bi) = a^2 + b^2$. For any ideal $I$, choose an element $\alpha$ with minimal norm and show that $I = (\alpha)$ by using the division algorithm in $\mathbb{C}$ and the fact that the norm decreases in each step.
+
 \noindent\textbf{Solution:}
 To show that $\mathbb{Z}[i]$ is principal, we use the Euclidean algorithm with the norm function $N(a + bi) = a^2 + b^2$.
 
@@ -236,6 +254,8 @@ Let $D$ be an integer $\geq 1$, and let $R$ be the set of all elements $a + b\sq
     \item Show that $3, 2 + \sqrt{-5}, 2 - \sqrt{-5}$ are irreducible elements in $\mathbb{Z}[\sqrt{-5}]$.
 \end{enumerate}
 \end{problembox}
+
+\noindent\textbf{Strategy:} For (a), verify ring axioms directly. For (b), show that complex conjugation preserves the structure of $R$. For (c), use the norm function to show that units must have norm 1. For (d), use the norm to show that these elements cannot be factored into non-units.
 
 \noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
@@ -283,6 +303,8 @@ where $a_0, a_m, b_m$ are real numbers. Define the trigonometric degree $\deg_{t
 \[ \deg_{tr}(fg) = \deg_{tr}(f) + \deg_{tr}(g). \]
 Deduce from this that $R$ has no divisors of $0$, and also deduce that the functions $\sin x$ and $1 - \cos x$ are irreducible elements in that ring.
 \end{problembox}
+
+\noindent\textbf{Strategy:} Use trigonometric identities to show that multiplication of trigonometric polynomials adds their degrees. Use this degree property to show that the product of non-zero elements is non-zero (no zero divisors), and that elements of degree 1 cannot be factored into non-constant elements.
 
 \noindent\textbf{Solution:}
 First, we show that $R$ consists of all functions of the given form. This follows from the fact that any trigonometric polynomial can be written as a finite linear combination of $\cos(nx)$ and $\sin(nx)$ terms.
@@ -334,6 +356,8 @@ where the sum is taken over all pairs $(x, y)$ of positive integers such that $x
 \end{enumerate}
 \end{problembox}
 
+\noindent\textbf{Strategy:} For (a), verify ring axioms directly using the convolution definition. For (b), use the fact that if $m, n$ are coprime, then any divisor of $mn$ can be written uniquely as a product of a divisor of $m$ and a divisor of $n$. For (c), first show $\mu$ is multiplicative, then use multiplicativity to reduce to checking the identity on prime powers.
+
 \noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
     \item We need to verify the ring axioms. Addition is clearly commutative and associative since it's pointwise addition.
@@ -383,6 +407,8 @@ where the sum is taken over all pairs $(x, y)$ of positive integers such that $x
 Every ideal is finitely generated. [Hint: Given an ideal $\mathfrak{a}$, let $\mathfrak{b}$ be the fractional ideal such that $\mathfrak{a}\mathfrak{b} = \mathfrak{o}$. Write $1 = \sum a_i b_i$ with $a_i \in \mathfrak{a}$ and $b_i \in \mathfrak{b}$. Show that $\mathfrak{a} = (a_1, \ldots, a_n)$.]
 \end{problembox}
 
+\noindent\textbf{Strategy:} Use the fact that in a Dedekind ring, every ideal has an inverse fractional ideal. Write $1$ as a finite sum using elements from $\mathfrak{a}$ and its inverse, then show that any element of $\mathfrak{a}$ can be written as a linear combination of the $a_i$.
+
 \noindent\textbf{Solution:}
 Let $\mathfrak{a}$ be an ideal of $o$. Since $o$ is a Dedekind ring, there exists a fractional ideal $\mathfrak{b}$ such that $\mathfrak{a}\mathfrak{b} = o$.
 
@@ -404,6 +430,8 @@ Therefore, $\mathfrak{a} = (a_1, \ldots, a_n)$ is finitely generated.
 Every ideal has a factorization as a product of prime ideals, uniquely determined up to permutation.
 \end{problembox}
 
+\noindent\textbf{Strategy:} This is a fundamental property of Dedekind rings. For existence, use the fact that every ideal is contained in a maximal ideal and the Noetherian property. For uniqueness, use the fact that prime ideals are maximal and the prime ideal property.
+
 \noindent\textbf{Solution:}
 This is a fundamental property of Dedekind rings. We prove existence and uniqueness.
 
@@ -417,6 +445,8 @@ For uniqueness: Suppose $\mathfrak{p}_1 \cdots \mathfrak{p}_r = \mathfrak{q}_1 \
 Suppose $\mathfrak{o}$ has only one prime ideal $\mathfrak{p}$. Let $t \in \mathfrak{p}$ and $t \notin \mathfrak{p}^2$. Then $\mathfrak{p} = (t)$ is principal.
 \end{problembox}
 
+\noindent\textbf{Strategy:} Use the unique factorization property of ideals in a Dedekind ring. Since there's only one prime ideal, every non-zero element has a unique factorization as a power of $\mathfrak{p}$. The condition $t \in \mathfrak{p}$ but $t \notin \mathfrak{p}^2$ forces $(t) = \mathfrak{p}$.
+
 \noindent\textbf{Solution:}
 Since $o$ has only one prime ideal $\mathfrak{p}$, every non-zero element of $o$ has a unique factorization as a power of $\mathfrak{p}$.
 
@@ -429,6 +459,8 @@ To see this, suppose $(t) = \mathfrak{p}^n$ for some $n \geq 1$. Since $t \notin
 \begin{problembox}[2.16: Localization of Dedekind Ring]
 Let $\mathfrak{o}$ be any Dedekind ring. Let $\mathfrak{p}$ be a prime ideal. Let $\mathfrak{o}_{\mathfrak{p}}$ be the local ring at $\mathfrak{p}$. Then $\mathfrak{o}_{\mathfrak{p}}$ is Dedekind and has only one prime ideal.
 \end{problembox}
+
+\noindent\textbf{Strategy:} Show that localization preserves the three defining properties of a Dedekind ring: Noetherian, integrally closed, and Krull dimension 1. Then use the fact that localization at a prime ideal creates a local ring with unique maximal ideal.
 
 \noindent\textbf{Solution:}
 Let $S = o \setminus \mathfrak{p}$. Then $o_{\mathfrak{p}} = S^{-1}o$.
@@ -448,6 +480,8 @@ As for the integers, we say that $\mathfrak{a} | \mathfrak{b}$ ($\mathfrak{a}$ d
     \item Let $\mathfrak{a}, \mathfrak{b}$ be ideals. Then $\mathfrak{a} + \mathfrak{b}$ is their greatest common divisor. In particular, $\mathfrak{a}, \mathfrak{b}$ are relatively prime if and only if $\mathfrak{a} + \mathfrak{b} = \mathfrak{o}$.
 \end{enumerate}
 \end{problembox}
+
+\noindent\textbf{Strategy:} For (a), use the fact that every ideal has an inverse fractional ideal in a Dedekind ring. For (b), show that $\mathfrak{a} + \mathfrak{b}$ is the smallest ideal containing both $\mathfrak{a}$ and $\mathfrak{b}$, which makes it the greatest common divisor.
 
 \noindent\textbf{Solution:}
 \begin{enumerate}[label=(\alph*)]
@@ -470,6 +504,8 @@ As for the integers, we say that $\mathfrak{a} | \mathfrak{b}$ ($\mathfrak{a}$ d
 Every prime ideal $\mathfrak{p}$ is maximal. (Remember, $\mathfrak{p} \neq 0$ by convention.) In particular, if $\mathfrak{p}_1, \ldots, \mathfrak{p}_n$ are distinct primes, then the Chinese remainder theorem applies to their powers $\mathfrak{p}_1^{r_1}, \ldots, \mathfrak{p}_n^{r_n}$. Use this to prove:
 \end{problembox}
 
+\noindent\textbf{Strategy:} Use the definition of Krull dimension 1, which means that every non-zero prime ideal is maximal. If there were a chain of prime ideals $(0) \subset \mathfrak{p} \subset \mathfrak{m}$, it would contradict the Krull dimension being 1.
+
 \noindent\textbf{Solution:}
 Since $o$ is a Dedekind ring, it has Krull dimension 1. This means that every non-zero prime ideal is maximal.
 
@@ -484,6 +520,8 @@ This means that the natural map $o \rightarrow o/\mathfrak{p}_1^{r_1} \times \cd
 \begin{problembox}[2.19: Ideal Class Representatives]
 Let $\mathfrak{a}, \mathfrak{b}$ be ideals. Show that there exists an element $c \in K$ (the quotient field of $\mathfrak{o}$) such that $c\mathfrak{a}$ is an ideal relatively prime to $\mathfrak{b}$. In particular, every ideal class in $\text{Pic}(\mathfrak{o})$ contains representative ideals prime to a given ideal. For a continuation, see Exercise 7 of Chapter VII; Chapter III, Exercise 11-13.
 \end{problembox}
+
+\noindent\textbf{Strategy:} Use the unique factorization of ideals to write $\mathfrak{a}$ and $\mathfrak{b}$ as products of prime ideals. Choose $c$ to be a product of elements from prime ideals that appear in $\mathfrak{a}$ but not in $\mathfrak{b}$, so that $c\mathfrak{a}$ has no prime factors in common with $\mathfrak{b}$.
 
 \noindent\textbf{Solution:}
 Let $\mathfrak{a} = \mathfrak{p}_1^{e_1} \cdots \mathfrak{p}_r^{e_r}$ and $\mathfrak{b} = \mathfrak{q}_1^{f_1} \cdots \mathfrak{q}_s^{f_s}$ be the prime factorizations of $\mathfrak{a}$ and $\mathfrak{b}$.
@@ -501,3 +539,70 @@ For each $\mathfrak{p} \in S$, choose an element $t_{\mathfrak{p}} \in \mathfrak
 Then $c\mathfrak{a}$ will have the same prime factors as $\mathfrak{a}$ except for those in $S$, which means it will be relatively prime to $\mathfrak{b}$.
 
 This shows that every ideal class in $\text{Pic}(o)$ contains representative ideals prime to a given ideal.
+
+\section{Problem-Solving Techniques}
+
+
+\subsection*{Proving Prime Ideals}
+\begin{itemize}
+\item Use proof by contradiction: assume the ideal is not prime and find elements $a, b$ with $ab$ in the ideal but $a, b$ not in it
+\item Use maximality properties: if an ideal is maximal with respect to certain conditions, it's often prime
+\item Use localization: localizing at a prime ideal creates a local ring with unique maximal ideal
+\end{itemize}
+
+\subsection*{Proving Local Rings}
+\begin{itemize}
+\item Show there is exactly one maximal ideal
+\item Use surjective homomorphisms: if $f: A \rightarrow A'$ is surjective and $A$ is local, then $A'$ is local
+\item Use localization: $A_{\mathfrak{p}}$ is always a local ring
+\end{itemize}
+
+\subsection*{Proving Principal Rings}
+\begin{itemize}
+\item Use Euclidean algorithm with a norm function (e.g., for $\mathbb{Z}[i]$)
+\item Show that every ideal is generated by a single element
+\item Use localization: if $A$ is principal, then $S^{-1}A$ is principal
+\end{itemize}
+
+\subsection*{Proving Factorial Rings}
+\begin{itemize}
+\item Show unique factorization of elements into irreducibles
+\item Use the fact that principal rings are factorial
+\item Use localization: if $A$ is factorial, then $S^{-1}A$ is factorial
+\end{itemize}
+
+\subsection*{Proving Irreducibility}
+\begin{itemize}
+\item Use norm functions in quadratic rings to show elements cannot be factored
+\item Use degree functions (e.g., trigonometric degree) to show elements cannot be factored
+\item Show that any factorization would require one factor to be a unit
+\end{itemize}
+
+\subsection*{Working with Dedekind Rings}
+\begin{enumerate}
+\item Use unique factorization of ideals into prime ideals
+\item Use the fact that every ideal has an inverse fractional ideal
+\item Use the fact that prime ideals are maximal (Krull dimension 1)
+\item Use localization to reduce to local rings with single prime ideal
+\end{enumerate}
+
+\subsection*{Proving Divisibility}
+\begin{itemize}
+\item In Dedekind rings: $\mathfrak{a} | \mathfrak{b}$ if and only if $\mathfrak{b} \subseteq \mathfrak{a}$
+\item Use greatest common divisors: $\mathfrak{a} + \mathfrak{b}$ is the GCD of ideals $\mathfrak{a}$ and $\mathfrak{b}$
+\item Use the fact that ideals are relatively prime if and only if their sum is the whole ring
+\end{itemize}
+
+\subsection*{Working with Units}
+\begin{itemize}
+\item Use norm functions to find units in quadratic rings
+\item Use the structure of multiplicative groups modulo prime powers
+\item For $\mathbb{Z}/p^r\mathbb{Z}$, use induction and exact sequences
+\end{itemize}
+
+\subsection*{Proving Ring Properties}
+\begin{itemize}
+\item Verify ring axioms directly (closure, associativity, distributivity)
+\item Use homomorphisms to transfer properties between rings
+\item Use localization to transfer properties from a ring to its localizations
+\end{itemize}

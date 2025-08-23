@@ -533,53 +533,62 @@ To see which distance is smaller, we compare $\frac{1}{b}$ with $\frac{\sqrt{2}-
 This is equivalent to comparing $a+b$ with $b(\sqrt{2}-1) = b\sqrt{2} - b$, which is equivalent to comparing $a+2b$ with $b\sqrt{2}$, or $\frac{a}{b} + 2$ with $\sqrt{2}$.
 Since $a, b$ are positive integers, $\frac{a}{b} > 0$, so $\frac{a}{b} + 2 > 2 > \sqrt{2}$.
 This implies $\frac{1}{b} > \frac{\sqrt{2}-1}{a+b}$.
-Therefore, Distance 1 is always greater than Distance 2. The new fraction $\frac{a+2b}{a+b}$ is \textbf{always} closer to $\sqrt{2}$.\qed
-\section{Inequalities}
+Therefore, Distance 1 is always greater than Distance 2. The new fraction $\frac{a+2b}{a+b}$ is \textbf{always} closer to $\sqrt{2}$.
 
-\subsection*{Definitions and Theorems for Inequalities}
+\textbf{Visualization:}
+\begin{center}
+\begin{tikzpicture}[scale=1.2]
+\begin{axis}[
+    width=12cm,
+    height=8cm,
+    xlabel={$x$},
+    ylabel={$y$},
+    title={Approximating $\sqrt{2}$ with Fractions},
+    xmin=1.2, xmax=1.8,
+    ymin=0, ymax=1.2,
+    grid=major,
+    grid style={gray!30},
+    xtick={1.2,1.3,1.4,1.5,1.6,1.7,1.8},
+    ytick={0,0.2,0.4,0.6,0.8,1.0,1.2},
+    legend pos=north west
+]
 
-\begin{theorem}[Triangle Inequality]
-For any real numbers $a$ and $b$:
-\[
-|a + b| \leq |a| + |b|
-\]
-\end{theorem}
+% Plot sqrt(2) as a vertical line
+\addplot[red, thick, dashed] coordinates {(1.414213562,0) (1.414213562,1.2)};
+\addlegendentry{$\sqrt{2} \approx 1.414$}
 
-\begin{theorem}[Reverse Triangle Inequality]
-For any real numbers $a$ and $b$:
-\[
-\big| |a| - |b| \big| \leq |a - b|
-\]
-\end{theorem}
+% Plot some example fractions
+\addplot[blue, mark=*, mark size=3pt] coordinates {(1.4,0.1)};
+\node[above] at (axis cs:1.4,0.1) {$\frac{7}{5} = 1.4$};
 
-\begin{theorem}[Cauchy-Schwarz Inequality]
-For real numbers $a_1, a_2, \ldots, a_n$ and $b_1, b_2, \ldots, b_n$:
-\[
-\left| \sum_{k=1}^n a_k b_k \right| \leq \left( \sum_{k=1}^n a_k^2 \right)^{1/2} \left( \sum_{k=1}^n b_k^2 \right)^{1/2}
-\]
-\end{theorem}
+\addplot[green, mark=*, mark size=3pt] coordinates {(1.416667,0.2)};
+\node[above] at (axis cs:1.416667,0.2) {$\frac{17}{12} \approx 1.417$};
 
-\begin{theorem}[Minkowski's Inequality]
-For real numbers $a_1, a_2, \ldots, a_n$ and $b_1, b_2, \ldots, b_n$:
-\[
-\left( \sum_{k=1}^n (a_k + b_k)^2 \right)^{1/2} \leq \left( \sum_{k=1}^n a_k^2 \right)^{1/2} + \left( \sum_{k=1}^n b_k^2 \right)^{1/2}
-\]
-\end{theorem}
+\addplot[blue, mark=*, mark size=3pt] coordinates {(1.5,0.3)};
+\node[above] at (axis cs:1.5,0.3) {$\frac{3}{2} = 1.5$};
 
-\begin{theorem}[Chebyshev's Sum Inequality]
-If $a_1 \geq a_2 \geq \cdots \geq a_n$ and $b_1 \geq b_2 \geq \cdots \geq b_n$, then:
-\[
-\left( \sum_{k=1}^n a_k \right) \left( \sum_{k=1}^n b_k \right) \leq n \sum_{k=1}^n a_k b_k
-\]
-\end{theorem}
+\addplot[green, mark=*, mark size=3pt] coordinates {(1.4,0.4)};
+\node[above] at (axis cs:1.4,0.4) {$\frac{12}{17} \approx 1.412$};
 
-\begin{theorem}[Lagrange's Identity]
-For real numbers $a_1, a_2, \ldots, a_n$ and $b_1, b_2, \ldots, b_n$:
-\[
-\left( \sum_{k=1}^n a_k b_k \right)^2 = \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right) - \sum_{1 \leq k < j \leq n} (a_k b_j - a_j b_k)^2
-\]
-\end{theorem}
+% Add arrows showing the process
+\draw[->, thick, orange] (axis cs:1.4,0.1) -- (axis cs:1.416667,0.2);
+\draw[->, thick, orange] (axis cs:1.5,0.3) -- (axis cs:1.4,0.4);
 
+% Add text explaining the process
+\node[fill=yellow!30, rounded corners, inner sep=5pt] at (axis cs:1.6,0.8) {
+    \begin{tabular}{l}
+    \textbf{Process:} \\
+    Start with $\frac{a}{b}$ \\
+    New fraction: $\frac{a+2b}{a+b}$ \\
+    Always closer to $\sqrt{2}$
+    \end{tabular}
+};
+
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+This visualization shows how the process of generating new fractions $\frac{a+2b}{a+b}$ from $\frac{a}{b}$ always produces a better approximation to $\sqrt{2}$. The red dashed line represents $\sqrt{2}$, and the arrows show the improvement in approximation.\qed
 
 
 \begin{problembox}[1.14: Irrationality of $\sqrt{n - 1} + \sqrt{n + 1}$]
@@ -873,6 +882,56 @@ Since the coefficient of $x^2$ is positive, the parabola opens upward. The inequ
 
 Therefore, $S = (\frac{1}{3}, 3)$, so $\sup = \textbf{$3$}$ and $\inf = \textbf{$\frac{1}{3}$}$.
 
+\textbf{Visualization for part (b):}
+\begin{center}
+\begin{tikzpicture}[scale=1.2]
+\begin{axis}[
+    width=12cm,
+    height=8cm,
+    xlabel={$x$},
+    ylabel={$y$},
+    title={Quadratic Inequality: $3x^2 - 10x + 3 < 0$},
+    xmin=-0.5, xmax=4,
+    ymin=-5, ymax=5,
+    grid=major,
+    grid style={gray!30},
+    axis lines=middle,
+    legend pos=north east
+]
+
+% Plot the quadratic function
+\addplot[blue, thick, samples=100, domain=-0.5:4] {3*x^2 - 10*x + 3};
+\addlegendentry{$y = 3x^2 - 10x + 3$}
+
+% Plot the x-axis
+\addplot[black, thick] coordinates {(-0.5,0) (4,0)};
+
+% Mark the roots
+\addplot[red, mark=*, mark size=4pt] coordinates {(0.333,0) (3,0)};
+\node[below] at (axis cs:0.333,0) {$\frac{1}{3}$};
+\node[below] at (axis cs:3,0) {$3$};
+
+% Highlight the solution interval
+\addplot[green, fill=green!20, fill opacity=0.3] coordinates {(0.333,0) (3,0)};
+\addplot[green, thick] coordinates {(0.333,0) (3,0)};
+\addlegendentry{Solution: $(\frac{1}{3}, 3)$}
+
+% Add text explaining the solution
+\node[fill=yellow!30, rounded corners, inner sep=5pt] at (axis cs:1.5,3) {
+    \begin{tabular}{l}
+    \textbf{Solution:} \\
+    $S = (\frac{1}{3}, 3)$ \\
+    $\sup S = 3$ \\
+    $\inf S = \frac{1}{3}$
+    \end{tabular}
+};
+
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+This visualization shows the quadratic function $y = 3x^2 - 10x + 3$ and highlights the interval where the inequality $3x^2 - 10x + 3 < 0$ holds, which is between the roots $\frac{1}{3}$ and $3$.
+
 \textbf{3. Set $S = \{x : (x - a)(x - b)(x - c)(x - d) < 0\}$ where $a < b < c < d$:}
 
 The expression $(x - a)(x - b)(x - c)(x - d)$ changes sign at each root $a, b, c, d$.
@@ -886,7 +945,63 @@ Starting from $-\infty$:
 
 Therefore, $S = (a, b) \cup (c, d)$.
 
-So $\sup = \textbf{$d$}$ and $\inf = \textbf{$a$}$.\qed
+So $\sup = \textbf{$d$}$ and $\inf = \textbf{$a$}$.
+
+\textbf{Visualization for part (c):}
+\begin{center}
+\begin{tikzpicture}[scale=1.2]
+\begin{axis}[
+    width=12cm,
+    height=8cm,
+    xlabel={$x$},
+    ylabel={$y$},
+    title={Polynomial Inequality: $(x-a)(x-b)(x-c)(x-d) < 0$},
+    xmin=-1, xmax=6,
+    ymin=-10, ymax=10,
+    grid=major,
+    grid style={gray!30},
+    axis lines=middle,
+    legend pos=north east
+]
+
+% Example with a=1, b=2, c=4, d=5
+\addplot[blue, thick, samples=100, domain=-1:6] {(x-1)*(x-2)*(x-4)*(x-5)};
+\addlegendentry{$y = (x-1)(x-2)(x-4)(x-5)$}
+
+% Plot the x-axis
+\addplot[black, thick] coordinates {(-1,0) (6,0)};
+
+% Mark the roots
+\addplot[red, mark=*, mark size=4pt] coordinates {(1,0) (2,0) (4,0) (5,0)};
+\node[below] at (axis cs:1,0) {$a$};
+\node[below] at (axis cs:2,0) {$b$};
+\node[below] at (axis cs:4,0) {$c$};
+\node[below] at (axis cs:5,0) {$d$};
+
+% Highlight the solution intervals
+\addplot[green, fill=green!20, fill opacity=0.3] coordinates {(1,0) (2,0)};
+\addplot[green, thick] coordinates {(1,0) (2,0)};
+\addplot[green, fill=green!20, fill opacity=0.3] coordinates {(4,0) (5,0)};
+\addplot[green, thick] coordinates {(4,0) (5,0)};
+\addlegendentry{Solution: $(a,b) \cup (c,d)$}
+
+% Add text explaining the sign changes
+\node[fill=yellow!30, rounded corners, inner sep=5pt] at (axis cs:0.5,5) {
+    \begin{tabular}{l}
+    \textbf{Sign Analysis:} \\
+    $x < a$: positive \\
+    $a < x < b$: negative \\
+    $b < x < c$: positive \\
+    $c < x < d$: negative \\
+    $x > d$: positive
+    \end{tabular}
+};
+
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+This visualization shows the fourth-degree polynomial $(x-a)(x-b)(x-c)(x-d)$ and highlights the intervals where the inequality $(x-a)(x-b)(x-c)(x-d) < 0$ holds. The polynomial changes sign at each root, creating alternating positive and negative intervals.\qed
 
 
 \begin{problembox}[1.20: Comparison Property for Suprema]
@@ -1498,7 +1613,73 @@ Since \( e^{i\frac{2\pi}{3}} = -\frac{1}{2} + i\frac{\sqrt{3}}{2} \), \( e^{i\fr
 \[
 1 + e^{i\frac{2\pi}{3}} + e^{i\frac{4\pi}{3}} = 1 + \left(-\frac{1}{2} + i\frac{\sqrt{3}}{2}\right) + \left(-\frac{1}{2} - i\frac{\sqrt{3}}{2}\right) = 0.
 \]
-The angles \( \theta, \theta + \frac{2\pi}{3}, \theta + \frac{4\pi}{3} \) are spaced \( \frac{2\pi}{3} \) apart, forming an equilateral triangle. Any three points with \( |z_i| = 1 \) and sum zero are rotations of the cube roots of unity, ensuring an equilateral triangle.\qed
+The angles \( \theta, \theta + \frac{2\pi}{3}, \theta + \frac{4\pi}{3} \) are spaced \( \frac{2\pi}{3} \) apart, forming an equilateral triangle. Any three points with \( |z_i| = 1 \) and sum zero are rotations of the cube roots of unity, ensuring an equilateral triangle.
+
+\textbf{Visualization:}
+\begin{center}
+\begin{tikzpicture}[scale=1.2]
+\begin{axis}[
+    width=12cm,
+    height=12cm,
+    xlabel={$\Re(z)$},
+    ylabel={$\Im(z)$},
+    title={Equilateral Triangle on Unit Circle},
+    xmin=-1.5, xmax=1.5,
+    ymin=-1.5, ymax=1.5,
+    grid=major,
+    grid style={gray!30},
+    axis lines=middle,
+    axis equal,
+    legend pos=north east
+]
+
+% Unit circle
+\addplot[gray, thick, samples=100, domain=0:360] ({cos(x)}, {sin(x)});
+\addlegendentry{Unit circle $|z| = 1$}
+
+% Equilateral triangle vertices (cube roots of unity)
+\addplot[red, mark=*, mark size=4pt] coordinates {(1,0)};
+\node[above right] at (axis cs:1,0) {$z_1 = 1$};
+
+\addplot[red, mark=*, mark size=4pt] coordinates {(-0.5,0.866)};
+\node[above left] at (axis cs:-0.5,0.866) {$z_2 = e^{i2\pi/3}$};
+
+\addplot[red, mark=*, mark size=4pt] coordinates {(-0.5,-0.866)};
+\node[below left] at (axis cs:-0.5,-0.866) {$z_3 = e^{i4\pi/3}$};
+
+% Draw the triangle
+\addplot[blue, thick] coordinates {(1,0) (-0.5,0.866) (-0.5,-0.866) (1,0)};
+\addlegendentry{Equilateral triangle}
+
+% Show the sum equals zero
+\addplot[green, thick, ->] coordinates {(0,0) (1,0)};
+\addplot[green, thick, ->] coordinates {(1,0) (0.5,0.866)};
+\addplot[green, thick, ->] coordinates {(0.5,0.866) (0,0)};
+\addlegendentry{Vector sum $= 0$}
+
+% Add angle markers
+\draw[orange, thick] (axis cs:0,0) -- (axis cs:0.3,0);
+\draw[orange, thick] (axis cs:0,0) -- (axis cs:0.15,0.26);
+\draw[orange, thick] (axis cs:0,0) -- (axis cs:0.15,-0.26);
+\node[orange] at (axis cs:0.2,0.1) {$120°$};
+\node[orange] at (axis cs:0.2,-0.1) {$120°$};
+\node[orange] at (axis cs:0.3,0) {$120°$};
+
+% Add text explaining the properties
+\node[fill=yellow!30, rounded corners, inner sep=5pt] at (axis cs:-1.2,1.2) {
+    \begin{tabular}{l}
+    \textbf{Properties:} \\
+    $|z_1| = |z_2| = |z_3| = 1$ \\
+    $z_1 + z_2 + z_3 = 0$ \\
+    Angles differ by $2\pi/3$
+    \end{tabular}
+};
+
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+This visualization shows the equilateral triangle formed by the cube roots of unity on the unit circle. The green vectors show how the sum of the three complex numbers equals zero, and the orange angle markers show the $120°$ spacing between vertices.\qed
 
 
 \begin{problembox}[1.32: Inequality with Complex Numbers]
@@ -1902,7 +2083,67 @@ Solutions: \( z_1 = \frac{\pi}{2} - i \ln(1 + \sqrt{2}) \), \( z_2 = -\frac{\pi}
 \cos x \cosh y = 2, \quad \sin x \sinh y = 0.
 \]
 Thus, \( x = 0 \), \( \cosh y = 2 \implies y = \pm \ln(2 + \sqrt{3}) \).
-Solutions: \( z_1 = i \ln(2 + \sqrt{3}) \), \( z_2 = -i \ln(2 + \sqrt{3}) \).\qed
+Solutions: \( z_1 = i \ln(2 + \sqrt{3}) \), \( z_2 = -i \ln(2 + \sqrt{3}) \).
+
+\textbf{Visualization:}
+\begin{center}
+\begin{tikzpicture}[scale=1.2]
+\begin{axis}[
+    width=14cm,
+    height=10cm,
+    xlabel={$\Re(z)$},
+    ylabel={$\Im(z)$},
+    title={Solutions to $\cos z = w$},
+    xmin=-2, xmax=2,
+    ymin=-3, ymax=3,
+    grid=major,
+    grid style={gray!30},
+    axis lines=middle,
+    legend pos=north east
+]
+
+% Solutions for w = i
+\addplot[red, mark=*, mark size=4pt] coordinates {(1.5708,-0.8814)};
+\node[above right] at (axis cs:1.5708,-0.8814) {$z_1 = \frac{\pi}{2} - i\ln(1+\sqrt{2})$};
+
+\addplot[red, mark=*, mark size=4pt] coordinates {(-1.5708,0.8814)};
+\node[above left] at (axis cs:-1.5708,0.8814) {$z_2 = -\frac{\pi}{2} + i\ln(1+\sqrt{2})$};
+
+% Solutions for w = 2
+\addplot[blue, mark=*, mark size=4pt] coordinates {(0,1.317)};
+\node[above right] at (axis cs:0,1.317) {$z_1 = i\ln(2+\sqrt{3})$};
+
+\addplot[blue, mark=*, mark size=4pt] coordinates {(0,-1.317)};
+\node[below right] at (axis cs:0,-1.317) {$z_2 = -i\ln(2+\sqrt{3})$};
+
+% Mark the values of w
+\addplot[green, mark=*, mark size=4pt] coordinates {(0,1)};
+\node[above left] at (axis cs:0,1) {$w = i$};
+
+\addplot[green, mark=*, mark size=4pt] coordinates {(2,0)};
+\node[above right] at (axis cs:2,0) {$w = 2$};
+
+% Add the strip -π < x ≤ π
+\addplot[gray, fill=gray!10, fill opacity=0.3] coordinates {(-3.14159,-3) (-3.14159,3) (3.14159,3) (3.14159,-3) (-3.14159,-3)};
+\addplot[gray, thick] coordinates {(-3.14159,-3) (-3.14159,3)};
+\addplot[gray, thick] coordinates {(3.14159,-3) (3.14159,3)};
+\addlegendentry{Strip $-\pi < x \leq \pi$}
+
+% Add text explaining the solutions
+\node[fill=yellow!30, rounded corners, inner sep=5pt] at (axis cs:-1.5,2.5) {
+    \begin{tabular}{l}
+    \textbf{For $w = i$:} \\
+    Two solutions in strip \\
+    \textbf{For $w = 2$:} \\
+    Two solutions on $y$-axis
+    \end{tabular}
+};
+
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+This visualization shows the solutions to $\cos z = w$ for $w = i$ (red points) and $w = 2$ (blue points) within the strip $-\pi < x \leq \pi$. The gray shaded region represents the strip where we seek solutions.\qed
 
 
 \begin{problembox}[1.48: Lagrange's Identity and the Cauchy–Schwarz Inequality]
@@ -2044,6 +2285,72 @@ Thus:
 \[
 n = 2^{n-1} \prod_{k=1}^{n-1} \sin\left( \frac{\pi k}{n} \right) \implies \prod_{k=1}^{n-1} \sin\left( \frac{\pi k}{n} \right) = \frac{n}{2^{n-1}}.
 \]
+
+\textbf{Visualization for n = 6:}
+\begin{center}
+\begin{tikzpicture}[scale=1.2]
+\begin{axis}[
+    width=12cm,
+    height=12cm,
+    xlabel={$\Re(z)$},
+    ylabel={$\Im(z)$},
+    title={6th Roots of Unity and Product Formula},
+    xmin=-1.5, xmax=1.5,
+    ymin=-1.5, ymax=1.5,
+    grid=major,
+    grid style={gray!30},
+    axis lines=middle,
+    axis equal,
+    legend pos=north east
+]
+
+% Unit circle
+\addplot[gray, thick, samples=100, domain=0:360] ({cos(x)}, {sin(x)});
+\addlegendentry{Unit circle}
+
+% 6th roots of unity
+\addplot[red, mark=*, mark size=4pt] coordinates {(1,0)};
+\node[above right] at (axis cs:1,0) {$e^{i0} = 1$};
+
+\addplot[red, mark=*, mark size=4pt] coordinates {(0.5,0.866)};
+\node[above right] at (axis cs:0.5,0.866) {$e^{i\pi/3}$};
+
+\addplot[red, mark=*, mark size=4pt] coordinates {(-0.5,0.866)};
+\node[above left] at (axis cs:-0.5,0.866) {$e^{i2\pi/3}$};
+
+\addplot[red, mark=*, mark size=4pt] coordinates {(-1,0)};
+\node[above left] at (axis cs:-1,0) {$e^{i\pi} = -1$};
+
+\addplot[red, mark=*, mark size=4pt] coordinates {(-0.5,-0.866)};
+\node[below left] at (axis cs:-0.5,-0.866) {$e^{i4\pi/3}$};
+
+\addplot[red, mark=*, mark size=4pt] coordinates {(0.5,-0.866)};
+\node[below right] at (axis cs:0.5,-0.866) {$e^{i5\pi/3}$};
+
+% Show the distances from 1 to other roots
+\addplot[blue, thick, ->] coordinates {(1,0) (0.5,0.866)};
+\addplot[blue, thick, ->] coordinates {(1,0) (-0.5,0.866)};
+\addplot[blue, thick, ->] coordinates {(1,0) (-1,0)};
+\addplot[blue, thick, ->] coordinates {(1,0) (-0.5,-0.866)};
+\addplot[blue, thick, ->] coordinates {(1,0) (0.5,-0.866)};
+\addlegendentry{Distances $|1 - e^{2\pi i k/6}|$}
+
+% Add text showing the product
+\node[fill=yellow!30, rounded corners, inner sep=5pt] at (axis cs:-1.2,1.2) {
+    \begin{tabular}{l}
+    \textbf{For $n = 6$:} \\
+    $\prod_{k=1}^5 \sin(\frac{k\pi}{6})$ \\
+    $= \sin(\frac{\pi}{6}) \sin(\frac{2\pi}{6}) \sin(\frac{3\pi}{6})$ \\
+    $\quad \sin(\frac{4\pi}{6}) \sin(\frac{5\pi}{6})$ \\
+    $= \frac{6}{2^5} = \frac{3}{16}$
+    \end{tabular}
+};
+
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+This visualization shows the 6th roots of unity on the unit circle. The blue arrows show the distances from $z = 1$ to the other roots, which are related to the sine values in the product formula. For $n = 6$, the product equals $\frac{6}{2^5} = \frac{3}{16}$.
 
 \section{Solving and Proving Techniques}
 

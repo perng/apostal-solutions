@@ -77,6 +77,51 @@ Determine all the accumulation points of the following sets in $\mathbb{R}^1$ an
 
 \noindent\textbf{Strategy:} For each set, identify accumulation points by finding points that can be approached by sequences in the set. For openness/closedness, check if every point is interior (open) and if the complement is open (closed). Use density properties of rationals and convergence of sequences.
 
+% Visualization for Exercise 3.2: Accumulation Points
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=12cm,
+    height=6cm,
+    xlabel={$x$},
+    ylabel={$y$},
+    title={Accumulation Points: Set $\{1/n : n \in \mathbb{N}\}$},
+    xmin=-0.1, xmax=1.1,
+    ymin=-0.5, ymax=0.5,
+    grid=major,
+    grid style={gray!30},
+    legend pos=north east
+]
+
+% Points of the set
+\addplot[blue, mark=*, mark size=3pt] coordinates {
+    (1,0) (0.5,0) (0.333,0) (0.25,0) (0.2,0) (0.167,0) (0.143,0) (0.125,0) (0.111,0) (0.1,0)
+};
+\addlegendentry{Set points}
+
+% Accumulation point
+\addplot[red, mark=*, mark size=4pt] coordinates {(0,0)};
+\addlegendentry{Accumulation point}
+
+% Neighborhood around accumulation point
+\addplot[red, dashed, thick] coordinates {(-0.05,0.3) (0.05,0.3)};
+\addplot[red, dashed, thick] coordinates {(-0.05,-0.3) (0.05,-0.3)};
+\addplot[red, dashed, thick] coordinates {(-0.05,0.3) (-0.05,-0.3)};
+\addplot[red, dashed, thick] coordinates {(0.05,0.3) (0.05,-0.3)};
+
+% Labels
+\node[above] at (axis cs:1,0) {$1$};
+\node[above] at (axis cs:0.5,0) {$\frac{1}{2}$};
+\node[above] at (axis cs:0.333,0) {$\frac{1}{3}$};
+\node[above] at (axis cs:0.25,0) {$\frac{1}{4}$};
+\node[above] at (axis cs:0,0) {$0$};
+
+\end{axis}
+\end{tikzpicture}
+\caption{The set $\{1/n : n \in \mathbb{N}\}$ has 0 as its only accumulation point. Any neighborhood of 0 contains infinitely many points from the set.}
+\end{figure}
+
 \bigskip\noindent\textbf{Solution:} 
 (a) The set of integers has no accumulation points since each integer has a neighborhood containing no other integers. The set is closed (its complement is open) but not open.
 
@@ -107,6 +152,59 @@ The same as Exercise 3.2 for the following sets in $\mathbb{R}^2$:
 \end{problembox}
 
 \noindent\textbf{Strategy:} Apply the same approach as in Exercise 3.2 but in two dimensions. For complex numbers, use the modulus $|z|$ to determine boundaries. For sequences, consider convergence in each coordinate separately. Use geometric intuition for open/closed sets in the plane.
+
+% Visualization for Exercise 3.3: Sets in R²
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=12cm,
+    height=8cm,
+    xlabel={$\text{Re}(z)$},
+    ylabel={$\text{Im}(z)$},
+    title={Sets in the Complex Plane},
+    xmin=-2, xmax=2,
+    ymin=-2, ymax=2,
+    grid=major,
+    grid style={gray!30},
+    legend pos=north west,
+    axis equal
+]
+
+% |z| > 1 (exterior of unit circle)
+\addplot[blue, thick, fill=blue!20, opacity=0.7] coordinates {
+    (-2,-2) (2,-2) (2,2) (-2,2) (-2,-2)
+};
+\addplot[white, thick, fill=white] coordinates {
+    (-1,-1) (1,-1) (1,1) (-1,1) (-1,-1)
+};
+\addplot[blue, thick] coordinates {
+    (-1,-1) (1,-1) (1,1) (-1,1) (-1,-1)
+};
+\addlegendentry{$\{z : |z| > 1\}$}
+
+% |z| ≥ 1 (complement of open unit disk)
+\addplot[red, thick, fill=red!20, opacity=0.7] coordinates {
+    (-2,-2) (2,-2) (2,2) (-2,2) (-2,-2)
+};
+\addplot[white, thick, fill=white] coordinates {
+    (-0.8,-0.8) (0.8,-0.8) (0.8,0.8) (-0.8,0.8) (-0.8,-0.8)
+};
+\addplot[red, thick] coordinates {
+    (-0.8,-0.8) (0.8,-0.8) (0.8,0.8) (-0.8,0.8) (-0.8,-0.8)
+};
+\addlegendentry{$\{z : |z| \geq 1\}$}
+
+% Unit circle
+\addplot[black, thick] coordinates {
+    (-1,-1) (1,-1) (1,1) (-1,1) (-1,-1)
+};
+\addlegendentry{Unit circle}
+
+\end{axis}
+\end{tikzpicture}
+\caption{Left: $\{z : |z| > 1\}$ is open but not closed. Right: $\{z : |z| \geq 1\}$ is closed but not open.}
+\end{figure}
 
 \bigskip\noindent\textbf{Solution:}
 (a) The set $\{z \in \mathbb{C} : |z| > 1\}$ has accumulation points $\{z \in \mathbb{C} : |z| \geq 1\}$. The set is open but not closed.
@@ -142,6 +240,48 @@ Prove that the only sets in $\mathbb{R}^1$ which are both open and closed are th
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use proof by contradiction. Assume there exists a non-empty proper subset that is both open and closed. Use the connectedness of $\mathbb{R}^1$ and $\mathbb{R}^2$ - if a space is connected, it cannot be split into two non-empty disjoint open sets. The key is to show that such a split would violate connectedness.
+
+% Visualization for Exercise 3.5: Connectedness Proof
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=12cm,
+    height=6cm,
+    xlabel={$x$},
+    ylabel={$y$},
+    title={Connectedness Proof: $\mathbb{R}^1$ Cannot be Split into Two Open Sets},
+    xmin=-1, xmax=4,
+    ymin=-0.5, ymax=0.5,
+    grid=major,
+    grid style={gray!30},
+    legend pos=north east
+]
+
+% Two hypothetical open sets
+\addplot[blue, thick, fill=blue!20, opacity=0.7] coordinates {(-1,0) (1.5,0)};
+\addplot[red, thick, fill=red!20, opacity=0.7] coordinates {(2.5,0) (4,0)};
+
+% Points from each set
+\addplot[blue, mark=*, mark size=4pt] coordinates {(0,0)};
+\addplot[red, mark=*, mark size=4pt] coordinates {(3,0)};
+
+% Labels
+\node[above] at (axis cs:0,0) {$a \in S$};
+\node[above] at (axis cs:3,0) {$b \in S^c$};
+
+% Supremum point
+\addplot[green, mark=*, mark size=4pt] coordinates {(2,0)};
+\node[above] at (axis cs:2,0) {$s = \sup\{x \in S\}$};
+
+% Contradiction arrows
+\draw[->, thick, green] (axis cs:1.8,0.3) -- (axis cs:2.2,0.3);
+\draw[->, thick, green] (axis cs:2.2,-0.3) -- (axis cs:1.8,-0.3);
+
+\end{axis}
+\end{tikzpicture}
+\caption{Proof by contradiction that $\mathbb{R}^1$ is connected. If it could be split into two open sets, the supremum $s$ would lead to a contradiction.}
+\end{figure}
 
 \bigskip\noindent\textbf{Solution:}
 
@@ -360,6 +500,52 @@ A set \( S \) in \( \mathbb{R}^n \) is called convex if, for every pair of point
 
 \noindent\textbf{Strategy:} Use the triangle inequality for (a), coordinate-wise inequalities for (b), and the fact that convex combinations preserve neighborhoods for (c) and (d). For (c), show that if two points are interior, their convex combination has a neighborhood in the set. For (d), use sequences and the fact that convex combinations are continuous.
 
+% Visualization for Exercise 3.14: Convex Sets
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=12cm,
+    height=8cm,
+    xlabel={$x$},
+    ylabel={$y$},
+    title={Convex vs Non-convex Sets},
+    xmin=-2, xmax=4,
+    ymin=-2, ymax=4,
+    grid=major,
+    grid style={gray!30},
+    legend pos=north west,
+    axis equal
+]
+
+% Convex set (circle)
+\addplot[blue, thick, fill=blue!20, opacity=0.7] coordinates {
+    (1,1) (1.5,0.5) (2,0.5) (2.5,1) (2.5,2) (2,2.5) (1.5,2.5) (1,2) (1,1)
+};
+\addlegendentry{Convex set}
+
+% Non-convex set (crescent)
+\addplot[red, thick, fill=red!20, opacity=0.7] coordinates {
+    (3,1) (3.5,0.5) (4,1) (4,2) (3.5,2.5) (3,2) (2.8,1.5) (3,1)
+};
+\addlegendentry{Non-convex set}
+
+% Line segments showing convexity
+\addplot[blue, dashed, thick] coordinates {(1.5,0.5) (2,2.5)};
+\addplot[blue, dashed, thick] coordinates {(1,1) (2.5,2)};
+
+% Line segment showing non-convexity
+\addplot[red, dashed, thick] coordinates {(3.5,0.5) (3.5,2.5)};
+
+% Points
+\addplot[blue, mark=*, mark size=3pt] coordinates {(1.5,0.5) (2,2.5)};
+\addplot[red, mark=*, mark size=3pt] coordinates {(3.5,0.5) (3.5,2.5)};
+
+\end{axis}
+\end{tikzpicture}
+\caption{Left: A convex set where any line segment between two points lies entirely within the set. Right: A non-convex set where some line segments between points extend outside the set.}
+\end{figure}
+
 \bigskip\noindent\textbf{Solution:} Geometrically, a set is convex if the line segment joining any two points in the set lies entirely within the set.
 
 (a) Let $B(a;r)$ be an $n$-ball and $x, y \in B(a;r)$. For $0 < \theta < 1$, let $z = \theta x + (1-\theta)y$. Then $\|z-a\| = \|\theta(x-a) + (1-\theta)(y-a)\| \leq \theta\|x-a\| + (1-\theta)\|y-a\| < \theta r + (1-\theta)r = r$, so $z \in B(a;r)$.
@@ -402,6 +588,53 @@ Prove that the set \( S \) of rational numbers in the interval \( (0, 1) \) cann
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use proof by contradiction. Assume the rationals can be written as a countable intersection of open sets. Enumerate the rationals and construct nested closed intervals that exclude each rational one by one. Use the Cantor intersection theorem to find a point in the intersection that cannot be rational, creating a contradiction.
+
+% Visualization for Exercise 3.16: Cantor Intersection Theorem
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=12cm,
+    height=6cm,
+    xlabel={$x$},
+    ylabel={$y$},
+    title={Cantor Intersection Theorem: Nested Closed Intervals},
+    xmin=0, xmax=1,
+    ymin=-0.2, ymax=0.2,
+    grid=major,
+    grid style={gray!30},
+    legend pos=north east
+]
+
+% Nested closed intervals
+\addplot[blue, thick] coordinates {(0.1,0) (0.9,0)};
+\addplot[red, thick] coordinates {(0.2,0.05) (0.8,0.05)};
+\addplot[green, thick] coordinates {(0.3,-0.05) (0.7,-0.05)};
+\addplot[orange, thick] coordinates {(0.35,0.1) (0.65,0.1)};
+\addplot[purple, thick] coordinates {(0.4,-0.1) (0.6,-0.1)};
+
+% Labels
+\node[above] at (axis cs:0.5,0) {$Q_1$};
+\node[above] at (axis cs:0.5,0.05) {$Q_2$};
+\node[above] at (axis cs:0.5,-0.05) {$Q_3$};
+\node[above] at (axis cs:0.5,0.1) {$Q_4$};
+\node[above] at (axis cs:0.5,-0.1) {$Q_5$};
+
+% Intersection point
+\addplot[black, mark=*, mark size=4pt] coordinates {(0.5,0)};
+\node[above] at (axis cs:0.5,0) {$\bigcap Q_n$};
+
+% Excluded rationals
+\addplot[red, mark=x, mark size=3pt] coordinates {(0.1,0.15) (0.2,0.15) (0.3,0.15) (0.4,0.15)};
+\node[above] at (axis cs:0.1,0.15) {$x_1$};
+\node[above] at (axis cs:0.2,0.15) {$x_2$};
+\node[above] at (axis cs:0.3,0.15) {$x_3$};
+\node[above] at (axis cs:0.4,0.15) {$x_4$};
+
+\end{axis}
+\end{tikzpicture}
+\caption{The Cantor intersection theorem: nested closed intervals $Q_n$ exclude rationals $x_n$ one by one, but their intersection must contain a point that cannot be any of the excluded rationals.}
+\end{figure}
 
 \bigskip\noindent\textbf{Solution:} The strategy is to use a proof by contradiction. We'll assume that the rationals can be written as a countable intersection of open sets, then construct a nested sequence of closed intervals that excludes each rational number one by one. This will lead to a point that must be in the intersection (by the Cantor intersection theorem) but cannot be any of the rational numbers we've excluded, creating a contradiction.
 
@@ -450,6 +683,61 @@ If \( S \subseteq \mathbb{R}^n \), prove that the collection of isolated points 
 
 \noindent\textbf{Strategy:} Use the fact that isolated points have disjoint neighborhoods. For each isolated point, take a smaller ball (half the radius) and show these balls are pairwise disjoint. Then use the separability of $\mathbb{R}^n$ (it has a countable dense subset) to inject the isolated points into this countable set.
 
+% Visualization for Exercise 3.17: Isolated Points
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=12cm,
+    height=6cm,
+    xlabel={$x$},
+    ylabel={$y$},
+    title={Isolated Points: Each Has Disjoint Neighborhood},
+    xmin=-1, xmax=4,
+    ymin=-0.5, ymax=0.5,
+    grid=major,
+    grid style={gray!30},
+    legend pos=north east
+]
+
+% Isolated points
+\addplot[blue, mark=*, mark size=4pt] coordinates {
+    (0.5,0) (1.5,0) (2.5,0) (3.5,0)
+};
+\addlegendentry{Isolated points}
+
+% Neighborhoods around each point
+\addplot[red, dashed, thick] coordinates {(0.3,0.3) (0.7,0.3)};
+\addplot[red, dashed, thick] coordinates {(0.3,-0.3) (0.7,-0.3)};
+\addplot[red, dashed, thick] coordinates {(0.3,0.3) (0.3,-0.3)};
+\addplot[red, dashed, thick] coordinates {(0.7,0.3) (0.7,-0.3)};
+
+\addplot[red, dashed, thick] coordinates {(1.3,0.3) (1.7,0.3)};
+\addplot[red, dashed, thick] coordinates {(1.3,-0.3) (1.7,-0.3)};
+\addplot[red, dashed, thick] coordinates {(1.3,0.3) (1.3,-0.3)};
+\addplot[red, dashed, thick] coordinates {(1.7,0.3) (1.7,-0.3)};
+
+\addplot[red, dashed, thick] coordinates {(2.3,0.3) (2.7,0.3)};
+\addplot[red, dashed, thick] coordinates {(2.3,-0.3) (2.7,-0.3)};
+\addplot[red, dashed, thick] coordinates {(2.3,0.3) (2.3,-0.3)};
+\addplot[red, dashed, thick] coordinates {(2.7,0.3) (2.7,-0.3)};
+
+\addplot[red, dashed, thick] coordinates {(3.3,0.3) (3.7,0.3)};
+\addplot[red, dashed, thick] coordinates {(3.3,-0.3) (3.7,-0.3)};
+\addplot[red, dashed, thick] coordinates {(3.3,0.3) (3.3,-0.3)};
+\addplot[red, dashed, thick] coordinates {(3.7,0.3) (3.7,-0.3)};
+
+% Labels
+\node[above] at (axis cs:0.5,0) {$x_1$};
+\node[above] at (axis cs:1.5,0) {$x_2$};
+\node[above] at (axis cs:2.5,0) {$x_3$};
+\node[above] at (axis cs:3.5,0) {$x_4$};
+
+\end{axis}
+\end{tikzpicture}
+\caption{Isolated points have disjoint neighborhoods, allowing them to be mapped injectively into a countable dense subset, proving countability.}
+\end{figure}
+
 \bigskip\noindent\textbf{Solution:}\\
 Let $I$ be the set of isolated points of $S$. By definition, for each point $\mathbf{x} \in I$, there exists a radius $\varepsilon_{\mathbf{x}} > 0$ such that the open ball $B(\mathbf{x}; \varepsilon_{\mathbf{x}})$ contains no other point of $S$; that is, $B(\mathbf{x}; \varepsilon_{\mathbf{x}}) \cap S = \{\mathbf{x}\}$.
 
@@ -472,6 +760,50 @@ Prove that the set of open disks in the \(xy\)-plane with center at \( (x, x) \)
 \end{problembox}
 
 \noindent\textbf{Strategy:} Show that the collection is countable (since rationals are countable) and that it covers the first quadrant. For any point $(x,y)$ in the first quadrant, find a rational $q$ such that the disk centered at $(q,q)$ with radius $q$ contains $(x,y)$. Use the distance formula and density of rationals.
+
+% Visualization for Exercise 3.18: Countable Covering
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=10cm,
+    height=8cm,
+    xlabel={$x$},
+    ylabel={$y$},
+    title={Countable Covering of First Quadrant},
+    xmin=0, xmax=4,
+    ymin=0, ymax=4,
+    grid=major,
+    grid style={gray!30},
+    legend pos=north west,
+    axis equal
+]
+
+% Several disks with rational centers
+\addplot[blue, thick, fill=blue!10, opacity=0.7] coordinates {
+    (1,1) (1.5,0.5) (2,0.5) (2.5,1) (2.5,2) (2,2.5) (1.5,2.5) (1,2) (1,1)
+};
+\addplot[red, thick, fill=red!10, opacity=0.7] coordinates {
+    (2,2) (2.5,1.5) (3,1.5) (3.5,2) (3.5,3) (3,3.5) (2.5,3.5) (2,3) (2,2)
+};
+\addplot[green, thick, fill=green!10, opacity=0.7] coordinates {
+    (0.5,0.5) (1,0) (1.5,0) (2,0.5) (2,1.5) (1.5,2) (1,2) (0.5,1.5) (0.5,0.5)
+};
+
+% Center points
+\addplot[blue, mark=*, mark size=3pt] coordinates {(1.5,1.5)};
+\addplot[red, mark=*, mark size=3pt] coordinates {(2.5,2.5)};
+\addplot[green, mark=*, mark size=3pt] coordinates {(1,1)};
+
+% Labels
+\node[above] at (axis cs:1.5,1.5) {$(1.5, 1.5)$};
+\node[above] at (axis cs:2.5,2.5) {$(2.5, 2.5)$};
+\node[above] at (axis cs:1,1) {$(1, 1)$};
+
+\end{axis}
+\end{tikzpicture}
+\caption{Countable covering of the first quadrant using disks centered at rational points $(q,q)$ with radius $q$.}
+\end{figure}
 
 \bigskip\noindent\textbf{Solution:}\\
 Let $\mathcal{F}$ be the collection of open disks $B((q,q); q)$ where $q \in \mathbb{Q}$ and $q > 0$. Since $\mathbb{Q}$ is countable, the collection $\mathcal{F}$ is countable. We need to show that $\mathcal{F}$ covers the first quadrant $S = \{(x, y) : x > 0, y > 0\}$.
@@ -499,6 +831,46 @@ The collection \( \mathcal{F} \) of open intervals of the form \( (1/n, 2/n) \),
 
 \noindent\textbf{Strategy:} Take any finite subcollection and find the maximum denominator $N$. Show that the interval $(0, 1/N)$ is not covered by any interval in the finite subcollection, since the leftmost interval is $(1/N, 2/N)$.
 
+% Visualization for Exercise 3.19: Non-Finite Subcover
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=12cm,
+    height=6cm,
+    xlabel={$x$},
+    ylabel={$y$},
+    title={Non-Finite Subcover: Intervals $(1/n, 2/n)$},
+    xmin=0, xmax=1,
+    ymin=-0.2, ymax=0.2,
+    grid=major,
+    grid style={gray!30},
+    legend pos=north east
+]
+
+% Several intervals
+\addplot[blue, thick] coordinates {(0.5,0) (1,0)};
+\addplot[red, thick] coordinates {(0.333,0.1) (0.667,0.1)};
+\addplot[green, thick] coordinates {(0.25,0.05) (0.5,0.05)};
+\addplot[orange, thick] coordinates {(0.2,-0.05) (0.4,-0.05)};
+\addplot[purple, thick] coordinates {(0.167,-0.1) (0.333,-0.1)};
+
+% Labels
+\node[above] at (axis cs:0.75,0) {$(1/2, 2/2)$};
+\node[above] at (axis cs:0.5,0.1) {$(1/3, 2/3)$};
+\node[above] at (axis cs:0.375,0.05) {$(1/4, 2/4)$};
+\node[above] at (axis cs:0.3,-0.05) {$(1/5, 2/5)$};
+\node[above] at (axis cs:0.25,-0.1) {$(1/6, 2/6)$};
+
+% Point not covered by finite subcollection
+\addplot[black, mark=*, mark size=4pt] coordinates {(0.1,0)};
+\node[above] at (axis cs:0.1,0) {Point not covered};
+
+\end{axis}
+\end{tikzpicture}
+\caption{The collection of intervals $(1/n, 2/n)$ covers $(0,1)$ but no finite subcollection covers it. The point $0.1$ is not covered by any interval in a finite subcollection.}
+\end{figure}
+
 \bigskip\noindent\textbf{Solution:} Let $\mathcal{G} = \{(1/n_1, 2/n_1), \ldots, (1/n_k, 2/n_k)\}$ be a finite subcollection of $\mathcal{F}$. Let $N = \max\{n_1, \ldots, n_k\}$.
 
 Then the leftmost interval in $\mathcal{G}$ is $(1/N, 2/N)$. For any $x \in (0, 1/N)$, we have $x < 1/N < 2/N$, so $x$ is not covered by any interval in $\mathcal{G}$.
@@ -511,6 +883,53 @@ Give an example of a set \( S \) which is closed but not bounded and exhibit a c
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the integers $\mathbb{Z}$ as the set (closed but not bounded). Create a covering where each integer has its own interval, making it impossible for any finite subcollection to cover the infinite set.
+
+% Visualization for Exercise 3.20: Closed but Not Bounded Set
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=12cm,
+    height=6cm,
+    xlabel={$x$},
+    ylabel={$y$},
+    title={Closed but Not Bounded Set: $\mathbb{Z}$},
+    xmin=-5, xmax=5,
+    ymin=-0.5, ymax=0.5,
+    grid=major,
+    grid style={gray!30},
+    legend pos=north east
+]
+
+% Integer points
+\addplot[blue, mark=*, mark size=4pt] coordinates {
+    (-4,0) (-3,0) (-2,0) (-1,0) (0,0) (1,0) (2,0) (3,0) (4,0)
+};
+\addlegendentry{$\mathbb{Z}$}
+
+% Neighborhoods around each integer
+\foreach \x in {-4,-3,-2,-1,0,1,2,3,4} {
+    \addplot[red, dashed, thick] coordinates {(\x-0.4,0.3) (\x+0.4,0.3)};
+    \addplot[red, dashed, thick] coordinates {(\x-0.4,-0.3) (\x+0.4,-0.3)};
+    \addplot[red, dashed, thick] coordinates {(\x-0.4,0.3) (\x-0.4,-0.3)};
+    \addplot[red, dashed, thick] coordinates {(\x+0.4,0.3) (\x+0.4,-0.3)};
+}
+
+% Labels
+\node[above] at (axis cs:-4,0) {$-4$};
+\node[above] at (axis cs:-3,0) {$-3$};
+\node[above] at (axis cs:-2,0) {$-2$};
+\node[above] at (axis cs:-1,0) {$-1$};
+\node[above] at (axis cs:0,0) {$0$};
+\node[above] at (axis cs:1,0) {$1$};
+\node[above] at (axis cs:2,0) {$2$};
+\node[above] at (axis cs:3,0) {$3$};
+\node[above] at (axis cs:4,0) {$4$};
+
+\end{axis}
+\end{tikzpicture}
+\caption{The set of integers $\mathbb{Z}$ is closed but not bounded. Each integer has a neighborhood that contains no other integers, showing it has no accumulation points.}
+\end{figure}
 
 \bigskip\noindent\textbf{Solution:} Let $S = \mathbb{Z}$ (the set of integers). This set is closed but not bounded.
 
@@ -693,6 +1112,51 @@ In each of the following metric spaces prove that the ball \( B(a; r) \) has the
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the definition of metric balls $B(a;r) = \{x : d(a,x) < r\}$ and substitute the given metrics. For $d_1$, the maximum constraint creates axis-aligned shapes. For $d_2$, the sum constraint creates diamond/octahedral shapes.
+
+% Visualization for Exercise 3.27: Metric Balls
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=12cm,
+    height=8cm,
+    xlabel={$x$},
+    ylabel={$y$},
+    title={Metric Balls in $\mathbb{R}^2$ with Different Metrics},
+    xmin=-2, xmax=2,
+    ymin=-2, ymax=2,
+    grid=major,
+    grid style={gray!30},
+    legend pos=north east,
+    axis equal
+]
+
+% d_1 metric ball (square)
+\addplot[blue, thick, fill=blue!20, opacity=0.7] coordinates {
+    (-1,-1) (1,-1) (1,1) (-1,1) (-1,-1)
+};
+\addlegendentry{$d_1$ ball (square)}
+
+% d_2 metric ball (diamond)
+\addplot[red, thick, fill=red!20, opacity=0.7] coordinates {
+    (0,-1.4) (1.4,0) (0,1.4) (-1.4,0) (0,-1.4)
+};
+\addlegendentry{$d_2$ ball (diamond)}
+
+% Euclidean ball (circle)
+\addplot[green, thick, fill=green!20, opacity=0.7] coordinates {
+    (0,-1) (0.707,-0.707) (1,0) (0.707,0.707) (0,1) (-0.707,0.707) (-1,0) (-0.707,-0.707) (0,-1)
+};
+\addlegendentry{Euclidean ball (circle)}
+
+% Center point
+\addplot[black, mark=*, mark size=4pt] coordinates {(0,0)};
+\node[above right] at (axis cs:0,0) {$(0,0)$};
+
+\end{axis}
+\end{tikzpicture}
+\caption{Comparison of metric balls centered at $(0,0)$ with radius 1: $d_1$ produces a square, $d_2$ produces a diamond, and the Euclidean metric produces a circle.}
+\end{figure}
 
 \bigskip\noindent\textbf{Solution:} 
 (a) In $(\mathbb{R}^2, d_1)$, the ball $B(a;r) = \{(x,y) : \max\{|x-a_1|, |y-a_2|\} < r\}$. This means $|x-a_1| < r$ and $|y-a_2| < r$, which defines a square with center $(a_1,a_2)$ and sides of length $2r$ parallel to the coordinate axes.
@@ -1064,6 +1528,53 @@ Prove that \(\text{int } A = M - \overline{M - A}\).
 \end{problembox}
 
 \noindent\textbf{Strategy:} Show both inclusions. For the forward direction, if a point is interior to $A$, it has a neighborhood in $A$, so it's not in the closure of the complement. For the reverse direction, if a point is not in the closure of the complement, it has a neighborhood that doesn't intersect the complement, so it's interior to $A$.
+
+% Visualization for Exercise 3.43-3.44: Interior and Closure Relationships
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=12cm,
+    height=8cm,
+    xlabel={$x$},
+    ylabel={$y$},
+    title={Interior, Closure, and Boundary of a Set},
+    xmin=-1, xmax=4,
+    ymin=-1, ymax=4,
+    grid=major,
+    grid style={gray!30},
+    legend pos=north west,
+    axis equal
+]
+
+% Original set A (open disk with some boundary points)
+\addplot[blue, thick, fill=blue!20, opacity=0.7] coordinates {
+    (1,1) (1.5,0.5) (2,0.5) (2.5,1) (2.5,2) (2,2.5) (1.5,2.5) (1,2) (1,1)
+};
+\addlegendentry{Set $A$}
+
+% Interior of A (smaller open disk)
+\addplot[green, thick, fill=green!20, opacity=0.7] coordinates {
+    (1.2,1.2) (1.8,0.8) (2.3,0.8) (2.8,1.2) (2.8,1.8) (2.3,2.3) (1.8,2.3) (1.2,1.8) (1.2,1.2)
+};
+\addlegendentry{$\text{int } A$}
+
+% Closure of A (larger closed disk)
+\addplot[red, thick, fill=red!10, opacity=0.7] coordinates {
+    (0.8,0.8) (1.2,0.3) (2.8,0.3) (3.2,0.8) (3.2,2.2) (2.8,2.7) (1.2,2.7) (0.8,2.2) (0.8,0.8)
+};
+\addlegendentry{$\overline{A}$}
+
+% Boundary points
+\addplot[black, mark=*, mark size=3pt] coordinates {
+    (0.8,0.8) (1.2,0.3) (2.8,0.3) (3.2,0.8) (3.2,2.2) (2.8,2.7) (1.2,2.7) (0.8,2.2)
+};
+\addlegendentry{$\partial A$}
+
+\end{axis}
+\end{tikzpicture}
+\caption{Relationships between interior, closure, and boundary: $\text{int } A \subseteq A \subseteq \overline{A}$ and $\partial A = \overline{A} \setminus \text{int } A$.}
+\end{figure}
 
 \bigskip\noindent\textbf{Solution:} Let $x \in \text{int } A$. Then there exists $\varepsilon > 0$ such that $B(x;\varepsilon) \subset A$. This means $B(x;\varepsilon) \cap (M - A) = \emptyset$, so $x \notin \overline{M - A}$. Therefore, $x \in M - \overline{M - A}$.
 

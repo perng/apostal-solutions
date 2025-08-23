@@ -24,8 +24,14 @@
 \usepackage{tcolorbox}
 \tcbuselibrary{breakable}
 \usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{arrows.meta, decorations.pathreplacing, calc}
+
+
 \usepackage{wrapfig}
 \usepackage{fancyhdr}
+\usepackage{graphicx}
 
 % Avoid widows and orphans in print
 \clubpenalty=10000
@@ -70,7 +76,32 @@
 
 \begin{document}
 
-\title{Exercise Solutions from Apostol's Mathematical Analysis}
+% Title page with cover image
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    
+    % Cover image (uncomment and adjust path as needed)
+    % \includegraphics[width=4in]{cover-image.jpg}
+    
+    \vspace{2cm}
+    
+    {\Huge\bfseries Exercise Solutions from\\[0.5cm] Apostol's Mathematical Analysis}
+    
+    \vspace{1cm}
+    
+    {\Large A Very Comprehensive Guide to Solving Mathematical Analysis Problems}
+    
+    \vspace{2cm}
+    
+    {\large \today}
+    
+    \vfill
+    
+    {\large Solutions compiled for mathematical analysis students}
+    
+    \vspace{1cm}
+\end{titlepage}
 
 \tableofcontents
 

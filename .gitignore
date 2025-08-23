@@ -12,6 +12,7 @@
 *.cb2
 .*.lb
 */book/*
+*/tmp/*
 
 ## Intermediate documents:
 *.dvi

@@ -1,0 +1,315 @@
+\documentclass[aspectratio=169,11pt]{beamer}
+\usetheme[numbering=fraction,progressbar=frametitle]{metropolis}
+\usepackage{amsmath,amssymb,amsfonts,mathtools}
+\usepackage{bm}
+\usepackage{tikz}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage{csquotes}
+\title{Chapter I — \S1 Monoids}
+\subtitle{Everything you wanted to say about $\big(\_\!\cdot\!\_\big)$ but were afraid to parenthesize}
+\author{Slides generated from your chapter outline (no exercises)}
+\date{\today}
+
+% Small helpers
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\End}{\mathrm{End}}
+\newcommand{\Aut}{\mathrm{Aut}}
+\newcommand{\Ker}{\mathrm{Ker}}
+\newcommand{\Img}{\mathrm{Im}}
+
+\begin{document}
+\maketitle
+
+\begin{frame}{Section roadmap}
+\tableofcontents
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Binary laws of composition}
+% ------------------------------------------------------------------
+\begin{frame}{What is a ``law of composition''?}
+\begin{itemize}
+  \item A \textbf{law of composition} on a set $S$ is just a map
+  \[
+    \mu : S\times S \longrightarrow S,\qquad (x,y)\mapsto \mu(x,y)=x\cdot y.
+  \]
+  \item We'll also write $xy$ for $x\cdot y$. When commutativity holds, the additive notation $x+y$ is common.
+  \item \textbf{Associative} means $(xy)z=x(yz)$ for all $x,y,z\in S$.
+  \item A \textbf{unit (identity)} is an element $e\in S$ with $ex=xe=x$ for all $x\in S$.
+  \item A set with an associative law and a unit is a \alert{monoid}. (Semigroup $=$ associative, \emph{no} promise of a unit.)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{First date with associativity}
+\begin{itemize}
+  \item Associativity lets us unambiguously write $x_1x_2\cdots x_n$ without a forest of parentheses.
+  \item Convention: the \textbf{empty product} is $e$ (the unit).
+  \item When the operation is commutative, we may reindex and regroup at will. When not: choose your parentheses wisely.
+\end{itemize}
+\begin{block}{Cheeky transition}
+Parentheses are like seatbelts: you only notice them when something non-associative happens.
+\end{block}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Definition and basic properties}
+% ------------------------------------------------------------------
+\begin{frame}{Definition: monoid}
+\begin{block}{Monoid}
+A \textbf{monoid} is a triple $(M,\cdot,e)$ where $M$ is a set, $\cdot$ is an associative law of composition on $M$, and $e$ is a unit for $\cdot$.
+\end{block}
+\begin{itemize}
+  \item If $xy=yx$ for all $x,y$, the monoid is \textbf{commutative} (often written additively as $(M,+,0)$).
+  \item Elements $u\in M$ with a two-sided inverse are called \textbf{units}. The set of units $M^\times$ forms a \textbf{group}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Uniqueness of the unit}
+\begin{block}{Proposition}
+If $e$ and $e'$ are units in $M$, then $e=e'$.
+\end{block}
+\begin{block}{Proof (blink-and-you-miss-it)}
+$e=e\cdot e'=e'$.
+\end{block}
+\begin{block}{Transition}
+Plot twist: there can be \emph{many} inverses in life, but in a monoid the identity is strictly monogamous.
+\end{block}
+\end{frame}
+
+\begin{frame}{Left/right units and inverses}
+\begin{itemize}
+  \item A \textbf{left unit} satisfies $ex=x$ for all $x$; a \textbf{right unit} satisfies $xe=x$ for all $x$.
+  \item If a left unit and a right unit both exist in $M$, then they are equal and hence the (two-sided) unit.
+  \item \textbf{Inverse uniqueness:} if $xu=ux=e$ and $xv=vx=e$, then $u=v$.
+\end{itemize}
+\begin{block}{Proof sketch}
+$u=ue= u(xv)=(ux)v=ev=v$.
+\end{block}
+\begin{block}{Transition}
+Two-sided inverses: because who wants commitment only on weekdays?
+\end{block}
+\end{frame}
+
+\begin{frame}{Powers and laws of exponents}
+Let $(M,\cdot,e)$ be a monoid and $x\in M$.
+\begin{itemize}
+  \item Define $x^0:=e$, $x^{n+1}:=x^n x$ for $n\ge 0$ (and $x^1=x$).
+  \item \textbf{Exponent laws}: for all $m,n\in \NN$:
+  \[
+    x^{m+n}=x^m x^n,\qquad (x^m)^n=x^{mn}.
+  \]
+  \item If $xy=yx$, then $(xy)^n=x^n y^n$.
+\end{itemize}
+\begin{block}{Transition}
+Yes, your high-school exponent rules secretly assumed a monoid the whole time. Math teachers are sneaky.
+\end{block}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Examples and non-examples}
+% ------------------------------------------------------------------
+\begin{frame}{Classic examples}
+\begin{columns}[T,onlytextwidth]
+\column{0.52\textwidth}
+\begin{itemize}
+  \item $(\NN,+,0)$ and $(\ZZ,+,0)$.
+  \item $(\NN,\times,1)$ (caution: $0$ is not a unit).
+  \item $M_n(R)$ with matrix multiplication and $I_n$.
+  \item $\mathrm{End}(S)$: all functions $S\to S$ under composition with $\id_S$.
+\end{itemize}
+\column{0.48\textwidth}
+\begin{itemize}
+  \item Strings $\Sigma^\ast$ under concatenation, unit the empty word $\varepsilon$.
+  \item $(\RR_{\ge 0},\max,0)$, $(\RR\cup\{-\infty\},\max,-\infty)$ (idempotent monoids).
+  \item Boolean monoids: $(\{0,1\},\lor,0)$ and $(\{0,1\},\land,1)$.
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Non-examples \& cautionary tales}
+\begin{itemize}
+  \item $(\RR,\,-,\,0)$ with subtraction is \emph{not} associative.
+  \item $(\RR,\cdot,1)$ \emph{is} a monoid, but $\RR^\times=\RR\setminus\{0\}$ is a \emph{group}; note how units “peel off” into a nicer object.
+  \item The set of $n\times n$ \emph{singular} matrices is not a monoid under multiplication (no unit).
+\end{itemize}
+\begin{block}{Transition}
+If it fails associativity, it’s not a phase—it’s a different algebraic object.
+\end{block}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Submonoids and generation}
+% ------------------------------------------------------------------
+\begin{frame}{Submonoids}
+\begin{block}{Definition}
+A subset $N\subseteq M$ is a \textbf{submonoid} if $e\in N$ and $xy\in N$ whenever $x,y\in N$.
+\end{block}
+\begin{itemize}
+  \item Equivalently: close under the operation and contain the unit.
+  \item Warning: closure under inverses is \emph{not} required (that would make it a subgroup of $M^\times$ if all elements are units).
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Generated submonoids}
+\begin{block}{Definition}
+Given $S\subseteq M$, the \textbf{submonoid generated by $S$}, written $\langle S\rangle$, is the intersection of all submonoids containing $S$.
+\end{block}
+\begin{itemize}
+  \item Concretely: $\langle S\rangle$ consists of all finite products $s_1s_2\cdots s_k$ with $k\ge 0$ and $s_i\in S$ (empty product allowed $\Rightarrow e\in\langle S\rangle$).
+  \item In a commutative monoid, we may speak of \emph{monomials} in $S$.
+  \item If $S$ is finite, say $S=\{x_1,\dots,x_r\}$, write $\langle x_1,\dots,x_r\rangle$.
+\end{itemize}
+\begin{block}{Transition}
+From “some elements I like” to “everything I can build from them” — the LEGO principle of algebra.
+\end{block}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Units, cancellation, and idempotents}
+% ------------------------------------------------------------------
+\begin{frame}{Group of units}
+\begin{block}{Definition}
+An element $u\in M$ is a \textbf{unit} if there exists $v\in M$ with $uv=vu=e$.
+\end{block}
+\begin{itemize}
+  \item The set $M^\times$ of all units is closed under multiplication and inversion, so $(M^\times,\cdot,e)$ is a group.
+  \item Example: in $M_n(R)$, $M^\times$ is the general linear group $\mathrm{GL}_n(R)$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Cancellation vs. invertibility}
+\begin{itemize}
+  \item \textbf{Left-cancellative}: $ax=ay\Rightarrow x=y$; \textbf{right-cancellative}: $xa=ya\Rightarrow x=y$.
+  \item If $a$ is a unit, then both left and right cancellation by $a$ hold.
+  \item The converse can fail in general monoids (cancellation does not imply invertibility), but holds in groups.
+\end{itemize}
+\begin{block}{Transition}
+Being cancellative is like being persuasive; having an inverse is like having receipts.
+\end{block}
+\end{frame}
+
+\begin{frame}{Idempotents and absorbing elements}
+\begin{itemize}
+  \item $e\in M$ is \textbf{idempotent} if $e^2=e$ (every identity is idempotent, but not every idempotent is an identity).
+  \item \textbf{Absorbing element} $0\in M$: $0x=x0=0$ for all $x$ (e.g.\ $0$ under multiplication in $\NN$).
+  \item In idempotent commutative monoids (a.k.a.\ join-semilattices), $x+y$ behaves like set-theoretic union or logical OR.
+\end{itemize}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Finite products and indexing}
+% ------------------------------------------------------------------
+\begin{frame}{Products over finite index sets}
+\begin{itemize}
+  \item If only finitely many terms are $\ne e$, define $\prod_{i\in I} x_i$ by choosing any order (associativity ensures unambiguity; commutativity allows reordering freely).
+  \item For functions $f:I\times J\to M$ with finite support, we have the ``Fubini for finite products''
+  \[
+    \prod_{i\in I}\ \prod_{j\in J} f(i,j)\;=\;\prod_{(i,j)\in I\times J} f(i,j)\;=\;\prod_{j\in J}\ \prod_{i\in I} f(i,j).
+  \]
+\end{itemize}
+\begin{block}{Transition}
+Reindex responsibly. Associativity is your seatbelt; commutativity is cruise control.
+\end{block}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Morphisms and quotients}
+% ------------------------------------------------------------------
+\begin{frame}{Monoid homomorphisms}
+\begin{block}{Definition}
+A \textbf{homomorphism} $f:(M,\cdot,e)\to (N,\star,1)$ is a map with $f(x\cdot y)=f(x)\star f(y)$ and $f(e)=1$.
+\end{block}
+\begin{itemize}
+  \item Images of units are units: if $u\in M^\times$ then $f(u)\in N^\times$.
+  \item Composition of homomorphisms is a homomorphism; the identity map is a homomorphism.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Congruences and quotients}
+\begin{itemize}
+  \item A \textbf{monoid congruence} $\sim$ is an equivalence relation on $M$ compatible with multiplication: $x\sim x'$, $y\sim y'$ $\Rightarrow$ $xy\sim x'y'$.
+  \item The quotient $M/{\sim}$ inherits a monoid structure.
+  \item Any homomorphism $f:M\to N$ yields a congruence $x\sim y\ \Leftrightarrow\ f(x)=f(y)$ (the \emph{kernel congruence}).
+\end{itemize}
+\begin{block}{First isomorphism theorem (monoids)}
+$M/\!\sim\ \cong\ \Img(f)$ where $\sim$ is the kernel congruence of $f$.
+\end{block}
+\begin{block}{Transition}
+Same plot as in group theory, but with a slightly different side character named “congruence.”
+\end{block}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Free monoids and presentations}
+% ------------------------------------------------------------------
+\begin{frame}{Free monoids}
+\begin{itemize}
+  \item For an alphabet $\Sigma$, the \textbf{free monoid} $\Sigma^\ast$ consists of all finite words in $\Sigma$ under concatenation; unit is the empty word $\varepsilon$.
+  \item \textbf{Universal property:} any function $g:\Sigma\to (M,\cdot,e)$ extends uniquely to a homomorphism $\widehat{g}:\Sigma^\ast\to M$ with $\widehat{g}(\sigma_1\cdots\sigma_k)=g(\sigma_1)\cdots g(\sigma_k)$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Presentations}
+\begin{itemize}
+  \item A monoid can be given by \textbf{generators and relations}: $M\cong \Sigma^\ast/\!\!\equiv$ where $\equiv$ is the smallest congruence forcing chosen relations.
+  \item Example: the commutative monoid on generators $x,y$ is $\langle x,y \mid xy=yx\rangle$.
+\end{itemize}
+\begin{block}{Transition}
+Presentations: because writing down every element individually is a terrible hobby.
+\end{block}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Constructions and actions}
+% ------------------------------------------------------------------
+\begin{frame}{Direct products and substructures}
+\begin{itemize}
+  \item The product of monoids $(M,\cdot,e)$ and $(N,\star,1)$ is $M\times N$ with $(x,a)\,(\,y,b\,)=(xy,ab)$ and identity $(e,1)$.
+  \item Submonoids and homomorphic images behave as expected under products.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Monoid actions}
+\begin{block}{Definition}
+An \textbf{action} of a monoid $(M,\cdot,e)$ on a set $S$ is a map $M\times S\to S$ satisfying $e\cdot s=s$ and $x\cdot (y\cdot s)=(xy)\cdot s$.
+\end{block}
+\begin{itemize}
+  \item Example: $\NN$ acts on $S$ by iterating a function $f:S\to S$, via $n\cdot s=f^{\circ n}(s)$.
+  \item Every action corresponds to a homomorphism $M\to \End(S)$.
+\end{itemize}
+\begin{block}{Transition}
+Actions: when monoids stop being polite and start getting real (on sets).
+\end{block}
+\end{frame}
+
+% ------------------------------------------------------------------
+\section{Checklists and pitfalls}
+% ------------------------------------------------------------------
+\begin{frame}{How to verify a monoid in the wild}
+\begin{enumerate}
+  \item Specify the underlying set $M$.
+  \item Specify the binary operation clearly.
+  \item Prove associativity.
+  \item Exhibit a unit and verify two-sidedness.
+  \item (Optional) Identify units $M^\times$, submonoids, and natural homomorphisms.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Common pitfalls}
+\begin{itemize}
+  \item Assuming a left identity is automatically a right identity (true in presence of associativity, but needs a proof).
+  \item Using cancellation without confirming invertibility or appropriate hypotheses.
+  \item Forgetting the empty product convention when proving product identities.
+\end{itemize}
+\begin{block}{Final transition to next section}
+If every element has an inverse, congratulations—you’ve unlocked the DLC: \textbf{Groups}. Coming up next!
+\end{block}
+\end{frame}
+
+\end{document}

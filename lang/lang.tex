@@ -47,7 +47,7 @@
     before skip=3em,
     fonttitle=\bfseries,
     title={\mbox{#1}},
-    before upper={\parindent0pt}
+    before upper={\addcontentsline{toc}{subsection}{#1}\parindent0pt}
 }
 
 % Custom environments for definitions and theorems
@@ -67,7 +67,7 @@
 
 \input{ch1.tex}
 \input{ch2.tex}
-% \input{ch3.tex}
+\input{ch3.tex}
 % \input{ch4.tex}
 % \input{ch5.tex}
 % \input{ch6.tex}

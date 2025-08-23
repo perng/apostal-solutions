@@ -1,0 +1,340 @@
+\documentclass[aspectratio=169,11pt]{beamer}
+\usetheme[numbering=fraction,progressbar=frametitle]{metropolis}
+
+% Packages
+\usepackage{amsmath,amssymb,amsfonts,mathtools}
+\usepackage{bm}
+\usepackage{tikz}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage{csquotes}
+\usepackage{xcolor}
+
+% Title info
+\title{Chapter I — \S1 Monoids}
+\subtitle{Motivation-forward slides: what, why, and where it matters}
+\author{Slides generated from your chapter outline (no exercises)}
+\date{\today}
+
+% Small helpers
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\End}{\mathrm{End}}
+\newcommand{\Ker}{\mathrm{Ker}}
+\newcommand{\Img}{\mathrm{Im}}
+
+% Transition line styling
+\definecolor{transit}{HTML}{0B7285} % teal-ish
+\newcommand{\tline}[1]{\par\medskip\textcolor{transit}{\emph{#1}}\par\medskip}
+
+\begin{document}
+\maketitle
+
+% ---------------------------------------------------------
+\begin{frame}{Section roadmap}
+\tableofcontents
+\end{frame}
+
+% ---------------------------------------------------------
+\section{Why start with monoids?}
+% ---------------------------------------------------------
+\begin{frame}{Why monoids first?}
+\begin{itemize}
+  \item \textbf{Minimal algebra of composition:} the least structure that lets you \emph{combine} results repeatedly.
+  \item \textbf{Universal base case:} sums, products, function composition, string concatenation—each is (at least) a monoid.
+  \item \textbf{Bridge to everything else:} add inverses $\Rightarrow$ groups; add a second operation $\Rightarrow$ rings/semirings; view as one-object categories.
+  \item \textbf{Practical pay-off:} associative $\oplus$ $+$ identity $e$ gives safe \emph{fold/reduce}, parallelization, and incremental computation.
+\end{itemize}
+\tline{Before superheroes (groups) come the capes and boots (monoids).}
+\end{frame}
+
+% ---------------------------------------------------------
+\section{Binary laws of composition}
+% ---------------------------------------------------------
+\begin{frame}{What is a law of composition?}
+\begin{itemize}
+  \item A \textbf{law of composition} on a set $S$ is a map
+  \[
+    \mu : S\times S \to S,\qquad (x,y)\mapsto x\cdot y.
+  \]
+  \item Often write $xy$ for $x\cdot y$; if commutative, use $x+y$.
+\end{itemize}
+\begin{alertblock}{Why this matters}
+Saying \emph{“closed under combining”} is how we guarantee that iterative processes never leave the universe we care about.
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{Associativity at center stage}
+\begin{itemize}
+  \item \textbf{Associative} means $(xy)z=x(yz)$ for all $x,y,z$.
+  \item Convention: the \textbf{empty product} equals the unit $e$ (when a unit exists).
+\end{itemize}
+\begin{block}{Why associativity is king}
+\begin{itemize}
+  \item \emph{Parenthesis-free} evaluation: $x_1x_2\cdots x_n$ is unambiguous.
+  \item \emph{Parallelism}: chunk-then-merge yields the same answer (MapReduce vibes).
+  \item \emph{Induction/folds}: proofs and programs can process streams incrementally.
+\end{itemize}
+\end{block}
+\tline{Parentheses are like seatbelts: you only notice them when something non-associative happens.}
+\end{frame}
+
+% ---------------------------------------------------------
+\section{Definition and basic properties}
+% ---------------------------------------------------------
+\begin{frame}{Definition: monoid}
+\begin{block}{Monoid}
+A \textbf{monoid} is a triple $(M,\cdot,e)$ where $M$ is a set, $\cdot$ is associative, and $e$ is a two-sided unit: $ex=xe=x$ for all $x\in M$.
+\end{block}
+\begin{itemize}
+  \item If $xy=yx$ for all $x,y$, the monoid is \textbf{commutative} (often written $(M,+,0)$).
+  \item Elements with two-sided inverses are \textbf{units}; these form a group $M^\times$.
+\end{itemize}
+\begin{alertblock}{Why the unit matters}
+The unit is the \emph{do-nothing} element: the base case for recursion, streaming, and identity effects in composition.
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{Uniqueness of the unit (blink-and-you-miss-it)}
+\begin{block}{Proposition}
+If $e$ and $e'$ are both units in $M$, then $e=e'$.
+\end{block}
+\begin{block}{Proof}
+$e=e\cdot e'=e'$.
+\end{block}
+\begin{alertblock}{Why this matters}
+There is a \emph{single} neutral baseline in which to start or end computations; your folds don't depend on which “identity” you picked.
+\end{alertblock}
+\tline{In monoids, the identity is strictly monogamous.}
+\end{frame}
+
+\begin{frame}{Left/right units and inverse uniqueness}
+\begin{itemize}
+  \item Left unit: $ex=x$ for all $x$; right unit: $xe=x$ for all $x$.
+  \item If both exist (with associativity), they coincide.
+  \item If $xu=ux=e$ and $xv=vx=e$, then $u=v$ (inverse uniqueness).
+\end{itemize}
+\begin{alertblock}{Why this matters}
+One coherent “neutral” behavior simplifies algebraic manipulations and program laws—no special-casing left vs.\ right.
+\end{alertblock}
+\tline{Two-sided inverses: because who wants commitment only on weekdays?}
+\end{frame}
+
+\begin{frame}{Powers and exponent laws}
+Let $(M,\cdot,e)$ be a monoid and $x\in M$.
+\begin{itemize}
+  \item $x^0:=e$, $x^{n+1}:=x^n x$; then $x^{m+n}=x^mx^n$ and $(x^m)^n=x^{mn}$.
+  \item If $xy=yx$, then $(xy)^n=x^ny^n$.
+\end{itemize}
+\begin{alertblock}{Why this matters}
+These give compact algebra for iterated composition—think “apply a transformation $n$ times” or “aggregate $n$ records.”
+\end{alertblock}
+\tline{Your high-school exponent rules? Monoid lore in disguise.}
+\end{frame}
+
+% ---------------------------------------------------------
+\section{Examples and non-examples}
+% ---------------------------------------------------------
+\begin{frame}{Classic examples (where monoids live)}
+\begin{columns}[T,onlytextwidth]
+\column{0.52\textwidth}
+\begin{itemize}
+  \item $(\NN,+,0)$, $(\ZZ,+,0)$; $(\NN,\times,1)$.
+  \item $M_n(R)$ with matrix multiplication and $I_n$.
+  \item $\End(S)$: all $S\to S$ under composition with $\id_S$.
+\end{itemize}
+\column{0.48\textwidth}
+\begin{itemize}
+  \item Strings $\Sigma^\ast$ under concatenation; unit $\varepsilon$.
+  \item Idempotent monoids: $(\RR_{\ge 0},\max,0)$, Boolean $(\{0,1\},\lor,0)$.
+  \item Logs/metrics: combine by sum, max, or concatenation.
+\end{itemize}
+\end{columns}
+\begin{alertblock}{Why these matter}
+They power \emph{folds}, \emph{dynamic programming}, and \emph{parallel reductions} in real workloads.
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{Non-examples \& boundaries}
+\begin{itemize}
+  \item $(\RR,\,-,\,0)$ is not associative.
+  \item Singular matrices $\not\ni I$ $\Rightarrow$ no unit.
+\end{itemize}
+\begin{alertblock}{Why boundaries matter}
+Knowing where axioms \emph{fail} prevents silent bugs (e.g., trying to parallelize a non-associative reduction).
+\end{alertblock}
+\tline{If it won’t associate, it won’t cooperate.}
+\end{frame}
+
+% ---------------------------------------------------------
+\section{Submonoids and generation}
+% ---------------------------------------------------------
+\begin{frame}{Submonoids}
+\begin{block}{Definition}
+$N\subseteq M$ is a \textbf{submonoid} if $e\in N$ and $xy\in N$ whenever $x,y\in N$.
+\end{block}
+\begin{alertblock}{Why this matters}
+They are the \emph{stable subsystems} under composition—useful for invariants and restricting attention to feasible states.
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{Generated submonoids}
+\begin{block}{Definition}
+Given $S\subseteq M$, the \textbf{submonoid generated by $S$}, $\langle S\rangle$, is the intersection of all submonoids containing $S$.
+\end{block}
+\begin{itemize}
+  \item Concretely: all finite products of elements of $S$ (empty product allowed).
+\end{itemize}
+\begin{alertblock}{Why this matters}
+Lets us \emph{build} from primitives and reason about expressiveness: which behaviors are achievable from a chosen toolkit?
+\end{alertblock}
+\tline{From parts list to full kit—LEGO algebra.}
+\end{frame}
+
+% ---------------------------------------------------------
+\section{Units, cancellation, idempotents}
+% ---------------------------------------------------------
+\begin{frame}{Group of units}
+\begin{itemize}
+  \item $u\in M$ is a \textbf{unit} if some $v$ satisfies $uv=vu=e$.
+  \item Units form a group $M^\times$.
+\end{itemize}
+\begin{alertblock}{Why this matters}
+Units capture \emph{reversible} transformations hiding inside a possibly irreversible world—vital in algorithm design and simplification.
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{Cancellation vs.\ invertibility}
+\begin{itemize}
+  \item Left-cancellative: $ax=ay\Rightarrow x=y$; right-cancellative: $xa=ya\Rightarrow x=y$.
+  \item Units imply cancellation; not conversely in general monoids.
+\end{itemize}
+\begin{alertblock}{Why this matters}
+Cancellation is the algebraic form of “no information lost” when composing with $a$—useful for uniqueness and injectivity arguments.
+\end{alertblock}
+\tline{Being cancellative is like being persuasive; having an inverse is like having receipts.}
+\end{frame}
+
+\begin{frame}{Idempotents and absorbing elements}
+\begin{itemize}
+  \item Idempotent: $p^2=p$. Absorbing: $0x=x0=0$.
+  \item In idempotent commutative monoids (join-semilattices), $x+y$ models union/OR.
+\end{itemize}
+\begin{alertblock}{Why this matters}
+Idempotents model \emph{stabilization} and fixed points; absorbing elements model \emph{fail-fast} behavior (once zero, always zero).
+\end{alertblock}
+\end{frame}
+
+% ---------------------------------------------------------
+\section{Finite products and indexing}
+% ---------------------------------------------------------
+\begin{frame}{Products over finite index sets}
+\begin{itemize}
+  \item If only finitely many $x_i\neq e$, define $\prod_{i\in I}x_i$ safely.
+  \item For finitely supported $f:I\times J\to M$,
+  \[
+    \prod_{i\in I}\prod_{j\in J} f(i,j)=\prod_{(i,j)\in I\times J} f(i,j)=\prod_{j\in J}\prod_{i\in I} f(i,j).
+  \]
+\end{itemize}
+\begin{alertblock}{Why this matters}
+Reindexing arguments are the backbone of many combinatorial identities and correctness proofs for parallel aggregation.
+\end{alertblock}
+\tline{Reindex responsibly. Associativity is your seatbelt; commutativity is cruise control.}
+\end{frame}
+
+% ---------------------------------------------------------
+\section{Morphisms and quotients}
+% ---------------------------------------------------------
+\begin{frame}{Monoid homomorphisms}
+\begin{block}{Definition}
+$f:(M,\cdot,e)\to (N,\star,1)$ with $f(x\cdot y)=f(x)\star f(y)$ and $f(e)=1$.
+\end{block}
+\begin{alertblock}{Why this matters}
+Homomorphisms are the \emph{structure-preserving} maps—reuse computations, transport properties, and compare models.
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{Congruences and first isomorphism theorem}
+\begin{itemize}
+  \item A \textbf{congruence} $\sim$ respects multiplication: $x\sim x'$, $y\sim y'\Rightarrow xy\sim x'y'$.
+  \item Quotient $M/{\sim}$ is a monoid; kernel congruence of $f$ yields $M/{\sim}\cong\Img(f)$.
+\end{itemize}
+\begin{alertblock}{Why this matters}
+Quotients \emph{identify indistinguishable states}: minimize automata, compress logs, or factor out harmless details.
+\end{alertblock}
+\tline{Same heist as in group theory, different getaway car.}
+\end{frame}
+
+% ---------------------------------------------------------
+\section{Free monoids and presentations}
+% ---------------------------------------------------------
+\begin{frame}{Free monoids}
+\begin{itemize}
+  \item For an alphabet $\Sigma$, $\Sigma^\ast$ (all finite words) under concatenation; unit $\varepsilon$.
+  \item \textbf{Universal property:} any $g:\Sigma\to M$ extends uniquely to $\widehat g:\Sigma^\ast\to M$.
+\end{itemize}
+\begin{alertblock}{Why this matters}
+This turns \emph{syntax} (words) into \emph{semantics} (elements) in one shot; it’s the engine behind substitution and evaluation.
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{Presentations}
+\begin{itemize}
+  \item $M\cong \Sigma^\ast/\!\!\equiv$ with relations generating a smallest congruence.
+  \item Example: commutative monoid on $x,y$ is $\langle x,y\mid xy=yx\rangle$.
+\end{itemize}
+\begin{alertblock}{Why this matters}
+Presentations let us describe \emph{huge} structures economically and prove properties by rewriting.
+\end{alertblock}
+\tline{Writing down every element one by one is a terrible hobby.}
+\end{frame}
+
+% ---------------------------------------------------------
+\section{Actions and applications}
+% ---------------------------------------------------------
+\begin{frame}{Monoid actions}
+\begin{block}{Definition}
+An action of $(M,\cdot,e)$ on $S$ is a map $M\times S\to S$ with $e\cdot s=s$ and $x\cdot(y\cdot s)=(xy)\cdot s$.
+\end{block}
+\begin{itemize}
+  \item Equivalently: a homomorphism $M\to\End(S)$.
+  \item Example: $\NN$ acts by iterates of a function $f:S\to S$.
+\end{itemize}
+\begin{alertblock}{Why this matters}
+Actions model \emph{processes over states}: iterating transformations, scheduling effects, or running automata.
+\end{alertblock}
+\tline{When monoids stop being polite and start acting (on sets).}
+\end{frame}
+
+% ---------------------------------------------------------
+\section{Checklists and pitfalls}
+% ---------------------------------------------------------
+\begin{frame}{Monoid verification checklist}
+\begin{enumerate}
+  \item Specify the set $M$ and the operation $\,\cdot\,$.
+  \item Prove associativity clearly.
+  \item Exhibit a two-sided unit $e$.
+  \item Identify $M^\times$, notable submonoids, natural homomorphisms.
+\end{enumerate}
+\begin{alertblock}{Why this matters}
+A clean checklist prevents “almost a monoid” mistakes that break folds, proofs, or parallelization.
+\end{alertblock}
+\end{frame}
+
+\begin{frame}{Common pitfalls}
+\begin{itemize}
+  \item Assuming left identity implies right identity \emph{without} associativity.
+  \item Using cancellation where invertibility (or cancellativity) isn’t guaranteed.
+  \item Forgetting the empty product convention in product manipulations.
+\end{itemize}
+\begin{block}{Micro–summary}
+Monoids = associative composition $+$ identity. That’s enough to power folds, rebracketing, quotients, actions, and lots of real math.
+\end{block}
+\tline{If every element becomes a unit—welcome to \textbf{Groups}. DLC unlocked.}
+\end{frame}
+
+\end{document}

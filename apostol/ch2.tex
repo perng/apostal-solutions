@@ -100,6 +100,45 @@ Determine which of the following relations $S$ on $\mathbb{R}^2$ are reflexive, 
 
 \noindent\textbf{Strategy:} Check each property systematically by testing specific values or finding counterexamples. For reflexivity, test $(x,x)$ pairs. For symmetry, check if $(x,y) \in S$ implies $(y,x) \in S$. For transitivity, verify if $(x,y), (y,z) \in S$ implies $(x,z) \in S$.
 
+% Visualization for relation (d): x^2 + y^2 >= 1
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=8cm,
+    height=6cm,
+    xlabel={$x$},
+    ylabel={$y$},
+    title={Relation (d): $x^2 + y^2 \geq 1$},
+    xmin=-1.5, xmax=1.5,
+    ymin=-1.5, ymax=1.5,
+    grid=major,
+    grid style={gray!30},
+    samples=100
+]
+
+% Shaded region for x^2 + y^2 >= 1
+\addplot[fill=blue!20, draw=none] {sqrt(1-x^2)};
+\addplot[fill=blue!20, draw=none] {-sqrt(1-x^2)};
+\addplot[fill=blue!20, draw=none] coordinates {(-1.5,-1.5) (-1.5,1.5) (1.5,1.5) (1.5,-1.5) (-1.5,-1.5)};
+
+% Circle boundary
+\addplot[blue, thick] {sqrt(1-x^2)};
+\addplot[blue, thick] {-sqrt(1-x^2)};
+
+% Counterexample points for transitivity
+\addplot[red, mark=*, mark size=3pt] coordinates {(0.6,0.9)};
+\node[above] at (axis cs:0.6,0.9) {$(0.6, 0.9)$};
+\addplot[red, mark=*, mark size=3pt] coordinates {(0.9,0.6)};
+\node[above] at (axis cs:0.9,0.6) {$(0.9, 0.6)$};
+\addplot[red, mark=*, mark size=3pt] coordinates {(0.6,0.6)};
+\node[below] at (axis cs:0.6,0.6) {$(0.6, 0.6)$};
+
+\end{axis}
+\end{tikzpicture}
+\caption{The relation $x^2 + y^2 \geq 1$ is symmetric but not transitive. Points $(0.6,0.9)$ and $(0.9,0.6)$ are in the relation, but $(0.6,0.6)$ is not, providing a counterexample for transitivity.}
+\end{figure}
+
 \bigskip\noindent\textbf{Solution:}  
 \begin{enumerate}[label=(\alph*)]
 \item \textbf{Reflexive:} Yes - for all $x \in \mathbb{R}$, we have $x \leq x$ \\
@@ -152,6 +191,45 @@ The following functions \( F \) and \( G \) are defined for all real \( x \) by 
 \end{problembox}
 
 \noindent\textbf{Strategy:} For Part 1, substitute $F(x)$ into $G$ and simplify. For piecewise functions, determine which piece of $G$ applies based on the range of $F$. For Part 2, solve for $F(x)$ by recognizing patterns (like perfect cubes) or using algebraic manipulation.
+
+% Visualization for piecewise functions in part (c)
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=10cm,
+    height=6cm,
+    xlabel={$x$},
+    ylabel={$y$},
+    title={Function Composition: $F(x)$ and $G \circ F(x)$},
+    xmin=-0.5, xmax=1.5,
+    ymin=-0.5, ymax=6,
+    grid=major,
+    grid style={gray!30},
+    legend pos=north east
+]
+
+% Function F(x)
+\addplot[blue, thick] coordinates {(-0.5,1) (0,1)};
+\addplot[blue, thick] coordinates {(0,0) (1,2)};
+\addplot[blue, thick] coordinates {(1,1) (1.5,1)};
+\addlegendentry{$F(x)$}
+
+% Composition G o F
+\addplot[green, thick, dashed] coordinates {(-0.5,3) (0,3)};
+\addplot[green, thick, dashed] coordinates {(0,0) (0.5,3)};
+\addplot[green, thick, dashed] coordinates {(0.5,5) (1,5)};
+\addplot[green, thick, dashed] coordinates {(1,3) (1.5,3)};
+\addlegendentry{$G \circ F(x)$}
+
+% Mark key point
+\addplot[black, mark=*, mark size=3pt] coordinates {(0.5,1)};
+\node[above] at (axis cs:0.5,1) {$x=0.5$};
+
+\end{axis}
+\end{tikzpicture}
+\caption{The piecewise functions $F(x)$ and their composition $G \circ F(x)$. The composition changes behavior at $x=0.5$ where $F(x)$ crosses from $[0,1]$ to $(1,2]$, causing the composition to switch from the quadratic rule to the constant rule.}
+\end{figure}
 
 \bigskip\noindent\textbf{Solution:}
 
@@ -367,6 +445,40 @@ Prove the following set-theoretic identities:
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use element-chasing method: assume an element belongs to one side and show it belongs to the other side, then reverse the argument. For each identity, use the definitions of union, intersection, and set difference.
+
+% Set operations Venn diagram
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=8cm,
+    height=6cm,
+    xlabel={},
+    ylabel={},
+    title={Set Operations},
+    xmin=-1.5, xmax=1.5,
+    ymin=-1.5, ymax=1.5,
+    axis lines=none,
+    samples=100
+]
+
+% Draw circles for sets A and B
+\addplot[fill=blue!20, draw=blue, thick] {sqrt(1-x^2)};
+\addplot[fill=blue!20, draw=blue, thick] {-sqrt(1-x^2)};
+\addplot[fill=red!20, draw=red, thick] {sqrt(1-(x-0.5)^2)};
+\addplot[fill=red!20, draw=red, thick] {-sqrt(1-(x-0.5)^2)};
+
+% Add labels
+\node at (axis cs:-0.5,0) {$A$};
+\node at (axis cs:1,0) {$B$};
+\node at (axis cs:0.25,0) {$A \cap B$};
+\node at (axis cs:-1.2,0) {$A - B$};
+\node at (axis cs:1.7,0) {$B - A$};
+
+\end{axis}
+\end{tikzpicture}
+\caption{Venn diagram showing set operations. The union $A \cup B$ can be written as the disjoint union $A \cup (B - A)$, and the intersection $A \cap B$ shows the common elements.}
+\end{figure}
 
 \bigskip\noindent\textbf{Solution:}  
 Each identity can be proven by element-chasing: assuming \( x \in \) one side and showing \( x \in \) the other side.  
@@ -700,6 +812,82 @@ Show that the following sets are countable:
 
 \noindent\textbf{Strategy:} For (a), each circle is determined by three rational numbers (radius and two coordinates), so the set injects into $\mathbb{Q}^3$ which is countable. For (b), each interval contains a rational number, and since intervals are disjoint, this creates an injection into $\mathbb{Q}$.
 
+% Visualization for circles with rational parameters
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=8cm,
+    height=6cm,
+    xlabel={$\Re(z)$},
+    ylabel={$\Im(z)$},
+    title={Circles with Rational Parameters},
+    xmin=-2, xmax=2,
+    ymin=-2, ymax=2,
+    grid=major,
+    grid style={gray!30},
+    samples=100
+]
+
+% Draw circles with rational parameters
+\addplot[blue, thick] {sqrt(1-x^2)};
+\addplot[blue, thick] {-sqrt(1-x^2)};
+\addplot[red, thick] {sqrt(4-(x-1)^2)};
+\addplot[red, thick] {-sqrt(4-(x-1)^2)};
+\addplot[green, thick] {sqrt(0.25-(x+0.5)^2)};
+\addplot[green, thick] {-sqrt(0.25-(x+0.5)^2)};
+
+% Mark centers
+\addplot[black, mark=*, mark size=2pt] coordinates {(0,0) (1,0) (-0.5,0)};
+\node[below] at (axis cs:0,0) {$(0,0)$};
+\node[below] at (axis cs:1,0) {$(1,0)$};
+\node[below] at (axis cs:-0.5,0) {$(-0.5,0)$};
+
+\end{axis}
+\end{tikzpicture}
+\caption{Examples of circles with rational centers and radii. Each circle is determined by three rational numbers (center coordinates and radius), making the set countable as it injects into $\mathbb{Q}^3$.}
+\end{figure}
+
+% Visualization for disjoint intervals
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=10cm,
+    height=4cm,
+    xlabel={$x$},
+    ylabel={},
+    title={Disjoint Intervals of Positive Length},
+    xmin=-1, xmax=10,
+    ymin=-0.5, ymax=0.5,
+    grid=major,
+    grid style={gray!30},
+    samples=100,
+    ytick=\empty
+]
+
+% Draw several disjoint intervals
+\addplot[blue, thick] coordinates {(0,0) (1,0)};
+\addplot[red, thick] coordinates {(2,0) (3,0)};
+\addplot[green, thick] coordinates {(4,0) (5,0)};
+\addplot[orange, thick] coordinates {(6,0) (7,0)};
+\addplot[purple, thick] coordinates {(8,0) (9,0)};
+
+% Mark rational points in each interval
+\addplot[black, mark=*, mark size=3pt] coordinates {(0.5,0) (2.5,0) (4.5,0) (6.5,0) (8.5,0)};
+
+% Add labels
+\node[above] at (axis cs:0.5,0) {$q_1$};
+\node[above] at (axis cs:2.5,0) {$q_2$};
+\node[above] at (axis cs:4.5,0) {$q_3$};
+\node[above] at (axis cs:6.5,0) {$q_4$};
+\node[above] at (axis cs:8.5,0) {$q_5$};
+
+\end{axis}
+\end{tikzpicture}
+\caption{Disjoint intervals of positive length. Each interval contains a rational number, and since the intervals are disjoint, these rationals are distinct, creating an injection into $\mathbb{Q}$.}
+\end{figure}
+
 \bigskip\noindent\textbf{Solution:}  
 (a) Each circle is determined by a rational radius and two rational coordinates → set is countable.  
 (b) Each disjoint interval must contain a distinct rational number → inject into \( \mathbb{Q} \), which is countable.\qed
@@ -715,6 +903,37 @@ Let \( S = \{x \in [0,1] \mid f(x) \ne 0\} \). Prove that \( S \) is countable.
 \end{problembox}
 
 \noindent\textbf{Strategy:} Partition $S$ into sets $S_k = \{x : |f(x)| > 1/k\}$ for each positive integer $k$. Show that each $S_k$ is finite by using the bounded sum condition. Then $S$ is a countable union of finite sets, hence countable.
+
+% Visualization of function with countable support
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=10cm,
+    height=6cm,
+    xlabel={$x$},
+    ylabel={$f(x)$},
+    title={Function with Countable Support},
+    xmin=0, xmax=1,
+    ymin=-0.2, ymax=1,
+    grid=major,
+    grid style={gray!30}
+]
+
+% Draw function with countable support
+\addplot[blue, thick] coordinates {(0,0) (0.1,0) (0.1,0.8) (0.1,0) (0.2,0) (0.2,0.6) (0.2,0) (0.3,0) (0.3,0.4) (0.3,0) (0.4,0) (0.4,0.3) (0.4,0) (0.5,0) (0.5,0.2) (0.5,0) (0.6,0) (0.6,0.15) (0.6,0) (0.7,0) (0.7,0.1) (0.7,0) (0.8,0) (0.8,0.08) (0.8,0) (0.9,0) (0.9,0.05) (0.9,0) (1,0)};
+
+% Add horizontal line for bound
+\addplot[red, dashed, thick] coordinates {(0,0.5) (1,0.5)};
+\node[right] at (axis cs:1,0.5) {$M = 0.5$};
+
+% Mark support points
+\addplot[black, mark=*, mark size=2pt] coordinates {(0.1,0.8) (0.2,0.6) (0.3,0.4) (0.4,0.3) (0.5,0.2) (0.6,0.15) (0.7,0.1) (0.8,0.08) (0.9,0.05)};
+
+\end{axis}
+\end{tikzpicture}
+\caption{A function with countable support. The function is zero except at countably many points. The support $S = \{x : f(x) \neq 0\}$ is countable because each set $S_k = \{x : |f(x)| > 1/k\}$ is finite due to the bounded sum condition.}
+\end{figure}
 
 \bigskip\noindent\textbf{Solution:}  
 Let $S = \{x \in [0,1] \mid f(x) \ne 0\}$. We want to prove that $S$ is countable.
