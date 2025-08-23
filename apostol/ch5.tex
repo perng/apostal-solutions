@@ -57,6 +57,7 @@ f_1^{(n-1)}(x) & f_2^{(n-1)}(x) & \cdots & f_n^{(n-1)}(x)
 In the following exercises assume, where necessary, a knowledge of the formulas for differentiating the elementary trigonometric, exponential, and logarithmic functions.
 
 \begin{problembox}[5.1: Lipschitz Condition and Continuity]
+\begin{problemstatement}
 A function \( f \) is said to satisfy a Lipschitz condition of order \( \alpha \) at \( c \) if there exists a positive number \( M \) (which may depend on \( c \)) and a 1-ball \( B(c) \) such that 
 \[ |f(x) - f(c)| < M|x - c|^\alpha \]
 whenever \( x \in B(c), x \neq c \).
@@ -64,6 +65,7 @@ whenever \( x \in B(c), x \neq c \).
 a) Show that a function which satisfies a Lipschitz condition of order \( \alpha \) is continuous at \( c \) if \( \alpha > 0 \), and has a derivative at \( c \) if \( \alpha > 1 \).
 
 b) Give an example of a function satisfying a Lipschitz condition of order 1 at \( c \) for which \( f'(c) \) does not exist.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} For (a), use the Lipschitz condition to show that $|f(x) - f(c)| \to 0$ as $x \to c$ when $\alpha > 0$, and that the difference quotient tends to 0 when $\alpha > 1$. For (b), use the absolute value function at $x = 0$ which has a corner and no derivative.
@@ -75,11 +77,13 @@ so $f'(c)=0$ exists. For (b), $f(x)=|x|$ satisfies a Lipschitz condition of orde
 
 
 \begin{problembox}[5.2: Monotonicity and Extrema]
+\begin{problemstatement}
 In each of the following cases, determine the intervals in which the function \( f \) is increasing or decreasing and find the maxima and minima (if any) in the set where each \( f \) is defined.
 a) \( f(x) = x^3 + ax + b, \quad x \in \mathbb{R} \).
 b) \( f(x) = \log (x^2 - 9), \quad |x| > 3 \).
 c) \( f(x) = x^{2/3}(x - 1)^4, \quad 0 \leq x \leq 1 \).
 d) \( f(x) = (\sin x)/x \) if \( x \neq 0, f(0) = 1, \quad 0 \leq x \leq \pi /2 \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} For each function, find the derivative and analyze its sign to determine intervals of increase/decrease. For (a), consider the sign of the quadratic derivative. For (b), use the chain rule and analyze the sign. For (c), use logarithmic differentiation. For (d), use the quotient rule and analyze the sign of the derivative.
@@ -179,9 +183,11 @@ Thus $f$ increases on $(0,1/7)$, decreases on $(1/7,1)$, with a unique interior 
 
 
 \begin{problembox}[5.3: Polynomial Interpolation]
+\begin{problemstatement}
 Find a polynomial \( f \) of lowest possible degree such that
 \[ f(x_1) = a_1, \quad f(x_2) = a_2, \quad f'(x_1) = b_1, \quad f'(x_2) = b_2, \]
 where \( x_1 \neq x_2 \) and \( a_1, a_2, b_1, b_2 \) are given real numbers.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use Hermite interpolation. With 4 conditions (2 function values and 2 derivative values), the minimal degree is 3. Use the Hermite basis polynomials that satisfy the interpolation conditions by construction.
@@ -197,9 +203,11 @@ Then $f(x_i)=a_i$ and $f'(x_i)=b_i$ follow by construction.\qed
 
 
 \begin{problembox}[5.4: Smoothness of Exponential Function]
+\begin{problemstatement}
 Define \( f \) as follows: \( f(x) = e^{-1/x^2} \) if \( x \neq 0, f(0) = 0 \). Show that
 a) \( f \) is continuous for all \( x \).
 b) \( f^{(n)} \) is continuous for all \( x \), and that \( f^{(n)}(0) = 0, (n = 1, 2, \ldots ) \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Show that \( f \) is smooth everywhere except at 0, then use the fact that \( e^{-1/x^2} \) decays faster than any power of \( x \) as \( x \to 0 \) to prove that all derivatives exist and are continuous at 0.
@@ -243,10 +251,12 @@ For $x\ne 0$, $f$ is $C^{\infty}$. At $0$, $f(x)\to 0$ as $x\to 0$, so $f$ is co
 
 
 \begin{problembox}[5.5: Derivatives of Trigonometric Functions]
+\begin{problemstatement}
 Define \( f, g, \) and \( h \) as follows: \( f(0) = g(0) = h(0) = 0 \) and, if \( x \neq 0, f(x) = \sin (1/x), g(x) = x \sin (1/x), h(x) = x^2 \sin (1/x) \). Show that
 a) \( f'(x) = -1/x^2 \cos (1/x), \) if \( x \neq 0; \quad f'(0) \) does not exist.
 b) \( g'(x) = \sin (1/x) - 1/x \cos (1/x), \) if \( x \neq 0; \quad g'(0) \) does not exist.
 c) \( h'(x) = 2x \sin (1/x) - \cos (1/x), \) if \( x \neq 0; \quad h'(0) = 0; \lim_{x \to 0} h'(x) \) does not exist.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the chain rule and product rule to compute derivatives for \( x \neq 0 \). For \( x = 0 \), use the definition of the derivative and analyze the behavior of the difference quotient as \( x \to 0 \).
@@ -300,8 +310,10 @@ At $0$, $\lim_{x\to 0}\dfrac{\sin(1/x)}{x}$ does not exist, so $f'(0)$ and $g'(0
 
 
 \begin{problembox}[5.6: Leibnitz's Formula]
+\begin{problemstatement}
 Derive Leibnitz's formula for the nth derivative of the product \( h \) of two functions \( f \) and \( g \):
 \[ h^{(n)}(x) = \sum_{k=0}^{n} \binom{n}{k} f^{(k)}(x)g^{(n-k)}(x), \quad \text{where} \quad \binom{n}{k} = \frac{n!}{k!(n-k)!}. \]
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use mathematical induction. The base case \( n = 1 \) is the product rule. For the inductive step, differentiate the formula for \( h^{(n)} \) and use the binomial coefficient identity \( \binom{n}{k-1} + \binom{n}{k} = \binom{n+1}{k} \).
@@ -316,6 +328,7 @@ reindex and use $\binom{n}{k-1}+\binom{n}{k}=\binom{n+1}{k}$ to obtain the desir
 
 
 \begin{problembox}[5.7: Relations for Derivatives]
+\begin{problemstatement}
 Let \( f \) and \( g \) be two functions defined and having finite third-order derivatives \( f''(x) \) and \( g''(x) \) for all \( x \) in \( \mathbb{R} \). If \( f(x)g(x) = 1 \) for all \( x \), show that the relations in (a), (b), (c), and (d) hold at those points where the denominators are not zero:
 a) \( f'(x)/f(x) + g'(x)/g(x) = 0 \).
 b) \( f''(x)/f'(x) - 2f'(x)/f(x) - g''(x)/g'(x) = 0 \).
@@ -325,6 +338,7 @@ d) \( \frac{f'''(x)}{f'(x)} - \frac{3}{2}\left(\frac{f''(x)}{f'(x)}\right)^2 = \
 NOTE. The expression which appears on the left side of (d) is called the Schwarzian derivative of \( f \) at \( x \).
 e) Show that \( f \) and \( g \) have the same Schwarzian derivative if
 \[ g(x) = [af(x) + b][cf(x) + d], \text{where} ad - bc \neq 0. \]
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Start with the relation \( f(x)g(x) = 1 \) and take logarithms to get (a). Differentiate this relation repeatedly to obtain (b) and (c). For (d), use the fact that the Schwarzian derivative is invariant under Möbius transformations.
@@ -335,6 +349,7 @@ Since $fg\equiv 1$, $(\ln f)'+(\ln g)'=0$, which gives (a): $f'/f+g'/g=0$. Diffe
 
 
 \begin{problembox}[5.8: Derivative of a Determinant]
+\begin{problemstatement}
 Let \( f_1, f_2, g_1, g_2 \) be four functions having derivatives in \( (a, b) \). Define \( F \) by means of the determinant
 \[ F(x) = \begin{vmatrix}
 f_1(x) & f_2(x) \\
@@ -349,6 +364,7 @@ f_1(x) & f_2(x) \\
 g_1'(x) & g_2'(x)
 \end{vmatrix}. \]
 b) State and prove a more general result for nth order determinants.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the multilinearity of determinants and the product rule. For a 2×2 determinant, expand it and differentiate term by term. For the general case, use the fact that determinants are multilinear in their rows.
@@ -360,6 +376,7 @@ For an $n\times n$ determinant, multilinearity in the rows gives $\big(\det F\bi
 
 
 \begin{problembox}[5.9: Wronskian and Linear Dependence]
+\begin{problemstatement}
 Given \( n \) functions \( f_1, \ldots, f_n \), each having nth order derivatives in \( (a, b) \). A function \( W \), called the Wronskian of \( f_1, \ldots, f_n \), is defined as follows: For each \( x \) in \( (a, b) \), \( W(x) \) is the value of the determinant of order \( n \) whose element in the \( k \)th row and \( m \)th column is \( f_m^{(k-1)}(x) \), where \( k = 1, 2, \ldots, n \) and \( m = 1, 2, \ldots, n \). [The expression \( f_m^{(0)}(x) \) is written for \( f_m(x) \).]
 a) Show that \( W'(x) \) can be obtained by replacing the last row of the determinant defining \( W(x) \) by the \( n \)th derivatives \( f_1^{(n)}(x), \ldots, f_n^{(n)}(x) \).
 b) Assuming the existence of \( n \) constants \( c_1, \ldots, c_n \), not all zero, such that \( c_1 f_1(x) + \cdots + c_n f_n(x) = 0 \) for every \( x \) in \( (a, b) \), show that \( W(x) = 0 \) for each \( x \) in \( (a, b) \).
@@ -367,6 +384,7 @@ b) Assuming the existence of \( n \) constants \( c_1, \ldots, c_n \), not all z
 NOTE. A set of functions satisfying such a relation is said to be a linearly dependent set on \( (a, b) \).
 
 c) The vanishing of the Wronskian throughout \( (a, b) \) is necessary, but not sufficient, for linear dependence of \( f_1, \ldots, f_n \). Show that in the case of two functions, if the Wronskian vanishes throughout \( (a, b) \) and if one of the functions does not vanish in \( (a, b) \), then they form a linearly dependent set in \( (a, b) \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} For (a), use the result from Problem 5.8 about differentiating determinants. For (b), use the linear dependence relation to show that one row is a linear combination of the others. For (c), use the quotient rule to show that the ratio of the two functions is constant.
@@ -415,7 +433,9 @@ If $f$ and $g$ are differentiable on $(a,b)$ except possibly at $c \in (a,b)$, $
 \end{theorem}
 
 \begin{problembox}[5.10: Infinite Limit and Derivative]
+\begin{problemstatement}
 Given a function \( f \) defined and having a finite derivative in \( (a, b) \) and such that \( \lim_{x \to b^-} f(x) = +\infty \). Prove that \( \lim_{x \to b^-} f'(x) \) either fails to exist or is infinite.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use proof by contradiction. Assume the limit of \( f' \) exists and is finite, then use the Mean Value Theorem to derive a contradiction with the fact that \( f(x) \to +\infty \) as \( x \to b^- \).
@@ -425,6 +445,7 @@ Suppose $\lim_{x\to b^-}f(x)=+\infty$ and $\lim_{x\to b^-}f'(x)=L\in\mathbb{R}$.
 
 
 \begin{problembox}[5.11: Mean-Value Theorem and Theta]
+\begin{problemstatement}
 Show that the formula in the Mean-Value Theorem can be written as follows:
 \[ \frac{f(x+h)-f(x)}{h} = f'(x+\theta h), \]
 where \( 0 < \theta < 1 \). Determine \( \theta \) as a function of \( x \) and \( h \) when 
@@ -434,6 +455,7 @@ c) \( f(x) = e^x \),
 d) \( f(x) = \log x, \quad x > 0 \).
 
 Keep \( x \neq 0 \) fixed, and find \( \lim_{h \to 0} \theta \) in each case.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the Mean Value Theorem to express the difference quotient in terms of the derivative at an intermediate point. For each specific function, compute the difference quotient and solve for \( \theta \) in terms of \( x \) and \( h \).
@@ -452,9 +474,11 @@ Fix $x\ne 0$. In each case, expanding for small $h$ shows $\lim_{h\to 0}\theta=\
 
 
 \begin{problembox}[5.12: Cauchy's Mean-Value Theorem]
+\begin{problemstatement}
 Take \( f(x) = 3x^4 - 2x^3 - x^2 + 1 \) and \( g(x) = 4x^3 - 3x^2 - 2x \) in Theorem 5.20. Show that \( f'(x)/g'(x) \) is never equal to the quotient \( [f(1) - f(0)]/[g(1) - g(0)] \) if \( 0 < x \leq 1 \). How do you reconcile this with the equation
 \[ \frac{f(b) - f(a)}{g(b) - g(a)} = \frac{f'(x_1)}{g'(x_1)}, \quad a < x_1 < b, \]
 obtainable from Theorem 5.20 when \( n = 1 \)?
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Compute the specific values and show that the ratio form of Cauchy's theorem fails when \( g'(x_1) = 0 \). The correct interpretation is that the cross-product form \( (f(b) - f(a))g'(x_1) = (g(b) - g(a))f'(x_1) \) holds.
@@ -464,12 +488,14 @@ Compute $f(1)-f(0)=0$ and $g(1)-g(0)\ne 0$, hence the quotient is $0$. On $(0,1]
 
 
 \begin{problembox}[5.13: Special Cases of Mean-Value Theorem]
+\begin{problemstatement}
 In each of the following special cases of Theorem 5.20, take \( n = 1 \), \( c = a \), \( x = b \), and show that \( x_1 = (a + b)/2 \).
 
 a) \( f(x) = \sin x, \quad g(x) = \cos x; \) 
 b) \( f(x) = e^x, \quad g(x) = e^{-x} \).
 
 Can you find a general class of such pairs of functions \( f \) and \( g \) for which \( x_1 \) will always be \( (a + b)/2 \) and such that both examples (a) and (b) are in this class?
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Apply Cauchy's Mean Value Theorem to each pair and use trigonometric identities or exponential properties to show that the intermediate point must be the midpoint. Look for functions that satisfy certain differential equations.
@@ -479,7 +505,9 @@ For (a), with $f=\sin,\ g=\cos$, Cauchy's theorem gives $(\sin b-\sin a)\,(-\sin
 
 
 \begin{problembox}[5.14: Limit of a Sequence]
+\begin{problemstatement}
 Given a function \( f \) defined and having a finite derivative \( f' \) in the half-open interval \( 0 < x \leq 1 \) and such that \( |f'(x)| < 1 \). Define \( a_n = f(1/n) \) for \( n = 1, 2, 3, \ldots \), and show that \( \lim_{n \to \infty} a_n \) exists. Hint. Cauchy condition.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the Mean Value Theorem to bound the difference between terms in the sequence, then apply the Cauchy criterion for convergence.
@@ -491,7 +519,9 @@ for some $\alpha<1$. Hence $(a_n)$ is Cauchy, so $\lim a_n$ exists.\qed
 
 
 \begin{problembox}[5.15: Limit of Derivative]
+\begin{problemstatement}
 Assume that \( f \) has a finite derivative at each point of the open interval \( (a, b) \). Assume also that \( \lim_{x \to c} f'(x) \) exists and is finite for some interior point \( c \). Prove that the value of this limit must be \( f'(c) \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use Cauchy's Mean Value Theorem to relate the difference quotient to the derivative at an intermediate point, then take the limit as \( x \to c \).
@@ -503,7 +533,9 @@ By Cauchy's mean value theorem applied to $F(t)=f(t)-f(c)-(t-c)f'(x)$ and $G(t)=
 
 
 \begin{problembox}[5.16: Extension of Derivative]
+\begin{problemstatement}
 Let \( f \) be continuous on \( (a, b) \) with a finite derivative \( f' \) everywhere in \( (a, b) \), except possibly at \( c \). If \( \lim_{x \to c} f'(x) \) exists and has the value \( A \), show that \( f'(c) \) must also exist and have the value \( A \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the Mean Value Theorem to relate the difference quotient to the derivative at an intermediate point, then use the continuity of \( f \) and the limit of \( f' \) to show that the difference quotient tends to \( A \).
@@ -515,7 +547,9 @@ Let $x\to c$; then $\xi\to c$ and $f'(\xi)\to A$ by hypothesis, so the differenc
 
 
 \begin{problembox}[5.17: Monotonicity of Quotient]
+\begin{problemstatement}
 Let \( f \) be continuous on \( [0, 1] \), \( f(0) = 0 \), \( f'(x) \) finite for each \( x \) in \( (0, 1) \). Prove that if \( f' \) is an increasing function on \( (0, 1) \), then so too is the function \( g \) defined by the equation \( g(x) = f(x)/x \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use Cauchy's Mean Value Theorem to compare \( g(v) - g(u) \) for \( 0 < u < v \leq 1 \), and use the fact that \( f' \) is increasing to show that this difference is nonnegative.
@@ -532,7 +566,9 @@ using the mean value theorem on $f$ again and the monotonicity of $f'$. Hence $g
 
 
 \begin{problembox}[5.18: Rolle's Theorem Application]
+\begin{problemstatement}
 Assume \( f \) has a finite derivative in \( (a, b) \) and is continuous on \( [a, b] \) with \( f(a) = f(b) = 0 \). Prove that for every real \( \lambda \) there is some \( c \) in \( (a, b) \) such that \( f'(c) = \lambda f(c) \). Hint. Apply Rolle's theorem to \( g(x)f(x) \) for a suitable \( g \) depending on \( \lambda \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Choose \( g(x) = e^{-\lambda x} \) so that \( g(x)f(x) \) has the same zeros as \( f \), then apply Rolle's theorem to find a point where the derivative of this product vanishes.
@@ -542,7 +578,9 @@ Fix $\lambda\in\mathbb{R}$ and set $g(x)=e^{-\lambda x}$. Then $(gf)(a)=(gf)(b)=
 
 
 \begin{problembox}[5.19: Second Derivative and Secant Line]
+\begin{problemstatement}
 Assume \( f \) is continuous on \( [a, b] \) and has a finite second derivative \( f'' \) in the open interval \( (a, b) \). Assume that the line segment joining the points \( A = (a, f(a)) \) and \( B = (b, f(b)) \) intersects the graph of \( f \) in a third point \( P \) different from \( A \) and \( B \). Prove that \( f''(c) = 0 \) for some \( c \) in \( (a, b) \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Define \( \phi(x) = f(x) - \ell(x) \) where \( \ell \) is the secant line. Then \( \phi \) has three zeros, so by Rolle's theorem applied twice, there must be a point where \( \phi''(c) = 0 \), which implies \( f''(c) = 0 \).
@@ -590,9 +628,11 @@ Let $\ell$ be the secant line through $(a,f(a))$ and $(b,f(b))$, and $\phi=f-\el
 
 
 \begin{problembox}[5.20: Third Derivative Condition]
+\begin{problemstatement}
 If \( f \) has a finite third derivative \( f'' \) in \( [a, b] \) and if
 \[ f(a) = f'(a) = f(b) = f'(b) = 0, \]
 prove that \( f''(c) = 0 \) for some \( c \) in \( (a, b) \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use Rolle's theorem twice: first to find a point where \( f' \) vanishes (since \( f(a) = f(b) = 0 \)), then apply Rolle's theorem to \( f' \) on an appropriate subinterval.
@@ -602,7 +642,9 @@ From $f(a)=f(b)=0$, there exists $s\in(a,b)$ with $f'(s)=0$. Since also $f'(a)=f
 
 
 \begin{problembox}[5.21: Nonnegative Function with Zeros]
+\begin{problemstatement}
 Assume \( f \) is nonnegative and has a finite third derivative \( f'' \) in the open interval (0, 1). If \( f(x) = 0 \) for at least two values of \( x \) in (0, 1), prove that \( f''(c) = 0 \) for some \( c \) in (0, 1).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Since \( f \) is nonnegative and has zeros at interior points, the derivative must also vanish at these points. Then apply the result from Problem 5.20 to the subinterval between the zeros.
@@ -612,10 +654,12 @@ Let $u<v$ be two zeros of $f$ in $(0,1)$. Because $f\ge 0$ and $f(u)=0$ at an in
 
 
 \begin{problembox}[5.22: Behavior at Infinity]
+\begin{problemstatement}
 Assume \( f \) has a finite derivative in some interval \( (a, +\infty) \).
 a) If \( f(x) \to 1 \) and \( f'(x) \to c \) as \( x \to +\infty \), prove that \( c = 0 \).
 b) If \( f'(x) \to 1 \) as \( x \to +\infty \), prove that \( f(x)/x \to 1 \) as \( x \to +\infty \).
 c) If \( f'(x) \to 0 \) as \( x \to +\infty \), prove that \( f(x)/x \to 0 \) as \( x \to +\infty \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} For (a), use the Mean Value Theorem to relate the difference quotient to the derivative. For (b) and (c), consider the function \( g(x) = f(x) - x \) or use integration to bound the growth of \( f \).
@@ -625,7 +669,9 @@ c) If \( f'(x) \to 0 \) as \( x \to +\infty \), prove that \( f(x)/x \to 0 \) as
 
 
 \begin{problembox}[5.23: Nonexistence of Function]
+\begin{problemstatement}
 Let \( h \) be a fixed positive number. Show that there is no function \( f \) satisfying the following three conditions: \( f'(x) \) exists for \( x \geq 0 \), \( f'(0) = 0 \), \( f'(x) \geq h \) for \( x > 0 \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use proof by contradiction. Assume such a function exists, then use the Mean Value Theorem to show that the difference quotient at 0 must be at least \( h \), contradicting \( f'(0) = 0 \).
@@ -635,12 +681,14 @@ If $f'(0)=0$ and $f'(x)\ge h>0$ for $x>0$, then for $x>0$, by the mean value the
 
 
 \begin{problembox}[5.24: Symmetric Difference Quotients]
+\begin{problemstatement}
 If \( h > 0 \) and if \( f'(x) \) exists (and is finite) for every \( x \) in \( (a - h, a + h) \), and if \( f \) is continuous on \( [a - h, a + h] \), show that we have:
 a) \( \frac{f(a + h) - f(a - h)}{h} = f'(a + \theta h) + f'(a - \theta h), \quad 0 < \theta < 1; \)
 b) \( \frac{f(a + h) - 2f(a) + f(a - h)}{h} = f'(a + \lambda h) - f'(a - \lambda h), \quad 0 < \lambda < 1. \)
 c) If \( f''(a) \) exists, show that
 \[ f''(a) = \lim_{h \to 0} \frac{f(a + h) - 2f(a) + f(a - h)}{h^2}. \]
 d) Give an example where the limit of the quotient in (c) exists but where \( f''(a) \) does not exist.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} For (a), define \( \phi(t) = f(t) - f(2a - t) \) and apply the Mean Value Theorem. For (b), apply (a) to \( f' \). For (c), use the result from (b) and take the limit. For (d), use a function with a corner at \( a \).
@@ -695,9 +743,11 @@ d) Give an example where the limit of the quotient in (c) exists but where \( f'
 
 
 \begin{problembox}[5.25: Uniform Differentiability]
+\begin{problemstatement}
 Let \( f \) have a finite derivative in \( (a, b) \) and assume that \( c \in (a, b) \). Consider the following condition: For every \( \varepsilon > 0 \) there exists a 1-ball \( B(c; \delta) \), whose radius \( \delta \) depends only on \( \varepsilon \) and not on \( c \), such that if \( x \in B(c; \delta) \), and \( x \neq c \), then
 \[ \left| \frac{f(x) - f(c)}{x - c} - f'(c) \right| < \varepsilon. \]
 Show that \( f' \) is continuous on \( (a, b) \) if this condition holds throughout \( (a, b) \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the uniform condition to show that \( f' \) satisfies the Cauchy criterion for continuity. Fix \( c \) and \( \varepsilon \), then use the condition to bound \( |f'(x) - f'(y)| \) for nearby points \( x \) and \( y \).
@@ -711,7 +761,9 @@ Thus $f'$ is Cauchy (hence continuous) at $c$. Since $c$ was arbitrary, $f'$ is 
 
 
 \begin{problembox}[5.26: Fixed Point Theorem]
+\begin{problemstatement}
 Assume \( f \) has a finite derivative in \( (a, b) \) and is continuous on \( [a, b] \), with \( a \leq f(x) \leq b \) for all \( x \) in \( [a, b] \) and \( |f'(x)| \leq \alpha < 1 \) for all \( x \) in \( (a, b) \). Prove that \( f \) has a unique fixed point in \( [a, b] \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the Mean Value Theorem to show that \( f \) is a contraction mapping, then apply the contraction mapping theorem or use iteration to find the fixed point.
@@ -721,9 +773,11 @@ For $x,y\in[a,b]$, by the mean value theorem there exists $\xi$ between $x$ and 
 
 
 \begin{problembox}[5.27: L'Hôpital's Rule Counterexample]
+\begin{problemstatement}
 Give an example of a pair of functions \( f \) and \( g \) having finite derivatives in (0, 1), such that
 \[ \lim_{x \to 0} \frac{f(x)}{g(x)} = 0, \]
 but such that \( \lim_{x \to 0} f'(x)/g'(x) \) does not exist, choosing \( g \) so that \( g'(x) \) is never zero.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use a function like \( f(x) = x^2 \sin(1/x) \) and \( g(x) = x \). The quotient \( f(x)/g(x) \) tends to 0, but \( f'(x)/g'(x) \) oscillates and has no limit.
@@ -733,9 +787,11 @@ Let $g(x)=x$ and $f(x)=x^2\sin(1/x)$ for $x\in(0,1)$, with $f(0)=g(0)=0$. Then $
 
 
 \begin{problembox}[5.28: Generalized L'Hôpital's Rule]
+\begin{problemstatement}
 Prove the following theorem: Let \( f \) and \( g \) be two functions having finite nth derivatives in (a, b). For some interior point \( c \) in (a, b), assume that \( f(c) = f'(c) = \cdots = f^{(n-1)}(c) = 0 \), and that \( g(c) = g'(c) = \cdots = g^{(n-1)}(c) = 0 \), but that \( g^{(n)}(x) \) is never zero in (a, b). Show that
 \[ \lim_{x \to c} \frac{f(x)}{g(x)} = \frac{f^{(n)}(c)}{g^{(n)}(c)}. \]
 NOTE. \( f^{(n)} \) and \( g^{(n)} \) are not assumed to be continuous at \( c \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use Taylor's theorem with remainder to express \( f(x) \) and \( g(x) \) in terms of their nth derivatives at intermediate points, then take the limit as \( x \to c \).
@@ -749,10 +805,12 @@ using the assumed nonvanishing of $g^{(n)}$ near $c$.\qed
 
 
 \begin{problembox}[5.29: Taylor's Theorem with Remainder]
+\begin{problemstatement}
 Show that the formula in Taylor's theorem can also be written as follows:
 \[ f(x) = \sum_{k=0}^{n-1} \frac{f^{(k)}(c)}{k!} (x - c)^k + \frac{(x - c)(x - x_1)^{n-1}}{(n - 1)!} f^{(n)}(x_1), \]
 where \( x_1 \) is interior to the interval joining \( x \) and \( c \). Let \( 1 - \theta = (x - x_1)/(x - c) \). Show that \( 0 < \theta < 1 \) and deduce the following form of the remainder term (due to Cauchy):
 \[ \frac{(1 - \theta)^{n-1}(x - c)^n}{(n - 1)!} f^{(n)}[\theta x + (1 - \theta)c]. \]
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Start with Cauchy's form of the remainder in Taylor's theorem, then use the relation \( x - x_1 = \theta(x - c) \) to rewrite the remainder in terms of \( \theta \).
@@ -791,9 +849,11 @@ If a vector-valued function $f$ has constant norm $\|f(t)\| = C$ for all $t$, th
 \end{theorem}
 
 \begin{problembox}[5.30: Vector-Valued Differentiability]
+\begin{problemstatement}
 If a vector-valued function \( f \) is differentiable at \( c \), prove that
 \[ f'(c) = \lim_{h \to 0} \frac{1}{h} [f(c + h) - f(c)]. \]
 Conversely, if this limit exists, prove that \( f \) is differentiable at \( c \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} For the forward direction, use the definition of differentiability. For the converse, define \( f'(c) \) as the limit and show that it satisfies the definition of differentiability using the \( \varepsilon \)-\( \delta \) argument.
@@ -803,7 +863,9 @@ If $f$ is differentiable at $c$, the definition gives the limit. Conversely, if 
 
 
 \begin{problembox}[5.31: Constant Norm and Orthogonality]
+\begin{problemstatement}
 A vector-valued function \( f \) is differentiable at each point of (a, b) and has constant norm \( \|f\| \). Prove that \( f(t) \cdot f'(t) = 0 \) on (a, b).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Differentiate the equation \( \|f(t)\|^2 = f(t) \cdot f(t) \) using the product rule for the dot product, then use the fact that the derivative of a constant is zero.
@@ -813,7 +875,9 @@ Differentiate $\|f(t)\|^2=f(t)\cdot f(t)$ to get $\dfrac{d}{dt}\|f(t)\|^2=2 f(t)
 
 
 \begin{problembox}[5.32: Solution to Differential Equation]
+\begin{problemstatement}
 A vector-valued function \( f \) is never zero and has a derivative \( f' \) which exists and is continuous on \( \mathbb{R} \). If there is a real function \( \lambda \) such that \( f'(t) = \lambda(t)f(t) \) for all \( t \), prove that there is a positive real function \( u \) and a constant vector \( c \) such that \( f(t) = u(t)c \) for all \( t \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Solve the scalar differential equation \( u'(t) = \lambda(t)u(t) \) to find \( u(t) \), then define \( c = f(t)/u(t) \) and show that \( c \) is constant by differentiating this quotient.
@@ -858,9 +922,11 @@ If $f(x,y)$ is differentiable and $x = x(t)$, $y = y(t)$ are differentiable func
 \end{theorem}
 
 \begin{problembox}[5.33: Partial Derivatives and Continuity]
+\begin{problemstatement}
 Consider the function \( f \) defined on \( \mathbb{R}^2 \) by the following formulas:
 \[ f(x, y) = \frac{xy}{x^2 + y^2} \quad \text{if } (x, y) \neq (0, 0) \quad f(0, 0) = 0. \]
 Prove that the partial derivatives \( D_1 f(x, y) \) and \( D_2 f(x, y) \) exist for every \( (x, y) \) in \( \mathbb{R}^2 \) and evaluate these derivatives explicitly in terms of \( x \) and \( y \). Also, show that \( f \) is not continuous at (0, 0).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} For \( (x, y) \neq (0, 0) \), use the quotient rule to compute partial derivatives. At the origin, use the definition of partial derivatives. To show discontinuity, find a path along which the limit is not zero.
@@ -874,9 +940,11 @@ However, $f$ is not continuous at $0$ since along $y=x\ne 0$, $f(x,x)=\tfrac12\n
 
 
 \begin{problembox}[5.34: Higher-Order Partial Derivatives]
+\begin{problemstatement}
 Let \( f \) be defined on \( \mathbb{R}^2 \) as follows:
 \[ f(x, y) = y \frac{x^2 - y^2}{x^2 + y^2} \quad \text{if } (x, y) \neq (0, 0), \quad f(0, 0) = 0. \]
 Compute the first- and second-order partial derivatives of \( f \) at the origin, when they exist.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Compute first-order partial derivatives using the quotient rule for \( (x, y) \neq (0, 0) \) and the definition at the origin. Then compute second-order derivatives by differentiating the first-order derivatives.
@@ -894,7 +962,9 @@ Second-order at $(0,0)$ (where they exist):
 
 
 \begin{problembox}[5.35: Complex Conjugate Differentiability]
+\begin{problemstatement}
 Let \( S \) be an open set in \( \mathbb{C} \) and let \( S^* \) be the set of complex conjugates \( \bar{z} \), where \( z \in S \). If \( f \) is defined on \( S \), define \( g \) on \( S^* \) as follows: \( g(\bar{z}) = \overline{f(z)} \), the complex conjugate of \( f(z) \). If \( f \) is differentiable at \( c \) prove that \( g \) is differentiable at \( \bar{c} \) and that \( g'(\bar{c}) = \overline{f'(c)} \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the definition of differentiability and the fact that complex conjugation is continuous and linear. Show that the difference quotient for \( g \) at \( \bar{c} \) is the complex conjugate of the difference quotient for \( f \) at \( c \).
@@ -947,6 +1017,7 @@ If two holomorphic functions $f$ and $g$ agree on a set with a limit point in th
 \end{theorem}
 
 \begin{problembox}[5.36: Cauchy-Riemann Equations]
+\begin{problemstatement}
 i) In each of the following examples write \( f = u + iv \) and find explicit formulas for \( u(x, y) \) and \( v(x, y) \):
 a) \( f(z) = \sin z \), b) \( f(z) = \cos z \),
 c) \( f(z) = |z| \), d) \( f(z) = \bar{z} \),
@@ -956,6 +1027,7 @@ g) \( f(z) = e^{z^2} \), h) \( f(z) = z^\alpha \quad (\alpha \text{ complex}, z 
 ii) Show that \( u \) and \( v \) satisfy the Cauchy-Riemann equations for the following values of \( z \): All \( z \) in (a), (b), (g); no \( z \) in (c), (d), (e); all \( z \) except real \( z \leq 0 \) in (f), (h). (In part (h), the Cauchy-Riemann equations hold for all \( z \) if \( \alpha \) is a nonnegative integer, and they hold for all \( z \neq 0 \) if \( \alpha \) is a negative integer.)
 
 iii) Compute the derivative \( f'(z) \) in (a), (b), (f), (g), (h), assuming it exists.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} For (i), use standard complex function expansions to separate real and imaginary parts. For (ii), compute partial derivatives and check the Cauchy-Riemann equations \( u_x = v_y \) and \( u_y = -v_x \). For (iii), use standard differentiation rules for complex functions.
@@ -1035,7 +1107,9 @@ iii) Where differentiable: $(\sin z)'=\cos z$, $(\cos z)'=-\sin z$, $(\Log z)'=1
 
 
 \begin{problembox}[5.37: Constant Function Condition]
+\begin{problemstatement}
 Write \( f = u + iv \) and assume that \( f \) has a derivative at each point of an open disk \( D \) centered at (0, 0). If \( au^2 + bv^2 \) is constant on \( D \) for some real \( a \) and \( b \), not both 0, prove that \( f \) is constant on \( D \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Differentiate the equation \( au^2 + bv^2 = C \) and use the Cauchy-Riemann equations to obtain a system of linear equations. Show that the determinant of this system is non-zero, which implies that the partial derivatives vanish, making \( f \) constant.

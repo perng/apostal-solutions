@@ -4,11 +4,13 @@
 
 
 \begin{problembox}[6.1: Functions of Bounded Variation]
+\begin{problemstatement}
 Determine which of the following functions are of bounded variation on $[0, 1]$.
 
 a) $f(x) = x^2 \sin (1/x)$ if $x \neq 0$, $f(0) = 0$.
 
 b) $f(x) = \sqrt{x} \sin (1/x)$ if $x \neq 0$, $f(0) = 0$.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} For (a), show that the derivative is integrable, making the function absolutely continuous and hence of bounded variation. For (b), construct a partition using specific points where the function oscillates to show the total variation is infinite.
@@ -26,6 +28,7 @@ Thus $f(x)=\sqrt{x}\sin(1/x)$ is not of bounded variation on $[0,1]$.\qed
 
 
 \begin{problembox}[6.2: Uniform Lipschitz Condition]
+\begin{problemstatement}
 A function $f$, defined on $[a, b]$, is said to satisfy a uniform Lipschitz condition of order $\alpha > 0$ on $[a, b]$ if there exists a constant $M > 0$ such that $|f(x) - f(y)| < M |x - y|^\alpha$ for all $x$ and $y$ in $[a, b]$. (Compare with Exercise 5.1.)
 
 a) If $f$ is such a function, show that $\alpha > 1$ implies $f$ is constant on $[a, b]$, whereas $\alpha = 1$ implies $f$ is of bounded variation on $[a, b]$.
@@ -33,6 +36,7 @@ a) If $f$ is such a function, show that $\alpha > 1$ implies $f$ is constant on 
 b) Give an example of a function $f$ satisfying a uniform Lipschitz condition of order $\alpha < 1$ on $[a, b]$ such that $f$ is not of bounded variation on $[a, b]$.
 
 c) Give an example of a function $f$ which is of bounded variation on $[a, b]$ but which satisfies no uniform Lipschitz condition on $[a, b]$.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} For (a), use subdivision to show that when $\alpha > 1$, the function must be constant, and when $\alpha = 1$, it's Lipschitz and hence absolutely continuous. For (b), use a Weierstrass-type function with appropriate scaling. For (c), use a step function which has bounded variation but is discontinuous.
@@ -50,7 +54,9 @@ One checks (by splitting frequencies at the dyadic scale $2^k\approx |x-y|^{-1}$
 
 
 \begin{problembox}[6.3: Polynomials and Bounded Variation]
+\begin{problemstatement}
 Show that a polynomial $f$ is of bounded variation on every compact interval $[a, b]$. Describe a method for finding the total variation of $f$ on $[a, b]$ if the zeros of the derivative $f'$ are known.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the fact that polynomials are continuously differentiable, hence absolutely continuous, which implies bounded variation. For the total variation, use the integral formula and the fact that the derivative is continuous, so the total variation equals the integral of the absolute value of the derivative.
@@ -63,6 +69,7 @@ If $a=t_0<t_1<\cdots<t_m<t_{m+1}=b$ are the ordered zeros of $f'$ in $(a,b)$, th
 
 
 \begin{problembox}[6.4: Linear Space of Functions]
+\begin{problemstatement}
 A nonempty set $S$ of real-valued functions defined on an interval $[a, b]$ is called a linear space of functions if it has the following two properties:
 
 a) If $f \in S$, then $cf \in S$ for every real number $c$.
@@ -70,6 +77,7 @@ a) If $f \in S$, then $cf \in S$ for every real number $c$.
 b) If $f \in S$ and $g \in S$, then $f + g \in S$.
 
 Theorem 6.9 shows that the set $V$ of all functions of bounded variation on $[a, b]$ is a linear space. If $S$ is any linear space which contains all monotonic functions on $[a, b]$, prove that $V \subseteq S$. This can be described by saying that the functions of bounded variation form the smallest linear space containing all monotonic functions.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use Jordan's theorem which states that every function of bounded variation can be written as the difference of two increasing functions. Since $S$ contains all monotonic functions and is closed under linear combinations, it must contain all functions of bounded variation.
@@ -80,7 +88,9 @@ By Jordanâ€™s theorem (Theorem 6.13), every $f\in V$ can be written $f=g-h$ with
 
 
 \begin{problembox}[6.5: Monotonic Function Properties]
+\begin{problemstatement}
 Let $f$ be a real-valued function defined on $[0, 1]$ such that $f(0) > 0$, $f(x) \neq x$ for all $x$, and $f(x) \leq f(y)$ whenever $x \leq y$. Let $A = \{x: f(x) > x\}$. Prove that $\sup A \in A$ and that $f(1) > 1$.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use proof by contradiction. Assume there exists a set $B = \{x: f(x) < x\}$ and show this leads to a point where $f(x) = x$, contradicting the hypothesis. Use the monotonicity of $f$ and the properties of suprema and infima to establish the result.
@@ -91,11 +101,13 @@ Let $A=\{x\in[0,1]: f(x)>x\}$. Since $f(0)>0$, we have $0\in A$, so $A\neq\empty
 
 
 \begin{problembox}[6.6: Bounded Variation on Infinite Intervals]
+\begin{problemstatement}
 If $f$ is defined everywhere in $\mathbb{R}^1$, then $f$ is said to be of bounded variation on $(-\infty, +\infty)$ if $f$ is of bounded variation on every finite interval and if there exists a positive number $M$ such that $V_f(a, b) < M$ for all compact intervals $[a, b]$. The total variation of $f$ on $(-\infty, +\infty)$ is then defined to be the sup of all numbers $V_f(a, b)$, $-\infty < a < b < +\infty$, and is denoted by $V_f(-\infty, +\infty)$. Similar definitions apply to half-open infinite intervals $[a, +\infty)$ and $(-\infty, b]$.
 
 a) State and prove theorems for the infinite interval $(-\infty, +\infty)$ analogous to Theorems 6.7, 6.9, 6.10, 6.11, and 6.12.
 
 b) Show that Theorem 6.5 is true for $(-\infty, +\infty)$ if "monotonic" is replaced by "bounded and monotonic." State and prove a similar modification of Theorem 6.13.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} For (a), extend the finite interval results by taking suprema over all finite intervals. For (b), use the fact that on infinite intervals, monotonic functions must be bounded to have finite total variation, and modify Jordan's theorem accordingly.
@@ -109,6 +121,7 @@ so it is of bounded variation iff it is bounded and monotone. Similarly, Jordanâ
 
 
 \begin{problembox}[6.7: Positive and Negative Variations]
+\begin{problemstatement}
 Assume that $f$ is of bounded variation on $[a, b]$ and let
 \[P = \{x_0, x_1, \ldots, x_n\} \in \mathcal{P}[a, b].\]
 As usual, write $\Delta f_k = f(x_k) - f(x_{k-1})$, $k = 1, 2, \ldots, n$. Define
@@ -126,6 +139,7 @@ are called, respectively, the positive and negative variations of $f$ on $[a, b]
 \item $2p(x) = V(x) + f(x) - f(a)$, $2n(x) = V(x) - f(x) + f(a)$.
 \item Every point of continuity of $f$ is also a point of continuity of $p$ and of $n$.
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the definition of total variation as a supremum over partitions and separate positive and negative increments. For (d), use the fact that any partition's sum of increments equals the total change in function value. For (e), combine the results from (a) and (d). For (f), use the continuity of the total variation function.
@@ -149,12 +163,14 @@ For any point $x$ in $[a,b]$, we can look at how $f$ changes from $a$ to $x$. Th
 
 
 \begin{problembox}[6.8: Equivalent Paths]
+\begin{problemstatement}
 Let $f$ and $g$ be complex-valued functions defined as follows:
 \[f(t) = e^{2\pi it} \quad \text{if } t \in [0, 1], \quad g(t) = e^{2\pi it} \quad \text{if } t \in [0, 2].\]
 
 a) Prove that $f$ and $g$ have the same graph but are not equivalent according to the definition in Section 6.12.
 
 b) Prove that the length of $g$ is twice that of $f$.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} For (a), show that the graphs are identical as sets but the functions traverse the circle different numbers of times, making them inequivalent. For (b), use the fact that repeating a path doubles its length.
@@ -164,10 +180,12 @@ As sets, $\{e^{2\pi it}:t\in[0,1]\}=\{e^{2\pi it}:t\in[0,2]\}$, so the graphs co
 
 
 \begin{problembox}[6.9: Arc-Length Parameter]
+\begin{problemstatement}
 Let $f$ be a rectifiable path of length $L$ defined on $[a, b]$, and assume that $f$ is not constant on any subinterval of $[a, b]$. Let $s$ denote the arc-length function given by $s(x) = \Lambda_s(a, x)$ if $a < x \leq b$, $s(a) = 0$.
 
 a) Prove that $s^{-1}$ exists and is continuous on $[0, L]$.
 b) Define $g(t) = f[s^{-1}(t)]$ if $t \in [0, L]$ and show that $g$ is equivalent to $f$. Since $f(t) = g[s(t)]$, the function $g$ is said to provide a representation of the graph of $f$ with arc length as parameter.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} For (a), use the fact that the arc-length function is strictly increasing and continuous, making it a homeomorphism. For (b), show that the composition with the inverse arc-length function provides an equivalent parametrization.
@@ -179,6 +197,7 @@ b) Define $g(t) = f[s^{-1}(t)]$ if $t \in [0, L]$ and show that $g$ is equivalen
 
 
 \begin{problembox}[6.10: Symmetrization of Regions]
+\begin{problemstatement}
 Let $f$ and $g$ be two real-valued continuous functions of bounded variation defined on $[a, b]$, with $0 < f(x) < g(x)$ for each $x$ in $(a, b)$, $f(a) = g(a)$, $f(b) = g(b)$. Let $h$ be the complex-valued function defined on the interval $[a, 2b - a]$ as follows:
 \[h(t) = t + i f(t), \quad \text{if } a \leq t \leq b,\]
 \[h(t) = 2b - t + ig(2b - t), \quad \text{if } b \leq t \leq 2b - a.\]
@@ -195,6 +214,7 @@ Show that $H$ describes a rectifiable curve $\Gamma_0$ which is the boundary of 
 \[S_0 = \{ (x, y) : a \leq x \leq b, \quad f(x) - g(x) \leq 2y \leq g(x) - f(x) \}.\]
 e) Show that $S_0$ has the $x$-axis as a line of symmetry. (The region $S_0$ is called the symmetrization of $S$ with respect to the $x$-axis.)
 f) Show that the length of $\Gamma_0$ does not exceed the length of $\Gamma$.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} For (a), use the fact that functions of bounded variation have rectifiable graphs. For (b)-(c), understand that $h$ traces the boundary of the region between the two graphs. For (d)-(e), show that $H$ creates a symmetric region by averaging the upper and lower boundaries. For (f), use the triangle inequality for the length integrals.
@@ -229,11 +249,13 @@ Absolutely continuous functions occur in the Lebesgue theory of integration and 
 
 
 \begin{problembox}[6.11: Absolutely Continuous Functions]
+\begin{problemstatement}
 A real-valued function $f$ defined on $[a, b]$ is said to be absolutely continuous on $[a, b]$ if for every $\varepsilon > 0$ there is a $\delta > 0$ such that
 \[\sum_{k=1}^{n} |f(b_k) - f(a_k)| < \varepsilon\]
 for every $n$ disjoint open subintervals $(a_k, b_k)$ of $[a, b]$, $n = 1, 2, \ldots$, the sum of whose lengths $\sum_{k=1}^{n} (b_k - a_k)$ is less than $\delta$. Absolutely continuous functions occur in the Lebesgue theory of integration and differentiation. The following exercises give some of their elementary properties.
 
 Prove that every absolutely continuous function on $[a, b]$ is continuous and of bounded variation on $[a, b]$. Note. There exist functions which are continuous and of bounded variation but not absolutely continuous.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the definition of absolute continuity to show uniform continuity, which implies continuity. For bounded variation, use the same $\delta$ from the definition to bound the total variation by choosing a partition with mesh less than $\delta$.
@@ -245,7 +267,9 @@ so $V_f(a,b)<\infty$. Thus every absolutely continuous function is continuous an
 
 
 \begin{problembox}[6.12: Lipschitz and Absolute Continuity]
+\begin{problemstatement}
 Prove that $f$ is absolutely continuous if it satisfies a uniform Lipschitz condition of order 1 on $[a, b]$. (See Exercise 6.2.)
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the Lipschitz condition to bound the sum of function differences in terms of the sum of interval lengths, then choose $\delta$ appropriately to satisfy the absolute continuity definition.
@@ -258,7 +282,9 @@ Choosing $\delta=\varepsilon/M$ proves absolute continuity.\qed
 
 
 \begin{problembox}[6.13: Operations on Absolutely Continuous Functions]
+\begin{problemstatement}
 If $f$ and $g$ are absolutely continuous on $[a, b]$, prove that each of the following is also: $|f|$, $cf$ ($c$ constant), $f + g$, $f \cdot g$; also $f/g$ if $g$ is bounded away from zero.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the triangle inequality for $|f|$, linearity for $cf$ and $f+g$, the product rule and boundedness for $f \cdot g$, and the fact that $1/g$ is Lipschitz when $g$ is bounded away from zero for $f/g$.

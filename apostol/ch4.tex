@@ -27,6 +27,7 @@ Every bounded monotone sequence converges.
 
 
 \begin{problembox}[4.1: Limits of Sequences]
+\begin{problemstatement}
 Prove each of the following statements about sequences in $\mathbb{C}$:
 \begin{enumerate}[label=(\alph*)]
 \item $z^n \to 0$ if $|z| < 1$; $(z^n)$ diverges if $|z| > 1$.
@@ -34,6 +35,7 @@ Prove each of the following statements about sequences in $\mathbb{C}$:
 \item $z^n / n! \to 0$ for every complex $z$.
 \item If $a_n = \sqrt{n^2 + 2} - n$, then $a_n \to 0$.
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the geometric sequence convergence theorem for (a), boundedness and convergence properties for (b), ratio test or Stirling's formula for (c), and rationalization technique for (d).
@@ -61,8 +63,10 @@ a_n&=\sqrt{n^2+2}-n\\
 
 
 \begin{problembox}[4.2: Linear Recurrence Relation]
+\begin{problemstatement}
 If $a_{n+2} = (a_{n+1} + a_n)/2$ for all $n \geq 1$, show that $a_n \to (a_1 + 2a_2)/3$. \\
 \textit{Hint.} $a_{n+2} - a_{n+1} = \frac{1}{2}(a_n - a_{n+1})$.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the hint to define a difference sequence $d_n = a_{n+1} - a_n$ that forms a geometric sequence. Express $a_n$ in terms of initial values and the geometric series, then take the limit.
@@ -130,7 +134,9 @@ a_n \to a_1 + d_1 \cdot \frac{2}{3} = a_1 + (a_2 - a_1) \cdot \frac{2}{3} = a_1 
 
 
 \begin{problembox}[4.3: Recursive Sequence]
+\begin{problemstatement}
 If $0 < x_1 < 1$ and if $x_{n+1} = 1 - \sqrt{1 - x_n}$ for all $n \geq 1$, prove that $\{x_n\}$ is a decreasing sequence with limit 0. Prove also that $x_{n+1}/x_n \to \frac{1}{2}$.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the concavity of $\sqrt{1-t}$ to show the sequence is decreasing and bounded, hence convergent. Find the limit by solving the fixed point equation, then use Taylor expansion to find the ratio limit.
@@ -192,9 +198,11 @@ Moreover, using the Taylor expansion $\sqrt{1-t}=1-\tfrac{t}{2}-\tfrac{t^2}{8}+o
 
 
 \begin{problembox}[4.4: Quadratic Irrational Sequence]
+\begin{problemstatement}
 Two sequences of positive integers $\{a_n\}$ and $\{b_n\}$ are defined recursively by taking $a_1 = b_1 = 1$ and equating rational and irrational parts in the equation
 \[a_n + b_n \sqrt{2} = (a_{n-1} + b_{n-1} \sqrt{2})^2 \quad \text{for } n \geq 2.\]
 Prove that $a_n^2 - 2b_n^2 = 1$ for $n \geq 2$. Deduce that $a_n/b_n \to \sqrt{2}$ through values $> \sqrt{2}$, and that $2b_n/a_n \to \sqrt{2}$ through values $< \sqrt{2}$.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Expand the quadratic expression and equate rational/irrational parts to find recurrence relations. Use mathematical induction to prove the identity. For the limits, manipulate the identity to express ratios and use the fact that sequences are increasing.
@@ -288,7 +296,9 @@ Thus, the sequence $2b_n/a_n$ converges to $\sqrt{2}$ through values strictly le
 
 
 \begin{problembox}[4.5: Cubic Recurrence]
+\begin{problemstatement}
 A real sequence $\{x_n\}$ satisfies $7x_{n+1} = x_n^3 + 6$ for $n \geq 1$. If $x_1 = \frac{1}{2}$, prove that the sequence increases and find its limit. What happens if $x_1 = \frac{3}{2}$ or if $x_1 = \frac{5}{2}$?
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Define $f(x) = (x^3 + 6)/7$ and analyze its behavior. Use the fact that $f$ is increasing and find fixed points. Analyze the difference $f(x) - x$ to determine monotonicity and convergence behavior for different initial values.
@@ -352,7 +362,9 @@ If $x_1=\tfrac52>2$, then $f(x)-x>0$ (all three factors positive), so $x_{n+1}>x
 
 
 \begin{problembox}[4.6: Convergence Condition]
+\begin{problemstatement}
 If $|a_n| < 2$ and $|a_{n+2} - a_{n+1}| \leq \frac{1}{8} |a_{n+1}^2 - a_n^2|$ for all $n \geq 1$, prove that $\{a_n\}$ converges.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the boundedness condition to bound $|a_{n+1} + a_n|$, then factor the difference of squares to show the sequence is Cauchy. Use the contraction-like property to establish convergence.
@@ -373,7 +385,9 @@ so $(a_n)$ is Cauchy and converges.\qed
 
 
 \begin{problembox}[4.7: Metric Space Convergence]
+\begin{problemstatement}
 In a metric space $(S, d)$, assume that $x_n \to x$ and $y_n \to y$. Prove that $d(x_n, y_n) \to d(x, y)$.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the reverse triangle inequality to bound $|d(x_n, y_n) - d(x, y)|$ in terms of $d(x_n, x)$ and $d(y_n, y)$, then use the convergence of the sequences.
@@ -388,7 +402,9 @@ By the reverse triangle inequality,
 
 
 \begin{problembox}[4.8: Compact Metric Spaces]
+\begin{problemstatement}
 Prove that in a compact metric space $(S, d)$, every sequence in $S$ has a subsequence which converges in $S$. This property also implies that $S$ is compact but you are not required to prove this. (For a proof see either Reference 4.2 or 4.3.)
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the limit-point property of compact sets: if a set is compact and infinite, it has a limit point. If a value appears infinitely often, use the constant subsequence. Otherwise, use the limit point to construct a convergent subsequence.
@@ -420,7 +436,9 @@ Thus \((x_n)\) has a subsequence converging in \(S\). \qed
 
 
 \begin{problembox}[4.9: Complete Subsets]
+\begin{problemstatement}
 Let $A$ be a subset of a metric space $S$. If $A$ is complete, prove that $A$ is closed. Prove that the converse also holds if $S$ is complete.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} For the first part, use the fact that any convergent sequence in $A$ is Cauchy and must converge to a point in $A$ (by completeness), so $A$ contains all its limit points. For the converse, use the fact that Cauchy sequences in $A$ converge in $S$ (by completeness of $S$) and the limit must be in $A$ (by closedness).
@@ -453,12 +471,14 @@ Note: In Exercise 4.10 through 4.28, all functions are real-valued.
 
 
 \begin{problembox}[4.10: Function Limit Properties]
+\begin{problemstatement}
 Let $f$ be defined on an open interval $(a, b)$ and assume $x \in (a, b)$. Consider the two statements:
 \begin{enumerate}[label=(\alph*)]
 \item $\lim_{h \to 0} |f(x + h) - f(x)| = 0$;
 \item $\lim_{h \to 0} |f(x + h) - f(x - h)| = 0$.
 \end{enumerate}
 Prove that (a) always implies (b), and give an example in which (b) holds but (a) does not.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} For the implication, use the triangle inequality to bound the symmetric difference by the sum of two one-sided differences. For the counterexample, construct a function that is symmetric around $x$ but discontinuous at $x$.
@@ -480,7 +500,8 @@ Then for $h\ne 0$, $f(h)=f(-h)=1$, so $|f(h)-f(-h)|=0\to 0$; but $|f(h)-f(0)|=1\
 
 
 \begin{problembox}[4.11: Double Limits]
-    \subsection*{Exercise 4.11}
+\begin{problemstatement}
+\subsection*{Exercise 4.11}
     Let $f$ be defined on $\mathbb{R}^2$. If
     \[
     \lim_{(x, y) \to (a, b)} f(x, y) = L
@@ -511,6 +532,7 @@ Then for $h\ne 0$, $f(h)=f(-h)=1$, so $|f(h)-f(-h)|=0\to 0$; but $|f(h)-f(0)|=1\
     \[
     \lim_{x \to 0} \left[ \lim_{y \to 0} f(x, y) \right]; \quad \lim_{y \to 0} \left[ \lim_{x \to 0} f(x, y) \right]; \quad \lim_{(x, y) \to (0, 0)} f(x, y).
     \]
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} For the theoretical part, use the definition of the two-dimensional limit to show that for $x$ close to $a$, the one-dimensional limit $\lim_{y \to b} f(x, y)$ exists and equals $L$. Then take the limit as $x \to a$ to establish the result. For the examples, analyze each function by computing the iterated limits and the two-dimensional limit separately, using techniques like polar coordinates, path analysis, or direct evaluation.
@@ -564,9 +586,11 @@ The two-dimensional limit is $1$: using L'Hôpital's rule twice, $\lim_{(x,y)\to
 
 
 \begin{problembox}[4.12: Limit of Nested Cosine]
+\begin{problemstatement}
 If \( x \in [0, 1] \) prove that the following limit exists,
 \[\lim_{m \to \infty} \left[ \lim_{n \to \infty} \cos^{2n} (m! \pi x) \right],\]
 and that its value is 0 or 1, according to whether \( x \) is irrational or rational.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} First evaluate the inner limit for fixed $m$ using the fact that $\cos^{2n}(\theta) \to 1$ if $\cos^2(\theta) = 1$ and $\cos^{2n}(\theta) \to 0$ otherwise. Then analyze when $m!\pi x$ is an integer multiple of $\pi$ based on whether $x$ is rational or irrational.
@@ -597,7 +621,9 @@ If $f$ is continuous on $[a,b]$ and $f(a) < c < f(b)$, then there exists $x \in 
 
 
 \begin{problembox}[4.13: Zero Function on Rationals]
+\begin{problemstatement}
 Let \( f \) be continuous on \([a, b]\) and let \( f(x) = 0 \) when \( x \) is rational. Prove that \( f(x) = 0 \) for every \( x \) in \([a, b]\).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the density of rational numbers in the reals and the sequential characterization of continuity. For any irrational $x$, construct a sequence of rationals converging to $x$ and use continuity to show $f(x) = 0$.
@@ -608,9 +634,11 @@ Let $x\in[a,b]$ and let $(q_n)$ be rationals with $q_n\to x$ (rationals are dens
 
 
 \begin{problembox}[4.14: Continuity in Each Variable]
+\begin{problemstatement}
 Let \( f \) be continuous at the point \( a = (a_1, a_2, \ldots, a_n) \) in \( \mathbb{R}^n \). Keep \( a_2, a_3, \ldots, a_n \) fixed and define a new function \( g \) of one real variable by the equation
 \[g(x) = f(x, a_2, \ldots, a_n).\]
 Prove that \( g \) is continuous at the point \( x = a_1 \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the sequential characterization of continuity. If $x_n \to a_1$ in $\mathbb{R}$, then $(x_n, a_2, \ldots, a_n) \to (a_1, \ldots, a_n)$ in $\mathbb{R}^n$, and by continuity of $f$, the sequence of function values converges appropriately.
@@ -621,7 +649,9 @@ If $x\to a_1$ in $\mathbb{R}$, then $(x,a_2,\ldots,a_n)\to(a_1,\ldots,a_n)$ in $
 
 
 \begin{problembox}[4.15: Converse of Continuity in Each Variable]
+\begin{problemstatement}
 Show by an example that the converse of the statement in Exercise 4.14 is not true in general.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Construct a function that is continuous in each variable separately but not continuous as a function of two variables. Use a function like $f(x,y) = xy/(x^2+y^2)$ with $f(0,0) = 0$, which is separately continuous but not continuous at the origin.
@@ -632,6 +662,7 @@ Define $f:\mathbb{R}^2\to\mathbb{R}$ by $f(x,y)=\dfrac{xy}{x^2+y^2}$ for $(x,y)\
 
 
 \begin{problembox}[4.16: Discontinuous Functions]
+\begin{problemstatement}
 Let \( f, g, \) and \( h \) be defined on \([0, 1]\) as follows:
 \begin{align*}
 f(x) &= g(x) = h(x) = 0, \quad \text{whenever } x \text{ is irrational}; \\
@@ -640,6 +671,7 @@ h(x) &= 1/n, \text{ if } x \text{ is the rational number } m/n \text{ (in lowest
 h(0) &= 1.
 \end{align*}
 Prove that \( f \) is not continuous anywhere in \([0, 1]\), that \( g \) is continuous only at \( x = 0 \), and that \( h \) is continuous only at the irrational points in \([0, 1]\).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the density of rationals and irrationals in $[0,1]$. For each function, approach any point through sequences of rationals and irrationals to test continuity. For $h$, note that rationals near an irrational have large denominators, making $h$ values small.
@@ -656,6 +688,7 @@ For $h$: if $x$ is irrational, rationals $m/n\to x$ have denominators $n\to\inft
 
 
 \begin{problembox}[4.17: Properties of a Mixed Function]
+\begin{problemstatement}
 For each \( x \) in \([0, 1]\), let \( f(x) = x \) if \( x \) is rational, and let \( f(x) = 1 - x \) if \( x \) is irrational. Prove that:
 \begin{enumerate}[label=(\alph*)]
 \item \( f(f(x)) = x \) for all \( x \) in \([0, 1]\).
@@ -664,6 +697,7 @@ For each \( x \) in \([0, 1]\), let \( f(x) = x \) if \( x \) is rational, and l
 \item \( f \) assumes every value between 0 and 1.
 \item \( f(x + y) - f(x) - f(y) \) is rational for all \( x \) and \( y \) in \([0, 1]\).
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} For (a) and (b), consider cases based on whether $x$ is rational or irrational. For (c), use the density of rationals and irrationals to test continuity. For (d), use the intermediate value property. For (e), analyze the possible combinations of rational/irrational inputs.
@@ -682,9 +716,11 @@ For each \( x \) in \([0, 1]\), let \( f(x) = x \) if \( x \) is rational, and l
 
 
 \begin{problembox}[4.18: Additive Functional Equation]
+\begin{problemstatement}
 Let \( f \) be defined on \( \mathbb{R} \) and assume that there exists at least one point \( x_0 \) in \( \mathbb{R} \) at which \( f \) is continuous. Suppose also that, for every \( x \) and \( y \) in \( \mathbb{R} \), \( f \) satisfies the equation
 \[f(x + y) = f(x) + f(y).\]
 Prove that there exists a constant \( a \) such that \( f(x) = ax \) for all \( x \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the additive property to show $f(0) = 0$, $f(-x) = -f(x)$, and $f(nx) = nf(x)$ for integers $n$. Extend to rationals by showing $f(p/q) = (p/q)f(1)$. Use continuity at one point to extend to all reals by approximating with rationals.
@@ -695,7 +731,9 @@ Additivity gives $f(0)=0$, $f(-x)=-f(x)$, and $f(nx)=nf(x)$ for integers $n$. Fo
 
 
 \begin{problembox}[4.19: Maximum Function Continuity]
+\begin{problemstatement}
 Let \( f \) be continuous on \([a, b]\) and define \( g \) as follows: \( g(a) = f(a) \) and, for \( a < x \leq b \), let \( g(x) \) be the maximum value of \( f \) in the subinterval \([a, x]$. Show that \( g \) is continuous on \([a, b]\).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the extreme value theorem to show that $g$ is well-defined and nondecreasing. For continuity, use uniform continuity of $f$ and the fact that the maximum over a small interval changes by at most the oscillation of $f$ over that interval.
@@ -706,7 +744,9 @@ On $[a,b]$, $f$ is uniformly continuous. Fix $x\in(a,b]$. Then $g$ is nondecreas
 
 
 \begin{problembox}[4.20: Maximum of Continuous Functions]
+\begin{problemstatement}
 Let \( f_1, \ldots, f_m \) be \( m \) real-valued functions defined on a set \( S \) in \( \mathbb{R}^n \). Assume that each \( f_k \) is continuous at the point \( a \) of \( S \). Define a new function \( f \) as follows: For each \( x \) in \( S \), \( f(x) \) is the largest of the \( m \) numbers \( f_1(x), \ldots, f_m(x) \). Discuss the continuity of \( f \) at \( a \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the fact that the maximum of finitely many continuous functions is continuous. Show this by induction, starting with the case of two functions and using the inequality $|\max\{u,v\} - \max\{u',v'\}| \leq \max\{|u-u'|, |v-v'|\}$.
@@ -721,7 +761,9 @@ so if $u,v$ are continuous, $\max\{u,v\}$ is continuous. By induction, $f$ is co
 
 
 \begin{problembox}[4.21: Positive Continuity]
+\begin{problemstatement}
 Let \( f: S \to \mathbb{R} \) be continuous on an open set \( S \) in \( \mathbb{R}^n \), assume that \( p \in S \), and assume that \( f(p) > 0 \). Prove that there is an \( n \)-ball \( B(p; r) \) such that \( f(x) > 0 \) for every \( x \) in the ball.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the definition of continuity at $p$. Choose $\varepsilon = f(p)/2 > 0$ and find $\delta > 0$ such that $|f(x) - f(p)| < f(p)/2$ whenever $|x-p| < \delta$. This ensures $f(x) > f(p)/2 > 0$ in the ball $B(p;\delta)$.
@@ -732,9 +774,11 @@ By continuity at $p$, there exists $r>0$ such that $|x-p|<r\Rightarrow |f(x)-f(p
 
 
 \begin{problembox}[4.22: Zero Set is Closed]
+\begin{problemstatement}
 Let \( f \) be defined and continuous on a closed set \( S \) in \( \mathbb{R} \). Let
 \[A = \{x : x \in S \quad \text{and} \quad f(x) = 0\}.\]
 Prove that \( A \) is a closed subset of \( \mathbb{R} \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the sequential characterization of closed sets. If $(x_n) \subset A$ converges to $x \in \mathbb{R}$, then $x \in S$ (since $S$ is closed) and by continuity $f(x) = \lim f(x_n) = 0$, so $x \in A$.
@@ -745,9 +789,11 @@ Let $(x_n)\subset A$ with $x_n\to x\in\mathbb{R}$. Since $S$ is closed and $x_n\
 
 
 \begin{problembox}[4.23: Continuity via Open Sets]
+\begin{problemstatement}
 Given a function \( f: \mathbb{R} \to \mathbb{R} \), define two sets \( A \) and \( B \) in \( \mathbb{R}^2 \) as follows:
 \[A = \{(x, y) : y < f(x)\}, \quad B = \{(x, y) : y > f(x)\}.\]
 Prove that \( f \) is continuous on \( \mathbb{R} \) if, and only if, both \( A \) and \( B \) are open subsets of \( \mathbb{R}^2 \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} For the forward direction, use the fact that $(x,y) \mapsto f(x) - y$ is continuous, so $A$ and $B$ are preimages of open sets. For the reverse direction, use the openness of $A$ and $B$ to construct $\varepsilon$-$\delta$ neighborhoods around any point.
@@ -758,11 +804,13 @@ If $f$ is continuous, then $(x,y)\mapsto f(x)-y$ is continuous, so $A=(f-\mathrm
 
 
 \begin{problembox}[4.24: Oscillation and Continuity]
+\begin{problemstatement}
 Let \( f \) be defined and bounded on a compact interval \( S \) in \( \mathbb{R} \). If \( T \subseteq S \), the number
 \[\Omega_f(T) = \sup \{f(x) - f(y) : x \in T, y \in T\}\]
 is called the oscillation (or span) of \( f \) on \( T \). If \( x \in S \), the oscillation of \( f \) at \( x \) is defined to be the number
 \[\omega_f(x) = \lim_{h \to 0+} \Omega_f(B(x; h) \cap S).\]
 Prove that this limit always exists and that \( \omega_f(x) = 0 \) if, and only if, \( f \) is continuous at \( x \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Show that $\Omega_f(B(x;h) \cap S)$ is monotone decreasing in $h$, so the limit exists. For the equivalence, use the definition of continuity: if $f$ is continuous at $x$, then $\sup_{|t-x|<h} |f(t) - f(x)| \to 0$ as $h \to 0$.
@@ -773,7 +821,9 @@ As $h\downarrow 0$, the sets $B(x;h)\cap S$ decrease, so $\Omega_f$ is monotone 
 
 
 \begin{problembox}[4.25: Local Maxima Imply Local Minimum]
+\begin{problemstatement}
 Let \( f \) be continuous on a compact interval \([a, b]\). Suppose that \( f \) has a local maximum at \( x_1 \) and a local maximum at \( x_2 \). Show that there must be a third point between \( x_1 \) and \( x_2 \) where \( f \) has a local minimum.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the extreme value theorem to find the minimum of $f$ on $[x_1, x_2]$. This minimum must occur at an interior point since $f$ has local maxima at both endpoints, and this interior minimum point is a local minimum of $f$ on $[a,b]$.
@@ -784,7 +834,9 @@ Assume $x_1<x_2$. By continuity, $f$ attains its minimum on $[x_1,x_2]$ at some 
 
 
 \begin{problembox}[4.26: Strictly Monotonic Function]
+\begin{problemstatement}
 Let \( f \) be a real-valued function, continuous on \([0, 1]\), with the following property: For every real \( y \), either there is no \( x \) in \([0, 1]\) for which \( f(x) = y \) or there is exactly one such \( x \). Prove that \( f \) is strictly monotonic on \([0, 1]\).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use proof by contradiction. If $f$ is not strictly monotone, there exist $a < b < c$ with either $f(b) > \max\{f(a), f(c)\}$ or $f(b) < \min\{f(a), f(c)\}$. Use the intermediate value theorem to show that some value is attained at least twice, contradicting the uniqueness property.
@@ -795,12 +847,14 @@ If $f$ were not monotone, there would exist $a<b<c$ with either $f(b)>\max\{f(a)
 
 
 \begin{problembox}[4.27: Two-Preimage Function]
+\begin{problemstatement}
 Let \( f \) be a function defined on \([0, 1]\) with the following property: For every real number \( y \), either there is no \( x \) in \([0, 1]\) for which \( f(x) = y \) or there are exactly two values of \( x \) in \([0, 1]\) for which \( f(x) = y \).
 \begin{enumerate}[label=(\alph*)]
 \item Prove that \( f \) cannot be continuous on \([0, 1]\).
 \item Construct a function \( f \) which has the above property.
 \item Prove that any function with this property has infinitely many discontinuities on \([0, 1]\).
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} For (a), use the intermediate value theorem and the fact that a continuous function on an interval that is not one-to-one must turn around, creating values with three or more preimages. For (b), construct a piecewise function with two branches. For (c), use the fact that any continuous subinterval would violate the "exactly two" property.
@@ -824,6 +878,7 @@ Then $f((0,\tfrac12))=f((\tfrac12,1))=(0,1)$, so every $y\in(0,1)$ has exactly t
 
 
 \begin{problembox}[4.28: Continuous Image Examples]
+\begin{problemstatement}
 In each case, give an example of a real-valued function \( f \), continuous on \( S \) and such that \( f(S) = T \), or else explain why there can be no such \( f \):
 \begin{enumerate}[label=(\alph*)]
 \item \( S = (0, 1) \), \( T = (0, 1] \).
@@ -834,6 +889,7 @@ In each case, give an example of a real-valued function \( f \), continuous on \
 \item \( S = [0, 1] \times [0, 1] \), \( T = (0, 1) \times (0, 1) \).
 \item \( S = (0, 1) \times (0, 1) \), \( T = \mathbb{R}^2 \).
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 
@@ -896,8 +952,10 @@ In Exercises 4.29 through 4.33, we assume that $f:S\to T$ is a function from one
 
 
 \begin{problembox}[4.29: Continuity via Interior]
+\begin{problemstatement}
 Assume that $f : S \rightarrow T$ is a function from one metric space $(S, d_S)$ to another $(T, d_T)$. Prove that $f$ is continuous on $S$ if, and only if,
 \[ f^{-1}(\text{int } B) \subseteq \text{int } f^{-1}(B) \quad \text{for every subset } B \text{ of } T. \]
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the characterization of continuity via preimages of open sets. For the forward direction, use the fact that if $f$ is continuous, then $f^{-1}(U)$ is open for any open set $U$. For the reverse direction, take $U = \text{int } B$ and use the hypothesis to show that $f^{-1}(U)$ is open.
@@ -908,8 +966,10 @@ If $f$ is continuous, then for any open $U\subset T$, $f^{-1}(U)$ is open in $S$
 
 
 \begin{problembox}[4.30: Continuity via Closure]
+\begin{problemstatement}
 Assume that $f : S \rightarrow T$ is a function from one metric space $(S, d_S)$ to another $(T, d_T)$. Prove that $f$ is continuous on $S$ if, and only if,
 \[ f(\bar{A}) \subseteq \overline{f(A)} \quad \text{for every subset } A \text{ of } S. \]
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the sequential characterization of continuity and closure. For the forward direction, if $x \in \overline{A}$, take a sequence in $A$ converging to $x$ and use continuity. For the reverse direction, use the fact that preimages of closed sets are closed if and only if the function is continuous.
@@ -920,8 +980,10 @@ If $f$ is continuous and $x\in\overline{A}$, take $x_n\in A$ with $x_n\to x$. Th
 
 
 \begin{problembox}[4.31: Continuity on Compact Sets]
+\begin{problemstatement}
 Assume that $f : S \rightarrow T$ is a function from one metric space $(S, d_S)$ to another $(T, d_T)$. Prove that $f$ is continuous on $S$ if, and only if, $f$ is continuous on every compact subset of $S$. \\
 \textit{Hint.} If $x_n \rightarrow p$ in $S$, the set $\{p, x_1, x_2, \ldots\}$ is compact.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the hint to construct a compact set from any convergent sequence. The forward direction is trivial. For the reverse direction, use the sequential characterization of continuity and the fact that the set $\{p, x_1, x_2, \ldots\}$ is compact for any sequence converging to $p$.
@@ -932,7 +994,9 @@ The forward direction is trivial. Conversely, assume $f$ is continuous on every 
 
 
 \begin{problembox}[4.32: Closed Mappings]
+\begin{problemstatement}
 Assume that $f : S \rightarrow T$ is a function from one metric space $(S, d_S)$ to another $(T, d_T)$. A function $f : S \rightarrow T$ is called a closed mapping on $S$ if the image $f(A)$ is closed in $T$ for every closed subset $A$ of $S$. Prove that $f$ is continuous and closed on $S$ if, and only if, $f(\bar{A}) = \overline{f(A)}$ for every subset $A$ of $S$.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Combine the results from Exercises 4.30 and the definition of closed mappings. If $f$ is continuous, then $f(\overline{A}) \subseteq \overline{f(A)}$. If $f$ is also closed, then $\overline{f(A)} \subseteq f(\overline{A})$, giving equality. For the converse, use the fact that closed mappings preserve closedness and the inclusion condition implies continuity.
@@ -943,7 +1007,9 @@ If $f$ is continuous, $f(\overline{A})\subseteq\overline{f(A)}$; if $f$ is also 
 
 
 \begin{problembox}[4.33: Non-Preserved Cauchy Sequences]
+\begin{problemstatement}
 Assume that $f : S \rightarrow T$ is a function from one metric space $(S, d_S)$ to another $(T, d_T)$. Give an example of a continuous $f$ and a Cauchy sequence $(x_n)$ in some metric space $S$ for which $\{f(x_n)\}$ is not a Cauchy sequence in $T$.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use a function that is continuous but not uniformly continuous on a non-complete metric space. Take $S = (0,1)$ with the usual metric and $f(x) = 1/x$. The sequence $x_n = 1/n$ is Cauchy in $S$ but $f(x_n) = n$ is not Cauchy in $\mathbb{R}$.
@@ -954,7 +1020,9 @@ Take $S=(0,1)$ with the usual metric, $T=\mathbb{R}$, and $f(x)=1/x$ (continuous
 
 
 \begin{problembox}[4.34: Homeomorphism of Interval to Line]
+\begin{problemstatement}
 Prove that the interval $(-1, 1)$ in $\mathbb{R}^1$ is homeomorphic to $\mathbb{R}^1$. This shows that neither boundedness nor completeness is a topological property.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Construct a bijective function $\phi: (-1,1) \to \mathbb{R}$ that is continuous with a continuous inverse. Use a function like $\phi(t) = \frac{t}{1-|t|}$ which maps the bounded interval to the unbounded real line.
@@ -997,7 +1065,9 @@ The map $\phi:(-1,1)\to\mathbb{R}$, $\phi(t)=\dfrac{t}{1-|t|}$ is a bijection wi
 
 
 \begin{problembox}[4.35: Space-Filling Curve]
+\begin{problemstatement}
 Section 9.7 contains an example of a function $f$, continuous on $[0, 1]$, with $f([0, 1]) = [0, 1] \times [0, 1]$. Prove that no such $f$ can be one-to-one on $[0, 1]$.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use proof by contradiction. Assume $f$ is continuous and injective with image $[0,1]^2$. Remove a point from the interior of the square and show that the remaining set is connected, but removing the corresponding point from $[0,1]$ disconnects it, leading to a contradiction.
@@ -1036,7 +1106,9 @@ The closure of a connected set is connected.
 
 
 \begin{problembox}[4.36: Disconnected Metric Spaces]
+\begin{problemstatement}
 Prove that a metric space $S$ is disconnected if, and only if, there is a nonempty subset $A$ of $S$, $A \neq S$, which is both open and closed in $S$.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the definition of disconnectedness and the fact that a set is both open and closed if and only if its complement is also both open and closed. If $S$ is disconnected, write it as a union of two disjoint nonempty open sets, then one of them serves as the required subset.
@@ -1047,7 +1119,9 @@ If $S$ is disconnected, write $S=U\cup V$ with disjoint nonempty open sets. Then
 
 
 \begin{problembox}[4.37: Connected Metric Spaces]
+\begin{problemstatement}
 Prove that a metric space $S$ is connected if, and only if, the only subsets of $S$ which are both open and closed in $S$ are the empty set and $S$ itself.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} This is the contrapositive of Exercise 4.36. A space is connected if and only if it is not disconnected, which means there are no nontrivial clopen subsets.
@@ -1058,12 +1132,14 @@ This is the contrapositive of 4.36: connectedness is equivalent to having no non
 
 
 \begin{problembox}[4.38: Connected Subsets of Reals]
+\begin{problemstatement}
 Prove that the only connected subsets of $\mathbb{R}$ are:
 \begin{enumerate}[label=(\alph*)]
 \item the empty set,
 \item sets consisting of a single point, and
 \item intervals (open, closed, half-open, or infinite).
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} We need to prove two directions: (1) If a subset of $\mathbb{R}$ is connected, then it must be empty, a single point, or an interval. (2) If a subset is empty, a single point, or an interval, then it is connected. For the first direction, we'll use proof by contradiction - if a connected set contains two points but misses a point between them, we can create a separation. For the second direction, we'll show that intervals cannot be separated into two disjoint open sets.
@@ -1092,7 +1168,9 @@ We have shown that the only connected subsets of $\mathbb{R}$ are the empty set,
 
 
 \begin{problembox}[4.39: Connectedness of Intermediate Sets]
+\begin{problemstatement}
 Let $X$ be a connected subset of a metric space $S$. Let $Y$ be a subset of $S$ such that $X \subseteq Y \subseteq \overline{X}$, where $\overline{X}$ is the closure of $X$. Prove that $Y$ is also connected. In particular, this shows that $\overline{X}$ is connected.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use proof by contradiction. If $Y$ were disconnected, it could be written as a union of two disjoint nonempty relatively open sets. The intersection of these sets with $X$ would form a separation of $X$, contradicting the connectedness of $X$.
@@ -1103,7 +1181,9 @@ If $Y$ were disconnected, write $Y=U\cup V$ with disjoint nonempty sets open in 
 
 
 \begin{problembox}[4.40: Closed Components]
+\begin{problemstatement}
 If $x$ is a point in a metric space $S$, let $U(x)$ be the component of $S$ containing $x$. Prove that $U(x)$ is closed in $S$.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the fact that the closure of a connected set is connected. If a sequence in $U(x)$ converges to a point $y$, then $y$ must belong to the closure of $U(x)$, which is connected and contains $x$, hence $y \in U(x)$.
@@ -1114,7 +1194,9 @@ Let $(x_n)\subset U(x)$ with $x_n\to y\in S$. For each $n$, $x_n$ lies in the (m
 
 
 \begin{problembox}[4.41: Components of Open Sets in $\mathbb{R}$]
+\begin{problemstatement}
 Let $S$ be an open subset of $\mathbb{R}$. By Theorem 3.11, $S$ is the union of a countable disjoint collection of open intervals in $\mathbb{R}$. Prove that each of these open intervals is a component of the metric subspace $S$. Explain why this does not contradict Exercise 4.40.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the fact that open intervals are connected and maximal within $S$ (any larger subset would cross a gap and disconnect). For the apparent contradiction, note that components are closed in the subspace topology on $S$, not necessarily in the ambient space $\mathbb{R}$.
@@ -1125,9 +1207,11 @@ Each open interval is connected and maximal (any strictly larger subset within $
 
 
 \begin{problembox}[4.42: $\varepsilon$-Chain Connectedness]
+\begin{problemstatement}
 Given a compact set $S$ in $\mathbb{R}^m$ with the following property: For every pair of points $a$ and $b$ in $S$ and for every $\varepsilon > 0$ there exists a finite set of points $(x_0, x_1, \ldots, x_n)$ in $S$ with $x_0 = a$ and $x_n = b$ such that
 \[\|x_k - x_{k-1}\| < \varepsilon \quad \text{for } k = 1, 2, \ldots, n.\]
 Prove or disprove: $S$ is connected.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use proof by contradiction. If $S$ were disconnected, it could be written as a union of two disjoint nonempty closed sets. By compactness, the distance between these sets is positive, and taking $\varepsilon$ smaller than this distance would prevent any $\varepsilon$-chain from connecting points in different components.
@@ -1138,7 +1222,9 @@ True. Suppose $S=A\cup B$ with disjoint nonempty closed sets. Let $\delta=\mathr
 
 
 \begin{problembox}[4.43: Boundary Characterization of Connectedness]
+\begin{problemstatement}
 Prove that a metric space $S$ is connected if, and only if, every nonempty proper subset of $S$ has a nonempty boundary.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the fact that the boundary of a set $A$ is $\partial A = \overline{A} \cap \overline{S \setminus A}$. If $S$ is connected, then for any proper subset $A$, both $\overline{A}$ and $\overline{S \setminus A}$ must meet, giving a nonempty boundary. For the converse, if some set has empty boundary, it is both open and closed, creating a separation.
@@ -1149,7 +1235,9 @@ If $S$ is connected and $\emptyset\ne A\subsetneq S$, then both $\overline{A}$ a
 
 
 \begin{problembox}[4.44: Convex Implies Connected]
+\begin{problemstatement}
 Prove that every convex subset of $\mathbb{R}^n$ is connected.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the definition of convexity: for any two points $x, y$ in a convex set $C$, the line segment joining them is contained in $C$. Since line segments are connected and any two points can be joined by a connected subset, the set is connected.
@@ -1160,7 +1248,9 @@ If $C$ is convex and $x,y\in C$, then the line segment $\{tx+(1-t)y: t\in[0,1]\}
 
 
 \begin{problembox}[4.45: Image of Disconnected Sets]
+\begin{problemstatement}
 Given a function $f : \mathbb{R}^n \to \mathbb{R}^m$ which is one-to-one and continuous on $\mathbb{R}^n$. If $A$ is open and disconnected in $\mathbb{R}^n$, prove that $f(A)$ is open and disconnected in $\mathbb{R}^m$.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the invariance of domain theorem which states that an injective continuous map from $\mathbb{R}^n$ to itself is open. If $A = U \cup V$ is a separation, then $f(U)$ and $f(V)$ are disjoint open sets whose union is $f(A)$, making $f(A)$ disconnected.
@@ -1171,7 +1261,9 @@ Assume $n=m$. By invariance of domain, an injective continuous map $f:\mathbb{R}
 
 
 \begin{problembox}[4.46: Topologist's Sine Curve]
+\begin{problemstatement}
 Let $A = \{(x, y) : 0 < x \leq 1, y = \sin(1/x)\}$, $B = \{(x, y) : y = 0, -1 \leq x \leq 0\}$, and let $S = A \cup B$. Prove that $S$ is connected but not arcwise connected.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Show connectedness by using the fact that the closure of $A$ includes the vertical segment $\{0\} \times [-1,1]$, making $S$ connected. For path-disconnectedness, show that any continuous path from $(0,0)$ to a point in $A$ would have to intersect infinitely many oscillations of the sine curve, which is impossible for a compact path.
@@ -1236,7 +1328,9 @@ The closure of $A$ adds the vertical segment $\{0\}\times[-1,1]$. The set $S$ eq
 
 
 \begin{problembox}[4.47: Nested Connected Compact Sets]
+\begin{problemstatement}
 Let $F = (F_1, F_2, \ldots)$ be a countable collection of connected compact sets in $\mathbb{R}^s$ such that $F_{k+1} \subseteq F_k$ for each $k \geq 1$. Prove that the intersection $\bigcap_{k=1}^{\infty} F_k$ is connected and closed.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the fact that the intersection of compact sets is compact (hence closed). For connectedness, use proof by contradiction: if the intersection were disconnected, there would exist disjoint open sets separating it, but each $F_k$ is connected and contains the intersection, so it must lie entirely in one of the open sets, leading to a contradiction.
@@ -1247,7 +1341,9 @@ The intersection of compact sets is compact (hence closed). If the intersection 
 
 
 \begin{problembox}[4.48: Complement of Components]
+\begin{problemstatement}
 Let $S$ be an open connected set in $\mathbb{R}^n$. Let $T$ be a component of $\mathbb{R}^n \setminus S$. Prove that $\mathbb{R}^n \setminus T$ is connected.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use proof by contradiction. If $\mathbb{R}^n \setminus T$ were disconnected, it could be written as a union of two disjoint nonempty open sets. Since $S$ is connected and contained in $\mathbb{R}^n \setminus T$, it must lie entirely in one of these sets, but this would create a separation of the boundary of $T$, which is impossible.
@@ -1258,7 +1354,9 @@ Assume $\mathbb{R}^n\setminus T=U\cup V$ is disconnected. Since $S\subset\mathbb
 
 
 \begin{problembox}[4.49: Unbounded Connected Spaces]
+\begin{problemstatement}
 Let $(S, d)$ be a connected metric space which is not bounded. Prove that for every $a$ in $S$ and every $r > 0$, the set $\{x : d(x, a) = r\}$ is nonempty.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the fact that the distance function $x \mapsto d(x,a)$ is continuous from $S$ to $[0,\infty)$. Since $S$ is connected and unbounded, the image of this function must be a connected unbounded subset of $[0,\infty)$ containing $0$, which must be the entire interval $[0,\infty)$.
@@ -1289,7 +1387,9 @@ Let $A$ and $B$ be disjoint closed subsets of a metric space $(S,d)$. Then there
 
 
 \begin{problembox}[4.50: Uniform Implies Continuous]
+\begin{problemstatement}
 Prove that a function which is uniformly continuous on $S$ is also continuous on $S$.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the definitions directly. Uniform continuity provides a $\delta$ that works for all points simultaneously, which immediately implies continuity at each individual point.
@@ -1300,7 +1400,9 @@ Immediate from the definitions: given $\varepsilon>0$, pick $\delta$ working for
 
 
 \begin{problembox}[4.51: Non-Uniform Continuity Example]
+\begin{problemstatement}
 If $f(x) = x^2$ for $x$ in $\mathbb{R}$, prove that $f$ is not uniformly continuous on $\mathbb{R}$.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use proof by contradiction. Assume uniform continuity and find a contradiction by choosing specific points where the difference in function values exceeds any given $\varepsilon$ while the difference in arguments is less than any given $\delta$.
@@ -1311,7 +1413,9 @@ For $\varepsilon=1$, any $\delta>0$ fails by choosing $x=1/\delta$ and $y=x+\tfr
 
 
 \begin{problembox}[4.52: Boundedness of Uniformly Continuous Functions]
+\begin{problemstatement}
 Assume that $f$ is uniformly continuous on a bounded set $S$ in $\mathbb{R}^n$. Prove that $f$ must be bounded on $S$.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the uniform continuity condition to cover $S$ with finitely many balls of radius $\delta$. Since $S$ is bounded, it can be covered by finitely many such balls, and the image of each ball is bounded by continuity at its center.
@@ -1322,7 +1426,9 @@ Cover $S$ by finitely many balls of radius $\delta$ from the uniform continuity 
 
 
 \begin{problembox}[4.53: Composition of Uniformly Continuous Functions]
+\begin{problemstatement}
 Let $f$ be a function defined on a set $S$ in $\mathbb{R}^n$ and assume that $f(S) \subseteq \mathbb{R}^m$. Let $g$ be defined on $f(S)$ with value in $\mathbb{R}^k$, and let $h$ denote the composite function defined by $h(x) = g[f(x)]$ if $x \in S$. If $f$ is uniformly continuous on $S$ and if $g$ is uniformly continuous on $f(S)$, show that $h$ is uniformly continuous on $S$.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the uniform continuity conditions for both $f$ and $g$. Given $\varepsilon > 0$, first find $\eta > 0$ for $g$, then find $\delta > 0$ for $f$ such that when $x$ and $x'$ are close, their images under $f$ are close enough for $g$ to preserve the $\varepsilon$ condition.
@@ -1333,7 +1439,9 @@ Given $\varepsilon>0$, pick $\eta>0$ for $g$ on $f(S)$; pick $\delta>0$ for $f$ 
 
 
 \begin{problembox}[4.54: Preservation of Cauchy Sequences]
+\begin{problemstatement}
 Assume $f : S \to T$ is uniformly continuous on $S$, where $S$ and $T$ are metric spaces. If $(x_n)$ is any Cauchy sequence in $S$, prove that $(f(x_n))$ is a Cauchy sequence in $T$. (Compare with Exercise 4.33.)
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the uniform continuity condition to find $\delta > 0$ for a given $\varepsilon > 0$. Since $(x_n)$ is Cauchy, there exists $N$ such that for $n, m \geq N$, the distance between $x_n$ and $x_m$ is less than $\delta$, which implies the distance between $f(x_n)$ and $f(x_m)$ is less than $\varepsilon$.
@@ -1344,7 +1452,9 @@ Given $\varepsilon>0$, by uniform continuity choose $\delta>0$ such that $d_S(x,
 
 
 \begin{problembox}[4.55: Uniform Continuous Extension]
+\begin{problemstatement}
 Let $f : S \to T$ be a function from a metric space $S$ to another metric space $T$. Assume $f$ is uniformly continuous on a subset $A$ of $S$ and that $T$ is complete. Prove that there is a unique extension of $f$ to $\overline{A}$ which is uniformly continuous on $\overline{A}$.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the fact that any point in $\overline{A}$ is the limit of a sequence in $A$. By Exercise 4.54, the image sequence is Cauchy and converges in the complete space $T$. Define the extension as the limit of these sequences and show it's well-defined and uniformly continuous.
@@ -1355,6 +1465,7 @@ For $x\in\overline{A}$ choose any sequence $(a_n)\subset A$ with $a_n\to x$. The
 
 
 \begin{problembox}[4.56: Distance Function]
+\begin{problemstatement}
 In a metric space $(S, d)$, let $A$ be a nonempty subset of $S$. Define a function $f_A : S \to \mathbb{R}$ by the equation
 \[f_A(x) = \inf \{d(x, y) : y \in A\}\]
 for each $x$ in $S$. The number $f_A(x)$ is called the distance from $x$ to $A$.
@@ -1362,6 +1473,7 @@ for each $x$ in $S$. The number $f_A(x)$ is called the distance from $x$ to $A$.
 \item Prove that $f_A$ is uniformly continuous on $S$.
 \item Prove that $\overline{A} = \{x : x \in S \text{ and } f_A(x) = 0\}$.
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} For (a), use the reverse triangle inequality to show that $|f_A(x) - f_A(z)| \leq d(x,z)$, making $f_A$ 1-Lipschitz and hence uniformly continuous. For (b), use the definition of closure: $x \in \overline{A}$ if and only if there exists a sequence in $A$ converging to $x$, which is equivalent to $f_A(x) = 0$.
@@ -1374,8 +1486,10 @@ for each $x$ in $S$. The number $f_A(x)$ is called the distance from $x$ to $A$.
 
 
 \begin{problembox}[4.57: Separation by Open Sets]
+\begin{problemstatement}
 In a metric space $(S, d)$, let $A$ and $B$ be disjoint closed subsets of $S$. Prove that there exist disjoint open subsets $U$ and $V$ of $S$ such that $A \subseteq U$ and $B \subseteq V$. \\
 \textit{Hint.} Let $g(x) = f_A(x) - f_B(x)$, in the notation of Exercise 4.56, and consider $g^{-1}(-\infty, 0)$ and $g^{-1}(0, +\infty)$.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the hint to define $g(x) = f_A(x) - f_B(x)$, which is continuous as a difference of continuous functions. The sets $U = \{g < 0\}$ and $V = \{g > 0\}$ are open and disjoint, with $A \subseteq U$ and $B \subseteq V$ by the properties of the distance functions.
@@ -1399,6 +1513,7 @@ Let $f$ be defined on an interval containing $c$ except possibly at $c$ itself.
 
 
 \begin{problembox}[4.58: Classification of Discontinuities]
+\begin{problemstatement}
 Locate and classify the discontinuities of the functions $f$ defined on $\mathbb{R}^1$ by the following equations:
 \begin{enumerate}[label=(\alph*)]
 \item $f(x) = (\sin x)/x$ if $x \neq 0$, $f(0) = 0$.
@@ -1406,6 +1521,7 @@ Locate and classify the discontinuities of the functions $f$ defined on $\mathbb
 \item $f(x) = e^{1/x} + \sin(1/x)$ if $x \neq 0$, $f(0) = 0$.
 \item $f(x) = 1/(1 - e^{1/x})$ if $x \neq 0$, $f(0) = 0$.
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} For each function, analyze the behavior as $x \to 0$ from both positive and negative directions. Check if the limit exists and equals the function value (removable), if one-sided limits exist but differ (jump), or if at least one one-sided limit doesn't exist (essential).
@@ -1454,7 +1570,9 @@ Locate and classify the discontinuities of the functions $f$ defined on $\mathbb
 
 
 \begin{problembox}[4.59: Discontinuities in $\mathbb{R}^2$]
+\begin{problemstatement}
 Locate the points in $\mathbb{R}^2$ at which each of the functions in Exercise 4.11 is not continuous.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} This problem refers to Exercise 4.11 which doesn't contain specific functions in this text. If concrete functions were provided, analyze continuity by examining limits along different curves approaching the points of interest, particularly checking if the limit depends on the path taken.
@@ -1488,7 +1606,9 @@ Let $f$ be monotonic on $[a,b]$. Then:
 
 
 \begin{problembox}[4.60: Local Increasing Implies Increasing]
+\begin{problemstatement}
 Let $f$ be defined in the open interval $(a, b)$ and assume that for each interior point $x$ of $(a, b)$ there exists a 1-ball $B(x)$ in which $f$ is increasing. Prove that $f$ is an increasing function throughout $(a, b)$.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the compactness property of closed intervals. For any two points $u < v$ in $(a,b)$, construct a finite chain connecting them where each segment lies within one of the local increasing balls, then use the increasing property on each segment to show $f(u) \leq f(v)$.
@@ -1499,7 +1619,9 @@ Fix $u<v$ in $(a,b)$. Connect $u$ to $v$ by a finite chain $u=x_0<x_1<\cdots<x_k
 
 
 \begin{problembox}[4.61: No Local Extrema Implies Monotonic]
+\begin{problemstatement}
 Let $f$ be continuous on a compact interval $[a, b]$ and assume that $f$ does not have a local maximum or a local minimum at any interior point. Prove that $f$ must be monotonic on $[a, b]$.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the extreme value theorem to show that $f$ attains its maximum and minimum at the endpoints since there are no interior local extrema. This forces the function to be either nondecreasing or nonincreasing, and the intermediate value property excludes oscillation.
@@ -1510,7 +1632,9 @@ By the extreme value theorem, $f$ attains its maximum and minimum at endpoints s
 
 
 \begin{problembox}[4.62: One-to-One Continuous Implies Strictly Monotonic]
+\begin{problemstatement}
 If $f$ is one-to-one and continuous on $[a, b]$, prove that $f$ must be strictly monotonic on $[a, b]$. That is, prove that every topological mapping of $[a, b]$ onto an interval $[c, d]$ must be strictly monotonic.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use proof by contradiction. If $f$ is not strictly monotone, there exist three points $u < v < w$ where $f(v)$ is either greater than both $f(u)$ and $f(w)$ or less than both. By the intermediate value theorem, this value is attained at least twice, contradicting injectivity.
@@ -1521,12 +1645,14 @@ If $f$ is not strictly monotone, there exist $a\le u<v<w\le b$ with either $f(v)
 
 
 \begin{problembox}[4.63: Discontinuities of Increasing Functions]
+\begin{problemstatement}
 Let $f$ be an increasing function defined on $[a, b]$ and let $x_1, \ldots, x_n$ be $n$ points in the interior such that $a < x_1 < x_2 < \cdots < x_n < b$.
 \begin{enumerate}[label=(\alph*)]
 \item Show that $\sum_{k=1}^n [f(x_k+) - f(x_k-)] \leq f(b-) - f(a+)$.
 \item Deduce from part (a) that the set of discontinuities of $f$ is countable.
 \item Prove that $f$ has points of continuity in every open subinterval of $[a, b]$.
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} For (a), use the fact that for increasing functions, the jumps at discontinuities add up and are bounded by the total variation. For (b), show that for each positive integer $m$, the set of points with jump size $\geq 1/m$ is finite. For (c), use proof by contradiction: if all points in a subinterval were discontinuities, the jumps would sum to infinity.
@@ -1541,7 +1667,9 @@ Let $f$ be an increasing function defined on $[a, b]$ and let $x_1, \ldots, x_n$
 
 
 \begin{problembox}[4.64: Strictly Increasing with Discontinuous Inverse]
+\begin{problemstatement}
 Give an example of a function $f$, defined and strictly increasing on a set $S$ in $\mathbb{R}$, such that $f^{-1}$ is not continuous on $f(S)$.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Construct a piecewise function that is strictly increasing but has a jump discontinuity. The inverse will have a corresponding jump, making it discontinuous. Use a function that has different definitions on different intervals with a gap in the range.
@@ -1589,8 +1717,10 @@ Then $f$ is strictly increasing on $[0,1]$, but $f(S)=[0,\tfrac12)\cup\{\tfrac34
 
 
 \begin{problembox}[4.65: Continuity of Strictly Increasing Functions]
+\begin{problemstatement}
 Let $f$ be strictly increasing on a subset $S$ of $\mathbb{R}$. Assume that the image $f(S)$ has one of the following properties: 
 (a) $f(S)$ is open; (b) $f(S)$ is connected; (c) $f(S)$ is closed. Prove that $f$ must be continuous on $S$.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the fact that strictly increasing functions can only have jump discontinuities. A jump at a point would create a gap in the image, which contradicts the given properties: (a) and (b) because gaps disconnect the image, (c) because a gap creates a limit point not in the image.
@@ -1617,12 +1747,14 @@ If $f: \mathbb{R}^n \to \mathbb{R}^n$ is continuous and injective, then $f$ is o
 
 
 \begin{problembox}[4.66: The Metric Space of Bounded Functions]
+\begin{problemstatement}
 Let $B(S)$ denote the set of all real-valued functions which are defined and bounded on a nonempty set $S$. If $f \in B(S)$, let $\|f\| = \sup_{x \in S} |f(x)|$. The number $\|f\|$ is called the "sup norm" of $f$.
 \begin{enumerate}[label=(\alph*)]
 \item Prove that the formula $d(f, g) = \|f - g\|$ defines a metric $d$ on $B(S)$.
 \item Prove that the metric space $(B(S), d)$ is complete. 
 \end{enumerate}
 \textit{Hint.} If $(f_n)$ is a Cauchy sequence in $B(S)$, show that $\{f_n(x)\}$ is a Cauchy sequence of real numbers for each $x$ in $S$.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} For (a), verify the metric axioms using properties of the sup norm. For (b), use the hint to show that for each $x \in S$, the sequence $(f_n(x))$ is Cauchy in $\mathbb{R}$ and converges to some $f(x)$. Then show that the resulting function $f$ is bounded and that $f_n \to f$ in the sup norm.
@@ -1635,11 +1767,13 @@ Let $B(S)$ denote the set of all real-valued functions which are defined and bou
 
 
 \begin{problembox}[4.67: The Metric Space of Continuous Bounded Functions]
+\begin{problemstatement}
 Refer to Exercise 4.66 and let $C(S)$ denote the subset of $B(S)$ consisting of all functions continuous and bounded on $S$, where now $S$ is a metric space.
 \begin{enumerate}[label=(\alph*)]
 \item Prove that $C(S)$ is a closed subset of $B(S)$.
 \item Prove that the metric subspace $C(S)$ is complete.
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} For (a), use the fact that the uniform limit of continuous functions is continuous. For (b), use the result that closed subspaces of complete metric spaces are complete, or repeat the proof from Exercise 4.66 and use uniform convergence to preserve continuity.
@@ -1652,11 +1786,13 @@ Refer to Exercise 4.66 and let $C(S)$ denote the subset of $B(S)$ consisting of 
 
 
 \begin{problembox}[4.68: Application of the Fixed-Point Theorem]
+\begin{problemstatement}
 Refer to the proof of the fixed-point theorem (Theorem 4.48) for notation.
 \begin{enumerate}[label=(\alph*)]
 \item Prove that $d(p_n, p_{n+1}) \leq d(x, f(x)) \alpha^n / (1 - \alpha)$. This inequality, which is useful in numerical work, provides an estimate for the distance from $p_n$ to the fixed point $p$. An example is given in (b).
 \item Take $f(x) = (x + 2/x)/2$, $S = [1, +\infty)$. Prove that $f$ is a contraction of $S$ with contraction constant $\alpha = 1/2$ and fixed point $p = \sqrt{2}$. Form the sequence $(p_n)$ starting with $x=p_0=1$ and show that $|p_n - \sqrt{2}| \le 2^{-n}$.
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} For (a), use the contraction property to bound the distance between consecutive iterates and sum the geometric series. For (b), show that $f$ is a contraction by analyzing its derivative, find the fixed point by solving $f(x) = x$, and apply the bound from (a).
@@ -1708,7 +1844,9 @@ d(p_n,p)\le \sum_{k=0}^{\infty} d(p_{n+k},p_{n+k+1})\le d(x,f(x))\sum_{k=0}^{\in
 
 
 \begin{problembox}[4.69: Necessity of Conditions for Fixed-Point Theorem]
+\begin{problemstatement}
 Show by counterexamples that the fixed-point theorem for contractions need not hold if either (a) the underlying metric space is not complete, or (b) the contraction constant $\alpha \ge 1$.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} For (a), use a non-complete metric space and a contraction whose fixed point lies outside the space. For (b), use functions that are Lipschitz with constant $\geq 1$ but have no fixed points, such as translations or dilations.
@@ -1721,11 +1859,13 @@ Show by counterexamples that the fixed-point theorem for contractions need not h
 
 
 \begin{problembox}[4.70: Generalized Fixed-Point Theorem]
+\begin{problemstatement}
 Let $f: S \to S$ be a function from a complete metric space $(S, d)$ into itself. Assume there is a real sequence $(a_n)$ which converges to $0$ such that $d(f^n(x), f^n(y)) \le a_n d(x, y)$ for all $n \ge 1$ and all $x, y$ in $S$, where $f^n$ is the $n$th iterate of $f$, that is, 
 
 $f^1(x) = f(x)$, $f^{n+1}(x) = f(f^n(x))$, for $n \ge 1$. 
 
 Prove that $f$ has a unique fixed point. \textit{Hint.} Apply the fixed-point theorem to $f^m$ for a suitable $m$.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the hint to find a large enough $m$ such that $a_m < 1$, making $f^m$ a contraction. Apply the contraction mapping theorem to $f^m$ to find a unique fixed point $p$, then show that $f(p)$ is also a fixed point of $f^m$, hence $f(p) = p$.
@@ -1736,6 +1876,7 @@ Pick $m$ large so that $a_m<1$. Then $f^m$ is a contraction: $d(f^m(x),f^m(y))\l
 
 
 \begin{problembox}[4.71: Fixed Points for Distance-Shrinking Maps]
+\begin{problemstatement}
 Let $f: S \to S$ be a function from a metric space $(S, d)$ into itself such that
 \[ d(f(x), f(y)) < d(x, y) \quad \text{whenever } x \neq y. \]
 \begin{enumerate}[label=(\alph*)]
@@ -1743,6 +1884,7 @@ Let $f: S \to S$ be a function from a metric space $(S, d)$ into itself such tha
 \item If $S$ is compact, prove that $f$ has exactly one fixed point. \textit{Hint.} Show that $g(x) = d(x, f(x))$ attains its minimum on $S$.
 \item Give an example with $S$ compact in which $f$ is not a contraction.
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} For (a), use proof by contradiction: if there were two fixed points, their distance would be preserved, contradicting the shrinking property. For (b), use the hint and compactness to find a minimum of $g(x) = d(x, f(x))$, then show this minimum must be zero. For (c), find a function that shrinks distances but is not Lipschitz with constant $< 1$.
@@ -1757,6 +1899,7 @@ Let $f: S \to S$ be a function from a metric space $(S, d)$ into itself such tha
 
 
 \begin{problembox}[4.72: Iterated Function Systems]
+\begin{problemstatement}
 Assume that $f$ satisfies the condition in Exercise 4.71. If $x \in S$, let $p_0 = x$, $p_{n+1} = f(p_n)$, and $c_n = d(p_n, p_{n+1})$ for $n \geq 0$.
 \begin{enumerate}[label=(\alph*)]
 \item Prove that $\{c_n\}$ is a decreasing sequence, and let $c = \lim c_n$.
@@ -1764,6 +1907,7 @@ Assume that $f$ satisfies the condition in Exercise 4.71. If $x \in S$, let $p_0
 \[c = d(q, f(q)) = d(f(q), f[f(q)])].\]
 Deduce that $q$ is a fixed point of $f$ and that $p_n \to q$.
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} For (a), use the shrinking property to show that each $c_{n+1} < c_n$, making the sequence decreasing and convergent. For (b), use continuity of $f$ and the shrinking property to show that if $q$ is not a fixed point, then $d(f(q), f(f(q))) < d(q, f(q))$, contradicting the definition of $c$.

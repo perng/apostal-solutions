@@ -14,8 +14,10 @@
 
 
 \begin{problembox}[10.1: Properties of max and min functions]
+\begin{problemstatement}
 Prove that $\max(f, g) + \min(f, g) = f + g$, and that 
 \[ \max(f + h, g + h) = \max(f, g) + h, \quad \min(f + h, g + h) = \min(f, g) + h. \]
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the algebraic properties of max and min functions for real numbers, then apply these properties pointwise to functions. The key insight is that adding the same value to both arguments of max/min doesn't change which one is larger.
@@ -33,11 +35,13 @@ This is because adding the same number $h(x)$ to both $f(x)$ and $g(x)$ doesn't 
 
 
 \begin{problembox}[10.2: Sequences of max and min functions]
+\begin{problemstatement}
 Let $\{f_n\}$ and $\{g_n\}$ be increasing sequences of functions on an interval $I$. Let $u_n = \max(f_n, g_n)$ and $v_n = \min(f_n, g_n)$.
 \begin{enumerate}[label=(\alph*)]
 \item Prove that $\{u_n\}$ and $\{v_n\}$ are increasing on $I$.
 \item If $f_n \to f$ a.e. on $I$ and if $g_n \to g$ a.e. on $I$, prove that $u_n \to \max(f, g)$ and $v_n \to \min(f, g)$ a.e. on $I$.
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} For part (a), use the monotonicity of max and min functions: if both arguments increase, the max and min also increase. For part (b), use the continuity of max and min functions to interchange limits with these operations.
@@ -71,7 +75,9 @@ Therefore, $u_n \to \max(f, g)$ and $v_n \to \min(f, g)$ almost everywhere on $I
 
 
 \begin{problembox}[10.3: Divergence of integral sequence]
+\begin{problemstatement}
 Let $\{s_n\}$ be an increasing sequence of step functions which converges pointwise on an interval $I$ to a limit function $f$. If $I$ is unbounded and if $f(x) \geq 1$ almost everywhere on $I$, prove that the sequence $\{\int_I s_n\}$ diverges.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the fact that step functions are bounded on bounded intervals and the convergence properties. Since $f(x) \geq 1$ a.e., for large enough $n$, the step functions $s_n$ will be bounded below by a positive constant on a sufficiently large subinterval, leading to divergence.
@@ -90,6 +96,7 @@ Since $J \subset I$, we have $\int_I s_n \geq \int_J s_n \geq M/2$. Since $M$ ca
 
 
 \begin{problembox}[10.4: Example of upper function]
+\begin{problemstatement}
 This exercise gives an example of an upper function $f$ on the interval $I = [0, 1]$ such that $-f \notin U(I)$. Let $\{r_1, r_2, \ldots\}$ denote the set of rational numbers in $[0, 1]$ and let $I_n = [r_n - 4^{-n}, r_n + 4^{-n}] \cap I$. Let $f(x) = 1$ if $x \in I_n$ for some $n$, and let $f(x) = 0$ otherwise.
 \begin{enumerate}[label=(\alph*)]
 \item Let $f_n(x) = 1$ if $x \in I_n$, $f_n(x) = 0$ if $x \notin I_n$, and let $s_n = \max(f_1, \ldots, f_n)$. Show that $\{s_n\}$ is an increasing sequence of step functions which generates $f$. This shows that $f \in U(I)$.
@@ -97,6 +104,7 @@ This exercise gives an example of an upper function $f$ on the interval $I = [0,
 \item If a step function $s$ satisfies $s(x) \leq -f(x)$ on $I$, show that $s(x) \leq -1$ almost everywhere on $I$ and hence $\int_I s \leq -1$.
 \item Assume that $-f \in U(I)$ and use (b) and (c) to obtain a contradiction.
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Construct a function that is an upper function but whose negative is not. Use the density of rationals and the fact that step functions are continuous except at finitely many points. The contradiction in part (d) arises from the fact that if $-f \in U(I)$, its integral would be bounded, but the step function approximations would have integrals that are too negative.
@@ -134,8 +142,10 @@ But this contradicts part (b) because if $t_n \to -f$ and $\int_I f \leq 2/3$, t
 
 
 \begin{problembox}[10.5: Non-interchangeable limit and integral]
+\begin{problemstatement}
 If $f_n(x) = e^{-nx} - 2e^{-2nx}$, show that 
 \[\sum_{n=1}^{\infty} \int_{0}^{\infty} f_n(x) \, dx \neq \int_{0}^{\infty} \sum_{n=1}^{\infty} f_n(x) \, dx.\]
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Compute both sides explicitly. The left side involves integrating each $f_n$ individually and then summing, while the right side involves summing the series first and then integrating. The key is that the individual integrals are zero, but the sum of the series is not zero.
@@ -170,11 +180,13 @@ This integral is not zero (it can be computed using substitution and partial fra
 
 
 \begin{problembox}[10.6: Integral evaluations]
+\begin{problemstatement}
 Justify the following equations:
 \begin{enumerate}[label=(\alph*)]
 \item $\int_{0}^{1} \log \frac{1}{1-x} \, dx = \int_{0}^{1} \sum_{n=1}^{\infty} \frac{x^n}{n} \, dx = \sum_{n=1}^{\infty} \frac{1}{n} \int_{0}^{1} x^n \, dx = 1.$
 \item $\int_{0}^{1} \frac{x^{p-1}}{1-x} \log \left( \frac{1}{x} \right) \, dx = \sum_{n=0}^{\infty} \frac{1}{(n+p)^2} \quad (p > 0).$
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use power series expansions and justify interchanging sum and integral using uniform convergence on compact subsets. For part (a), expand $-\log(1-x)$ as a power series. For part (b), expand $\frac{1}{1-x}$ as a geometric series and use integration by parts.
@@ -208,6 +220,7 @@ Therefore:
 
 
 \begin{problembox}[10.7: Tannery's convergence theorem]
+\begin{problemstatement}
 Prove Tannery's convergence theorem for Riemann integrals: Given a sequence of functions $\{f_n\}$ and an increasing sequence $\{p_n\}$ of real numbers such that $p_n \to +\infty$ as $n \to \infty$. Assume that
 \begin{enumerate}[label=(\alph*)]
 \item $f_n \to f$ uniformly on $[a,b]$ for every $b \geq a$.
@@ -221,6 +234,7 @@ Then both $f$ and $|f|$ are improper Riemann-integrable on $[a,+\infty)$, the se
 \item Use Tannery's theorem to prove that
 \[\lim_{n \to \infty} \int_{0}^{n} \left( 1 - \frac{x}{n} \right)^n x^p \, dx = \int_{0}^{\infty} e^{-x}x^p \, dx, \quad \text{if } p > -1.\]
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use uniform convergence to show that the limit function is integrable, and use the domination condition to ensure the improper integral converges. For part (b), apply the theorem with $f_n(x) = (1 - \frac{x}{n})^n x^p$ for $0 \leq x \leq n$ and $f_n(x) = 0$ for $x > n$.
@@ -259,11 +273,13 @@ Therefore, by Tannery's theorem:
 
 
 \begin{problembox}[10.8: Fatou's lemma]
+\begin{problemstatement}
 Prove Fatou's lemma: Given a sequence $\{f_n\}$ of nonnegative functions in $L(I)$ such that (a) $\{f_n\}$ converges almost everywhere on $I$ to a limit function $f$, and (b) $\int_I f_n \leq A$ for some $A > 0$ and all $n \geq 1$. Then the limit function $f \in L(I)$ and $\int_I f \leq A$.
 
 \textbf{Note.} It is not asserted that $\{f_n\}$ converges. (Compare with Theorem 10.24.)
 
 \textbf{Hint.} Let $g_n(x) = \inf \{f_n(x), f_{n+1}(x), \ldots\}$. Then $g_n \to f$ a.e. on $I$ and $\int_I g_n \leq \int_I f_n \leq A$ so $\lim_{n \to \infty} \int_I g_n$ exists and is $\leq A$. Now apply Theorem 10.24.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Follow the hint to construct an increasing sequence $\{g_n\}$ of measurable functions that converges to $f$ almost everywhere. Use the Monotone Convergence Theorem to conclude that $f$ is integrable and its integral is bounded by $A$.
@@ -298,6 +314,7 @@ This proves Fatou's lemma.\qed
 
 
 \begin{problembox}[10.9: Existence of improper integrals]
+\begin{problemstatement}
 \begin{enumerate}[label=(\alph*)]
 \item If $p > 1$, prove that the integral $\int_1^{+\infty} x^{-p} \sin x \, dx$ exists both as an improper Riemann integral and as a Lebesgue integral. \textbf{Hint.} Integration by parts.
 \item If $0 < p \leq 1$, prove that the integral in (a) exists as an improper Riemann integral but not as a Lebesgue integral. \textbf{Hint.} Let
@@ -309,6 +326,7 @@ This proves Fatou's lemma.\qed
 and show that
 \[\int_{1}^{m\pi} x^{-p} |\sin x| \, dx \geq \int_{\pi}^{m\pi} g(x) \, dx \geq \frac{\sqrt{2}}{4} \sum_{k=2}^{n} \frac{1}{k}.\]
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} For part (a), use integration by parts to show convergence. For part (b), use the hint to construct a lower bound that diverges, showing that the absolute integral diverges while the improper Riemann integral converges due to cancellation.
@@ -345,6 +363,7 @@ Since the harmonic series $\sum_{k=2}^{\infty} \frac{1}{k}$ diverges, the integr
 
 
 \begin{problembox}[10.10: Trigonometric integrals]
+\begin{problemstatement}
 \begin{enumerate}[label=(\alph*)]
 \item Use the trigonometric identity $\sin 2x = 2 \sin x \cos x$, along with the formula $\int_{0}^{\infty} \sin x/x \, dx = \pi/2$, to show that
 \[\int_{0}^{\infty} \frac{\sin x \cos x}{x} \, dx = \frac{\pi}{4}.\]
@@ -355,6 +374,7 @@ Since the harmonic series $\sum_{k=2}^{\infty} \frac{1}{k}$ diverges, the integr
 \item Use the result of (c) to obtain
 \[\int_{0}^{\infty} \frac{\sin^4 x}{x^4} \, dx = \frac{\pi}{3}.\]
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use trigonometric identities and integration by parts systematically. Start with the double-angle formula, then use integration by parts to relate different powers of sine, and finally use the Pythagorean identity to express higher powers in terms of lower ones.
@@ -390,7 +410,9 @@ The boundary term vanishes, and using the identity $\sin^3 x \cos x = \frac{1}{4
 
 
 \begin{problembox}[10.11: Existence of logarithmic integrals]
+\begin{problemstatement}
 If $a > 1$, prove that the integral $\int_{a}^{+\infty} x^p (\log x)^q \, dx$ exists, both as an improper Riemann integral and as a Lebesgue integral for all $q$ if $p < -1$, or for $q < -1$ if $p = -1$.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use comparison tests and the fact that logarithmic growth is slower than any power growth. For $p < -1$, compare with $x^p$. For $p = -1$, use the substitution $u = \log x$ to transform the integral.
@@ -411,11 +433,13 @@ For $p > -1$, the integral diverges because $x^p$ grows faster than any power of
 
 
 \begin{problembox}[10.12: Existence of integrals]
+\begin{problemstatement}
 Prove that each of the following integrals exists, both as an improper Riemann integral and as a Lebesgue integral.
 \begin{enumerate}[label=(\alph*)]
 \item $\int_{1}^{\infty} \sin^2 \frac{1}{x} \, dx$,
 \item $\int_{0}^{\infty} x^pe^{-x^q} \, dx \quad (p > 0, q > 0)$.
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} For part (a), use the fact that $\sin^2 \frac{1}{x} \sim \frac{1}{x^2}$ as $x \to \infty$. For part (b), split the integral into $[0,1]$ and $[1,\infty)$, and use the fact that exponential decay dominates polynomial growth.
@@ -440,6 +464,7 @@ Therefore, both the improper Riemann integral and the Lebesgue integral exist.
 
 
 \begin{problembox}[10.13: Determine existence of integrals]
+\begin{problemstatement}
 Determine whether or not each of the following integrals exists, either as an improper Riemann integral or as a Lebesgue integral.
 \begin{enumerate}[label=(\alph*)]
 \item $\int_{0}^{\infty} e^{-(t^2 + t^{-2})} \, dt$,
@@ -449,6 +474,7 @@ Determine whether or not each of the following integrals exists, either as an im
 \item $\int_{0}^{1} \log x \sin \frac{1}{x} \, dx$,
 \item $\int_{0}^{\infty} e^{-x} \log (\cos^2 x) \, dx$.
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Analyze each integral by checking behavior at singularities and infinity. Use comparison tests, integration by parts, and the fact that exponential decay dominates polynomial growth. Pay attention to the difference between absolute convergence (Lebesgue) and conditional convergence (improper Riemann).
@@ -491,6 +517,7 @@ However, $\log (\cos^2 x) = -\infty$ when $\cos x = 0$, which happens at $x = \f
 
 
 \begin{problembox}[10.14: Parameter-dependent integrals]
+\begin{problemstatement}
 Determine those values of $p$ and $q$ for which the following Lebesgue integrals exist.
 \begin{enumerate}[label=(\alph*)]
 \item $\int_{0}^{1} x^p (1 - x^2)^q \, dx$,
@@ -500,6 +527,7 @@ Determine those values of $p$ and $q$ for which the following Lebesgue integrals
 \item $\int_{0}^{\infty} \frac{x^{p-1}}{1 + x^q} \, dx$,
 \item $\int_{\pi}^{\infty} (\log x)^p (\sin x)^{-1/3} \, dx$.
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} For each integral, analyze the behavior at endpoints and singularities. Use comparison tests and asymptotic analysis. For integrals with multiple parameters, determine the conditions needed for convergence at each problematic point.
@@ -555,12 +583,14 @@ Therefore, the integral does not exist for any value of $p$.
 
 
 \begin{problembox}[10.15: Integral evaluations]
+\begin{problemstatement}
 Prove that the following improper Riemann integrals have the values indicated ($m$ and $n$ denote positive integers).
 \begin{enumerate}[label=(\alph*)]
 \item $\int_{0}^{\infty} \frac{\sin^{2n+1} x}{x} \, dx = \frac{\pi(2n)!}{2^{2n+1}(n!)^2}$,
 \item $\int_{1}^{\infty} \frac{\log x}{x^{n+1}} \, dx = n^{-2}$,
 \item $\int_{0}^{\infty} x^n (1 + x)^{n-m-1} \, dx = \frac{n!(m-1)!}{(m+n)!}$.
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} For part (a), use trigonometric identities to express odd powers of sine in terms of multiple angles. For part (b), use integration by parts. For part (c), use the substitution $u = \frac{x}{1+x}$ to relate to the beta function.
@@ -591,7 +621,9 @@ This is the beta function $B(n+1, m) = \frac{\Gamma(n+1)\Gamma(m)}{\Gamma(n+m+1)
 
 
 \begin{problembox}[10.16: Periodic function integral]
+\begin{problemstatement}
 Given that $f$ is Riemann-integrable on $[0, 1]$, that $f$ is periodic with period 1, and that $\int_{0}^{1} f(x) \, dx = 0$. Prove that the improper Riemann integral $\int_{1}^{\infty} x^{-s} f(x) \, dx$ exists if $s > 0$. \textbf{Hint.} Let $g(x) = \int_{1}^{x} f(t) \, dt$ and write $\int_{1}^{x} x^{-s} f(x) \, dx = \int_{1}^{x} x^{-s} dg(x)$.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Follow the hint to use integration by parts in Stieltjes form. The key insight is that since $f$ has mean zero over its period, the function $g(x)$ is bounded, which allows the integration by parts to work.
@@ -618,6 +650,7 @@ Therefore, the integral $\int_{1}^{\infty} t^{-s-1} g(t) \, dt$ converges absolu
 
 
 \begin{problembox}[10.17: Limit of integral transformations]
+\begin{problemstatement}
 Assume that $f \in R$ on $[a, b]$ for every $b > a > 0$. Define $g$ by the equation $xg(x) = \int_{1}^{x} f(t) \, dt$ if $x > 0$, assume that the limit $\lim_{x \to +\infty} g(x)$ exists, and denote this limit by $B$. If $a$ and $b$ are fixed positive numbers, prove that
 \begin{enumerate}[label=(\alph*)]
 \item $\int_{a}^{b} \frac{f(x)}{x} \, dx = g(b) - g(a) + \int_{a}^{b} \frac{g(x)}{x} \, dx.$
@@ -632,6 +665,7 @@ Assume that $f \in R$ on $[a, b]$ for every $b > a > 0$. Define $g$ by the equat
 and use this result to evaluate the following integrals:
 \[\int_{0}^{\infty} \frac{\cos ax - \cos bx}{x} \, dx, \quad \int_{0}^{\infty} \frac{e^{-ax} - e^{-bx}}{x} \, dx.\]
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use integration by parts and the relationship between $f$ and $g$. The key insight is that $g$ represents the average of $f$ up to $x$, and the limits $A$ and $B$ represent the behavior of $f$ at $0$ and $\infty$ respectively.
@@ -728,6 +762,7 @@ For $f(x) = e^{-x}$, we have $B = 0$ (since $e^{-x} \to 0$ as $x \to \infty$) an
 
 
 \begin{problembox}[10.18: Existence of Lebesgue integrals]
+\begin{problemstatement}
 Prove that each of the following exists as a Lebesgue integral.
 \begin{enumerate}[label=(\alph*)]
 \item $\int_{0}^{1} \frac{x \log x}{(1 + x)^2} \, dx$,
@@ -735,6 +770,7 @@ Prove that each of the following exists as a Lebesgue integral.
 \item $\int_{0}^{1} \log x \log (1 + x) \, dx$,
 \item $\int_{0}^{1} \frac{\log (1 - x)}{(1 - x)^{1/2}} \, dx.$
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Check the behavior at endpoints and singularities. Use the fact that $x \log x \to 0$ as $x \to 0^+$ and L'Hôpital's rule for indeterminate forms. For part (d), use the fact that $\log(1-x) \sim -(1-x)$ as $x \to 1^-$.
@@ -773,7 +809,9 @@ Therefore, the Lebesgue integral exists.
 
 
 \begin{problembox}[10.19: Existence of singular integral]
+\begin{problemstatement}
 Assume that $f$ is continuous on $[0, 1]$, $f(0) = 0$, $f'(0)$ exists. Prove that the Lebesgue integral $\int_{0}^{1} f(x)x^{-3/2} \, dx$ exists.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the fact that $f(x) = f'(0)x + o(x)$ as $x \to 0^+$ since $f'(0)$ exists. This means the integrand behaves like $f'(0)x^{-1/2} + o(x^{-1/2})$, and $\int_0^1 x^{-1/2} \, dx$ converges.
@@ -788,6 +826,7 @@ Since $\int_{0}^{1} x^{-1/2} \, dx$ converges (it equals 2), and the $o(x^{-1/2}
 
 
 \begin{problembox}[10.20: Existence/non-existence of integrals]
+\begin{problemstatement}
 Prove that the integrals in (a) and (c) exist as Lebesgue integrals but that those in (b) and (d) do not.
 \begin{enumerate}[label=(\alph*)]
 \item $\int_{0}^{\infty} x^2 e^{-x^8 \sin^2 x} \, dx$,
@@ -796,6 +835,7 @@ Prove that the integrals in (a) and (c) exist as Lebesgue integrals but that tho
 \item $\int_{1}^{\infty} \frac{dx}{1 + x^2 \sin^2 x}.$
 \end{enumerate}
 \textbf{Hint.} Obtain upper and lower bounds for the integrals over suitably chosen neighborhoods of the points $n\pi$ ($n = 1, 2, 3, \ldots$).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Follow the hint to analyze the behavior near $x = n\pi$ where $\sin x = 0$. Use the fact that $\sin^2 x \sim (x - n\pi)^2$ near these points to estimate the integrands and determine convergence.
@@ -854,6 +894,7 @@ Since $\sum_{n=1}^{\infty} \frac{1}{n}$ diverges, the Lebesgue integral does not
 
 
 \begin{problembox}[10.21: Domain of integral functions]
+\begin{problemstatement}
 Determine the set $S$ of those real values of $y$ for which each of the following integrals exists as a Lebesgue integral.
 \begin{enumerate}[label=(\alph*)]
 \item $\int_{0}^{\infty} \frac{\cos xy}{1 + x^2} \, dx$,
@@ -861,6 +902,7 @@ Determine the set $S$ of those real values of $y$ for which each of the followin
 \item $\int_{0}^{\infty} \frac{\sin^2 xy}{x^2} \, dx$,
 \item $\int_{0}^{\infty} e^{-x^2} \cos 2xy \, dx.$
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use comparison tests and the fact that trigonometric functions are bounded. For each integral, determine the values of $y$ for which the integrand is dominated by an integrable function.
@@ -898,7 +940,9 @@ Therefore, $S = \mathbb{R}$.
 
 
 \begin{problembox}[10.22: Differential equation for integral]
+\begin{problemstatement}
 Let $F(y) = \int_{0}^{\infty} e^{-x^2} \cos 2xy \, dx$ if $y \in \mathbb{R}$. Show that $F$ satisfies the differential equation $F'(y) + 2y F(y) = 0$ and deduce that $F(y) = \frac{1}{2} \sqrt{\pi} e^{-y^2}$. (Use the result $\int_{0}^{\infty} e^{-x^2} \, dx = \frac{1}{2} \sqrt{\pi}$, derived in Exercise 7.19.)
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Differentiate under the integral sign to find $F'(y)$, then use integration by parts to show that $F'(y) + 2y F(y) = 0$. Solve this differential equation and use the initial condition $F(0) = \frac{1}{2} \sqrt{\pi}$.
@@ -936,6 +980,7 @@ The general solution to this differential equation is $F(y) = C e^{-y^2}$ for so
 
 
 \begin{problembox}[10.23: Integral with trigonometric kernel]
+\begin{problemstatement}
 Let $F(y) = \int_{0}^{\infty} \frac{\sin xy}{x(x^2 + 1)} \, dx$ if $y > 0$. Show that $F$ satisfies the differential equation $F''(y) - F(y) + \pi / 2 = 0$ and deduce that $F(y) = \frac{1}{2} \pi (1 - e^{-y})$. Use this result to deduce the following equations, valid for $y > 0$ and $a > 0$:
 \begin{align*}
 \int_{0}^{\infty} \frac{\sin xy}{x(x^2 + a^2)} \, dx &= \frac{\pi}{2a^2} (1 - e^{-ay}), \\
@@ -943,6 +988,7 @@ Let $F(y) = \int_{0}^{\infty} \frac{\sin xy}{x(x^2 + 1)} \, dx$ if $y > 0$. Show
 \int_{0}^{\infty} \frac{x \sin xy}{x^2 + a^2} \, dx &= \frac{\pi}{2} e^{-ay}.
 \end{align*}
 \textbf{Note.} You may use $\int_{0}^{\infty} \frac{\sin x}{x} \, dx = \frac{\pi}{2}.$
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Differentiate under the integral sign twice to find $F'(y)$ and $F''(y)$, then use integration by parts and the given integral to derive the differential equation. Solve the differential equation and use scaling to handle the general case with parameter $a$.
@@ -1009,11 +1055,13 @@ For the third integral, we can use the fact that:
 
 
 \begin{problembox}[10.24: Non-interchangeable iterated integrals]
+\begin{problemstatement}
 Show that $\int_{1}^{\infty} \left[ \int_{1}^{\infty} f(x, y) \, dx \right] dy \neq \int_{1}^{\infty} \left[ \int_{1}^{\infty} f(x, y) \, dy \right] dx$ if
 \begin{enumerate}[label=(\alph*)]
 \item $f(x, y) = \frac{x - y}{(x + y)^3}$,
 \item $f(x, y) = \frac{x^2 - y^2}{(x^2 + y^2)^2}.$
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Compute both iterated integrals explicitly using integration by parts and partial fractions. The key is that these functions are not absolutely integrable, so Fubini's theorem doesn't apply and the order of integration matters.
@@ -1100,11 +1148,13 @@ The integrals are different because the order of integration affects the converg
 
 
 \begin{problembox}[10.25: Non-interchangeable integration order]
+\begin{problemstatement}
 Show that the order of integration cannot be interchanged in the following integrals:
 \begin{enumerate}[label=(\alph*)]
 \item $\int_{0}^{1} \left[ \int_{0}^{1} \frac{x - y}{(x + y)^{3}} \, dx \right] dy$,
 \item $\int_{0}^{1} \left[ \int_{1}^{\infty} (e^{-xy} - 2e^{-2xy}) \, dy \right] dx.$
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Compute both orders of integration explicitly and show they give different results. For part (a), use integration by parts. For part (b), use the fact that the inner integral depends on $x$ in a way that makes the outer integral different when the order is changed.
@@ -1183,10 +1233,12 @@ This integral also converges. The order of integration can be interchanged in th
 
 
 \begin{problembox}[10.26: Integral evaluation via iterated integral]
+\begin{problemstatement}
 Let $f(x, y) = \int_{0}^{\infty} dt / [(1 + x^{2}t^{2})(1 + y^{2}t^{2})]$ if $(x, y) \neq (0, 0)$. Show (by methods of elementary calculus) that $f(x, y) = \frac{1}{2}\pi(x + y)^{-1}$. Evaluate the iterated integral $\int_{0}^{1} \left[ \int_{0}^{1} f(x, y) \, dx \right] dy$ to derive the formula:
 \begin{align*}
 \int_{0}^{\infty} \frac{(\arctan x)^{2}}{x^{2}} \, dx = \pi \log 2.
 \end{align*}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use partial fractions to evaluate $f(x, y)$, then compute the iterated integral. Use Fubini's theorem to interchange the order of integration and relate the result to the desired integral.
@@ -1262,11 +1314,13 @@ Therefore:
 
 
 \begin{problembox}[10.27: Trigonometric integral evaluation]
+\begin{problemstatement}
 Let $f(y) = \int_{0}^{\infty} \frac{\sin x \cos xy}{x} \, dx$ if $y \geq 0$. Show (by methods of elementary calculus) that $f(y) = \pi/2$ if $0 \leq y < 1$ and that $f(y) = 0$ if $y > 1$. Evaluate the integral $\int_{0}^{1} f(y) \, dy$ to derive the formula
 \[\int_{0}^{\infty} \frac{\sin ax \sin x}{x^{2}} \, dx = \begin{cases} 
 \frac{\pi a}{2} & \text{if } 0 \leq a \leq 1, \\
 \frac{\pi}{2} & \text{if } a \geq 1.
 \end{cases}\]
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the trigonometric identity $\sin x \cos xy = \frac{1}{2}[\sin(x(1+y)) + \sin(x(1-y))]$ and the known integral $\int_0^{\infty} \frac{\sin(ax)}{x} \, dx = \frac{\pi}{2}$ for $a > 0$. Then use Fubini's theorem to interchange the order of integration.
@@ -1309,6 +1363,7 @@ If $0 \leq a \leq 1$, this equals $\frac{\pi a}{2}$. If $a \geq 1$, this equals 
 
 
 \begin{problembox}[10.28: Series of integrals]
+\begin{problemstatement}
 \begin{enumerate}[label=(\alph*)]
 \item If $s > 0$ and $a > 0$, show that the series
 \[\sum_{n=1}^{\infty} \frac{1}{n} \int_{a}^{\infty} \frac{\sin 2n\pi x}{x^{s}} \, dx\]
@@ -1318,6 +1373,7 @@ converges and prove that
 \[\int_{0}^{\infty} \frac{f(x)}{x^{s}} \, dx = (2\pi)^{s-1} \zeta (2 - s) \int_{0}^{\infty} \frac{\sin t}{t^{s}} \, dt, \quad \text{if } 0 < s < 1,\]
 where $\zeta$ denotes the Riemann zeta function.
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} For part (a), use integration by parts to show that the individual integrals are bounded, then use the fact that $\sum_{n=1}^{\infty} \frac{1}{n^2}$ converges. For part (b), interchange sum and integral using uniform convergence, then use scaling to relate to the zeta function.
@@ -1361,6 +1417,7 @@ As $a \to +\infty$, each term approaches 0, so the limit is 0.
 
 
 \begin{problembox}[10.29: Derivatives of Gamma function]
+\begin{problemstatement}
 \begin{enumerate}[label=(\alph*)]
 \item Derive the following formula for the nth derivative of the Gamma function:
 \begin{align*}
@@ -1372,6 +1429,7 @@ As $a \to +\infty$, each term approaches 0, so the limit is 0.
 \end{align*}
 \item Use (b) to show that $\Gamma^{(n)}(1)$ has the same sign as $(-1)^{n}$.
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} For part (a), differentiate under the integral sign. For part (b), split the integral into $[0,1]$ and $[1,\infty)$ and use the substitution $u = 1/t$ in the second part. For part (c), analyze the sign of the integrand.
@@ -1408,7 +1466,9 @@ Therefore:
 
 
 \begin{problembox}[10.30: Properties of Gamma function]
+\begin{problemstatement}
 Use the result $\int_{0}^{\infty} e^{-x^{2}} \, dx = \frac{1}{2} \sqrt{\pi}$ to prove that $\Gamma(\frac{1}{2}) = \sqrt{\pi}$. Prove that $\Gamma(n + 1) = n!$ and that $\Gamma(n + \frac{1}{2}) = (2n)! \sqrt{\pi}/4^{n}n!$ if $n = 0, 1, 2, \ldots$.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the substitution $t = x^2$ to relate $\Gamma(1/2)$ to the given integral. Use the functional equation $\Gamma(x+1) = x\Gamma(x)$ and induction to prove the factorial formula. Use the functional equation repeatedly to express $\Gamma(n + 1/2)$ in terms of $\Gamma(1/2)$.
@@ -1442,12 +1502,14 @@ Finally, let's prove that $\Gamma(n + \frac{1}{2}) = (2n)! \sqrt{\pi}/4^{n}n!$:
 
 
 \begin{problembox}[10.31: Series representation of Gamma function]
+\begin{problemstatement}
 \begin{enumerate}[label=(\alph*)]
 \item Show that for $x > 0$ we have the series representation
 \[\Gamma(x) = \sum_{n=0}^{\infty} \frac{(-1)^n}{n!} \frac{1}{n + x} + \sum_{n=0}^{\infty} c_n x^n,\]
 where $c_n = (1/n!) \int_0^\infty t^{-1} e^{-t} (\log t)^n dt$. \textbf{Hint:} Write $\int_0^\infty = \int_0^1 + \int_1^\infty$ and use an appropriate power series expansion in each integral.
 \item Show that the power series $\sum_{n=0}^{\infty} c_n z^n$ converges for every complex $z$ and that the series $\sum_{n=0}^{\infty} [(-1)^n / n!]/(n + z)$ converges for every complex $z \neq 0, -1, -2, \ldots$.
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Follow the hint to split the integral and use power series expansions. For the first integral, expand $e^{-t}$ as a power series. For the second integral, expand $t^{x-1} = e^{(x-1)\log t}$ as a power series in $(x-1)\log t$.
@@ -1484,11 +1546,13 @@ The series $\sum_{n=0}^{\infty} [(-1)^n / n!]/(n + z)$ converges for every compl
 
 
 \begin{problembox}[10.32: Limit of Laplace transform]
+\begin{problemstatement}
 Assume that $f$ is of bounded variation on $[0, b]$ for every $b > 0$, and that $\lim_{x \to +\infty} f(x)$ exists. Denote this limit by $f(\infty)$ and prove that
 \begin{align*}
 \lim_{y \to 0+} y \int_0^\infty e^{-xy}f(x) \, dx = f(\infty).
 \end{align*}
 \textbf{Hint.} Use integration by parts.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Follow the hint to use integration by parts in Stieltjes form. The key insight is that since $f$ has a limit at infinity, the boundary term will approach $f(\infty)$, and the remaining integral will be negligible as $y \to 0^+$.
@@ -1508,8 +1572,10 @@ Since $f$ is of bounded variation, the integral $\int_0^\infty e^{-xy} \, df(x)$
 
 
 \begin{problembox}[10.33: Limit of Mellin transform]
+\begin{problemstatement}
 Assume that $f$ is of bounded variation on $[0, 1]$. Prove that
 \[\lim_{y \to 0+} y \int_0^1 x^{y-1}f(x) \, dx = f(0+).\]
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use integration by parts in Stieltjes form with $u = f(x)$ and $dv = x^{y-1} \, dx$. The key insight is that since $f$ is of bounded variation, it has a right limit at $0$, and the boundary term will approach $f(0+)$.
@@ -1536,7 +1602,9 @@ Since $f$ is of bounded variation, the integral $\int_0^1 x^y \, df(x)$ converge
 
 
 \begin{problembox}[10.34: Measurability of derivative]
+\begin{problemstatement}
 If $f$ is Lebesgue-integrable on an open interval $I$ and if $f'(x)$ exists almost everywhere on $I$, prove that $f'$ is measurable on $I$.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Express the derivative as a limit of measurable functions (difference quotients). Since the limit of measurable functions is measurable when the limit exists, and $f'$ exists almost everywhere, the result follows.
@@ -1551,11 +1619,13 @@ Since the limit of measurable functions is measurable (when the limit exists), a
 
 
 \begin{problembox}[10.35: Measurable functions]
+\begin{problemstatement}
 \begin{enumerate}[label=(\alph*)]
 \item Let $\{s_n\}$ be a sequence of step functions such that $s_n \to f$ everywhere on $\mathbb{R}$. Prove that, for every real $a$,
 \[f^{-1}((a, +\infty)) = \bigcup_{n=1}^\infty \bigcap_{k=n}^\infty s_k^{-1} \left( \left( a + \frac{1}{n}, +\infty \right) \right).\]
 \item If $f$ is measurable on $\mathbb{R}$, prove that for every open subset $A$ of $\mathbb{R}$ the set $f^{-1}(A)$ is measurable.
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} For part (a), use the definition of pointwise convergence and the fact that step functions are measurable. For part (b), use the fact that every open set is a countable union of open intervals and that measurable functions have measurable preimages of intervals.
@@ -1575,12 +1645,14 @@ Since $f$ is measurable, $f^{-1}((a, +\infty))$ and $f^{-1}((b, +\infty))$ are m
 
 
 \begin{problembox}[10.36: Nonmeasurable set example]
+\begin{problemstatement}
 This exercise describes an example of a nonmeasurable set in $\mathbb{R}$. If $x$ and $y$ are real numbers in the interval $[0, 1]$, we say that $x$ and $y$ are equivalent, written $x \sim y$, whenever $x - y$ is rational. The relation $\sim$ is an equivalence relation, and the interval $[0, 1]$ can be expressed as a disjoint union of subsets (called equivalence classes) in each of which no two distinct points are equivalent. Choose a point from each equivalence class and let $E$ be the set of points so chosen. We assume that $E$ is measurable and obtain a contradiction. Let $A = \{r_1, r_2, \ldots \}$ denote the set of rational numbers in $[-1, 1]$ and let $E_n = \{r_n + x : x \in E\}$.
 \begin{enumerate}[label=(\alph*)]
 \item Prove that each $E_n$ is measurable and that $\mu(E_n) = \mu(E)$.
 \item Prove that $\{E_1, E_2, \ldots \}$ is a disjoint collection of sets whose union contains $[0, 1]$ and is contained in $[-1, 2]$.
 \item Use parts (a) and (b) along with the countable additivity of Lebesgue measure to obtain a contradiction.
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} This is a classic Vitali construction. Use the fact that translations preserve measurability and measure, and that the equivalence classes partition $[0,1]$. The contradiction arises from the fact that if $E$ were measurable, its measure would have to be both zero and positive.
@@ -1609,7 +1681,9 @@ Therefore, $E$ cannot be measurable.
 
 
 \begin{problembox}[10.37: Nonmeasurable function]
+\begin{problemstatement}
 Refer to Exercise 10.36 and prove that the characteristic function $\chi_E$ is not measurable. Let $f = \chi_E - \chi_{I-E}$ where $I = [0, 1]$. Prove that $|f| \in L(I)$ but that $f \notin M(I)$. (Compare with Corollary 1 of Theorem 10.35.)
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the fact that if $\chi_E$ were measurable, then $E = \chi_E^{-1}(\{1\})$ would be measurable, contradicting Exercise 10.36. For the second part, note that $|f| = 1$ everywhere, so it's integrable, but $f$ itself is not measurable since it's a linear combination of nonmeasurable functions.
@@ -1633,7 +1707,9 @@ However, $f$ is not measurable because if it were, then $\chi_E = \frac{f + |f|}
 
 
 \begin{problembox}[10.38: Norm convergence]
+\begin{problemstatement}
 If $\lim_{n \to \infty} \| f_n - f \| = 0$, prove that $\lim_{n \to \infty} \| f_n \| = \| f \|$.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the triangle inequality to show that $|\| f_n \| - \| f \|| \leq \| f_n - f \|$. Since the right side approaches zero, the left side must also approach zero.
@@ -1649,7 +1725,9 @@ Therefore, $\lim_{n \to \infty} \| f_n \| = \| f \|$.\qed
 
 
 \begin{problembox}[10.39: Almost everywhere convergence]
+\begin{problemstatement}
 If $\lim_{n \to \infty} \| f_n - f \| = 0$ and if $\lim_{n \to \infty} f_n(x) = g(x)$ almost everywhere on $I$, prove that $f(x) = g(x)$ almost everywhere on $I$.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the Riesz-Fischer theorem which states that if a sequence converges in $L^2$ norm, there exists a subsequence that converges almost everywhere to the same limit function.
@@ -1663,7 +1741,9 @@ Therefore, $f(x) = g(x)$ almost everywhere on $I$.\qed
 
 
 \begin{problembox}[10.40: Uniform convergence]
+\begin{problemstatement}
 If $f_n \to f$ uniformly on a compact interval $I$, and if each $f_n$ is continuous on $I$, prove that $\lim_{n \to \infty} \| f_n - f \| = 0$.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the fact that uniform convergence means $|f_n(x) - f(x)| < \epsilon$ for all $x \in I$ and all $n \geq N$. Since $I$ is compact, it has finite length, so the $L^2$ norm is bounded by $\epsilon \sqrt{\text{length}(I)}$.
@@ -1680,7 +1760,9 @@ Therefore, $\lim_{n \to \infty} \| f_n - f \| = 0$.\qed
 
 
 \begin{problembox}[10.41: Weak convergence]
+\begin{problemstatement}
 If $\lim_{n \to \infty} \| f_n - f \| = 0$, prove that $\lim_{n \to \infty} \int_0^x f_n \cdot g = \int_0^x f \cdot g$ for every $g$ in $L^2(I)$.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the Cauchy-Schwarz inequality to show that $|\int_0^x (f_n - f) \cdot g| \leq \| f_n - f \| \cdot \| g \|$. Since $\| f_n - f \| \to 0$, the integral difference approaches zero.
@@ -1696,7 +1778,9 @@ Therefore, $\lim_{n \to \infty} \int_0^x f_n \cdot g = \int_0^x f \cdot g$.\qed
 
 
 \begin{problembox}[10.42: Product convergence]
+\begin{problemstatement}
 If $\lim_{n \to \infty} \| f_n - f \| = 0$ and $\lim_{n \to \infty} \| g_n - g \| = 0$, prove that $\lim_{n \to \infty} \int_0^x f_n \cdot g_n = \int_0^x f \cdot g$.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Write the difference as $\int_0^x (f_n - f) \cdot g_n + \int_0^x f \cdot (g_n - g)$ and use the Cauchy-Schwarz inequality on each term. Use the fact that convergent sequences in $L^2$ are bounded.

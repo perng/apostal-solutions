@@ -12,9 +12,11 @@
 
 
 \begin{problembox}[16.1: Path Integral of Analytic Function]
+\begin{problemstatement}
 Let \( y \) be a piecewise smooth path with domain \([a, b]\) and graph \(\Gamma\). Assume that the integral \( \int_y f \) exists. Let \( S \) be an open region containing \(\Gamma\) and let \( g \) be a function such that \( g'(z) \) exists and equals \( f(z) \) for each \( z \) on \(\Gamma\). Prove that
 \[\int_y f = \int_y g' = g(B) - g(A), \quad \text{where } A = y(a) \text{ and } B = y(b).\]
 In particular, if \( y \) is a circuit, then \( A = B \) and the integral is 0. Hint. Apply Theorem 7.34 to each interval of continuity of \( y' \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Apply the fundamental theorem for complex line integrals by using the chain rule on each subinterval where \( y' \) is continuous, then integrate to obtain the difference of values at endpoints.
@@ -59,6 +61,7 @@ If $y$ is a circuit, then $A=B$ and the integral is $0$.\qed
 
 
 \begin{problembox}[16.2: Verification of Cauchy's Integral Formulas]
+\begin{problemstatement}
 Let \( y \) be a positively oriented circular path with center 0 and radius 2. Verify each of the following by using one of Cauchy's integral formulas.
 \begin{enumerate}[label=(\alph*)]
 \item \[ \int_y \frac{e^z}{z} dz = 2\pi i. \]
@@ -68,6 +71,7 @@ Let \( y \) be a positively oriented circular path with center 0 and radius 2. V
 \item \[ \int_y \frac{e^z}{z(z - 1)} dz = 2\pi i(e - 1). \]
 \item \[ \int_y \frac{e^z}{z^2(z - 1)} dz = 2\pi i(e - 2). \]
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use Cauchy's integral formula and its higher derivative forms for the first three cases, then apply the residue theorem for the remaining cases by identifying poles inside the circle and computing their residues.
@@ -85,8 +89,10 @@ All integrals are over $|z|=2$ and $f(z)=e^z$ is entire.
 
 
 \begin{problembox}[16.3: Derivative via Integral Formula]
+\begin{problemstatement}
 Let \( f = u + iv \) be analytic on a disk \( B(a; R) \). If \( 0 < r < R \), prove that
 \[f'(a) = \frac{1}{\pi r} \int_0^{2\pi} u(a + re^{i\theta}) e^{-i\theta} d\theta.\]
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Apply Cauchy's integral formula for the derivative, parametrize the circle, and take the real part of the resulting expression to isolate the real component \( u \).
@@ -100,10 +106,12 @@ Taking real parts gives the stated identity for $u$.\qed
 
 
 \begin{problembox}[16.4: Stronger Liouville's Theorem]
+\begin{problemstatement}
 \begin{enumerate}[label=(\alph*)]
 \item Prove the following stronger version of Liouville's theorem: If \( f \) is an entire function such that \( \lim_{z \to \infty} |f(z)|/|z| = 0 \), then \( f \) is a constant.
 \item What can you conclude about an entire function which satisfies an inequality of the form \( |f(z)| \leq M|z|^c \) for every complex \( z \), where \( c > 0 \)?
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use Cauchy estimates to bound derivatives in terms of the growth condition, then show that higher derivatives vanish as the radius increases, forcing the function to be a polynomial of bounded degree.
@@ -127,11 +135,13 @@ Given $|f(z)|/|z|\to0$, we have $M(R)/R\to0$ as $R\to\infty$, hence $f'(0)=0$. T
 
 
 \begin{problembox}[16.5: Poisson's Integral Formula]
+\begin{problemstatement}
 Assume that \( f \) is analytic on \( B(0; R) \). Let \( y \) denote the positively oriented circle with center at 0 and radius \( r \), where \( 0 < r < R \). If \( a \) is inside \( y \), show that
 \[f(a) = \frac{1}{2\pi i} \int_{y} f(z) \left( \frac{1}{z - a} - \frac{1}{z - r^2 / \bar{a}} \right) dz.\]
 If \( a = Ae^{i\alpha} \), show that this reduces to the formula
 \[f(a) = \frac{1}{2\pi} \int_0^{2\pi} \frac{(r^2 - A^2)f(re^{i\theta})}{r^2 - 2rA \cos (\alpha - \theta) + A^2} d\theta.\]
 By equating the real parts of this equation we obtain an expression known as Poisson's integral formula.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use Cauchy's integral formula and the fact that the second pole \( r^2/\bar{a} \) lies outside the circle, then parametrize the circle and simplify the denominator to obtain the Poisson kernel form.
@@ -141,10 +151,12 @@ Consider $F(z)=\frac{f(z)}{z-a}-\frac{f(z)}{z-r^2/\bar a}$. On $|z|=r$, the seco
 
 
 \begin{problembox}[16.6: Analytic Function Inequality]
+\begin{problemstatement}
 Assume that \( f \) is analytic on the closure of the disk \( B(0; 1) \). If \( |a| < 1 \), show that
 \[(1 - |a|^2)f(a) = \frac{1}{2\pi i} \int_{y} f(z) \frac{1 - z\bar{a}}{z - a} dz,\]
 where \( y \) is the positively oriented unit circle with center at 0. Deduce the inequality
 \[(1 - |a|^2) |f(a)| \leq \frac{1}{2\pi} \int_0^{2\pi} |f(e^{i\theta})| d\theta.\]
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Apply the result from Problem 16.5 with \( R = 1 \), then take absolute values and use the triangle inequality to bound the integral.
@@ -157,6 +169,7 @@ Take absolute values, use $|dz|=|z|d\theta=d\theta$ on $|z|=1$ and the triangle 
 
 
 \begin{problembox}[16.7: Integral with Combined Functions]
+\begin{problemstatement}
 Let \( f(z) = \sum_{n=0}^{\infty} \frac{2^n z^n}{3^n} \) if \( |z| < \frac{3}{2} \), and let \( g(z) = \sum_{n=0}^{\infty} (2z)^{-n} \) if \( |z| > \frac{1}{2} \). Let \( y \) be the positively oriented circular path of radius 1 and center 0, and define \( h(a) \) for \( |a| \neq 1 \) as follows:
 \[h(a) = \frac{1}{2\pi i} \int_y \left( \frac{f(z)}{z - a} + \frac{a^2 g(z)}{z^2 - az} \right) dz.\]
 Prove that
@@ -164,6 +177,7 @@ Prove that
 \frac{3}{3 - 2a} & \text{if } |a| < 1, \\ 
 \frac{2a^2}{1 - 2a} & \text{if } |a| > 1.
 \end{cases}\]
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the residue theorem by identifying which poles lie inside the unit circle for each case \( |a| < 1 \) and \( |a| > 1 \), then compute the residues using the power series representations of \( f \) and \( g \).
@@ -185,7 +199,9 @@ For $|a|>1$, the pole at $z=0$ of the second term contributes: write $\frac{a^2g
 
 
 \begin{problembox}[16.8: Taylor Expansion of Power Series]
+\begin{problemstatement}
 Define \( f \) on the disk \( B(0; 1) \) by the equation \( f(z) = \sum_{n=0}^{\infty} z^n \). Find the Taylor expansion of \( f \) about the point \( a = \frac{1}{2} \) and also about the point \( a = -\frac{1}{2} \). Determine the radius of convergence in each case.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Recognize that \( f(z) = \frac{1}{1-z} \) and use the geometric series expansion about each center by rewriting the function in terms of \( z-a \), then determine the radius of convergence as the distance to the nearest singularity.
@@ -205,10 +221,12 @@ valid for $|z-a|<1-|a|=\tfrac12$.\qed
 
 
 \begin{problembox}[16.9: Taylor Expansion of Averaged Function]
+\begin{problemstatement}
 Assume that \( f \) has the Taylor expansion \( f(z) = \sum_{n=0}^{\infty} a(n)z^n \), valid in \( B(0; R) \). Let
 \[g(z) = \frac{1}{p} \sum_{k=0}^{p-1} f(ze^{2\pi ik/p}).\]
 Prove that the Taylor expansion of \( g \) consists of every \( p \)th term in that of \( f \). That is, if \( z \in B(0; R) \) we have
 \[g(z) = \sum_{n=0}^{\infty} a(pn)z^{pn}.\]
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Expand each term \( f(ze^{2\pi ik/p}) \) using the Taylor series, then use the orthogonality property of roots of unity to show that only terms with exponents divisible by \( p \) survive the averaging.
@@ -219,9 +237,11 @@ Expand $f(ze^{2\pi ik/p})=\sum_{n\ge0} a(n) z^n e^{2\pi i n k/p}$. Summing over 
 
 
 \begin{problembox}[16.10: Partial Sum via Integral]
+\begin{problemstatement}
 Assume that \( f \) has the Taylor expansion \( f(z) = \sum_{n=0}^{\infty} a_n z^n \), valid in \( B(0; R) \). Let \( s_n(z) = \sum_{k=0}^{n} a_k z^k \). If \( 0 < r < R \) and \( |z| < r \), show that
 \[ s_n(z) = \frac{1}{2\pi i} \int_\gamma \frac{f(w)}{w^{n+1}} \frac{w^{n+1} -z^{n+1}}{w - z} dw, \]
 where \( \gamma \) is the positively oriented circle with center at 0 and radius \( r \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use Cauchy's coefficient formula to express each \( a_k \) as an integral, then sum the geometric series \( \sum_{k=0}^n \frac{z^k}{w^{k+1}} \) to obtain the desired formula.
@@ -242,9 +262,11 @@ as required.\qed
 
 
 \begin{problembox}[16.11: Product of Taylor Series]
+\begin{problemstatement}
 Given the Taylor expansions \( f(z) = \sum_{n=0}^{\infty} a_n z^n \) and \( g(z) = \sum_{n=0}^{\infty} b_n z^n \), valid for \( |z| < R_1 \) and \( |z| < R_2 \), respectively. Prove that if \( |z| < R_1 R_2 \) we have
 \[ \frac{1}{2\pi i} \int_y \frac{f(w) g(z/w)}{w} dw = \sum_{n=0}^{\infty} a_n b_n z^n, \]
 where \( y \) is the positively oriented circle of radius \( R_1 \) with center at 0.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Expand both \( f(w) \) and \( g(z/w) \) in their respective power series, multiply them, and use the fact that the integral vanishes unless the exponent of \( w \) is \(-1\), which occurs when \( n = m \) in the double sum.
@@ -258,6 +280,7 @@ valid when both series converge, i.e., $|z|<R_1R_2$.\qed
 
 
 \begin{problembox}[16.12: Parseval's Identity and Maximum Modulus]
+\begin{problemstatement}
 Assume that \( f \) has the Taylor expansion \( f(z) = \sum_{n=0}^{\infty} a_n (z - a)^n \), valid in \( B(a; R) \).
 \begin{enumerate}[label=(\alph*)]
 \item If \( 0 \leq r < R \), deduce Parseval's identity:
@@ -267,6 +290,7 @@ Assume that \( f \) has the Taylor expansion \( f(z) = \sum_{n=0}^{\infty} a_n (
 where \( M(r) \) is the maximum of \( |f| \) on the circle \( |z - a| = r \).
 \item Use (b) to give another proof of the local maximum modulus principle (Theorem 16.27).
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the orthogonality of \( e^{in\theta} \) to compute the integral of \( |f|^2 \), then apply the mean-value property and maximum principle to show that a local maximum forces the function to be constant.
@@ -282,11 +306,13 @@ by orthogonality of $e^{in\theta}$.
 
 
 \begin{problembox}[16.13: Schwarz's Lemma]
+\begin{problemstatement}
 Prove Schwarz's lemma: Let \( f \) be analytic on the disk \( B(0; 1) \). Suppose that \( f(0) = 0 \) and \( |f(z)| \leq 1 \) if \( |z| < 1 \). Then
 \[ |f'(0)| \leq 1 \quad \text{and} \quad |f(z)| \leq |z|, \quad \text{if } |z| < 1. \]
 If \( |f'(0)| = 1 \) or if \( |f(z_0)| = |z_0| \) for at least one \( z_0 \in B'(0; 1) \), then
 \[ f(z) = e^{i\alpha} z, \]
 where \( \alpha \) is real. Hint. Apply the maximum-modulus theorem to \( g \), where \( g(0) = f'(0) \) and \( g(z) = f(z)/z \) if \( z \neq 0 \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Define \( g(z) = f(z)/z \) for \( z \neq 0 \) and \( g(0) = f'(0) \), then apply the maximum modulus principle to show \( |g| \leq 1 \), which gives the desired bounds and forces \( g \) to be constant when equality holds.
@@ -306,6 +332,7 @@ Define $g(z)=\begin{cases} f(z)/z,& z\ne0,\\ f'(0),& z=0.\end{cases}$ Then $g$ i
 
 
 \begin{problembox}[16.14: Rouché's Theorem]
+\begin{problemstatement}
 Let \( f \) and \( g \) be analytic on an open region \( S \). Let \( y \) be a Jordan circuit with graph \( \Gamma \) such that both \( \Gamma \) and its inner region lie within \( S \). Suppose that \( |g(z)| < |f(z)| \) for every \( z \) on \( \Gamma \).
 \begin{enumerate}[label=(\alph*)]
 \item Show that
@@ -317,6 +344,7 @@ for each \( t \) in \( [0, 1] \) and each \( z \) on \( \Gamma \). Now let
 Then \( \phi \) is continuous, and hence constant, on \( [0, 1] \). Thus, \( \phi(0) = \phi(1) \).
 \item Use (a) to prove that \( f \) and \( f + g \) have the same number of zeros inside\(\Gamma\) (Rouché's theorem).
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use a homotopy argument by considering the family of functions \( f + t g \) for \( t \in [0,1] \), show that the integral is continuous and hence constant in \( t \), then apply the argument principle to count zeros.
@@ -329,7 +357,9 @@ Then \( \phi \) is continuous, and hence constant, on \( [0, 1] \). Thus, \( \ph
 
 
 \begin{problembox}[16.15: Zeros of Polynomial]
+\begin{problemstatement}
 Let \( p \) be a polynomial of degree \( n \), say \( p(z) = a_0 + a_1 z + \cdots + a_n z^n \), where \( a_n \neq 0 \). Take \( f(z) = a_n z^n \), \( g(z) = p(z) - f(z) \) in Rouché's theorem, and prove that \( p \) has exactly \( n \) zeros in \( \mathbb{C} \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Apply Rouché's theorem on a large circle where the leading term \( a_n z^n \) dominates the lower degree terms, showing that \( p \) and \( a_n z^n \) have the same number of zeros inside the circle.
@@ -339,7 +369,9 @@ On a large circle $|z|=R$ with $R$ so large that $|g(z)|<|f(z)|=|a_n|R^n$ on $|z
 
 
 \begin{problembox}[16.16: Fixed Point via Rouché's Theorem]
+\begin{problemstatement}
 Let \( f \) be analytic on the closure of the disk \( B(0; 1) \) and suppose \( |f(z)| < 1 \) if \( |z| = 1 \). Show that there is one, and only one, point \( z_0 \in B(0; 1) \) such that \( f(z_0) = z_0 \). Hint. Use Rouché's theorem.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Apply Rouché's theorem to the function \( h(z) = f(z) - z \) and compare it with \( -z \) on the unit circle, showing they have the same number of zeros inside the disk.
@@ -349,7 +381,9 @@ Zeros of $h(z)=f(z)-z$ in $B(0;1)$. On $|z|=1$, $|f(z)|<1=|z|$, so by Rouché, $
 
 
 \begin{problembox}[16.17: Exponential Series Zeros]
+\begin{problemstatement}
 Let \( p_n(z) \) denote the \( n \)th partial sum of the Taylor expansion \( e^z = \sum_{k=0}^{\infty} \frac{z^k}{k!} \). Using Rouché's theorem (or otherwise), prove that for every \( r > 0 \) there exists an \( N \) (depending on \( r \)) such that \( n \geq N \) implies \( p_n(z) \neq 0 \) for every \( z \in B(0; r) \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Apply Rouché's theorem by comparing \( p_n(z) \) with the tail of the series on a circle of radius \( r \), showing that for large enough \( n \), the partial sum dominates the remainder term.
@@ -359,7 +393,9 @@ Fix $r>0$. For $n$ large, on $|z|=r$, $\big|\sum_{k\ge n+1} \frac{z^k}{k!}\big|<
 
 
 \begin{problembox}[16.18: Exponential vs Power Battle]
+\begin{problemstatement}
 If \( a > e \), find the number of zeros of the function \( f(z) = e^z - a z^n \) which lie inside the circle \( |z| = 1 \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Apply Rouché's theorem by comparing \( e^z \) with \( a z^n \) on the unit circle, using the fact that \( |e^z| \leq e < a \) when \( |z| = 1 \).
@@ -369,7 +405,9 @@ On $|z|=1$, compare $e^z$ with $a z^n$; since $|e^z|\le e< a$, by Rouché, $f(z)
 
 
 \begin{problembox}[16.19: The Perfect Function Puzzle]
+\begin{problemstatement}
 Give an example of a function which has all the following properties, or else explain why there is no such function: \( f \) is analytic everywhere in \( \mathbb{C} \) except for a pole of order 2 at 0 and simple poles at \( i \) and \( -i \); \( f(z) = f(-z) \) for all \( z \); \( f(1) = 1 \); the function \( g(z) = f(1/z) \) has a zero of order 2 at \( z = 0 \); and \( \text{Res}_{z=i} f(z) = 2i \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the evenness condition to determine the form of the function, then use the residue condition and the behavior at infinity to find the specific coefficients that satisfy all requirements.
@@ -381,11 +419,13 @@ Consider $f(z)=\frac{A}{z^2}+\frac{B}{z-i}+\frac{B}{z+i}$ with evenness forcing 
 
 
 \begin{problembox}[16.20: Laurent Series Adventures]
+\begin{problemstatement}
 Show that each of the following Laurent expansions is valid in the region indicated:
 \begin{enumerate}[label=(\alph*)]
 \item \[ \frac{1}{(z - 1)(2 - z)} = \sum_{n=0}^{\infty} \frac{z^n}{2^{n+1}} + \sum_{n=1}^{\infty} \frac{1}{z^n}, \quad \text{if } 1 < |z| < 2. \]
 \item \[ \frac{1}{(z - 1)(2 - z)} = \sum_{n=2}^{\infty} \frac{1 - 2^{1-n}}{z^n}, \quad \text{if } |z| > 2. \]
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use partial fractions to decompose the function, then expand each term in the appropriate geometric series based on the region of convergence.
@@ -398,6 +438,7 @@ Show that each of the following Laurent expansions is valid in the region indica
 
 
 \begin{problembox}[16.21: Bessel Functions Unveiled]
+\begin{problemstatement}
 For each fixed \( t \in \mathbb{C} \), define \( J_n(t) \) to be the coefficient of \( z^n \) in the Laurent expansion
 \[ e^{(z - 1/z)t/2} = \sum_{n=-\infty}^{\infty} J_n(t) z^n. \]
 Show that for \( n \geq 0 \) we have
@@ -405,6 +446,7 @@ Show that for \( n \geq 0 \) we have
 and that \( J_{-n}(t) = (-1)^n J_n(t) \). Deduce the power series expansion
 \[ J_n(t) = \sum_{k=0}^{\infty} \frac{(-1)^k (t/2)^{n + 2k}}{k! (n + k)!}, \quad (n \geq 0). \]
 The function \( J_n \) is called the Bessel function of order \( n \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Parametrize the unit circle \( z = e^{i\theta} \) to convert the Laurent coefficient formula into a Fourier integral, then use the power series expansion of the exponential to derive the power series formula.
@@ -417,7 +459,9 @@ Take real parts and use Fourier coefficient extraction to get $J_n(t)=\frac{1}{2
 
 
 \begin{problembox}[16.22: Riemann's Removable Singularity Magic]
+\begin{problemstatement}
 Prove Riemann's theorem: If \( z_0 \) is an isolated singularity of \( f \) and if \( f \) is bounded on some deleted neighborhood \( B'(z_0) \), then \( z_0 \) is a removable singularity. Hint. Estimate the integrals for the coefficients \( a_n \) in the Laurent expansion of \( f \) and show that \( a_n = 0 \) for each \( n < 0 \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use Cauchy estimates on the Laurent coefficients to show that the negative coefficients vanish as the radius approaches zero, since the function is bounded near the singularity.
@@ -427,7 +471,9 @@ Write the Laurent series at $z_0$, $f(z)=\sum_{k=-\infty}^{\infty} a_k(z-z_0)^k$
 
 
 \begin{problembox}[16.23: Casorati-Weierstrass: The Wild Behavior]
+\begin{problemstatement}
 Prove the Casorati-Weierstrass theorem: Assume that \( z_0 \) is an essential singularity of \( f \) and let \( c \) be an arbitrary complex number. Then, for every \( \epsilon > 0 \) and every disk \( B(z_0) \), there exists a point \( z \) in \( B(z_0) \) such that \( |f(z) - c| < \epsilon \). Hint. Assume that the theorem is false and arrive at a contradiction by applying Exercise 16.22 to \( g \), where \( g(z) = 1/[f(z) - c] \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use proof by contradiction: assume there exists a neighborhood where \( |f(z) - c| \geq \epsilon \), then show that \( g(z) = 1/(f(z) - c) \) would be bounded near \( z_0 \), contradicting the essential singularity by Riemann's theorem.
@@ -437,11 +483,13 @@ Assume there exist $\epsilon>0$ and a neighborhood with $|f(z)-c|\ge\epsilon$. T
 
 
 \begin{problembox}[16.24: Infinity: The Final Frontier]
+\begin{problemstatement}
 The point at infinity. A function \( f \) is said to be analytic at \( \infty \) if the function \( g \) defined by the equation \( g(z) = f(1/z) \) is analytic at the origin. Similarly, we say that \( f \) has a zero, a pole, a removable singularity, or an essential singularity at \( \infty \) if \( g \) has a zero, a pole, etc., at 0. Liouville's theorem states that a function which is analytic everywhere in \( \mathbb{C}^* \) must be a constant. Prove that
 \begin{enumerate}[label=(\alph*)]
 \item \( f \) is a polynomial if, and only if, the only singularity of \( f \) in \( \mathbb{C}^* \) is a pole at \( \infty \), in which case the order of the pole is equal to the degree of the polynomial.
 \item \( f \) is a rational function if, and only if, \( f \) has no singularities in \( \mathbb{C}^* \) other than poles.
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the transformation \( g(z) = f(1/z) \) to analyze the behavior at infinity, then apply the classification of singularities to characterize polynomials and rational functions based on their pole structure.
@@ -454,6 +502,7 @@ The point at infinity. A function \( f \) is said to be analytic at \( \infty \)
 
 
 \begin{problembox}[16.25: Residue Calculation Tricks]
+\begin{problemstatement}
 Derive the following "short cuts" for computing residues:
 \begin{enumerate}[label=(\alph*)]
 \item If \( a \) is a first order pole for \( f \), then
@@ -466,6 +515,7 @@ where \( g(z) = (z - a)^2 f(z) \).
 \item If \( f \) and \( g \) are as in (c), except that \( a \) is a second-order zero for \( g \), then
 \[ \text{Res}_{z=a} \frac{f(z)}{g(z)} = \frac{6 f'(a) g''(a) - 2 f(a) g'''(a)}{3 [g''(a)]^2}. \]
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the Laurent expansion of \( f \) at \( a \) and extract the coefficient of \( (z-a)^{-1} \) by multiplying by appropriate powers of \( (z-a) \) and taking limits or derivatives.
@@ -475,6 +525,7 @@ Write the Laurent expansion of $f$ at $a$. For a simple pole, $(z-a)f(z)\to\oper
 
 
 \begin{problembox}[16.26: Residue Detective Work]
+\begin{problemstatement}
 Compute the residues at the poles of \( f \) if
 \begin{enumerate}[label=(\alph*)]
 \item \( f(z) = \frac{ze^z}{z^2 - 1} \).
@@ -483,6 +534,7 @@ Compute the residues at the poles of \( f \) if
 \item \( f(z) = \frac{1}{1 - e^z} \).
 \item \( f(z) = \frac{1}{1 - z^n} \) (where \( n \) is a positive integer).
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Identify the poles and their orders, then apply the residue shortcuts from Problem 16.25, using limits for simple poles and derivatives for higher-order poles.
@@ -498,6 +550,7 @@ Compute the residues at the poles of \( f \) if
 
 
 \begin{problembox}[16.27: Circle Integration Challenge]
+\begin{problemstatement}
 If \( y(a; r) \) denotes the positively oriented circle with center at \( a \) and radius \( r \), show that
 \begin{enumerate}[label=(\alph*)]
 \item \[ \int_{y(0;4)} \frac{3z - 1}{(z + 1)(z - 3)} dz = 6\pi i. \]
@@ -505,6 +558,7 @@ If \( y(a; r) \) denotes the positively oriented circle with center at \( a \) a
 \item \[ \int_{y(0;2)} \frac{z^3}{z^4 - 1} dz = 2\pi i. \]
 \item \[ \int_{y(2;1)} \frac{e^z}{(z - 2)^2} dz = 2\pi ie^2. \]
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Apply the residue theorem by identifying which poles lie inside each circle, then compute the residues at those poles and sum them.
@@ -520,8 +574,10 @@ Each integral equals $2\pi i$ times the sum of residues of poles inside the indi
 
 
 \begin{problembox}[16.28: Trigonometric Integral Magic]
+\begin{problemstatement}
 Evaluate the integral by means of residues:
 \[ \int_0^{2\pi} \frac{dt}{(a + b \cos t)^2} = \frac{2\pi a}{(a^2 - b^2)^{3/2}}, \quad \text{if } 0 < b < a. \]
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Convert to a contour integral on the unit circle using \( z = e^{it} \) and \( \cos t = \frac{1}{2}(z + z^{-1}) \), then apply the residue theorem to the resulting rational function.
@@ -531,8 +587,10 @@ With $z=e^{it}$, use $\cos t=\tfrac12(z+z^{-1})$ to convert to a contour integra
 
 
 \begin{problembox}[16.29: Cosine Double Angle Adventure]
+\begin{problemstatement}
 Evaluate the integral by means of residues:
 \[ \int_0^{2\pi} \frac{\cos 2t}{1 - 2a \cos t + a^2} dt = \frac{2\pi a^2}{1 - a^2}, \quad \text{if } a^2 < 1. \]
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the same trigonometric substitution as in Problem 16.28, converting \( \cos 2t \) to \( \frac{1}{2}(z^2 + z^{-2}) \) and applying the residue theorem.
@@ -542,8 +600,10 @@ Proceed as in 16.28; after converting to $|z|=1$, the two poles are at $z=a\pm\s
 
 
 \begin{problembox}[16.30: Triple Cosine Challenge]
+\begin{problemstatement}
 Evaluate the integral by means of residues:
 \[ \int_0^{2\pi} \frac{1 + \cos 3t}{1 - 2a \cos t + a^2} dt = \frac{\pi (a^3 + a)}{1 - a^2}, \quad \text{if } 0 < a < 1. \]
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Split the numerator into two terms and use the results from Problems 16.28-16.29, converting \( \cos 3t \) to complex exponentials and applying the residue theorem.
@@ -553,8 +613,10 @@ Split the numerator and use 16.29 with linear combinations of $\cos kt$; residue
 
 
 \begin{problembox}[16.31: Sine Squared Surprise]
+\begin{problemstatement}
 Evaluate the integral by means of residues:
 \[ \int_0^{2\pi} \frac{\sin^2 t}{a + b \cos t} dt = \frac{2\pi (a - \sqrt{a^2 - b^2})}{b^2}, \quad \text{if } 0 < b < a. \]
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the identity \( \sin^2 t = \frac{1}{2}(1 - \cos 2t) \) to reduce to integrals of the form in Problems 16.28-16.30, then apply the residue theorem.
@@ -564,8 +626,10 @@ Write $\sin^2 t=\tfrac{1}{2}(1-\cos 2t)$ and reduce to integrals of the form in 
 
 
 \begin{problembox}[16.32: Real Line Integration Quest]
+\begin{problemstatement}
 Evaluate the integral by means of residues:
 \[ \int_{-\infty}^{\infty} \frac{1}{x^2 + x + 1} dx = \frac{2\pi \sqrt{3}}{3}. \]
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Complete the square in the denominator, then close the contour in the upper half-plane and apply the residue theorem at the pole in the upper half-plane.
@@ -575,8 +639,10 @@ Complete the square $x^2+x+1=(x+\tfrac12)^2+\tfrac34$ and integrate over the rea
 
 
 \begin{problembox}[16.33: Power of Six Exploration]
+\begin{problemstatement}
 Evaluate the integral by means of residues:
 \[ \int_{-\infty}^{\infty} \frac{x^6}{(1 + x^4)^2} dx = \frac{3\pi}{16}. \]
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Close the contour in the upper half-plane and compute residues at the double poles at the fourth roots of unity in the upper half-plane.
@@ -586,8 +652,10 @@ Close in the upper half-plane; the double poles at $e^{i\pi/4}$ and $e^{3i\pi/4}
 
 
 \begin{problembox}[16.34: Mixed Powers Mystery]
+\begin{problemstatement}
 Evaluate the integral by means of residues:
 \[ \int_0^{\infty} \frac{x^2}{(x^2 + 4)^2 (x^2 + 9)} dx = \frac{\pi}{200}. \]
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the evenness of the integrand to extend to the real line, then close in the upper half-plane and compute residues at the poles \( \pm 2i \) (double) and \( \pm 3i \) (simple).
@@ -597,6 +665,7 @@ Even integrand; extend to the real line and use residues at the imaginary-axis p
 
 
 \begin{problembox}[16.35: Sector Contour Adventures]
+\begin{problemstatement}
 Evaluate the integrals by means of residues:
 \begin{enumerate}[label=(\alph*)]
 \item \[ \int_0^{\infty} \frac{x}{1 + x^5} dx = \frac{\pi}{5} / \sin \frac{2\pi}{5}. \]
@@ -604,13 +673,16 @@ Hint. Integrate \( z / (1 + z^5) \) around the boundary of the circular sector \
 \item \[ \int_0^{\infty} \frac{x^{2m}}{1 + x^{2n}} dx = \frac{\pi}{2n}/ \sin \left( \frac{(2m + 1) \pi}{2n} \right), \]
 where \( m, n \) are integers, \( 0 < m < n \).
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use a sector contour with angle \( 2\pi/n \) to exploit the symmetry of the roots of unity, then apply the residue theorem and use the geometric sum formula for roots of unity.
 
 
 \begin{problembox}[16.36: Residue Formula for Rational Functions]
+\begin{problemstatement}
 Prove that formula (38) holds if \( f \) is the quotient of two polynomials, say \( f = P/Q \), where the degree of \( Q \) exceeds that of \( P \) by 2 or more.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Show that the integral over a large semicircle vanishes due to the degree condition, then apply the residue theorem to the poles in the upper half-plane.
@@ -620,9 +692,11 @@ If $\deg Q\ge \deg P+2$, then $f=P/Q$ decays as $O(1/|z|^2)$, so the integral ov
 
 
 \begin{problembox}[16.37: Residue Formula for Exponential Rational Functions]
+\begin{problemstatement}
 Prove that formula (38) holds if \( f(z) = e^{imz} P(z) / Q(z) \), where \( m > 0 \) and \( P \) and \( Q \) are polynomials such that the degree of \( Q \) exceeds that of \( P \) by 1 or more. This makes it possible to evaluate integrals of the form
 \[ \int_{-\infty}^{\infty} \frac{e^{imx} P(x)}{Q(x)} dx \]
 by the method described in Theorem 16.37.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use Jordan's lemma to show that the integral over a large semicircle in the upper half-plane vanishes due to the exponential decay, then apply the residue theorem.
@@ -632,11 +706,13 @@ For $f(z)=e^{imz}P(z)/Q(z)$ with $m>0$ and $\deg Q\ge \deg P+1$, close the conto
 
 
 \begin{problembox}[16.38: Exponential Integrals]
+\begin{problemstatement}
 Use the method suggested in Exercise 16.37 to evaluate the following integrals:
 \begin{enumerate}[label=(\alph*)]
 \item \[ \int_0^{\infty} \frac{x}{(a^2 + x^2)} e^{imx} dx = \frac{\pi}{2} e^{-ma}, \quad \text{if } m \neq 0, a > 0. \]
 \item \[ \int_0^{\infty} \frac{x^4}{(1 + x^4)} e^{imx} dx = \frac{\pi}{2} (1 - e^{-m}), \quad \text{if } m > 0, a > 0. \]
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Apply the method from Problem 16.37 by closing the contour in the upper half-plane and computing residues at the poles in the upper half-plane.
@@ -650,9 +726,11 @@ Apply 16.37 with appropriate $P,Q$ and use residues in the upper half-plane.
 
 
 \begin{problembox}[16.39: Integral with Cube Roots]
+\begin{problemstatement}
 Let \( w = e^{2\pi i / 3} \) and let \( y \) be a positively oriented circle whose graph does not pass through 1, \( w \), or \( w^2 \). (The numbers 1, \( w \), \( w^2 \) are the cube roots of 1.) Prove that the integral
 \[ \int_y \frac{z + 1}{z^3 - 1} dz \]
 is equal to \( 2\pi i (m + n w) / 3 \), where \( m \) and \( n \) are integers. Determine the possible values of \( m \) and \( n \) and describe how they depend on \( y \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use partial fractions to decompose the integrand, then apply the residue theorem to count which poles lie inside the contour \( y \).
@@ -662,11 +740,13 @@ Partial fractions: $\frac{z+1}{z^3-1}=\frac{A}{z-1}+\frac{B}{z-w}+\frac{C}{z-w^2
 
 
 \begin{problembox}[16.40: Bernoulli Polynomial Integrals]
+\begin{problemstatement}
 Let \( y \) be a positively oriented circle with center 0 and radius \( < 2\pi \). If \( a \) is complex and \( n \) is an integer, let
 \[ I(n, a) = \frac{1}{2\pi i} \int_y \frac{z^{n-1} e^{az}}{1 - e^z} dz. \]
 Prove that
 \[ I(0, a) = \frac{1}{2} - a, \quad I(1, a) = -\frac{1}{2}, \quad \text{and} \quad I(n, a) = 0 \quad \text{if } n > 1. \]
 Calculate \( I(-n, a) \) in terms of Bernoulli polynomials when \( n \geq 1 \) (see Exercise 9.38).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the residue theorem at the simple poles \( 2\pi i k \) of \( \frac{e^{az}}{1-e^z} \), then use the known expansion involving Bernoulli polynomials to evaluate the series.
@@ -676,6 +756,7 @@ Use residues at the simple poles $2\pi i k$ of $\frac{e^{az}}{1-e^z}$ and the kn
 
 
 \begin{problembox}[16.41: Details of Theorem 16.38]
+\begin{problemstatement}
 Let
 \[ g(z) = \sum_{r=0}^{n-1} e^{2\pi i a (z + r)^2 / n}, \quad f(z) = \frac{g(z)}{e^{2\pi i z} - 1}, \]
 where \( a \) and \( n \) are positive integers with \( na \) even. Prove that:
@@ -684,6 +765,7 @@ where \( a \) and \( n \) are positive integers with \( na \) even. Prove that:
 \item \( \text{Res}_{z=0} f(z) = g(0) / (2\pi i). \)
 \item The real part of \( i (t + R e^{i\pi / 4} + r)^2 \) is \( R^2 + \sqrt{2} r R \).
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use direct computation for (a) by expanding the difference, apply the residue formula for simple poles for (b), and compute the real part directly for (c).
@@ -706,11 +788,13 @@ where \( a \) and \( n \) are positive integers with \( na \) even. Prove that:
 
 
 \begin{problembox}[16.42: Properties of One-to-One Analytic Functions]
+\begin{problemstatement}
 Let \( S \) be an open subset of \( \mathbb{C} \) and assume that \( f \) is analytic and one-to-one on \( S \). Prove that:
 \begin{enumerate}[label=(\alph*)]
 \item \( f'(z) \neq 0 \) for each \( z \) in \( S \). (Hence \( f \) is conformal at each point of \( S \).)
 \item If \( g \) is the inverse of \( f \), then \( g \) is analytic on \( f(S) \) and \( g'(w) = 1 / f'(g(w)) \) if \( w \in f(S) \).
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the open mapping theorem and the fact that a zero derivative would make the function not locally injective, then apply the inverse function theorem for holomorphic functions.
@@ -723,7 +807,9 @@ Let \( S \) be an open subset of \( \mathbb{C} \) and assume that \( f \) is ana
 
 
 \begin{problembox}[16.43: One-to-One Entire Functions]
+\begin{problemstatement}
 Let \( f : \mathbb{C} \to \mathbb{C} \) be analytic and one-to-one on \( \mathbb{C} \). Prove that \( f(z) = a z + b \), where \( a \neq 0 \). What can you conclude if \( f \) is one-to-one on \( \mathbb{C}^* \) and analytic on \( \mathbb{C}^* \) except possibly for a finite number of poles?
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the fact that an injective entire function has no critical points, so \( 1/f' \) is entire, then apply Picard's theorem or Liouville's theorem to show \( f' \) is constant.
@@ -733,7 +819,9 @@ An injective entire function has no critical points, so $1/f'$ is entire. By Pic
 
 
 \begin{problembox}[16.44: Composition of Möbius Transformations]
+\begin{problemstatement}
 If \( f \) and \( g \) are Möbius transformations, show that the composition \( f \circ g \) is also a Möbius transformation.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Write both transformations in the form \( \frac{az+b}{cz+d} \) and compute the composition directly, showing it has the same form with a non-zero determinant.
@@ -743,6 +831,7 @@ Write $f(z)=\frac{a z+b}{c z+d}$, $g(z)=\frac{\alpha z+\beta}{\gamma z+\delta}$;
 
 
 \begin{problembox}[16.45: Geometric Interpretation of Möbius Transformations]
+\begin{problemstatement}
 Describe geometrically what happens to a point \( z \) when it is carried into \( f(z) \) by the following special Möbius transformations:
 \begin{enumerate}[label=(\alph*)]
 \item \( f(z) = z + b \) (Translation).
@@ -750,6 +839,7 @@ Describe geometrically what happens to a point \( z \) when it is carried into \
 \item \( f(z) = e^{i \alpha} z \), where \( \alpha \) is real (Rotation).
 \item \( f(z) = \frac{1}{z} \) (Inversion).
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Analyze each transformation by considering its effect on the complex plane: translation moves points, dilation scales distances, rotation turns points around the origin, and inversion reflects across the unit circle.
@@ -764,9 +854,11 @@ Describe geometrically what happens to a point \( z \) when it is carried into \
 
 
 \begin{problembox}[16.46: Circles under Möbius Transformations]
+\begin{problemstatement}
 If \( c \neq 0 \), we have
 \[ \frac{a z + b}{c z + d} = \frac{a}{c} + \frac{b c - a d}{c (c z + d)}. \]
 Hence every Möbius transformation can be expressed as a composition of the special cases described in Exercise 16.45. Use this fact to show that Möbius transformations carry circles into circles (where straight lines are considered as special cases of circles).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the decomposition of Möbius transformations into basic transformations and the fact that each basic transformation preserves circles and lines.
@@ -776,10 +868,12 @@ Since any Möbius map is a composition of the four basic maps in 16.45, and each
 
 
 \begin{problembox}[16.47: Möbius Transformations Mapping Half-Plane to Disk]
+\begin{problemstatement}
 \begin{enumerate}[label=(\alph*)]
 \item Show that all Möbius transformations which map the upper half-plane \( T = \{ x + i y : y \geq 0 \} \) onto the closure of the disk \( B(0; 1) \) can be expressed in the form \( f(z) = e^{i \delta} \frac{z - a}{z - \bar{a}} \), where \( \alpha \) is real and \( \alpha \in T \).
 \item Show that \( \alpha \) and \( \delta \) can always be chosen to map any three given points of the real axis onto any three given points on the unit circle.
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the Cayley transform to map the upper half-plane to the unit disk, then conjugate by automorphisms of the unit disk to get the general form, and use three-point interpolation to determine the parameters.
@@ -789,7 +883,9 @@ Every automorphism of the unit disk is $e^{i\delta}\frac{z-a}{1-\bar a z}$ with 
 
 
 \begin{problembox}[16.48: Möbius Transformations Mapping Right Half-Plane]
+\begin{problemstatement}
 Find all Möbius transformations which map the right half-plane \( S = \{ x + i y : x \geq 0 \} \) onto the closure of \( B(0; 1) \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Conjugate the result from Problem 16.47 by a quarter-turn rotation to map the right half-plane to the upper half-plane, then apply the known transformation.
@@ -799,7 +895,9 @@ Conjugate by a quarter-turn rotation: $z\mapsto e^{i\pi/2}z$ carries the right h
 
 
 \begin{problembox}[16.49: Möbius Transformations Mapping Unit Disk]
+\begin{problemstatement}
 Find all Möbius transformations which map the closure of \( B(0; 1) \) onto itself.
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the known form of automorphisms of the unit disk, which are the Möbius transformations that preserve the unit disk.
@@ -809,6 +907,7 @@ Automorphisms of $\overline{B(0;1)}$ are $e^{i\delta}\frac{z-a}{1-\bar a z}$ wit
 
 
 \begin{problembox}[16.50: Fixed Points of Möbius Transformations]
+\begin{problemstatement}
 The fixed points of a Möbius transformation
 \[ f(z) = \frac{a z + b}{c z + d} \quad (ad - bc \neq 0) \]
 are those points \( z \) for which \( f(z) = z \). Let \( D = (d - a)^2 + 4bc \).
@@ -823,6 +922,7 @@ where \( R > 0 \) and \( \theta \) is real.
 \[ w_1 = f(w), \quad w_2 = f(w_1), \quad \ldots, \quad w_n = f(w_{n-1}), \quad \ldots, \]
 and study the behavior of the sequence \( \{ w_n \} \). Consider the special case \( a, b, c, d \) real, \( ad - bc = 1 \).
 \end{enumerate}
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Solve the fixed point equation \( f(z) = z \) to get a quadratic equation, then use cross-ratio preservation and the classification of Möbius transformations based on their fixed points to analyze the dynamics.
@@ -846,8 +946,10 @@ and study the behavior of the sequence \( \{ w_n \} \). Consider the special cas
 
 
 \begin{problembox}[16.51: Complex Sum Equation]
+\begin{problemstatement}
 Determine all complex \( z \) such that
 \[ z = \sum_{n=2}^{\infty} \sum_{k=1}^{n} e^{2\pi i k z / n}. \]
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the fact that \( \sum_{k=1}^n e^{2\pi i k z/n} \) equals \( n \) if \( z \) is an integer and \( 0 \) otherwise, then analyze the resulting equation.
@@ -857,8 +959,10 @@ For each $n$, $\sum_{k=1}^n e^{2\pi i k z/n}$ equals $n$ if $z\in\mathbb Z$ and 
 
 
 \begin{problembox}[16.52: Bound on Entire Function Coefficients]
+\begin{problemstatement}
 If \( f(z) = \sum_{n=0}^{\infty} a_n z^n \) is an entire function such that \( |f(r e^{i\theta})| < M e^{r k} \) for all \( r > 0 \), where \( M > 0 \) and \( k > 0 \), prove that
 \[ |a_n| \leq \frac{M}{(n/k)^{n/k}}, \quad \text{for } n \geq 1. \]
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use Cauchy estimates on circles of radius \( r \) and optimize the choice of \( r \) to minimize the bound on \( |a_n| \).
@@ -868,7 +972,9 @@ By Cauchy on $|z|=r$, $|a_n|\le \frac{M e^{r k}}{r^n}$. Minimize in $r$ by takin
 
 
 \begin{problembox}[16.53: Limit at Isolated Singularity]
+\begin{problemstatement}
 Assume \( f \) is analytic on a deleted neighborhood \( B'(0; a) \). Prove that \( \lim_{z \to 0} f(z) \) exists (possibly infinite) if, and only if, there exists an integer \( n \) and a function \( g \), analytic on \( B(0; a) \), with \( g(0) \neq 0 \), such that \( f(z) = z^n g(z) \) in \( B'(0; a) \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the Laurent expansion of \( f \) at \( 0 \) and show that the limit exists if and only if the expansion has the form \( z^n \) times a function analytic and non-zero at \( 0 \).
@@ -879,9 +985,11 @@ Assume \( f \) is analytic on a deleted neighborhood \( B'(0; a) \). Prove that 
 
 
 \begin{problembox}[16.54: Zeros of Polynomial with Decreasing Coefficients]
+\begin{problemstatement}
 Let \( p(z) = \sum_{k=0}^n a_k z^k \) be a polynomial of degree \( n \) with real coefficients satisfying
 \[a_0 > a_1 > \cdots > a_{n-1} > a_n > 0.\]
 Prove that \( p(z) = 0 \) implies \( |z| > 1 \). Hint. Consider \( (1 - z)p(z) \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the hint to consider \( (1-z)p(z) \) and show that if \( |z| \leq 1 \), then all coefficients of this polynomial are positive, so it cannot be zero.
@@ -891,7 +999,9 @@ If $|z|\le1$, then $(1-z)p(z)=\sum_{k=0}^{n-1}(a_k-a_{k+1})z^k+a_n z^n$ with all
 
 
 \begin{problembox}[16.55: Zero of Infinite Order]
+\begin{problemstatement}
 A function \( f \), defined on a disk \( B(a; r) \), is said to have a zero of infinite order at \( a \) if, for every integer \( k > 0 \), there is a function \( g_k \), analytic at \( a \), such that \( f(z) = (z - a)^k g_k(z) \) on \( B(a; r) \). If \( f \) has a zero of infinite order at \( a \), prove that \( f = 0 \) everywhere in \( B(a; r) \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Show that all Taylor coefficients of \( f \) at \( a \) must be zero, which implies that the Taylor series is identically zero, hence \( f \) is identically zero.
@@ -901,7 +1011,9 @@ If $f$ has a zero of infinite order at $a$, then all Taylor coefficients at $a$ 
 
 
 \begin{problembox}[16.56: Morera's Theorem]
+\begin{problemstatement}
 Prove Morera's theorem: If \( f \) is continuous on an open region \( S \) in \( \mathbb{C} \) and if \( \int_y f = 0 \) for every polygonal circuit \( y \) in \( S \), then \( f \) is analytic on \( S \).
+\end{problemstatement}
 \end{problembox}
 
 \noindent\textbf{Strategy:} Use the hypothesis to define a primitive function \( F \) by path integration, then show that \( F \) is complex differentiable with derivative \( f \), hence \( f \) is analytic.
