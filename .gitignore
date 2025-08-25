@@ -13,7 +13,7 @@
 .*.lb
 */book/*
 */tmp/*
-
+output
 ## Intermediate documents:
 *.dvi
 *.xdv

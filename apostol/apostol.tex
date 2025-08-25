@@ -1,5 +1,13 @@
 \documentclass[openany]{book}
 \newcommand{\kdpGutter}{0.5in} % Adjust per final page count (e.g., 0.375in, 0.5in, 0.625in, ...)
+
+% Flag to control whether problem statements are shown
+% Set to true to show problem statements, false to hide them
+\newif\ifshowproblems
+\showproblemstrue
+% \showproblemsfalse  % Change this to \showproblemsfalse to hide problem statements
+
+% \usepackage{emoji}
 \usepackage[
   paperwidth=6in,
   paperheight=9in,
@@ -21,6 +29,9 @@
 \microtypesetup{expansion=false}
 \usepackage{enumitem}
 \usepackage{xcolor}
+
+% Use roman numerals for section numbering
+\renewcommand{\thesection}{\arabic{chapter}.\Roman{section}}
 \usepackage{tcolorbox}
 \tcbuselibrary{breakable}
 \usepackage{tikz}
@@ -33,6 +44,13 @@
 \usepackage{fancyhdr}
 \usepackage{graphicx}
 
+% Load comment package for hiding content (must be loaded before defining problemstatement)
+\usepackage{comment}
+
+% Glossary package - commented out due to expansion issues
+% \usepackage[acronym]{glossaries}
+% \makeglossaries
+
 % Avoid widows and orphans in print
 \clubpenalty=10000
 \widowpenalty=10000
@@ -40,30 +58,122 @@
 \raggedbottom
 
 % Custom environment for problem statements
-\newtcolorbox{problembox}[1][]{
-    breakable,
-    colback=blue!10,
-    colframe=blue!50,
-    arc=3pt,
-    boxrule=1pt,
-    left=0pt,
-    right=0pt,
-    width=\textwidth,
-    top=10pt,
-    bottom=10pt,
-    before skip=3em,
-    fonttitle=\bfseries,
-    title={\mbox{#1}},
-    before upper={\addcontentsline{toc}{subsection}{#1}\parindent0pt}
+\ifshowproblems
+    % Version with problem statements visible - use tcolorbox
+    \newtcolorbox{problembox}[1][]{
+        breakable,
+        colback=blue!10,
+        colframe=blue!50,
+        arc=3pt,
+        boxrule=1pt,
+        left=0pt,
+        right=0pt,
+        width=\textwidth,
+        top=10pt,
+        bottom=10pt,
+        before skip=3em,
+        fonttitle=\bfseries,
+        title={\mbox{#1}},
+        before upper={\addcontentsline{toc}{subsection}{#1}\parindent0pt}
+    }
+\else
+    % Version without problem statements - just show as subsection heading
+    \newenvironment{problembox}[1][]{
+        \subsection*{#1}
+        \addcontentsline{toc}{subsection}{#1}
+        \ignorespaces
+    }{
+        \ignorespacesafterend
+    }
+\fi
+
+% Comment package already loaded above
+
+% Define a command to conditionally show problem content
+\newcommand{\problemtext}[1]{%
+    \ifshowproblems
+        #1
+    \else
+        % Hide the text when problems are disabled
+    \fi
 }
 
-% Custom environments for definitions and theorems
+% Create a new environment that can properly hide problem content
+\ifshowproblems
+    \newenvironment{problemstatement}{}{}
+\else
+    \excludecomment{problemstatement}
+\fi
+
+% Redefine definition and theorem environments to use colored boxes
 \newtheorem{definition}{Definition}
 \newtheorem{theorem}{Theorem}
+
+% Redefine the definition environment to use yellow boxes
+\renewenvironment{definition}[1][]{
+    \begin{tcolorbox}[
+        breakable,
+        colback=yellow!20,
+        colframe=yellow!60,
+        coltitle=black,
+        arc=3pt,
+        boxrule=1pt,
+        left=5pt,
+        right=5pt,
+        width=\textwidth,
+        top=8pt,
+        bottom=8pt,
+        before skip=1em,
+        after skip=0.5em,
+        fonttitle=\bfseries,
+        title={\if\relax\detokenize{#1}\relax Definition\else Definition: #1\fi}
+    ]
+}{
+    \end{tcolorbox}
+}
+
+% Redefine the theorem environment to use green boxes
+\renewenvironment{theorem}[1][]{
+    \begin{tcolorbox}[
+        breakable,
+        colback=green!15,
+        colframe=green!50,
+        coltitle=black,
+        arc=3pt,
+        boxrule=1pt,
+        left=5pt,
+        right=5pt,
+        width=\textwidth,
+        top=8pt,
+        bottom=8pt,
+        before skip=1em,
+        after skip=0.5em,
+        fonttitle=\bfseries,
+        title={\if\relax\detokenize{#1}\relax Theorem\else Theorem: #1\fi}
+    ]
+}{
+    \end{tcolorbox}
+}
 
 \newcommand{\Log}{\log}
 \newcommand{\shortsearrow}{\mathrel{\vcenter{\hbox{$\scriptscriptstyle\searrow$}}}}
 \renewcommand{\qed}{\hfill$\blacksquare$}
+
+% Glossary commands - commented out due to expansion issues
+% \newcommand{\addtoglossary}[2]{
+%     \newglossaryentry{#1}{
+%         name=#1,
+%         description={#2}
+%     }
+% }
+% 
+% \newcommand{\adddefinition}[1]{
+%     \addtoglossary{def-#1}{Definition: #1}
+% }
+% 
+% \newcommand{\addtheorem}[1]{
+%     \addtoglossary{thm-#1}{Theorem: #1}
+% }
 
 % Configure headers to remove "CHAPTER" word
 \pagestyle{fancy}
@@ -86,11 +196,19 @@
     
     \vspace{2cm}
     
-    {\Huge\bfseries Exercise Solutions from\\[0.5cm] Apostol's Mathematical Analysis}
+    {\Huge\bfseries Study Guide for\\[0.5cm] Apostol's Mathematical Analysis}
     
     \vspace{1cm}
     
-    {\Large A Very Comprehensive Guide to Solving Mathematical Analysis Problems}
+    {\Large With Very Comprehensive Problem Solutions}
+    
+    \vspace{0.5cm}
+    
+    \ifshowproblems
+        {\Large \textbf{With Problem Statements}}
+    \else
+        {\Large \textbf{Solutions Only}}
+    \fi
     
     \vspace{2cm}
     
@@ -105,21 +223,24 @@
 
 \tableofcontents
 
-\input{ch1.tex}
-\input{ch2.tex}
-\input{ch3.tex}
+% \input{ch1.tex}
+% \input{ch2.tex}
+% \input{ch3.tex}
 \input{ch4.tex}
-\input{ch5.tex}
-\input{ch6.tex}
-\input{ch7.tex}
-\input{ch8.tex}
-\input{ch9.tex}
-\input{ch10.tex}
-\input{ch11.tex}
-\input{ch12.tex}
-\input{ch13.tex}
-\input{ch14.tex}
-\input{ch15.tex}
-\input{ch16.tex}
+% \input{ch5.tex}
+% \input{ch6.tex}
+% \input{ch7.tex}
+% \input{ch8.tex}
+% \input{ch9.tex}
+% \input{ch10.tex}
+% \input{ch11.tex}
+% \input{ch12.tex}
+% \input{ch13.tex}
+% \input{ch14.tex}
+% \input{ch15.tex}
+% \input{ch16.tex}
+
+% Print the glossary - commented out due to expansion issues
+% \printglossary[title=Glossary of Mathematical Terms and Theorems]
 
 \end{document}
