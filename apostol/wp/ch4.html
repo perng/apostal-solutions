@@ -1,0 +1,1740 @@
+\chapter{Limits and Continuity}
+<p>
+
+
+<p>
+
+<b>1. Limits of Sequences </b>
+
+<p>
+
+
+<p>
+
+
+<p>
+
+<b> Essential Definitions and Theorems </b>
+
+<p>
+
+
+<p>
+
+<blockquote><b>Definition 1 (Cauchy Sequence)</b> <em> A sequence $latex {(x_n)}&fg=000000$ in a metric space $latex {(S,d)}&fg=000000$ is Cauchy if for every $latex {\varepsilon &gt; 0}&fg=000000$ there exists $latex {N \in \mathbb{N}}&fg=000000$ such that $latex {d(x_n, x_m) &lt; \varepsilon}&fg=000000$ for all $latex {n, m \geq N}&fg=000000$. </em></blockquote>
+
+<p>
+
+
+<p>
+\noindent<b>Importance:</b> Cauchy sequences provide a way to test for convergence without knowing the limit in advance. This is crucial in many applications where we can verify that terms are getting closer together but don't know what they're converging to. The concept of completeness (every Cauchy sequence converges) is fundamental to modern analysis.
+<p>
+
+<blockquote><b>Theorem 2 (Geometric Sequence Convergence)</b> <em> If $latex {|z| &lt; 1}&fg=000000$, then $latex {z^n \rightarrow 0}&fg=000000$. If $latex {|z| &gt; 1}&fg=000000$, then $latex {(z^n)}&fg=000000$ diverges. </em></blockquote>
+
+<p>
+
+
+<p>
+\noindent<b>Importance:</b> This is one of the most fundamental convergence results in analysis. It provides a simple criterion for when powers of a complex number converge to zero, which is essential for understanding power series, geometric series, and many iterative processes.
+<p>
+
+<blockquote><b>Theorem 3 (Ratio Test)</b> <em> Let $latex {(a_n)}&fg=000000$ be a sequence of positive numbers. If $latex {\limsup_{n \rightarrow \infty} \frac{a_{n+1}}{a_n} &lt; 1}&fg=000000$, then $latex {\sum a_n}&fg=000000$ converges. If $latex {\liminf_{n \rightarrow \infty} \frac{a_{n+1}}{a_n} &gt; 1}&fg=000000$, then $latex {\sum a_n}&fg=000000$ diverges. </em></blockquote>
+
+<p>
+
+
+<p>
+\noindent<b>Importance:</b> The ratio test is one of the most powerful and practical convergence tests for series. It compares consecutive terms to determine convergence, making it particularly useful for series with factorial or exponential terms. The use of limsup and liminf makes it robust even when the ratio doesn't have a simple limit.
+<p>
+  Prove each of the following statements about sequences in $latex {\mathbb{C}}&fg=000000$: 
+
+<ol> <li> $latex {z^n \rightarrow 0}&fg=000000$ if $latex {|z| &lt; 1}&fg=000000$; $latex {(z^n)}&fg=000000$ diverges if $latex {|z| &gt; 1}&fg=000000$. <li> If $latex {z_n \rightarrow 0}&fg=000000$ and if $latex {(c_n)}&fg=000000$ is bounded, then $latex {(c_n z_n) \rightarrow 0}&fg=000000$. <li> $latex {z^n / n! \rightarrow 0}&fg=000000$ for every complex $latex {z}&fg=000000$. <li> If $latex {a_n = \sqrt{n^2 + 2} - n}&fg=000000$, then $latex {a_n \rightarrow 0}&fg=000000$. 
+</ol>
+
+  
+<p>
+\noindent<b>Strategy:</b> Use the geometric sequence convergence theorem for (a), boundedness and convergence properties for (b), ratio test or Stirling's formula for (c), and rationalization technique for (d).
+<p>
+\noindent<b>Proof.</b> 
+
+<ol> <li> If $latex {|z|&lt;1}&fg=000000$, then $latex {|z^n|=|z|^n\rightarrow 0}&fg=000000$ by the geometric sequence property, hence $latex {z^n\rightarrow 0}&fg=000000$. If $latex {|z|&gt;1}&fg=000000$, then $latex {|z^n|=|z|^n\rightarrow +\infty}&fg=000000$, so $latex {(z^n)}&fg=000000$ is unbounded and therefore not convergent in $latex {\mathbb{C}}&fg=000000$. <li> If $latex {|c_n|\le M}&fg=000000$ for all $latex {n}&fg=000000$ and $latex {z_n\rightarrow 0}&fg=000000$, then $latex {|c_n z_n|\le M|z_n|\rightarrow 0}&fg=000000$. <li> Fix $latex {z\in\mathbb{C}}&fg=000000$. By the ratio test (or Stirling's formula), <p align=center>$latex \displaystyle  \frac{|z|^{n+1}/(n+1)!}{|z|^n/n!}=\frac{|z|}{n+1}\rightarrow 0, &fg=000000$</p>
+ so $latex {|z|^n/n!\rightarrow 0}&fg=000000$, hence $latex {z^n/n!\rightarrow 0}&fg=000000$. <li> Rationalize: \begin{align*} a_n&=\sqrt{n^2+2}-n<br/>
+ &=\frac{(\sqrt{n^2+2}-n)(\sqrt{n^2+2}+n)}{\sqrt{n^2+2}+n}<br/>
+ &=\frac{2}{\sqrt{n^2+2}+n}<br/>
+ &\sim \frac{2}{2n}<br/>
+ &=\frac{1}{n}\rightarrow 0. \end{align*} 
+</ol>
+
+\qed \medskip
+<p>
+  If $latex {a_{n+2} = (a_{n+1} + a_n)/2}&fg=000000$ for all $latex {n \geq 1}&fg=000000$, show that $latex {a_n \rightarrow (a_1 + 2a_2)/3}&fg=000000$. <br/>
+ <i>Hint.</i> $latex {a_{n+2} - a_{n+1} = \frac{1}{2}(a_n - a_{n+1})}&fg=000000$.  
+<p>
+\noindent<b>Strategy:</b> Use the hint to define a difference sequence $latex {d_n = a_{n+1} - a_n}&fg=000000$ that forms a geometric sequence. Express $latex {a_n}&fg=000000$ in terms of initial values and the geometric series, then take the limit.
+<p>
+\bigskip\noindent<b>Solution:</b> Using the hint, we have $latex {a_{n+2} - a_{n+1} = \frac{1}{2}(a_n - a_{n+1})}&fg=000000$. Let $latex {d_n = a_{n+1} - a_n}&fg=000000$ be the difference between consecutive terms. Then the recurrence becomes $latex {d_{n+1} = -\frac{1}{2}d_n}&fg=000000$.
+<p>
+This gives us $latex {d_n = d_1 \cdot \left(-\frac{1}{2}\right)^{n-1}}&fg=000000$, where $latex {d_1 = a_2 - a_1}&fg=000000$. Since $latex {\left(-\frac{1}{2}\right)^n \rightarrow 0}&fg=000000$ as $latex {n \rightarrow \infty}&fg=000000$, we have $latex {d_n \rightarrow 0}&fg=000000$.
+<p>
+Now, we can express $latex {a_n}&fg=000000$ in terms of the initial terms and the differences: <p align=center>$latex \displaystyle  a_n = a_1 + \sum_{k=1}^{n-1} d_k = a_1 + d_1 \sum_{k=1}^{n-1} \left(-\frac{1}{2}\right)^{k-1} &fg=000000$</p>
+
+<p>
+The sum $latex {\sum_{k=1}^{n-1} \left(-\frac{1}{2}\right)^{k-1}}&fg=000000$ is a geometric series that converges to $latex {\frac{1}{1 - \left(-\frac{1}{2}\right)} = \frac{2}{3}}&fg=000000$ as $latex {n \rightarrow \infty}&fg=000000$.
+<p>
+Therefore, as $latex {n \rightarrow \infty}&fg=000000$: <p align=center>$latex \displaystyle  a_n \rightarrow a_1 + d_1 \cdot \frac{2}{3} = a_1 + (a_2 - a_1) \cdot \frac{2}{3} = a_1 + \frac{2a_2}{3} - \frac{2a_1}{3} = \frac{a_1 + 2a_2}{3} &fg=000000$</p>
+
+<p>
+  \centering  , ylabel={$latex {a_n}&fg=000000$}, xmin=0, xmax=15, ymin=-1, ymax=3, grid=major, legend pos=north east, title={Convergence of Linear Recurrence $latex {a_{n+2} = (a_{n+1} + a_n)/2}&fg=000000$} } \addplot[blue, thick, mark=*, mark size=2pt] coordinates { (0,0) (1,3) (2,1.5) (3,2.25) (4,1.875) (5,2.0625) (6,1.96875) (7,2.015625) (8,1.9921875) (9,2.00390625) (10,1.998046875) (11,2.000976563) (12,1.999511719) (13,2.000244141) (14,1.99987793) (15,2.000061035) }; \addlegendentry{{$latex {a_1=0}&fg=000000$}, {$latex {a_2=3 \rightarrow 2}&fg=000000$}} \addplot[red, thick, mark=square, mark size=2pt] coordinates { (0,1) (1,2) (2,1.5) (3,1.75) (4,1.625) (5,1.6875) (6,1.65625) (7,1.671875) (8,1.6640625) (9,1.66796875) (10,1.666015625) (11,1.666992188) (12,1.666503906) (13,1.666748047) (14,1.666625977) (15,1.666687012) }; \addlegendentry{{$latex {a_1=1}&fg=000000$}, {$latex {a_2=2 \rightarrow 5/3}&fg=000000$}} \addplot[green, thick, mark=triangle, mark size=2pt] coordinates { (0,-1) (1,1) (2,0) (3,0.5) (4,0.25) (5,0.375) (6,0.3125) (7,0.34375) (8,0.328125) (9,0.3359375) (10,0.33203125) (11,0.333984375) (12,0.333007813) (13,0.333496094) (14,0.333251953) (15,0.333374023) }; \addlegendentry{{$latex {a_1=-1}&fg=000000$}, {$latex {a_2=1 \rightarrow 1/3}&fg=000000$}} \addplot[dashed, blue] coordinates {(0,2) (15,2)}; \addplot[dashed, red] coordinates {(0,1.666666667) (15,1.666666667)}; \addplot[dashed, green] coordinates {(0,0.333333333) (15,0.333333333)};   \caption{The sequence converges to $latex {(a_1 + 2a_2)/3}&fg=000000$ regardless of initial values, with oscillating behavior that dampens over time.} \qed
+<p>
+  If $latex {0 &lt; x_1 &lt; 1}&fg=000000$ and if $latex {x_{n+1} = 1 - \sqrt{1 - x_n}}&fg=000000$ for all $latex {n \geq 1}&fg=000000$, prove that $latex {\{x_n\}}&fg=000000$ is a decreasing sequence with limit 0. Prove also that $latex {x_{n+1}/x_n \rightarrow \frac{1}{2}}&fg=000000$.  
+<p>
+\noindent<b>Strategy:</b> Use the concavity of $latex {\sqrt{1-t}}&fg=000000$ to show the sequence is decreasing and bounded, hence convergent. Find the limit by solving the fixed point equation, then use Taylor expansion to find the ratio limit.
+<p>
+\noindent<b>Proof.</b> For $latex {t\in(0,1)}&fg=000000$, the inequality $latex {\sqrt{1-t}&gt;1-\tfrac{t}{2}}&fg=000000$ holds (concavity of $latex {\sqrt{\cdot}}&fg=000000$ or binomial expansion). Thus <p align=center>$latex \displaystyle  x_{n+1}=1-\sqrt{1-x_n}&lt;1-\Big(1-\tfrac{x_n}{2}\Big)=\tfrac{x_n}{2}&lt;x_n, &fg=000000$</p>
+ so $latex {(x_n)}&fg=000000$ is decreasing and bounded below by $latex {0}&fg=000000$, hence convergent. Let $latex {\lim x_n=L\ge 0}&fg=000000$. Passing to the limit in $latex {x_{n+1}=1-\sqrt{1-x_n}}&fg=000000$ gives $latex {L=1-\sqrt{1-L}}&fg=000000$, whose solutions are $latex {L\in\{0,1\}}&fg=000000$. Since $latex {x_n\le x_1&lt;1}&fg=000000$, we must have $latex {L=0}&fg=000000$.
+<p>
+Moreover, using the Taylor expansion $latex {\sqrt{1-t}=1-\tfrac{t}{2}-\tfrac{t^2}{8}+o(t^2)}&fg=000000$ as $latex {t\rightarrow 0^+}&fg=000000$, <p align=center>$latex \displaystyle  \frac{x_{n+1}}{x_n}=\frac{1-\sqrt{1-x_n}}{x_n}=\frac{\tfrac{x_n}{2}+\tfrac{x_n^2}{8}+o(x_n^2)}{x_n}\rightarrow \tfrac12. &fg=000000$</p>
+
+<p>
+  \centering  , ylabel={$latex {x_n}&fg=000000$}, xmin=0, xmax=10, ymin=0, ymax=1, grid=major, legend pos=north east, title={Recursive Sequence $latex {x_{n+1} = 1 - \sqrt{1 - x_n}}&fg=000000$} } \addplot[blue, thick, mark=*, mark size=2pt] coordinates { (1,0.8) (2,0.552786) (3,0.447214) (4,0.381966) (5,0.333333) (6,0.295598) (7,0.265564) (8,0.241181) (9,0.220728) (10,0.203368) }; \addlegendentry{$latex {x_1 = 0.8}&fg=000000$} \addplot[red, thick, mark=square, mark size=2pt] coordinates { (1,0.5) (2,0.292893) (3,0.207107) (4,0.158918) (5,0.127325) (6,0.105573) (7,0.089316) (8,0.076526) (9,0.066225) (10,0.057735) }; \addlegendentry{$latex {x_1 = 0.5}&fg=000000$} \addplot[green, thick, mark=triangle, mark size=2pt] coordinates { (1,0.9) (2,0.683772) (3,0.541196) (4,0.449489) (5,0.387298) (6,0.341640) (7,0.305407) (8,0.275255) (9,0.249223) (10,0.226497) }; \addlegendentry{$latex {x_1 = 0.9}&fg=000000$} \addplot[dashed, black] coordinates {(0,0) (10,0)};   \caption{The sequence is decreasing and converges to 0, with the ratio $latex {x_{n+1}/x_n}&fg=000000$ approaching $latex {1/2}&fg=000000$ as $latex {n \rightarrow \infty}&fg=000000$.} \qed \medskip
+<p>
+  Two sequences of positive integers $latex {\{a_n\}}&fg=000000$ and $latex {\{b_n\}}&fg=000000$ are defined recursively by taking $latex {a_1 = b_1 = 1}&fg=000000$ and equating rational and irrational parts in the equation <p align=center>$latex \displaystyle a_n + b_n \sqrt{2} = (a_{n-1} + b_{n-1} \sqrt{2})^2 \quad \text{for } n \geq 2.&fg=000000$</p>
+ Prove that $latex {a_n^2 - 2b_n^2 = 1}&fg=000000$ for $latex {n \geq 2}&fg=000000$. Deduce that $latex {a_n/b_n \rightarrow \sqrt{2}}&fg=000000$ through values $latex {&gt; \sqrt{2}}&fg=000000$, and that $latex {2b_n/a_n \rightarrow \sqrt{2}}&fg=000000$ through values $latex {&lt; \sqrt{2}}&fg=000000$.  
+<p>
+\noindent<b>Strategy:</b> Expand the quadratic expression and equate rational/irrational parts to find recurrence relations. Use mathematical induction to prove the identity. For the limits, manipulate the identity to express ratios and use the fact that sequences are increasing.
+<p>
+\noindent<b>Proof.</b>
+<p>
+<b>Part 1: Prove that $latex {a_n^2 - 2b_n^2 = 1}&fg=000000$ for $latex {n \geq 2}&fg=000000$</b>
+<p>
+First, let's find the recursive relations for $latex {a_n}&fg=000000$ and $latex {b_n}&fg=000000$. We expand the right side of the given equation: \begin{align*} a_n + b_n \sqrt{2} &= (a_{n-1} + b_{n-1} \sqrt{2})^2 <br/>
+ &= a_{n-1}^2 + 2a_{n-1}b_{n-1}\sqrt{2} + (b_{n-1}\sqrt{2})^2 <br/>
+ &= (a_{n-1}^2 + 2b_{n-1}^2) + (2a_{n-1}b_{n-1})\sqrt{2} \end{align*} By equating the rational and irrational parts, we obtain the recurrence relations:  a_n &= a_{n-1}^2 + 2b_{n-1}^2 <a name="eqan"></a> <br/>
+ b_n &= 2a_{n-1}b_{n-1} <a name="eqbn"></a>  We will prove the statement $latex {a_n^2 - 2b_n^2 = 1}&fg=000000$ for $latex {n \geq 2}&fg=000000$ by mathematical induction.
+<p>
+<b>Base Case (n=2):</b> Given $latex {a_1 = 1}&fg=000000$ and $latex {b_1 = 1}&fg=000000$. Using the recurrence relations: \begin{align*} a_2 &= a_1^2 + 2b_1^2 = 1^2 + 2(1^2) = 3 <br/>
+ b_2 &= 2a_1b_1 = 2(1)(1) = 2 \end{align*} Now, we check the condition for $latex {n=2}&fg=000000$: <p align=center>$latex \displaystyle  a_2^2 - 2b_2^2 = 3^2 - 2(2^2) = 9 - 2(4) = 9 - 8 = 1. &fg=000000$</p>
+ The base case holds.
+<p>
+<b>Inductive Hypothesis:</b> Assume the statement is true for some integer $latex {k \geq 2}&fg=000000$. That is, we assume: <p align=center>$latex \displaystyle  a_k^2 - 2b_k^2 = 1 &fg=000000$</p>
+
+<p>
+<b>Inductive Step:</b> We want to prove that the statement is true for $latex {n=k+1}&fg=000000$, i.e., $latex {a_{k+1}^2 - 2b_{k+1}^2 = 1}&fg=000000$. We start with the left-hand side and substitute the recurrence relations for $latex {a_{k+1}}&fg=000000$ and $latex {b_{k+1}}&fg=000000$: \begin{align*} a_{k+1}^2 - 2b_{k+1}^2 &= (a_k^2 + 2b_k^2)^2 - 2(2a_k b_k)^2 <br/>
+ &= (a_k^4 + 4a_k^2 b_k^2 + 4b_k^4) - 2(4a_k^2 b_k^2) <br/>
+ &= a_k^4 + 4a_k^2 b_k^2 + 4b_k^4 - 8a_k^2 b_k^2 <br/>
+ &= a_k^4 - 4a_k^2 b_k^2 + 4b_k^4 <br/>
+ &= (a_k^2 - 2b_k^2)^2 \end{align*} By the inductive hypothesis, we know that $latex {a_k^2 - 2b_k^2 = 1}&fg=000000$. Substituting this into our expression: <p align=center>$latex \displaystyle  a_{k+1}^2 - 2b_{k+1}^2 = (1)^2 = 1. &fg=000000$</p>
+ Thus, the statement holds for $latex {n=k+1}&fg=000000$.
+<p>
+By the principle of mathematical induction, $latex {a_n^2 - 2b_n^2 = 1}&fg=000000$ for all $latex {n \geq 2}&fg=000000$.
+<p>
+<b>Part 2: Deductions about the limits</b>
+<p>
+<b>Convergence of $latex {a_n/b_n}&fg=000000$ to $latex {\sqrt{2}}&fg=000000$</b> From the result $latex {a_n^2 - 2b_n^2 = 1}&fg=000000$ for $latex {n \geq 2}&fg=000000$, we can rearrange the equation. Since $latex {b_n}&fg=000000$ is a sequence of positive integers, $latex {b_n \neq 0}&fg=000000$, so we can divide by $latex {b_n^2}&fg=000000$: <p align=center>$latex \displaystyle  \frac{a_n^2}{b_n^2} - 2 = \frac{1}{b_n^2} &fg=000000$</p>
+ <p align=center>$latex \displaystyle  \left(\frac{a_n}{b_n}\right)^2 = 2 + \frac{1}{b_n^2} &fg=000000$</p>
+ Since $latex {a_n}&fg=000000$ and $latex {b_n}&fg=000000$ are positive, $latex {a_n/b_n &gt; 0}&fg=000000$. Taking the square root of both sides: <p align=center>$latex \displaystyle  \frac{a_n}{b_n} = \sqrt{2 + \frac{1}{b_n^2}} &fg=000000$</p>
+ The sequences are defined for $latex {a_1=1, b_1=1}&fg=000000$, and for $latex {n \geq 2}&fg=000000$, $latex {a_n = a_{n-1}^2+2b_{n-1}^2 &gt; a_{n-1}}&fg=000000$ and $latex {b_n = 2a_{n-1}b_{n-1} &gt; b_{n-1}}&fg=000000$. Thus, $latex {\{a_n\}}&fg=000000$ and $latex {\{b_n\}}&fg=000000$ are strictly increasing sequences of positive integers, which means $latex {b_n \rightarrow \infty}&fg=000000$ as $latex {n \rightarrow \infty}&fg=000000$. Consequently, <p align=center>$latex \displaystyle  \lim_{n \rightarrow \infty} \frac{1}{b_n^2} = 0. &fg=000000$</p>
+ Taking the limit of our expression for $latex {a_n/b_n}&fg=000000$: <p align=center>$latex \displaystyle  \lim_{n \rightarrow \infty} \frac{a_n}{b_n} = \lim_{n \rightarrow \infty} \sqrt{2 + \frac{1}{b_n^2}} = \sqrt{2+0} = \sqrt{2}. &fg=000000$</p>
+ To show that the convergence is through values greater than $latex {\sqrt{2}}&fg=000000$, we note that for any $latex {n \geq 1}&fg=000000$, $latex {b_n^2 &gt; 0}&fg=000000$, so $latex {\frac{1}{b_n^2} &gt; 0}&fg=000000$. Therefore: <p align=center>$latex \displaystyle  \left(\frac{a_n}{b_n}\right)^2 = 2 + \frac{1}{b_n^2} &gt; 2 &fg=000000$</p>
+ Taking the square root of both sides (since $latex {a_n/b_n &gt; 0}&fg=000000$): <p align=center>$latex \displaystyle  \frac{a_n}{b_n} &gt; \sqrt{2}. &fg=000000$</p>
+ Thus, the sequence $latex {a_n/b_n}&fg=000000$ converges to $latex {\sqrt{2}}&fg=000000$ through values strictly greater than $latex {\sqrt{2}}&fg=000000$.
+<p>
+<b>Convergence of $latex {2b_n/a_n}&fg=000000$ to $latex {\sqrt{2}}&fg=000000$</b> Again, we start with $latex {a_n^2 - 2b_n^2 = 1}&fg=000000$. Since $latex {a_n}&fg=000000$ is a sequence of positive integers, $latex {a_n \neq 0}&fg=000000$. We divide by $latex {a_n^2}&fg=000000$: <p align=center>$latex \displaystyle  1 - 2\frac{b_n^2}{a_n^2} = \frac{1}{a_n^2} &fg=000000$</p>
+ Rearranging the terms: <p align=center>$latex \displaystyle  1 - \frac{1}{a_n^2} = 2\left(\frac{b_n}{a_n}\right)^2 &fg=000000$</p>
+ Multiply by 2: <p align=center>$latex \displaystyle  2 - \frac{2}{a_n^2} = 4\left(\frac{b_n}{a_n}\right)^2 = \left(\frac{2b_n}{a_n}\right)^2 &fg=000000$</p>
+ Since $latex {b_n}&fg=000000$ and $latex {a_n}&fg=000000$ are positive, we can take the square root: <p align=center>$latex \displaystyle  \frac{2b_n}{a_n} = \sqrt{2 - \frac{2}{a_n^2}} &fg=000000$</p>
+ As established before, $latex {a_n \rightarrow \infty}&fg=000000$ as $latex {n \rightarrow \infty}&fg=000000$. This implies: <p align=center>$latex \displaystyle  \lim_{n \rightarrow \infty} \frac{2}{a_n^2} = 0. &fg=000000$</p>
+ Taking the limit of our expression for $latex {2b_n/a_n}&fg=000000$: <p align=center>$latex \displaystyle  \lim_{n \rightarrow \infty} \frac{2b_n}{a_n} = \lim_{n \rightarrow \infty} \sqrt{2 - \frac{2}{a_n^2}} = \sqrt{2-0} = \sqrt{2}. &fg=000000$</p>
+ To show that the convergence is through values less than $latex {\sqrt{2}}&fg=000000$, we note that for any $latex {n \geq 1}&fg=000000$, $latex {a_n^2 &gt; 0}&fg=000000$, so $latex {\frac{2}{a_n^2} &gt; 0}&fg=000000$. Therefore: <p align=center>$latex \displaystyle  \left(\frac{2b_n}{a_n}\right)^2 = 2 - \frac{2}{a_n^2} &lt; 2 &fg=000000$</p>
+ Taking the square root of both sides (since $latex {2b_n/a_n &gt; 0}&fg=000000$): <p align=center>$latex \displaystyle  \frac{2b_n}{a_n} &lt; \sqrt{2}. &fg=000000$</p>
+ Thus, the sequence $latex {2b_n/a_n}&fg=000000$ converges to $latex {\sqrt{2}}&fg=000000$ through values strictly less than $latex {\sqrt{2}}&fg=000000$.\qed \medskip
+<p>
+  A real sequence $latex {\{x_n\}}&fg=000000$ satisfies $latex {7x_{n+1} = x_n^3 + 6}&fg=000000$ for $latex {n \geq 1}&fg=000000$. If $latex {x_1 = \frac{1}{2}}&fg=000000$, prove that the sequence increases and find its limit. What happens if $latex {x_1 = \frac{3}{2}}&fg=000000$ or if $latex {x_1 = \frac{5}{2}}&fg=000000$?  
+<p>
+\noindent<b>Strategy:</b> Define $latex {f(x) = (x^3 + 6)/7}&fg=000000$ and analyze its behavior. Use the fact that $latex {f}&fg=000000$ is increasing and find fixed points. Analyze the difference $latex {f(x) - x}&fg=000000$ to determine monotonicity and convergence behavior for different initial values.
+<p>
+\bigskip\noindent<b>Solution:</b> Let $latex {f(x)=\dfrac{x^3+6}{7}}&fg=000000$. Then $latex {f'(x)=\dfrac{3x^2}{7}\ge 0}&fg=000000$, so $latex {f}&fg=000000$ is increasing. Also $latex {f(1)=1}&fg=000000$ and for $latex {x\in[0,1]}&fg=000000$, <p align=center>$latex \displaystyle  f(x)-x=\frac{x^3-7x+6}{7}=\frac{(x-1)(x+3)(x-2)}{7}&gt;0, &fg=000000$</p>
+ so $latex {f}&fg=000000$ maps $latex {[0,1]}&fg=000000$ into itself and $latex {f(x)&gt;x}&fg=000000$ for $latex {x\in(0,1)}&fg=000000$. Starting with $latex {x_1=\tfrac12}&fg=000000$, we get $latex {0&lt;x_1&lt;x_2&lt;\cdots\le 1}&fg=000000$, hence $latex {x_n\uparrow L\in[0,1]}&fg=000000$. Passing to the limit in $latex {x_{n+1}=f(x_n)}&fg=000000$ gives $latex {L=f(L)}&fg=000000$, i.e., $latex {L=\textbf{}&fg=000000$1$latex {}}&fg=000000$. Thus for $latex {x_1=\tfrac12}&fg=000000$, $latex {x_n\uparrow \textbf{}&fg=000000$1$latex {}}&fg=000000$.
+<p>
+If $latex {x_1=\tfrac32\in(1,2)}&fg=000000$, then using the same factorization, <p align=center>$latex \displaystyle  f(x)-x=\frac{(x-1)(x+3)(x-2)}{7}&lt;0\quad(1&lt;x&lt;2), &fg=000000$</p>
+ so $latex {x_{n+1}&lt;x_n}&fg=000000$ and $latex {x_n&gt;1}&fg=000000$; the sequence decreases and is bounded below by $latex {1}&fg=000000$, hence $latex {x_n\downarrow \textbf{}&fg=000000$1$latex {}}&fg=000000$.
+<p>
+If $latex {x_1=\tfrac52&gt;2}&fg=000000$, then $latex {f(x)-x&gt;0}&fg=000000$ (all three factors positive), so $latex {x_{n+1}&gt;x_n}&fg=000000$ and $latex {x_n\rightarrow+\infty}&fg=000000$ (since for large $latex {x}&fg=000000$, $latex {f(x)\sim x^3/7&gt;x}&fg=000000$).
+<p>
+  \centering  , ylabel={$latex {x_n}&fg=000000$}, xmin=0, xmax=6, ymin=0, ymax=1500, grid=major, legend pos=north west, title={Cubic Recurrence $latex {7x_{n+1} = x_n^3 + 6}&fg=000000$} } \addplot[blue, thick, mark=*, mark size=2pt] coordinates { (1,0.5) (2,0.875) (3,0.984375) (4,0.999023) (5,0.999999) (6,1.0) (7,1.0) (8,1.0) }; \addlegendentry{{$latex {x_1 = 0.5 \rightarrow 1}&fg=000000$}} \addplot[red, thick, mark=square, mark size=2pt] coordinates { (1,1.5) (2,1.125) (3,1.03125) (4,1.003906) (5,1.000244) (6,1.000015) (7,1.000001) (8,1.0) }; \addlegendentry{{$latex {x_1 = 1.5 \rightarrow 1}&fg=000000$}} \addplot[green, thick, mark=triangle, mark size=2pt] coordinates { (1,2.5) (2,3.125) (3,5.078125) (4,20.5078) (5,1200.0) }; \addlegendentry{{$latex {x_1 = 2.5 \rightarrow \infty}&fg=000000$}} \addplot[dashed, black] coordinates {(0,1) (6,1)};   \caption{For $latex {x_1 &lt; 2}&fg=000000$, the sequence converges to the fixed point 1. For $latex {x_1 &gt; 2}&fg=000000$, the sequence diverges to infinity.} \qed
+<p>
+  If $latex {|a_n| &lt; 2}&fg=000000$ and $latex {|a_{n+2} - a_{n+1}| \leq \frac{1}{8} |a_{n+1}^2 - a_n^2|}&fg=000000$ for all $latex {n \geq 1}&fg=000000$, prove that $latex {\{a_n\}}&fg=000000$ converges.  
+<p>
+\noindent<b>Strategy:</b> Use the boundedness condition to bound $latex {|a_{n+1} + a_n|}&fg=000000$, then factor the difference of squares to show the sequence is Cauchy. Use the contraction-like property to establish convergence.
+<p>
+\noindent<b>Proof.</b> Since $latex {|a_{n+1}|,|a_n|&lt;2}&fg=000000$, we have $latex {|a_{n+1}+a_n|&lt;4}&fg=000000$. Hence <p align=center>$latex \displaystyle  |a_{n+2}-a_{n+1}|\le\tfrac18|a_{n+1}^2-a_n^2|=\tfrac18|a_{n+1}-a_n||a_{n+1}+a_n| \le \tfrac12\,|a_{n+1}-a_n|. &fg=000000$</p>
+ Inductively, $latex {|a_{n+k}-a_{n+k-1}|\le 2^{-k+1}|a_{n+1}-a_n|}&fg=000000$. Therefore for $latex {m&gt;n}&fg=000000$, <p align=center>$latex \displaystyle  |a_m-a_n|\le \sum_{k=n}^{m-1}|a_{k+1}-a_k|\le |a_{n+1}-a_n|\sum_{j=0}^{\infty}2^{-j}=2|a_{n+1}-a_n|\rightarrow 0, &fg=000000$</p>
+ so $latex {(a_n)}&fg=000000$ is Cauchy and converges.\qed \medskip
+<p>
+  In a metric space $latex {(S, d)}&fg=000000$, assume that $latex {x_n \rightarrow x}&fg=000000$ and $latex {y_n \rightarrow y}&fg=000000$. Prove that $latex {d(x_n, y_n) \rightarrow d(x, y)}&fg=000000$.  
+<p>
+\noindent<b>Strategy:</b> Use the reverse triangle inequality to bound $latex {|d(x_n, y_n) - d(x, y)|}&fg=000000$ in terms of $latex {d(x_n, x)}&fg=000000$ and $latex {d(y_n, y)}&fg=000000$, then use the convergence of the sequences.
+<p>
+\noindent<b>Proof.</b> By the reverse triangle inequality, <p align=center>$latex \displaystyle  \big|d(x_n,y_n)-d(x,y)\big|\le d(x_n,x)+d(y_n,y)\rightarrow 0. &fg=000000$</p>
+\qed \medskip
+<p>
+  Prove that in a compact metric space $latex {(S, d)}&fg=000000$, every sequence in $latex {S}&fg=000000$ has a subsequence which converges in $latex {S}&fg=000000$. This property also implies that $latex {S}&fg=000000$ is compact but you are not required to prove this. (For a proof see either Reference 4.2 or 4.3.)  
+<p>
+\noindent<b>Strategy:</b> Use the limit-point property of compact sets: if a set is compact and infinite, it has a limit point. If a value appears infinitely often, use the constant subsequence. Otherwise, use the limit point to construct a convergent subsequence.
+<p>
+\noindent<b>Proof.</b> <b>Lemma (Limit-point property).</b> If \(S\) is compact and \(A\subseteq S\) is infinite, then \(A\) has a limit point in \(S\).
+<p>
+<em>Proof of Lemma.</em> Suppose \(A\) has no limit point. Then each \(a\in A\) is isolated in \(A\): there exists \(r_a>0\) with <p align=center>$latex \displaystyle  B(a,r_a)\cap (A\setminus\{a\})=\varnothing. &fg=000000$</p>
+ Consider the open cover <p align=center>$latex \displaystyle  \mathcal{U}=\{S\setminus A\}\ \cup\ \{B(a,r_a):a\in A\} &fg=000000$</p>
+ of \(S\). Any finite subfamily of \(\mathcal{U}\) uses only finitely many of the balls \(B(a,r_a)\), hence covers at most finitely many points of \(A\); thus it cannot cover \(S\). This contradicts compactness. Hence \(A\) has a limit point in \(S\). \(\square\)
+<p>
+<b>Proof of Theorem.</b> Let \((x_n)\) be a sequence in \(S\). If some value \(x\in S\) occurs infinitely often among the \(x_n\), then the constant subsequence \(x,x,\dots\) converges to \(x\).
+<p>
+Otherwise, the set \(A=\{x_n:n\in\mathbb{N}\}\) is infinite. By the Lemma, \(A\) has a limit point \(x\in S\). By definition of limit point, every ball \(B(x,\varepsilon)\) contains infinitely many terms of the sequence. Choose \(n_1\) with \(d(x_{n_1},x)<1\); having chosen \(n_k\), pick \(n_{k+1}>n_k\) with \(d(x_{n_{k+1}},x)<1/(k+1)\). Then \(x_{n_k}\rightarrow x\) because for any \(\varepsilon>0\), pick \(K\) with \(1/K<\varepsilon\); for all \(k\ge K\), \(d(x_{n_k},x)<\varepsilon\).
+<p>
+Thus \((x_n)\) has a subsequence converging in \(S\). \qed \medskip
+<p>
+  Let $latex {A}&fg=000000$ be a subset of a metric space $latex {S}&fg=000000$. If $latex {A}&fg=000000$ is complete, prove that $latex {A}&fg=000000$ is closed. Prove that the converse also holds if $latex {S}&fg=000000$ is complete.  
+<p>
+\noindent<b>Strategy:</b> For the first part, use the fact that any convergent sequence in $latex {A}&fg=000000$ is Cauchy and must converge to a point in $latex {A}&fg=000000$ (by completeness), so $latex {A}&fg=000000$ contains all its limit points. For the converse, use the fact that Cauchy sequences in $latex {A}&fg=000000$ converge in $latex {S}&fg=000000$ (by completeness of $latex {S}&fg=000000$) and the limit must be in $latex {A}&fg=000000$ (by closedness).
+<p>
+\noindent<b>Proof.</b> If $latex {A}&fg=000000$ is complete and $latex {x\in\overline{A}}&fg=000000$, then there exists $latex {(a_n)\subset A}&fg=000000$ with $latex {a_n\rightarrow x}&fg=000000$. Any convergent sequence is Cauchy; since $latex {A}&fg=000000$ is complete, its limit must lie in $latex {A}&fg=000000$, so $latex {x\in A}&fg=000000$. Thus $latex {A}&fg=000000$ is closed.
+<p>
+Conversely, if $latex {S}&fg=000000$ is complete and $latex {A}&fg=000000$ is closed in $latex {S}&fg=000000$, then every Cauchy sequence in $latex {A}&fg=000000$ converges in $latex {S}&fg=000000$ (completeness) to some $latex {x\in S}&fg=000000$, and closeness of $latex {A}&fg=000000$ forces $latex {x\in A}&fg=000000$. Hence $latex {A}&fg=000000$ is complete.\qed \medskip
+<p>
+
+
+<p>
+
+<b>2. Limits of Functions </b>
+
+<p>
+
+
+<p>
+
+
+<p>
+
+<b> Essential Definitions and Theorems </b>
+
+<p>
+
+
+<p>
+
+<blockquote><b>Definition 4 (Metric Space)</b> <em> A metric space is a set $latex {S}&fg=000000$ together with a function $latex {d: S \times S \rightarrow [0,\infty)}&fg=000000$ (called a metric) satisfying: 
+
+<ol> <li> $latex {d(x,y) = 0}&fg=000000$ if and only if $latex {x = y}&fg=000000$ <li> $latex {d(x,y) \geq 0}&fg=000000$ for all $latex {x,y \in S}&fg=000000$ <li> $latex {d(x,y) = d(y,x)}&fg=000000$ for all $latex {x,y \in S}&fg=000000$ <li> $latex {d(x,z) \leq d(x,y) + d(y,z)}&fg=000000$ for all $latex {x,y,z \in S}&fg=000000$ (triangle inequality) 
+</ol>
+
+ </em></blockquote>
+
+<p>
+
+
+<p>
+\noindent<b>Importance:</b> Metric spaces provide the most general setting for studying convergence, continuity, and topology. They abstract the notion of distance from Euclidean space to any set where we can define a reasonable distance function. This abstraction is crucial for modern analysis and topology.
+<p>
+
+<blockquote><b>Theorem 5 (Reverse Triangle Inequality)</b> <em> For any metric space $latex {(S,d)}&fg=000000$ and $latex {x,y,z \in S}&fg=000000$: $latex {|d(x,y) - d(x,z)| \leq d(y,z)}&fg=000000$ </em></blockquote>
+
+<p>
+
+
+<p>
+\noindent<b>Importance:</b> This inequality is essential for proving that distance functions are continuous and for establishing bounds on how distances change. It's a direct consequence of the triangle inequality and is used extensively in analysis to control the behavior of distance functions.
+<p>
+Note: In Exercise 4.10 through 4.28, all functions are real-valued.
+<p>
+  Let $latex {f}&fg=000000$ be defined on an open interval $latex {(a, b)}&fg=000000$ and assume $latex {x \in (a, b)}&fg=000000$. Consider the two statements: 
+
+<ol> <li> $latex {\lim_{h \rightarrow 0} |f(x + h) - f(x)| = 0}&fg=000000$; <li> $latex {\lim_{h \rightarrow 0} |f(x + h) - f(x - h)| = 0}&fg=000000$. 
+</ol>
+
+ Prove that (a) always implies (b), and give an example in which (b) holds but (a) does not.  
+<p>
+\noindent<b>Strategy:</b> For the implication, use the triangle inequality to bound the symmetric difference by the sum of two one-sided differences. For the counterexample, construct a function that is symmetric around $latex {x}&fg=000000$ but discontinuous at $latex {x}&fg=000000$.
+<p>
+\bigskip\noindent<b>Solution:</b> (a) $latex {\Rightarrow}&fg=000000$ (b): By the triangle inequality, <p align=center>$latex \displaystyle  |f(x+h)-f(x-h)|\le |f(x+h)-f(x)|+|f(x)-f(x-h)|\rightarrow 0. &fg=000000$</p>
+ Example for (b) but not (a): define <p align=center>$latex \displaystyle  f(t)=\begin{cases} 1,& t\ne 0,\\ 0,& t=0. \end{cases} &fg=000000$</p>
+ Then for $latex {h\ne 0}&fg=000000$, $latex {f(h)=f(-h)=1}&fg=000000$, so $latex {|f(h)-f(-h)|=0\rightarrow 0}&fg=000000$; but $latex {|f(h)-f(0)|=1\not\rightarrow 0}&fg=000000$, so (a) fails at $latex {x=0}&fg=000000$.\qed
+<p>
+  
+
+<p>
+
+<b> Exercise 4.11 </b>
+
+<p>
+
+ Let $latex {f}&fg=000000$ be defined on $latex {\mathbb{R}^2}&fg=000000$. If <p align=center>$latex \displaystyle  \lim_{(x, y) \rightarrow (a, b)} f(x, y) = L &fg=000000$</p>
+ and if the one-dimensional limits $latex {\lim_{x \rightarrow a} f(x, y)}&fg=000000$ and $latex {\lim_{y \rightarrow b} f(x, y)}&fg=000000$ both exist, prove that <p align=center>$latex \displaystyle  \lim_{x \rightarrow a} \left[ \lim_{y \rightarrow b} f(x, y) \right] = \lim_{y \rightarrow b} \left[ \lim_{x \rightarrow a} f(x, y) \right] = L. &fg=000000$</p>
+ Now consider the functions $latex {f}&fg=000000$ defined on $latex {\mathbb{R}^2}&fg=000000$ as follows: 
+
+<ol> <li> $latex {f(x, y) = \frac{x^2 - y^2}{x^2 + y^2}}&fg=000000$ if $latex {(x, y) \neq (0, 0), f(0, 0) = 0.}&fg=000000$ <li> $latex {f(x, y) = \frac{(xy)^2}{(xy)^2 + (x - y)^2}}&fg=000000$ if $latex {(x, y) \neq (0, 0), f(0, 0) = 0.}&fg=000000$ <li> $latex {f(x, y) = \frac{1}{x} \sin (xy)}&fg=000000$ if $latex {x \neq 0, f(0, y) = y.}&fg=000000$ <li> $latex {f(x, y) = \begin{cases} (x + y) \sin (1/x) \sin (1/y) & \text{if } x \neq 0 \text{ and } y \neq 0,\\ 0 & \text{if } x = 0 \text{ or } y = 0. \end{cases}}&fg=000000$ <li> $latex {f(x, y) = \begin{cases} \frac{\sin x - \sin y}{\tan x - \tan y} & \text{if } \tan x \neq \tan y,\\ \cos^3 x & \text{if } \tan x = \tan y. \end{cases}}&fg=000000$ 
+</ol>
+
+ In each of the preceding examples, determine whether the following limits exist and evaluate those limits that do exist: <p align=center>$latex \displaystyle  \lim_{x \rightarrow 0} \left[ \lim_{y \rightarrow 0} f(x, y) \right]; \quad \lim_{y \rightarrow 0} \left[ \lim_{x \rightarrow 0} f(x, y) \right]; \quad \lim_{(x, y) \rightarrow (0, 0)} f(x, y). &fg=000000$</p>
+  
+<p>
+\noindent<b>Strategy:</b> For the theoretical part, use the definition of the two-dimensional limit to show that for $latex {x}&fg=000000$ close to $latex {a}&fg=000000$, the one-dimensional limit $latex {\lim_{y \rightarrow b} f(x, y)}&fg=000000$ exists and equals $latex {L}&fg=000000$. Then take the limit as $latex {x \rightarrow a}&fg=000000$ to establish the result. For the examples, analyze each function by computing the iterated limits and the two-dimensional limit separately, using techniques like polar coordinates, path analysis, or direct evaluation.
+<p>
+\bigskip\noindent<b>Solution:</b>
+<p>
+<b>Theoretical Part:</b> Given $latex {\varepsilon&gt;0}&fg=000000$, choose $latex {\delta&gt;0}&fg=000000$ so that $latex {\sqrt{(x-a)^2+(y-b)^2}&lt;\delta}&fg=000000$ implies $latex {|f(x,y)-L|&lt;\varepsilon}&fg=000000$. Fix $latex {x}&fg=000000$ with $latex {|x-a|&lt;\delta}&fg=000000$. Then for $latex {|y-b|&lt;\sqrt{\delta^2-(x-a)^2}}&fg=000000$ we have $latex {|(x,y)-(a,b)|&lt;\delta}&fg=000000$, hence $latex {|f(x,y)-L|&lt;\varepsilon}&fg=000000$. This shows $latex {\lim_{y\rightarrow b}f(x,y)=L}&fg=000000$ for all $latex {x}&fg=000000$ close to $latex {a}&fg=000000$, and therefore $latex {\lim_{x\rightarrow a}\big[\lim_{y\rightarrow b}f(x,y)\big]=L}&fg=000000$. The other equality is analogous.
+<p>
+<b>Examples:</b>
+<p>
+\noindent<b>(a)</b> $latex {f(x,y)=\frac{x^2-y^2}{x^2+y^2}}&fg=000000$ for $latex {(x,y)\neq(0,0)}&fg=000000$, $latex {f(0,0)=0}&fg=000000$.
+<p>
+For fixed $latex {x\neq0}&fg=000000$: $latex {\lim_{y\rightarrow0}f(x,y)=\frac{x^2}{x^2}=1}&fg=000000$, so $latex {\lim_{x\rightarrow0}\big[\lim_{y\rightarrow0}f(x,y)\big]=1}&fg=000000$.
+<p>
+For fixed $latex {y\neq0}&fg=000000$: $latex {\lim_{x\rightarrow0}f(x,y)=\frac{-y^2}{y^2}=-1}&fg=000000$, so $latex {\lim_{y\rightarrow0}\big[\lim_{x\rightarrow0}f(x,y)\big]=-1}&fg=000000$.
+<p>
+The two-dimensional limit does not exist: along $latex {y=0}&fg=000000$, $latex {f(x,0)=1}&fg=000000$; along $latex {x=0}&fg=000000$, $latex {f(0,y)=-1}&fg=000000$.
+<p>
+\noindent<b>(b)</b> $latex {f(x,y)=\frac{(xy)^2}{(xy)^2+(x-y)^2}}&fg=000000$ for $latex {(x,y)\neq(0,0)}&fg=000000$, $latex {f(0,0)=0}&fg=000000$.
+<p>
+For fixed $latex {x\neq0}&fg=000000$: $latex {\lim_{y\rightarrow0}f(x,y)=\frac{0}{0+x^2}=0}&fg=000000$, so $latex {\lim_{x\rightarrow0}\big[\lim_{y\rightarrow0}f(x,y)\big]=0}&fg=000000$.
+<p>
+For fixed $latex {y\neq0}&fg=000000$: $latex {\lim_{x\rightarrow0}f(x,y)=\frac{0}{0+y^2}=0}&fg=000000$, so $latex {\lim_{y\rightarrow0}\big[\lim_{x\rightarrow0}f(x,y)\big]=0}&fg=000000$.
+<p>
+The two-dimensional limit is $latex {0}&fg=000000$: for $latex {(x,y)\neq(0,0)}&fg=000000$, $latex {|f(x,y)|\leq\frac{(xy)^2}{(xy)^2}=1}&fg=000000$, and along $latex {x=y}&fg=000000$, $latex {f(x,x)=\frac{x^4}{x^4+0}=1}&fg=000000$, so the limit does not exist.
+<p>
+\bigskip\noindent<b>(c)</b> $latex {f(x,y)=\frac{1}{x}\sin(xy)}&fg=000000$ for $latex {x\neq0}&fg=000000$, $latex {f(0,y)=y}&fg=000000$.
+<p>
+For fixed $latex {x\neq0}&fg=000000$: $latex {\lim_{y\rightarrow0}f(x,y)=\frac{1}{x}\sin(0)=0}&fg=000000$, so $latex {\lim_{x\rightarrow0}\big[\lim_{y\rightarrow0}f(x,y)\big]=0}&fg=000000$.
+<p>
+For fixed $latex {y}&fg=000000$: $latex {\lim_{x\rightarrow0}f(x,y)=\lim_{x\rightarrow0}\frac{\sin(xy)}{x}=y}&fg=000000$ (using L'Hôpital's rule), so $latex {\lim_{y\rightarrow0}\big[\lim_{x\rightarrow0}f(x,y)\big]=0}&fg=000000$.
+<p>
+\medskip\noindent<b>Note on L'Hôpital's rule:</b> When $latex {y\neq0}&fg=000000$, as $latex {x\rightarrow0}&fg=000000$, both the numerator $latex {\sin(xy)}&fg=000000$ and denominator $latex {x}&fg=000000$ approach $latex {0}&fg=000000$, giving us the indeterminate form $latex {\frac{0}{0}}&fg=000000$. L'Hôpital's rule allows us to compute this limit by taking the derivative of both numerator and denominator with respect to $latex {x}&fg=000000$: <p align=center>$latex \displaystyle \lim_{x\rightarrow0}\frac{\sin(xy)}{x}=\lim_{x\rightarrow0}\frac{\frac{d}{dx}[\sin(xy)]}{\frac{d}{dx}[x]}=\lim_{x\rightarrow0}\frac{y\cos(xy)}{1}=y\cos(0)=y&fg=000000$</p>
+ When $latex {y=0}&fg=000000$, the limit is simply $latex {\lim_{x\rightarrow0}\frac{0}{x}=0}&fg=000000$, which agrees with the formula $latex {y=0}&fg=000000$.
+<p>
+The two-dimensional limit is $latex {0}&fg=000000$: $latex {|f(x,y)|\leq\frac{|xy|}{|x|}=|y|\rightarrow0}&fg=000000$ as $latex {(x,y)\rightarrow(0,0)}&fg=000000$.
+<p>
+\bigskip\noindent<b>(d)</b> $latex {f(x,y)=(x+y)\sin(1/x)\sin(1/y)}&fg=000000$ for $latex {x\neq0}&fg=000000$ and $latex {y\neq0}&fg=000000$, $latex {f(x,y)=0}&fg=000000$ otherwise.
+<p>
+For fixed $latex {x\neq0}&fg=000000$: $latex {\lim_{y\rightarrow0}f(x,y)=0}&fg=000000$ (since $latex {f(x,y)=0}&fg=000000$ when $latex {y=0}&fg=000000$), so $latex {\lim_{x\rightarrow0}\big[\lim_{y\rightarrow0}f(x,y)\big]=0}&fg=000000$.
+<p>
+For fixed $latex {y\neq0}&fg=000000$: $latex {\lim_{x\rightarrow0}f(x,y)=0}&fg=000000$ (since $latex {f(x,y)=0}&fg=000000$ when $latex {x=0}&fg=000000$), so $latex {\lim_{y\rightarrow0}\big[\lim_{x\rightarrow0}f(x,y)\big]=0}&fg=000000$.
+<p>
+The two-dimensional limit does not exist: along $latex {x=y}&fg=000000$, $latex {f(x,x)=2x\sin(1/x)\sin(1/x)}&fg=000000$ oscillates as $latex {x\rightarrow0}&fg=000000$.
+<p>
+\bigskip\noindent<b>(e)</b> $latex {f(x,y)=\frac{\sin x-\sin y}{\tan x-\tan y}}&fg=000000$ for $latex {\tan x\neq\tan y}&fg=000000$, $latex {f(x,y)=\cos^3x}&fg=000000$ for $latex {\tan x=\tan y}&fg=000000$.
+<p>
+For fixed $latex {x\neq0}&fg=000000$: $latex {\lim_{y\rightarrow0}f(x,y)=\frac{\sin x-0}{\tan x-0}=\cos x}&fg=000000$, so <p align=center>$latex \displaystyle \lim_{x\rightarrow0}\big[\lim_{y\rightarrow0}f(x,y)\big]=1&fg=000000$</p>
+.
+<p>
+For fixed $latex {y\neq0}&fg=000000$: $latex {\lim_{x\rightarrow0}f(x,y)=\frac{0-\sin y}{0-\tan y}=\cos y}&fg=000000$, so <p align=center>$latex \displaystyle \lim_{y\rightarrow0}\big[\lim_{x\rightarrow0}f(x,y)\big]=1&fg=000000$</p>
+.
+<p>
+The two-dimensional limit is $latex {1}&fg=000000$: using L'Hôpital's rule twice, \begin{align*} \lim_{(x,y)\rightarrow(0,0)}\frac{\sin x-\sin y}{\tan x-\tan y}=&\lim_{(x,y)\rightarrow(0,0)}\frac{\cos x-\cos y}{\sec^2x-\sec^2y} <br/>
+ =&\lim_{(x,y)\rightarrow(0,0)}\frac{-\sin x+\sin y}{2\sec x\tan x-2\sec y\tan y}=1. \end{align*} \qed
+<p>
+  If \( x \in [0, 1] \) prove that the following limit exists, <p align=center>$latex \displaystyle \lim_{m \rightarrow \infty} \left[ \lim_{n \rightarrow \infty} \cos^{2n} (m! \pi x) \right],&fg=000000$</p>
+ and that its value is 0 or 1, according to whether \( x \) is irrational or rational.  
+<p>
+\noindent<b>Strategy:</b> First evaluate the inner limit for fixed $latex {m}&fg=000000$ using the fact that $latex {\cos^{2n}(\theta) \rightarrow 1}&fg=000000$ if $latex {\cos^2(\theta) = 1}&fg=000000$ and $latex {\cos^{2n}(\theta) \rightarrow 0}&fg=000000$ otherwise. Then analyze when $latex {m!\pi x}&fg=000000$ is an integer multiple of $latex {\pi}&fg=000000$ based on whether $latex {x}&fg=000000$ is rational or irrational.
+<p>
+\bigskip\noindent<b>Solution:</b> For fixed $latex {m}&fg=000000$, the inner limit is $latex {\lim_{n\rightarrow\infty}\cos^{2n}(\theta)=\begin{cases}1,& \cos^2\theta=1,\\ 0,& \cos^2\theta&lt;1.\end{cases}}&fg=000000$ Thus it equals $latex {1}&fg=000000$ iff $latex {m!\pi x}&fg=000000$ is an integer multiple of $latex {\pi}&fg=000000$, i.e., iff $latex {m!x\in\mathbb{Z}}&fg=000000$. If $latex {x=\tfrac{p}{q}}&fg=000000$ is rational (in lowest terms), then for all $latex {m\ge q}&fg=000000$ we have $latex {m!x\in\mathbb{Z}}&fg=000000$, so the inner limit equals $latex {1}&fg=000000$ for all large $latex {m}&fg=000000$, hence the outer limit is $latex {1}&fg=000000$. If $latex {x}&fg=000000$ is irrational, then $latex {m!x\notin\mathbb{Z}}&fg=000000$ for every $latex {m}&fg=000000$, so the inner limit is always $latex {0}&fg=000000$, hence the outer limit is $latex {0}&fg=000000$.\qed
+<p>
+
+
+<p>
+
+<b>3. Continuity of real-valued functions </b>
+
+<p>
+
+
+<p>
+
+
+<p>
+
+<b> Essential Definitions and Theorems </b>
+
+<p>
+
+
+<p>
+
+<blockquote><b>Theorem 6 (Sequential Continuity)</b> <em> A function $latex {f: S \rightarrow T}&fg=000000$ is continuous at $latex {x}&fg=000000$ if and only if $latex {f(x_n) \rightarrow f(x)}&fg=000000$ whenever $latex {x_n \rightarrow x}&fg=000000$. </em></blockquote>
+
+<p>
+
+
+<p>
+\noindent<b>Importance:</b> This theorem provides an alternative characterization of continuity that is often easier to use in proofs. It connects the concept of continuity directly to sequence convergence, making it a powerful tool for establishing continuity and proving many important results in analysis.
+<p>
+
+<blockquote><b>Theorem 7 (Extreme Value Theorem)</b> <em> A continuous function on a compact set attains its maximum and minimum values. </em></blockquote>
+
+<p>
+
+
+<p>
+\noindent<b>Importance:</b> This is one of the most important existence theorems in analysis. It guarantees that optimization problems have solutions under reasonable conditions, making it fundamental for calculus, optimization theory, and many applications in science and engineering.
+<p>
+
+<blockquote><b>Theorem 8 (Intermediate Value Theorem)</b> <em> If $latex {f}&fg=000000$ is continuous on $latex {[a,b]}&fg=000000$ and $latex {f(a) &lt; c &lt; f(b)}&fg=000000$, then there exists $latex {x \in (a,b)}&fg=000000$ such that $latex {f(x) = c}&fg=000000$. </em></blockquote>
+
+<p>
+
+
+<p>
+\noindent<b>Importance:</b> This theorem formalizes the intuitive idea that a continuous function cannot "jump" over values. It's essential for proving the existence of solutions to equations and is the foundation for many numerical methods like the bisection method and intermediate value property.
+<p>
+  Let \( f \) be continuous on \([a, b]\) and let \( f(x) = 0 \) when \( x \) is rational. Prove that \( f(x) = 0 \) for every \( x \) in \([a, b]\).  
+<p>
+\noindent<b>Strategy:</b> Use the density of rational numbers in the reals and the sequential characterization of continuity. For any irrational $latex {x}&fg=000000$, construct a sequence of rationals converging to $latex {x}&fg=000000$ and use continuity to show $latex {f(x) = 0}&fg=000000$.
+<p>
+\bigskip\noindent<b>Solution:</b> We need to prove that $latex {f(x) = 0}&fg=000000$ for every $latex {x}&fg=000000$ in $latex {[a, b]}&fg=000000$. We already know that $latex {f(x) = 0}&fg=000000$ when $latex {x}&fg=000000$ is rational, so we only need to prove it for irrational numbers.
+<p>
+Let $latex {x}&fg=000000$ be any irrational number in $latex {[a, b]}&fg=000000$. Since the rational numbers are dense in the real numbers, we can find a sequence of rational numbers $latex {(q_n)}&fg=000000$ that converges to $latex {x}&fg=000000$. This means that as $latex {n}&fg=000000$ gets larger and larger, the rational numbers $latex {q_n}&fg=000000$ get closer and closer to $latex {x}&fg=000000$.
+<p>
+For example, if $latex {x = \sqrt{2}}&fg=000000$ (which is irrational), we could use the sequence: <p align=center>$latex \displaystyle q_1 = 1.4, \quad q_2 = 1.41, \quad q_3 = 1.414, \quad q_4 = 1.4142, \ldots&fg=000000$</p>
+ Each $latex {q_n}&fg=000000$ is a rational number (a finite decimal), and the sequence converges to $latex {\sqrt{2}}&fg=000000$.
+<p>
+Now, since $latex {f}&fg=000000$ is continuous at $latex {x}&fg=000000$, the sequential characterization of continuity tells us that: <p align=center>$latex \displaystyle f(x) = \lim_{n \rightarrow \infty} f(q_n)&fg=000000$</p>
+
+<p>
+But we know that each $latex {q_n}&fg=000000$ is rational, so by the given condition, $latex {f(q_n) = 0}&fg=000000$ for every $latex {n}&fg=000000$. Therefore: <p align=center>$latex \displaystyle f(x) = \lim_{n \rightarrow \infty} f(q_n) = \lim_{n \rightarrow \infty} 0 = 0&fg=000000$</p>
+
+<p>
+This proves that $latex {f(x) = 0}&fg=000000$ for every irrational number $latex {x}&fg=000000$ in $latex {[a, b]}&fg=000000$. Since we already knew that $latex {f(x) = 0}&fg=000000$ for every rational number $latex {x}&fg=000000$ in $latex {[a, b]}&fg=000000$, we have shown that $latex {f(x) = 0}&fg=000000$ for every $latex {x}&fg=000000$ in $latex {[a, b]}&fg=000000$.
+<p>
+\medskip\noindent<b>Key insight:</b> This proof demonstrates a powerful technique in analysis: using the density of one set (rationals) to understand the behavior of a function on a larger set (all reals). The continuity of $latex {f}&fg=000000$ allows us to "transfer" information from the rational numbers to all real numbers through the process of taking limits.\qed
+<p>
+  Let \( f \) be continuous at the point \( a = (a_1, a_2, \ldots, a_n) \) in \( \mathbb{R}^n \). Keep \( a_2, a_3, \ldots, a_n \) fixed and define a new function \( g \) of one real variable by the equation <p align=center>$latex \displaystyle g(x) = f(x, a_2, \ldots, a_n).&fg=000000$</p>
+ Prove that \( g \) is continuous at the point \( x = a_1 \).  
+<p>
+\noindent<b>Strategy:</b> Use the sequential characterization of continuity. If $latex {x_n \rightarrow a_1}&fg=000000$ in $latex {\mathbb{R}}&fg=000000$, then $latex {(x_n, a_2, \ldots, a_n) \rightarrow (a_1, \ldots, a_n)}&fg=000000$ in $latex {\mathbb{R}^n}&fg=000000$, and by continuity of $latex {f}&fg=000000$, the sequence of function values converges appropriately.
+<p>
+\bigskip\noindent<b>Solution:</b> To prove that $latex {g}&fg=000000$ is continuous at $latex {x = a_1}&fg=000000$, we need to show that for any sequence $latex {\{x_n\}}&fg=000000$ in $latex {\mathbb{R}}&fg=000000$ that converges to $latex {a_1}&fg=000000$, the sequence $latex {\{g(x_n)\}}&fg=000000$ converges to $latex {g(a_1)}&fg=000000$.
+<p>
+Let $latex {\{x_n\}}&fg=000000$ be any sequence such that $latex {x_n \rightarrow a_1}&fg=000000$ as $latex {n \rightarrow \infty}&fg=000000$. Consider the sequence of points in $latex {\mathbb{R}^n}&fg=000000$ given by $latex {\{(x_n, a_2, \ldots, a_n)\}}&fg=000000$. Since $latex {x_n \rightarrow a_1}&fg=000000$ and $latex {a_2, \ldots, a_n}&fg=000000$ are fixed, we have $latex {(x_n, a_2, \ldots, a_n) \rightarrow (a_1, a_2, \ldots, a_n) = a}&fg=000000$ in $latex {\mathbb{R}^n}&fg=000000$.
+<p>
+Now, since $latex {f}&fg=000000$ is continuous at the point $latex {a = (a_1, a_2, \ldots, a_n)}&fg=000000$, by the sequential characterization of continuity, we have: <p align=center>$latex \displaystyle f(x_n, a_2, \ldots, a_n) \rightarrow f(a_1, a_2, \ldots, a_n) = f(a) \text{ as } n \rightarrow \infty&fg=000000$</p>
+
+<p>
+But by definition, $latex {g(x_n) = f(x_n, a_2, \ldots, a_n)}&fg=000000$ and $latex {g(a_1) = f(a_1, a_2, \ldots, a_n) = f(a)}&fg=000000$. Therefore: <p align=center>$latex \displaystyle g(x_n) \rightarrow g(a_1) \text{ as } n \rightarrow \infty&fg=000000$</p>
+
+<p>
+Since this holds for any sequence $latex {\{x_n\}}&fg=000000$ converging to $latex {a_1}&fg=000000$, we conclude that $latex {g}&fg=000000$ is continuous at $latex {x = a_1}&fg=000000$.
+<p>
+\medskip\noindent<b>Key insight:</b> This result shows that if a function of several variables is continuous at a point, then fixing all but one variable and considering it as a function of the remaining variable preserves continuity at the corresponding coordinate value. This is a fundamental property that connects continuity in higher dimensions to continuity in one dimension.\qed
+<p>
+  Show by an example that the converse of the statement in Exercise 4.14 is not true in general.  
+<p>
+\noindent<b>Strategy:</b> Construct a function that is continuous in each variable separately but not continuous as a function of two variables. Use a function like $latex {f(x,y) = xy/(x^2+y^2)}&fg=000000$ with $latex {f(0,0) = 0}&fg=000000$, which is separately continuous but not continuous at the origin.
+<p>
+\bigskip\noindent<b>Solution:</b> Define $latex {f:\mathbb{R}^2\rightarrow\mathbb{R}}&fg=000000$ by $latex {f(x,y)=\dfrac{xy}{x^2+y^2}}&fg=000000$ for $latex {(x,y)\ne(0,0)}&fg=000000$ and $latex {f(0,0)=0}&fg=000000$. For fixed $latex {y}&fg=000000$, the map $latex {x\mapsto f(x,y)}&fg=000000$ is continuous at $latex {x=0}&fg=000000$; similarly for fixed $latex {x}&fg=000000$ at $latex {y=0}&fg=000000$. However along the path $latex {y=x}&fg=000000$, $latex {f(x,x)=\tfrac{1}{2}}&fg=000000$ for $latex {x\ne0}&fg=000000$, so $latex {\lim_{(x,y)\rightarrow(0,0)}f(x,y)}&fg=000000$ does not exist. Thus $latex {f}&fg=000000$ is separately continuous at $latex {(0,0)}&fg=000000$ but not continuous there.\qed
+<p>
+  Let \( f, g, \) and \( h \) be defined on \([0, 1]\) as follows: \begin{align*} f(x) &= g(x) = h(x) = 0, \quad \text{whenever } x \text{ is irrational}; <br/>
+ f(x) &= 1 \text{ and } g(x) = x, \quad \text{whenever } x \text{ is rational}; <br/>
+ h(x) &= 1/n, \text{ if } x \text{ is the rational number } m/n \text{ (in lowest terms)}; <br/>
+ h(0) &= 1. \end{align*} Prove that \( f \) is not continuous anywhere in \([0, 1]\), that \( g \) is continuous only at \( x = 0 \), and that \( h \) is continuous only at the irrational points in \([0, 1]\).  
+<p>
+\noindent<b>Strategy:</b> Use the density of rationals and irrationals in $latex {[0,1]}&fg=000000$. For each function, approach any point through sequences of rationals and irrationals to test continuity. For $latex {h}&fg=000000$, note that rationals near an irrational have large denominators, making $latex {h}&fg=000000$ values small.
+<p>
+\bigskip\noindent<b>Solution:</b> Rationals and irrationals are both dense in $latex {[0,1]}&fg=000000$.
+<p>
+For $latex {f}&fg=000000$: at any $latex {x}&fg=000000$, sequences of rationals yield $latex {f=1}&fg=000000$, irrationals yield $latex {f=0}&fg=000000$, so the limit cannot exist; $latex {f}&fg=000000$ is nowhere continuous.
+<p>
+For $latex {g}&fg=000000$: if $latex {x=0}&fg=000000$, rationals and irrationals near $latex {0}&fg=000000$ give values near $latex {0}&fg=000000$, so $latex {g}&fg=000000$ is continuous at $latex {0}&fg=000000$. If $latex {x\ne0}&fg=000000$, approach $latex {x}&fg=000000$ through rationals to get $latex {g(x_n)=x\ne 0}&fg=000000$ and through irrationals to get $latex {0}&fg=000000$, so discontinuous.
+<p>
+For $latex {h}&fg=000000$: if $latex {x}&fg=000000$ is irrational, rationals $latex {m/n\rightarrow x}&fg=000000$ have denominators $latex {n\rightarrow\infty}&fg=000000$ in lowest terms, hence $latex {h(m/n)=1/n\rightarrow 0=h(x)}&fg=000000$; irrationals near $latex {x}&fg=000000$ give $latex {0}&fg=000000$ as well, so $latex {h}&fg=000000$ is continuous at irrationals. If $latex {x}&fg=000000$ is rational $latex {=m/n}&fg=000000$ in lowest terms, then along irrationals $latex {h\rightarrow 0\ne 1/n=h(x)}&fg=000000$, so discontinuous at rationals; also at $latex {x=0}&fg=000000$, irrationals near $latex {0}&fg=000000$ have $latex {h=0\ne h(0)=1}&fg=000000$.\qed
+<p>
+  For each \( x \) in \([0, 1]\), let \( f(x) = x \) if \( x \) is rational, and let \( f(x) = 1 - x \) if \( x \) is irrational. Prove that: 
+
+<ol> <li> \( f(f(x)) = x \) for all \( x \) in \([0, 1]\). <li> \( f(x) + f(1 - x) = 1 \) for all \( x \) in \([0, 1]\). <li> \( f \) is continuous only at the point \( x = \frac{1}{2} \). <li> \( f \) assumes every value between 0 and 1. <li> \( f(x + y) - f(x) - f(y) \) is rational for all \( x \) and \( y \) in \([0, 1]\). 
+</ol>
+
+  
+<p>
+\noindent<b>Strategy:</b> For (a) and (b), consider cases based on whether $latex {x}&fg=000000$ is rational or irrational. For (c), use the density of rationals and irrationals to test continuity. For (d), use the intermediate value property. For (e), analyze the possible combinations of rational/irrational inputs.
+<p>
+\bigskip\noindent<b>Solution:</b> (a) If $latex {x}&fg=000000$ rational then $latex {f(x)=x}&fg=000000$ and $latex {f(f(x))=f(x)=x}&fg=000000$. If $latex {x}&fg=000000$ irrational then $latex {f(x)=1-x}&fg=000000$ is also irrational, hence $latex {f(f(x))=1-(1-x)=x}&fg=000000$.
+<p>
+(b) If $latex {x}&fg=000000$ rational then $latex {1-x}&fg=000000$ is rational, so $latex {f(x)=x}&fg=000000$ and $latex {f(1-x)=1-x}&fg=000000$; sum is $latex {1}&fg=000000$. If $latex {x}&fg=000000$ irrational then $latex {f(x)=1-x}&fg=000000$ and $latex {1-x}&fg=000000$ is irrational, so $latex {f(1-x)=x}&fg=000000$; sum is $latex {1}&fg=000000$.
+<p>
+(c) At $latex {x=\tfrac12}&fg=000000$, both definitions give $latex {f(\tfrac12)=\tfrac12}&fg=000000$, and nearby values are close to $latex {\tfrac12}&fg=000000$, so continuity holds. Elsewhere, approach $latex {x\ne\tfrac12}&fg=000000$ by rationals giving values near $latex {x}&fg=000000$ and by irrationals giving values near $latex {1-x\ne x}&fg=000000$, so discontinuous.
+<p>
+(d) For any $latex {y\in[0,1]}&fg=000000$, if $latex {y\le \tfrac12}&fg=000000$ take irrational $latex {x=1-y}&fg=000000$ to get $latex {f(x)=y}&fg=000000$; if $latex {y\ge \tfrac12}&fg=000000$ take rational $latex {x=y}&fg=000000$.
+<p>
+(e) If $latex {x+y\le 1}&fg=000000$, then $latex {f(x+y)}&fg=000000$ equals $latex {x+y}&fg=000000$ or $latex {1-(x+y)}&fg=000000$. In each case, subtracting $latex {f(x)+f(y)}&fg=000000$ yields a value in $latex {\{0,1,-1\}\subset \mathbb{Q}}&fg=000000$. If $latex {x+y&gt;1}&fg=000000$, reduce to the previous case by writing $latex {f(x+y)=f(1-(2-(x+y)))}&fg=000000$ and using (b); in all cases the difference is rational.\qed
+<p>
+  Let \( f \) be defined on \( \mathbb{R} \) and assume that there exists at least one point \( x_0 \) in \( \mathbb{R} \) at which \( f \) is continuous. Suppose also that, for every \( x \) and \( y \) in \( \mathbb{R} \), \( f \) satisfies the equation <p align=center>$latex \displaystyle f(x + y) = f(x) + f(y).&fg=000000$</p>
+ Prove that there exists a constant \( a \) such that \( f(x) = ax \) for all \( x \).  
+<p>
+\noindent<b>Strategy:</b> Use the additive property to show $latex {f(0) = 0}&fg=000000$, $latex {f(-x) = -f(x)}&fg=000000$, and $latex {f(nx) = nf(x)}&fg=000000$ for integers $latex {n}&fg=000000$. Extend to rationals by showing $latex {f(p/q) = (p/q)f(1)}&fg=000000$. Use continuity at one point to extend to all reals by approximating with rationals.
+<p>
+\bigskip\noindent<b>Solution:</b> Additivity gives $latex {f(0)=0}&fg=000000$, $latex {f(-x)=-f(x)}&fg=000000$, and $latex {f(nx)=nf(x)}&fg=000000$ for integers $latex {n}&fg=000000$. For rationals $latex {p/q}&fg=000000$, $latex {qf(p/q)=f(p)=pf(1)}&fg=000000$, so $latex {f(p/q)=\tfrac{p}{q}f(1)}&fg=000000$. Let $latex {a=f(1)}&fg=000000$. 
+<p>
+\medskip\noindent<b>Key insight:</b> Continuity at some point implies continuity everywhere for additive functions. This is a fundamental result in functional analysis. Here's why this works:
+<p>
+Suppose $latex {f}&fg=000000$ is continuous at some point $latex {x_0}&fg=000000$. Then for any other point $latex {x}&fg=000000$, we can write $latex {x = x_0 + (x - x_0)}&fg=000000$. By additivity: <p align=center>$latex \displaystyle f(x) = f(x_0 + (x - x_0)) = f(x_0) + f(x - x_0)&fg=000000$</p>
+
+<p>
+Now, if we take a sequence $latex {(h_n)}&fg=000000$ that converges to $latex {0}&fg=000000$, then $latex {(x_0 + h_n)}&fg=000000$ converges to $latex {x_0}&fg=000000$. Since $latex {f}&fg=000000$ is continuous at $latex {x_0}&fg=000000$, we have: <p align=center>$latex \displaystyle \lim_{n \rightarrow \infty} f(x_0 + h_n) = f(x_0)&fg=000000$</p>
+
+<p>
+But by additivity: <p align=center>$latex \displaystyle f(x_0 + h_n) = f(x_0) + f(h_n)&fg=000000$</p>
+
+<p>
+Therefore: <p align=center>$latex \displaystyle \lim_{n \rightarrow \infty} f(h_n) = 0&fg=000000$</p>
+
+<p>
+This means that $latex {f}&fg=000000$ is continuous at $latex {0}&fg=000000$. Now, for any point $latex {x}&fg=000000$ and any sequence $latex {(k_n)}&fg=000000$ converging to $latex {x}&fg=000000$, we can write $latex {k_n = x + (k_n - x)}&fg=000000$. Since $latex {(k_n - x)}&fg=000000$ converges to $latex {0}&fg=000000$ and $latex {f}&fg=000000$ is continuous at $latex {0}&fg=000000$, we have: <p align=center>$latex \displaystyle \lim_{n \rightarrow \infty} f(k_n) = \lim_{n \rightarrow \infty} f(x + (k_n - x)) = f(x) + \lim_{n \rightarrow \infty} f(k_n - x) = f(x) + 0 = f(x)&fg=000000$</p>
+
+<p>
+This shows that $latex {f}&fg=000000$ is continuous at every point $latex {x}&fg=000000$.
+<p>
+\medskip\noindent<b>Completing the proof:</b> Now that we know $latex {f}&fg=000000$ is continuous everywhere, for any real $latex {x}&fg=000000$, we can pick a sequence of rational numbers $latex {(r_n)}&fg=000000$ that converges to $latex {x}&fg=000000$ (since rationals are dense in the reals). By continuity: <p align=center>$latex \displaystyle f(x) = \lim_{n \rightarrow \infty} f(r_n) = \lim_{n \rightarrow \infty} ar_n = ax&fg=000000$</p>
+
+<p>
+This proves that $latex {f(x) = ax}&fg=000000$ for all real numbers $latex {x}&fg=000000$, where $latex {a = f(1)}&fg=000000$.\qed
+<p>
+  Let \( f \) be continuous on \([a, b]\) and define \( g \) as follows: \( g(a) = f(a) \) and, for \( a < x \leq b \), let \( g(x) \) be the maximum value of \( f \) in the subinterval \([a, x]\). Show that \( g \) is continuous on \([a, b]\).  
+<p>
+\noindent<b>Strategy:</b> Use the extreme value theorem to show that $latex {g}&fg=000000$ is well-defined and nondecreasing. For continuity, use uniform continuity of $latex {f}&fg=000000$ and the fact that the maximum over a small interval changes by at most the oscillation of $latex {f}&fg=000000$ over that interval.
+<p>
+\bigskip\noindent<b>Solution:</b> On $latex {[a,b]}&fg=000000$, $latex {f}&fg=000000$ is uniformly continuous. Fix $latex {x\in(a,b]}&fg=000000$. Then $latex {g}&fg=000000$ is nondecreasing and satisfies $latex {g(x)\ge f(x)}&fg=000000$. If $latex {g}&fg=000000$ attains its maximum at some $latex {t\le x}&fg=000000$ with $latex {t&lt;x}&fg=000000$, continuity of $latex {f}&fg=000000$ implies for $latex {x'}&fg=000000$ near $latex {x}&fg=000000$ the supremum over $latex {[a,x']}&fg=000000$ remains close to $latex {f(t)}&fg=000000$; if the maximizer is near $latex {x}&fg=000000$, uniform continuity of $latex {f}&fg=000000$ near $latex {x}&fg=000000$ guarantees $latex {|g(x')-g(x)|\le \sup_{y\in[x\wedge x',\,x\vee x']}|f(y)-f(x)|\rightarrow 0}&fg=000000$ as $latex {x'\rightarrow x}&fg=000000$. A similar argument at $latex {a}&fg=000000$ shows continuity there.\qed
+<p>
+  Let \( f_1, \ldots, f_m \) be \( m \) real-valued functions defined on a set \( S \) in \( \mathbb{R}^n \). Assume that each \( f_k \) is continuous at the point \( a \) of \( S \). Define a new function \( f \) as follows: For each \( x \) in \( S \), \( f(x) \) is the largest of the \( m \) numbers \( f_1(x), \ldots, f_m(x) \). Discuss the continuity of \( f \) at \( a \).  
+<p>
+\noindent<b>Strategy:</b> Use the fact that the maximum of finitely many continuous functions is continuous. Show this by induction, starting with the case of two functions and using the inequality $latex {|\max\{u,v\} - \max\{u',v'\}| \leq \max\{|u-u'|, |v-v'|\}}&fg=000000$.
+<p>
+\bigskip\noindent<b>Solution:</b> The maximum of finitely many continuous functions is continuous. Indeed, for $latex {m=2}&fg=000000$, <p align=center>$latex \displaystyle  |\max\{u,v\}-\max\{u',v'\}|\le \max\{|u-u'|,|v-v'|\}, &fg=000000$</p>
+ so if $latex {u,v}&fg=000000$ are continuous, $latex {\max\{u,v\}}&fg=000000$ is continuous. By induction, $latex {f}&fg=000000$ is continuous at $latex {a}&fg=000000$.\qed
+<p>
+  Let \( f: S \rightarrow \mathbb{R} \) be continuous on an open set \( S \) in \( \mathbb{R}^n \), assume that \( p \in S \), and assume that \( f(p) > 0 \). Prove that there is an \( n \)-ball \( B(p; r) \) such that \( f(x) > 0 \) for every \( x \) in the ball.  
+<p>
+\noindent<b>Strategy:</b> Use the definition of continuity at $latex {p}&fg=000000$. Choose $latex {\varepsilon = f(p)/2 &gt; 0}&fg=000000$ and find $latex {\delta &gt; 0}&fg=000000$ such that $latex {|f(x) - f(p)| &lt; f(p)/2}&fg=000000$ whenever $latex {|x-p| &lt; \delta}&fg=000000$. This ensures $latex {f(x) &gt; f(p)/2 &gt; 0}&fg=000000$ in the ball $latex {B(p;\delta)}&fg=000000$.
+<p>
+\bigskip\noindent<b>Solution:</b> By continuity at $latex {p}&fg=000000$, there exists $latex {r&gt;0}&fg=000000$ such that $latex {|x-p|&lt;r\Rightarrow |f(x)-f(p)|&lt;f(p)/2}&fg=000000$. Then $latex {f(x)&gt;f(p)/2&gt;0}&fg=000000$ in $latex {B(p;r)}&fg=000000$.\qed
+<p>
+  Let \( f \) be defined and continuous on a closed set \( S \) in \( \mathbb{R} \). Let <p align=center>$latex \displaystyle A = \{x : x \in S \quad \text{and} \quad f(x) = 0\}.&fg=000000$</p>
+ Prove that \( A \) is a closed subset of \( \mathbb{R} \).  
+<p>
+\noindent<b>Strategy:</b> Use the sequential characterization of closed sets. If $latex {(x_n) \subset A}&fg=000000$ converges to $latex {x \in \mathbb{R}}&fg=000000$, then $latex {x \in S}&fg=000000$ (since $latex {S}&fg=000000$ is closed) and by continuity $latex {f(x) = \lim f(x_n) = 0}&fg=000000$, so $latex {x \in A}&fg=000000$.
+<p>
+\bigskip\noindent<b>Solution:</b> Let $latex {(x_n)\subset A}&fg=000000$ with $latex {x_n\rightarrow x\in\mathbb{R}}&fg=000000$. Since $latex {S}&fg=000000$ is closed and $latex {x_n\in S}&fg=000000$, we have $latex {x\in S}&fg=000000$. Continuity gives $latex {f(x)=\lim f(x_n)=0}&fg=000000$, so $latex {x\in A}&fg=000000$. Thus $latex {A}&fg=000000$ is closed in $latex {\mathbb{R}}&fg=000000$.\qed
+<p>
+  Given a function \( f: \mathbb{R} \rightarrow \mathbb{R} \), define two sets \( A \) and \( B \) in \( \mathbb{R}^2 \) as follows: <p align=center>$latex \displaystyle A = \{(x, y) : y &lt; f(x)\}, \quad B = \{(x, y) : y &gt; f(x)\}.&fg=000000$</p>
+ Prove that \( f \) is continuous on \( \mathbb{R} \) if, and only if, both \( A \) and \( B \) are open subsets of \( \mathbb{R}^2 \).  
+<p>
+\noindent<b>Strategy:</b> For the forward direction, use the fact that $latex {(x,y) \mapsto f(x) - y}&fg=000000$ is continuous, so $latex {A}&fg=000000$ and $latex {B}&fg=000000$ are preimages of open sets. For the reverse direction, use the openness of $latex {A}&fg=000000$ and $latex {B}&fg=000000$ to construct $latex {\varepsilon}&fg=000000$-$latex {\delta}&fg=000000$ neighborhoods around any point.
+<p>
+\bigskip\noindent<b>Solution:</b> If $latex {f}&fg=000000$ is continuous, then $latex {(x,y)\mapsto f(x)-y}&fg=000000$ is continuous, so $latex {A=(f-\mathrm{id}_y)^{-1}((0,\infty))}&fg=000000$ and $latex {B=(f-\mathrm{id}_y)^{-1}(({-}\infty,0))}&fg=000000$ are open. Conversely, if $latex {A}&fg=000000$ and $latex {B}&fg=000000$ are open, for any $latex {x}&fg=000000$ and $latex {\varepsilon&gt;0}&fg=000000$, the vertical segment $latex {\{(x,y):|y-f(x)|&lt;\varepsilon\}}&fg=000000$ is contained in $latex {A\cup B}&fg=000000$ and is an open slice in $latex {\mathbb{R}^2}&fg=000000$ intersected with $latex {A\cup B}&fg=000000$. Openness of $latex {A,B}&fg=000000$ implies there exists $latex {\delta&gt;0}&fg=000000$ so that for $latex {|x'-x|&lt;\delta}&fg=000000$ we have $latex {|f(x')-f(x)|&lt;\varepsilon}&fg=000000$. Thus $latex {f}&fg=000000$ is continuous.\qed
+<p>
+  Let \( f \) be defined and bounded on a compact interval \( S \) in \( \mathbb{R} \). If \( T \subseteq S \), the number <p align=center>$latex \displaystyle \Omega_f(T) = \sup \{f(x) - f(y) : x \in T, y \in T\}&fg=000000$</p>
+ is called the oscillation (or span) of \( f \) on \( T \). If \( x \in S \), the oscillation of \( f \) at \( x \) is defined to be the number <p align=center>$latex \displaystyle \omega_f(x) = \lim_{h \rightarrow 0+} \Omega_f(B(x; h) \cap S).&fg=000000$</p>
+ Prove that this limit always exists and that \( \omega_f(x) = 0 \) if, and only if, \( f \) is continuous at \( x \).  
+<p>
+\noindent<b>Strategy:</b> Show that $latex {\Omega_f(B(x;h) \cap S)}&fg=000000$ is monotone decreasing in $latex {h}&fg=000000$, so the limit exists. For the equivalence, use the definition of continuity: if $latex {f}&fg=000000$ is continuous at $latex {x}&fg=000000$, then $latex {\sup_{|t-x|&lt;h} |f(t) - f(x)| \rightarrow 0}&fg=000000$ as $latex {h \rightarrow 0}&fg=000000$.
+<p>
+\bigskip\noindent<b>Solution:</b> As $latex {h\downarrow 0}&fg=000000$, the sets $latex {B(x;h)\cap S}&fg=000000$ decrease, so $latex {\Omega_f}&fg=000000$ is monotone nonincreasing in $latex {h}&fg=000000$. A bounded monotone function has a limit, so $latex {\omega_f(x)}&fg=000000$ exists. If $latex {f}&fg=000000$ is continuous at $latex {x}&fg=000000$, then $latex {\sup_{|t-x|&lt;h}|f(t)-f(x)|\rightarrow 0}&fg=000000$, hence $latex {\Omega_f(B(x;h)\cap S)\rightarrow 0}&fg=000000$ and $latex {\omega_f(x)=0}&fg=000000$. Conversely, if $latex {\omega_f(x)=0}&fg=000000$, then given $latex {\varepsilon&gt;0}&fg=000000$ choose $latex {h}&fg=000000$ so that $latex {\Omega_f(B(x;h)\cap S)&lt;\varepsilon}&fg=000000$. For $latex {|t-x|&lt;h}&fg=000000$, $latex {|f(t)-f(x)|\le \Omega_f(B(x;h)\cap S)&lt;\varepsilon}&fg=000000$, hence $latex {f}&fg=000000$ is continuous at $latex {x}&fg=000000$.\qed
+<p>
+  Let \( f \) be continuous on a compact interval \([a, b]\). Suppose that \( f \) has a local maximum at \( x_1 \) and a local maximum at \( x_2 \). Show that there must be a third point between \( x_1 \) and \( x_2 \) where \( f \) has a local minimum.  
+<p>
+\noindent<b>Strategy:</b> Use the extreme value theorem to find the minimum of $latex {f}&fg=000000$ on $latex {[x_1, x_2]}&fg=000000$. This minimum must occur at an interior point since $latex {f}&fg=000000$ has local maxima at both endpoints, and this interior minimum point is a local minimum of $latex {f}&fg=000000$ on $latex {[a,b]}&fg=000000$.
+<p>
+\bigskip\noindent<b>Solution:</b> Assume $latex {x_1&lt;x_2}&fg=000000$. By continuity, $latex {f}&fg=000000$ attains its minimum on $latex {[x_1,x_2]}&fg=000000$ at some $latex {c}&fg=000000$. If $latex {c\in(x_1,x_2)}&fg=000000$ we are done. If $latex {c=x_1}&fg=000000$ or $latex {c=x_2}&fg=000000$, then near $latex {x_1}&fg=000000$ and $latex {x_2}&fg=000000$ the function is $latex {\le f(c)}&fg=000000$ but each is a strict local maximum, contradiction. Hence $latex {c\in(x_1,x_2)}&fg=000000$ and is a local minimum.\qed
+<p>
+  Let \( f \) be a real-valued function, continuous on \([0, 1]\), with the following property: For every real \( y \), either there is no \( x \) in \([0, 1]\) for which \( f(x) = y \) or there is exactly one such \( x \). Prove that \( f \) is strictly monotonic on \([0, 1]\).  
+<p>
+\noindent<b>Strategy:</b> Use proof by contradiction. If $latex {f}&fg=000000$ is not strictly monotone, there exist $latex {a &lt; b &lt; c}&fg=000000$ with either $latex {f(b) &gt; \max\{f(a), f(c)\}}&fg=000000$ or $latex {f(b) &lt; \min\{f(a), f(c)\}}&fg=000000$. Use the intermediate value theorem to show that some value is attained at least twice, contradicting the uniqueness property.
+<p>
+\bigskip\noindent<b>Solution:</b> If $latex {f}&fg=000000$ were not monotone, there would exist $latex {a&lt;b&lt;c}&fg=000000$ with either $latex {f(b)&gt;\max\{f(a),f(c)\}}&fg=000000$ or $latex {f(b)&lt;\min\{f(a),f(c)\}}&fg=000000$. By the intermediate value property, some value between $latex {\min\{f(a),f(c)\}}&fg=000000$ and $latex {f(b)}&fg=000000$ (or between $latex {f(b)}&fg=000000$ and $latex {\max\{f(a),f(c)\}}&fg=000000$) would be taken at least twice in $latex {[a,b]}&fg=000000$ and $latex {[b,c]}&fg=000000$, contradicting uniqueness. Hence $latex {f}&fg=000000$ is strictly monotone.\qed
+<p>
+  Let \( f \) be a function defined on \([0, 1]\) with the following property: For every real number \( y \), either there is no \( x \) in \([0, 1]\) for which \( f(x) = y \) or there are exactly two values of \( x \) in \([0, 1]\) for which \( f(x) = y \). 
+
+<ol> <li> Prove that \( f \) cannot be continuous on \([0, 1]\). <li> Construct a function \( f \) which has the above property. <li> Prove that any function with this property has infinitely many discontinuities on \([0, 1]\). 
+</ol>
+
+  
+<p>
+\noindent<b>Strategy:</b> For (a), use the intermediate value theorem and the fact that a continuous function on an interval that is not one-to-one must turn around, creating values with three or more preimages. For (b), construct a piecewise function with two branches. For (c), use the fact that any continuous subinterval would violate the "exactly two" property.
+<p>
+\bigskip\noindent<b>Solution:</b> (a) If $latex {f}&fg=000000$ is continuous on $latex {[0,1]}&fg=000000$, its image is an interval. If $latex {f}&fg=000000$ is injective, each $latex {y}&fg=000000$ in the image has one preimage; if not injective, there exists $latex {y}&fg=000000$ with at least three preimages (by the intermediate value property and the fact a continuous function on an interval that is not one-to-one must turn around). Hence the "exactly two" property cannot hold for all $latex {y}&fg=000000$; thus $latex {f}&fg=000000$ cannot be continuous.
+<p>
+(b) Define <p align=center>$latex \displaystyle  f(x)=\begin{cases} 2x,& x\in(0,\tfrac12),\\ 2-2x,& x\in(\tfrac12,1),\\ 2,& x\in\{0,\tfrac12\},\\ 3,& x=1. \end{cases} &fg=000000$</p>
+ Then $latex {f((0,\tfrac12))=f((\tfrac12,1))=(0,1)}&fg=000000$, so every $latex {y\in(0,1)}&fg=000000$ has exactly two preimages. The values $latex {2}&fg=000000$ and $latex {3}&fg=000000$ have two and zero preimages respectively; to avoid a singleton, redefine $latex {f(1)=2}&fg=000000$ so that $latex {y=2}&fg=000000$ has exactly three preimages; then adjust by removing one occurrence inside $latex {(0,1)}&fg=000000$ (e.g., set $latex {f(1/4)=0}&fg=000000$ and remove $latex {0}&fg=000000$ from the range elsewhere). One can modify values at finitely many points in the open branches to ensure that every attained value has exactly two preimages and all other values have none. Such a function is necessarily discontinuous.
+<p>
+(c) Suppose discontinuities were finite; then on each closed subinterval avoiding those points the function would be continuous and thus either injective or have values with three or more preimages, contradicting the "exactly two" condition. Hence discontinuities must be infinite (indeed dense).\qed
+<p>
+  In each case, give an example of a real-valued function \( f \), continuous on \( S \) and such that \( f(S) = T \), or else explain why there can be no such \( f \): 
+
+<ol> <li> \( S = (0, 1) \), \( T = (0, 1] \). <li> \( S = (0, 1) \), \( T = (0, 1) \cup (1, 2) \). <li> \( S = \mathbb{R}^1 \), \( T = \) the set of rational numbers. <li> \( S = [0, 1] \cup [2, 3] \), \( T = (0, 1) \). <li> \( S = [0, 1] \times [0, 1] \), \( T = \mathbb{R}^2 \). <li> \( S = [0, 1] \times [0, 1] \), \( T = (0, 1) \times (0, 1) \). <li> \( S = (0, 1) \times (0, 1) \), \( T = \mathbb{R}^2 \). 
+</ol>
+
+  
+<p>
+\bigskip\noindent<b>Solution:</b> (a) Possible. Define <p align=center>$latex \displaystyle  f(x)=\begin{cases} 2x,& x\in(0,\tfrac12],\\ 2-2x,& x\in[\tfrac12,1), \end{cases} &fg=000000$</p>
+ which is continuous on $latex {(0,1)}&fg=000000$ and surjects onto $latex {(0,1]}&fg=000000$.
+<p>
+(b) Impossible: the continuous image of the connected set $latex {(0,1)}&fg=000000$ must be connected, but $latex {(0,1)\cup(1,2)}&fg=000000$ is disconnected.
+<p>
+(c) Impossible: a continuous image of a connected set is connected, but the rationals are totally disconnected.
+<p>
+(d) Impossible: $latex {S}&fg=000000$ is compact, so any continuous image is compact; $latex {(0,1)}&fg=000000$ is not compact.
+<p>
+(e) Impossible: a continuous image of a compact set is compact, but $latex {\mathbb{R}^2}&fg=000000$ is not compact.
+<p>
+(f) Impossible: $latex {S}&fg=000000$ is compact, so any continuous image is compact; $latex {(0,1)\times(0,1)}&fg=000000$ is not compact.
+<p>
+(g) Impossible: $latex {(0,1)^2}&fg=000000$ is bounded, hence its continuous image is bounded; $latex {\mathbb{R}^2}&fg=000000$ is unbounded.\qed
+<p>
+
+
+<p>
+
+<b>4. Continuity in metric spaces </b>
+
+<p>
+
+
+<p>
+
+
+<p>
+
+<b> Essential Definitions and Theorems </b>
+
+<p>
+
+
+<p>
+
+<blockquote><b>Definition 9 (Complete Metric Space)</b> <em> A metric space $latex {(S,d)}&fg=000000$ is complete if every Cauchy sequence in $latex {S}&fg=000000$ converges to a point in $latex {S}&fg=000000$. </em></blockquote>
+
+<p>
+
+
+<p>
+\noindent<b>Importance:</b> Completeness is one of the most fundamental properties in analysis. It ensures that "almost convergent" sequences (Cauchy sequences) actually converge, which is essential for many existence proofs and the development of calculus. Complete spaces are the natural setting for most of modern analysis.
+<p>
+
+<blockquote><b>Definition 10 (Compact Metric Space)</b> <em> A metric space $latex {(S,d)}&fg=000000$ is compact if every open cover has a finite subcover. </em></blockquote>
+
+<p>
+
+
+<p>
+\noindent<b>Importance:</b> Compactness is a fundamental topological property that generalizes the notion of "finite" to infinite sets. It ensures that sequences have convergent subsequences and that continuous functions attain their extrema. Compact spaces have many desirable properties that make them essential in analysis and topology.
+<p>
+
+<blockquote><b>Theorem 11 (Sequential Compactness)</b> <em> A metric space is compact if and only if every sequence has a convergent subsequence. </em></blockquote>
+
+<p>
+
+
+<p>
+\noindent<b>Importance:</b> This theorem provides a practical way to test for compactness using sequences, which is often easier than working with open covers. It connects the topological notion of compactness to the analytical concept of sequential convergence, making it a powerful tool in analysis.
+<p>
+
+<blockquote><b>Theorem 12 (Heine-Borel Theorem)</b> <em> A subset of $latex {\mathbb{R}^n}&fg=000000$ is compact if and only if it is closed and bounded. </em></blockquote>
+
+<p>
+
+
+<p>
+\noindent<b>Importance:</b> This is one of the most important theorems in analysis, providing a simple and practical characterization of compactness in Euclidean spaces. It connects the abstract notion of compactness to the concrete geometric properties of being closed and bounded, making it easy to identify compact sets in practice.
+<p>
+
+<blockquote><b>Theorem 13 (Cantor's Intersection Theorem)</b> <em> Let $latex {(F_n)}&fg=000000$ be a nested sequence of nonempty closed sets in a complete metric space with $latex {\text{diam}(F_n) \rightarrow 0}&fg=000000$. Then $latex {\bigcap_{n=1}^{\infty} F_n}&fg=000000$ contains exactly one point. </em></blockquote>
+
+<p>
+
+
+<p>
+\noindent<b>Importance:</b> This theorem is a powerful tool for proving the existence of unique points satisfying certain conditions. It's particularly useful in fixed point theory and iterative methods, where one constructs nested sets that "shrink" to a single point. It's also fundamental for the construction of real numbers.
+<p>
+
+<blockquote><b>Theorem 14 (Continuity and Open Sets)</b> <em> A function $latex {f: S \rightarrow T}&fg=000000$ is continuous if and only if $latex {f^{-1}(U)}&fg=000000$ is open in $latex {S}&fg=000000$ for every open set $latex {U}&fg=000000$ in $latex {T}&fg=000000$. </em></blockquote>
+
+<p>
+
+
+<p>
+\noindent<b>Importance:</b> This theorem provides a purely topological characterization of continuity that doesn't rely on metrics or sequences. It's the foundation for the modern definition of continuity in topology and is essential for understanding how continuous functions preserve topological properties.
+<p>
+
+<blockquote><b>Theorem 15 (Continuity and Closed Sets)</b> <em> A function $latex {f: S \rightarrow T}&fg=000000$ is continuous if and only if $latex {f^{-1}(C)}&fg=000000$ is closed in $latex {S}&fg=000000$ for every closed set $latex {C}&fg=000000$ in $latex {T}&fg=000000$. </em></blockquote>
+
+<p>
+
+
+<p>
+\noindent<b>Importance:</b> This is the dual characterization of continuity using closed sets instead of open sets. It's often more convenient to work with closed sets in certain contexts, especially when dealing with compactness or when we want to show that certain sets are closed.
+<p>
+In Exercises 4.29 through 4.33, we assume that $latex {f:S\rightarrow T}&fg=000000$ is a function from one metric space $latex {(S,d_S)}&fg=000000$ to another $latex {(T,d_T)}&fg=000000$.
+<p>
+  Assume that $latex {f : S \rightarrow T}&fg=000000$ is a function from one metric space $latex {(S, d_S)}&fg=000000$ to another $latex {(T, d_T)}&fg=000000$. Prove that $latex {f}&fg=000000$ is continuous on $latex {S}&fg=000000$ if, and only if, <p align=center>$latex \displaystyle  f^{-1}(\text{int } B) \subseteq \text{int } f^{-1}(B) \quad \text{for every subset } B \text{ of } T. &fg=000000$</p>
+  
+<p>
+\noindent<b>Strategy:</b> Use the characterization of continuity via preimages of open sets. For the forward direction, use the fact that if $latex {f}&fg=000000$ is continuous, then $latex {f^{-1}(U)}&fg=000000$ is open for any open set $latex {U}&fg=000000$. For the reverse direction, take $latex {U = \text{int } B}&fg=000000$ and use the hypothesis to show that $latex {f^{-1}(U)}&fg=000000$ is open.
+<p>
+\bigskip\noindent<b>Solution:</b> If $latex {f}&fg=000000$ is continuous, then for any open $latex {U\subset T}&fg=000000$, $latex {f^{-1}(U)}&fg=000000$ is open in $latex {S}&fg=000000$; taking $latex {U=\mathrm{int}\,B}&fg=000000$ gives the inclusion. Conversely, fix open $latex {U\subset T}&fg=000000$. Since $latex {U=\mathrm{int}\,U}&fg=000000$, by hypothesis $latex {f^{-1}(U)\subseteq\mathrm{int}\,f^{-1}(U)\subseteq f^{-1}(U)}&fg=000000$, hence equality holds and $latex {f^{-1}(U)}&fg=000000$ is open. Thus $latex {f}&fg=000000$ is continuous.\qed
+<p>
+  Assume that $latex {f : S \rightarrow T}&fg=000000$ is a function from one metric space $latex {(S, d_S)}&fg=000000$ to another $latex {(T, d_T)}&fg=000000$. Prove that $latex {f}&fg=000000$ is continuous on $latex {S}&fg=000000$ if, and only if, <p align=center>$latex \displaystyle  f(\bar{A}) \subseteq \overline{f(A)} \quad \text{for every subset } A \text{ of } S. &fg=000000$</p>
+  
+<p>
+\noindent<b>Strategy:</b> Use the sequential characterization of continuity and closure. For the forward direction, if $latex {x \in \overline{A}}&fg=000000$, take a sequence in $latex {A}&fg=000000$ converging to $latex {x}&fg=000000$ and use continuity. For the reverse direction, use the fact that preimages of closed sets are closed if and only if the function is continuous.
+<p>
+\bigskip\noindent<b>Solution:</b> If $latex {f}&fg=000000$ is continuous and $latex {x\in\overline{A}}&fg=000000$, take $latex {x_n\in A}&fg=000000$ with $latex {x_n\rightarrow x}&fg=000000$. Then $latex {f(x_n)\rightarrow f(x)\in\overline{f(A)}}&fg=000000$, so $latex {f(\overline{A})\subseteq\overline{f(A)}}&fg=000000$. Conversely, let $latex {C\subset T}&fg=000000$ be closed and set $latex {A=f^{-1}(C)}&fg=000000$. The hypothesis with $latex {A}&fg=000000$ replaced by $latex {A}&fg=000000$ gives $latex {f(\overline{A})\subseteq\overline{f(A)}\subseteq C}&fg=000000$. But $latex {A\subseteq f^{-1}(C)}&fg=000000$ and $latex {f^{-1}(C)}&fg=000000$ is closed iff $latex {\overline{A}\subseteq A}&fg=000000$. From $latex {f(\overline{A})\subseteq C}&fg=000000$ and injectivity of inclusion, we deduce $latex {\overline{A}\subseteq A}&fg=000000$, hence $latex {A}&fg=000000$ is closed. Therefore preimages of closed sets are closed, and $latex {f}&fg=000000$ is continuous. \qed
+<p>
+  Assume that $latex {f : S \rightarrow T}&fg=000000$ is a function from one metric space $latex {(S, d_S)}&fg=000000$ to another $latex {(T, d_T)}&fg=000000$. Prove that $latex {f}&fg=000000$ is continuous on $latex {S}&fg=000000$ if, and only if, $latex {f}&fg=000000$ is continuous on every compact subset of $latex {S}&fg=000000$. <br/>
+ <i>Hint.</i> If $latex {x_n \rightarrow p}&fg=000000$ in $latex {S}&fg=000000$, the set $latex {\{p, x_1, x_2, \ldots\}}&fg=000000$ is compact.  
+<p>
+\noindent<b>Strategy:</b> Use the hint to construct a compact set from any convergent sequence. The forward direction is trivial. For the reverse direction, use the sequential characterization of continuity and the fact that the set $latex {\{p, x_1, x_2, \ldots\}}&fg=000000$ is compact for any sequence converging to $latex {p}&fg=000000$.
+<p>
+\bigskip\noindent<b>Solution:</b> The forward direction is trivial. Conversely, assume $latex {f}&fg=000000$ is continuous on every compact subset. To prove continuity at $latex {p\in S}&fg=000000$, let $latex {(x_n)\rightarrow p}&fg=000000$. Then $latex {K=\{p,x_1,x_2,\ldots\}}&fg=000000$ is compact (every sequence in $latex {K}&fg=000000$ has a convergent subsequence in $latex {K}&fg=000000$). By hypothesis, $latex {f|_K}&fg=000000$ is continuous, so $latex {f(x_n)\rightarrow f(p)}&fg=000000$. Thus $latex {f}&fg=000000$ is sequentially continuous everywhere, hence continuous.\qed
+<p>
+  Assume that $latex {f : S \rightarrow T}&fg=000000$ is a function from one metric space $latex {(S, d_S)}&fg=000000$ to another $latex {(T, d_T)}&fg=000000$. A function $latex {f : S \rightarrow T}&fg=000000$ is called a closed mapping on $latex {S}&fg=000000$ if the image $latex {f(A)}&fg=000000$ is closed in $latex {T}&fg=000000$ for every closed subset $latex {A}&fg=000000$ of $latex {S}&fg=000000$. Prove that $latex {f}&fg=000000$ is continuous and closed on $latex {S}&fg=000000$ if, and only if, $latex {f(\bar{A}) = \overline{f(A)}}&fg=000000$ for every subset $latex {A}&fg=000000$ of $latex {S}&fg=000000$.  
+<p>
+\noindent<b>Strategy:</b> Combine the results from Exercises 4.30 and the definition of closed mappings. If $latex {f}&fg=000000$ is continuous, then $latex {f(\overline{A}) \subseteq \overline{f(A)}}&fg=000000$. If $latex {f}&fg=000000$ is also closed, then $latex {\overline{f(A)} \subseteq f(\overline{A})}&fg=000000$, giving equality. For the converse, use the fact that closed mappings preserve closedness and the inclusion condition implies continuity.
+<p>
+\bigskip\noindent<b>Solution:</b> If $latex {f}&fg=000000$ is continuous, $latex {f(\overline{A})\subseteq\overline{f(A)}}&fg=000000$; if $latex {f}&fg=000000$ is also closed, then $latex {\overline{f(A)}\subseteq f(\overline{A})}&fg=000000$, giving equality. Conversely, taking $latex {A}&fg=000000$ closed gives $latex {f(A)=\overline{f(A)}}&fg=000000$, so $latex {f}&fg=000000$ is closed; the inclusion for all $latex {A}&fg=000000$ implies continuity by 4.30. \qed
+<p>
+  Assume that $latex {f : S \rightarrow T}&fg=000000$ is a function from one metric space $latex {(S, d_S)}&fg=000000$ to another $latex {(T, d_T)}&fg=000000$. Give an example of a continuous $latex {f}&fg=000000$ and a Cauchy sequence $latex {(x_n)}&fg=000000$ in some metric space $latex {S}&fg=000000$ for which $latex {\{f(x_n)\}}&fg=000000$ is not a Cauchy sequence in $latex {T}&fg=000000$.  
+<p>
+\noindent<b>Strategy:</b> Use a function that is continuous but not uniformly continuous on a non-complete metric space. Take $latex {S = (0,1)}&fg=000000$ with the usual metric and $latex {f(x) = 1/x}&fg=000000$. The sequence $latex {x_n = 1/n}&fg=000000$ is Cauchy in $latex {S}&fg=000000$ but $latex {f(x_n) = n}&fg=000000$ is not Cauchy in $latex {\mathbb{R}}&fg=000000$.
+<p>
+\bigskip\noindent<b>Solution:</b> Take $latex {S=(0,1)}&fg=000000$ with the usual metric, $latex {T=\mathbb{R}}&fg=000000$, and $latex {f(x)=1/x}&fg=000000$ (continuous on $latex {S}&fg=000000$). The sequence $latex {x_n=1/n}&fg=000000$ is Cauchy in $latex {S}&fg=000000$ but $latex {f(x_n)=n}&fg=000000$ is not Cauchy in $latex {\mathbb{R}}&fg=000000$.\qed
+<p>
+  Prove that the interval $latex {(-1, 1)}&fg=000000$ in $latex {\mathbb{R}^1}&fg=000000$ is homeomorphic to $latex {\mathbb{R}^1}&fg=000000$. This shows that neither boundedness nor completeness is a topological property.  
+<p>
+\noindent<b>Strategy:</b> Construct a bijective function $latex {\phi: (-1,1) \rightarrow \mathbb{R}}&fg=000000$ that is continuous with a continuous inverse. Use a function like $latex {\phi(t) = \frac{t}{1-|t|}}&fg=000000$ which maps the bounded interval to the unbounded real line.
+<p>
+\bigskip\noindent<b>Solution:</b> The map $latex {\phi:(-1,1)\rightarrow\mathbb{R}}&fg=000000$, $latex {\phi(t)=\dfrac{t}{1-|t|}}&fg=000000$ is a bijection with continuous inverse $latex {\phi^{-1}(x)=\dfrac{x}{1+|x|}}&fg=000000$. Hence a homeomorphism.
+<p>
+  \centering  , ylabel={$latex {\phi(t)}&fg=000000$}, xmin=-1, xmax=1, ymin=-10, ymax=10, grid=major, title={Homeomorphism $latex {\phi(t) = \frac{t}{1-|t|}}&fg=000000$} } \addplot[blue, thick, samples=1000, domain=-0.99:0.99] {x/(1-abs(x))}; \addplot[dashed, red] coordinates {(-1,-10) (-1,10)}; \addplot[dashed, red] coordinates {(1,-10) (1,10)}; \addplot[only marks, mark=*, mark size=3pt, blue] coordinates { (-0.5,-1) (0,0) (0.5,1) (-0.8,-4) (0.8,4) };   \caption{The function $latex {\phi(t) = \frac{t}{1-|t|}}&fg=000000$ maps the bounded interval $latex {(-1,1)}&fg=000000$ bijectively to the unbounded real line $latex {\mathbb{R}}&fg=000000$, showing that boundedness is not a topological property.} \qed
+<p>
+  Section 9.7 contains an example of a function $latex {f}&fg=000000$, continuous on $latex {[0, 1]}&fg=000000$, with $latex {f([0, 1]) = [0, 1] \times [0, 1]}&fg=000000$. Prove that no such $latex {f}&fg=000000$ can be one-to-one on $latex {[0, 1]}&fg=000000$.  
+<p>
+\noindent<b>Strategy:</b> Use proof by contradiction. Assume $latex {f}&fg=000000$ is continuous and injective with image $latex {[0,1]^2}&fg=000000$. Remove a point from the interior of the square and show that the remaining set is connected, but removing the corresponding point from $latex {[0,1]}&fg=000000$ disconnects it, leading to a contradiction.
+<p>
+\bigskip\noindent<b>Solution:</b> Suppose $latex {f}&fg=000000$ is continuous and injective with image $latex {[0,1]^2}&fg=000000$. Remove a point $latex {p\in(0,1)^2}&fg=000000$. Then $latex {[0,1]^2\setminus\{p\}}&fg=000000$ is connected. But $latex {[0,1]\setminus f^{-1}(p)}&fg=000000$ is a disjoint union of two nonempty open intervals (removing any point from $latex {[0,1]}&fg=000000$ disconnects it). The continuous bijection $latex {f}&fg=000000$ would map this disconnected set onto the connected set $latex {[0,1]^2\setminus\{p\}}&fg=000000$, a contradiction. Hence $latex {f}&fg=000000$ cannot be one-to-one.\qed
+<p>
+
+
+<p>
+
+<b>5. Connectedness </b>
+
+<p>
+
+
+<p>
+
+
+<p>
+
+<b> Essential Definitions and Theorems </b>
+
+<p>
+
+
+<p>
+
+<blockquote><b>Definition 16 (Connected Space)</b> <em> A metric space $latex {S}&fg=000000$ is connected if it cannot be written as the union of two disjoint nonempty open sets. </em></blockquote>
+
+<p>
+
+
+<p>
+\noindent<b>Importance:</b> Connectedness formalizes the intuitive idea that a space is "in one piece" and cannot be split into separate parts. It's essential for the intermediate value theorem and many existence proofs. Connected spaces preserve important properties under continuous functions and are fundamental in topology and analysis.
+<p>
+
+<blockquote><b>Definition 17 (Path-Connected Space)</b> <em> A metric space $latex {S}&fg=000000$ is path-connected if for any two points $latex {x,y \in S}&fg=000000$ there exists a continuous function $latex {f: [0,1] \rightarrow S}&fg=000000$ with $latex {f(0) = x}&fg=000000$ and $latex {f(1) = y}&fg=000000$. </em></blockquote>
+
+<p>
+
+
+<p>
+\noindent<b>Importance:</b> Path-connectedness is a stronger form of connectedness that ensures any two points can be joined by a continuous path. It's more intuitive than general connectedness and is often easier to verify in practice. Path-connected spaces are important in many geometric and topological applications.
+<p>
+
+<blockquote><b>Theorem 18 (Connectedness Characterization)</b> <em> A metric space $latex {S}&fg=000000$ is connected if and only if the only subsets of $latex {S}&fg=000000$ that are both open and closed are $latex {\emptyset}&fg=000000$ and $latex {S}&fg=000000$. </em></blockquote>
+
+<p>
+
+
+<p>
+\noindent<b>Importance:</b> This theorem provides a practical way to test for connectedness by checking for "clopen" (closed and open) subsets. It's often easier to work with this characterization than the original definition, especially when proving that spaces are disconnected.
+<p>
+
+<blockquote><b>Theorem 19 (Connected Subsets of $latex {\mathbb{R}}&fg=000000$)</b> <em> The only connected subsets of $latex {\mathbb{R}}&fg=000000$ are intervals (including single points and the empty set). </em></blockquote>
+
+<p>
+
+
+<p>
+\noindent<b>Importance:</b> This theorem provides a complete classification of connected subsets of the real line. It's fundamental for understanding the structure of the real numbers and is essential for the intermediate value theorem and many other results in analysis.
+<p>
+
+<blockquote><b>Theorem 20 (Continuous Image of Connected Set)</b> <em> The continuous image of a connected set is connected. </em></blockquote>
+
+<p>
+
+
+<p>
+\noindent<b>Importance:</b> This theorem shows that connectedness is preserved under continuous functions, making it a topological invariant. This is essential for many applications where we want to transfer connectedness properties from one space to another through continuous mappings.
+<p>
+
+<blockquote><b>Theorem 21 (Closure of Connected Set)</b> <em> The closure of a connected set is connected. </em></blockquote>
+
+<p>
+
+
+<p>
+\noindent<b>Importance:</b> This theorem shows that connectedness is preserved when taking closures, which is important for many applications where we need to work with closed sets or complete spaces. It's particularly useful in analysis where we often need to consider closures of sets.
+<p>
+  Prove that a metric space $latex {S}&fg=000000$ is disconnected if, and only if, there is a nonempty subset $latex {A}&fg=000000$ of $latex {S}&fg=000000$, $latex {A \neq S}&fg=000000$, which is both open and closed in $latex {S}&fg=000000$.  
+<p>
+\noindent<b>Strategy:</b> Use the definition of disconnectedness and the fact that a set is both open and closed if and only if its complement is also both open and closed. If $latex {S}&fg=000000$ is disconnected, write it as a union of two disjoint nonempty open sets, then one of them serves as the required subset.
+<p>
+\bigskip\noindent<b>Solution:</b> If $latex {S}&fg=000000$ is disconnected, write $latex {S=U\cup V}&fg=000000$ with disjoint nonempty open sets. Then $latex {U}&fg=000000$ is open and closed (its complement $latex {V}&fg=000000$ is open). Conversely, if $latex {A}&fg=000000$ is nonempty, proper, open and closed, then $latex {S=A\cup(S\setminus A)}&fg=000000$ is a separation, so $latex {S}&fg=000000$ is disconnected.\qed
+<p>
+  Prove that a metric space $latex {S}&fg=000000$ is connected if, and only if, the only subsets of $latex {S}&fg=000000$ which are both open and closed in $latex {S}&fg=000000$ are the empty set and $latex {S}&fg=000000$ itself.  
+<p>
+\noindent<b>Strategy:</b> This is the contrapositive of Exercise 4.36. A space is connected if and only if it is not disconnected, which means there are no nontrivial clopen subsets.
+<p>
+\bigskip\noindent<b>Solution:</b> This is the contrapositive of 4.36: connectedness is equivalent to having no nontrivial clopen subsets.\qed
+<p>
+  Prove that the only connected subsets of $latex {\mathbb{R}}&fg=000000$ are: 
+
+<ol> <li> the empty set, <li> sets consisting of a single point, and <li> intervals (open, closed, half-open, or infinite). 
+</ol>
+
+  
+<p>
+\noindent<b>Strategy:</b> We need to prove two directions: (1) If a subset of $latex {\mathbb{R}}&fg=000000$ is connected, then it must be empty, a single point, or an interval. (2) If a subset is empty, a single point, or an interval, then it is connected. For the first direction, we'll use proof by contradiction - if a connected set contains two points but misses a point between them, we can create a separation. For the second direction, we'll show that intervals cannot be separated into two disjoint open sets.
+<p>
+\bigskip\noindent<b>Solution:</b>
+<p>
+<b>Forward direction:</b> Let $latex {E \subset \mathbb{R}}&fg=000000$ be connected. If $latex {E}&fg=000000$ is empty or contains only one point, we're done. Suppose $latex {E}&fg=000000$ contains at least two points $latex {a &lt; b}&fg=000000$. We need to show that $latex {E}&fg=000000$ contains all points between $latex {a}&fg=000000$ and $latex {b}&fg=000000$.
+<p>
+Suppose for contradiction that there exists $latex {c \in (a,b)}&fg=000000$ such that $latex {c \notin E}&fg=000000$. Then we can write $latex {E}&fg=000000$ as the union of two disjoint nonempty sets: <p align=center>$latex \displaystyle E = (E \cap (-\infty, c)) \cup (E \cap (c, \infty))&fg=000000$</p>
+
+<p>
+Since $latex {a \in E \cap (-\infty, c)}&fg=000000$ and $latex {b \in E \cap (c, \infty)}&fg=000000$, both sets are nonempty. Also, $latex {(-\infty, c)}&fg=000000$ and $latex {(c, \infty)}&fg=000000$ are open sets in $latex {\mathbb{R}}&fg=000000$, so their intersections with $latex {E}&fg=000000$ are relatively open in $latex {E}&fg=000000$. This gives us a separation of $latex {E}&fg=000000$, contradicting the assumption that $latex {E}&fg=000000$ is connected.
+<p>
+Therefore, if $latex {E}&fg=000000$ contains two points $latex {a &lt; b}&fg=000000$, it must contain all points in $latex {[a,b]}&fg=000000$. This means $latex {E}&fg=000000$ is an interval (which includes all types: open, closed, half-open, and infinite intervals).
+<p>
+<b>Reverse direction:</b> Now we show that intervals are connected. Let $latex {I}&fg=000000$ be an interval in $latex {\mathbb{R}}&fg=000000$. Suppose for contradiction that $latex {I}&fg=000000$ is disconnected, so $latex {I = U \cup V}&fg=000000$ where $latex {U}&fg=000000$ and $latex {V}&fg=000000$ are disjoint nonempty relatively open sets.
+<p>
+Let $latex {a \in U}&fg=000000$ and $latex {b \in V}&fg=000000$. Without loss of generality, assume $latex {a &lt; b}&fg=000000$. Since $latex {I}&fg=000000$ is an interval, $latex {[a,b] \subset I}&fg=000000$. Let $latex {c = \sup\{x \in U : x &lt; b\}}&fg=000000$. Since $latex {U}&fg=000000$ is relatively open, $latex {c \in U}&fg=000000$ (otherwise there would be a sequence in $latex {U}&fg=000000$ converging to $latex {c}&fg=000000$, but $latex {c \notin U}&fg=000000$, contradicting that $latex {U}&fg=000000$ is closed in the subspace topology).
+<p>
+Now consider any point $latex {d}&fg=000000$ with $latex {c &lt; d &lt; b}&fg=000000$. Since $latex {d &gt; c = \sup\{x \in U : x &lt; b\}}&fg=000000$, we must have $latex {d \in V}&fg=000000$. But this means that in any neighborhood of $latex {c}&fg=000000$, there are points from both $latex {U}&fg=000000$ and $latex {V}&fg=000000$, which contradicts the fact that $latex {U}&fg=000000$ and $latex {V}&fg=000000$ are disjoint open sets.
+<p>
+Therefore, intervals cannot be disconnected, so they are connected.
+<p>
+We have shown that the only connected subsets of $latex {\mathbb{R}}&fg=000000$ are the empty set, single points, and intervals.\qed
+<p>
+  Let $latex {X}&fg=000000$ be a connected subset of a metric space $latex {S}&fg=000000$. Let $latex {Y}&fg=000000$ be a subset of $latex {S}&fg=000000$ such that $latex {X \subseteq Y \subseteq \overline{X}}&fg=000000$, where $latex {\overline{X}}&fg=000000$ is the closure of $latex {X}&fg=000000$. Prove that $latex {Y}&fg=000000$ is also connected. In particular, this shows that $latex {\overline{X}}&fg=000000$ is connected.  
+<p>
+\noindent<b>Strategy:</b> Use proof by contradiction. If $latex {Y}&fg=000000$ were disconnected, it could be written as a union of two disjoint nonempty relatively open sets. The intersection of these sets with $latex {X}&fg=000000$ would form a separation of $latex {X}&fg=000000$, contradicting the connectedness of $latex {X}&fg=000000$.
+<p>
+\bigskip\noindent<b>Solution:</b> If $latex {Y}&fg=000000$ were disconnected, write $latex {Y=U\cup V}&fg=000000$ with disjoint nonempty sets open in the subspace topology. Then $latex {U\cap X}&fg=000000$ and $latex {V\cap X}&fg=000000$ would form a separation of $latex {X}&fg=000000$ (they are relatively open and disjoint, and cover $latex {X}&fg=000000$), contradicting connectedness of $latex {X}&fg=000000$. Thus $latex {Y}&fg=000000$ is connected.\qed
+<p>
+  If $latex {x}&fg=000000$ is a point in a metric space $latex {S}&fg=000000$, let $latex {U(x)}&fg=000000$ be the component of $latex {S}&fg=000000$ containing $latex {x}&fg=000000$. Prove that $latex {U(x)}&fg=000000$ is closed in $latex {S}&fg=000000$.  
+<p>
+\noindent<b>Strategy:</b> Use the fact that the closure of a connected set is connected. If a sequence in $latex {U(x)}&fg=000000$ converges to a point $latex {y}&fg=000000$, then $latex {y}&fg=000000$ must belong to the closure of $latex {U(x)}&fg=000000$, which is connected and contains $latex {x}&fg=000000$, hence $latex {y \in U(x)}&fg=000000$.
+<p>
+\bigskip\noindent<b>Solution:</b> Let $latex {(x_n)\subset U(x)}&fg=000000$ with $latex {x_n\rightarrow y\in S}&fg=000000$. For each $latex {n}&fg=000000$, $latex {x_n}&fg=000000$ lies in the (maximal) connected set $latex {U(x)}&fg=000000$. The closure of a connected set is connected, and $latex {y\in\overline{U(x)}}&fg=000000$. The component containing $latex {x}&fg=000000$ is closed under taking limits of sequences within it; more directly, the union of all connected subsets containing $latex {x}&fg=000000$ is closed, hence $latex {y\in U(x)}&fg=000000$. Therefore $latex {U(x)}&fg=000000$ is closed.\qed
+<p>
+  Let $latex {S}&fg=000000$ be an open subset of $latex {\mathbb{R}}&fg=000000$. By Theorem 3.11, $latex {S}&fg=000000$ is the union of a countable disjoint collection of open intervals in $latex {\mathbb{R}}&fg=000000$. Prove that each of these open intervals is a component of the metric subspace $latex {S}&fg=000000$. Explain why this does not contradict Exercise 4.40.  
+<p>
+\noindent<b>Strategy:</b> Use the fact that open intervals are connected and maximal within $latex {S}&fg=000000$ (any larger subset would cross a gap and disconnect). For the apparent contradiction, note that components are closed in the subspace topology on $latex {S}&fg=000000$, not necessarily in the ambient space $latex {\mathbb{R}}&fg=000000$.
+<p>
+\bigskip\noindent<b>Solution:</b> Each open interval is connected and maximal (any strictly larger subset within $latex {S}&fg=000000$ would cross a gap and disconnect), hence is a component. This does not contradict 4.40 because components are closed <em>in the subspace topology on $latex {S}&fg=000000$</em>, and an open interval is closed in $latex {S}&fg=000000$ though not closed in $latex {\mathbb{R}}&fg=000000$.\qed
+<p>
+  Given a compact set $latex {S}&fg=000000$ in $latex {\mathbb{R}^m}&fg=000000$ with the following property: For every pair of points $latex {a}&fg=000000$ and $latex {b}&fg=000000$ in $latex {S}&fg=000000$ and for every $latex {\varepsilon &gt; 0}&fg=000000$ there exists a finite set of points $latex {(x_0, x_1, \ldots, x_n)}&fg=000000$ in $latex {S}&fg=000000$ with $latex {x_0 = a}&fg=000000$ and $latex {x_n = b}&fg=000000$ such that <p align=center>$latex \displaystyle \|x_k - x_{k-1}\| &lt; \varepsilon \quad \text{for } k = 1, 2, \ldots, n.&fg=000000$</p>
+ Prove or disprove: $latex {S}&fg=000000$ is connected.  
+<p>
+\noindent<b>Strategy:</b> Use proof by contradiction. If $latex {S}&fg=000000$ were disconnected, it could be written as a union of two disjoint nonempty closed sets. By compactness, the distance between these sets is positive, and taking $latex {\varepsilon}&fg=000000$ smaller than this distance would prevent any $latex {\varepsilon}&fg=000000$-chain from connecting points in different components.
+<p>
+\bigskip\noindent<b>Solution:</b> True. Suppose $latex {S=A\cup B}&fg=000000$ with disjoint nonempty closed sets. Let $latex {\delta=\mathrm{dist}(A,B)&gt;0}&fg=000000$ (positive by compactness). Taking $latex {\varepsilon&lt;\delta}&fg=000000$, no $latex {\varepsilon}&fg=000000$-chain can go from $latex {A}&fg=000000$ to $latex {B}&fg=000000$, contradicting the hypothesis. Hence $latex {S}&fg=000000$ is connected.\qed
+<p>
+  Prove that a metric space $latex {S}&fg=000000$ is connected if, and only if, every nonempty proper subset of $latex {S}&fg=000000$ has a nonempty boundary.  
+<p>
+\noindent<b>Strategy:</b> Use the fact that the boundary of a set $latex {A}&fg=000000$ is $latex {\partial A = \overline{A} \cap \overline{S \setminus A}}&fg=000000$. If $latex {S}&fg=000000$ is connected, then for any proper subset $latex {A}&fg=000000$, both $latex {\overline{A}}&fg=000000$ and $latex {\overline{S \setminus A}}&fg=000000$ must meet, giving a nonempty boundary. For the converse, if some set has empty boundary, it is both open and closed, creating a separation.
+<p>
+\bigskip\noindent<b>Solution:</b> If $latex {S}&fg=000000$ is connected and $latex {\emptyset\ne A\subsetneq S}&fg=000000$, then both $latex {\overline{A}}&fg=000000$ and $latex {\overline{S\setminus A}}&fg=000000$ meet, so $latex {\partial A=\overline{A}\cap\overline{S\setminus A}\ne\emptyset}&fg=000000$. Conversely, if some $latex {A}&fg=000000$ has empty boundary, then $latex {A}&fg=000000$ is both open and closed, giving a separation; thus $latex {S}&fg=000000$ would be disconnected.\qed
+<p>
+  Prove that every convex subset of $latex {\mathbb{R}^n}&fg=000000$ is connected.  
+<p>
+\noindent<b>Strategy:</b> Use the definition of convexity: for any two points $latex {x, y}&fg=000000$ in a convex set $latex {C}&fg=000000$, the line segment joining them is contained in $latex {C}&fg=000000$. Since line segments are connected and any two points can be joined by a connected subset, the set is connected.
+<p>
+\bigskip\noindent<b>Solution:</b> If $latex {C}&fg=000000$ is convex and $latex {x,y\in C}&fg=000000$, then the line segment $latex {\{tx+(1-t)y: t\in[0,1]\}\subset C}&fg=000000$ is connected. Since any two points can be joined by a connected subset, $latex {C}&fg=000000$ is connected.\qed
+<p>
+  Given a function $latex {f : \mathbb{R}^n \rightarrow \mathbb{R}^m}&fg=000000$ which is one-to-one and continuous on $latex {\mathbb{R}^n}&fg=000000$. If $latex {A}&fg=000000$ is open and disconnected in $latex {\mathbb{R}^n}&fg=000000$, prove that $latex {f(A)}&fg=000000$ is open and disconnected in $latex {\mathbb{R}^m}&fg=000000$.  
+<p>
+\noindent<b>Strategy:</b> Use the invariance of domain theorem which states that an injective continuous map from $latex {\mathbb{R}^n}&fg=000000$ to itself is open. If $latex {A = U \cup V}&fg=000000$ is a separation, then $latex {f(U)}&fg=000000$ and $latex {f(V)}&fg=000000$ are disjoint open sets whose union is $latex {f(A)}&fg=000000$, making $latex {f(A)}&fg=000000$ disconnected.
+<p>
+\bigskip\noindent<b>Solution:</b> Assume $latex {n=m}&fg=000000$. By invariance of domain, an injective continuous map $latex {f:\mathbb{R}^n\rightarrow\mathbb{R}^n}&fg=000000$ is open, hence $latex {f(A)}&fg=000000$ is open. If $latex {A=U\cup V}&fg=000000$ is a separation, then $latex {f(U)}&fg=000000$ and $latex {f(V)}&fg=000000$ are disjoint open sets whose union is $latex {f(A)}&fg=000000$; thus $latex {f(A)}&fg=000000$ is disconnected. (If $latex {m\ne n}&fg=000000$, openness need not hold.)\qed
+<p>
+  Let $latex {A = \{(x, y) : 0 &lt; x \leq 1, y = \sin(1/x)\}}&fg=000000$, $latex {B = \{(x, y) : y = 0, -1 \leq x \leq 0\}}&fg=000000$, and let $latex {S = A \cup B}&fg=000000$. Prove that $latex {S}&fg=000000$ is connected but not arcwise connected.  
+<p>
+\noindent<b>Strategy:</b> Show connectedness by using the fact that the closure of $latex {A}&fg=000000$ includes the vertical segment $latex {\{0\} \times [-1,1]}&fg=000000$, making $latex {S}&fg=000000$ connected. For path-disconnectedness, show that any continuous path from $latex {(0,0)}&fg=000000$ to a point in $latex {A}&fg=000000$ would have to intersect infinitely many oscillations of the sine curve, which is impossible for a compact path.
+<p>
+  , ylabel={$latex {y}&fg=000000$}, xmin=-1.05, xmax=1.05, ymin=-1.2, ymax=1.2, width=12cm, height=7cm, xtick={-1,-0.5,0,0.5,1}, ytick={-1,-0.5,0,0.5,1}, tick style={black}, domain=0.005:1 } \addplot[ smooth, samples=2200, line width=0.9pt ] {x <= 0 ? nan : sin(deg(1/x))}; \addplot[ line width=0.9pt ] table[row sep=<br/>
+]{ -1 0 <br/>
+ 0 0 <br/>
+ }; \addplot[ dashed, gray ] table[row sep=<br/>
+]{ 0 -1 <br/>
+ 0 1 <br/>
+ }; \addplot[ only marks, mark=*, mark size=1.6pt ] coordinates {(0,0)};   
+<p>
+\bigskip\noindent<b>Solution:</b> The closure of $latex {A}&fg=000000$ adds the vertical segment $latex {\{0\}\times[-1,1]}&fg=000000$. The set $latex {S}&fg=000000$ equals $latex {A}&fg=000000$ together with a horizontal segment adjoining at the origin; $latex {S}&fg=000000$ is connected as the continuous image of $latex {(0,1]\cup[-1,0]}&fg=000000$ under a map gluing at the origin, or via boundary characterization. However, there is no continuous injective path in $latex {S}&fg=000000$ from $latex {(0,0)}&fg=000000$ to any point of $latex {A}&fg=000000$ (an arc would intersect infinitely many oscillations, forcing a contradiction with compactness of arcs). Thus $latex {S}&fg=000000$ is not arcwise connected.\qed
+<p>
+  Let $latex {F = (F_1, F_2, \ldots)}&fg=000000$ be a countable collection of connected compact sets in $latex {\mathbb{R}^s}&fg=000000$ such that $latex {F_{k+1} \subseteq F_k}&fg=000000$ for each $latex {k \geq 1}&fg=000000$. Prove that the intersection $latex {\bigcap_{k=1}^{\infty} F_k}&fg=000000$ is connected and closed.  
+<p>
+\noindent<b>Strategy:</b> Use the fact that the intersection of compact sets is compact (hence closed). For connectedness, use proof by contradiction: if the intersection were disconnected, there would exist disjoint open sets separating it, but each $latex {F_k}&fg=000000$ is connected and contains the intersection, so it must lie entirely in one of the open sets, leading to a contradiction.
+<p>
+\bigskip\noindent<b>Solution:</b> The intersection of compact sets is compact (hence closed). If the intersection were disconnected, write it as $latex {K\cup L}&fg=000000$ with disjoint nonempty closed sets. By compactness, there exist disjoint open sets $latex {U,V}&fg=000000$ with $latex {K\subset U}&fg=000000$, $latex {L\subset V}&fg=000000$. For each $latex {k}&fg=000000$, $latex {F_k}&fg=000000$ is connected and contains $latex {K\cup L}&fg=000000$, so $latex {F_k\subset U\cup V}&fg=000000$ forces $latex {F_k\subset U}&fg=000000$ or $latex {F_k\subset V}&fg=000000$, impossible since both $latex {K}&fg=000000$ and $latex {L}&fg=000000$ are contained in the intersection. Hence the intersection is connected.\qed
+<p>
+  Let $latex {S}&fg=000000$ be an open connected set in $latex {\mathbb{R}^n}&fg=000000$. Let $latex {T}&fg=000000$ be a component of $latex {\mathbb{R}^n \setminus S}&fg=000000$. Prove that $latex {\mathbb{R}^n \setminus T}&fg=000000$ is connected.  
+<p>
+\noindent<b>Strategy:</b> Use proof by contradiction. If $latex {\mathbb{R}^n \setminus T}&fg=000000$ were disconnected, it could be written as a union of two disjoint nonempty open sets. Since $latex {S}&fg=000000$ is connected and contained in $latex {\mathbb{R}^n \setminus T}&fg=000000$, it must lie entirely in one of these sets, but this would create a separation of the boundary of $latex {T}&fg=000000$, which is impossible.
+<p>
+\bigskip\noindent<b>Solution:</b> Assume $latex {\mathbb{R}^n\setminus T=U\cup V}&fg=000000$ is disconnected. Since $latex {S\subset\mathbb{R}^n\setminus T}&fg=000000$, $latex {S}&fg=000000$ must lie entirely in $latex {U}&fg=000000$ or $latex {V}&fg=000000$; say $latex {S\subset U}&fg=000000$. Then $latex {V\subset \mathbb{R}^n\setminus S}&fg=000000$ is open and nonempty, and each component of $latex {\mathbb{R}^n\setminus S}&fg=000000$ must be contained in $latex {V}&fg=000000$ or in the complement of $latex {V}&fg=000000$, contradicting that $latex {T}&fg=000000$ meets both sides of the separation. A boundary-based argument shows any separation would separate the connected boundary $latex {\partial T\subset S}&fg=000000$, impossible. Thus $latex {\mathbb{R}^n\setminus T}&fg=000000$ is connected.\qed
+<p>
+  Let $latex {(S, d)}&fg=000000$ be a connected metric space which is not bounded. Prove that for every $latex {a}&fg=000000$ in $latex {S}&fg=000000$ and every $latex {r &gt; 0}&fg=000000$, the set $latex {\{x : d(x, a) = r\}}&fg=000000$ is nonempty.  
+<p>
+\noindent<b>Strategy:</b> Use the fact that the distance function $latex {x \mapsto d(x,a)}&fg=000000$ is continuous from $latex {S}&fg=000000$ to $latex {[0,\infty)}&fg=000000$. Since $latex {S}&fg=000000$ is connected and unbounded, the image of this function must be a connected unbounded subset of $latex {[0,\infty)}&fg=000000$ containing $latex {0}&fg=000000$, which must be the entire interval $latex {[0,\infty)}&fg=000000$.
+<p>
+\bigskip\noindent<b>Solution:</b> The map $latex {x\mapsto d(x,a)}&fg=000000$ is continuous $latex {S\rightarrow[0,\infty)}&fg=000000$. Since $latex {S}&fg=000000$ is connected and unbounded, its image is a connected unbounded subset of $latex {[0,\infty)}&fg=000000$ containing $latex {0}&fg=000000$, hence equals $latex {[0,\infty)}&fg=000000$. Therefore each $latex {r&gt;0}&fg=000000$ is attained.\qed
+<p>
+
+
+<p>
+
+<b>6. Uniform Continuity </b>
+
+<p>
+
+
+<p>
+
+
+<p>
+
+<b> Essential Definitions and Theorems </b>
+
+<p>
+
+
+<p>
+
+<blockquote><b>Definition 22 (Uniform Continuity)</b> <em> A function $latex {f: S \rightarrow T}&fg=000000$ between metric spaces is uniformly continuous if for every $latex {\varepsilon &gt; 0}&fg=000000$ there exists $latex {\delta &gt; 0}&fg=000000$ such that $latex {d_S(x,y) &lt; \delta}&fg=000000$ implies $latex {d_T(f(x), f(y)) &lt; \varepsilon}&fg=000000$ for all $latex {x,y \in S}&fg=000000$. </em></blockquote>
+
+<p>
+
+
+<p>
+\noindent<b>Importance:</b> Uniform continuity is a stronger form of continuity that ensures the same $latex {\delta}&fg=000000$ works for all points in the domain. This is crucial for many applications where we need to control the behavior of functions uniformly across their entire domain, such as in integration theory and approximation theory.
+<p>
+
+<blockquote><b>Theorem 23 (Uniform Continuity on Compact Sets)</b> <em> A continuous function on a compact metric space is uniformly continuous. </em></blockquote>
+
+<p>
+
+
+<p>
+\noindent<b>Importance:</b> This is one of the most important theorems in analysis, showing that on compact domains, the stronger property of uniform continuity comes "for free" from ordinary continuity. This is essential for many applications in calculus, integration, and approximation theory.
+<p>
+
+<blockquote><b>Theorem 24 (Distance Function Properties)</b> <em> Let $latex {A}&fg=000000$ be a nonempty subset of a metric space $latex {(S,d)}&fg=000000$. The distance function $latex {f_A(x) = \inf\{d(x,y) : y \in A\}}&fg=000000$ is uniformly continuous and satisfies $latex {\overline{A} = \{x : f_A(x) = 0\}}&fg=000000$. </em></blockquote>
+
+<p>
+
+
+<p>
+\noindent<b>Importance:</b> This theorem shows that distance functions are well-behaved and provides a useful tool for characterizing closures of sets. The uniform continuity of distance functions makes them valuable in many applications, particularly in optimization and approximation theory.
+<p>
+
+<blockquote><b>Theorem 25 (Urysohn's Lemma)</b> <em> Let $latex {A}&fg=000000$ and $latex {B}&fg=000000$ be disjoint closed subsets of a metric space $latex {(S,d)}&fg=000000$. Then there exist disjoint open sets $latex {U}&fg=000000$ and $latex {V}&fg=000000$ such that $latex {A \subseteq U}&fg=000000$ and $latex {B \subseteq V}&fg=000000$. </em></blockquote>
+
+<p>
+
+
+<p>
+\noindent<b>Importance:</b> This is a fundamental result in topology that shows metric spaces have good separation properties. It's essential for constructing continuous functions with specific properties and is the foundation for many results in functional analysis and topology.
+<p>
+  Prove that a function which is uniformly continuous on $latex {S}&fg=000000$ is also continuous on $latex {S}&fg=000000$.  
+<p>
+\noindent<b>Strategy:</b> Use the definitions directly. Uniform continuity provides a $latex {\delta}&fg=000000$ that works for all points simultaneously, which immediately implies continuity at each individual point.
+<p>
+\bigskip\noindent<b>Solution:</b> Immediate from the definitions: given $latex {\varepsilon&gt;0}&fg=000000$, pick $latex {\delta}&fg=000000$ working for all points; then continuity at each point follows.\qed
+<p>
+  If $latex {f(x) = x^2}&fg=000000$ for $latex {x}&fg=000000$ in $latex {\mathbb{R}}&fg=000000$, prove that $latex {f}&fg=000000$ is not uniformly continuous on $latex {\mathbb{R}}&fg=000000$.  
+<p>
+\noindent<b>Strategy:</b> Use proof by contradiction. Assume uniform continuity and find a contradiction by choosing specific points where the difference in function values exceeds any given $latex {\varepsilon}&fg=000000$ while the difference in arguments is less than any given $latex {\delta}&fg=000000$.
+<p>
+\bigskip\noindent<b>Solution:</b> For $latex {\varepsilon=1}&fg=000000$, any $latex {\delta&gt;0}&fg=000000$ fails by choosing $latex {x=1/\delta}&fg=000000$ and $latex {y=x+\tfrac{\delta}{2}}&fg=000000$: then $latex {|x-y|&lt;\delta}&fg=000000$ but $latex {|x^2-y^2|=|x-y||x+y|&gt;\tfrac{\delta}{2}\cdot\tfrac{2}{\delta}=1}&fg=000000$.\qed
+<p>
+  Assume that $latex {f}&fg=000000$ is uniformly continuous on a bounded set $latex {S}&fg=000000$ in $latex {\mathbb{R}^n}&fg=000000$. Prove that $latex {f}&fg=000000$ must be bounded on $latex {S}&fg=000000$.  
+<p>
+\noindent<b>Strategy:</b> Use the uniform continuity condition to cover $latex {S}&fg=000000$ with finitely many balls of radius $latex {\delta}&fg=000000$. Since $latex {S}&fg=000000$ is bounded, it can be covered by finitely many such balls, and the image of each ball is bounded by continuity at its center.
+<p>
+\bigskip\noindent<b>Solution:</b> Cover $latex {S}&fg=000000$ by finitely many balls of radius $latex {\delta}&fg=000000$ from the uniform continuity condition for $latex {\varepsilon=1}&fg=000000$. The image of each ball is bounded (by continuity at its center). The finite union is bounded.\qed
+<p>
+  Let $latex {f}&fg=000000$ be a function defined on a set $latex {S}&fg=000000$ in $latex {\mathbb{R}^n}&fg=000000$ and assume that $latex {f(S) \subseteq \mathbb{R}^m}&fg=000000$. Let $latex {g}&fg=000000$ be defined on $latex {f(S)}&fg=000000$ with value in $latex {\mathbb{R}^k}&fg=000000$, and let $latex {h}&fg=000000$ denote the composite function defined by $latex {h(x) = g[f(x)]}&fg=000000$ if $latex {x \in S}&fg=000000$. If $latex {f}&fg=000000$ is uniformly continuous on $latex {S}&fg=000000$ and if $latex {g}&fg=000000$ is uniformly continuous on $latex {f(S)}&fg=000000$, show that $latex {h}&fg=000000$ is uniformly continuous on $latex {S}&fg=000000$.  
+<p>
+\noindent<b>Strategy:</b> Use the uniform continuity conditions for both $latex {f}&fg=000000$ and $latex {g}&fg=000000$. Given $latex {\varepsilon &gt; 0}&fg=000000$, first find $latex {\eta &gt; 0}&fg=000000$ for $latex {g}&fg=000000$, then find $latex {\delta &gt; 0}&fg=000000$ for $latex {f}&fg=000000$ such that when $latex {x}&fg=000000$ and $latex {x'}&fg=000000$ are close, their images under $latex {f}&fg=000000$ are close enough for $latex {g}&fg=000000$ to preserve the $latex {\varepsilon}&fg=000000$ condition.
+<p>
+\bigskip\noindent<b>Solution:</b> Given $latex {\varepsilon&gt;0}&fg=000000$, pick $latex {\eta&gt;0}&fg=000000$ for $latex {g}&fg=000000$ on $latex {f(S)}&fg=000000$; pick $latex {\delta&gt;0}&fg=000000$ for $latex {f}&fg=000000$ such that $latex {\|x-x'\|&lt;\delta\Rightarrow \|f(x)-f(x')\|&lt;\eta}&fg=000000$. Then $latex {\|x-x'\|&lt;\delta\Rightarrow \|h(x)-h(x')\|=\|g(f(x))-g(f(x'))\|&lt;\varepsilon}&fg=000000$.\qed
+<p>
+  Assume $latex {f : S \rightarrow T}&fg=000000$ is uniformly continuous on $latex {S}&fg=000000$, where $latex {S}&fg=000000$ and $latex {T}&fg=000000$ are metric spaces. If $latex {(x_n)}&fg=000000$ is any Cauchy sequence in $latex {S}&fg=000000$, prove that $latex {(f(x_n))}&fg=000000$ is a Cauchy sequence in $latex {T}&fg=000000$. (Compare with Exercise 4.33.)  
+<p>
+\noindent<b>Strategy:</b> Use the uniform continuity condition to find $latex {\delta &gt; 0}&fg=000000$ for a given $latex {\varepsilon &gt; 0}&fg=000000$. Since $latex {(x_n)}&fg=000000$ is Cauchy, there exists $latex {N}&fg=000000$ such that for $latex {n, m \geq N}&fg=000000$, the distance between $latex {x_n}&fg=000000$ and $latex {x_m}&fg=000000$ is less than $latex {\delta}&fg=000000$, which implies the distance between $latex {f(x_n)}&fg=000000$ and $latex {f(x_m)}&fg=000000$ is less than $latex {\varepsilon}&fg=000000$.
+<p>
+\bigskip\noindent<b>Solution:</b> Given $latex {\varepsilon&gt;0}&fg=000000$, by uniform continuity choose $latex {\delta&gt;0}&fg=000000$ such that $latex {d_S(x,y)&lt;\delta\Rightarrow d_T(f(x),f(y))&lt;\varepsilon}&fg=000000$. Since $latex {(x_n)}&fg=000000$ is Cauchy, there exists $latex {N}&fg=000000$ with $latex {d_S(x_n,x_m)&lt;\delta}&fg=000000$ for $latex {n,m\ge N}&fg=000000$. Hence $latex {d_T(f(x_n),f(x_m))&lt;\varepsilon}&fg=000000$ for $latex {n,m\ge N}&fg=000000$.\qed
+<p>
+  Let $latex {f : S \rightarrow T}&fg=000000$ be a function from a metric space $latex {S}&fg=000000$ to another metric space $latex {T}&fg=000000$. Assume $latex {f}&fg=000000$ is uniformly continuous on a subset $latex {A}&fg=000000$ of $latex {S}&fg=000000$ and that $latex {T}&fg=000000$ is complete. Prove that there is a unique extension of $latex {f}&fg=000000$ to $latex {\overline{A}}&fg=000000$ which is uniformly continuous on $latex {\overline{A}}&fg=000000$.  
+<p>
+\noindent<b>Strategy:</b> Use the fact that any point in $latex {\overline{A}}&fg=000000$ is the limit of a sequence in $latex {A}&fg=000000$. By Exercise 4.54, the image sequence is Cauchy and converges in the complete space $latex {T}&fg=000000$. Define the extension as the limit of these sequences and show it's well-defined and uniformly continuous.
+<p>
+\bigskip\noindent<b>Solution:</b> For $latex {x\in\overline{A}}&fg=000000$ choose any sequence $latex {(a_n)\subset A}&fg=000000$ with $latex {a_n\rightarrow x}&fg=000000$. Then $latex {(f(a_n))}&fg=000000$ is Cauchy by 4.54, hence convergent in complete $latex {T}&fg=000000$. Define $latex {\tilde f(x)=\lim f(a_n)}&fg=000000$. This is well-defined (limits coincide for different sequences by interlacing and uniform continuity). Then $latex {\tilde f}&fg=000000$ extends $latex {f}&fg=000000$ and is uniformly continuous: given $latex {\varepsilon&gt;0}&fg=000000$, pick $latex {\delta}&fg=000000$ for $latex {f}&fg=000000$ on $latex {A}&fg=000000$; approximate points in $latex {\overline{A}}&fg=000000$ by nearby points in $latex {A}&fg=000000$ and pass to limits.\qed
+<p>
+  In a metric space $latex {(S, d)}&fg=000000$, let $latex {A}&fg=000000$ be a nonempty subset of $latex {S}&fg=000000$. Define a function $latex {f_A : S \rightarrow \mathbb{R}}&fg=000000$ by the equation <p align=center>$latex \displaystyle f_A(x) = \inf \{d(x, y) : y \in A\}&fg=000000$</p>
+ for each $latex {x}&fg=000000$ in $latex {S}&fg=000000$. The number $latex {f_A(x)}&fg=000000$ is called the distance from $latex {x}&fg=000000$ to $latex {A}&fg=000000$. 
+
+<ol> <li> Prove that $latex {f_A}&fg=000000$ is uniformly continuous on $latex {S}&fg=000000$. <li> Prove that $latex {\overline{A} = \{x : x \in S \text{ and } f_A(x) = 0\}}&fg=000000$. 
+</ol>
+
+  
+<p>
+\noindent<b>Strategy:</b> For (a), use the reverse triangle inequality to show that $latex {|f_A(x) - f_A(z)| \leq d(x,z)}&fg=000000$, making $latex {f_A}&fg=000000$ 1-Lipschitz and hence uniformly continuous. For (b), use the definition of closure: $latex {x \in \overline{A}}&fg=000000$ if and only if there exists a sequence in $latex {A}&fg=000000$ converging to $latex {x}&fg=000000$, which is equivalent to $latex {f_A(x) = 0}&fg=000000$.
+<p>
+\bigskip\noindent<b>Solution:</b> (a) For all $latex {x,z}&fg=000000$ and $latex {y\in A}&fg=000000$, $latex {|d(x,y)-d(z,y)|\le d(x,z)}&fg=000000$. Taking infimum over $latex {y}&fg=000000$ gives $latex {|f_A(x)-f_A(z)|\le d(x,z)}&fg=000000$, so $latex {f_A}&fg=000000$ is $latex {1}&fg=000000$-Lipschitz.
+<p>
+(b) If $latex {x\in\overline{A}}&fg=000000$, there exist $latex {y_n\in A}&fg=000000$ with $latex {d(x,y_n)\rightarrow 0}&fg=000000$, so $latex {f_A(x)=0}&fg=000000$. Conversely, if $latex {f_A(x)=0}&fg=000000$, pick $latex {y_n\in A}&fg=000000$ with $latex {d(x,y_n)&lt;1/n}&fg=000000$; then $latex {y_n\rightarrow x}&fg=000000$, hence $latex {x\in\overline{A}}&fg=000000$.\qed
+<p>
+  In a metric space $latex {(S, d)}&fg=000000$, let $latex {A}&fg=000000$ and $latex {B}&fg=000000$ be disjoint closed subsets of $latex {S}&fg=000000$. Prove that there exist disjoint open subsets $latex {U}&fg=000000$ and $latex {V}&fg=000000$ of $latex {S}&fg=000000$ such that $latex {A \subseteq U}&fg=000000$ and $latex {B \subseteq V}&fg=000000$. <br/>
+ <i>Hint.</i> Let $latex {g(x) = f_A(x) - f_B(x)}&fg=000000$, in the notation of Exercise 4.56, and consider $latex {g^{-1}(-\infty, 0)}&fg=000000$ and $latex {g^{-1}(0, +\infty)}&fg=000000$.  
+<p>
+\noindent<b>Strategy:</b> Use the hint to define $latex {g(x) = f_A(x) - f_B(x)}&fg=000000$, which is continuous as a difference of continuous functions. The sets $latex {U = \{g &lt; 0\}}&fg=000000$ and $latex {V = \{g &gt; 0\}}&fg=000000$ are open and disjoint, with $latex {A \subseteq U}&fg=000000$ and $latex {B \subseteq V}&fg=000000$ by the properties of the distance functions.
+<p>
+\bigskip\noindent<b>Solution:</b> Define $latex {g(x)=f_A(x)-f_B(x)}&fg=000000$, which is continuous as a difference of Lipschitz functions. Then $latex {U=\{g&lt;0\}}&fg=000000$ and $latex {V=\{g&gt;0\}}&fg=000000$ are disjoint open sets containing $latex {A}&fg=000000$ and $latex {B}&fg=000000$ respectively.\qed
+<p>
+
+
+<p>
+
+<b>7. Discontinuities </b>
+
+<p>
+
+
+<p>
+
+
+<p>
+
+<b> Essential Definitions and Theorems </b>
+
+<p>
+
+
+<p>
+
+<blockquote><b>Definition 26 (Types of Discontinuities)</b> <em> Let $latex {f}&fg=000000$ be defined on an interval containing $latex {c}&fg=000000$ except possibly at $latex {c}&fg=000000$ itself. 
+
+<ol> <li> $latex {f}&fg=000000$ has a removable discontinuity at $latex {c}&fg=000000$ if $latex {\lim_{x \rightarrow c} f(x)}&fg=000000$ exists but is not equal to $latex {f(c)}&fg=000000$ <li> $latex {f}&fg=000000$ has a jump discontinuity at $latex {c}&fg=000000$ if both one-sided limits exist but are not equal <li> $latex {f}&fg=000000$ has an essential discontinuity at $latex {c}&fg=000000$ if at least one one-sided limit does not exist 
+</ol>
+
+ </em></blockquote>
+
+<p>
+
+
+<p>
+\noindent<b>Importance:</b> This classification provides a systematic way to understand and categorize the different ways functions can fail to be continuous. It's essential for understanding the behavior of functions near problematic points and for developing techniques to handle discontinuities in analysis and applications.
+<p>
+  Locate and classify the discontinuities of the functions $latex {f}&fg=000000$ defined on $latex {\mathbb{R}^1}&fg=000000$ by the following equations: 
+
+<ol> <li> $latex {f(x) = (\sin x)/x}&fg=000000$ if $latex {x \neq 0}&fg=000000$, $latex {f(0) = 0}&fg=000000$. <li> $latex {f(x) = e^{1/x}}&fg=000000$ if $latex {x \neq 0}&fg=000000$, $latex {f(0) = 0}&fg=000000$. <li> $latex {f(x) = e^{1/x} + \sin(1/x)}&fg=000000$ if $latex {x \neq 0}&fg=000000$, $latex {f(0) = 0}&fg=000000$. <li> $latex {f(x) = 1/(1 - e^{1/x})}&fg=000000$ if $latex {x \neq 0}&fg=000000$, $latex {f(0) = 0}&fg=000000$. 
+</ol>
+
+  
+<p>
+\noindent<b>Strategy:</b> For each function, analyze the behavior as $latex {x \rightarrow 0}&fg=000000$ from both positive and negative directions. Check if the limit exists and equals the function value (removable), if one-sided limits exist but differ (jump), or if at least one one-sided limit doesn't exist (essential).
+<p>
+\bigskip\noindent<b>Solution:</b> (a) Removable at $latex {0}&fg=000000$: $latex {\lim_{x\rightarrow0}(\sin x)/x=1\ne f(0)}&fg=000000$; redefining $latex {f(0)=1}&fg=000000$ yields continuity.
+<p>
+(b) Essential at $latex {0}&fg=000000$: along $latex {x\rightarrow 0^+}&fg=000000$, $latex {e^{1/x}\rightarrow+\infty}&fg=000000$; along $latex {x\rightarrow0^-}&fg=000000$, $latex {e^{1/x}\rightarrow 0}&fg=000000$. No finite limit; discontinuity of essential type.
+<p>
+(c) Essential at $latex {0}&fg=000000$: the term $latex {e^{1/x}}&fg=000000$ behaves as in (b) and $latex {\sin(1/x)}&fg=000000$ oscillates; no limit exists.
+<p>
+(d) Essential at $latex {0}&fg=000000$: as $latex {x\rightarrow0^-}&fg=000000$, $latex {e^{1/x}\rightarrow0}&fg=000000$ so $latex {f\rightarrow 1}&fg=000000$; as $latex {x\rightarrow0^+}&fg=000000$, $latex {e^{1/x}\rightarrow+\infty}&fg=000000$ and $latex {f\rightarrow 0}&fg=000000$ except near points where $latex {e^{1/x}=1}&fg=000000$ causing poles; thus infinitely many essential singularities accumulating at $latex {0}&fg=000000$; no limit.
+<p>
+  \centering  , ylabel={$latex {f(x)}&fg=000000$}, xmin=-2, xmax=2, ymin=-1, ymax=3, grid=major, title={Types of Discontinuities} } \addplot[blue, thick, samples=100, domain=-2:-0.1] {sin(deg(x))/x}; \addplot[blue, thick, samples=100, domain=0.1:2] {sin(deg(x))/x}; \addplot[only marks, mark=*, mark size=3pt, blue] coordinates {(0,0)}; \addplot[only marks, mark=o, mark size=3pt, blue] coordinates {(0,1)}; \addlegendentry{$latex {\frac{\sin x}{x}}&fg=000000$ (removable)} \addplot[red, thick, samples=200, domain=0.2:2] {exp(1/x)}; \addplot[red, thick, samples=200, domain=-2:-0.2] {exp(1/x)}; \addplot[only marks, mark=*, mark size=3pt, red] coordinates {(0,0)}; \addlegendentry{$latex {e^{1/x}}&fg=000000$ (essential)}   \caption{Examples of removable discontinuity ($latex {sin(x)/x}&fg=000000$ at $latex {x=0}&fg=000000$) and essential discontinuity ($latex {e^(1/x)}&fg=000000$ at $latex {x=0}&fg=000000$). The removable discontinuity can be fixed by redefining the function value.} \qed
+<p>
+  Locate the points in $latex {\mathbb{R}^2}&fg=000000$ at which each of the functions in Exercise 4.11 is not continuous.  
+<p>
+\noindent<b>Strategy:</b> This problem refers to Exercise 4.11 which doesn't contain specific functions in this text. If concrete functions were provided, analyze continuity by examining limits along different curves approaching the points of interest, particularly checking if the limit depends on the path taken.
+<p>
+\bigskip\noindent<b>Solution:</b> Not applicable as stated here: Exercise 4.11 in this text does not list specific functions. If concrete functions are provided, analyze continuity by examining limits along curves approaching the points of interest.\qed
+<p>
+
+
+<p>
+
+<b>8. Monotonic Functions </b>
+
+<p>
+
+
+<p>
+
+
+<p>
+
+<b> Essential Definitions and Theorems </b>
+
+<p>
+
+
+<p>
+
+<blockquote><b>Definition 27 (Monotonic Function)</b> <em> A function $latex {f: [a,b] \rightarrow \mathbb{R}}&fg=000000$ is: 
+
+<ol> <li> Increasing if $latex {x &lt; y}&fg=000000$ implies $latex {f(x) \leq f(y)}&fg=000000$ <li> Strictly increasing if $latex {x &lt; y}&fg=000000$ implies $latex {f(x) &lt; f(y)}&fg=000000$ <li> Decreasing if $latex {x &lt; y}&fg=000000$ implies $latex {f(x) \geq f(y)}&fg=000000$ <li> Strictly decreasing if $latex {x &lt; y}&fg=000000$ implies $latex {f(x) &gt; f(y)}&fg=000000$ 
+</ol>
+
+ </em></blockquote>
+
+<p>
+
+
+<p>
+\noindent<b>Importance:</b> Monotonic functions have many desirable properties that make them easier to work with than general functions. They have well-behaved limits, countable discontinuities, and preserve order. These properties make them fundamental in analysis, optimization, and many applications.
+<p>
+
+<blockquote><b>Theorem 28 (Monotonic Function Properties)</b> <em> Let $latex {f}&fg=000000$ be monotonic on $latex {[a,b]}&fg=000000$. Then: 
+
+<ol> <li> $latex {f}&fg=000000$ has one-sided limits at every point in $latex {(a,b)}&fg=000000$ <li> The set of discontinuities of $latex {f}&fg=000000$ is countable <li> $latex {f}&fg=000000$ has points of continuity in every open subinterval 
+</ol>
+
+ </em></blockquote>
+
+<p>
+
+
+<p>
+\noindent<b>Importance:</b> This theorem provides fundamental properties of monotonic functions that make them much more manageable than general functions. The fact that discontinuities are countable and that continuity points are dense makes monotonic functions essential in many areas of analysis and applications.
+<p>
+  Let $latex {f}&fg=000000$ be defined in the open interval $latex {(a, b)}&fg=000000$ and assume that for each interior point $latex {x}&fg=000000$ of $latex {(a, b)}&fg=000000$ there exists a 1-ball $latex {B(x)}&fg=000000$ in which $latex {f}&fg=000000$ is increasing. Prove that $latex {f}&fg=000000$ is an increasing function throughout $latex {(a, b)}&fg=000000$.  
+<p>
+\noindent<b>Strategy:</b> Use the compactness property of closed intervals. For any two points $latex {u &lt; v}&fg=000000$ in $latex {(a,b)}&fg=000000$, construct a finite chain connecting them where each segment lies within one of the local increasing balls, then use the increasing property on each segment to show $latex {f(u) \leq f(v)}&fg=000000$.
+<p>
+\bigskip\noindent<b>Solution:</b> Fix $latex {u&lt;v}&fg=000000$ in $latex {(a,b)}&fg=000000$. Connect $latex {u}&fg=000000$ to $latex {v}&fg=000000$ by a finite chain $latex {u=x_0&lt;x_1&lt;\cdots&lt;x_k=v}&fg=000000$ with $latex {[x_{i-1},x_i]\subset B(t_i)}&fg=000000$ for suitable centers $latex {t_i}&fg=000000$. On each $latex {[x_{i-1},x_i]}&fg=000000$, $latex {f}&fg=000000$ is increasing, hence $latex {f(u)\le f(x_1)\le\cdots\le f(v)}&fg=000000$. Thus $latex {f}&fg=000000$ is increasing on $latex {(a,b)}&fg=000000$.\qed
+<p>
+  Let $latex {f}&fg=000000$ be continuous on a compact interval $latex {[a, b]}&fg=000000$ and assume that $latex {f}&fg=000000$ does not have a local maximum or a local minimum at any interior point. Prove that $latex {f}&fg=000000$ must be monotonic on $latex {[a, b]}&fg=000000$.  
+<p>
+\noindent<b>Strategy:</b> Use the extreme value theorem to show that $latex {f}&fg=000000$ attains its maximum and minimum at the endpoints since there are no interior local extrema. This forces the function to be either nondecreasing or nonincreasing, and the intermediate value property excludes oscillation.
+<p>
+\bigskip\noindent<b>Solution:</b> By the extreme value theorem, $latex {f}&fg=000000$ attains its maximum and minimum at endpoints since there are no interior local extrema. Therefore either $latex {f(a)\le f(b)}&fg=000000$ and $latex {f}&fg=000000$ is nondecreasing, or $latex {f(a)\ge f(b)}&fg=000000$ and $latex {f}&fg=000000$ is nonincreasing. A standard argument via the intermediate value property excludes oscillation without local extrema.\qed
+<p>
+  If $latex {f}&fg=000000$ is one-to-one and continuous on $latex {[a, b]}&fg=000000$, prove that $latex {f}&fg=000000$ must be strictly monotonic on $latex {[a, b]}&fg=000000$. That is, prove that every topological mapping of $latex {[a, b]}&fg=000000$ onto an interval $latex {[c, d]}&fg=000000$ must be strictly monotonic.  
+<p>
+\noindent<b>Strategy:</b> Use proof by contradiction. If $latex {f}&fg=000000$ is not strictly monotone, there exist three points $latex {u &lt; v &lt; w}&fg=000000$ where $latex {f(v)}&fg=000000$ is either greater than both $latex {f(u)}&fg=000000$ and $latex {f(w)}&fg=000000$ or less than both. By the intermediate value theorem, this value is attained at least twice, contradicting injectivity.
+<p>
+\bigskip\noindent<b>Solution:</b> If $latex {f}&fg=000000$ is not strictly monotone, there exist $latex {a\le u&lt;v&lt;w\le b}&fg=000000$ with either $latex {f(v)&gt;\max\{f(u),f(w)\}}&fg=000000$ or $latex {f(v)&lt;\min\{f(u),f(w)\}}&fg=000000$. By the intermediate value theorem the value $latex {f(v)}&fg=000000$ is taken at least twice, contradicting injectivity. Hence $latex {f}&fg=000000$ is strictly monotone.\qed
+<p>
+  Let $latex {f}&fg=000000$ be an increasing function defined on $latex {[a, b]}&fg=000000$ and let $latex {x_1, \ldots, x_n}&fg=000000$ be $latex {n}&fg=000000$ points in the interior such that $latex {a &lt; x_1 &lt; x_2 &lt; \cdots &lt; x_n &lt; b}&fg=000000$. 
+
+<ol> <li> Show that $latex {\sum_{k=1}^n [f(x_k+) - f(x_k-)] \leq f(b-) - f(a+)}&fg=000000$. <li> Deduce from part (a) that the set of discontinuities of $latex {f}&fg=000000$ is countable. <li> Prove that $latex {f}&fg=000000$ has points of continuity in every open subinterval of $latex {[a, b]}&fg=000000$. 
+</ol>
+
+  
+<p>
+\noindent<b>Strategy:</b> For (a), use the fact that for increasing functions, the jumps at discontinuities add up and are bounded by the total variation. For (b), show that for each positive integer $latex {m}&fg=000000$, the set of points with jump size $latex {\geq 1/m}&fg=000000$ is finite. For (c), use proof by contradiction: if all points in a subinterval were discontinuities, the jumps would sum to infinity.
+<p>
+\bigskip\noindent<b>Solution:</b> (a) For increasing $latex {f}&fg=000000$, right and left limits exist. The jumps on disjoint points add up and are bounded by the total variation $latex {f(b-)-f(a+)}&fg=000000$. A telescoping partition argument gives the inequality.
+<p>
+(b) For each $latex {m\in\mathbb{N}}&fg=000000$, the set of points where the jump $latex {\ge 1/m}&fg=000000$ is finite by (a). The discontinuity set is the countable union over $latex {m}&fg=000000$, hence countable.
+<p>
+(c) In any open subinterval, if all points were discontinuities, jumps would sum to infinity or violate (a). Therefore at least one point is a continuity point.\qed
+<p>
+  Give an example of a function $latex {f}&fg=000000$, defined and strictly increasing on a set $latex {S}&fg=000000$ in $latex {\mathbb{R}}&fg=000000$, such that $latex {f^{-1}}&fg=000000$ is not continuous on $latex {f(S)}&fg=000000$.  
+<p>
+\noindent<b>Strategy:</b> Construct a piecewise function that is strictly increasing but has a jump discontinuity. The inverse will have a corresponding jump, making it discontinuous. Use a function that has different definitions on different intervals with a gap in the range.
+<p>
+\bigskip\noindent<b>Solution:</b> Let $latex {S=[0,1]}&fg=000000$ and define <p align=center>$latex \displaystyle  f(x)=\begin{cases} x,& x&lt;\tfrac12,\\ \tfrac34,& x=\tfrac12,\\ x+\tfrac14,& x&gt;\tfrac12. \end{cases} &fg=000000$</p>
+ Then $latex {f}&fg=000000$ is strictly increasing on $latex {[0,1]}&fg=000000$, but $latex {f(S)=[0,\tfrac12)\cup\{\tfrac34\}\cup(\tfrac34,\tfrac54]}&fg=000000$. The inverse $latex {f^{-1}}&fg=000000$ has a jump at $latex {y=\tfrac34}&fg=000000$ (approaching from below gives preimages $latex {\rightarrow\tfrac12^-}&fg=000000$, while at $latex {\tfrac34}&fg=000000$ the preimage is $latex {\tfrac12}&fg=000000$ and from above preimages $latex {\rightarrow\tfrac12^+}&fg=000000$), hence $latex {f^{-1}}&fg=000000$ is not continuous.
+<p>
+  \centering  , ylabel={$latex {f(x)}&fg=000000$}, xmin=0, xmax=1, ymin=0, ymax=1.5, grid=major, title={Strictly Increasing Function with Discontinuous Inverse} } \addplot[blue, thick] coordinates {(0,0) (0.5,0.5)}; \addplot[blue, thick] coordinates {(0.5,0.75) (1,1.25)}; \addplot[only marks, mark=*, mark size=3pt, blue] coordinates {(0.5,0.75)}; \addplot[only marks, mark=o, mark size=3pt, blue] coordinates {(0.5,0.5)}; \addlegendentry{$latex {f(x)}&fg=000000$} \addplot[dashed, red] coordinates {(0.5,0.5) (0.5,0.75)};   \caption{The function $latex {f(x)}&fg=000000$ is strictly increasing but has a jump discontinuity at $latex {x=1/2}&fg=000000$, creating a gap in the range that makes the inverse discontinuous.} \qed
+<p>
+  Let $latex {f}&fg=000000$ be strictly increasing on a subset $latex {S}&fg=000000$ of $latex {\mathbb{R}}&fg=000000$. Assume that the image $latex {f(S)}&fg=000000$ has one of the following properties: (a) $latex {f(S)}&fg=000000$ is open; (b) $latex {f(S)}&fg=000000$ is connected; (c) $latex {f(S)}&fg=000000$ is closed. Prove that $latex {f}&fg=000000$ must be continuous on $latex {S}&fg=000000$.  
+<p>
+\noindent<b>Strategy:</b> Use the fact that strictly increasing functions can only have jump discontinuities. A jump at a point would create a gap in the image, which contradicts the given properties: (a) and (b) because gaps disconnect the image, (c) because a gap creates a limit point not in the image.
+<p>
+\bigskip\noindent<b>Solution:</b> A strictly increasing function on $latex {\mathbb{R}}&fg=000000$ has only jump discontinuities. A jump at $latex {x}&fg=000000$ would create a gap in $latex {f(S)}&fg=000000$ (two-sided limits differ): this contradicts (a) and (b). Under (c), a jump would create a limit point of $latex {f(S)}&fg=000000$ not contained in $latex {f(S)}&fg=000000$, contradicting closedness. Hence no jumps; $latex {f}&fg=000000$ is continuous.\qed
+<p>
+
+
+<p>
+
+<b>9. Metric spaces and fixed points </b>
+
+<p>
+
+
+<p>
+
+
+<p>
+
+<b> Essential Definitions and Theorems </b>
+
+<p>
+
+
+<p>
+
+<blockquote><b>Definition 29 (Contraction Mapping)</b> <em> A function $latex {f: S \rightarrow S}&fg=000000$ on a metric space $latex {(S,d)}&fg=000000$ is a contraction if there exists $latex {\alpha \in [0,1)}&fg=000000$ such that $latex {d(f(x), f(y)) \leq \alpha d(x,y)}&fg=000000$ for all $latex {x,y \in S}&fg=000000$. </em></blockquote>
+
+<p>
+
+
+<p>
+\noindent<b>Importance:</b> Contraction mappings are functions that "shrink" distances by a fixed factor less than 1. This property makes them essential for fixed point theory and iterative methods. They provide a powerful tool for proving existence and uniqueness of solutions to equations and for developing numerical algorithms.
+<p>
+
+<blockquote><b>Theorem 30 (Contraction Mapping Theorem)</b> <em> Let $latex {(S,d)}&fg=000000$ be a complete metric space and $latex {f: S \rightarrow S}&fg=000000$ a contraction. Then $latex {f}&fg=000000$ has a unique fixed point $latex {p}&fg=000000$, and for any $latex {x \in S}&fg=000000$, the sequence $latex {f^n(x)}&fg=000000$ converges to $latex {p}&fg=000000$. </em></blockquote>
+
+<p>
+
+
+<p>
+\noindent<b>Importance:</b> This is one of the most important theorems in analysis, providing a powerful method for proving existence and uniqueness of solutions to equations. It guarantees that iterative methods converge to the unique solution and provides explicit error bounds. This theorem is the foundation for many numerical algorithms and existence proofs.
+<p>
+
+
+<ul> <li> Existence and uniqueness of solutions to equations <li> Numerical methods and iterative algorithms <li> Differential equations and boundary value problems <li> Functional analysis and operator theory <li> Optimization theory and algorithms 
+</ul>
+
+
+<p>
+
+<blockquote><b>Theorem 31 (Invariance of Domain)</b> <em> If $latex {f: \mathbb{R}^n \rightarrow \mathbb{R}^n}&fg=000000$ is continuous and injective, then $latex {f}&fg=000000$ is open. </em></blockquote>
+
+<p>
+
+
+<p>
+\noindent<b>Importance:</b> This is a deep result in topology that shows that continuous injective maps preserve the topological structure of Euclidean spaces. It's essential for understanding the behavior of continuous functions and is fundamental in differential topology and geometric analysis.
+<p>
+  Let $latex {B(S)}&fg=000000$ denote the set of all real-valued functions which are defined and bounded on a nonempty set $latex {S}&fg=000000$. If $latex {f \in B(S)}&fg=000000$, let $latex {\|f\| = \sup_{x \in S} |f(x)|}&fg=000000$. The number $latex {\|f\|}&fg=000000$ is called the "sup norm" of $latex {f}&fg=000000$. 
+
+<ol> <li> Prove that the formula $latex {d(f, g) = \|f - g\|}&fg=000000$ defines a metric $latex {d}&fg=000000$ on $latex {B(S)}&fg=000000$. <li> Prove that the metric space $latex {(B(S), d)}&fg=000000$ is complete. 
+</ol>
+
+ <i>Hint.</i> If $latex {(f_n)}&fg=000000$ is a Cauchy sequence in $latex {B(S)}&fg=000000$, show that $latex {\{f_n(x)\}}&fg=000000$ is a Cauchy sequence of real numbers for each $latex {x}&fg=000000$ in $latex {S}&fg=000000$.  
+<p>
+\noindent<b>Strategy:</b> For (a), verify the metric axioms using properties of the sup norm. For (b), use the hint to show that for each $latex {x \in S}&fg=000000$, the sequence $latex {(f_n(x))}&fg=000000$ is Cauchy in $latex {\mathbb{R}}&fg=000000$ and converges to some $latex {f(x)}&fg=000000$. Then show that the resulting function $latex {f}&fg=000000$ is bounded and that $latex {f_n \rightarrow f}&fg=000000$ in the sup norm.
+<p>
+\bigskip\noindent<b>Solution:</b> (a) Nonnegativity, symmetry, and triangle inequality follow from properties of the sup norm; $latex {\|f-g\|=0}&fg=000000$ iff $latex {f=g}&fg=000000$.
+<p>
+(b) If $latex {(f_n)}&fg=000000$ is Cauchy in sup norm, then for each $latex {x}&fg=000000$, $latex {(f_n(x))}&fg=000000$ is Cauchy in $latex {\mathbb{R}}&fg=000000$ and converges to some $latex {f(x)}&fg=000000$. Uniform Cauchy-ness yields $latex {\|f_n-f\|\rightarrow 0}&fg=000000$, so $latex {f\in B(S)}&fg=000000$ and $latex {f_n\rightarrow f}&fg=000000$ in $latex {d}&fg=000000$.\qed
+<p>
+  Refer to Exercise 4.66 and let $latex {C(S)}&fg=000000$ denote the subset of $latex {B(S)}&fg=000000$ consisting of all functions continuous and bounded on $latex {S}&fg=000000$, where now $latex {S}&fg=000000$ is a metric space. 
+
+<ol> <li> Prove that $latex {C(S)}&fg=000000$ is a closed subset of $latex {B(S)}&fg=000000$. <li> Prove that the metric subspace $latex {C(S)}&fg=000000$ is complete. 
+</ol>
+
+  
+<p>
+\noindent<b>Strategy:</b> For (a), use the fact that the uniform limit of continuous functions is continuous. For (b), use the result that closed subspaces of complete metric spaces are complete, or repeat the proof from Exercise 4.66 and use uniform convergence to preserve continuity.
+<p>
+\bigskip\noindent<b>Solution:</b> (a) If $latex {f_n\in C(S)}&fg=000000$ and $latex {\|f_n-f\|\rightarrow 0}&fg=000000$, then $latex {f}&fg=000000$ is the uniform limit of continuous functions, hence continuous. Thus $latex {f\in C(S)}&fg=000000$; $latex {C(S)}&fg=000000$ is closed.
+<p>
+(b) Closed subspaces of complete metric spaces are complete. Alternatively, repeat the proof in 4.66 and use uniform convergence to pass continuity to the limit.\qed
+<p>
+  Refer to the proof of the fixed-point theorem (Theorem 4.48) for notation. 
+
+<ol> <li> Prove that $latex {d(p_n, p_{n+1}) \leq d(x, f(x)) \alpha^n / (1 - \alpha)}&fg=000000$. This inequality, which is useful in numerical work, provides an estimate for the distance from $latex {p_n}&fg=000000$ to the fixed point $latex {p}&fg=000000$. An example is given in (b). <li> Take $latex {f(x) = (x + 2/x)/2}&fg=000000$, $latex {S = [1, +\infty)}&fg=000000$. Prove that $latex {f}&fg=000000$ is a contraction of $latex {S}&fg=000000$ with contraction constant $latex {\alpha = 1/2}&fg=000000$ and fixed point $latex {p = \sqrt{2}}&fg=000000$. Form the sequence $latex {(p_n)}&fg=000000$ starting with $latex {x=p_0=1}&fg=000000$ and show that $latex {|p_n - \sqrt{2}| \le 2^{-n}}&fg=000000$. 
+</ol>
+
+  
+<p>
+\noindent<b>Strategy:</b> For (a), use the contraction property to bound the distance between consecutive iterates and sum the geometric series. For (b), show that $latex {f}&fg=000000$ is a contraction by analyzing its derivative, find the fixed point by solving $latex {f(x) = x}&fg=000000$, and apply the bound from (a).
+<p>
+\bigskip\noindent<b>Solution:</b> (a) In a contraction with constant $latex {\alpha\in(0,1)}&fg=000000$, $latex {d(p_{n+k},p_{n+k+1})\le \alpha^{n+k}d(x,f(x))}&fg=000000$. Hence <p align=center>$latex \displaystyle  d(p_n,p)\le \sum_{k=0}^{\infty} d(p_{n+k},p_{n+k+1})\le d(x,f(x))\sum_{k=0}^{\infty}\alpha^{n+k}=\frac{\alpha^n}{1-\alpha}d(x,f(x)). &fg=000000$</p>
+
+<p>
+(b) On $latex {[1,\infty)}&fg=000000$, $latex {f'(x)=\tfrac12\big(1-\tfrac{2}{x^2}\big)}&fg=000000$ so $latex {|f'(x)|\le \tfrac12}&fg=000000$, hence $latex {f}&fg=000000$ is a contraction with $latex {\alpha=1/2}&fg=000000$. Fixed points solve $latex {x=\tfrac12(x+2/x)}&fg=000000$, i.e., $latex {x^2=2}&fg=000000$, so $latex {p=\sqrt2}&fg=000000$. The bound in (a) gives $latex {|p_n-\sqrt2|\le 2^{-n}|x-f(x)|\cdot\tfrac{1}{1-1/2}=2^{-n}\cdot 2|x-f(x)|}&fg=000000$. With $latex {x=p_0=1}&fg=000000$, a direct induction using the mean value theorem or the quadratic convergence of the Babylonian method yields $latex {|p_n-\sqrt2|\le 2^{-n}}&fg=000000$.
+<p>
+  \centering  , ylabel={$latex {p_n}&fg=000000$}, xmin=0, xmax=6, ymin=1, ymax=2, grid=major, legend pos=south east, title={Fixed Point Iteration: $latex {f(x) = (x + 2/x)/2}&fg=000000$} } \addplot[blue, thick, mark=*, mark size=3pt] coordinates { (0,1) (1,1.5) (2,1.416667) (3,1.414216) (4,1.414214) (5,1.414214) (6,1.414214) }; \addlegendentry{$latex {p_n}&fg=000000$ sequence} \addplot[dashed, red] coordinates {(0,1.414213562) (6,1.414213562)}; \addlegendentry{$latex {\sqrt{2}}&fg=000000$ limit} \addplot[green, thick, samples=100, domain=1:2] {(x + 2/x)/2}; \addlegendentry{$latex {f(x) = (x + 2/x)/2}&fg=000000$} \addplot[green, thick, samples=100, domain=1:2] {x}; \addlegendentry{$latex {y = x}&fg=000000$}   \caption{The Babylonian method for computing $latex {\sqrt{2}}&fg=000000$: the sequence $latex {p_n}&fg=000000$ converges quadratically to $latex {\sqrt{2} \approx 1.414213562}&fg=000000$. The function $latex {f(x) = (x + 2/x)/2}&fg=000000$ has a fixed point at $latex {x = \sqrt{2}}&fg=000000$.} \qed
+<p>
+  Show by counterexamples that the fixed-point theorem for contractions need not hold if either (a) the underlying metric space is not complete, or (b) the contraction constant $latex {\alpha \ge 1}&fg=000000$.  
+<p>
+\noindent<b>Strategy:</b> For (a), use a non-complete metric space and a contraction whose fixed point lies outside the space. For (b), use functions that are Lipschitz with constant $latex {\geq 1}&fg=000000$ but have no fixed points, such as translations or dilations.
+<p>
+\bigskip\noindent<b>Solution:</b> (a) Let $latex {S=(0,1)}&fg=000000$ with usual metric and $latex {f(x)=x/2}&fg=000000$. Then $latex {f}&fg=000000$ is a contraction with fixed point $latex {0\notin S}&fg=000000$; no fixed point in $latex {S}&fg=000000$.
+<p>
+(b) Take $latex {S=\mathbb{R}}&fg=000000$ and $latex {f(x)=x+1}&fg=000000$; Lipschitz constant $latex {\alpha=1}&fg=000000$ but no fixed point. Or $latex {f(x)=2x}&fg=000000$ with $latex {\alpha=2}&fg=000000$.\qed
+<p>
+  Let $latex {f: S \rightarrow S}&fg=000000$ be a function from a complete metric space $latex {(S, d)}&fg=000000$ into itself. Assume there is a real sequence $latex {(a_n)}&fg=000000$ which converges to $latex {0}&fg=000000$ such that $latex {d(f^n(x), f^n(y)) \le a_n d(x, y)}&fg=000000$ for all $latex {n \ge 1}&fg=000000$ and all $latex {x, y}&fg=000000$ in $latex {S}&fg=000000$, where $latex {f^n}&fg=000000$ is the $latex {n}&fg=000000$th iterate of $latex {f}&fg=000000$, that is, 
+<p>
+$latex {f^1(x) = f(x)}&fg=000000$, $latex {f^{n+1}(x) = f(f^n(x))}&fg=000000$, for $latex {n \ge 1}&fg=000000$. 
+<p>
+Prove that $latex {f}&fg=000000$ has a unique fixed point. <i>Hint.</i> Apply the fixed-point theorem to $latex {f^m}&fg=000000$ for a suitable $latex {m}&fg=000000$.  
+<p>
+\noindent<b>Strategy:</b> Use the hint to find a large enough $latex {m}&fg=000000$ such that $latex {a_m &lt; 1}&fg=000000$, making $latex {f^m}&fg=000000$ a contraction. Apply the contraction mapping theorem to $latex {f^m}&fg=000000$ to find a unique fixed point $latex {p}&fg=000000$, then show that $latex {f(p)}&fg=000000$ is also a fixed point of $latex {f^m}&fg=000000$, hence $latex {f(p) = p}&fg=000000$.
+<p>
+\bigskip\noindent<b>Solution:</b> Pick $latex {m}&fg=000000$ large so that $latex {a_m&lt;1}&fg=000000$. Then $latex {f^m}&fg=000000$ is a contraction: $latex {d(f^m(x),f^m(y))\le a_m d(x,y)}&fg=000000$. By the contraction mapping theorem, $latex {f^m}&fg=000000$ has a unique fixed point $latex {p}&fg=000000$. Then $latex {f(p)}&fg=000000$ is also a fixed point of $latex {f^m}&fg=000000$, hence $latex {f(p)=p}&fg=000000$. Uniqueness for $latex {f}&fg=000000$ follows similarly.\qed
+<p>
+  Let $latex {f: S \rightarrow S}&fg=000000$ be a function from a metric space $latex {(S, d)}&fg=000000$ into itself such that <p align=center>$latex \displaystyle  d(f(x), f(y)) &lt; d(x, y) \quad \text{whenever } x \neq y. &fg=000000$</p>
+ 
+
+<ol> <li> Prove that $latex {f}&fg=000000$ has at most one fixed point, and give an example of such an $latex {f}&fg=000000$ with no fixed point. <li> If $latex {S}&fg=000000$ is compact, prove that $latex {f}&fg=000000$ has exactly one fixed point. <i>Hint.</i> Show that $latex {g(x) = d(x, f(x))}&fg=000000$ attains its minimum on $latex {S}&fg=000000$. <li> Give an example with $latex {S}&fg=000000$ compact in which $latex {f}&fg=000000$ is not a contraction. 
+</ol>
+
+  
+<p>
+\noindent<b>Strategy:</b> For (a), use proof by contradiction: if there were two fixed points, their distance would be preserved, contradicting the shrinking property. For (b), use the hint and compactness to find a minimum of $latex {g(x) = d(x, f(x))}&fg=000000$, then show this minimum must be zero. For (c), find a function that shrinks distances but is not Lipschitz with constant $latex {&lt; 1}&fg=000000$.
+<p>
+\bigskip\noindent<b>Solution:</b> (a) If $latex {f(x)=x}&fg=000000$ and $latex {f(y)=y}&fg=000000$ with $latex {x\ne y}&fg=000000$, then $latex {d(x,y)=d(f(x),f(y))&lt;d(x,y)}&fg=000000$, impossible. Example without a fixed point: $latex {S=\mathbb{R}}&fg=000000$, $latex {f(x)=x+1}&fg=000000$.
+<p>
+(b) On compact $latex {S}&fg=000000$, $latex {g(x)=d(x,f(x))}&fg=000000$ attains a minimum at $latex {p}&fg=000000$. If $latex {g(p)&gt;0}&fg=000000$, then $latex {g(f(p))=d(f(p),f^2(p))&lt;d(p,f(p))=g(p)}&fg=000000$, contradiction. Hence $latex {g(p)=0}&fg=000000$ and $latex {p}&fg=000000$ is a fixed point. Uniqueness holds by (a).
+<p>
+(c) Take $latex {S=[0,1]}&fg=000000$ and $latex {f(x)=\sqrt{x}}&fg=000000$. Then $latex {d(f(x),f(y))&lt;d(x,y)}&fg=000000$ for $latex {x\ne y}&fg=000000$, but $latex {f}&fg=000000$ is not Lipschitz with constant $latex {&lt;1}&fg=000000$ on $latex {[0,1]}&fg=000000$.\qed
+<p>
+  Assume that $latex {f}&fg=000000$ satisfies the condition in Exercise 4.71. If $latex {x \in S}&fg=000000$, let $latex {p_0 = x}&fg=000000$, $latex {p_{n+1} = f(p_n)}&fg=000000$, and $latex {c_n = d(p_n, p_{n+1})}&fg=000000$ for $latex {n \geq 0}&fg=000000$. 
+
+<ol> <li> Prove that $latex {\{c_n\}}&fg=000000$ is a decreasing sequence, and let $latex {c = \lim c_n}&fg=000000$. <li> Assume there is a subsequence $latex {\{p_{k(n)}\}}&fg=000000$ which converges to a point $latex {q}&fg=000000$ in $latex {S}&fg=000000$. Prove that <p align=center>$latex \displaystyle c = d(q, f(q)) = d(f(q), f[f(q)])].&fg=000000$</p>
+ Deduce that $latex {q}&fg=000000$ is a fixed point of $latex {f}&fg=000000$ and that $latex {p_n \rightarrow q}&fg=000000$. 
+</ol>
+
+  
+<p>
+\noindent<b>Strategy:</b> For (a), use the shrinking property to show that each $latex {c_{n+1} &lt; c_n}&fg=000000$, making the sequence decreasing and convergent. For (b), use continuity of $latex {f}&fg=000000$ and the shrinking property to show that if $latex {q}&fg=000000$ is not a fixed point, then $latex {d(f(q), f(f(q))) &lt; d(q, f(q))}&fg=000000$, contradicting the definition of $latex {c}&fg=000000$.
+<p>
+\bigskip\noindent<b>Solution:</b> (a) By the shrinking property, <p align=center>$latex \displaystyle  c_{n+1}=d(p_{n+1},p_{n+2})=d(f(p_n),f(p_{n+1}))&lt;d(p_n,p_{n+1})=c_n, &fg=000000$</p>
+ so $latex {(c_n)}&fg=000000$ is strictly decreasing and converges to some $latex {c\ge 0}&fg=000000$.
+<p>
+(b) If $latex {p_{k(n)}\rightarrow q}&fg=000000$, then $latex {p_{k(n)+1}=f(p_{k(n)})\rightarrow f(q)}&fg=000000$ by continuity of $latex {f}&fg=000000$ (which follows from the shrinking property). Hence <p align=center>$latex \displaystyle  c=\lim c_{k(n)}=\lim d(p_{k(n)},p_{k(n)+1})=d(q,f(q)), &fg=000000$</p>
+ and similarly $latex {c=\lim c_{k(n)+1}=d(f(q),f(f(q)))}&fg=000000$. Applying the shrinking property to $latex {q}&fg=000000$ and $latex {f(q)}&fg=000000$ yields $latex {d(f(q),f(f(q)))&lt;d(q,f(q))}&fg=000000$ unless $latex {q=f(q)}&fg=000000$. Therefore $latex {c=0}&fg=000000$ and $latex {q}&fg=000000$ is a fixed point. Then $latex {c_n\rightarrow 0}&fg=000000$ and $latex {(p_n)}&fg=000000$ is Cauchy; in a compact (or complete with suitable conditions) space it converges to $latex {q}&fg=000000$.\qed
+<p>
+
+
+<p>
+
+<b>10. Solving and Proving Techniques </b>
+
+<p>
+
+
+<p>
+This chapter covers a wide range of analyzing limits, continuity, and convergence in various mathematical contexts. Here's a systematic the key proving strategies used throughout:
+<p>
+
+
+<p>
+
+<b> Proving Limits Exist </b>
+
+<p>
+
+
+<p>
+
+
+<ul> <li> <b>Sequential Characterization:</b> To prove $latex {\lim_{x \rightarrow a} f(x) = L}&fg=000000$, show that for every sequence $latex {(x_n) \rightarrow a}&fg=000000$, we have $latex {f(x_n) \rightarrow L}&fg=000000$.
+<p>
+<li> <b>$latex {\varepsilon}&fg=000000$-$latex {\delta}&fg=000000$ Definition:</b> For every $latex {\varepsilon &gt; 0}&fg=000000$, find a $latex {\delta &gt; 0}&fg=000000$ such that $latex {|x - a| &lt; \delta}&fg=000000$ implies $latex {|f(x) - L| &lt; \varepsilon}&fg=000000$.
+<p>
+<li> <b>Squeeze Theorem:</b> If $latex {g(x) \leq f(x) \leq h(x)}&fg=000000$ near $latex {a}&fg=000000$ and $latex {\lim_{x \rightarrow a} g(x) = \lim_{x \rightarrow a} h(x) = L}&fg=000000$, then $latex {\lim_{x \rightarrow a} f(x) = L}&fg=000000$.
+<p>
+<li> <b>Algebraic Manipulation:</b> Use techniques like rationalization, factoring, or Taylor expansions to simplify expressions before taking limits. 
+</ul>
+
+
+<p>
+
+
+<p>
+
+<b> Proving Convergence of Sequences </b>
+
+<p>
+
+
+<p>
+
+
+<ul> <li> <b>Monotone Convergence:</b> Show the sequence is bounded and monotone (increasing or decreasing).
+<p>
+<li> <b>Cauchy Criterion:</b> Prove the sequence is Cauchy by showing $latex {|x_n - x_m| &lt; \varepsilon}&fg=000000$ for all $latex {n, m \geq N}&fg=000000$.
+<p>
+<li> <b>Comparison with Known Sequences:</b> Compare with geometric sequences, use ratio tests, or compare with sequences with known limits.
+<p>
+<li> <b>Recursive Analysis:</b> For recursive sequences, find the fixed point by solving $latex {x = f(x)}&fg=000000$, then show convergence to this fixed point. 
+</ul>
+
+
+<p>
+
+
+<p>
+
+<b> Proving Continuity </b>
+
+<p>
+
+
+<p>
+
+
+<ul> <li> <b>Sequential Continuity:</b> Show that if $latex {x_n \rightarrow x}&fg=000000$, then $latex {f(x_n) \rightarrow f(x)}&fg=000000$.
+<p>
+<li> <b>$latex {\varepsilon}&fg=000000$-$latex {\delta}&fg=000000$ Definition:</b> For every $latex {\varepsilon &gt; 0}&fg=000000$, find $latex {\delta &gt; 0}&fg=000000$ such that $latex {|x - y| &lt; \delta}&fg=000000$ implies $latex {|f(x) - f(y)| &lt; \varepsilon}&fg=000000$.
+<p>
+<li> <b>Composition of Continuous Functions:</b> Use the fact that compositions, sums, products, and quotients of continuous functions are continuous.
+<p>
+<li> <b>Preimage Characterization:</b> Show that preimages of open sets are open (or preimages of closed sets are closed). 
+</ul>
+
+
+<p>
+
+
+<p>
+
+<b> Proving Uniform Continuity </b>
+
+<p>
+
+
+<p>
+
+
+<ul> <li> <b>Direct Verification:</b> Find a $latex {\delta}&fg=000000$ that works for all points simultaneously.
+<p>
+<li> <b>Lipschitz Condition:</b> Show $latex {|f(x) - f(y)| \leq M|x - y|}&fg=000000$ for some constant $latex {M}&fg=000000$.
+<p>
+<li> <b>Compact Domain:</b> On compact sets, continuity implies uniform continuity.
+<p>
+<li> <b>Extension to Closure:</b> Extend uniformly continuous functions to the closure of their domain. 
+</ul>
+
+
+<p>
+
+
+<p>
+
+<b> Proving Connectedness </b>
+
+<p>
+
+
+<p>
+
+
+<ul> <li> <b>Path-Connectedness:</b> Show that any two points can be joined by a continuous path.
+<p>
+<li> <b>Contradiction Method:</b> Assume disconnectedness and derive a contradiction.
+<p>
+<li> <b>Intermediate Value Property:</b> Use the fact that continuous functions preserve connectedness.
+<p>
+<li> <b>Closure Properties:</b> Show that the closure of a connected set is connected. 
+</ul>
+
+
+<p>
+
+
+<p>
+
+<b> Proving Compactness </b>
+
+<p>
+
+
+<p>
+
+
+<ul> <li> <b>Sequential Compactness:</b> Show that every sequence has a convergent subsequence.
+<p>
+<li> <b>Heine-Borel (in $latex {\mathbb{R}^n}&fg=000000$):</b> Show the set is closed and bounded.
+<p>
+<li> <b>Finite Subcover:</b> Show that every open cover has a finite subcover.
+<p>
+<li> <b>Continuous Image:</b> Show the set is the continuous image of a compact set. 
+</ul>
+
+
+<p>
+
+
+<p>
+
+<b> Proving Fixed Points </b>
+
+<p>
+
+
+<p>
+
+
+<ul> <li> <b>Contraction Mapping:</b> Show the function is a contraction and apply the contraction mapping theorem.
+<p>
+<li> <b>Iteration Method:</b> Start with any point and show the sequence of iterates converges.
+<p>
+<li> <b>Compactness + Distance Shrinking:</b> On compact spaces, show $latex {d(f(x), f(y)) &lt; d(x,y)}&fg=000000$ for $latex {x \neq y}&fg=000000$.
+<p>
+<li> <b>Banach Fixed Point:</b> Use the complete metric space version of the contraction mapping theorem. 
+</ul>
+
+
+<p>
+
+
+<p>
+
+<b> Proving Discontinuity </b>
+
+<p>
+
+
+<p>
+
+
+<ul> <li> <b>Sequential Method:</b> Find two sequences converging to the same point but with different function value limits.
+<p>
+<li> <b>Oscillation:</b> Show the oscillation at a point is positive.
+<p>
+<li> <b>One-Sided Limits:</b> Show that left and right limits exist but are different (jump discontinuity).
+<p>
+<li> <b>Path Dependence:</b> For functions of several variables, show the limit depends on the path taken. 
+</ul>
+
+
+<p>
+
+
+<p>
+
+<b> Proving Completeness </b>
+
+<p>
+
+
+<p>
+
+
+<ul> <li> <b>Cauchy Sequences:</b> Show that every Cauchy sequence converges to a point in the space.
+<p>
+<li> <b>Nested Closed Sets:</b> Use Cantor's intersection theorem with nested closed sets of decreasing diameter.
+<p>
+<li> <b>Isometric Embedding:</b> Embed the space into a complete space and show the embedding is onto.
+<p>
+<li> <b>Contraction Mapping:</b> Use the fact that complete spaces are preserved under contractions. 
+</ul>
+
+
+<p>
+
+
+<p>
+
+<b> Common Patterns and Strategies </b>
+
+<p>
+
+
+<p>
+
+
+<ul> <li> <b>Proof by Contradiction:</b> Assume the opposite and derive a contradiction.
+<p>
+<li> <b>Induction:</b> Use mathematical induction for recursive sequences or properties that hold for all natural numbers.
+<p>
+<li> <b>Approximation:</b> Approximate complicated objects with simpler ones (e.g., rationals approximating reals).
+<p>
+<li> <b>Partitioning:</b> Break complex problems into simpler cases or use the trichotomy property.
+<p>
+<li> <b>Uniformity:</b> When local properties hold everywhere, they often become uniform properties. 
+</ul>
+
+
+<p>
+
+
+<p>
+
+<b>11. Chapter Summary: Key Relationships and Implications </b>
+
+<p>
+
+
+<p>
+This section summarizes the fundamental relationships and implications established throughout Chapter 4, showing how different concepts connect and build upon each other.
+<p>
+
+
+<p>
+
+<b> Sequences and Convergence </b>
+
+<p>
+
+
+<p>
+
+
+<ul> <li> <b>Cauchy sequence</b> $latex {\rightarrow}&fg=000000$ <b>convergent sequence</b> (in complete metric spaces) <li> <b>Bounded monotone sequence</b> $latex {\rightarrow}&fg=000000$ <b>convergent sequence</b> <li> <b>Convergent sequence</b> $latex {\rightarrow}&fg=000000$ <b>Cauchy sequence</b> <li> <b>Subsequence of convergent sequence</b> $latex {\rightarrow}&fg=000000$ <b>converges to same limit</b> <li> <b>Geometric sequence with $latex {|z| &lt; 1}&fg=000000$</b> $latex {\rightarrow}&fg=000000$ <b>converges to 0</b> <li> <b>Geometric sequence with $latex {|z| &gt; 1}&fg=000000$</b> $latex {\rightarrow}&fg=000000$ <b>diverges</b> 
+</ul>
+
+
+<p>
+
+
+<p>
+
+<b> Continuity Relationships </b>
+
+<p>
+
+
+<p>
+
+
+<ul> <li> <b>Uniformly continuous function</b> $latex {\rightarrow}&fg=000000$ <b>continuous function</b> <li> <b>Continuous function on compact set</b> $latex {\rightarrow}&fg=000000$ <b>uniformly continuous function</b> <li> <b>Continuous function</b> $latex {\rightarrow}&fg=000000$ <b>sequentially continuous function</b> <li> <b>Sequentially continuous function</b> $latex {\rightarrow}&fg=000000$ <b>continuous function</b> (in metric spaces) <li> <b>Additive function continuous at one point</b> $latex {\rightarrow}&fg=000000$ <b>continuous everywhere</b> <li> <b>Continuous function</b> $latex {\rightarrow}&fg=000000$ <b>preserves connectedness</b> <li> <b>Continuous function</b> $latex {\rightarrow}&fg=000000$ <b>preserves compactness</b> <li> <b>Continuous function on compact set</b> $latex {\rightarrow}&fg=000000$ <b>attains maximum and minimum</b> <li> <b>Continuous function on interval</b> $latex {\rightarrow}&fg=000000$ <b>has intermediate value property</b> <li> <b>One-to-one continuous function on interval</b> $latex {\rightarrow}&fg=000000$ <b>strictly monotonic</b> 
+</ul>
+
+
+<p>
+
+
+<p>
+
+<b> Metric Space Properties </b>
+
+<p>
+
+
+<p>
+
+
+<ul> <li> <b>Compact metric space</b> $latex {\rightarrow}&fg=000000$ <b>every sequence has convergent subsequence</b> <li> <b>Compact metric space</b> $latex {\rightarrow}&fg=000000$ <b>complete metric space</b> <li> <b>Complete metric space</b> $latex {\rightarrow}&fg=000000$ <b>closed subset is complete</b> <li> <b>Closed subset of complete space</b> $latex {\rightarrow}&fg=000000$ <b>complete subset</b> <li> <b>Compact subset of $latex {\mathbb{R}^n}&fg=000000$</b> $latex {\rightarrow}&fg=000000$ <b>closed and bounded</b> <li> <b>Closed and bounded subset of $latex {\mathbb{R}^n}&fg=000000$</b> $latex {\rightarrow}&fg=000000$ <b>compact subset</b> <li> <b>Connected metric space</b> $latex {\rightarrow}&fg=000000$ <b>only clopen subsets are empty set and whole space</b> <li> <b>Disconnected metric space</b> $latex {\rightarrow}&fg=000000$ <b>has nonempty proper clopen subset</b> 
+</ul>
+
+
+<p>
+
+
+<p>
+
+<b> Function Properties </b>
+
+<p>
+
+
+<p>
+
+
+<ul> <li> <b>Uniformly continuous function</b> $latex {\rightarrow}&fg=000000$ <b>preserves Cauchy sequences</b> <li> <b>Continuous function</b> $latex {\rightarrow}&fg=000000$ <b>does not necessarily preserve Cauchy sequences</b> <li> <b>Strictly increasing function</b> $latex {\rightarrow}&fg=000000$ <b>has countable discontinuities</b> <li> <b>Monotonic function</b> $latex {\rightarrow}&fg=000000$ <b>has one-sided limits at every point</b> <li> <b>Convex subset</b> $latex {\rightarrow}&fg=000000$ <b>connected subset</b> <li> <b>Path-connected space</b> $latex {\rightarrow}&fg=000000$ <b>connected space</b> <li> <b>Connected space</b> $latex {\rightarrow}&fg=000000$ <b>does not necessarily imply path-connected</b> 
+</ul>
+
+
+<p>
+
+
+<p>
+
+<b> Fixed Point Theory </b>
+
+<p>
+
+
+<p>
+
+
+<ul> <li> <b>Contraction mapping on complete metric space</b> $latex {\rightarrow}&fg=000000$ <b>has unique fixed point</b> <li> <b>Distance-shrinking function on compact space</b> $latex {\rightarrow}&fg=000000$ <b>has unique fixed point</b> <li> <b>Contraction mapping</b> $latex {\rightarrow}&fg=000000$ <b>iterates converge to fixed point</b> <li> <b>Non-contraction function</b> $latex {\rightarrow}&fg=000000$ <b>may not have fixed points</b> <li> <b>Incomplete metric space</b> $latex {\rightarrow}&fg=000000$ <b>contraction may not have fixed point</b> 
+</ul>
+
+
+<p>
+
+
+<p>
+
+<b> Limits and Discontinuities </b>
+
+<p>
+
+
+<p>
+
+
+<ul> <li> <b>Two-dimensional limit exists</b> $latex {\rightarrow}&fg=000000$ <b>iterated limits exist and are equal</b> <li> <b>Iterated limits exist and are equal</b> $latex {\rightarrow}&fg=000000$ <b>does not necessarily imply two-dimensional limit exists</b> <li> <b>Function continuous in each variable</b> $latex {\rightarrow}&fg=000000$ <b>does not necessarily imply multi-variable continuity</b> <li> <b>Multi-variable continuous function</b> $latex {\rightarrow}&fg=000000$ <b>continuous in each variable</b> <li> <b>Removable discontinuity</b> $latex {\rightarrow}&fg=000000$ <b>limit exists but differs from function value</b> <li> <b>Jump discontinuity</b> $latex {\rightarrow}&fg=000000$ <b>one-sided limits exist but are different</b> <li> <b>Essential discontinuity</b> $latex {\rightarrow}&fg=000000$ <b>at least one one-sided limit does not exist</b> 
+</ul>
+
+
+<p>
+
+
+<p>
+
+<b> Special Functions and Properties </b>
+
+<p>
+
+
+<p>
+
+
+<ul> <li> <b>Additive function + continuity at one point</b> $latex {\rightarrow}&fg=000000$ <b>linear function $latex {f(x) = ax}&fg=000000$</b> <li> <b>Function zero on rationals + continuity</b> $latex {\rightarrow}&fg=000000$ <b>function zero everywhere</b> <li> <b>Function continuous on rationals + discontinuous on irrationals</b> $latex {\rightarrow}&fg=000000$ <b>nowhere continuous</b> <li> <b>Function with exactly two preimages for every value</b> $latex {\rightarrow}&fg=000000$ <b>necessarily discontinuous</b> <li> <b>Space-filling curve</b> $latex {\rightarrow}&fg=000000$ <b>cannot be one-to-one</b> <li> <b>Homeomorphism</b> $latex {\rightarrow}&fg=000000$ <b>preserves topological properties but not metric properties</b> 
+</ul>
+
+
+<p>
+
+
+<p>
+
+<b> Topological Invariants </b>
+
+<p>
+
+
+<p>
+
+
+<ul> <li> <b>Connectedness</b> $latex {\rightarrow}&fg=000000$ <b>topological invariant (preserved by homeomorphisms)</b> <li> <b>Compactness</b> $latex {\rightarrow}&fg=000000$ <b>topological invariant</b> <li> <b>Completeness</b> $latex {\rightarrow}&fg=000000$ <b>not a topological invariant</b> <li> <b>Boundedness</b> $latex {\rightarrow}&fg=000000$ <b>not a topological invariant</b> <li> <b>Openness</b> $latex {\rightarrow}&fg=000000$ <b>topological invariant</b> <li> <b>Closedness</b> $latex {\rightarrow}&fg=000000$ <b>topological invariant</b> 
+</ul>
+
+
+<p>
+
+
+<p>
+
+<b> Practical Implications </b>
+
+<p>
+
+
+<p>
+
+
+<ul> <li> <b>Uniform continuity</b> $latex {\rightarrow}&fg=000000$ <b>enables extension to closure</b> <li> <b>Compactness</b> $latex {\rightarrow}&fg=000000$ <b>enables uniform continuity from continuity</b> <li> <b>Connectedness</b> $latex {\rightarrow}&fg=000000$ <b>enables intermediate value theorem</b> <li> <b>Completeness</b> $latex {\rightarrow}&fg=000000$ <b>enables contraction mapping theorem</b> <li> <b>Density of rationals</b> $latex {\rightarrow}&fg=000000$ <b>enables approximation techniques</b> <li> <b>Sequential characterization</b> $latex {\rightarrow}&fg=000000$ <b>enables limit proofs via sequences</b> 
+</ul>
+
+
+<p>
+\medskip
+<p>
+\noindent<b>Key Insight:</b> These relationships form the foundation of modern analysis, showing how different mathematical concepts interconnect and support each other. Understanding these implications is crucial for developing intuition about which properties imply others and for constructing proofs that build upon established results. 

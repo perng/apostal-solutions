@@ -8,45 +8,67 @@
 The ordered pair $(a,b)$ is defined as the set $\{\{a\}, \{a,b\}\}$ (Kuratowski definition).
 \end{definition}
 
+\noindent\textbf{Importance:} The ordered pair is the fundamental building block for relations, functions, and many other mathematical structures. The Kuratowski definition shows how ordered pairs can be constructed purely from sets, which is essential for set theory and the foundations of mathematics. Understanding ordered pairs is crucial for all of modern mathematics.
+
+
+
 \begin{theorem}[Equality of Ordered Pairs]
 $(a,b) = (c,d)$ if and only if $a=c$ and $b=d$.
 \end{theorem}
+
+\noindent\textbf{Importance:} This theorem establishes the fundamental property of ordered pairs that makes them useful for representing relationships and functions. It ensures that ordered pairs behave intuitively - they are equal only when their corresponding components are equal. This property is essential for all applications of ordered pairs in mathematics.
+
+
 
 \begin{definition}[Relation]
 A relation $R$ on a set $S$ is a subset of $S \times S$.
 \end{definition}
 
-\begin{definition}[Reflexive Relation]
-A relation $R$ on $S$ is reflexive if $(x,x) \in R$ for all $x \in S$.
-\end{definition}
+\noindent\textbf{Importance:} Relations are fundamental mathematical objects that capture relationships between elements of a set. They are essential for understanding functions, equivalence relations, orderings, and many other important mathematical concepts. Relations provide the foundation for much of modern mathematics and have applications throughout science and engineering.
 
-\begin{definition}[Symmetric Relation]
-A relation $R$ on $S$ is symmetric if $(x,y) \in R$ implies $(y,x) \in R$ for all $x,y \in S$.
-\end{definition}
 
-\begin{definition}[Transitive Relation]
-A relation $R$ on $S$ is transitive if $(x,y) \in R$ and $(y,z) \in R$ implies $(x,z) \in R$ for all $x,y,z \in S$.
-\end{definition}
+
+
 
 \begin{definition}[Equivalence Relation]
 A relation $R$ on $S$ is an equivalence relation if it is reflexive, symmetric, and transitive.
 \end{definition}
 
+\noindent\textbf{Importance:} Equivalence relations are among the most important types of relations in mathematics. They formalize the intuitive notion of "sameness" or "equivalence" and are essential for creating partitions of sets, defining quotient structures, and understanding many algebraic and geometric concepts. Equivalence relations appear throughout mathematics and are fundamental to modern algebra and topology.
+
+
+
 \begin{definition}[Function]
 A function $f: S \to T$ is a relation $f \subseteq S \times T$ such that for each $x \in S$, there exists exactly one $y \in T$ with $(x,y) \in f$.
 \end{definition}
+
+\noindent\textbf{Importance:} Functions are the most fundamental objects in mathematics, providing a way to relate elements of one set to elements of another. They are essential for all areas of mathematics, from calculus and analysis to algebra and topology. Functions model relationships, transformations, and processes throughout mathematics and science.
+
+
 
 \begin{definition}[Domain and Codomain]
 For a function $f: S \to T$, the set $S$ is called the domain and $T$ is called the codomain.
 \end{definition}
 
+\noindent\textbf{Importance:} The domain and codomain are essential parts of the definition of a function, specifying where the function takes its inputs and where it produces its outputs. Understanding these concepts is crucial for working with functions in all areas of mathematics. The domain and codomain determine the properties and behavior of functions.
+
+
+
 \begin{definition}[Function Composition]
 For functions $f: S \to T$ and $g: T \to U$, the composition $g \circ f: S \to U$ is defined by $(g \circ f)(x) = g(f(x))$.
 \end{definition}
 
+\noindent\textbf{Importance:} Function composition is one of the most fundamental operations on functions. It allows us to build complex functions from simpler ones and is essential for understanding the algebraic structure of functions. Composition is the foundation for many areas of mathematics, including category theory, algebra, and analysis.
+
+
+
 \begin{theorem}[Associativity of Function Composition]
 If $f: S \to T$, $g: T \to U$, and $h: U \to V$ are functions, then $(h \circ g) \circ f = h \circ (g \circ f)$.
 \end{theorem}
+
+\noindent\textbf{Importance:} The associativity of function composition is a fundamental property that makes composition behave like multiplication. This property is essential for the algebraic structure of functions and is crucial for many areas of mathematics, including category theory, algebra, and analysis. It allows us to compose functions without worrying about the order of grouping.
+
+
 
 
 
@@ -344,25 +366,7 @@ So function composition is associative wherever defined.\qed
 
 \subsection*{Definitions and Theorems}
 
-\begin{definition}[Union]
-The union of sets $A$ and $B$ is $A \cup B = \{x : x \in A \text{ or } x \in B\}$.
-\end{definition}
 
-\begin{definition}[Intersection]
-The intersection of sets $A$ and $B$ is $A \cap B = \{x : x \in A \text{ and } x \in B\}$.
-\end{definition}
-
-\begin{definition}[Set Difference]
-The difference of sets $A$ and $B$ is $A - B = \{x : x \in A \text{ and } x \notin B\}$.
-\end{definition}
-
-\begin{definition}[Complement]
-The complement of a set $A$ with respect to a universal set $U$ is $A' = U - A$.
-\end{definition}
-
-\begin{definition}[Subset]
-A set $A$ is a subset of a set $B$, written $A \subseteq B$, if every element of $A$ is also an element of $B$.
-\end{definition}
 
 \begin{definition}[Power Set]
 The power set of a set $S$, denoted $\mathcal{P}(S)$, is the set of all subsets of $S$.
@@ -393,17 +397,7 @@ For a function $f: S \to T$ and a subset $A \subseteq S$, the image of $A$ under
 For a function $f: S \to T$ and a subset $Y \subseteq T$, the inverse image of $Y$ under $f$ is $f^{-1}(Y) = \{x \in S : f(x) \in Y\}$.
 \end{definition}
 
-\begin{definition}[Injective Function]
-A function $f: S \to T$ is injective (one-to-one) if $f(x_1) = f(x_2)$ implies $x_1 = x_2$ for all $x_1, x_2 \in S$.
-\end{definition}
 
-\begin{definition}[Surjective Function]
-A function $f: S \to T$ is surjective (onto) if for every $y \in T$, there exists $x \in S$ such that $f(x) = y$.
-\end{definition}
-
-\begin{definition}[Bijective Function]
-A function $f: S \to T$ is bijective if it is both injective and surjective.
-\end{definition}
 
 \begin{theorem}[Image of Unions and Intersections]
 For a function $f: S \to T$ and subsets $A, B \subseteq S$:

@@ -73,12 +73,20 @@ Let \(\{a_n\}\) be a sequence of real numbers. Then we have:
 \end{enumerate}
 \end{theorem}
 
+\noindent\textbf{Importance:} This theorem provides a complete characterization of sequence convergence in terms of limit superior and limit inferior. It establishes the fundamental relationship between these two concepts and shows how they determine the behavior of sequences, including convergence, divergence to infinity, and oscillation.
+
+
+
 \begin{theorem}[Theorem 8.4]
 Assume that \(a_n \leq b_n\) for each \(n = 1, 2, \ldots\). Then we have:
 \[
 \liminf_{n \to \infty} a_n \leq \liminf_{n \to \infty} b_n \quad \text{and} \quad \limsup_{n \to \infty} a_n \leq \limsup_{n \to \infty} b_n.
 \]
 \end{theorem}
+
+\noindent\textbf{Importance:} This theorem establishes the monotonicity property of limit superior and limit inferior, showing that inequalities between sequences are preserved when taking these limits. It's essential for comparison tests and establishing bounds on sequence behavior.
+
+
 \end{problemstatement}
 \end{problembox}
 
@@ -161,13 +169,55 @@ Find \(\limsup_{n \to \infty} a_n\) and \(\liminf_{n \to \infty} a_n\) in each c
 \end{enumerate}\qed
 \section{Sequence Convergence}
 
-\noindent\textbf{Key definitions and theorems used in this section.}
-\begin{enumerate}
-\item Cauchy criterion: a real sequence converges iff it is Cauchy.
-\item Contractive-difference test: if \(|a_{n+2}-a_{n+1}|\le q\,|a_{n+1}-a_n|\) for some \(0\le q<1\), then \(\{a_n\}\) is Cauchy.
-\item Linear recurrences on transforms (e.g., \(x_n=\log a_n\)) and characteristic roots to find limits.
-\item Monotone convergence and subsequence arguments.
-\end{enumerate}
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Cauchy Sequence]
+A sequence $\{a_n\}$ is called a Cauchy sequence if for every $\varepsilon > 0$, there exists a positive integer $N$ such that $|a_m - a_n| < \varepsilon$ for all $m, n \geq N$.
+\end{definition}
+
+\noindent\textbf{Importance:} Cauchy sequences are fundamental for understanding convergence in metric spaces. They provide a way to test for convergence without knowing the limit in advance, and are essential for the completeness of the real numbers and many other metric spaces.
+
+
+
+\begin{definition}[Contractive Sequence]
+A sequence $\{a_n\}$ is called contractive if there exists a constant $0 \leq q < 1$ such that $|a_{n+2} - a_{n+1}| \leq q|a_{n+1} - a_n|$ for all $n$.
+\end{definition}
+
+\noindent\textbf{Importance:} Contractive sequences provide a powerful tool for proving convergence. They are particularly useful for sequences defined by recurrence relations and are essential for many iterative methods in numerical analysis.
+
+
+
+\begin{theorem}[Cauchy Criterion]
+A real sequence converges if and only if it is a Cauchy sequence.
+\end{theorem}
+
+\noindent\textbf{Importance:} This is the fundamental criterion for convergence in complete metric spaces. It provides a way to test for convergence without knowing the limit and is essential for proving many convergence results in analysis.
+
+
+
+\begin{theorem}[Contractive-Difference Test]
+If a sequence $\{a_n\}$ satisfies $|a_{n+2} - a_{n+1}| \leq q|a_{n+1} - a_n|$ for some $0 \leq q < 1$, then $\{a_n\}$ is Cauchy and hence convergent.
+\end{theorem}
+
+\noindent\textbf{Importance:} This test provides a practical way to prove convergence for sequences defined by recurrence relations. It's particularly useful for iterative methods and is essential for many applications in numerical analysis and dynamical systems.
+
+
+
+\begin{theorem}[Monotone Convergence Theorem]
+Every bounded monotone sequence converges.
+\end{theorem}
+
+\noindent\textbf{Importance:} This is one of the most fundamental results about convergence of sequences. It provides a simple and powerful way to prove convergence for many naturally occurring sequences and is essential for understanding the completeness of the real numbers.
+
+
+
+\begin{theorem}[Linear Recurrence Solutions]
+For a linear recurrence relation $a_{n+k} = c_1 a_{n+k-1} + c_2 a_{n+k-2} + \cdots + c_k a_n$, the general solution is a linear combination of terms of the form $n^j r^n$ where $r$ is a root of the characteristic equation and $j$ depends on the multiplicity of $r$.
+\end{theorem}
+
+\noindent\textbf{Importance:} This theorem provides a systematic way to solve linear recurrence relations, which appear naturally in many areas of mathematics and applications. It's essential for understanding the behavior of sequences defined by such recurrences.
+
+
 
 
 
@@ -285,6 +335,63 @@ Given \(a_n = \frac{b_{n+1}}{b_n}\), where \(b_1 = b_2 = 1, b_{n+2} = b_n + b_{n
 \bigskip\noindent\textbf{Solution:}
 The ratios satisfy \(a_{n+1}=\tfrac{b_{n+2}}{b_{n+1}}=1+\tfrac{b_n}{b_{n+1}}=1+\tfrac{1}{a_n}\). Any limit \(L\) must solve \(L=1+1/L\), i.e. \(L^2-L-1=0\). Since \(a_n>0\), the limit is \(\tfrac{1+\sqrt{5}}{2}\).\qed
 \section{Series Convergence Tests}
+
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Series Convergence]
+A series $\sum_{n=1}^{\infty} a_n$ converges if the sequence of partial sums $S_n = \sum_{k=1}^n a_k$ converges to a finite limit. The series diverges if the sequence of partial sums diverges.
+\end{definition}
+
+\noindent\textbf{Importance:} Series convergence is fundamental for understanding infinite sums and their applications. It provides the foundation for power series, Fourier series, and many other important mathematical objects. Understanding when series converge is essential for analysis and applied mathematics.
+
+
+
+\begin{definition}[Absolute Convergence]
+A series $\sum_{n=1}^{\infty} a_n$ converges absolutely if the series $\sum_{n=1}^{\infty} |a_n|$ converges.
+\end{definition}
+
+\noindent\textbf{Importance:} Absolute convergence is a stronger form of convergence that ensures the series converges regardless of the order of terms. It's essential for many applications where the order of summation matters, and is crucial for understanding the properties of convergent series.
+
+
+
+\begin{theorem}[Ratio Test]
+If $\limsup_{n \to \infty} \left|\frac{a_{n+1}}{a_n}\right| = L$, then the series $\sum_{n=1}^{\infty} a_n$ converges absolutely if $L < 1$ and diverges if $L > 1$.
+\end{theorem}
+
+\noindent\textbf{Importance:} The ratio test is one of the most powerful and widely used convergence tests. It's particularly effective for series with factorial or exponential terms and is essential for determining the radius of convergence of power series.
+
+
+
+\begin{theorem}[Root Test]
+If $\limsup_{n \to \infty} \sqrt[n]{|a_n|} = L$, then the series $\sum_{n=1}^{\infty} a_n$ converges absolutely if $L < 1$ and diverges if $L > 1$.
+\end{theorem}
+
+\noindent\textbf{Importance:} The root test is particularly useful for series with terms that have $n$th powers or roots. It's often more effective than the ratio test for certain types of series and is essential for understanding the convergence of power series.
+
+
+
+\begin{theorem}[Comparison Test]
+If $0 \leq a_n \leq b_n$ for all $n$ and $\sum_{n=1}^{\infty} b_n$ converges, then $\sum_{n=1}^{\infty} a_n$ converges. If $0 \leq b_n \leq a_n$ for all $n$ and $\sum_{n=1}^{\infty} b_n$ diverges, then $\sum_{n=1}^{\infty} a_n$ diverges.
+\end{theorem}
+
+\noindent\textbf{Importance:} The comparison test is a fundamental tool for determining convergence by comparing with known series. It's particularly useful for series with complicated terms that can be bounded by simpler, well-understood series.
+
+
+
+\begin{theorem}[Integral Test]
+If $f$ is a positive, continuous, decreasing function on $[1, \infty)$ and $a_n = f(n)$, then $\sum_{n=1}^{\infty} a_n$ converges if and only if $\int_1^{\infty} f(x) \, dx$ converges.
+\end{theorem}
+
+\noindent\textbf{Importance:} The integral test provides a powerful connection between series and integrals. It's particularly useful for series with terms that can be expressed as values of a continuous function and is essential for understanding the convergence of many important series.
+
+
+
+\begin{theorem}[Limit Comparison Test]
+If $a_n, b_n > 0$ for all $n$ and $\lim_{n \to \infty} \frac{a_n}{b_n} = L$ where $0 < L < \infty$, then $\sum_{n=1}^{\infty} a_n$ and $\sum_{n=1}^{\infty} b_n$ either both converge or both diverge.
+\end{theorem}
+
+\noindent\textbf{Importance:} The limit comparison test is particularly useful when the terms of a series are asymptotically similar to those of a known series. It provides a powerful way to determine convergence by comparing asymptotic behavior rather than exact values.
+
 
 
 

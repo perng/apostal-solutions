@@ -2,7 +2,58 @@
 
 \section{Differentiable Functions}
 
-\noindent\textbf{Tools for this section.} Definitions of partial derivatives $D_k f$, directional derivatives $f'(x;u)$, Fréchet differentiability and linear approximation; linearity of the derivative; relation $f'(x;u)=Df(x)\,u$ when $f$ is differentiable; Jacobian/derivative matrix; basic sum/product rules.
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Partial Derivatives]
+For a function $f: S \to \mathbb{R}$ where $S \subseteq \mathbb{R}^n$, the $k$-th partial derivative at a point $x$ is defined as:
+\[D_k f(x) = \lim_{h \to 0} \frac{f(x + he_k) - f(x)}{h}\]
+where $e_k$ is the $k$-th standard basis vector.
+\end{definition}
+
+\noindent\textbf{Importance:} Partial derivatives measure how a function changes when we vary one variable while keeping the others fixed. They are the building blocks for understanding how multivariable functions behave and are essential for optimization, differential equations, and many applications in physics and engineering.
+
+
+
+\begin{definition}[Directional Derivative]
+The directional derivative of $f$ at $x$ in the direction of a unit vector $u$ is:
+\[f'(x; u) = \lim_{h \to 0} \frac{f(x + hu) - f(x)}{h}\]
+\end{definition}
+
+\noindent\textbf{Importance:} Directional derivatives generalize partial derivatives to arbitrary directions. They tell us how fast a function changes as we move in a specific direction, which is crucial for understanding the local behavior of functions and for optimization algorithms.
+
+
+
+\begin{definition}[Fréchet Differentiability]
+A function $f: S \to \mathbb{R}^m$ is differentiable at an interior point $c$ of $S$ if there exists a linear transformation $Df(c): \mathbb{R}^n \to \mathbb{R}^m$ such that:
+\[f(c + h) = f(c) + Df(c)h + o(\|h\|)\]
+The matrix representation of $Df(c)$ is called the Jacobian matrix.
+\end{definition}
+
+\noindent\textbf{Importance:} Fréchet differentiability provides the most general and powerful notion of differentiability for multivariable functions. It ensures that the function can be well-approximated by a linear function near the point, which is essential for calculus, optimization, and differential equations.
+
+
+
+\begin{theorem}[Relationship Between Derivatives]
+If $f$ is differentiable at $x$, then:
+\begin{enumerate}[label=(\alph*)]
+\item All partial derivatives exist at $x$
+\item All directional derivatives exist at $x$ and $f'(x; u) = Df(x)u$
+\item The Jacobian matrix has entries $[Df(x)]_{ij} = D_j f_i(x)$
+\end{enumerate}
+\end{theorem}
+
+\noindent\textbf{Importance:} This theorem connects the different notions of derivatives and shows that differentiability is a strong condition that implies the existence of all partial and directional derivatives. The relationship $f'(x; u) = Df(x)u$ is particularly important for applications.
+
+
+
+\begin{theorem}[Chain Rule for Multivariable Functions]
+If $f: \mathbb{R}^n \to \mathbb{R}^m$ is differentiable at $x$ and $g: \mathbb{R}^m \to \mathbb{R}^p$ is differentiable at $f(x)$, then the composition $g \circ f$ is differentiable at $x$ and:
+\[D(g \circ f)(x) = Dg(f(x)) \cdot Df(x)\]
+\end{theorem}
+
+\noindent\textbf{Importance:} The chain rule is one of the most fundamental results in calculus. It allows us to compute derivatives of complicated functions by breaking them down into simpler parts. This is essential for optimization, differential equations, and many applications in science and engineering.
+
+
 
 
 
@@ -166,7 +217,56 @@ Deduce that \( u'(c; a) = v'(c; b) \) and \( v'(c; a) = -u'(c; b) \). The Cauchy
 Along $z=c+re^{i\alpha}$, the complex difference quotient tends to $f'(c)$, while its real and imaginary parts are $u'(c;a)$ and $v'(c;a)$, giving the first identity. Rotating the approach by $\pi/2$ yields the second. Equating the two expressions for $f'(c)$ gives $u'(c;a)=v'(c;b)$ and $v'(c;a)=-u'(c;b)$, which specialize to the Cauchy–Riemann equations in Cartesian directions.\qed
 \section{Gradients and the Chain Rule}
 
-\noindent\textbf{Tools for this section.} Gradient $\nabla f$, Cauchy–Schwarz and maximization of $u\mapsto \nabla f\cdot u$ over unit $u$; multivariable chain rule; product/quotient rules for gradients; polar coordinate relations; compositions with $g_1,g_2$.
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Gradient]
+For a differentiable function $f: \mathbb{R}^n \to \mathbb{R}$, the gradient at a point $x$ is the vector of partial derivatives:
+\[\nabla f(x) = \left(\frac{\partial f}{\partial x_1}(x), \ldots, \frac{\partial f}{\partial x_n}(x)\right)\]
+\end{definition}
+
+\noindent\textbf{Importance:} The gradient points in the direction of steepest ascent and its magnitude gives the rate of change in that direction. This makes it fundamental for optimization algorithms, understanding the geometry of level sets, and many applications in physics and engineering.
+
+
+
+\begin{definition}[Direction of Steepest Ascent]
+For a differentiable function $f$ at a point $x$, the direction of steepest ascent is the unit vector in the direction of $\nabla f(x)$, and the maximum directional derivative is $\|\nabla f(x)\|$.
+\end{definition}
+
+\noindent\textbf{Importance:} This result follows from the Cauchy-Schwarz inequality and tells us exactly how to move to increase the function value most rapidly. This is the foundation for gradient-based optimization methods and is crucial for understanding the local geometry of functions.
+
+
+
+\begin{theorem}[Multivariable Chain Rule]
+If $f: \mathbb{R}^n \to \mathbb{R}^m$ is differentiable at $x$ and $g: \mathbb{R}^m \to \mathbb{R}^p$ is differentiable at $f(x)$, then:
+\[\nabla(g \circ f)(x) = Df(x)^T \nabla g(f(x))\]
+where $Df(x)^T$ is the transpose of the Jacobian matrix.
+\end{theorem}
+
+\noindent\textbf{Importance:} This is the gradient version of the chain rule and is essential for computing gradients of composite functions. It's particularly important in machine learning for backpropagation and in optimization for computing gradients of complex objective functions.
+
+
+
+\begin{theorem}[Product and Quotient Rules for Gradients]
+For differentiable functions $f, g: \mathbb{R}^n \to \mathbb{R}$:
+\begin{enumerate}[label=(\alph*)]
+\item $\nabla(fg) = f \nabla g + g \nabla f$
+\item $\nabla(f/g) = \frac{g \nabla f - f \nabla g}{g^2}$ (where $g \neq 0$)
+\end{enumerate}
+\end{theorem}
+
+\noindent\textbf{Importance:} These rules allow us to compute gradients of products and quotients of functions, which are common in applications. They extend the familiar rules from single-variable calculus and are essential for gradient computations in optimization and machine learning.
+
+
+
+\begin{theorem}[Polar Coordinate Relations]
+In $\mathbb{R}^2$, for $r = \sqrt{x^2 + y^2}$ and $\theta = \arctan(y/x)$:
+\[\frac{\partial}{\partial x} = \cos \theta \frac{\partial}{\partial r} - \frac{\sin \theta}{r} \frac{\partial}{\partial \theta}\]
+\[\frac{\partial}{\partial y} = \sin \theta \frac{\partial}{\partial r} + \frac{\cos \theta}{r} \frac{\partial}{\partial \theta}\]
+\end{theorem}
+
+\noindent\textbf{Importance:} These relations allow us to convert between Cartesian and polar coordinates when computing derivatives. They are essential for problems with circular or radial symmetry and appear frequently in physics, engineering, and differential equations.
+
+
 
 
 
@@ -318,6 +418,56 @@ Also prove the converse. That is, show that if \( x \cdot \nabla f(x) = p f(x) \
 If $f(\lambda x)=\lambda^p f(x)$, then with $g(\lambda)=f(\lambda x)$ we have $g'(1)=x\cdot\nabla f(x)=p f(x)$. Conversely, if $x\cdot\nabla f(x)=p f(x)$ on a star-shaped domain, fix $x$ and solve the ODE $\tfrac{d}{d\lambda}f(\lambda x)=x\cdot\nabla f(\lambda x)=p f(\lambda x)$ to get $f(\lambda x)=\lambda^p f(x)$.\qed
 \section{Mean-Value Theorems}
 
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Mean Value Theorem for Multivariable Functions]
+If $f: \mathbb{R}^n \to \mathbb{R}$ is differentiable on an open set containing the line segment from $a$ to $b$, then there exists a point $c$ on this line segment such that:
+\[f(b) - f(a) = \nabla f(c) \cdot (b - a)\]
+\end{definition}
+
+\noindent\textbf{Importance:} This theorem extends the fundamental mean value theorem from single-variable calculus to multivariable functions. It provides a way to estimate function differences in terms of gradients and is essential for proving many results in analysis, optimization, and differential equations.
+
+
+
+\begin{definition}[Taylor's Theorem for Multivariable Functions]
+If $f: \mathbb{R}^n \to \mathbb{R}$ has continuous partial derivatives up to order $k+1$ in a neighborhood of $a$, then:
+\[f(x) = f(a) + \nabla f(a) \cdot (x-a) + \frac{1}{2}(x-a)^T H_f(a)(x-a) + \cdots + R_k(x)\]
+where $H_f(a)$ is the Hessian matrix and $R_k(x)$ is the remainder term.
+\end{definition}
+
+\noindent\textbf{Importance:} Taylor's theorem provides polynomial approximations of functions near a point. The quadratic term involving the Hessian matrix is particularly important for optimization, as it determines the local curvature and helps classify critical points.
+
+
+
+\begin{theorem}[Second Derivative Test]
+For a twice-differentiable function $f$ at a critical point $a$ (where $\nabla f(a) = 0$):
+\begin{enumerate}[label=(\alph*)]
+\item If $H_f(a)$ is positive definite, then $a$ is a local minimum
+\item If $H_f(a)$ is negative definite, then $a$ is a local maximum
+\item If $H_f(a)$ has both positive and negative eigenvalues, then $a$ is a saddle point
+\end{enumerate}
+\end{theorem}
+
+\noindent\textbf{Importance:} This test provides a practical way to classify critical points of functions. It's essential for optimization problems and understanding the local geometry of functions. The eigenvalues of the Hessian matrix determine the local behavior.
+
+
+
+\begin{theorem}[Implicit Function Theorem]
+If $F: \mathbb{R}^{n+m} \to \mathbb{R}^m$ is continuously differentiable near $(a,b)$ with $F(a,b) = 0$ and the Jacobian matrix $D_y F(a,b)$ is invertible, then there exists a function $g: \mathbb{R}^n \to \mathbb{R}^m$ defined near $a$ such that $F(x,g(x)) = 0$ for all $x$ near $a$.
+\end{theorem}
+
+\noindent\textbf{Importance:} This theorem tells us when we can solve equations implicitly for some variables in terms of others. It's fundamental for understanding the geometry of level sets and is essential for many applications in differential equations, optimization, and geometry.
+
+
+
+\begin{theorem}[Inverse Function Theorem]
+If $f: \mathbb{R}^n \to \mathbb{R}^n$ is continuously differentiable near $a$ and the Jacobian matrix $Df(a)$ is invertible, then $f$ has a local inverse near $f(a)$ that is also continuously differentiable.
+\end{theorem}
+
+\noindent\textbf{Importance:} This theorem provides conditions under which a function has a local inverse. It's essential for coordinate transformations, solving systems of equations, and understanding the local behavior of differentiable maps.
+
+
+
 \noindent\textbf{Tools for this section.} One-variable Mean Value Theorem; mean-value form along line segments $t\mapsto x+t(y-x)$; the vector mean-value identity applied componentwise and after taking dot products.
 
 
@@ -401,7 +551,50 @@ Apply the 1D MVT to $h(t)=f(c+tu)$ on $[0,1]$: $f(c+u)-f(c)=h'(\theta)=f'(c+\the
 \end{enumerate}\qed
 \section{Derivatives of Higher Order and Taylor's Formula}
 
-\noindent\textbf{Tools for this section.} Higher-order partials and multi-index notation; Clairaut/Schwarz theorem on equality of mixed partials under continuity; Taylor's formula with remainder in several variables; binomial coefficients for reorganizing terms when $n=2$.
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Higher-Order Partial Derivatives]
+For a function $f: \mathbb{R}^n \to \mathbb{R}$, the $k$-th order partial derivative with respect to variables $i_1, i_2, \ldots, i_k$ is defined as:
+\[D_{i_1, i_2, \ldots, i_k} f = D_{i_1}(D_{i_2}(\cdots(D_{i_k} f)\cdots))\]
+\end{definition}
+
+\noindent\textbf{Importance:} Higher-order partial derivatives measure how functions change at increasingly fine scales. They are essential for Taylor series expansions, optimization (via the Hessian matrix), and understanding the local behavior of functions. The order and arrangement of these derivatives determine the structure of polynomial approximations.
+
+
+
+\begin{definition}[Hessian Matrix]
+For a twice-differentiable function $f: \mathbb{R}^n \to \mathbb{R}$, the Hessian matrix at a point $x$ is the $n \times n$ matrix of second partial derivatives:
+\[H_f(x) = \begin{bmatrix} 
+\frac{\partial^2 f}{\partial x_1^2} & \frac{\partial^2 f}{\partial x_1 \partial x_2} & \cdots & \frac{\partial^2 f}{\partial x_1 \partial x_n} \\
+\frac{\partial^2 f}{\partial x_2 \partial x_1} & \frac{\partial^2 f}{\partial x_2^2} & \cdots & \frac{\partial^2 f}{\partial x_2 \partial x_n} \\
+\vdots & \vdots & \ddots & \vdots \\
+\frac{\partial^2 f}{\partial x_n \partial x_1} & \frac{\partial^2 f}{\partial x_n \partial x_2} & \cdots & \frac{\partial^2 f}{\partial x_n^2}
+\end{bmatrix}\]
+\end{definition}
+
+\noindent\textbf{Importance:} The Hessian matrix captures the local curvature of a function and is crucial for understanding the behavior near critical points. Its eigenvalues determine whether a critical point is a local minimum, maximum, or saddle point. The Hessian is also essential for Newton's method and other optimization algorithms.
+
+
+
+\begin{theorem}[Clairaut's Theorem (Equality of Mixed Partials)]
+If $f: \mathbb{R}^n \to \mathbb{R}$ has continuous second partial derivatives in a neighborhood of a point, then the mixed partial derivatives are equal:
+\[D_{i,j} f = D_{j,i} f\]
+for all $i, j$.
+\end{theorem}
+
+\noindent\textbf{Importance:} This theorem shows that the order of differentiation doesn't matter for continuous functions, which greatly simplifies calculations and proofs. It's essential for the symmetry of the Hessian matrix and for many results in differential equations and analysis.
+
+
+
+\begin{theorem}[Taylor's Formula for Multivariable Functions]
+If $f: \mathbb{R}^n \to \mathbb{R}$ has continuous partial derivatives up to order $k+1$ in a neighborhood of $a$, then:
+\[f(x) = \sum_{|\alpha| \leq k} \frac{D^\alpha f(a)}{\alpha!}(x-a)^\alpha + R_k(x)\]
+where $\alpha$ is a multi-index, $D^\alpha$ is the corresponding partial derivative, and $R_k(x)$ is the remainder term.
+\end{theorem}
+
+\noindent\textbf{Importance:} Taylor's formula provides polynomial approximations of functions near a point, which are essential for understanding local behavior, optimization, and numerical methods. The remainder term gives precise control over the approximation error, making this theorem fundamental for analysis and applications.
+
+
 
 
 

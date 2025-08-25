@@ -1,12 +1,52 @@
 \chapter{Multiple Riemann Integrals}
 \section{Multiple Integrals}
-\noindent\textbf{Definitions and Theorems needed.}
-\begin{enumerate}[label=(\roman*)]
-    \item Riemann integral on a rectangle: upper and lower sums, oscillation on subrectangles, and the integrability criterion via vanishing total oscillation.
-    \item Product formula for separable integrands: if $f \in R[a,b]$ and $g \in R[c,d]$, then $\int_c^d \! \int_a^b f(x)g(y)\,dx\,dy = \left(\int_a^b f\right)\!\left(\int_c^d g\right)$.
-    \item If a bounded function on a rectangle is monotone in each variable separately, then it is Riemann integrable on that rectangle.
-    \item For continuous (or piecewise continuous) integrands, iterated integrals agree with the double integral (Fubini for Riemann), and symmetry/geometric decompositions may be used to evaluate integrals.
-\end{enumerate}
+
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Riemann Integral on Rectangles]
+For a bounded function $f$ on a rectangle $Q = [a_1, b_1] \times \cdots \times [a_n, b_n]$, the Riemann integral is defined as the common value of the upper and lower Darboux sums when they exist:
+\[\int_Q f = \inf\{U(f, P) : P \text{ is a partition}\} = \sup\{L(f, P) : P \text{ is a partition}\}\]
+\end{definition}
+
+\noindent\textbf{Importance:} This definition extends the concept of Riemann integration to higher dimensions. The integrability criterion based on vanishing total oscillation provides a practical way to determine when functions are integrable. This is the foundation for multiple integration theory.
+
+
+
+\begin{definition}[Upper and Lower Darboux Sums]
+For a partition $P$ of a rectangle $Q$, the upper and lower Darboux sums are:
+\[U(f, P) = \sum_{R \in P} M_R(f) \cdot \text{vol}(R), \quad L(f, P) = \sum_{R \in P} m_R(f) \cdot \text{vol}(R)\]
+where $M_R(f) = \sup\{f(x) : x \in R\}$ and $m_R(f) = \inf\{f(x) : x \in R\}$.
+\end{definition}
+
+\noindent\textbf{Importance:} These sums provide the fundamental tools for defining and computing multiple integrals. They give upper and lower bounds for the integral and are essential for proving integrability criteria and convergence results.
+
+
+
+\begin{theorem}[Product Formula for Separable Integrands]
+If $f \in R[a, b]$ and $g \in R[c, d]$, then the product function $h(x, y) = f(x)g(y)$ is Riemann integrable on $[a, b] \times [c, d]$ and:
+\[\int_{[a,b] \times [c,d]} f(x)g(y) \, d(x, y) = \left(\int_a^b f(x) \, dx\right) \left(\int_c^d g(y) \, dy\right)\]
+\end{theorem}
+
+\noindent\textbf{Importance:} This theorem allows us to factor multiple integrals when the integrand separates into a product of functions of different variables. It's essential for computing many integrals and is the foundation for Fubini's theorem and iterated integration.
+
+
+
+\begin{theorem}[Integrability of Monotone Functions]
+If a bounded function $f$ on a rectangle $Q$ is monotone in each variable separately, then $f$ is Riemann integrable on $Q$.
+\end{theorem}
+
+\noindent\textbf{Importance:} This theorem provides a large class of functions that are guaranteed to be integrable. Monotone functions are common in applications, and this result ensures that many practical problems can be solved using Riemann integration.
+
+
+
+\begin{theorem}[Fubini's Theorem for Riemann Integrals]
+If $f$ is continuous (or piecewise continuous) on a rectangle $Q = [a, b] \times [c, d]$, then:
+\[\int_Q f(x, y) \, d(x, y) = \int_a^b \left(\int_c^d f(x, y) \, dy\right) dx = \int_c^d \left(\int_a^b f(x, y) \, dx\right) dy\]
+\end{theorem}
+
+\noindent\textbf{Importance:} This theorem allows us to compute multiple integrals by iterated integration, which is often much easier than direct computation. It's the fundamental tool for evaluating double and triple integrals and is essential for applications in physics, engineering, and probability.
+
+
 
 
 
@@ -194,13 +234,54 @@ let \( S = \bigcup_{k=1}^{\infty} S(p_k) \), and let \( Q = [0, 1] \times [0, 1]
     \item For fixed $x$, the vertical section $\{y:(x,y)\in S\}$ is finite, so it has Jordan content zero and $\int_0^1 f(x,y)\,dy=1$. Thus $\int_0^1\![\int_0^1 f(x,y)dy]dx=1$. The same holds with $x$ and $y$ interchanged. However, every rectangle contains points of $S$ and of $Q\setminus S$, so the oscillation of $f$ on every subrectangle is $1$; lower sums are $0$ and upper sums are $1$, hence $\int_Q f$ does not exist.
 \end{enumerate}\qed
 \section{Jordan Content}
-\noindent\textbf{Definitions and Theorems needed.}
-\begin{enumerate}[label=(\roman*)]
-    \item Jordan outer/inner content; a bounded set is Jordan-measurable iff its boundary has content zero.
-    \item Sets of content zero: countable sets and images of small coverings have arbitrarily small total content.
-    \item Tube/strip coverings: graphs of continuous functions and rectifiable curves can be covered by thin rectangles with arbitrarily small total area.
-    \item Cavalieri's principle for Jordan content: content of an ordinate set of a continuous function over a Jordan region equals the integral of the function over the base.
+
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Jordan Outer and Inner Content]
+For a bounded set $S \subset \mathbb{R}^n$, the Jordan outer content is:
+\[c^*(S) = \inf\{\sum_{k=1}^m \text{vol}(Q_k) : S \subset \bigcup_{k=1}^m Q_k, Q_k \text{ are rectangles}\}\]
+The Jordan inner content is:
+\[c_*(S) = \sup\{\sum_{k=1}^m \text{vol}(Q_k) : \bigcup_{k=1}^m Q_k \subset S, Q_k \text{ are disjoint rectangles}\}\]
+\end{definition}
+
+\noindent\textbf{Importance:} Jordan content provides a way to measure the "size" of bounded sets in $\mathbb{R}^n$ and is a precursor to Lebesgue measure.
+
+\begin{definition}[Jordan-Measurable Sets]
+A bounded set $S \subset \mathbb{R}^n$ is Jordan-measurable if $c^*(S) = c_*(S)$. The common value is called the Jordan content of $S$, denoted $c(S)$.
+\end{definition}
+
+\noindent\textbf{Importance:} Jordan-measurable sets are those for which we can meaningfully assign a "volume" or "content" and form the natural domain for Riemann integration.
+
+\begin{theorem}[Jordan-Measurability Criterion]
+A bounded set $S \subset \mathbb{R}^n$ is Jordan-measurable if and only if its boundary $\partial S$ has Jordan content zero.
+\end{theorem}
+
+\noindent\textbf{Importance:} This criterion provides a practical way to determine whether a set is Jordan-measurable. It shows that the "thickness" of the boundary is what determines measurability. This is essential for understanding which regions can be used for integration.
+
+
+
+\begin{theorem}[Sets of Content Zero]
+The following sets have Jordan content zero:
+\begin{enumerate}[label=(\alph*)]
+\item Countable sets in $\mathbb{R}^n$
+\item Graphs of continuous functions $f: [a, b] \to \mathbb{R}$
+\item Rectifiable curves in $\mathbb{R}^n$
+\item Images of sets of content zero under Lipschitz functions
 \end{enumerate}
+\end{theorem}
+
+\noindent\textbf{Importance:} This theorem identifies important classes of sets that have zero content. These results are essential for integration theory, as they show that "thin" sets don't contribute to integrals. The fact that graphs of continuous functions have zero content is particularly important.
+
+
+
+\begin{theorem}[Cavalieri's Principle for Jordan Content]
+If $S$ is a Jordan-measurable region in $\mathbb{R}^n$ and $f$ is continuous on $S$, then the ordinate set of $f$ over $S$ has $(n+1)$-dimensional Jordan content equal to:
+\[\int_S f(x_1, \ldots, x_n) \, d(x_1, \ldots, x_n)\]
+\end{theorem}
+
+\noindent\textbf{Importance:} This principle connects integration with geometric content, showing that the integral of a function over a region equals the volume of the region "under the graph" of the function. This is the foundation for volume calculations and many applications in physics and engineering.
+
+
 
 
 
@@ -257,13 +338,47 @@ Vertical sections at $x\in S$ are intervals of length $f(x)$; outside $S$ they a
 \[ c_{n+1}(\text{ord}(f,S)) = \int_S f(x)\,dx. \]
 Geometrically: for $n=1$, the area under the curve $y=f(x)$ over $S\subset\mathbb R$; for $n=2$, the volume under the surface $z=f(x,y)$ over a planar region $S$.\qed
 \section{Advanced Topics}
-\noindent\textbf{Definitions and Theorems needed.}
-\begin{enumerate}[label=(\roman*)]
-    \item Content-zero sets and ``almost everywhere'' statements for Riemann integrable functions.
-    \item Mean Value Theorem for integrals on Jordan regions with continuous integrands.
-    \item Equality of mixed partials: if $f$ is continuous, then $\partial_2\partial_1$ and $\partial_1\partial_2$ of the iterated integral coincide and equal $f$.
-    \item One-dimensional Mean Value Theorem applied along line segments; Fundamental Theorem of Calculus in each variable.
-\end{enumerate}
+
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Almost Everywhere Properties]
+A property holds almost everywhere (a.e.) on a set $S$ if it holds on $S$ except possibly on a set of Jordan content zero. For Riemann integrable functions, this concept is essential for understanding when functions are equal or have certain properties.
+\end{definition}
+
+\noindent\textbf{Importance:} The concept of "almost everywhere" allows us to ignore sets of zero content when working with integrals. This is crucial for many results in integration theory, as it provides a way to handle functions that may differ on negligible sets without affecting the integral.
+
+
+
+\begin{theorem}[Mean Value Theorem for Multiple Integrals]
+If $f$ is continuous on a Jordan-measurable region $S \subset \mathbb{R}^n$, then there exists an interior point $x_0 \in S$ such that:
+\[\int_S f(x) \, dx = f(x_0) \cdot c(S)\]
+\end{theorem}
+
+\noindent\textbf{Importance:} This theorem extends the fundamental mean value theorem to multiple integrals. It shows that the integral of a continuous function over a region equals the value of the function at some point times the content of the region. This is essential for understanding average values and for many applications in physics and engineering.
+
+
+
+\begin{theorem}[Equality of Mixed Partial Derivatives]
+If $f$ is continuous on a rectangle $Q = [a, b] \times [c, d]$, then for the iterated integral:
+\[F(x_1, x_2) = \int_a^{x_1} \left(\int_c^{x_2} f(x, y) \, dy\right) dx\]
+we have:
+\[D_{1,2} F(x_1, x_2) = D_{2,1} F(x_1, x_2) = f(x_1, x_2)\]
+\end{theorem}
+
+\noindent\textbf{Importance:} This theorem shows that the order of differentiation doesn't matter for iterated integrals of continuous functions. It's a key result connecting integration and differentiation in multiple variables and is essential for many applications in differential equations and analysis.
+
+
+
+\begin{theorem}[Fundamental Theorem of Calculus for Multiple Variables]
+If $f$ is continuous on a rectangle $Q$, then the iterated integral:
+\[F(x_1, x_2) = \int_a^{x_1} \int_c^{x_2} f(x, y) \, dy \, dx\]
+satisfies:
+\[D_1 F(x_1, x_2) = \int_c^{x_2} f(x_1, y) \, dy, \quad D_2 F(x_1, x_2) = \int_a^{x_1} f(x, x_2) \, dx\]
+\end{theorem}
+
+\noindent\textbf{Importance:} This theorem extends the fundamental theorem of calculus to multiple variables. It shows how to differentiate iterated integrals and is essential for understanding the relationship between integration and differentiation in higher dimensions.
+
+
 
 
 

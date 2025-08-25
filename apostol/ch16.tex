@@ -1,13 +1,60 @@
 \chapter{Cauchy's Theorem and the Residue Calculus}
 \section{Complex Integration; Cauchy's Integral Formulas}
 
-\noindent\textbf{Definitions and theorems needed.}
-\begin{enumerate}[label=(\alph*)]
-\item Complex path integral along a piecewise $C^1$ path; orientation and parametrization $y:[a,b]\to\mathbb C$.
-\item Fundamental theorem for complex line integrals: if $g$ is complex differentiable on a neighborhood of the path and $g'=f$, then $\int_y f= g(B)-g(A)$.
-\item Cauchy's integral formula and its higher derivative forms: $f^{(n)}(a)=\frac{n!}{2\pi i}\int_{|z-a|=r} \frac{f(z)}{(z-a)^{n+1}}\,dz$.
-\item Liouville's theorem and Cauchy estimates: if $|f(z)|\le M R^k$ on $|z|=R$, then $|f^{(n)}(0)|\le M\, n!\, R^{k-n}$.
-\end{enumerate}
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Complex Path Integral]
+For a piecewise $C^1$ path $\gamma: [a,b] \to \mathbb{C}$ and a continuous function $f$ defined on the image of $\gamma$, the complex path integral is:
+\[\int_\gamma f(z) \, dz = \int_a^b f(\gamma(t)) \gamma'(t) \, dt\]
+\end{definition}
+
+\noindent\textbf{Importance:} Complex path integrals are the fundamental tool for integrating functions of a complex variable. They extend the concept of line integrals to the complex plane and are essential for understanding complex analysis. The parametrization of the path allows us to convert complex integrals into real integrals.
+
+
+
+\begin{definition}[Analytic Function]
+A function $f$ is analytic (or holomorphic) at a point $z_0$ if it has a complex derivative at every point in some neighborhood of $z_0$. A function is analytic on a region if it is analytic at every point in that region.
+\end{definition}
+
+\noindent\textbf{Importance:} Analytic functions are the central objects of study in complex analysis. They have remarkable properties such as infinite differentiability, power series representations, and the maximum principle. Analytic functions appear naturally in many areas of mathematics and physics.
+
+
+
+\begin{theorem}[Fundamental Theorem for Complex Line Integrals]
+If $f$ is analytic on a simply connected region $D$ and $\gamma$ is a piecewise $C^1$ path from $A$ to $B$ in $D$, then:
+\[\int_\gamma f(z) \, dz = F(B) - F(A)\]
+where $F$ is any antiderivative of $f$ in $D$.
+\end{theorem}
+
+\noindent\textbf{Importance:} This theorem shows that for analytic functions, the integral depends only on the endpoints of the path, not on the path itself. This is the complex analogue of the fundamental theorem of calculus and is crucial for many applications in complex analysis.
+
+
+
+\begin{theorem}[Cauchy's Integral Formula]
+If $f$ is analytic inside and on a simple closed contour $C$ and $a$ is a point inside $C$, then:
+\[f(a) = \frac{1}{2\pi i} \int_C \frac{f(z)}{z-a} \, dz\]
+\end{theorem}
+
+\noindent\textbf{Importance:} Cauchy's integral formula is one of the most fundamental results in complex analysis. It shows that the value of an analytic function at any point inside a contour can be computed from its values on the contour. This formula is the foundation for many other results in complex analysis.
+
+
+
+\begin{theorem}[Cauchy's Integral Formula for Derivatives]
+If $f$ is analytic inside and on a simple closed contour $C$ and $a$ is a point inside $C$, then:
+\[f^{(n)}(a) = \frac{n!}{2\pi i} \int_C \frac{f(z)}{(z-a)^{n+1}} \, dz\]
+\end{theorem}
+
+\noindent\textbf{Importance:} This theorem shows that analytic functions are infinitely differentiable and provides a formula for computing derivatives using contour integrals. This is a remarkable property that has no analogue in real analysis and is essential for many applications.
+
+
+
+\begin{theorem}[Liouville's Theorem]
+If $f$ is entire (analytic on the entire complex plane) and bounded, then $f$ is constant.
+\end{theorem}
+
+\noindent\textbf{Importance:} Liouville's theorem is a powerful result that shows the rigidity of analytic functions. It has important applications in algebra (fundamental theorem of algebra) and physics (bounded solutions to differential equations). The theorem demonstrates the strong constraints that analyticity imposes.
+
+
 
 
 
@@ -125,12 +172,53 @@ Given $|f(z)|/|z|\to0$, we have $M(R)/R\to0$ as $R\to\infty$, hence $f'(0)=0$. T
 \end{enumerate}\qed
 \section{Poisson's Formula and Applications}
 
-\noindent\textbf{Definitions and theorems needed.}
-\begin{enumerate}[label=(\alph*)]
-\item Cauchy's integral formula on circles and deformation of contours inside domains of analyticity.
-\item Poisson kernel for the disk: for harmonic $u$, $u(a)=\frac{1}{2\pi}\int_0^{2\pi} P_r(\theta-\alpha)u(re^{i\theta})\,d\theta$ with $P_r(\phi)=\frac{1-r^2}{|e^{i\phi}-r|^2}$.
-\item Maximum modulus principle; Jensen's and mean-value properties for analytic functions.
-\end{enumerate}
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Poisson Kernel]
+The Poisson kernel for the unit disk is:
+\[P_r(\theta) = \frac{1-r^2}{1-2r\cos\theta + r^2} = \frac{1-r^2}{|e^{i\theta}-r|^2}\]
+where $0 \leq r < 1$ and $\theta \in [0, 2\pi]$.
+\end{definition}
+
+\noindent\textbf{Importance:} The Poisson kernel is fundamental for solving boundary value problems in the unit disk. It provides a way to extend harmonic functions from the boundary to the interior and is essential for understanding the relationship between boundary values and interior values of analytic functions.
+
+
+
+\begin{definition}[Harmonic Function]
+A function $u$ is harmonic in a region $D$ if it satisfies Laplace's equation:
+\[\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} = 0\]
+in $D$. The real and imaginary parts of analytic functions are harmonic.
+\end{definition}
+
+\noindent\textbf{Importance:} Harmonic functions are fundamental in many areas of mathematics and physics. They represent equilibrium states in physical systems and have important properties such as the maximum principle and mean value property. Harmonic functions appear naturally as solutions to many partial differential equations.
+
+
+
+\begin{theorem}[Poisson's Integral Formula]
+If $f$ is analytic on the closed unit disk and $a = re^{i\alpha}$ with $0 \leq r < 1$, then:
+\[f(a) = \frac{1}{2\pi} \int_0^{2\pi} \frac{(1-r^2)f(e^{i\theta})}{1-2r\cos(\alpha-\theta) + r^2} \, d\theta\]
+\end{theorem}
+
+\noindent\textbf{Importance:} Poisson's integral formula provides a way to compute the value of an analytic function at any point inside the unit disk from its values on the boundary. This is a powerful tool for understanding the behavior of analytic functions and for solving boundary value problems.
+
+
+
+\begin{theorem}[Maximum Modulus Principle]
+If $f$ is analytic in a bounded region $D$ and continuous on its closure, then $|f|$ attains its maximum on the boundary of $D$.
+\end{theorem}
+
+\noindent\textbf{Importance:} The maximum modulus principle is a fundamental property of analytic functions that shows they cannot have local maxima in their domain of analyticity. This principle has important applications in complex analysis and provides powerful tools for estimating function values.
+
+
+
+\begin{theorem}[Mean Value Property]
+If $f$ is analytic in a region containing the closed disk $|z-a| \leq r$, then:
+\[f(a) = \frac{1}{2\pi} \int_0^{2\pi} f(a + re^{i\theta}) \, d\theta\]
+\end{theorem}
+
+\noindent\textbf{Importance:} The mean value property shows that the value of an analytic function at a point equals the average of its values on any circle centered at that point. This property is fundamental for understanding the behavior of analytic functions and has important applications in complex analysis.
+
+
 
 
 
@@ -189,12 +277,51 @@ For $|a|<1$, only the pole at $z=a$ contributes in the first term and the pole a
 For $|a|>1$, the pole at $z=0$ of the second term contributes: write $\frac{a^2g(z)}{z^2-az}=\frac{a^2g(z)}{z(z-a)}$ and note only the residue at $z=0$ lies inside, giving $h(a)=\operatorname{Res}_{0}\frac{a^2g(z)}{z(z-a)}=\frac{a^2g(0)}{-a}=\frac{2a^2}{1-2a}$ since $g(0)=\sum_{n\ge0} (2\cdot0)^{-n}=1$ by analytic continuation of the geometric series outside $|z|=1/2$.\qed
 \section{Taylor Expansions}
 
-\noindent\textbf{Definitions and theorems needed.}
-\begin{enumerate}[label=(\alph*)]
-\item Taylor series of analytic functions, radius of convergence determined by distance to nearest singularity.
-\item Cauchy-Hadamard formula and termwise differentiation of power series.
-\item Averaging over roots of unity to filter coefficients (projection onto congruence classes mod $p$).
-\end{enumerate}
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Taylor Series]
+For an analytic function $f$ in a neighborhood of $a$, the Taylor series of $f$ about $a$ is:
+\[f(z) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(z-a)^n\]
+\end{definition}
+
+\noindent\textbf{Importance:} Taylor series are fundamental for understanding analytic functions. They provide a way to represent analytic functions as infinite polynomials and are essential for computing function values, derivatives, and understanding local behavior. Taylor series are the foundation for many approximation methods.
+
+
+
+\begin{definition}[Radius of Convergence]
+The radius of convergence $R$ of a power series $\sum_{n=0}^{\infty} a_n(z-a)^n$ is the largest number such that the series converges for all $z$ with $|z-a| < R$.
+\end{definition}
+
+\noindent\textbf{Importance:} The radius of convergence determines the domain where a power series represents an analytic function. It's typically determined by the distance to the nearest singularity of the function. Understanding convergence is crucial for using power series effectively.
+
+
+
+\begin{theorem}[Cauchy-Hadamard Formula]
+The radius of convergence $R$ of the power series $\sum_{n=0}^{\infty} a_n(z-a)^n$ is given by:
+\[\frac{1}{R} = \limsup_{n \to \infty} |a_n|^{1/n}\]
+\end{theorem}
+
+\noindent\textbf{Importance:} The Cauchy-Hadamard formula provides a practical way to compute the radius of convergence of a power series. It connects the growth rate of the coefficients with the convergence properties of the series, which is essential for understanding when power series representations are valid.
+
+
+
+\begin{theorem}[Termwise Differentiation]
+If $f(z) = \sum_{n=0}^{\infty} a_n(z-a)^n$ has radius of convergence $R$, then:
+\[f'(z) = \sum_{n=1}^{\infty} n a_n(z-a)^{n-1}\]
+and this series also has radius of convergence $R$.
+\end{theorem}
+
+\noindent\textbf{Importance:} This theorem shows that power series can be differentiated term by term within their radius of convergence. This is a remarkable property that has no analogue for general infinite series and is fundamental for many applications in analysis and differential equations.
+
+
+
+\begin{theorem}[Uniqueness of Power Series]
+If two power series $\sum_{n=0}^{\infty} a_n(z-a)^n$ and $\sum_{n=0}^{\infty} b_n(z-a)^n$ converge to the same function in a neighborhood of $a$, then $a_n = b_n$ for all $n$.
+\end{theorem}
+
+\noindent\textbf{Importance:} This theorem shows that power series representations are unique, which is crucial for many applications. It allows us to identify functions by their power series coefficients and is fundamental for techniques like coefficient comparison and series manipulation.
+
+
 
 
 
@@ -321,13 +448,57 @@ where \( \alpha \) is real. Hint. Apply the maximum-modulus theorem to \( g \), 
 Define $g(z)=\begin{cases} f(z)/z,& z\ne0,\\ f'(0),& z=0.\end{cases}$ Then $g$ is analytic on $B(0;1)$ and $|g(z)|\le1$ by the maximum modulus applied to $f_r(z)=f(rz)/r$. Hence $|f'(0)|=|g(0)|\le1$ and $|f(z)|\le |z|$. If equality holds at an interior point or at $0$ for the derivative, the maximum modulus forces $g$ to be constant $e^{i\alpha}$, so $f(z)=e^{i\alpha}z$.\qed
 \section{Laurent Expansions, Singularities, Residues}
 
-\noindent\textbf{Definitions and theorems needed.}
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Laurent Series]
+A Laurent series is a series of the form:
+\[f(z) = \sum_{n=-\infty}^{\infty} a_n(z-a)^n\]
+which converges in an annulus $r < |z-a| < R$.
+\end{definition}
+
+\noindent\textbf{Importance:} Laurent series are essential for understanding functions with singularities. They provide a way to represent functions in annular regions and are crucial for analyzing the behavior of functions near isolated singularities. Laurent series are fundamental for residue theory and many applications in complex analysis.
+
+
+
+\begin{definition}[Isolated Singularities]
+A point $a$ is an isolated singularity of $f$ if $f$ is analytic in a punctured neighborhood of $a$ but not at $a$ itself. Isolated singularities are classified as:
 \begin{enumerate}[label=(\alph*)]
-\item Laurent series on annuli; classification of isolated singularities (removable, pole, essential).
-\item Argument principle and Rouché's theorem; counting zeros with winding number integrals.
-\item Residue theorem; residue computations via expansions and short-cuts for simple/multiple poles.
-\item Singularities at $\infty$ via inversion $g(z)=f(1/z)$.
+\item Removable: $\lim_{z \to a} f(z)$ exists and is finite
+\item Pole: $\lim_{z \to a} f(z) = \infty$
+\item Essential: $\lim_{z \to a} f(z)$ does not exist
 \end{enumerate}
+\end{definition}
+
+\noindent\textbf{Importance:} Understanding isolated singularities is crucial for complex analysis. The classification helps determine the behavior of functions near singular points and is essential for computing residues and understanding function behavior. Different types of singularities require different analytical techniques.
+
+
+
+\begin{theorem}[Residue Theorem]
+If $f$ is analytic inside and on a simple closed contour $C$ except for isolated singularities $a_1, \ldots, a_n$ inside $C$, then:
+\[\int_C f(z) \, dz = 2\pi i \sum_{k=1}^n \text{Res}(f; a_k)\]
+\end{theorem}
+
+\noindent\textbf{Importance:} The residue theorem is one of the most powerful tools in complex analysis. It allows us to compute contour integrals by summing residues, which is often much simpler than direct integration. This theorem is fundamental for many applications in physics, engineering, and applied mathematics.
+
+
+
+\begin{theorem}[Rouché's Theorem]
+If $f$ and $g$ are analytic inside and on a simple closed contour $C$ and $|g(z)| < |f(z)|$ on $C$, then $f$ and $f + g$ have the same number of zeros inside $C$.
+\end{theorem}
+
+\noindent\textbf{Importance:} Rouché's theorem provides a powerful method for counting zeros of functions. It's particularly useful for proving the existence of solutions to equations and for understanding how zeros change under perturbations. This theorem has important applications in many areas of mathematics and physics.
+
+
+
+\begin{theorem}[Argument Principle]
+If $f$ is analytic inside and on a simple closed contour $C$ except for poles, and has no zeros or poles on $C$, then:
+\[\frac{1}{2\pi i} \int_C \frac{f'(z)}{f(z)} \, dz = N - P\]
+where $N$ is the number of zeros and $P$ is the number of poles inside $C$, counting multiplicities.
+\end{theorem}
+
+\noindent\textbf{Importance:} The argument principle provides a way to count zeros and poles of functions using contour integrals. It's fundamental for understanding the behavior of analytic functions and has important applications in control theory, signal processing, and many other areas.
+
+
 
 
 
@@ -778,12 +949,45 @@ where \( a \) and \( n \) are positive integers with \( na \) even. Prove that:
 \end{enumerate}\qed
 \section{One-to-One Analytic Functions}
 
-\noindent\textbf{Definitions and theorems needed.}
-\begin{enumerate}[label=(\alph*)]
-\item Open mapping theorem; inverse function theorem for holomorphic maps ($f'\ne0$ implies local biholomorphism).
-\item Möbius transformations: form, composition, and geometric action on circles/lines.
-\item Schwarz lemma and automorphisms of the unit disk and half-planes.
-\end{enumerate}
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Univalent Function]
+A function $f$ is univalent (or schlicht) in a region $D$ if it is analytic and one-to-one in $D$. That is, $f(z_1) = f(z_2)$ implies $z_1 = z_2$ for all $z_1, z_2 \in D$.
+\end{definition}
+
+\noindent\textbf{Importance:} Univalent functions are important in conformal mapping theory and preserve angles between curves.
+
+\begin{definition}[Möbius Transformation]
+A Möbius transformation (or linear fractional transformation) is a function of the form:
+\[f(z) = \frac{az + b}{cz + d}\]
+where $a, b, c, d \in \mathbb{C}$ and $ad - bc \neq 0$.
+\end{definition}
+
+\noindent\textbf{Importance:} Möbius transformations are important conformal mappings that preserve circles and lines.
+
+\begin{theorem}[Open Mapping Theorem]
+If $f$ is analytic and non-constant in a region $D$, then $f(D)$ is an open set.
+\end{theorem}
+
+\noindent\textbf{Importance:} The open mapping theorem shows that non-constant analytic functions preserve openness. This is fundamental for understanding the behavior of analytic functions and is crucial for many results in complex analysis, including the inverse function theorem.
+
+
+
+\begin{theorem}[Inverse Function Theorem for Analytic Functions]
+If $f$ is analytic at $z_0$ and $f'(z_0) \neq 0$, then $f$ has a local analytic inverse in a neighborhood of $f(z_0)$.
+\end{theorem}
+
+\noindent\textbf{Importance:} This theorem provides conditions under which analytic functions have local inverses. It's essential for understanding when functions can be "undone" and is fundamental for many applications in complex analysis and differential equations.
+
+
+
+\begin{theorem}[Schwarz Lemma]
+If $f$ is analytic in the unit disk with $f(0) = 0$ and $|f(z)| \leq 1$ for $|z| < 1$, then $|f(z)| \leq |z|$ for all $z$ in the unit disk, and $|f'(0)| \leq 1$.
+\end{theorem}
+
+\noindent\textbf{Importance:} The Schwarz lemma provides sharp bounds on the behavior of analytic functions in the unit disk. It's fundamental for understanding the geometry of analytic functions and has important applications in geometric function theory and extremal problems.
+
+
 
 
 
@@ -936,12 +1140,48 @@ and study the behavior of the sequence \( \{ w_n \} \). Consider the special cas
 \end{enumerate}\qed
 \section{Miscellaneous Exercises}
 
-\noindent\textbf{Definitions and theorems needed.}
-\begin{enumerate}[label=(\alph*)]
-\item Fourier series coefficients via contour integrals and roots of unity sums.
-\item Growth bounds for entire functions and Cauchy estimates for coefficients.
-\item Characterization of limits at isolated singularities via $z^n g(z)$ with $g$ analytic and nonvanishing at the point.
-\end{enumerate}
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Entire Function]
+A function $f$ is entire if it is analytic on the entire complex plane $\mathbb{C}$. Examples include polynomials, exponential functions, and trigonometric functions.
+\end{definition}
+
+\noindent\textbf{Importance:} Entire functions are fundamental objects in complex analysis. They have remarkable properties such as infinite differentiability and power series representations that converge everywhere. Understanding entire functions is crucial for many applications in mathematics and physics.
+
+
+
+\begin{definition}[Growth Order]
+An entire function $f$ has growth order $\rho$ if:
+\[\limsup_{r \to \infty} \frac{\log \log M(r)}{\log r} = \rho\]
+where $M(r) = \max_{|z| = r} |f(z)|$.
+\end{definition}
+
+\noindent\textbf{Importance:} Growth order provides a way to classify entire functions by how fast they grow as $|z| \to \infty$.
+
+\begin{theorem}[Cauchy Estimates]
+If $f(z) = \sum_{n=0}^{\infty} a_n z^n$ is analytic in $|z| < R$ and $|f(z)| \leq M$ for $|z| = r < R$, then:
+\[|a_n| \leq \frac{M}{r^n}\]
+\end{theorem}
+
+\noindent\textbf{Importance:} Cauchy estimates provide bounds on the coefficients of power series in terms of the maximum modulus of the function. These estimates are fundamental for understanding the relationship between function values and power series coefficients and have many applications in complex analysis.
+
+
+
+\begin{theorem}[Morera's Theorem]
+If $f$ is continuous on a region $D$ and $\int_\gamma f(z) \, dz = 0$ for every closed contour $\gamma$ in $D$, then $f$ is analytic in $D$.
+\end{theorem}
+
+\noindent\textbf{Importance:} Morera's theorem provides a converse to Cauchy's theorem, showing that if all contour integrals vanish, then the function must be analytic. This is a powerful tool for proving analyticity and has important applications in complex analysis and function theory.
+
+
+
+\begin{theorem}[Characterization of Isolated Singularities]
+If $f$ has an isolated singularity at $a$, then $\lim_{z \to a} f(z)$ exists (possibly infinite) if and only if there exists an integer $n$ and a function $g$ analytic at $a$ with $g(a) \neq 0$ such that $f(z) = (z-a)^n g(z)$ near $a$.
+\end{theorem}
+
+\noindent\textbf{Importance:} This theorem provides a complete characterization of when limits exist at isolated singularities. It connects the behavior of functions near singularities with their Laurent series representations and is essential for understanding function behavior near singular points.
+
+
 
 
 
@@ -1024,14 +1264,65 @@ Assuming $\int_y f=0$ for every polygonal circuit in $S$, define for any $z_0\in
 
 \section{Solving and Proving Techniques}
 
-\subsection*{Working with Complex Path Integrals}
-\begin{itemize}
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Complex Path Integration Strategy]
+Complex path integration involves computing integrals of analytic functions along curves in the complex plane. The fundamental approach is to use the fact that analytic functions have antiderivatives in simply connected regions.
+\end{definition}
+
+\noindent\textbf{Importance:} Complex path integration is the foundation of complex analysis. It provides powerful tools for computing integrals that would be difficult or impossible to evaluate using real analysis techniques. The relationship between path independence and analyticity is fundamental.
+
+
+
+\begin{definition}[Residue Theory Strategy]
+Residue theory provides a systematic method for computing contour integrals by summing the residues of isolated singularities inside the contour. This is often much simpler than direct integration.
+\end{definition}
+
+\noindent\textbf{Importance:} Residue theory is one of the most powerful tools in complex analysis. It allows us to compute many difficult integrals by simply adding up residues, which can often be computed using simple formulas or power series expansions.
+
+
+
+\begin{theorem}[Contour Integration Methods]
+For computing integrals using complex analysis:
+\begin{enumerate}[label=(\alph*)]
 \item Use the fundamental theorem: if $g' = f$ on a neighborhood of the path, then $\int_\gamma f = g(B) - g(A)$
-\item Apply the fact that integrals over closed paths (circuits) are zero when the integrand has an antiderivative
+\item Apply the fact that integrals over closed paths are zero when the integrand has an antiderivative
 \item Use the fact that path integrals are linear and additive over path concatenation
-\item Apply the fact that path integrals are invariant under reparametrization
-\item Use the fact that path integrals can be computed by parametrizing the path
-\end{itemize}
+\item Apply the residue theorem for functions with isolated singularities
+\end{enumerate}
+\end{theorem}
+
+\noindent\textbf{Importance:} These methods provide systematic approaches for computing complex integrals. They allow us to break down complex problems into simpler ones and often provide elegant solutions to difficult integration problems.
+
+
+
+\begin{theorem}[Series and Function Analysis]
+For analyzing functions using complex analysis:
+\begin{enumerate}[label=(\alph*)]
+\item Use power series expansions to understand local behavior
+\item Apply Laurent series for functions with singularities
+\item Use the maximum modulus principle for bounds
+\item Apply the argument principle for counting zeros and poles
+\end{enumerate}
+\end{theorem}
+
+\noindent\textbf{Importance:} These techniques provide powerful tools for understanding the behavior of complex functions. They allow us to analyze functions locally and globally, and provide insights that are not available through real analysis alone.
+
+
+
+\begin{theorem}[Geometric Methods in Complex Analysis]
+For geometric problems in complex analysis:
+\begin{enumerate}[label=(\alph*)]
+\item Use conformal mappings to transform regions
+\item Apply Möbius transformations for special mappings
+\item Use the Schwarz lemma for bounds in the unit disk
+\item Apply the Riemann mapping theorem for simply connected regions
+\end{enumerate}
+\end{theorem}
+
+\noindent\textbf{Importance:} Geometric methods provide powerful tools for understanding the relationship between complex functions and geometry. They allow us to transform complex problems into simpler ones and provide insights into the geometric structure of complex functions.
+
+
 
 \subsection*{Applying Cauchy's Integral Formulas}
 \begin{itemize}

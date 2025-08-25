@@ -2,61 +2,7 @@
 
 \section{Integers}
 
-\subsection*{Definitions and Theorems for Integers}
-
-\begin{definition}[Prime Number]
-A positive integer $p > 1$ is prime if its only positive divisors are $1$ and $p$ itself.
-\end{definition}
-
-\begin{definition}[Factorial]
-For a positive integer $n$, the factorial $n!$ is defined as $n! = n \cdot (n-1) \cdot (n-2) \cdots 2 \cdot 1$.
-\end{definition}
-
-\begin{theorem}[Fundamental Theorem of Arithmetic]
-Every positive integer greater than $1$ can be written uniquely as a product of prime numbers, up to the order of the factors.
-\end{theorem}
-
-\begin{theorem}[Euclid's Theorem on Primes]
-There are infinitely many prime numbers.
-\end{theorem}
-
-\begin{definition}[Mersenne Prime]
-A prime number of the form $2^p - 1$, where $p$ is prime, is called a Mersenne prime.
-\end{definition}
-
-\begin{definition}[Fermat Prime]
-A prime number of the form $2^{2^n} + 1$ is called a Fermat prime.
-\end{definition}
-
-\begin{definition}[Fibonacci Sequence]
-The Fibonacci sequence is defined by the recurrence relation $F_{n+1} = F_n + F_{n-1}$ with initial conditions $F_1 = F_2 = 1$.
-\end{definition}
-
-\begin{theorem}[Well-Ordering Principle]
-Every nonempty set of positive integers contains a smallest member.
-\end{theorem}
-
-\begin{theorem}[Mathematical Induction]
-Let $P(n)$ be a statement about the positive integer $n$. If:
-\begin{enumerate}
-\item $P(1)$ is true (base case)
-\item For every positive integer $k$, if $P(k)$ is true, then $P(k+1)$ is true (inductive step)
-\end{enumerate}
-Then $P(n)$ is true for all positive integers $n$.
-\end{theorem}
-
-\begin{theorem}[Strong Induction]
-Let $P(n)$ be a statement about the positive integer $n$. If:
-\begin{enumerate}
-\item $P(1)$ is true (base case)
-\item For every positive integer $k$, if $P(1), P(2), \ldots, P(k)$ are all true, then $P(k+1)$ is true (strong inductive step)
-\end{enumerate}
-Then $P(n)$ is true for all positive integers $n$.
-\end{theorem}
-
-
-
-\begin{problembox}[1.1: No Largest Prime]
+\begin{problembox}[1.1: No Largest Prime ]
 \begin{problemstatement}
 Prove that there is no largest prime. (A proof was known to Euclid.)
 \end{problemstatement}
@@ -81,7 +27,7 @@ In both cases, we reach a contradiction. Therefore, our assumption that there ex
 
 
 
-\begin{problembox}[1.2: Algebraic Identity]
+\begin{problembox}[1.2: Algebraic Identity ]
 \begin{problemstatement}
 If $n$ is a positive integer, prove the algebraic identity:
 \[
@@ -125,7 +71,7 @@ Therefore, $(a - b)\sum_{k=0}^{n-1} a^k b^{n-1-k} = a^n - b^n$.\qed
 
 
 
-\begin{problembox}[1.3: Mersenne Primes]
+\begin{problembox}[1.3: Mersenne Primes ]
 \begin{problemstatement}
 If $2^n - 1$ is prime, prove that $n$ is prime. A prime of the form $2^p - 1$, where $p$ is prime, is called a \textit{Mersenne prime}.
 \end{problemstatement}
@@ -153,7 +99,7 @@ This proves that if $2^n - 1$ is prime, then $n$ must be prime.\qed
 
 
 
-\begin{problembox}[1.4: Fermat Primes]
+\begin{problembox}[1.4: Fermat Primes ]
 \begin{problemstatement}
 If $2^n + 1$ is prime, prove that $n$ is a power of $2$. A prime of the form $2^{2^n} + 1$ is called a \textit{Fermat prime}. Hint: Use Exercise 1.2.
 \end{problemstatement}
@@ -188,7 +134,7 @@ Therefore, if $2^n + 1$ is prime, then $n$ must be a power of $2$.\qed
 
 
 
-\begin{problembox}[1.5: Fibonacci Numbers Formula]
+\begin{problembox}[1.5: Fibonacci Numbers Formula ]
 \begin{problemstatement}
 The Fibonacci numbers $1, 1, 2, 3, 5, 8, 13, \dots$ are defined by the recursion formula $x_{n+1} = x_n + x_{n-1}$, with $x_1 = x_2 = 1$. Prove that $x_n = \frac{a^n - b^n}{a - b}$, where $a$ and $b$ are the roots of the equation $x^2 - x - 1 = 0$.
 \end{problemstatement}
@@ -230,7 +176,7 @@ This is $P(n+1)$. By the principle of strong induction, the formula is true for 
 
 
 
-\begin{problembox}[1.6: Well-Ordering Principle]
+\begin{problembox}[1.6: Well-Ordering Principle ]
 \begin{problemstatement}
 Prove that every nonempty set of positive integers contains a smallest member. This is called the \textit{well-ordering principle}.
 \end{problemstatement}
@@ -257,16 +203,7 @@ This contradicts our initial assumption that $S$ is a nonempty set.
 Therefore, the original assumption must be false, and every nonempty set of positive integers must contain a smallest member.\qed
 
 \section{Rational and Irrational Numbers}
-
-\subsection*{Definitions and Theorems for Rational and Irrational Numbers}
-
-\begin{definition}[Rational Number]
-A number is rational if it can be expressed as a fraction $\frac{p}{q}$ where $p$ and $q$ are integers with $q \neq 0$.
-\end{definition}
-
-\begin{definition}[Irrational Number]
-A real number is irrational if it is not rational.
-\end{definition}
+\subsection*{Definitions and Theorems}
 
 \begin{theorem}[Geometric Series Formula]
 For $|r| < 1$, the infinite geometric series converges:
@@ -279,25 +216,34 @@ For a finite geometric series:
 \]
 \end{theorem}
 
-\begin{theorem}[Decimal Expansion of Rational Numbers]
-A real number has a terminating or repeating decimal expansion if and only if it is rational.
-\end{theorem}
+\noindent\textbf{Importance:} The geometric series is one of the most fundamental infinite series in mathematics. It provides the foundation for understanding power series, Taylor series, and many other important series expansions. This formula is essential for calculus, analysis, and many applications in physics and engineering.
 
 \begin{theorem}[Terminating Decimal Criterion]
 A rational number $\frac{p}{q}$ has a terminating decimal expansion if and only if the prime factorization of $q$ contains only powers of $2$ and $5$.
 \end{theorem}
 
+\noindent\textbf{Importance:} This theorem provides a precise criterion for determining when a rational number has a finite decimal representation. It connects number theory (prime factorization) to decimal arithmetic, making it easy to predict the behavior of decimal expansions. This result is essential for understanding decimal representations and their applications.
+
+
 \begin{theorem}[Irrationality of Square Roots]
 If $n$ is a positive integer that is not a perfect square, then $\sqrt{n}$ is irrational.
 \end{theorem}
+
+\noindent\textbf{Importance:} This theorem provides a large class of irrational numbers and is fundamental for understanding the relationship between algebra and geometry. It shows that many naturally occurring numbers (like $\sqrt{2}$, $\sqrt{3}$, etc.) are irrational, which is essential for geometry, algebra, and many areas of mathematics. The proof technique used here is a classic example of proof by contradiction.
+
+
 
 \begin{theorem}[Density of Rationals and Irrationals]
 Between any two real numbers, there exist both rational and irrational numbers.
 \end{theorem}
 
+\noindent\textbf{Importance:} This theorem shows that both rational and irrational numbers are densely distributed throughout the real number line. This property is fundamental for understanding the structure of the real numbers and is essential for many results in analysis, topology, and approximation theory. It demonstrates that the real number system is rich and complex.
 
 
-\begin{problembox}[1.7: Decimal Expansion to Rational]
+
+
+
+\begin{problembox}[1.7: Decimal Expansion to Rational ]
 \begin{problemstatement}
 Find the rational number whose decimal expansion is $0.334444\ldots$.
 \end{problemstatement}
@@ -327,7 +273,7 @@ Therefore, the rational number is \textbf{$\frac{301}{900}$}.\qed
 
 
 
-\begin{problembox}[1.8: Decimal Expansion Ending in Zeroes]
+\begin{problembox}[1.8: Decimal Expansion Ending in Zeroes ]
 \begin{problemstatement}
 Prove that the decimal expansion of $x$ will end in zeroes (or in nines) if and only if $x$ is a rational number whose denominator is of the form $2^m 5^n$, where $m$ and $n$ are nonnegative integers.
 \end{problemstatement}
@@ -358,7 +304,7 @@ If a decimal expansion ends in nines (e.g., $0.999\ldots$), this is equivalent t
 Therefore, both terminating decimals and those ending in nines correspond to rational numbers with denominators of the form $2^m 5^n$.\qed
 
 
-\begin{problembox}[1.9: Irrationality of $\sqrt{2} + \sqrt{3}$]
+\begin{problembox}[1.9: Irrationality of $\sqrt{2} + \sqrt{3}$ ]
 \begin{problemstatement}
 Prove that $\sqrt{2} + \sqrt{3}$ is irrational.
 \end{problemstatement}
@@ -398,7 +344,7 @@ This means $b^2$ is divisible by 6, so $b$ must also be divisible by 6. But this
 Therefore, $\sqrt{6}$ is irrational, and consequently $\sqrt{2} + \sqrt{3}$ is irrational.\qed
 
 
-\begin{problembox}[1.10: Rational Functions of Irrational Numbers]
+\begin{problembox}[1.10: Rational Functions of Irrational Numbers ]
 \begin{problemstatement}
 If $a, b, c, d$ are rational and if $x$ is irrational, prove that $\frac{ax + b}{cx + d}$ is usually irrational. When do exceptions occur?
 \end{problemstatement}
@@ -451,7 +397,7 @@ $ad = bc$, which means the numerator and denominator are proportional, making th
 \end{itemize}\qed
 
 
-\begin{problembox}[1.11: Irrational Numbers Between 0 and x]
+\begin{problembox}[1.11: Irrational Numbers Between 0 and x ]
 \begin{problemstatement}
 Given any real $x > 0$, prove that there is an irrational number between $0$ and $x$.
 \end{problemstatement}
@@ -480,7 +426,7 @@ Therefore, $y$ is an irrational number between $0$ and $x$.
 For any positive real $x$, we can also use $y = \frac{x}{\pi}$. Since $\pi$ is irrational and greater than $1$, we have $0 < y < x$, and $y$ is irrational.\qed
 
 
-\begin{problembox}[1.12: Fraction Between Two Fractions]
+\begin{problembox}[1.12: Fraction Between Two Fractions ]
 \begin{problemstatement}
 If $\frac{a}{b} < \frac{c}{d}$ with $b > 0, d > 0$, prove that $\frac{a + c}{b + d}$ lies between $\frac{a}{b}$ and $\frac{c}{d}$.
 \end{problemstatement}
@@ -521,7 +467,7 @@ Therefore, $\frac{a + c}{b + d}$ lies between $\frac{a}{b}$ and $\frac{c}{d}$.
 This result is known as the "mediant" of two fractions. If we think of fractions as points on a line, the mediant $\frac{a + c}{b + d}$ lies between the two original fractions $\frac{a}{b}$ and $\frac{c}{d}$.\qed
 
 
-\begin{problembox}[1.13: $\sqrt{2}$ Between Fractions]
+\begin{problembox}[1.13: $\sqrt{2}$ Between Fractions ]
 \begin{problemstatement}
 Let $a$ and $b$ be positive integers. Prove that $\sqrt{2}$ always lies between the two fractions $\frac{a}{b}$ and $\frac{a + 2b}{a + b}$. Which fraction is closer to $\sqrt{2}$?
 \end{problemstatement}
@@ -563,7 +509,7 @@ Therefore, Distance 1 is always greater than Distance 2. The new fraction $\frac
 
 \textbf{Visualization:}
 \begin{center}
-\begin{tikzpicture}[scale=1.2]
+\begin{tikzpicture}[scale=0.8]
 \begin{axis}[
     width=12cm,
     height=8cm,
@@ -617,7 +563,7 @@ Therefore, Distance 1 is always greater than Distance 2. The new fraction $\frac
 This visualization shows how the process of generating new fractions $\frac{a+2b}{a+b}$ from $\frac{a}{b}$ always produces a better approximation to $\sqrt{2}$. The red dashed line represents $\sqrt{2}$, and the arrows show the improvement in approximation.\qed
 
 
-\begin{problembox}[1.14: Irrationality of $\sqrt{n - 1} + \sqrt{n + 1}$]
+\begin{problembox}[1.14: Irrationality of $\sqrt{n - 1} + \sqrt{n + 1}$ ]
 \begin{problemstatement}
 Prove that $\sqrt{n - 1} + \sqrt{n + 1}$ is irrational for every integer $n \geq 1$.
 \end{problemstatement}
@@ -643,7 +589,7 @@ n^2 - 1 = \frac{a^2}{b^2} \implies a^2 = (n^2 - 1)b^2.
 For $n = 1$, $\sqrt{0} + \sqrt{2} = \sqrt{2}$, irrational. For $n \geq 2$, $n^2 - 1 = (n - 1)(n + 1)$ is not a perfect square (since $(n - 1)^2 < n^2 - 1 < n^2$). If $a^2 = (n^2 - 1)b^2$, $n^2 - 1$ must be a perfect square, a contradiction for $n \geq 2$. Thus, $\sqrt{n^2 - 1}$ is irrational, so $\sqrt{n - 1} + \sqrt{n + 1}$ is irrational.\qed
 
 
-\begin{problembox}[1.15: Approximation by Rational Numbers]
+\begin{problembox}[1.15: Approximation by Rational Numbers ]
 \begin{problemstatement}
 Given a real $x$ and an integer $N > 1$, prove that there exist integers $h$ and $k$ with $0 < k \leq N$ such that $|kx - h| < 1/N$. Hint. Consider the $N+1$ numbers $tx-[tx]$ for $t=0,1,2,\dots,N$ and show that some pair differs by at most $1/N$.
 \end{problemstatement}
@@ -686,7 +632,7 @@ Therefore, we have found integers $h$ and $k$ with $0 < k \leq N$ such that $|kx
 If $x = \pi$ and $N = 5$, we might find that $3\pi \approx 9.4248$ and $5\pi \approx 15.7080$ have fractional parts in the same subinterval, giving us $|2\pi - 6| < 1/5$.\qed
 
 
-\begin{problembox}[1.16: Infinitely Many Rational Approximations]
+\begin{problembox}[1.16: Infinitely Many Rational Approximations ]
 \begin{problemstatement}
 If $x$ is irrational, prove that there are infinitely many rational numbers $h/k$ with $k > 0$ such that $|x - h/k| < 1/k^2$.
 \end{problemstatement}
@@ -727,7 +673,7 @@ Since the approximation error of $h'/k'$ is smaller than $\epsilon$, $h'/k'$ can
 Therefore, there must be infinitely many such rational numbers.\qed
 
 
-\begin{problembox}[1.17: Factorial Representation of Rationals (Precise Form)]
+\begin{problembox}[1.17: Factorial Representation of Rationals (Precise Form) ]
 \begin{problemstatement}
 Let $x$ be a positive rational number of the form
 \[
@@ -802,42 +748,34 @@ Thus, our assumption that there is a largest index $j$ where $a_j \neq b_j$ must
 
 \subsection*{Definitions and Theorems for Upper Bounds}
 
-\begin{definition}[Upper Bound]
-A real number $M$ is an upper bound for a set $S \subseteq \mathbb{R}$ if $x \leq M$ for all $x \in S$.
-\end{definition}
-
-\begin{definition}[Lower Bound]
-A real number $m$ is a lower bound for a set $S \subseteq \mathbb{R}$ if $x \geq m$ for all $x \in S$.
-\end{definition}
-
-\begin{definition}[Supremum]
-The supremum (least upper bound) of a set $S \subseteq \mathbb{R}$, denoted $\sup S$, is the smallest real number that is an upper bound for $S$.
-\end{definition}
-
-\begin{definition}[Infimum]
-The infimum (greatest lower bound) of a set $S \subseteq \mathbb{R}$, denoted $\inf S$, is the largest real number that is a lower bound for $S$.
-\end{definition}
 
 \begin{theorem}[Completeness Axiom]
 Every nonempty set of real numbers that is bounded above has a supremum.
 \end{theorem}
 
+\noindent\textbf{Importance:} The Completeness Axiom is the fundamental property that distinguishes the real numbers from the rational numbers. It ensures that the real number system has no "gaps" and is essential for all of calculus and analysis. This axiom is the foundation for proving the existence of limits, continuity, and many other important results in mathematics.
+
+
+
 \begin{theorem}[Uniqueness of Supremum and Infimum]
 If a set has a supremum (infimum), it is unique.
 \end{theorem}
+
+\noindent\textbf{Importance:} This theorem ensures that suprema and infima are well-defined concepts. Without uniqueness, we couldn't meaningfully talk about "the" supremum or "the" infimum of a set. This result is essential for the logical consistency of real analysis and is used implicitly in many proofs throughout mathematics.
 
 \begin{theorem}[Archimedean Property]
 For any positive real numbers $a$ and $b$, there exists a positive integer $n$ such that $na > b$.
 \end{theorem}
 
+
 \begin{theorem}[Comparison Property for Suprema]
 Let $S$ and $T$ be nonempty subsets of $\mathbb{R}$ such that $s \leq t$ for all $s \in S$ and $t \in T$. If $T$ has a supremum, then $S$ has a supremum and $\sup S \leq \sup T$.
 \end{theorem}
 
+\noindent\textbf{Importance:} This theorem provides a powerful tool for comparing suprema of different sets. It's essential for many proofs in analysis where we need to establish inequalities between suprema. This result is particularly useful in functional analysis, measure theory, and optimization theory where we often need to compare bounds of different sets or functions.
 
 
-
-\begin{problembox}[1.18: Uniqueness of Supremum and Infimum]
+\begin{problembox}[1.18: Uniqueness of Supremum and Infimum ]
 \begin{problemstatement}
 Show that the $\sup$ and $\inf$ of a set are uniquely determined whenever they exist.
 \end{problemstatement}
@@ -878,7 +816,7 @@ The same argument applies to infimum. If a set has two infima $i_1$ and $i_2$, t
 Therefore, $i_1 = i_2$.\qed
 
 
-\begin{problembox}[1.19: Finding Supremum and Infimum]
+\begin{problembox}[1.19: Finding Supremum and Infimum ]
 \begin{problemstatement}
 Find the $\sup$ and $\inf$ of each of the following sets:
 \begin{enumerate}[label=(\alph*)]
@@ -922,7 +860,7 @@ Therefore, $S = (\frac{1}{3}, 3)$, so $\sup = \textbf{$3$}$ and $\inf = \textbf{
 
 \textbf{Visualization for part (b):}
 \begin{center}
-\begin{tikzpicture}[scale=1.2]
+\begin{tikzpicture}[scale=0.8]
 \begin{axis}[
     width=12cm,
     height=8cm,
@@ -930,7 +868,7 @@ Therefore, $S = (\frac{1}{3}, 3)$, so $\sup = \textbf{$3$}$ and $\inf = \textbf{
     ylabel={$y$},
     title={Quadratic Inequality: $3x^2 - 10x + 3 < 0$},
     xmin=-0.5, xmax=4,
-    ymin=-5, ymax=5,
+    ymin=-6, ymax=5,
     grid=major,
     grid style={gray!30},
     axis lines=middle,
@@ -946,8 +884,8 @@ Therefore, $S = (\frac{1}{3}, 3)$, so $\sup = \textbf{$3$}$ and $\inf = \textbf{
 
 % Mark the roots
 \addplot[red, mark=*, mark size=4pt] coordinates {(0.333,0) (3,0)};
-\node[below] at (axis cs:0.333,0) {$\frac{1}{3}$};
-\node[below] at (axis cs:3,0) {$3$};
+\node[above] at (axis cs:0.333,0) {$\frac{1}{3}$};
+\node[above] at (axis cs:3,0) {$3$};
 
 % Highlight the solution interval
 \addplot[green, fill=green!20, fill opacity=0.3] coordinates {(0.333,0) (3,0)};
@@ -987,7 +925,7 @@ So $\sup = \textbf{$d$}$ and $\inf = \textbf{$a$}$.
 
 \textbf{Visualization for part (c):}
 \begin{center}
-\begin{tikzpicture}[scale=1.2]
+\begin{tikzpicture}[scale=0.8]
 \begin{axis}[
     width=12cm,
     height=8cm,
@@ -1042,7 +980,7 @@ So $\sup = \textbf{$d$}$ and $\inf = \textbf{$a$}$.
 This visualization shows the fourth-degree polynomial $(x-a)(x-b)(x-c)(x-d)$ and highlights the intervals where the inequality $(x-a)(x-b)(x-c)(x-d) < 0$ holds. The polynomial changes sign at each root, creating alternating positive and negative intervals.\qed
 
 
-\begin{problembox}[1.20: Comparison Property for Suprema]
+\begin{problembox}[1.20: Comparison Property for Suprema ]
 \begin{problemstatement}
 Let \( S \) and \( T \) be nonempty subsets of \( \mathbb{R} \) such that \( s \leq t \) for all \( s \in S \) and \( t \in T \). Suppose \( T \) has a supremum. Then \( S \) has a supremum and
 \[
@@ -1079,7 +1017,7 @@ Substituting the definitions of $\alpha$ and $\beta$, we get:
 This completes the proof.\qed
 
 
-\begin{problembox}[1.21: Product of Suprema]
+\begin{problembox}[1.21: Product of Suprema ]
 \begin{problemstatement}
 Let \( A \) and \( B \) be two sets of positive real numbers, each bounded above. Let \( a = \sup A \), \( b = \sup B \). Define
 \[
@@ -1137,7 +1075,7 @@ Therefore, for every \( \varepsilon > 0 \), there exists \( c \in C \) such that
 \]\qed
 
 
-\begin{problembox}[1.22: Representation of Rationals in Base \( k \)]
+\begin{problembox}[1.22: Representation of Rationals in Base \( k \) ]
 \begin{problemstatement}
 Given \( x \geq 0 \) and an integer \( k \geq 2 \), let \( a_0 \) denote the largest integer \( \leq x \), and, assuming that \( a_0, a_1, \dots, a_{n-1} \) have been defined, let \( a_n \) denote the largest integer such that
 \[
@@ -1191,17 +1129,29 @@ For any real numbers $a$ and $b$ and positive integer $n$:
 \]
 \end{theorem}
 
+\noindent\textbf{Importance:} The Binomial Theorem is one of the most fundamental results in algebra and combinatorics. It provides a formula for expanding powers of binomials and is essential for understanding polynomials, probability theory, and many areas of mathematics. The binomial coefficients that appear in this theorem are fundamental in combinatorics and have applications throughout mathematics.
+
+
+
 \begin{theorem}[Pigeonhole Principle]
 If $n$ objects are placed into $m$ containers where $n > m$, then at least one container must contain more than one object.
 \end{theorem}
+
+\noindent\textbf{Importance:} The Pigeonhole Principle is a simple but powerful tool in combinatorics and discrete mathematics. It provides a way to prove the existence of certain patterns or properties without explicitly constructing them. This principle is essential for many existence proofs and has applications in computer science, number theory, and many other areas.
+
+
 
 \begin{theorem}[Dirichlet's Approximation Theorem]
 For any real number $x$ and positive integer $N$, there exist integers $h$ and $k$ with $0 < k \leq N$ such that $|kx - h| < 1/N$.
 \end{theorem}
 
+\noindent\textbf{Importance:} Dirichlet's Approximation Theorem is a fundamental result in Diophantine approximation that shows how well real numbers can be approximated by rational numbers. It's essential for understanding the distribution of rational numbers and has applications in number theory, analysis, and many areas of mathematics. This theorem is the foundation for more advanced results in Diophantine approximation.
 
 
-\begin{problembox}[1.23: Lagrange's Identity]
+
+
+
+\begin{problembox}[1.23: Lagrange's Identity ]
 \begin{problemstatement}
 Prove Lagrange's identity for real numbers:
 \[
@@ -1262,7 +1212,7 @@ The left-hand side represents the square of the dot product of the vectors $\mat
 The identity shows that the square of the dot product equals the product of the squared magnitudes minus the sum of squared determinants of all 2×2 submatrices formed by pairs of components.\qed
 
 
-\begin{problembox}[1.24: A Holder-type Inequality]
+\begin{problembox}[1.24: A Holder-type Inequality ]
 \begin{problemstatement}
 Prove that for arbitrary real numbers \( a_k, b_k, c_k \) we have
 \[
@@ -1300,7 +1250,7 @@ Finally, squaring both sides gives the desired result:
 \]\qed
 
 
-\begin{problembox}[1.25: Minkowski's Inequality]
+\begin{problembox}[1.25: Minkowski's Inequality ]
 \begin{problemstatement}
 Prove Minkowski's inequality:
 \[
@@ -1332,7 +1282,7 @@ Taking square roots:
 \]\qed
 
 
-\begin{problembox}[1.26: Chebyshev's Sum Inequality]
+\begin{problembox}[1.26: Chebyshev's Sum Inequality ]
 \begin{problemstatement}
 If \( a_1 \geq a_2 \geq \cdots \geq a_n \) and \( b_1 \geq b_2 \geq \cdots \geq b_n \), prove that
 \[
@@ -1380,7 +1330,7 @@ n \sum_{k=1}^n a_k b_k \geq \left( \sum_{k=1}^n a_k \right) \left( \sum_{k=1}^n 
 
 \section{Complex Numbers}
 
-\begin{problembox}[1.27: Express Complex Numbers in $a + bi$ Form]
+\begin{problembox}[1.27: Express Complex Numbers in $a + bi$ Form ]
 \begin{problemstatement}
 Express the following complex numbers in the form \( a + bi \):
 
@@ -1418,7 +1368,7 @@ i^5 + i^{16} = i + 1 = 1 + i
 \end{itemize}\qed
 
 
-\begin{problembox}[1.28: Solve Complex Equations]
+\begin{problembox}[1.28: Solve Complex Equations ]
 \begin{problemstatement}
 In each case, determine all real \( x \) and \( y \) which satisfy the given relation:
 
@@ -1475,7 +1425,7 @@ Each full cycle sums to 0. So total sum:
 \end{itemize}\qed
 
 
-\begin{problembox}[1.29: Basic Identities for Complex Conjugates]
+\begin{problembox}[1.29: Basic Identities for Complex Conjugates ]
 \begin{problemstatement}
 If \( z = x + iy \), where \( x \) and \( y \) are real, the complex conjugate of \( z \) is \( \overline{z} = x - iy \). Prove the following:
 \begin{enumerate}[label=\alph*)]
@@ -1523,7 +1473,7 @@ z + \overline{z} = (x + iy) + (x - iy) = 2x = 2 \Re(z).
 \end{enumerate}\qed
 
 
-\begin{problembox}[1.30: Geometric Descriptions of Complex Sets]
+\begin{problembox}[1.30: Geometric Descriptions of Complex Sets ]
 \begin{problemstatement}
 Describe geometrically the set of complex numbers \( z \) which satisfies each of the following conditions:
 \begin{enumerate}[label=\alph*)]
@@ -1588,7 +1538,7 @@ This is the standard equation of a circle with center at \( (1, 0) \) and radius
 \draw[thick, ->] (0,-1.5) -- (0,1.5) node[above] {$\Im(z)$};
 \draw[fill=black] (0,0) circle (0.03) node[below left] {$0$};
 \draw[red, thick] (0,0) circle (1);
-\node[red] at (0.5,0.5) {$|z| = 1$};
+\node[red] at (1.1,1.1) {$|z| = 1$};
 \draw[fill=red] (1,0) circle (0.03) node[below] {$1$};
 \draw[fill=red] (-1,0) circle (0.03) node[below] {$-1$};
 \draw[fill=red] (0,1) circle (0.03) node[left] {$i$};
@@ -1601,7 +1551,7 @@ This is the standard equation of a circle with center at \( (1, 0) \) and radius
 \draw[fill=black] (0,0) circle (0.03) node[below left] {$0$};
 \fill[blue!20] (0,0) circle (1);
 \draw[blue, thick, dashed] (0,0) circle (1);
-\node[blue] at (-0.4,0.4) {$|z| < 1$};
+\node[blue] at (1.1,1.1) {$|z| < 1$};
 \end{tikzpicture} \\
 \hline
 \textbf{(c) Closed unit disk $|z| \leq 1$} & \textbf{(d) Vertical line $\Re(z) = \frac{1}{2}$} \\
@@ -1612,7 +1562,7 @@ This is the standard equation of a circle with center at \( (1, 0) \) and radius
 \draw[fill=black] (0,0) circle (0.03) node[below left] {$0$};
 \fill[green!20] (0,0) circle (1);
 \draw[green, thick] (0,0) circle (1);
-\node[green] at (-0.4,0.4) {$|z| \leq 1$};
+\node[green] at (1.1,1.1) {$|z| \leq 1$};
 \end{tikzpicture} &
 \begin{tikzpicture}[scale=0.8]
 \draw[gray!30, step=0.5] (-1.5,-1.5) grid (1.5,1.5);
@@ -1620,7 +1570,7 @@ This is the standard equation of a circle with center at \( (1, 0) \) and radius
 \draw[thick, ->] (0,-1.5) -- (0,1.5) node[above] {$\Im(z)$};
 \draw[fill=black] (0,0) circle (0.03) node[below left] {$0$};
 \draw[orange, thick] (0.5,-1.5) -- (0.5,1.5);
-\node[orange] at (0.5,1.2) {$\Re(z) = \frac{1}{2}$};
+\node[orange] at (1.3,1.2) {$\Re(z) = \frac{1}{2}$};
 \draw[fill=orange] (0.5,0) circle (0.03) node[below] {$\frac{1}{2}$};
 \end{tikzpicture} \\
 \hline
@@ -1631,7 +1581,7 @@ This is the standard equation of a circle with center at \( (1, 0) \) and radius
 \draw[thick, ->] (0,-1.5) -- (0,1.5) node[above] {$\Im(z)$};
 \draw[fill=black] (0,0) circle (0.03) node[below left] {$0$};
 \draw[purple, thick] (-1.5,0.5) -- (1.5,0.5);
-\node[purple] at (1.2,0.5) {$\Im(z) = \frac{1}{2}$};
+\node[purple] at (1.5,0.8) {$\Im(z) = \frac{1}{2}$};
 \draw[fill=purple] (0,0.5) circle (0.03) node[left] {$\frac{i}{2}$};
 \end{tikzpicture} &
 \begin{tikzpicture}[scale=0.8]
@@ -1640,9 +1590,9 @@ This is the standard equation of a circle with center at \( (1, 0) \) and radius
 \draw[thick, ->] (0,-1.5) -- (0,1.5) node[above] {$\Im(z)$};
 \draw[fill=black] (0,0) circle (0.03) node[below left] {$0$};
 \draw[red, thick] (1,0) circle (1);
-\node[red] at (1.4,0.5) {$(x-1)^2 + y^2 = 1$};
+\node[red] at (1.7,1.2) {$(x-1)^2 + y^2 = 1$};
 \draw[fill=red] (1,0) circle (0.03) node[below] {$1$};
-\draw[fill=red] (0,0) circle (0.03) node[below] {$0$};
+\draw[fill=red] (0,0) circle (0.03);% node[below] {$0$};
 \draw[fill=red] (2,0) circle (0.03) node[below] {$2$};
 \end{tikzpicture} \\
 \hline
@@ -1650,7 +1600,7 @@ This is the standard equation of a circle with center at \( (1, 0) \) and radius
 \end{center}\qed
 
 
-\begin{problembox}[1.31: Equilateral Triangle on the Unit Circle]
+\begin{problembox}[1.31: Equilateral Triangle on the Unit Circle ]
 \begin{problemstatement}
 Given three complex numbers \( z_1, z_2, z_3 \) such that \( |z_1| = |z_2| = |z_3| = 1 \) and \( z_1 + z_2 + z_3 = 0 \), show that these numbers are vertices of an equilateral triangle inscribed in the unit circle with center at the origin.
 \end{problemstatement}
@@ -1679,7 +1629,7 @@ The angles \( \theta, \theta + \frac{2\pi}{3}, \theta + \frac{4\pi}{3} \) are sp
 
 \textbf{Visualization:}
 \begin{center}
-\begin{tikzpicture}[scale=1.2]
+\begin{tikzpicture}[scale=0.8]
 \begin{axis}[
     width=12cm,
     height=12cm,
@@ -1728,14 +1678,14 @@ The angles \( \theta, \theta + \frac{2\pi}{3}, \theta + \frac{4\pi}{3} \) are sp
 \node[orange] at (axis cs:0.3,0) {$120°$};
 
 % Add text explaining the properties
-\node[fill=yellow!30, rounded corners, inner sep=5pt] at (axis cs:-1.2,1.2) {
-    \begin{tabular}{l}
-    \textbf{Properties:} \\
-    $|z_1| = |z_2| = |z_3| = 1$ \\
-    $z_1 + z_2 + z_3 = 0$ \\
-    Angles differ by $2\pi/3$
-    \end{tabular}
-};
+% \node[fill=yellow!30, rounded corners, inner sep=5pt] at (axis cs:-1.2,1.2) {
+%     \begin{tabular}{l}
+%     \textbf{Properties:} \\
+%     $|z_1| = |z_2| = |z_3| = 1$ \\
+%     $z_1 + z_2 + z_3 = 0$ \\
+%     Angles differ by $2\pi/3$
+%     \end{tabular}
+% };
 
 \end{axis}
 \end{tikzpicture}
@@ -1744,7 +1694,7 @@ The angles \( \theta, \theta + \frac{2\pi}{3}, \theta + \frac{4\pi}{3} \) are sp
 This visualization shows the equilateral triangle formed by the cube roots of unity on the unit circle. The green vectors show how the sum of the three complex numbers equals zero, and the orange angle markers show the $120°$ spacing between vertices.\qed
 
 
-\begin{problembox}[1.32: Inequality with Complex Numbers]
+\begin{problembox}[1.32: Inequality with Complex Numbers ]
 \begin{problemstatement}
 If \( a \) and \( b \) are complex numbers, prove:
 \begin{enumerate}[label=\alph*)]
@@ -1783,7 +1733,7 @@ Thus, \( \frac{b}{a} = k \geq 0 \). Conversely, if \( |a + b| = |a| + |b| \), th
 \end{enumerate}\qed
 
 
-\begin{problembox}[1.33: Equality Condition for Complex Difference]
+\begin{problembox}[1.33: Equality Condition for Complex Difference ]
 \begin{problemstatement}
 If \( a \) and \( b \) are complex numbers, prove that
 \[
@@ -1815,7 +1765,7 @@ For the inequality:
 Thus, equality holds if \( |a| = 1 \) or \( |b| = 1 \); the inequality holds when one modulus is less than 1 and the other is greater than 1.\qed
 
 
-\begin{problembox}[1.34: Complex Circle in the Plane]
+\begin{problembox}[1.34: Complex Circle in the Plane ]
 \begin{problemstatement}
 If \( a \) and \( c \) are real constants, \( b \) is complex, show that the equation
 \[
@@ -1835,7 +1785,7 @@ a(x^2 + y^2) + 2 \Re(b z) + c = 0.
 This is the general form of a circle in \( \mathbb{R}^2 \).\qed
 
 
-\begin{problembox}[1.35: Argument of a Complex Number via Arctangent]
+\begin{problembox}[1.35: Argument of a Complex Number via Arctangent ]
 \begin{problemstatement}
 Recall the definition of the inverse tangent: given a real number \( t \), \( \tan^{-1}(t) \) is the unique real number \( \theta \) satisfying:
 \[
@@ -1863,7 +1813,7 @@ For \( z = x + iy \), \( \arg(z) \) is the angle \( \theta \in (-\pi, \pi] \) su
 \end{enumerate}\qed
 
 
-\begin{problembox}[1.36: Pseudo-Ordering on Complex Numbers]
+\begin{problembox}[1.36: Pseudo-Ordering on Complex Numbers ]
 \begin{problemstatement}
 Define the following pseudo-ordering on complex numbers: $z_1 < z_2$ if $|z_1| < |z_2|$, or if $|z_1|=|z_2|$ and $\arg(z_1) < \arg(z_2)$. Which of Axioms 6,7,8,9 are satisfied by this relation?
 \end{problemstatement}
@@ -1901,7 +1851,7 @@ Define the following pseudo-ordering on complex numbers: $z_1 < z_2$ if $|z_1| <
 
 
 
-\begin{problembox}[1.37: Order Axioms and Lexicographic Ordering on $\mathbb{R}^2$]
+\begin{problembox}[1.37: Order Axioms and Lexicographic Ordering on $\mathbb{R}^2$ ]
 \begin{problemstatement}
 Define a pseudo-ordering on ordered pairs \((x_1, y_1) < (x_2, y_2)\) if either
 \begin{enumerate}[label=(\roman*)]
@@ -1924,7 +1874,7 @@ Which of Axioms 6, 7, 8, 9 are satisfied by this relation?
 \textbf{Conclusion:} Axioms 6, 7, and 9 are satisfied; Axiom 8 is not applicable.\qed
 
 
-\begin{problembox}[1.38: Argument of a Quotient Using Theorem 1.48]
+\begin{problembox}[1.38: Argument of a Quotient Using Theorem 1.48 ]
 \begin{problemstatement}
 State and prove a theorem analogous to Theorem 1.48, expressing \( \arg\left( \frac{z_1}{z_2} \right) \) in terms of \( \arg(z_1) \) and \( \arg(z_2) \).
 \end{problemstatement}
@@ -1948,7 +1898,7 @@ Since \( \frac{z_1}{z_2} = z_1 z_2^{-1} \), and \( \arg(z_2^{-1}) = -\arg(z_2) \
 \end{align*}\qed
 
 
-\begin{problembox}[1.39: Logarithm of a Quotient Using Theorem 1.54]
+\begin{problembox}[1.39: Logarithm of a Quotient Using Theorem 1.54 ]
 \begin{problemstatement}
 State and prove a theorem analogous to Theorem 1.54, expressing \( \log\left( \frac{z_1}{z_2} \right) \) in terms of \( \log(z_1) \) and \( \log(z_2) \).
 \end{problemstatement}
@@ -1969,7 +1919,7 @@ Since \( \frac{z_1}{z_2} = z_1 z_2^{-1} \), apply Theorem 1.54:
 \end{align*}\qed
 
 
-\begin{problembox}[1.40: Roots of Unity and Polynomial Identity]
+\begin{problembox}[1.40: Roots of Unity and Polynomial Identity ]
 \begin{problemstatement}
 Prove that the \( n \)th roots of 1 are given by \( \alpha, \alpha^2, \ldots, \alpha^n \), where \( \alpha = e^{2\pi i/n} \), and that these roots \( \ne 1 \) satisfy the equation
 \[
@@ -1987,7 +1937,7 @@ Let \( \alpha = e^{2\pi i/n} \). Then \( \alpha^n = 1 \), so it's a root of \( x
 \]\qed
 
 
-\begin{problembox}[1.41: Inequalities and Boundedness of cos z]
+\begin{problembox}[1.41: Inequalities and Boundedness of cos z ]
 \begin{problemstatement}
 \begin{enumerate}[label=\alph*)]
 \item Prove that \( |z^i| < e^{\pi} \) for all complex \( z \ne 0 \).
@@ -2005,7 +1955,7 @@ Let \( \alpha = e^{2\pi i/n} \). Then \( \alpha^n = 1 \), so it's a root of \( x
 \end{enumerate}\qed
 
 
-\begin{problembox}[1.42: Complex Exponential via Real and Imaginary Parts]
+\begin{problembox}[1.42: Complex Exponential via Real and Imaginary Parts ]
 \begin{problemstatement}
 If \( w = u + iv \), where \( u \) and \( v \) are real, show that
 \[
@@ -2027,7 +1977,7 @@ z^w = e^{u \log |z| - v \arg z} e^{i(v \log |z| + u \arg z)}.
 \]\qed
 
 
-\begin{problembox}[1.43: Logarithmic Identities for Complex Powers]
+\begin{problembox}[1.43: Logarithmic Identities for Complex Powers ]
 \begin{problemstatement}
 \begin{enumerate}[label=\alph*)]
 \item Prove that \( \log(z^w) = w \log z + 2\pi i n \), where \( n \) is an integer.
@@ -2051,7 +2001,7 @@ z^w = e^{u \log |z| - v \arg z} e^{i(v \log |z| + u \arg z)}.
 \end{enumerate}\qed
 
 
-\begin{problembox}[1.44: Conditions for De Moivre's Formula]
+\begin{problembox}[1.44: Conditions for De Moivre's Formula ]
 \begin{problemstatement}
 \begin{enumerate}[label=\roman*)]
 \item If \( \theta \) and \( a \) are real numbers, \( -\pi < \theta \leq +\pi \), prove that
@@ -2081,7 +2031,7 @@ The restriction ensures the principal branch.
 \end{enumerate}\qed
 
 
-\begin{problembox}[1.45: Deriving Trigonometric Identities from De Moivre's Theorem]
+\begin{problembox}[1.45: Deriving Trigonometric Identities from De Moivre's Theorem ]
 \begin{problemstatement}
 Use De Moivre's theorem (Exercise 1.44) to derive the trigonometric identities
 \[
@@ -2112,7 +2062,7 @@ Equate parts:
 These hold for complex \( \theta \), as \( \cos z \) and \( \sin z \) are analytic.\qed
 
 
-\begin{problembox}[1.46: Tangent of Complex Numbers]
+\begin{problembox}[1.46: Tangent of Complex Numbers ]
 \begin{problemstatement}
 Define \( \tan z = \frac{\sin z}{\cos z} \), and show that for \( z = x + iy \),
 \[
@@ -2145,7 +2095,7 @@ Thus:
 \]\qed
 
 
-\begin{problembox}[1.47: Solving Cosine Equation]
+\begin{problembox}[1.47: Solving Cosine Equation ]
 \begin{problemstatement}
 Let \( w \) be a complex number. If \( w \ne \pm 1 \), show that there exist two values \( z = x + iy \) with \( \cos z = w \) and \( -\pi < x \leq \pi \). Find such \( z \) when \( w = i \) and \( w = 2 \).
 \end{problemstatement}
@@ -2181,14 +2131,14 @@ Solutions: \( z_1 = i \ln(2 + \sqrt{3}) \), \( z_2 = -i \ln(2 + \sqrt{3}) \).
 
 \textbf{Visualization:}
 \begin{center}
-\begin{tikzpicture}[scale=1.2]
+\begin{tikzpicture}[scale=0.8]
 \begin{axis}[
     width=14cm,
     height=10cm,
     xlabel={$\Re(z)$},
     ylabel={$\Im(z)$},
     title={Solutions to $\cos z = w$},
-    xmin=-2, xmax=2,
+    xmin=-3, xmax=3,
     ymin=-3, ymax=3,
     grid=major,
     grid style={gray!30},
@@ -2224,14 +2174,14 @@ Solutions: \( z_1 = i \ln(2 + \sqrt{3}) \), \( z_2 = -i \ln(2 + \sqrt{3}) \).
 \addlegendentry{Strip $-\pi < x \leq \pi$}
 
 % Add text explaining the solutions
-\node[fill=yellow!30, rounded corners, inner sep=5pt] at (axis cs:-1.5,2.5) {
-    \begin{tabular}{l}
-    \textbf{For $w = i$:} \\
-    Two solutions in strip \\
-    \textbf{For $w = 2$:} \\
-    Two solutions on $y$-axis
-    \end{tabular}
-};
+% \node[fill=yellow!30, rounded corners, inner sep=5pt] at (axis cs:-1.5,2.5) {
+%     \begin{tabular}{l}
+%     \textbf{For $w = i$:} \\
+%     Two solutions in strip \\
+%     \textbf{For $w = 2$:} \\
+%     Two solutions on $y$-axis
+%     \end{tabular}
+% };
 
 \end{axis}
 \end{tikzpicture}
@@ -2240,7 +2190,7 @@ Solutions: \( z_1 = i \ln(2 + \sqrt{3}) \), \( z_2 = -i \ln(2 + \sqrt{3}) \).
 This visualization shows the solutions to $\cos z = w$ for $w = i$ (red points) and $w = 2$ (blue points) within the strip $-\pi < x \leq \pi$. The gray shaded region represents the strip where we seek solutions.\qed
 
 
-\begin{problembox}[1.48: Lagrange's Identity and the Cauchy–Schwarz Inequality]
+\begin{problembox}[1.48: Lagrange's Identity and the Cauchy–Schwarz Inequality ]
 \begin{problemstatement}
 Prove Lagrange's identity for complex numbers:
 \[
@@ -2293,7 +2243,7 @@ To deduce the Cauchy-Schwarz inequality, note that the term $$\sum_{1 \leq k < j
 \[ \left| \sum_{k=1}^n a_k \overline{b_k} \right|^2 \leq \left( \sum_{k=1}^n |a_k|^2 \right) \left( \sum_{k=1}^n |b_k|^2 \right). \]\qed
 
 
-\begin{problembox}[1.49: Polynomial Identity via DeMoivre's Theorem]
+\begin{problembox}[1.49: Polynomial Identity via DeMoivre's Theorem ]
 \begin{problemstatement}
 \begin{enumerate}[label=\textbf{(\alph*)}]
 \item By equating imaginary parts in DeMoivre's formula, prove that
@@ -2357,7 +2307,7 @@ Sum of squares uses trigonometric identities, yielding:
 \end{enumerate}\qed
 
 
-\begin{problembox}[1.50: Product Formula for \( \sin \)]
+\begin{problembox}[1.50: Product Formula for \( \sin \) ]
 \begin{problemstatement}
 Prove that
 \[
@@ -2388,7 +2338,7 @@ n = 2^{n-1} \prod_{k=1}^{n-1} \sin\left( \frac{\pi k}{n} \right) \implies \prod_
 
 \textbf{Visualization for n = 6:}
 \begin{center}
-\begin{tikzpicture}[scale=1.2]
+\begin{tikzpicture}[scale=0.8]
 \begin{axis}[
     width=12cm,
     height=12cm,
@@ -2436,15 +2386,15 @@ n = 2^{n-1} \prod_{k=1}^{n-1} \sin\left( \frac{\pi k}{n} \right) \implies \prod_
 \addlegendentry{Distances $|1 - e^{2\pi i k/6}|$}
 
 % Add text showing the product
-\node[fill=yellow!30, rounded corners, inner sep=5pt] at (axis cs:-1.2,1.2) {
-    \begin{tabular}{l}
-    \textbf{For $n = 6$:} \\
-    $\prod_{k=1}^5 \sin(\frac{k\pi}{6})$ \\
-    $= \sin(\frac{\pi}{6}) \sin(\frac{2\pi}{6}) \sin(\frac{3\pi}{6})$ \\
-    $\quad \sin(\frac{4\pi}{6}) \sin(\frac{5\pi}{6})$ \\
-    $= \frac{6}{2^5} = \frac{3}{16}$
-    \end{tabular}
-};
+% \node[fill=yellow!30, rounded corners, inner sep=5pt] at (axis cs:-1.2,1.2) {
+%     \begin{tabular}{l}
+%     \textbf{For $n = 6$:} \\
+%     $\prod_{k=1}^5 \sin(\frac{k\pi}{6})$ \\
+%     $= \sin(\frac{\pi}{6}) \sin(\frac{2\pi}{6}) \sin(\frac{3\pi}{6})$ \\
+%     $\quad \sin(\frac{4\pi}{6}) \sin(\frac{5\pi}{6})$ \\
+%     $= \frac{6}{2^5} = \frac{3}{16}$
+%     \end{tabular}
+% };
 
 \end{axis}
 \end{tikzpicture}

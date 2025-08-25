@@ -2,6 +2,47 @@
 
 \section{Riemann-Stieltjes Integral}
 
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Riemann-Stieltjes Integral]
+Let $f$ and $\alpha$ be real-valued functions defined on $[a, b]$. We say that $f$ is integrable with respect to $\alpha$ over $[a, b]$ if there exists a real number $A$ such that for every $\varepsilon > 0$, there exists a partition $P$ of $[a, b]$ such that for every refinement $P'$ of $P$ and for every choice of points $t_k \in [x_{k-1}, x_k]$, we have $|S(P', f, \alpha) - A| < \varepsilon$, where $S(P', f, \alpha) = \sum_{k=1}^n f(t_k)(\alpha(x_k) - \alpha(x_{k-1}))$.
+\end{definition}
+
+\noindent\textbf{Importance:} The Riemann-Stieltjes integral generalizes the Riemann integral by allowing integration with respect to more general functions than just the identity function. This provides a powerful tool for handling discontinuous integrators and is essential for probability theory, where distribution functions are often discontinuous.
+
+
+
+\begin{definition}[Upper and Lower Darboux Sums]
+For a partition $P = \{x_0, x_1, \ldots, x_n\}$ of $[a, b]$, the upper Darboux sum is $U(P, f, \alpha) = \sum_{k=1}^n M_k \Delta\alpha_k$ and the lower Darboux sum is $L(P, f, \alpha) = \sum_{k=1}^n m_k \Delta\alpha_k$, where $M_k = \sup_{x \in [x_{k-1}, x_k]} f(x)$, $m_k = \inf_{x \in [x_{k-1}, x_k]} f(x)$, and $\Delta\alpha_k = \alpha(x_k) - \alpha(x_{k-1})$.
+\end{definition}
+
+\noindent\textbf{Importance:} Upper and lower Darboux sums provide a systematic way to approximate the Riemann-Stieltjes integral from above and below. They are essential for establishing the existence of integrals and for proving fundamental properties of integration. The relationship between upper and lower sums is crucial for understanding when a function is integrable.
+
+
+
+\begin{theorem}[Integrability Criterion]
+A function $f$ is integrable with respect to $\alpha$ on $[a, b]$ if and only if for every $\varepsilon > 0$, there exists a partition $P$ of $[a, b]$ such that $U(P, f, \alpha) - L(P, f, \alpha) < \varepsilon$.
+\end{theorem}
+
+\noindent\textbf{Importance:} This criterion provides a practical way to test whether a function is Riemann-Stieltjes integrable. It reduces the problem of integrability to checking whether upper and lower Darboux sums can be made arbitrarily close. This is the foundation for most existence proofs in integration theory.
+
+
+
+\begin{theorem}[Integration by Parts]
+If $f \in R(\alpha)$ on $[a, b]$, then $\alpha \in R(f)$ on $[a, b]$ and $\int_a^b f \, d\alpha + \int_a^b \alpha \, df = f(b)\alpha(b) - f(a)\alpha(a)$.
+\end{theorem}
+
+\noindent\textbf{Importance:} This is one of the most powerful tools in integration theory. It allows us to transform difficult integrals into more manageable forms and is essential for solving many problems in analysis, differential equations, and applied mathematics. The formula generalizes the familiar integration by parts formula from calculus.
+
+
+
+\begin{theorem}[Change of Variable]
+If $f \in R(\alpha)$ on $[a, b]$ and if $\phi$ is a strictly increasing continuous function from $[c, d]$ onto $[a, b]$, then $f \circ \phi \in R(\alpha \circ \phi)$ on $[c, d]$ and $\int_a^b f \, d\alpha = \int_c^d f \circ \phi \, d(\alpha \circ \phi)$.
+\end{theorem}
+
+\noindent\textbf{Importance:} This theorem allows us to transform integrals under changes of variables, which is essential for computing many integrals and for understanding the geometric meaning of integration. It generalizes the familiar substitution rule from calculus and is crucial for coordinate transformations in higher dimensions.
+
+
 
 \begin{problembox}[7.1: Direct Proof of Integral Identity]
 \begin{problemstatement}
@@ -406,6 +447,46 @@ and expand. Using $\int_a^b da=a(b)-a(a)$ and exchanging the order of integratio
 \qed
 \section{Riemann Integral}
 
+\subsection*{Essential Definitions and Theorems}
+
+
+
+\begin{definition}[Strong Riemann Definition]
+A function $f$ is Riemann integrable if the limit of Riemann sums exists as the mesh of partitions tends to zero, regardless of the choice of evaluation points.
+\end{definition}
+
+\noindent\textbf{Importance:} The strong Riemann definition provides a more robust characterization of integrability that is independent of the specific choice of evaluation points. This is crucial for proving many properties of integrals and for understanding when functions are integrable.
+
+
+
+
+
+\begin{theorem}[Total Variation Formula]
+If $f$ is absolutely continuous on $[a, b]$, then the total variation of $f$ on $[a, x]$ is given by:
+\[V_f(a, x) = \int_a^x |f'(t)| \, dt\]
+\end{theorem}
+
+\noindent\textbf{Importance:} This formula provides a practical way to compute the total variation of absolutely continuous functions using their derivatives. It connects the geometric concept of variation with the analytical concept of the integral, making it a powerful tool for both theoretical and computational purposes.
+
+
+
+\begin{theorem}[Length of Curve Formula]
+If $f$ is a continuously differentiable vector-valued function on $[a, b]$, then the length of the curve described by $f$ is:
+\[\Lambda_f(a, b) = \int_a^b \|f'(t)\| \, dt\]
+\end{theorem}
+
+\noindent\textbf{Importance:} This formula provides a practical way to compute the length of curves using calculus. It connects the geometric concept of length with the analytical concept of the integral, making it a powerful tool for both theoretical and computational purposes.
+
+
+
+\begin{theorem}[Taylor's Remainder Formula]
+If $f^{(n+1)}$ is continuous on $[a, x]$, then the remainder in Taylor's formula can be expressed as:
+\[R_n(x) = \frac{1}{n!} \int_a^x (x - t)^n f^{(n+1)}(t) \, dt\]
+\end{theorem}
+
+\noindent\textbf{Importance:} This integral form of the remainder provides a powerful tool for estimating the error in Taylor approximations. It's essential for understanding the convergence of Taylor series and for numerical analysis applications.
+
+
 
 
 \begin{problembox}[7.18: Limit of Riemann Sums]
@@ -794,6 +875,53 @@ Rearranging gives $\sum_{k\in A}\Delta x_k>h$, proving the claim.
 
 \qed
 \section{Existence Theorems for integral and differential equations}
+
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Contraction Mapping]
+A function $T$ from a metric space $(X, d)$ to itself is called a contraction if there exists a constant $0 \leq c < 1$ such that $d(T(x), T(y)) \leq c \cdot d(x, y)$ for all $x, y \in X$.
+\end{definition}
+
+\noindent\textbf{Importance:} Contraction mappings are fundamental for proving the existence and uniqueness of solutions to various types of equations.
+
+\begin{definition}[Fixed Point]
+A point $x$ in a metric space $(X, d)$ is called a fixed point of a function $T: X \to X$ if $T(x) = x$.
+\end{definition}
+
+\noindent\textbf{Importance:} Fixed points are crucial for understanding the behavior of iterative processes and for proving the existence of solutions to equations.
+
+\begin{theorem}[Contraction Mapping Theorem]
+If $T$ is a contraction on a complete metric space $(X, d)$, then $T$ has a unique fixed point $x^*$ in $X$. Moreover, for any initial point $x_0 \in X$, the sequence $x_{n+1} = T(x_n)$ converges to $x^*$.
+\end{theorem}
+
+\noindent\textbf{Importance:} This is one of the most powerful tools for proving existence and uniqueness of solutions. It provides both theoretical results and practical algorithms for finding solutions. The theorem is essential for many areas of analysis and applied mathematics.
+
+
+
+\begin{theorem}[Existence of Solutions to Integral Equations]
+Given a function $g \in C[a, b]$ and a continuous kernel $K$ on $[a, b] \times [a, b]$, the integral equation $\varphi(x) = g(x) + \lambda \int_a^b K(x, t)\varphi(t) \, dt$ has a unique solution if $|\lambda| < M^{-1}(b-a)^{-1}$, where $M = \max_{x,y \in [a,b]} |K(x,y)|$.
+\end{theorem}
+
+\noindent\textbf{Importance:} This theorem provides conditions under which integral equations have unique solutions. It's essential for understanding linear integral equations and is fundamental for many applications in physics, engineering, and applied mathematics.
+
+
+
+\begin{theorem}[Existence and Uniqueness of Differential Equations]
+If $f$ is continuous and satisfies a Lipschitz condition on a rectangle $Q$, then the initial value problem $y' = f(x, y)$, $y(a) = b$ has a unique solution on some interval containing $a$.
+\end{theorem}
+
+\noindent\textbf{Importance:} This is the fundamental existence and uniqueness theorem for ordinary differential equations. It provides the theoretical foundation for solving initial value problems and is essential for understanding the behavior of dynamical systems.
+
+
+
+\begin{theorem}[Picard-Lindelöf Theorem]
+If $f$ is continuous and satisfies a Lipschitz condition in the second variable on a rectangle $Q = [a-h, a+h] \times [b-k, b+k]$, then the initial value problem $y' = f(x, y)$, $y(a) = b$ has a unique solution on $[a-c, a+c]$ where $c = \min\{h, k/M\}$ and $M = \max_{(x,y) \in Q} |f(x,y)|$.
+\end{theorem}
+
+\noindent\textbf{Importance:} This theorem provides precise conditions for the existence and uniqueness of solutions to initial value problems. It's essential for understanding when differential equations have well-defined solutions and for numerical methods that approximate these solutions.
+
+
+
 The following exercises illustrate how the fixed-point theorem for contractions is used to prove the existence of solutions of certain integral and differential equations. We denote by $C[a, b]$ the metric space of all continuous real-valued functions on the interval $[a, b]$ with the metric $$d(f, g) = \max_{x \in [a, b]} |f(x) - g(x)|,$$ 
 and recall that $C[a,b]$ is a complete metrics space (Exercise 4.67).
 

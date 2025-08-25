@@ -2,6 +2,48 @@
 
 \section{Functions of bounded variation}
 
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Bounded Variation]
+A function $f$ defined on an interval $[a, b]$ is said to be of bounded variation if there exists a positive number $M$ such that for every partition $P = \{x_0, x_1, \ldots, x_n\}$ of $[a, b]$, the sum $\sum_{k=1}^n |f(x_k) - f(x_{k-1})| \leq M$. The supremum of all such sums is called the total variation of $f$ on $[a, b]$ and is denoted by $V_f(a, b)$.
+\end{definition}
+
+\noindent\textbf{Importance:} Bounded variation is a fundamental concept that measures how much a function oscillates. It provides a bridge between continuous functions and differentiable functions, and is essential for understanding the Riemann-Stieltjes integral. Functions of bounded variation have many nice properties, including being differentiable almost everywhere and having a well-defined total variation.
+
+
+
+\begin{definition}[Rectifiable Curve]
+A curve $\gamma$ in $\mathbb{R}^n$ is called rectifiable if it has finite length. The length of a rectifiable curve is defined as the supremum of the lengths of all inscribed polygonal approximations.
+\end{definition}
+
+\noindent\textbf{Importance:} Rectifiable curves are the geometric counterpart of functions of bounded variation. They provide a rigorous foundation for measuring curve lengths and are essential for understanding geometric properties of curves in higher dimensions. This concept is crucial for differential geometry and calculus on manifolds.
+
+
+
+\begin{theorem}[Jordan Decomposition]
+Every function of bounded variation on $[a, b]$ can be written as the difference of two increasing functions: $f = g - h$, where $g$ and $h$ are increasing functions on $[a, b]$.
+\end{theorem}
+
+\noindent\textbf{Importance:} This is one of the most fundamental results about functions of bounded variation. It reduces the study of bounded variation functions to the study of monotone functions, which are much simpler to understand. This decomposition is essential for proving many properties of bounded variation functions and for integration theory.
+
+
+
+\begin{theorem}[Differentiability of Bounded Variation Functions]
+If $f$ is of bounded variation on $[a, b]$, then $f$ is differentiable almost everywhere on $[a, b]$.
+\end{theorem}
+
+\noindent\textbf{Importance:} This result shows that bounded variation functions are "almost" differentiable, which makes them much more regular than arbitrary continuous functions. This property is crucial for integration theory and for understanding the relationship between differentiability and integrability.
+
+
+
+\begin{theorem}[Total Variation Formula]
+If $f$ is absolutely continuous on $[a, b]$, then $V_f(a, b) = \int_a^b |f'(x)| \, dx$.
+\end{theorem}
+
+\noindent\textbf{Importance:} This formula provides a practical way to compute the total variation of absolutely continuous functions using their derivatives. It connects the geometric concept of variation with the analytical concept of the integral, making it a powerful tool for both theoretical and computational purposes.
+
+
+
 
 \begin{problembox}[6.1: Functions of Bounded Variation]
 \begin{problemstatement}
@@ -160,6 +202,48 @@ For any point $x$ in $[a,b]$, we can look at how $f$ changes from $a$ to $x$. Th
 (f): If $f$ is continuous at a point, then the total variation $V$ is also continuous there. Since $p$ and $n$ are expressed in terms of $V$ and $f$ (from part (e)), they must also be continuous at that point.\qed
 \section{Curves}
 
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Rectifiable Curve]
+A curve $\gamma$ in $\mathbb{R}^n$ is called rectifiable if it has finite length. The length of a rectifiable curve is defined as the supremum of the lengths of all inscribed polygonal approximations.
+\end{definition}
+
+\noindent\textbf{Importance:} Rectifiable curves are the geometric counterpart of functions of bounded variation. They provide a rigorous foundation for measuring curve lengths and are essential for understanding geometric properties of curves in higher dimensions. This concept is crucial for differential geometry and calculus on manifolds.
+
+
+
+\begin{definition}[Equivalent Paths]
+Two paths $f$ and $g$ are equivalent if there exists a strictly increasing continuous function $\phi$ mapping the domain of $g$ onto the domain of $f$ such that $g = f \circ \phi$.
+\end{definition}
+
+\noindent\textbf{Importance:} Path equivalence provides a way to identify paths that trace the same geometric curve but with different parametrizations. This is essential for understanding the geometric properties of curves independently of their specific parametrization and is fundamental for differential geometry.
+
+
+
+\begin{theorem}[Arc-Length Parameterization]
+Every rectifiable curve can be reparametrized by arc length, giving a parametrization where the parameter represents the distance traveled along the curve.
+\end{theorem}
+
+\noindent\textbf{Importance:} Arc-length parameterization provides a natural and geometrically meaningful way to parametrize curves. It simplifies many calculations and is essential for understanding the intrinsic geometry of curves, independent of any particular parametrization.
+
+
+
+\begin{theorem}[Length of Curve]
+If $f$ is a continuously differentiable function on $[a, b]$, then the length of the curve described by $f$ is:
+\[\Lambda_f(a, b) = \int_a^b \|f'(t)\| \, dt\]
+\end{theorem}
+
+\noindent\textbf{Importance:} This formula provides a practical way to compute the length of curves using calculus. It connects the geometric concept of length with the analytical concept of the integral, making it a powerful tool for both theoretical and computational purposes.
+
+
+
+\begin{theorem}[Symmetrization of Curves]
+The symmetrization of a curve preserves its length while creating a symmetric version with respect to a given axis.
+\end{theorem}
+
+\noindent\textbf{Importance:} Symmetrization is a powerful geometric technique that preserves important properties while simplifying the geometry. It's useful for proving geometric inequalities and for understanding the relationship between curves and their symmetric counterparts.
+
+
 
 
 \begin{problembox}[6.8: Equivalent Paths]
@@ -241,10 +325,46 @@ with $f',g'$ understood a.e. Using the inequality
 
 and integrating yields $L(\Gamma)\ge L(\Gamma_0)$.\qed
 \section{Absolute continuous functions}
-A real-valued function $f$ defined on an interval $[a,b]$ is said to be absolutely continuous on $[a,b]$ if for every $\varepsilon > 0$ there is a $\delta > 0$ such that
+
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Absolute Continuity]
+A real-valued function $f$ defined on an interval $[a,b]$ is absolutely continuous on $[a,b]$ if for every $\varepsilon > 0$ there is a $\delta > 0$ such that
 \[\sum_{k=1}^{n} |f(b_k) - f(a_k)| < \varepsilon\]
 for every $n$ disjoint open subintervals $(a_k, b_k)$ of $[a, b]$, $n = 1, 2, \ldots$, the sum of whose lengths $\sum_{k=1}^{n} (b_k - a_k)$ is less than $\delta$.
-Absolutely continuous functions occur in the Lebesgue theory of integration and differentiation. The following exercises give some of their elementary properties.
+\end{definition}
+
+\noindent\textbf{Importance:} Absolute continuity is a stronger form of continuity that is essential for the Lebesgue theory of integration and differentiation.
+
+\begin{definition}[Lipschitz Condition]
+A function $f$ satisfies a Lipschitz condition of order $\alpha > 0$ on $[a, b]$ if there exists a constant $M > 0$ such that $|f(x) - f(y)| \leq M |x - y|^\alpha$ for all $x, y \in [a, b]$.
+\end{definition}
+
+\noindent\textbf{Importance:} Lipschitz conditions provide a quantitative measure of how much a function can change and are essential for understanding function regularity.
+
+\begin{theorem}[Absolute Continuity Implies Bounded Variation]
+Every absolutely continuous function on $[a, b]$ is continuous and of bounded variation on $[a, b]$.
+\end{theorem}
+
+\noindent\textbf{Importance:} This theorem shows that absolute continuity is a stronger condition than both continuity and bounded variation. It establishes the hierarchy of function classes and is essential for understanding the relationship between different notions of regularity.
+
+
+
+\begin{theorem}[Lipschitz Implies Absolute Continuity]
+If $f$ satisfies a uniform Lipschitz condition of order 1 on $[a, b]$, then $f$ is absolutely continuous.
+\end{theorem}
+
+\noindent\textbf{Importance:} This theorem provides a practical way to verify absolute continuity using Lipschitz conditions. It's particularly useful for functions that arise in applications, where Lipschitz conditions are often easier to check than the abstract definition of absolute continuity.
+
+
+
+\begin{theorem}[Operations on Absolutely Continuous Functions]
+If $f$ and $g$ are absolutely continuous on $[a, b]$, then so are $|f|$, $cf$ (for any constant $c$), $f + g$, $f \cdot g$, and $f/g$ (if $g$ is bounded away from zero).
+\end{theorem}
+
+\noindent\textbf{Importance:} This theorem shows that the class of absolutely continuous functions is closed under common operations. This makes it a robust class for analysis and ensures that many naturally occurring functions preserve this important property.
+
+
 
 
 

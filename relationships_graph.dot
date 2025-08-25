@@ -1,0 +1,199 @@
+digraph Chapter4Relationships {
+    // Graph settings
+    rankdir=TB;
+    node [shape=box, style=filled, fontname="Arial", fontsize=10];
+    edge [fontname="Arial", fontsize=8, color=blue];
+    
+    // Color scheme - different colors for different types of concepts
+    node [fillcolor=lightblue];
+    
+    // Sequences and Convergence
+    cauchy [label="Cauchy Sequence", fillcolor=lightcoral];
+    convergent [label="Convergent Sequence", fillcolor=lightcoral];
+    bounded_monotone [label="Bounded Monotone Sequence", fillcolor=lightcoral];
+    geometric_lt1 [label="Geometric Sequence\n|z| < 1", fillcolor=lightcoral];
+    geometric_gt1 [label="Geometric Sequence\n|z| > 1", fillcolor=lightcoral];
+    converges_to_0 [label="Converges to 0", fillcolor=lightcoral];
+    diverges [label="Diverges", fillcolor=lightcoral];
+    
+    // Continuity Relationships
+    uniform_continuous [label="Uniformly\nContinuous", fillcolor=lightgreen];
+    continuous [label="Continuous", fillcolor=lightgreen];
+    seq_continuous [label="Sequentially\nContinuous", fillcolor=lightgreen];
+    compact_continuous [label="Continuous on\nCompact Set", fillcolor=lightgreen];
+    additive_continuous [label="Additive Function\nContinuous at One Point", fillcolor=lightgreen];
+    continuous_everywhere [label="Continuous\nEverywhere", fillcolor=lightgreen];
+    preserves_connected [label="Preserves\nConnectedness", fillcolor=lightgreen];
+    preserves_compact [label="Preserves\nCompactness", fillcolor=lightgreen];
+    attains_extrema [label="Attains Max/Min", fillcolor=lightgreen];
+    intermediate_value [label="Intermediate\nValue Property", fillcolor=lightgreen];
+    one_to_one_continuous [label="One-to-One\nContinuous on Interval", fillcolor=lightgreen];
+    strictly_monotonic [label="Strictly\nMonotonic", fillcolor=lightgreen];
+    
+    // Metric Space Properties
+    compact [label="Compact\nMetric Space", fillcolor=lightyellow];
+    complete [label="Complete\nMetric Space", fillcolor=lightyellow];
+    closed [label="Closed\nSubset", fillcolor=lightyellow];
+    closed_bounded [label="Closed and\nBounded", fillcolor=lightyellow];
+    connected_space [label="Connected\nMetric Space", fillcolor=lightyellow];
+    disconnected_space [label="Disconnected\nMetric Space", fillcolor=lightyellow];
+    convergent_subseq [label="Every Sequence\nHas Convergent\nSubsequence", fillcolor=lightyellow];
+    clopen_only_trivial [label="Only Trivial\nClopen Subsets", fillcolor=lightyellow];
+    has_clopen [label="Has Nonempty\nProper Clopen\nSubset", fillcolor=lightyellow];
+    
+    // Function Properties
+    preserves_cauchy [label="Preserves\nCauchy Sequences", fillcolor=lightcyan];
+    countable_discontinuities [label="Countable\nDiscontinuities", fillcolor=lightcyan];
+    one_sided_limits [label="One-Sided\nLimits at\nEvery Point", fillcolor=lightcyan];
+    convex [label="Convex\nSubset", fillcolor=lightcyan];
+    path_connected [label="Path-Connected\nSpace", fillcolor=lightcyan];
+    connected_subset [label="Connected\nSubset", fillcolor=lightcyan];
+    monotonic [label="Monotonic\nFunction", fillcolor=lightcyan];
+    
+    // Fixed Point Theory
+    contraction [label="Contraction\nMapping", fillcolor=lightpink];
+    distance_shrinking [label="Distance-Shrinking\nFunction", fillcolor=lightpink];
+    unique_fixed_point [label="Unique\nFixed Point", fillcolor=lightpink];
+    iterates_converge [label="Iterates\nConverge", fillcolor=lightpink];
+    no_fixed_points [label="May Not Have\nFixed Points", fillcolor=lightpink];
+    incomplete_space [label="Incomplete\nMetric Space", fillcolor=lightpink];
+    
+    // Limits and Discontinuities
+    two_dim_limit [label="Two-Dimensional\nLimit Exists", fillcolor=lightsteelblue];
+    iterated_limits [label="Iterated Limits\nExist and Equal", fillcolor=lightsteelblue];
+    separate_continuous [label="Continuous in\nEach Variable", fillcolor=lightsteelblue];
+    multi_continuous [label="Multi-Variable\nContinuous", fillcolor=lightsteelblue];
+    removable_discontinuity [label="Removable\nDiscontinuity", fillcolor=lightsteelblue];
+    jump_discontinuity [label="Jump\nDiscontinuity", fillcolor=lightsteelblue];
+    essential_discontinuity [label="Essential\nDiscontinuity", fillcolor=lightsteelblue];
+    limit_exists [label="Limit Exists\nbut ≠ f(c)", fillcolor=lightsteelblue];
+    one_sided_differ [label="One-Sided Limits\nExist but Different", fillcolor=lightsteelblue];
+    no_one_sided [label="At Least One\nOne-Sided Limit\nDoesn't Exist", fillcolor=lightsteelblue];
+    
+    // Special Functions
+    additive_plus_continuous [label="Additive Function\n+ Continuity\nat One Point", fillcolor=lightgoldenrod];
+    zero_on_rationals [label="Zero on Rationals\n+ Continuity", fillcolor=lightgoldenrod];
+    continuous_rationals [label="Continuous on\nRationals +\nDiscontinuous on\nIrrationals", fillcolor=lightgoldenrod];
+    two_preimages [label="Exactly Two\nPreimages for\nEvery Value", fillcolor=lightgoldenrod];
+    space_filling [label="Space-Filling\nCurve", fillcolor=lightgoldenrod];
+    homeomorphism [label="Homeomorphism", fillcolor=lightgoldenrod];
+    linear_function [label="Linear Function\nf(x) = ax", fillcolor=lightgoldenrod];
+    zero_everywhere [label="Zero\nEverywhere", fillcolor=lightgoldenrod];
+    nowhere_continuous [label="Nowhere\nContinuous", fillcolor=lightgoldenrod];
+    necessarily_discontinuous [label="Necessarily\nDiscontinuous", fillcolor=lightgoldenrod];
+    not_one_to_one [label="Cannot be\nOne-to-One", fillcolor=lightgoldenrod];
+    preserves_topological [label="Preserves Topological\nProperties but Not\nMetric Properties", fillcolor=lightgoldenrod];
+    
+    // Topological Invariants
+    connectedness_invariant [label="Connectedness\n(Topological\nInvariant)", fillcolor=lightseagreen];
+    compactness_invariant [label="Compactness\n(Topological\nInvariant)", fillcolor=lightseagreen];
+    completeness_not_invariant [label="Completeness\n(Not Topological\nInvariant)", fillcolor=lightseagreen];
+    boundedness_not_invariant [label="Boundedness\n(Not Topological\nInvariant)", fillcolor=lightseagreen];
+    openness_invariant [label="Openness\n(Topological\nInvariant)", fillcolor=lightseagreen];
+    closedness_invariant [label="Closedness\n(Topological\nInvariant)", fillcolor=lightseagreen];
+    
+    // Practical Implications
+    enables_extension [label="Enables Extension\nto Closure", fillcolor=lightgray];
+    enables_uniform [label="Enables Uniform\nContinuity from\nContinuity", fillcolor=lightgray];
+    enables_ivt [label="Enables Intermediate\nValue Theorem", fillcolor=lightgray];
+    enables_contraction [label="Enables Contraction\nMapping Theorem", fillcolor=lightgray];
+    enables_approximation [label="Enables Approximation\nTechniques", fillcolor=lightgray];
+    enables_sequence_proofs [label="Enables Limit Proofs\nvia Sequences", fillcolor=lightgray];
+    
+    // Relationships - Sequences and Convergence
+    cauchy -> convergent [label="in complete\nmetric spaces"];
+    bounded_monotone -> convergent;
+    convergent -> cauchy;
+    geometric_lt1 -> converges_to_0;
+    geometric_gt1 -> diverges;
+    
+    // Relationships - Continuity
+    uniform_continuous -> continuous;
+    compact_continuous -> uniform_continuous;
+    continuous -> seq_continuous;
+    seq_continuous -> continuous [label="in metric\nspaces"];
+    additive_continuous -> continuous_everywhere;
+    continuous -> preserves_connected;
+    continuous -> preserves_compact;
+    compact_continuous -> attains_extrema;
+    continuous -> intermediate_value [label="on interval"];
+    one_to_one_continuous -> strictly_monotonic;
+    
+    // Relationships - Metric Space Properties
+    compact -> convergent_subseq;
+    compact -> complete;
+    complete -> closed [label="closed subset\nis complete"];
+    closed -> complete [label="in complete\nspace"];
+    closed_bounded -> compact [label="in ℝⁿ"];
+    compact -> closed_bounded [label="in ℝⁿ"];
+    connected_space -> clopen_only_trivial;
+    disconnected_space -> has_clopen;
+    
+    // Relationships - Function Properties
+    uniform_continuous -> preserves_cauchy;
+    continuous -> preserves_cauchy [label="does not\nnecessarily"];
+    strictly_monotonic -> countable_discontinuities;
+    monotonic -> one_sided_limits;
+    convex -> connected_subset;
+    path_connected -> connected_subset;
+    
+    // Relationships - Fixed Point Theory
+    contraction -> unique_fixed_point [label="on complete\nmetric space"];
+    distance_shrinking -> unique_fixed_point [label="on compact\nspace"];
+    contraction -> iterates_converge;
+    contraction -> no_fixed_points [label="non-contraction"];
+    incomplete_space -> no_fixed_points [label="contraction may\nnot have fixed point"];
+    
+    // Relationships - Limits and Discontinuities
+    two_dim_limit -> iterated_limits;
+    iterated_limits -> two_dim_limit [label="does not\nnecessarily"];
+    separate_continuous -> multi_continuous [label="does not\nnecessarily"];
+    multi_continuous -> separate_continuous;
+    removable_discontinuity -> limit_exists;
+    jump_discontinuity -> one_sided_differ;
+    essential_discontinuity -> no_one_sided;
+    
+    // Relationships - Special Functions
+    additive_plus_continuous -> linear_function;
+    zero_on_rationals -> zero_everywhere;
+    continuous_rationals -> nowhere_continuous;
+    two_preimages -> necessarily_discontinuous;
+    space_filling -> not_one_to_one;
+    homeomorphism -> preserves_topological;
+    
+    // Relationships - Topological Invariants
+    connected_space -> connectedness_invariant;
+    compact -> compactness_invariant;
+    complete -> completeness_not_invariant;
+    closed_bounded -> boundedness_not_invariant;
+    closed -> closedness_invariant;
+    
+    // Relationships - Practical Implications
+    uniform_continuous -> enables_extension;
+    compact -> enables_uniform;
+    connected_space -> enables_ivt;
+    complete -> enables_contraction;
+    cauchy -> enables_approximation;
+    seq_continuous -> enables_sequence_proofs;
+    
+    // Cross-concept relationships
+    edge [color=red, style=dashed];
+    
+    // Key cross-connections
+    compact -> uniform_continuous;
+    complete -> contraction;
+    connected_space -> preserves_connected;
+    continuous -> preserves_compact;
+    cauchy -> convergent;
+    uniform_continuous -> preserves_cauchy;
+    
+    // Additional important relationships
+    edge [color=purple, style=dotted];
+    
+    compact -> convergent_subseq;
+    complete -> closed;
+    continuous -> seq_continuous;
+    additive_continuous -> linear_function;
+    space_filling -> not_one_to_one;
+    homeomorphism -> preserves_topological;
+}

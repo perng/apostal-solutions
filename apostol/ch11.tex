@@ -2,6 +2,46 @@
 
 \section{Orthogonal Systems}
 
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Orthogonal System]
+A collection of functions $\{\varphi_n\}$ defined on an interval $[a, b]$ is called an orthogonal system if $\langle \varphi_m, \varphi_n \rangle = 0$ for all $m \neq n$, where $\langle f, g \rangle = \int_a^b f(x) \overline{g(x)} \, dx$ is the inner product. If in addition $\|\varphi_n\| = 1$ for all $n$, the system is called orthonormal.
+\end{definition}
+
+\noindent\textbf{Importance:} Orthogonal systems provide the foundation for Fourier analysis and many other areas of mathematics. They allow us to decompose complex functions into simpler components and are essential for understanding function spaces. The orthogonality property makes calculations much simpler and provides geometric intuition for function approximation.
+
+
+
+\begin{definition}[Fourier Coefficients]
+For a function $f$ and an orthonormal system $\{\varphi_n\}$, the Fourier coefficients are defined as $c_n = \langle f, \varphi_n \rangle = \int_a^b f(x) \overline{\varphi_n(x)} \, dx$. The Fourier series of $f$ is the formal sum $\sum_{n=0}^{\infty} c_n \varphi_n(x)$.
+\end{definition}
+
+\noindent\textbf{Importance:} Fourier coefficients provide the best approximation of a function in terms of the given orthogonal system. They encode the "frequency content" of the function and are essential for understanding how functions can be represented as infinite series. The study of convergence of Fourier series is central to harmonic analysis.
+
+
+
+\begin{theorem}[Bessel's Inequality]
+For any function $f$ and orthonormal system $\{\varphi_n\}$, we have $\sum_{n=0}^{\infty} |c_n|^2 \leq \|f\|^2$, where $c_n$ are the Fourier coefficients of $f$.
+\end{theorem}
+
+\noindent\textbf{Importance:} Bessel's inequality provides a fundamental bound on the Fourier coefficients and ensures that the series $\sum |c_n|^2$ converges. This is essential for the convergence theory of Fourier series and provides a measure of how well a function can be approximated by its Fourier series. It's the foundation for many convergence results.
+
+
+
+\begin{theorem}[Parseval's Identity]
+If $\{\varphi_n\}$ is a complete orthonormal system and $f$ is square-integrable, then $\sum_{n=0}^{\infty} |c_n|^2 = \|f\|^2$, where $c_n$ are the Fourier coefficients of $f$.
+\end{theorem}
+
+\noindent\textbf{Importance:} Parseval's identity is one of the most important results in Fourier analysis. It shows that the Fourier transform preserves the "energy" of the function and provides a precise relationship between the function and its Fourier coefficients. This identity is crucial for many applications in physics and engineering.
+
+
+
+\begin{theorem}[Gram-Schmidt Orthogonalization]
+Given a linearly independent system $\{f_n\}$, there exists an orthonormal system $\{\varphi_n\}$ such that the span of $\{\varphi_0, \ldots, \varphi_n\}$ equals the span of $\{f_0, \ldots, f_n\}$ for each $n$.
+\end{theorem}
+
+\noindent\textbf{Importance:} The Gram-Schmidt process provides a systematic way to construct orthonormal bases from any linearly independent system. This is essential for many applications where we need to work with orthogonal functions but only have access to non-orthogonal ones. It's a fundamental tool in linear algebra and functional analysis.
+
 
 
 \begin{problembox}[11.1: Orthonormality of Trigonometric System]
@@ -200,6 +240,48 @@ Use Rodrigues' formula
 \]
 \end{enumerate}\qed
 \section{Trigonometric Fourier Series}
+
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Fourier Series]
+For a function $f \in L([-\pi, \pi])$, the Fourier series of $f$ is defined as:
+\[f(x) \sim \frac{a_0}{2} + \sum_{n=1}^{\infty} (a_n \cos nx + b_n \sin nx)\]
+where the Fourier coefficients are:
+\[a_n = \frac{1}{\pi} \int_{-\pi}^{\pi} f(t) \cos nt \, dt, \quad b_n = \frac{1}{\pi} \int_{-\pi}^{\pi} f(t) \sin nt \, dt\]
+\end{definition}
+
+\noindent\textbf{Importance:} Fourier series provide a way to represent periodic functions as infinite sums of trigonometric functions. This is one of the most powerful tools in analysis, allowing us to decompose complex periodic phenomena into simple harmonic components. The coefficients encode the frequency content of the function.
+
+
+
+\begin{definition}[Orthogonality of Trigonometric Functions]
+The functions $\{1, \cos nx, \sin nx : n \in \mathbb{N}\}$ form an orthogonal system on $[-\pi, \pi]$ with respect to the inner product $\langle f, g \rangle = \int_{-\pi}^{\pi} f(x) g(x) \, dx$.
+\end{definition}
+
+\noindent\textbf{Importance:} Orthogonality is the key property that makes Fourier series work. It allows us to compute coefficients independently and ensures that the series representation is unique. This orthogonality property is what makes trigonometric functions the natural choice for representing periodic functions.
+
+
+
+\begin{theorem}[Parseval's Identity]
+If $f \in L^2([-\pi, \pi])$ has Fourier series $f(x) \sim \frac{a_0}{2} + \sum_{n=1}^{\infty} (a_n \cos nx + b_n \sin nx)$, then:
+\[\frac{1}{\pi} \int_{-\pi}^{\pi} |f(x)|^2 \, dx = \frac{|a_0|^2}{2} + \sum_{n=1}^{\infty} (|a_n|^2 + |b_n|^2)\]
+\end{theorem}
+
+\noindent\textbf{Importance:} Parseval's identity shows that the energy of a signal (the $L^2$ norm) is preserved in the frequency domain. This is crucial for applications in signal processing and physics, where energy conservation is fundamental. It also provides a way to test convergence of Fourier series.
+
+
+
+\begin{theorem}[Convergence of Fourier Series]
+\begin{enumerate}[label=(\alph*)]
+\item If $f$ is continuous and piecewise smooth on $[-\pi, \pi]$, then its Fourier series converges uniformly to $f$.
+\item If $f$ is piecewise continuous with piecewise continuous derivative, then the Fourier series converges pointwise to $\frac{f(x^+) + f(x^-)}{2}$.
+\item If $f \in L^2([-\pi, \pi])$, then the Fourier series converges to $f$ in $L^2$ norm.
+\end{enumerate}
+\end{theorem}
+
+\noindent\textbf{Importance:} These convergence results tell us when and how Fourier series represent the original function. The different types of convergence (uniform, pointwise, $L^2$) are important for different applications. The Gibbs phenomenon at discontinuities is a key feature that appears in applications.
+
+
 
 
 
@@ -615,6 +697,50 @@ Assume also that the derivative $f' \in \mathcal{R}$ on $[0, 2\pi]$.
 \end{enumerate}\qed
 \section{Fourier Integrals}
 
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Fourier Transform]
+For a function $f \in L^1(\mathbb{R})$, the Fourier transform is defined as:
+\[\hat{f}(\xi) = \int_{-\infty}^{\infty} f(x) e^{-2\pi i \xi x} \, dx\]
+The inverse Fourier transform is:
+\[f(x) = \int_{-\infty}^{\infty} \hat{f}(\xi) e^{2\pi i \xi x} \, d\xi\]
+\end{definition}
+
+\noindent\textbf{Importance:} The Fourier transform extends the idea of Fourier series to non-periodic functions. It decomposes functions into their frequency components and is one of the most important tools in modern analysis. The transform converts convolution to multiplication, making it essential for solving differential equations and signal processing.
+
+
+
+\begin{definition}[Cosine and Sine Transforms]
+For an even function $f$, the cosine transform is:
+\[\hat{f}_c(\xi) = 2 \int_0^{\infty} f(x) \cos(2\pi \xi x) \, dx\]
+For an odd function $f$, the sine transform is:
+\[\hat{f}_s(\xi) = 2 \int_0^{\infty} f(x) \sin(2\pi \xi x) \, dx\]
+\end{definition}
+
+\noindent\textbf{Importance:} These transforms are natural for functions with symmetry properties. They simplify calculations and are often more appropriate for physical problems with natural boundary conditions. The cosine transform is particularly useful for problems with Neumann boundary conditions.
+
+
+
+\begin{theorem}[Fourier Inversion Theorem]
+If $f \in L^1(\mathbb{R})$ and $\hat{f} \in L^1(\mathbb{R})$, then:
+\[f(x) = \int_{-\infty}^{\infty} \hat{f}(\xi) e^{2\pi i \xi x} \, d\xi\]
+almost everywhere. If $f$ is continuous, the equality holds everywhere.
+\end{theorem}
+
+\noindent\textbf{Importance:} This theorem shows that the Fourier transform is invertible, meaning we can recover the original function from its transform. This is crucial for applications where we need to reconstruct signals or solve inverse problems. The condition that both $f$ and $\hat{f}$ be integrable is important.
+
+
+
+\begin{theorem}[Plancherel's Theorem]
+The Fourier transform extends to an isometry on $L^2(\mathbb{R})$. That is, for $f, g \in L^2(\mathbb{R})$:
+\[\int_{-\infty}^{\infty} f(x) \overline{g(x)} \, dx = \int_{-\infty}^{\infty} \hat{f}(\xi) \overline{\hat{g}(\xi)} \, d\xi\]
+In particular, $\|f\|_2 = \|\hat{f}\|_2$.
+\end{theorem}
+
+\noindent\textbf{Importance:} This theorem shows that the Fourier transform preserves the $L^2$ inner product and norm. This is crucial for applications in quantum mechanics (where it's related to the uncertainty principle) and signal processing (where it preserves energy). It also provides a way to define the Fourier transform for $L^2$ functions.
+
+
+
 
 
 \begin{problembox}[11.27: Fourier Integral for Even and Odd Functions]
@@ -800,6 +926,47 @@ which gives the first identity. Then
 \[\sum_{n=1}^{\infty} n^{-s}=\pi^{s/2}\,\Gamma\!\left(\tfrac{s}{2}\right)\zeta(s)=\int_0^{\infty} (\theta(x)-1)\,x^{s/2-1}\,dx,\]
 and applying the transformation law for $\theta$ yields the final integral identity.\qed
 \section{Laplace Transforms}
+
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Laplace Transform]
+For a function $f$ defined on $[0, \infty)$, the Laplace transform is defined as:
+\[\mathcal{L}\{f\}(s) = F(s) = \int_0^{\infty} e^{-st} f(t) \, dt\]
+where $s$ is a complex variable with $\text{Re}(s) > \alpha$ for some $\alpha$ (the abscissa of convergence).
+\end{definition}
+
+\noindent\textbf{Importance:} The Laplace transform converts differential equations into algebraic equations, making it a powerful tool for solving initial value problems.
+
+\begin{definition}[Inverse Laplace Transform]
+The inverse Laplace transform recovers the original function from its transform:
+\[f(t) = \mathcal{L}^{-1}\{F\}(t) = \frac{1}{2\pi i} \int_{c-i\infty}^{c+i\infty} e^{st} F(s) \, ds\]
+where $c$ is chosen so that all singularities of $F(s)$ lie to the left of the line $\text{Re}(s) = c$.
+\end{definition}
+
+\noindent\textbf{Importance:} The inverse transform allows us to recover the solution to the original problem from the transformed equation.
+
+\begin{theorem}[Properties of Laplace Transform]
+\begin{enumerate}[label=(\alph*)]
+\item Linearity: $\mathcal{L}\{af + bg\} = a\mathcal{L}\{f\} + b\mathcal{L}\{g\}$
+\item First derivative: $\mathcal{L}\{f'\}(s) = sF(s) - f(0)$
+\item Second derivative: $\mathcal{L}\{f''\}(s) = s^2F(s) - sf(0) - f'(0)$
+\item Integration: $\mathcal{L}\{\int_0^t f(\tau) \, d\tau\}(s) = \frac{F(s)}{s}$
+\item Convolution: $\mathcal{L}\{f * g\}(s) = F(s)G(s)$
+\end{enumerate}
+\end{theorem}
+
+\noindent\textbf{Importance:} These properties are what make the Laplace transform so useful for solving differential equations. The derivative properties convert differential operators into algebraic operations, while the convolution property is essential for solving integral equations and systems with memory effects.
+
+
+
+\begin{theorem}[Final Value Theorem]
+If $\lim_{t \to \infty} f(t)$ exists and $F(s) = \mathcal{L}\{f\}(s)$, then:
+\[\lim_{t \to \infty} f(t) = \lim_{s \to 0} sF(s)\]
+\end{theorem}
+
+\noindent\textbf{Importance:} This theorem allows us to determine the long-term behavior of a system without computing the full inverse transform. It's particularly useful in control theory for determining steady-state responses and in engineering for analyzing system stability.
+
+
 
 
 

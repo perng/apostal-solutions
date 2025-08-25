@@ -2,14 +2,50 @@
 
 \section{Upper functions}
 
-\noindent\textbf{Definitions and theorems needed.}
-\begin{enumerate}[label=(\alph*)]
-\item Step function on an interval and its (Riemann/Lebesgue) integral; monotonicity: if $s\le t$ then $\int s\le\int t$.
-\item Upper function $U(I)$: $f\in U(I)$ iff there exists an increasing sequence of step functions $s_n\uparrow f$ pointwise a.e.; definition of $\int f$ via such sequences.
-\item Algebra of $\max,\min$: $\max(f,g)+\min(f,g)=f+g$ and $\max(f+h,g+h)=\max(f,g)+h$; monotonicity of $\max,\min$.
-\item Increasing (monotone) sequences and pointwise/a.e. limits; continuity of $\max,\min$.
-\item Length/measure estimates for finite/countable unions of intervals; comparison of integrals using pointwise inequalities.
-\end{enumerate}
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Step Function]
+A function $s$ defined on an interval $I$ is called a step function if there exists a partition of $I$ into a finite number of subintervals such that $s$ is constant on each open subinterval. The integral of a step function is defined as the sum of the products of the constant values and the lengths of the corresponding subintervals.
+\end{definition}
+
+\noindent\textbf{Importance:} Step functions are the building blocks of the Lebesgue integral. They provide the simplest class of functions for which integration is well-defined and serve as the foundation for approximating more complex functions. The integral of step functions is intuitive and provides the starting point for the Lebesgue theory.
+
+
+
+\begin{definition}[Upper Function]
+A function $f$ defined on an interval $I$ is called an upper function if there exists an increasing sequence of step functions $\{s_n\}$ that converges pointwise almost everywhere to $f$. The integral of $f$ is defined as $\int_I f = \lim_{n \to \infty} \int_I s_n$.
+\end{definition}
+
+\noindent\textbf{Importance:} Upper functions extend the concept of integration from step functions to a much larger class of functions. They provide a natural way to define integrals for non-negative functions and are essential for the development of the full Lebesgue integral. The monotone convergence property makes them particularly useful for limit operations.
+
+
+
+\begin{theorem}[Monotonicity of Step Function Integrals]
+If $s$ and $t$ are step functions on $I$ with $s \leq t$, then $\int_I s \leq \int_I t$.
+\end{theorem}
+
+\noindent\textbf{Importance:} This fundamental property ensures that integration preserves order, which is essential for the consistency of the integral. It allows us to compare integrals of different functions and is the foundation for many important inequalities in analysis. This property extends to all Lebesgue integrable functions.
+
+
+
+\begin{theorem}[Algebra of Max and Min Functions]
+For any functions $f$ and $g$ on an interval $I$, we have:
+\begin{align*}
+\max(f, g) + \min(f, g) &= f + g \\
+\max(f + h, g + h) &= \max(f, g) + h \\
+\min(f + h, g + h) &= \min(f, g) + h
+\end{align*}
+\end{theorem}
+
+\noindent\textbf{Importance:} These algebraic properties of max and min functions are crucial for the development of the Lebesgue integral. They allow us to decompose complex functions into simpler components and are essential for proving many fundamental properties of integration. These identities are used extensively in functional analysis and measure theory.
+
+
+
+\begin{theorem}[Monotone Convergence for Upper Functions]
+If $\{f_n\}$ is an increasing sequence of upper functions that converges pointwise almost everywhere to a function $f$, then $f$ is an upper function and $\int_I f = \lim_{n \to \infty} \int_I f_n$.
+\end{theorem}
+
+\noindent\textbf{Importance:} This is one of the most powerful results in integration theory. It allows us to interchange limits and integrals under very general conditions, which is essential for many applications in analysis. This theorem is the foundation for the Lebesgue dominated convergence theorem and is crucial for functional analysis.
 
 
 
@@ -128,17 +164,6 @@ Since $f(x) = 1$ on a dense set (the rationals), we have $-f(x) = -1$ on a dense
 
 But this contradicts part (b) because if $t_n \to -f$ and $\int_I f \leq 2/3$, then we would expect $\int_I (-f) \geq -2/3$, but the step functions $t_n$ have integrals $\leq -1/2$, which would imply $\int_I (-f) \leq -1/2 < -2/3$, a contradiction.
 \end{enumerate}\qed
-\section{Convergence theorems}
-
-\noindent\textbf{Definitions and theorems needed.}
-\begin{enumerate}[label=(\alph*)]
-\item Uniform convergence on bounded intervals and termwise integration/summation for uniformly convergent series of continuous functions.
-\item Power series on $[0,1)$: uniform convergence on $[0,1-\varepsilon]$ and termwise integration.
-\item Tannery's theorem (Riemann version) for passing limits under integrals on $[a,\infty)$ under uniform convergence on $[a,b]$ and appropriate domination.
-\item Monotone Convergence Theorem, Fatou's Lemma, and Dominated Convergence Theorem (Lebesgue) to justify exchanges of limit and integral.
-\item Fubini–Tonelli theorems (when absolute integrability or nonnegativity holds) for interchanging order of sum/integral.
-\end{enumerate}
-
 
 
 \begin{problembox}[10.5: Non-interchangeable limit and integral]
@@ -300,17 +325,6 @@ Since $\{g_n\}$ is an increasing sequence of nonnegative measurable functions th
 \[f \in L(I) \quad \text{and} \quad \int_I f = \lim_{n \to \infty} \int_I g_n \leq A\]
 
 This proves Fatou's lemma.\qed
-\section{Improper Riemann Integrals}
-
-\noindent\textbf{Definitions and theorems needed.}
-\begin{enumerate}[label=(\alph*)]
-\item Definitions of improper Riemann integrals (Type I: infinite interval; Type II: unbounded integrand) and comparison tests at $0$/$\infty$.
-\item Integration by parts; Dirichlet/Abel tests for oscillatory integrals like $\int x^{-p}\sin x\,dx$.
-\item Trigonometric identities and the standard integral $\int_0^{\infty} (\sin x)/x\,dx=\pi/2$.
-\item Beta and Gamma functions and the relation to certain parameter integrals; change of variables and scaling.
-\item Periodic functions with mean zero and integration by parts in Stieltjes form $\int u\,dg$.
-\end{enumerate}
-
 
 
 \begin{problembox}[10.9: Existence of improper integrals]
@@ -749,16 +763,6 @@ For $f(x) = \cos x$, we have $B = 0$ (since $\cos x$ oscillates) and $A = 0$ (si
 For $f(x) = e^{-x}$, we have $B = 0$ (since $e^{-x} \to 0$ as $x \to \infty$) and $A = 1$ (since $\int_{0}^{1} e^{-t} \, dt = 1 - e^{-1} \to 1$ as $x \to 0^+$). Therefore:
 \[\int_{0}^{\infty} \frac{e^{-ax} - e^{-bx}}{x} \, dx = -\log \frac{a}{b} = \log \frac{b}{a}\]
 \end{enumerate}\qed
-\section{Lebesgue integrals}
-
-\noindent\textbf{Definitions and theorems needed.}
-\begin{enumerate}[label=(\alph*)]
-\item Definition of Lebesgue integrability on finite and infinite intervals; absolute integrability versus conditional convergence of improper Riemann integrals.
-\item Comparison test and domination to establish integrability; estimates near singularities and at infinity.
-\item Monotone and Dominated Convergence Theorems; Fatou's Lemma for limit inferior.
-\item Use of local estimates on neighborhoods (e.g., around $n\pi$) and countable subadditivity to bound contributions.
-\end{enumerate}
-
 
 
 \begin{problembox}[10.18: Existence of Lebesgue integrals]
@@ -880,17 +884,6 @@ For $x$ in a small neighborhood around $n\pi$, say $[n\pi - \frac{1}{n}, n\pi + 
 
 Since $\sum_{n=1}^{\infty} \frac{1}{n}$ diverges, the Lebesgue integral does not exist.
 \end{enumerate}\qed
-\section{Functions defined by integrals}
-
-\noindent\textbf{Definitions and theorems needed.}
-\begin{enumerate}[label=(\alph*)]
-\item Differentiation under the integral sign (Leibniz rule) justified by dominated convergence/uniform convergence on compacts.
-\item Fubini–Tonelli for interchanging orders of integration; change of variables and scaling.
-\item Fourier/Laplace/Mellin transform basics and standard kernels; solving linear ODEs arising from differentiated integral representations.
-\item Gamma/Beta functions and their properties; series expansions obtained by expanding the integrand and integrating termwise.
-\item Integration by parts with functions of bounded variation (Riemann–Stieltjes viewpoint) for transform limits.
-\end{enumerate}
-
 
 
 \begin{problembox}[10.21: Domain of integral functions]
@@ -1592,12 +1585,43 @@ Since $f$ is of bounded variation, the integral $\int_0^1 x^y \, df(x)$ converge
 
 \section{Measurable functions}
 
-\noindent\textbf{Definitions and theorems needed.}
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Measurable Function]
+A function $f$ defined on a measurable set $E$ is called measurable if for every real number $a$, the set $\{x \in E : f(x) > a\}$ is measurable. Equivalently, $f$ is measurable if the preimage of every open set is measurable.
+\end{definition}
+
+\noindent\textbf{Importance:} Measurable functions are the natural class of functions for Lebesgue integration. They form a much larger class than continuous functions and are closed under most operations we want to perform in analysis. The measurability condition ensures that we can meaningfully integrate these functions.
+
+
+
+\begin{definition}[Lebesgue Measure]
+The Lebesgue measure on $\mathbb{R}$ is the unique translation-invariant measure that assigns to each interval $[a, b]$ its length $b - a$. It extends to all Lebesgue measurable sets through the Carathéodory construction.
+\end{definition}
+
+\noindent\textbf{Importance:} Lebesgue measure provides the foundation for modern integration theory. Its translation invariance and countable additivity make it the natural measure for most applications in analysis. The construction of non-measurable sets shows the necessity of careful measure theory.
+
+
+
+\begin{theorem}[Properties of Measurable Functions]
 \begin{enumerate}[label=(\alph*)]
-\item Measurable function: preimages of open sets are measurable; equivalent characterizations using rays $(a,\infty)$.
-\item Limits of measurable functions (pointwise a.e.) are measurable; step/simple function approximations.
-\item Properties of Lebesgue measure: translation invariance, countable additivity; Vitali construction idea for nonmeasurable sets.
+\item If $f$ and $g$ are measurable, then $f + g$, $fg$, $\max(f, g)$, and $\min(f, g)$ are measurable.
+\item If $\{f_n\}$ is a sequence of measurable functions converging pointwise almost everywhere to $f$, then $f$ is measurable.
+\item If $f$ is measurable and $g$ is continuous, then $g \circ f$ is measurable.
 \end{enumerate}
+\end{theorem}
+
+\noindent\textbf{Importance:} These properties show that measurable functions form a very robust class that is closed under the operations we need for analysis. The fact that limits of measurable functions are measurable is particularly important for integration theory and functional analysis.
+
+
+
+\begin{theorem}[Vitali's Non-Measurable Set]
+There exists a subset of $\mathbb{R}$ that is not Lebesgue measurable. This is constructed using the axiom of choice by selecting one element from each equivalence class of the relation $x \sim y$ if $x - y$ is rational.
+\end{theorem}
+
+\noindent\textbf{Importance:} This result shows that not all sets can be measured in a reasonable way, which justifies the careful development of measure theory. It demonstrates the necessity of the measurability condition and shows that the axiom of choice has profound consequences for analysis.
+
+
 
 
 
@@ -1696,13 +1720,43 @@ For the function $f = \chi_E - \chi_{I-E}$, we have $|f| = 1$ everywhere on $I$,
 However, $f$ is not measurable because if it were, then $\chi_E = \frac{f + |f|}{2}$ would also be measurable, which contradicts the first part.\qed
 \section{Square-integrable functions}
 
-\noindent\textbf{Definitions and theorems needed.}
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[$L^2$ Space]
+The space $L^2(I)$ consists of all measurable functions $f$ on an interval $I$ such that $\int_I |f|^2 < \infty$. The $L^2$ norm is defined by $\|f\|_2 = \left(\int_I |f|^2\right)^{1/2}$, and the inner product is $\langle f, g \rangle = \int_I f \overline{g}$.
+\end{definition}
+
+\noindent\textbf{Importance:} $L^2$ is a Hilbert space, which means it has a complete inner product structure. This makes it the natural setting for many problems in analysis, physics, and engineering. The $L^2$ norm provides a way to measure the "size" of functions that is compatible with integration.
+
+
+
+\begin{definition}[Cauchy-Schwarz Inequality]
+For any functions $f, g \in L^2(I)$, we have $|\langle f, g \rangle| \leq \|f\|_2 \|g\|_2$.
+\end{definition}
+
+\noindent\textbf{Importance:} This is one of the most fundamental inequalities in analysis. It provides a way to bound inner products in terms of norms and is essential for proving many results in functional analysis. It also ensures that the inner product is well-defined and continuous.
+
+
+
+\begin{theorem}[Riesz-Fischer Theorem]
+$L^2(I)$ is complete with respect to the $L^2$ norm. That is, every Cauchy sequence in $L^2(I)$ converges to a function in $L^2(I)$.
+\end{theorem}
+
+\noindent\textbf{Importance:} This result shows that $L^2$ is a complete metric space, making it a Hilbert space. Completeness is essential for many analytical techniques, including the use of fixed point theorems and the convergence of series. This theorem is the foundation for much of functional analysis.
+
+
+
+\begin{theorem}[Convergence Properties]
 \begin{enumerate}[label=(\alph*)]
-\item $L^2(I)$ norm and inner product; Cauchy–Schwarz inequality and triangle inequality.
-\item Uniform convergence on a compact set implies $L^2$ convergence for continuous functions.
-\item Convergence in $L^2$ implies existence of a subsequence converging a.e.; uniqueness of the a.e. limit of a norm-convergent sequence.
-\item Continuity of the map $f\mapsto \int f\,g$ on $L^2$ (bounded linear functional) and product estimates via Cauchy–Schwarz to pass to limits in $\int f_ng_n$.
+\item If $f_n \to f$ in $L^2$ norm, then there exists a subsequence that converges to $f$ almost everywhere.
+\item If $f_n \to f$ uniformly on a compact interval and each $f_n$ is continuous, then $f_n \to f$ in $L^2$ norm.
+\item The map $f \mapsto \langle f, g \rangle$ is continuous on $L^2$ for any fixed $g \in L^2$.
 \end{enumerate}
+\end{theorem}
+
+\noindent\textbf{Importance:} These properties show how different types of convergence relate to each other in $L^2$. The relationship between norm convergence and almost everywhere convergence is particularly important for applications. The continuity of the inner product is essential for functional analysis.
+
+
 
 
 

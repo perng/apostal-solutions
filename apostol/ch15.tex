@@ -2,7 +2,44 @@
 
 
 \section{Fubini--Tonelli and Slicing}
-\noindent\textbf{Tools used in this section.} Fubini's Theorem and Tonelli's Theorem for nonnegative functions; slicing of sets as in Definition 15.4; the calculus identity \(\int_0^{\infty} e^{-ay} \sin(by) \, dy = \dfrac{b}{a^2 + b^2}\) for \(a>0\), \(b\in\mathbb{R}\).
+
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Slicing of Sets]
+For a measurable set $S \subset \mathbb{R}^2$, the vertical slice at $x$ is $S^x = \{y : (x, y) \in S\}$ and the horizontal slice at $y$ is $S_y = \{x : (x, y) \in S\}$. These slices represent the cross-sections of $S$ at fixed coordinate values.
+\end{definition}
+
+\noindent\textbf{Importance:} Slicing provides a way to understand the structure of sets and functions in higher dimensions by examining their lower-dimensional cross-sections. This is essential for applying Fubini's theorem and for understanding how integrals over regions can be computed as iterated integrals.
+
+
+
+\begin{theorem}[Fubini's Theorem]
+If $f \in L(\mathbb{R}^2)$, then:
+\[\int_{\mathbb{R}^2} f(x, y) \, d(x, y) = \int_{-\infty}^{\infty} \left(\int_{-\infty}^{\infty} f(x, y) \, dy\right) dx = \int_{-\infty}^{\infty} \left(\int_{-\infty}^{\infty} f(x, y) \, dx\right) dy\]
+\end{theorem}
+
+\noindent\textbf{Importance:} Fubini's theorem is the fundamental result that allows us to compute double integrals as iterated single integrals. It's essential for practical calculations and provides the theoretical foundation for many applications in physics, probability, and engineering.
+
+
+
+\begin{theorem}[Tonelli's Theorem]
+If $f$ is nonnegative and measurable on $\mathbb{R}^2$, then:
+\[\int_{\mathbb{R}^2} f(x, y) \, d(x, y) = \int_{-\infty}^{\infty} \left(\int_{-\infty}^{\infty} f(x, y) \, dy\right) dx = \int_{-\infty}^{\infty} \left(\int_{-\infty}^{\infty} f(x, y) \, dx\right) dy\]
+\end{theorem}
+
+\noindent\textbf{Importance:} Tonelli's theorem provides conditions under which iterated integrals can be interchanged for nonnegative functions. It's particularly useful for proving that functions are integrable and for establishing the validity of Fubini's theorem in specific cases.
+
+
+
+\begin{theorem}[Measure of Sliced Sets]
+For a measurable set $S \subset \mathbb{R}^2$ with finite measure $\mu(S)$:
+\[\mu(S) = \int_{-\infty}^{\infty} \mu(S^x) \, dx = \int_{-\infty}^{\infty} \mu(S_y) \, dy\]
+where $\mu(S^x)$ and $\mu(S_y)$ are the measures of the slices.
+\end{theorem}
+
+\noindent\textbf{Importance:} This theorem shows how the measure of a two-dimensional set can be computed from the measures of its one-dimensional slices. It's essential for understanding the relationship between measures in different dimensions and for many applications in geometry and analysis.
+
+
  
 
 
@@ -167,7 +204,39 @@ Hobson's test also requires certain boundedness conditions on one of the iterate
 Therefore there is no contradiction: both iterated integrals exist and are equal, yet the double integral does not exist because \(f \notin L^1(\mathbb{R}^2)\).\qed
 \section{Non-Integrable Examples and Iterated Integrals}
 
-\noindent\textbf{Tools used in this section.} Fubini's Theorem; criterion: if the two iterated integrals over a rectangle exist but are unequal, then the function is not Lebesgue-integrable on that rectangle; comparisons with improper integrals.
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Lebesgue Integrability]
+A function $f$ is Lebesgue integrable on a measurable set $S$ if both $f^+$ and $f^-$ are integrable, where $f^+ = \max(f, 0)$ and $f^- = \max(-f, 0)$. Equivalently, $f$ is Lebesgue integrable if $|f|$ is integrable.
+\end{definition}
+
+\noindent\textbf{Importance:} Lebesgue integrability provides a more robust framework than Riemann integration, allowing integration of a wider class of functions. The requirement that $|f|$ be integrable ensures that the integral is well-defined and finite.
+
+
+
+\begin{theorem}[Criterion for Non-Integrability]
+If both iterated integrals of a function $f$ over a rectangle exist but are unequal, then $f$ is not Lebesgue integrable on that rectangle.
+\end{theorem}
+
+\noindent\textbf{Importance:} This criterion provides a practical way to show that functions are not integrable by computing their iterated integrals. It's particularly useful for functions that have singularities or oscillatory behavior that prevents absolute integrability.
+
+
+
+\begin{theorem}[Comparison with Improper Integrals]
+If a function $f$ is not absolutely integrable, then it may have iterated integrals that exist as improper integrals but the function is not Lebesgue integrable.
+\end{theorem}
+
+\noindent\textbf{Importance:} This theorem explains why some functions can have well-defined iterated integrals (as limits of proper integrals) but fail to be Lebesgue integrable. This distinction is crucial for understanding the limitations of different integration theories.
+
+
+
+\begin{theorem}[Fubini's Theorem for Lebesgue Integrals]
+If $f$ is Lebesgue integrable on $\mathbb{R}^2$, then both iterated integrals exist and are equal to the double integral. However, the existence of iterated integrals does not guarantee Lebesgue integrability.
+\end{theorem}
+
+\noindent\textbf{Importance:} This theorem shows that while Fubini's theorem provides a powerful tool for computing integrals, the existence of iterated integrals alone is not sufficient to guarantee integrability. This is essential for understanding the relationship between different types of integration.
+
+
 
 
 
@@ -241,7 +310,48 @@ whose integral in \(x\in(0,1]\) diverges at 0, so \(\int_0^1[\int_1^{\infty} f\,
 and \(\int_1^{\infty} |e^{-2y}-e^{-y}|\,y^{-1} dy<\infty\). Thus one iterated integral converges while the other diverges, so \(f\notin L(I)\).\qed
 \section{Change of Variables}
 
-\noindent\textbf{Tools used in this section.} Change of Variables Theorem with Jacobian determinant; smooth one-to-one transformations between regions; polar, cylindrical, and spherical coordinate maps and their Jacobians.
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Change of Variables Theorem]
+If $T: \mathbb{R}^n \to \mathbb{R}^n$ is a one-to-one $C^1$ transformation with nonvanishing Jacobian determinant on a measurable set $S$, and $f$ is integrable on $T(S)$, then:
+\[\int_{T(S)} f(x) \, dx = \int_S f(T(u)) |J_T(u)| \, du\]
+where $J_T(u)$ is the Jacobian determinant of $T$ at $u$.
+\end{definition}
+
+\noindent\textbf{Importance:} The Change of Variables Theorem is the fundamental tool for computing integrals in different coordinate systems. It allows us to transform complicated regions into simpler ones and to use coordinate systems that are natural for the problem at hand. The Jacobian determinant accounts for how the transformation changes volumes locally.
+
+
+
+\begin{definition}[Jacobian Determinant]
+For a $C^1$ transformation $T: \mathbb{R}^n \to \mathbb{R}^n$ given by $T(u_1, \ldots, u_n) = (x_1, \ldots, x_n)$, the Jacobian determinant is:
+\[J_T(u) = \det\left[\frac{\partial x_i}{\partial u_j}\right] = \begin{vmatrix}
+\frac{\partial x_1}{\partial u_1} & \cdots & \frac{\partial x_1}{\partial u_n} \\
+\vdots & \ddots & \vdots \\
+\frac{\partial x_n}{\partial u_1} & \cdots & \frac{\partial x_n}{\partial u_n}
+\end{vmatrix}\]
+\end{definition}
+
+\noindent\textbf{Importance:} The Jacobian determinant measures how the transformation $T$ changes volumes locally. Its absolute value gives the scaling factor for volume elements, and its sign indicates whether the transformation preserves or reverses orientation. This is essential for understanding how integrals transform under coordinate changes.
+
+
+
+\begin{theorem}[Polar Coordinates Transformation]
+The transformation from polar to Cartesian coordinates $(r, \theta) \mapsto (x, y) = (r\cos\theta, r\sin\theta)$ has Jacobian determinant $J = r$. Therefore:
+\[\iint_D f(x, y) \, dx \, dy = \iint_{D'} f(r\cos\theta, r\sin\theta) \, r \, dr \, d\theta\]
+\end{theorem}
+
+\noindent\textbf{Importance:} Polar coordinates are essential for problems with circular or radial symmetry. The factor $r$ in the Jacobian accounts for the fact that area elements in polar coordinates scale with distance from the origin. This transformation is fundamental for many applications in physics and engineering.
+
+
+
+\begin{theorem}[Spherical Coordinates Transformation]
+The transformation from spherical to Cartesian coordinates $(\rho, \theta, \varphi) \mapsto (x, y, z) = (\rho\cos\theta\sin\varphi, \rho\sin\theta\sin\varphi, \rho\cos\varphi)$ has Jacobian determinant $J = \rho^2\sin\varphi$. Therefore:
+\[\iiint_D f(x, y, z) \, dx \, dy \, dz = \iiint_{D'} f(\rho\cos\theta\sin\varphi, \rho\sin\theta\sin\varphi, \rho\cos\varphi) \, \rho^2\sin\varphi \, d\rho \, d\theta \, d\varphi\]
+\end{theorem}
+
+\noindent\textbf{Importance:} Spherical coordinates are essential for problems with spherical symmetry, such as gravitational fields, electromagnetic fields, and quantum mechanics. The factor $\rho^2\sin\varphi$ accounts for the volume scaling in spherical coordinates and is crucial for correct integration.
+
+
 
 
 
@@ -270,7 +380,57 @@ These follow from the Change of Variables Theorem applied to the maps
 The determinants are respectively \(r\), \(r\), and \(\rho^2\sin\varphi\). Validity requires that \(T'\) be a measurable set on which the coordinate map is one-to-one (modulo negligible sets), with measurable inverse onto \(T\); typically take \(T'\) a rectangle in coordinates with appropriate ranges and \(T\) the corresponding polar/cylindrical/spherical image.\qed
 \section{Gaussian Integrals}
 
-\noindent\textbf{Tools used in this section.} Polar coordinates in \(\mathbb{R}^2\); product structure of Gaussian measures; the Gamma function and scaling.
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Gaussian Function]
+A Gaussian function (or normal distribution) is a function of the form:
+\[f(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}\]
+where $\mu$ is the mean and $\sigma$ is the standard deviation. The standard Gaussian has $\mu = 0$ and $\sigma = 1$.
+\end{definition}
+
+\noindent\textbf{Importance:} Gaussian functions are fundamental in probability theory, statistics, and many areas of physics. They represent the most common distribution for random variables and appear naturally in many physical processes due to the central limit theorem. The Gaussian shape is characterized by its bell curve and exponential decay.
+
+
+
+\begin{definition}[Gamma Function]
+The Gamma function is defined for $\text{Re}(z) > 0$ by:
+\[\Gamma(z) = \int_0^{\infty} t^{z-1} e^{-t} \, dt\]
+It satisfies $\Gamma(n+1) = n!$ for positive integers $n$ and $\Gamma(1/2) = \sqrt{\pi}$.
+\end{definition}
+
+\noindent\textbf{Importance:} The Gamma function is a generalization of the factorial function to complex numbers. It appears naturally in many integrals involving exponentials and powers, particularly in probability theory and physics. The special values $\Gamma(1/2) = \sqrt{\pi}$ and $\Gamma(n+1) = n!$ are crucial for computing Gaussian integrals.
+
+
+
+\begin{theorem}[Basic Gaussian Integral]
+The fundamental Gaussian integral is:
+\[\int_{-\infty}^{\infty} e^{-x^2} \, dx = \sqrt{\pi}\]
+\end{theorem}
+
+\noindent\textbf{Importance:} This is the most fundamental Gaussian integral, from which all other Gaussian integrals can be derived. It's essential for probability theory, as it normalizes the standard normal distribution. The fact that this integral equals $\sqrt{\pi}$ is surprising and beautiful, connecting analysis with geometry.
+
+
+
+\begin{theorem}[Product Structure of Gaussian Measures]
+If $f(x) = e^{-x^2}$ and $g(y) = e^{-y^2}$, then:
+\[\int_{\mathbb{R}^2} e^{-(x^2 + y^2)} \, d(x, y) = \left(\int_{-\infty}^{\infty} e^{-x^2} \, dx\right) \left(\int_{-\infty}^{\infty} e^{-y^2} \, dy\right) = \pi\]
+This extends to higher dimensions: $\int_{\mathbb{R}^n} e^{-\|x\|^2} \, dx = \pi^{n/2}$.
+\end{theorem}
+
+\noindent\textbf{Importance:} This theorem shows that Gaussian measures in higher dimensions factorize into products of one-dimensional Gaussian measures. This property is crucial for computing multivariate normal distributions and for understanding the geometry of Gaussian functions in higher dimensions.
+
+
+
+\begin{theorem}[Scaling Property of Gaussian Integrals]
+For $t > 0$:
+\[\int_{-\infty}^{\infty} e^{-tx^2} \, dx = \sqrt{\frac{\pi}{t}}\]
+and by differentiation:
+\[\int_{-\infty}^{\infty} x^2 e^{-tx^2} \, dx = \frac{\sqrt{\pi}}{2} t^{-3/2}\]
+\end{theorem}
+
+\noindent\textbf{Importance:} The scaling property allows us to compute Gaussian integrals with different parameters from the basic integral. This is essential for computing moments of normal distributions and for applications in physics where the temperature or energy scale varies. The differentiation technique is a powerful method for computing higher moments.
+
+
 
 
 
@@ -297,7 +457,54 @@ The determinants are respectively \(r\), \(r\), and \(\rho^2\sin\varphi\). Valid
 \end{enumerate}\qed
 \section{Volumes of n-Balls}
 
-\noindent\textbf{Tools used in this section.} Polar/spherical coordinates; scaling under linear changes; Gamma-function identities and simple recursions.
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[n-Ball]
+The $n$-ball of radius $a$ centered at the origin is the set:
+\[B(0; a) = \{x \in \mathbb{R}^n : \|x\| \leq a\}\]
+where $\|x\| = \sqrt{x_1^2 + \cdots + x_n^2}$ is the Euclidean norm.
+\end{definition}
+
+\noindent\textbf{Importance:} n-balls are fundamental geometric objects that generalize circles and spheres to higher dimensions. They appear naturally in many areas of mathematics and physics, from geometry and analysis to probability theory and statistical mechanics. Understanding their volumes is essential for many applications.
+
+
+
+\begin{definition}[Volume Scaling]
+For any measurable set $S \subset \mathbb{R}^n$ and linear transformation $T(x) = Ax$, the volume scales as:
+\[\text{vol}(T(S)) = |\det(A)| \cdot \text{vol}(S)\]
+\end{definition}
+
+\noindent\textbf{Importance:} Volume scaling is a fundamental property that shows how volumes change under linear transformations. For n-balls, this means that $V_n(a) = a^n V_n(1)$, which greatly simplifies volume calculations. This scaling property is essential for understanding geometric transformations and their effects on volumes.
+
+
+
+\begin{theorem}[Volume of n-Ball]
+The volume of the n-ball of radius $a$ is:
+\[V_n(a) = \frac{\pi^{n/2} a^n}{\Gamma(\frac{n}{2} + 1)}\]
+where $\Gamma$ is the Gamma function.
+\end{theorem}
+
+\noindent\textbf{Importance:} This is the fundamental formula for computing volumes of n-balls. It connects geometry with analysis through the Gamma function and provides a unified expression for all dimensions. The formula shows how volumes grow with dimension and radius, which is crucial for understanding high-dimensional geometry.
+
+
+
+\begin{theorem}[Recursion Formula for n-Ball Volume]
+For $n \geq 3$, the volume of the unit n-ball satisfies:
+\[V_n(1) = V_{n-2}(1) \cdot \frac{2\pi}{n}\]
+\end{theorem}
+
+\noindent\textbf{Importance:} This recursion formula provides an efficient way to compute n-ball volumes by reducing the problem to lower dimensions. It shows the relationship between volumes in different dimensions and is essential for understanding how volumes behave as dimension increases. The factor $2\pi/n$ reflects the geometric relationship between dimensions.
+
+
+
+\begin{theorem}[Surface Area of n-Sphere]
+The surface area of the unit n-sphere is:
+\[\omega_n = n V_n(1) = \frac{2\pi^{n/2}}{\Gamma(\frac{n}{2})}\]
+\end{theorem}
+
+\noindent\textbf{Importance:} The surface area of n-spheres is closely related to the volume of n-balls and appears in many applications, particularly in physics and probability theory. The relationship $\omega_n = n V_n(1)$ shows how surface area and volume are connected in higher dimensions.
+
+
 
 
 
@@ -377,7 +584,49 @@ Writing \(V_n(1)=2V_{n-1}(1)\int_0^1 (1-x^2)^{(n-1)/2}dx\) and substituting \(x=
 Combining with Exercise 15.10 yields the stated recursion.\qed
 \section{Volumes in Other Regions}
 
-\noindent\textbf{Tools used in this section.} Linear changes and scaling; induction by slicing; simplex volumes via Beta integrals and the substitution \(y_i=x_i^2\) on the first quadrant.
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[n-Dimensional Diamond]
+The $n$-dimensional diamond (or cross-polytope) of radius $a$ is the set:
+\[S_n(a) = \{(x_1, \ldots, x_n) : |x_1| + \cdots + |x_n| \leq a\}\]
+\end{definition}
+
+\noindent\textbf{Importance:} The n-dimensional diamond is a geometric object that generalizes the diamond shape to higher dimensions and appears in optimization.
+
+\begin{definition}[Simplex]
+An $n$-dimensional simplex is the convex hull of $n+1$ affinely independent points. The standard simplex is:
+\[\Delta_n = \{(x_1, \ldots, x_n) : x_i \geq 0, x_1 + \cdots + x_n \leq 1\}\]
+\end{definition}
+
+\noindent\textbf{Importance:} Simplices are the simplest convex polytopes and serve as building blocks for more complex geometric objects.
+
+\begin{theorem}[Volume of n-Dimensional Diamond]
+The volume of the n-dimensional diamond of radius $a$ is:
+\[V_n(a) = \frac{2^n a^n}{n!}\]
+\end{theorem}
+
+\noindent\textbf{Importance:} This formula shows that the volume of the n-dimensional diamond grows factorially with dimension, which is much faster than the exponential growth of n-ball volumes. This difference is crucial for understanding the geometry of high-dimensional spaces and has important implications for optimization and probability theory.
+
+
+
+\begin{theorem}[Volume of Standard Simplex]
+The volume of the standard n-dimensional simplex is:
+\[\text{vol}(\Delta_n) = \frac{1}{n!}\]
+\end{theorem}
+
+\noindent\textbf{Importance:} This simple formula for the volume of the standard simplex is fundamental for many applications. It shows that simplex volumes decrease factorially with dimension, which is important for understanding the geometry of high-dimensional spaces and for numerical methods that use simplices.
+
+
+
+\begin{theorem}[Slicing Method for Volume Calculation]
+If a region $S \subset \mathbb{R}^n$ can be sliced by fixing one coordinate, then:
+\[\text{vol}(S) = \int_a^b \text{vol}_{n-1}(S_x) \, dx\]
+where $S_x$ is the $(n-1)$-dimensional cross-section at coordinate value $x$.
+\end{theorem}
+
+\noindent\textbf{Importance:} The slicing method is a powerful technique for computing volumes of complex regions by reducing them to lower-dimensional problems. It's particularly useful for regions with symmetry or special structure, and provides a systematic way to approach volume calculations in higher dimensions.
+
+
 
 
 
@@ -445,14 +694,47 @@ Let \(y_i=x_i^2\) for \(i=1,\ldots,n\). On the first quadrant, \(x_i\ge 0\), the
 
 \section{Solving and Proving Techniques}
 
-\subsection*{Working with Fubini's Theorem}
-\begin{itemize}
-\item Use Fubini's theorem to express double integrals as iterated integrals
-\item Apply the fact that the order of integration can be interchanged for integrable functions
-\item Use the fact that nonnegative measurable functions satisfy Tonelli's theorem
-\item Apply the fact that absolute integrability ensures Fubini's theorem applies
-\item Use the fact that indicator functions can be used to restrict integration to specific regions
-\end{itemize}
+\subsection*{Essential Definitions and Theorems}
+
+\begin{definition}[Fubini's Theorem Strategy]
+Fubini's theorem allows us to compute multiple integrals as iterated integrals when the function is absolutely integrable. The key insight is that the order of integration can be interchanged without affecting the result.
+\end{definition}
+
+\noindent\textbf{Importance:} Fubini's theorem is the fundamental tool for computing multiple integrals. It reduces complex multidimensional problems to simpler one-dimensional integrals, making many calculations feasible. The ability to interchange integration order is crucial for choosing the most convenient order for computation.
+
+
+
+\begin{definition}[Change of Variables Strategy]
+The change of variables technique transforms integrals over complex regions into integrals over simpler regions by using coordinate transformations. The Jacobian determinant accounts for how the transformation changes volumes locally.
+\end{definition}
+
+\noindent\textbf{Importance:} Change of variables is essential for computing integrals over regions that are naturally described in different coordinate systems. It allows us to exploit symmetry and choose coordinate systems that simplify the integrand or the region of integration.
+
+
+
+\begin{theorem}[Slicing Method]
+For computing volumes of complex regions, slice the region by fixing one coordinate and compute the volume as an integral of cross-sectional areas or volumes.
+\end{theorem}
+
+\noindent\textbf{Importance:} The slicing method is a powerful geometric technique that reduces volume calculations to lower-dimensional problems. It's particularly useful for regions with symmetry or special structure, and provides an intuitive way to understand complex geometric objects.
+
+
+
+\begin{theorem}[Scaling and Symmetry]
+Use scaling properties to relate volumes of similar regions and exploit symmetry to simplify calculations by reducing the region of integration.
+\end{theorem}
+
+\noindent\textbf{Importance:} Scaling and symmetry are fundamental principles that greatly simplify volume calculations. Scaling allows us to compute volumes for different sizes from a single calculation, while symmetry reduces the computational effort by allowing us to focus on fundamental regions.
+
+
+
+\begin{theorem}[Special Functions and Recursion]
+Use special functions like the Gamma function and recursion formulas to compute volumes in higher dimensions and establish relationships between different dimensional volumes.
+\end{theorem}
+
+\noindent\textbf{Importance:} Special functions and recursion provide systematic ways to compute volumes in higher dimensions. The Gamma function naturally appears in volume formulas, while recursion allows us to build up solutions from lower-dimensional cases.
+
+
 
 \subsection*{Working with Lebesgue Integrals}
 \begin{itemize}
